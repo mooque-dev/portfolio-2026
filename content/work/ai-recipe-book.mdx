@@ -1,0 +1,54 @@
+---
+title: "AI Recipe Book: A Side Project About Trust"
+subtitle: "I built this because I cook every day and recipe apps are terrible at the things AI should be great at — adaptation, substitution, context. It also taught me how to design for AI before it hit my day job."
+category: "Side Project"
+role: "Designer & Developer"
+timeline: "2024"
+team: "Solo project"
+tools:
+  - Figma
+  - React
+  - OpenAI API
+  - Supabase
+coverColor: "#e6ddd4"
+featured: false
+order: 5
+---
+
+## Why I Built This
+
+I cook almost every day. It's my main creative outlet outside of work — the feedback loop is immediate, the materials are tangible, and nobody asks for stakeholder alignment on a pasta recipe.
+
+Traditional recipe apps are frustrating. They can't answer "what if I don't have cilantro?" or "make this work in 30 minutes instead of an hour." Those are exactly the problems AI handles well — adaptation, substitution reasoning, contextual guidance.
+
+But I also had a professional motivation: AI-powered features were becoming central to our product roadmap at Keela, and I wanted hands-on experience with conversational UI patterns before I had to lead design decisions about them.
+
+## What I Designed
+
+### Conversational Adaptation
+
+Instead of static recipe cards, users can ask natural language questions: "Make this dairy-free," "I only have 30 minutes," "What can I substitute for shallots?" The AI responds with an adapted recipe and explains the reasoning behind each change.
+
+The key insight was that **transparency is the trust mechanism**. Users accepted AI suggestions only when they could see the why. "Use coconut cream instead of heavy cream — it provides similar fat content for this sauce" lands differently than just swapping the ingredient silently.
+
+This directly influenced how I later designed the automation preview feature at Keela. Same principle: make system logic visible to build confidence.
+
+### Step-by-Step Cooking Mode
+
+A focused view that breaks recipes into discrete actions with timing. Each step shows only what you need right now — ingredients, technique, timer. Designed for the reality of cooking: messy hands, divided attention, a phone propped up on the counter.
+
+### Shareable Collections
+
+Users curate recipe collections and share them as link-based cookbooks. I wanted the sharing experience to feel personal — like passing a handwritten recipe card to a friend, not forwarding a URL.
+
+## Building End-to-End
+
+React frontend, Supabase backend, OpenAI API for recipe adaptation. I focused heavily on prompt engineering — the AI needed to understand food science, not just swap ingredients mechanically.
+
+Building end-to-end keeps me honest. I know what API latency feels like, what error states look like in reality (not just in a Figma frame), and where the gap between design intent and engineering reality tends to widen. That empathy makes me a better design leader.
+
+## What I Took Away
+
+- Designing for AI is fundamentally about trust, not intelligence
+- The best AI interfaces augment human judgment rather than replacing it
+- Personal projects are how I stay fluent in the materials my engineering partners work with every day

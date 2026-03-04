@@ -1,0 +1,52 @@
+import Link from "next/link";
+
+interface ProjectCardProps {
+  slug: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  coverColor?: string;
+  featured?: boolean;
+}
+
+export default function ProjectCard({
+  slug,
+  title,
+  subtitle,
+  category,
+  coverColor = "#e5e5e0",
+  featured = false,
+}: ProjectCardProps) {
+  return (
+    <Link href={`/work/${slug}`} className="group block">
+      <article>
+        <div
+          className={`cover-tinted relative overflow-hidden rounded-sm ${
+            featured ? "aspect-[16/10]" : "aspect-[4/3]"
+          }`}
+          style={{ backgroundColor: coverColor }}
+          role="img"
+          aria-label={`Cover for ${title}`}
+        >
+          <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">
+            <span className="font-serif text-foreground/15 text-center text-2xl md:text-3xl font-semibold leading-tight select-none">
+              {title}
+            </span>
+          </div>
+          <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/[0.04] transition-colors duration-300" aria-hidden="true" />
+        </div>
+        <div className="mt-4">
+          <span className="text-xs tracking-widest uppercase text-muted">
+            {category}
+          </span>
+          <h3 className="font-serif text-lg md:text-xl font-semibold mt-1 leading-snug group-hover:opacity-70 transition-opacity">
+            {title}
+          </h3>
+          <p className="text-sm text-muted mt-1.5 leading-relaxed line-clamp-2">
+            {subtitle}
+          </p>
+        </div>
+      </article>
+    </Link>
+  );
+}

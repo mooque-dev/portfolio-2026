@@ -1,0 +1,62 @@
+---
+title: "Transaction Workflows: The Feature That Was Causing Churn"
+subtitle: "Nonprofit accountants were spending weeks on tax reconciliation because the product treated every transaction the same way. A redesign that turned our #1 churn driver into a growth lever."
+category: "Feature Redesign"
+role: "Product Design Lead"
+timeline: "2023"
+team: "1 designer, 3 engineers, 1 PM"
+tools:
+  - Figma
+  - Maze
+  - Amplitude
+  - Looker
+coverColor: "#dde4d4"
+featured: true
+order: 2
+---
+
+## Why This Mattered
+
+Support ticket analysis revealed something uncomfortable: transaction-related issues were our **#1 driver of churn during tax season**. The existing workflow treated every donation, grant, and expense identically — forcing nonprofit accountants into a rigid flow that didn't match how they actually think about their finances.
+
+This wasn't a nice-to-have redesign. It was directly impacting revenue.
+
+## What I Learned From Watching People Work
+
+I spent time with 8 nonprofit accountants during their actual tax preparation process — not usability tests with tasks I'd written, but genuine contextual inquiry. I sat next to them while they reconciled.
+
+Three things stood out:
+
+- Every single accountant maintained a parallel spreadsheet. The product couldn't handle their categorization needs, so they worked around it.
+- The batch editing interface required too many clicks. One person described it as "death by checkbox."
+- Error states were invisible. Users couldn't tell if a transaction was miscategorized until the final report — by which point they'd have to start over.
+
+## The Design
+
+### Smart Defaults, Human Override
+
+By analyzing historical transaction data, I designed a system that pre-categorized incoming transactions based on patterns: donor history, amount ranges, fund designations. Users could accept the suggestion with one click or override it. The categorization task went from manual labor to verification.
+
+This pattern — **smart defaults with user override** — became something I'm genuinely proud of. It later became a platform-wide design principle that I codified in Orchid's interaction guidelines.
+
+### Batch Operations That Match How People Think
+
+Instead of a flat table with checkboxes, I redesigned batch editing around natural contexts: by date range, by donor, by fund, by category. Users scope to the transactions they care about first, then act on them as a group. The interface matches the mental model instead of fighting it.
+
+### Continuous Validation
+
+The old design accumulated errors silently and surfaced them all at report time — the worst possible moment. The new design validates continuously, showing the "health" of each reporting period as an ambient signal. Issues surface as they happen, not as a year-end surprise.
+
+## The System Behind the Screen
+
+This redesign touched the transaction model, the reporting engine, and the donor management views. I mapped the full dependency graph, figured out which changes could ship incrementally, and worked directly with the data engineering team to ensure the smart categorization model had the signal quality it needed.
+
+The system map I drew in week one — arrows and question marks on a whiteboard — was the most important artifact of the project. More important than any Figma file.
+
+## What Happened
+
+- **60% faster** monthly reconciliation time
+- **3× fewer** support tickets related to tax reporting
+- Feature NPS went from −12 to +34
+- Tax-season churn dropped by 28% year-over-year
+- "Smart defaults with user override" adopted as a platform-wide pattern
