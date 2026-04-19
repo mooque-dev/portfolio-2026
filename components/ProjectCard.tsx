@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 interface ProjectCardProps {
   slug: string;
@@ -19,7 +22,10 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <Link href={`/work/${slug}`} className="group block">
-      <article>
+      <motion.article
+        whileHover={{ y: -4 }}
+        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+      >
         <div
           className={`cover-tinted relative overflow-hidden rounded-sm ${
             featured ? "aspect-[16/10]" : "aspect-[4/3]"
@@ -46,7 +52,7 @@ export default function ProjectCard({
             {subtitle}
           </p>
         </div>
-      </article>
+      </motion.article>
     </Link>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useLayout, LayoutMode } from "./LayoutProvider";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const options: { value: LayoutMode; label: string }[] = [
   { value: "editorial", label: "Cards" },
@@ -46,13 +47,20 @@ export default function ControlPanel() {
             key={value}
             onClick={() => setLayout(value)}
             aria-pressed={layout === value}
-            className={`px-3 py-1.5 rounded-xl text-[11px] font-medium tracking-wide transition-all min-h-[32px] whitespace-nowrap ${
+            className={`relative px-3 py-1.5 rounded-xl text-[11px] font-medium tracking-wide transition-colors min-h-[32px] whitespace-nowrap ${
               layout === value
-                ? "bg-background text-foreground"
+                ? "text-foreground"
                 : "text-background/50 hover:text-background"
             }`}
           >
-            {label}
+            {layout === value && (
+              <motion.span
+                layoutId="active-pill"
+                className="absolute inset-0 rounded-xl bg-background"
+                transition={{ type: "spring", stiffness: 500, damping: 35 }}
+              />
+            )}
+            <span className="relative z-10">{label}</span>
           </button>
         ))}
         <button
