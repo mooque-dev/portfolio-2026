@@ -4,6 +4,7 @@ import Link from "next/link";
 import ProjectCard from "@/components/ProjectCard";
 import WritingCard from "@/components/WritingCard";
 import FadeIn from "@/components/FadeIn";
+import { Button } from "@/components/ui/button";
 
 interface Project {
   slug: string;
@@ -72,12 +73,14 @@ export default function HomeEditorial({ featured, recentWriting }: Props) {
               <h2 className="font-serif text-2xl md:text-3xl font-semibold">
                 Featured Work
               </h2>
-              <Link
-                href="/work"
-                className="text-sm text-muted hover:text-foreground transition-colors"
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-muted-foreground hover:text-foreground h-7 px-2 text-sm"
+                render={<Link href="/work" />}
               >
-                View all
-              </Link>
+                View all →
+              </Button>
             </div>
           </FadeIn>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
@@ -132,12 +135,14 @@ export default function HomeEditorial({ featured, recentWriting }: Props) {
                 <h2 className="font-serif text-2xl md:text-3xl font-semibold">
                   Writing
                 </h2>
-                <Link
-                  href="/writing"
-                  className="text-sm text-muted hover:text-foreground transition-colors"
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-foreground h-7 px-2 text-sm"
+                  render={<Link href="/writing" />}
                 >
-                  View all
-                </Link>
+                  View all →
+                </Button>
               </div>
             </FadeIn>
             <div className="max-w-4xl">

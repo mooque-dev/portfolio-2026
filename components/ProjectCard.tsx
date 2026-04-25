@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
 
 interface ProjectCardProps {
   slug: string;
@@ -42,10 +43,13 @@ export default function ProjectCard({
           <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/[0.04] transition-colors duration-300" aria-hidden="true" />
         </div>
         <div className="mt-4">
-          <span className="text-xs tracking-widest uppercase text-muted">
+          <Badge
+            variant="outline"
+            className="text-[10px] tracking-widest uppercase text-muted-foreground border-border/50 font-normal h-auto py-0.5 rounded-sm"
+          >
             {category}
-          </span>
-          <h3 className="font-serif text-lg md:text-xl font-semibold mt-1 leading-snug group-hover:opacity-70 transition-opacity">
+          </Badge>
+          <h3 className="font-serif text-lg md:text-xl font-semibold mt-2 leading-snug group-hover:opacity-70 transition-opacity">
             {title}
           </h3>
           <p className="text-sm text-muted mt-1.5 leading-relaxed line-clamp-2">

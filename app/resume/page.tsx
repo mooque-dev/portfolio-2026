@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -122,7 +123,8 @@ export default function ResumePage() {
 
         {/* Side Projects */}
         <FadeIn delay={0.18}>
-          <div className="mt-16 pt-8 border-t border-border">
+          <div className="mt-16">
+            <Separator className="mb-8" />
             <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
               Side Projects
             </h2>
@@ -159,7 +161,8 @@ export default function ResumePage() {
 
         {/* Education */}
         <FadeIn delay={0.2}>
-          <div className="mt-16 pt-8 border-t border-border">
+          <div className="mt-16">
+            <Separator className="mb-8" />
             <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
               Education
             </h2>
@@ -176,7 +179,8 @@ export default function ResumePage() {
 
         {/* Contact */}
         <FadeIn delay={0.25}>
-          <div className="mt-16 pt-8 border-t border-border">
+          <div className="mt-16">
+            <Separator className="mb-8" />
             <h2 className="text-xs tracking-widest uppercase text-muted mb-6">
               Get in touch
             </h2>

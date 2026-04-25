@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Separator } from "@/components/ui/separator";
 
 export const metadata: Metadata = {
   title: "About",
@@ -21,15 +23,11 @@ export default function AboutPage() {
 
         {/* Photo placeholder */}
         <FadeIn delay={0.1}>
-          <div
-            className="mt-12 aspect-[3/2] bg-surface rounded-sm flex items-center justify-center border border-border"
+          <Skeleton
+            className="mt-12 aspect-[3/2] w-full rounded-sm"
             role="img"
-            aria-label="Portrait of Allen Kang"
-          >
-            <span className="text-muted text-sm" aria-hidden="true">
-              Photo
-            </span>
-          </div>
+            aria-label="Portrait of Allen Kang — photo coming soon"
+          />
         </FadeIn>
 
         {/* Bio */}
@@ -81,7 +79,8 @@ export default function AboutPage() {
 
         {/* Design Philosophy */}
         <FadeIn delay={0.25}>
-          <div className="mt-20 pt-12 border-t border-border">
+          <div className="mt-20">
+            <Separator className="mb-12" />
             <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-8">
               How I Think About Design
             </h2>
@@ -134,7 +133,8 @@ export default function AboutPage() {
 
         {/* Side Projects & Interests */}
         <FadeIn delay={0.3}>
-          <div className="mt-20 pt-12 border-t border-border">
+          <div className="mt-20">
+            <Separator className="mb-12" />
             <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-4">
               Outside of Work
             </h2>
@@ -221,7 +221,8 @@ export default function AboutPage() {
 
         {/* Skills */}
         <FadeIn delay={0.35}>
-          <div className="mt-20 pt-12 border-t border-border">
+          <div className="mt-20">
+            <Separator className="mb-12" />
             <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-8">
               Tools &amp; Skills
             </h2>
@@ -271,7 +272,8 @@ export default function AboutPage() {
 
         {/* CTA */}
         <FadeIn delay={0.4}>
-          <div className="mt-20 pt-12 border-t border-border">
+          <div className="mt-20">
+            <Separator className="mb-12" />
             <p className="text-lg leading-relaxed">
               I&apos;m looking for a Staff or Principal design role where I
               can shape product direction and build the kind of design culture

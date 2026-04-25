@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
 const inter = Inter({
@@ -77,7 +78,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${playfair.variable}`}
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <script
@@ -85,9 +90,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={`${inter.variable} ${playfair.variable} antialiased bg-background text-foreground`}
-      >
+      <body className="antialiased bg-background text-foreground">
+        <TooltipProvider>
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>
@@ -96,6 +100,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+        </TooltipProvider>
       </body>
     </html>
   );
