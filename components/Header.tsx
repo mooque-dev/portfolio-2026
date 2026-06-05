@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useCallback } from "react";
 import ThemeToggle from "./ThemeToggle";
+import Magnetic from "./Magnetic";
 import {
   Sheet,
   SheetContent,
@@ -50,17 +51,19 @@ export default function Header() {
               const isActive = pathname.startsWith(href);
               return (
                 <li key={href}>
-                  <Link
-                    href={href}
-                    className={`text-sm tracking-wide uppercase transition-colors min-h-[44px] inline-flex items-center ${
-                      isActive
-                        ? "text-foreground font-medium"
-                        : "text-muted hover:text-foreground"
-                    }`}
-                    {...(isActive && { "aria-current": "page" as const })}
-                  >
-                    {label}
-                  </Link>
+                  <Magnetic strength={0.28} radius={65} className="inline-flex">
+                    <Link
+                      href={href}
+                      className={`text-sm tracking-wide uppercase transition-colors min-h-[44px] inline-flex items-center ${
+                        isActive
+                          ? "text-foreground font-medium"
+                          : "text-muted hover:text-foreground"
+                      }`}
+                      {...(isActive && { "aria-current": "page" as const })}
+                    >
+                      {label}
+                    </Link>
+                  </Magnetic>
                 </li>
               );
             })}

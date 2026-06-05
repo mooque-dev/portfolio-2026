@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import Magnetic from "@/components/Magnetic";
 
 interface ProjectCardProps {
   slug: string;
@@ -22,6 +23,7 @@ export default function ProjectCard({
   featured = false,
 }: ProjectCardProps) {
   return (
+    <Magnetic strength={0.04} radius={260}>
     <Link href={`/work/${slug}`} className="group block">
       <motion.article
         whileHover={{ y: -4 }}
@@ -58,5 +60,6 @@ export default function ProjectCard({
         </div>
       </motion.article>
     </Link>
+    </Magnetic>
   );
 }

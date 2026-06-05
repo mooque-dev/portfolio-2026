@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { questions, getDailyIndex } from "@/lib/questions";
-import FluidCursor from "@/components/FluidCursor";
+import Magnetic from "@/components/Magnetic";
 
 type Phase = "browse" | "submitting" | "responses" | "asking" | "entering";
 
@@ -176,8 +176,6 @@ export default function GatewayPage() {
           className="min-h-screen bg-background flex flex-col items-center
                      justify-center px-6 pb-16 relative"
         >
-          <FluidCursor />
-
           {/* ── Browse / Answer phase ─────────────────────────────────── */}
           <AnimatePresence mode="wait">
             {(phase === "browse" || phase === "submitting") && (
@@ -197,17 +195,19 @@ export default function GatewayPage() {
 
                 {/* Question + arrows */}
                 <div className="flex items-center gap-3">
-                  <button onClick={goPrev} aria-label="Previous question"
-                    className="shrink-0 p-2 -ml-2 text-muted hover:text-foreground
-                               transition-colors rounded-full hover:bg-foreground/[0.04]">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                      stroke="currentColor" strokeWidth="1.5"
-                      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M9 2.5L4.5 7 9 11.5" />
-                    </svg>
-                  </button>
+                  <Magnetic strength={0.5} radius={80} className="shrink-0">
+                    <button onClick={goPrev} aria-label="Previous question"
+                      className="p-2 -ml-2 text-muted hover:text-foreground
+                                 transition-colors rounded-full hover:bg-foreground/[0.04]">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        stroke="currentColor" strokeWidth="1.5"
+                        strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M9 2.5L4.5 7 9 11.5" />
+                      </svg>
+                    </button>
+                  </Magnetic>
 
-                  <div className="flex-1 overflow-hidden">
+                  <Magnetic strength={0.035} radius={220} className="flex-1 overflow-hidden">
                     <AnimatePresence mode="wait" custom={direction}>
                       <motion.h1
                         key={index}
@@ -223,17 +223,19 @@ export default function GatewayPage() {
                         {currentQ.text}
                       </motion.h1>
                     </AnimatePresence>
-                  </div>
+                  </Magnetic>
 
-                  <button onClick={goNext} aria-label="Next question"
-                    className="shrink-0 p-2 -mr-2 text-muted hover:text-foreground
-                               transition-colors rounded-full hover:bg-foreground/[0.04]">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                      stroke="currentColor" strokeWidth="1.5"
-                      strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M5 2.5L9.5 7 5 11.5" />
-                    </svg>
-                  </button>
+                  <Magnetic strength={0.5} radius={80} className="shrink-0">
+                    <button onClick={goNext} aria-label="Next question"
+                      className="p-2 -mr-2 text-muted hover:text-foreground
+                                 transition-colors rounded-full hover:bg-foreground/[0.04]">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                        stroke="currentColor" strokeWidth="1.5"
+                        strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M5 2.5L9.5 7 5 11.5" />
+                      </svg>
+                    </button>
+                  </Magnetic>
                 </div>
 
                 {/* Counter */}
@@ -329,13 +331,15 @@ export default function GatewayPage() {
                           clear
                         </button>
                       )}
-                      <button type="submit" disabled={phase === "submitting"}
-                        className="text-[13px] font-medium underline underline-offset-4
-                                   decoration-1 hover:opacity-60 transition-opacity disabled:opacity-40">
-                        {phase === "submitting" ? "saving…"
-                          : answer.trim()        ? "submit →"
-                          :                        "enter →"}
-                      </button>
+                      <Magnetic strength={0.4} radius={80}>
+                        <button type="submit" disabled={phase === "submitting"}
+                          className="text-[13px] font-medium underline underline-offset-4
+                                     decoration-1 hover:opacity-60 transition-opacity disabled:opacity-40">
+                          {phase === "submitting" ? "saving…"
+                            : answer.trim()        ? "submit →"
+                            :                        "enter →"}
+                        </button>
+                      </Magnetic>
                     </div>
                   </div>
 
@@ -524,12 +528,14 @@ export default function GatewayPage() {
                   >
                     ← browse more
                   </button>
-                  <button
-                    onClick={handleEnter}
-                    className="font-serif text-[1.4rem] font-normal hover:opacity-60 transition-opacity"
-                  >
-                    Come in →
-                  </button>
+                  <Magnetic strength={0.5} radius={110}>
+                    <button
+                      onClick={handleEnter}
+                      className="font-serif text-[1.4rem] font-normal hover:opacity-60 transition-opacity"
+                    >
+                      Come in →
+                    </button>
+                  </Magnetic>
                 </motion.div>
               </motion.div>
             )}

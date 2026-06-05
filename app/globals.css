@@ -292,6 +292,12 @@ html {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Fluid cursor — hide system pointer when our custom cursor is active */
+.fluid-cursor,
+.fluid-cursor * {
+  cursor: none !important;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
