@@ -52,10 +52,16 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto px-6 pb-8">
+      <div className="max-w-6xl mx-auto px-6 pb-8 flex items-center justify-between">
         <p className="text-xs text-muted">
           &copy; {new Date().getFullYear()} Allen Kang
         </p>
+        <Link
+          href="/gateway"
+          className="text-xs text-muted/50 hover:text-muted transition-colors tracking-wide"
+        >
+          Gateway
+        </Link>
       </div>
     </footer>
   );

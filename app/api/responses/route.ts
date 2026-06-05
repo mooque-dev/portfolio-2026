@@ -4,13 +4,26 @@ import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const questionId = searchParams.get("questionId");
+  const countOnly = searchParams.get("count") === "true";
 
   if (!questionId) {
     return NextResponse.json({ error: "questionId required" }, { status: 400 });
   }
 
   if (!isSupabaseConfigured || !supabase) {
-    return NextResponse.json({ responses: [] });
+    return countOnly
+      ? NextResponse.json({ count: 0 })
+      : NextResponse.json({ responses: [] });
+  }
+
+  if (countOnly) {
+    const { count, error } = await supabase
+      .from("gateway_responses")
+      .select("id", { count: "exact", head: true })
+      .eq("question_id", questionId);
+
+    if (error) return NextResponse.json({ count: 0 });
+    return NextResponse.json({ count: count ?? 0 });
   }
 
   const { data, error } = await supabase
@@ -32,12 +45,19 @@ export async function POST(request: NextRequest) {
   const body = await request.json();
   const { questionId, answer, displayName } = body;
 
-  if (!questionId || !answer || typeof answer !== "string" || answer.trim().length === 0) {
-    return NextResponse.json({ error: "questionId and answer required" }, { status: 400 });
+  if (
+    !questionId ||
+    !answer ||
+    typeof answer !== "string" ||
+    answer.trim().length === 0
+  ) {
+    return NextResponse.json(
+      { error: "questionId and answer required" },
+      { status: 400 }
+    );
   }
 
   if (!isSupabaseConfigured || !supabase) {
-    // No DB — just acknowledge gracefully
     return NextResponse.json({ ok: true, offline: true });
   }
 

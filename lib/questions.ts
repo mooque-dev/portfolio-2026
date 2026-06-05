@@ -24,7 +24,10 @@ export const questions: Question[] = [
 ];
 
 // One question per day, same for all visitors — creates a shared experience.
+export function getDailyIndex(): number {
+  return Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % questions.length;
+}
+
 export function getDailyQuestion(): Question {
-  const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24));
-  return questions[dayIndex % questions.length];
+  return questions[getDailyIndex()];
 }
