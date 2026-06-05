@@ -2,28 +2,11 @@
 
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
-
-interface Project {
-  slug: string;
-  title: string;
-  subtitle: string;
-  category: string;
-  coverColor: string;
-  featured: boolean;
-  role: string;
-  timeline: string;
-}
-
-interface Writing {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt: string;
-}
+import type { ProjectSummary, WritingSummary } from "@/lib/types";
 
 interface Props {
-  allProjects: Project[];
-  recentWriting: Writing[];
+  allProjects: ProjectSummary[];
+  recentWriting: WritingSummary[];
 }
 
 export default function HomeDense({ allProjects, recentWriting }: Props) {

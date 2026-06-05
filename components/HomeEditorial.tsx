@@ -5,26 +5,11 @@ import ProjectCard from "@/components/ProjectCard";
 import WritingCard from "@/components/WritingCard";
 import FadeIn from "@/components/FadeIn";
 import { Button } from "@/components/ui/button";
-
-interface Project {
-  slug: string;
-  title: string;
-  subtitle: string;
-  category: string;
-  coverColor: string;
-  featured: boolean;
-}
-
-interface Writing {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt: string;
-}
+import type { ProjectSummary, WritingSummary } from "@/lib/types";
 
 interface Props {
-  featured: Project[];
-  recentWriting: Writing[];
+  featured: ProjectSummary[];
+  recentWriting: WritingSummary[];
 }
 
 export default function HomeEditorial({ featured, recentWriting }: Props) {
@@ -40,10 +25,11 @@ export default function HomeEditorial({ featured, recentWriting }: Props) {
           </FadeIn>
           <FadeIn delay={0.15}>
             <p className="mt-8 text-lg md:text-xl text-muted max-w-2xl leading-relaxed">
-              The systems, patterns, and culture that make great work feel
-              inevitable. I&apos;m Allen Kang — a design leader with a Fine Arts
-              background, currently merging three products into one at Keela
-              (acquired by Aplos).
+              The systems, patterns, and culture that let teams ship with
+              confidence and users interact without friction. I&apos;m Allen
+              Kang — a design leader with a Fine Arts background. Seven years
+              building products, design systems, and teams from early-stage to
+              post-acquisition. Open to Staff and Principal opportunities.
             </p>
           </FadeIn>
           <FadeIn delay={0.3}>

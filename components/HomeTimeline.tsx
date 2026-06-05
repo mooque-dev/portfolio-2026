@@ -2,28 +2,11 @@
 
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
-
-interface Project {
-  slug: string;
-  title: string;
-  subtitle: string;
-  category: string;
-  coverColor: string;
-  featured: boolean;
-  role: string;
-  timeline: string;
-}
-
-interface Writing {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt: string;
-}
+import type { ProjectSummary, WritingSummary } from "@/lib/types";
 
 interface Props {
-  allProjects: Project[];
-  recentWriting: Writing[];
+  allProjects: ProjectSummary[];
+  recentWriting: WritingSummary[];
 }
 
 interface TimelineEntry {
@@ -37,14 +20,14 @@ interface TimelineEntry {
   role?: string;
 }
 
-function buildTimeline(projects: Project[], writing: Writing[]): TimelineEntry[] {
+function buildTimeline(projects: ProjectSummary[], writing: WritingSummary[]): TimelineEntry[] {
   const entries: TimelineEntry[] = [];
 
   entries.push({
     type: "milestone",
-    year: "Present",
+    year: "2023–2026",
     title: "Product Design Lead — Keela (acquired by Aplos)",
-    description: "Leading design for a platform serving 5,000+ nonprofits. Built Orchid (our design system), merged three product teams into one design culture, and still find time to cook.",
+    description: "Led design for a platform serving 5,000+ nonprofits. Built Orchid — consolidating 340+ components into 86 shared primitives. Merged three product teams into one design culture. Shipped a 0→1 automation platform with 45% adoption.",
     href: "/about",
   });
 

@@ -42,29 +42,23 @@ export default function AboutPage() {
             </p>
             <p>
               For the past 7+ years, I&apos;ve been designing products across
-              education, healthcare, food tech, and nonprofit tools. I currently
-              lead product design at{" "}
-              <a
-                href="https://www.keela.co/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity"
-              >
-                Keela<span className="sr-only"> (opens in new tab)</span>
-              </a>{" "}
-              (acquired by Aplos), where I&apos;m responsible for the design
-              direction of a CRM platform that 5,000+ nonprofits rely on to
-              manage donors, track finances, and run their operations.
+              education, healthcare, food tech, and nonprofit tools. Most
+              recently, I led product design at Keela (acquired by Aplos) —
+              responsible for the design direction of a CRM platform that 5,000+
+              nonprofits rely on to manage donors, track finances, and run
+              their operations. I was effectively the founding designer: I built
+              the research practice, the design system, and the culture from
+              scratch, then scaled it across three product teams post-acquisition.
             </p>
             <p>
-              Since the acquisition, my biggest challenge has been merging three
+              The most interesting challenge of that period was merging three
               separate products into one coherent experience. That meant building
               a design system from the ground up, figuring out how to get teams
               who didn&apos;t choose to work together to collaborate genuinely,
               and making hard calls about which patterns to keep and which to let
-              go. The work I&apos;m proudest of from this period isn&apos;t any
-              single feature — it&apos;s the shared language and design culture
-              that now lets the whole org move faster.
+              go. The work I&apos;m proudest of isn&apos;t any single feature —
+              it&apos;s the shared language and design culture that let the whole
+              org move faster.
             </p>
             <p>
               I&apos;m at my best in the messy, ambiguous early stages of a
@@ -275,15 +269,15 @@ export default function AboutPage() {
           <div className="mt-20">
             <Separator className="mb-12" />
             <p className="text-lg leading-relaxed">
-              I&apos;m looking for a Staff or Principal design role where I
-              can shape product direction and build the kind of design culture
-              that makes great work feel inevitable. If you&apos;re working on
-              something interesting,{" "}
+              I&apos;m currently open to Staff and Principal design roles —
+              particularly where design systems, cross-functional product
+              thinking, or 0→1 platform work is at the center. If you&apos;re
+              building something interesting,{" "}
               <a
                 href="mailto:hello@mooque.xyz"
                 className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity"
               >
-                I&apos;d love to hear about it
+                I&apos;d love to talk
               </a>
               .
             </p>

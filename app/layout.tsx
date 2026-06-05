@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import ReadingProgress from "@/components/ReadingProgress";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -92,14 +91,11 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-background text-foreground">
         <TooltipProvider>
+          <ReadingProgress />
           <a href="#main-content" className="skip-link">
             Skip to main content
           </a>
-          <Header />
-          <main id="main-content" className="min-h-screen" tabIndex={-1}>
-            {children}
-          </main>
-          <Footer />
+          {children}
         </TooltipProvider>
       </body>
     </html>

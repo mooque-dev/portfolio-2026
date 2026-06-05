@@ -27,20 +27,20 @@ export default function ProjectCard({
         whileHover={{ y: -4 }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
-        <div
-          className={`cover-tinted relative overflow-hidden rounded-sm ${
-            featured ? "aspect-[16/10]" : "aspect-[4/3]"
-          }`}
-          style={{ backgroundColor: coverColor }}
-          role="img"
-          aria-label={`Cover for ${title}`}
-        >
-          <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">
-            <span className="font-serif text-foreground/15 text-center text-2xl md:text-3xl font-semibold leading-tight select-none">
-              {title}
-            </span>
+        <div className={`overflow-hidden rounded-sm ${featured ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+          <div
+            className="cover-tinted relative w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+            style={{ backgroundColor: coverColor }}
+            role="img"
+            aria-label={`Cover for ${title}`}
+          >
+            <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">
+              <span className="font-serif text-foreground/15 text-center text-2xl md:text-3xl font-semibold leading-tight select-none">
+                {title}
+              </span>
+            </div>
+            <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/[0.06] transition-colors duration-300" aria-hidden="true" />
           </div>
-          <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/[0.04] transition-colors duration-300" aria-hidden="true" />
         </div>
         <div className="mt-4">
           <Badge

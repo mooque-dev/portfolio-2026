@@ -3,28 +3,11 @@
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { formatDate } from "@/lib/utils";
-
-interface Project {
-  slug: string;
-  title: string;
-  subtitle: string;
-  category: string;
-  coverColor: string;
-  featured: boolean;
-  role: string;
-  timeline: string;
-}
-
-interface Writing {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt: string;
-}
+import type { ProjectSummary, WritingSummary } from "@/lib/types";
 
 interface Props {
-  allProjects: Project[];
-  recentWriting: Writing[];
+  allProjects: ProjectSummary[];
+  recentWriting: WritingSummary[];
 }
 
 export default function HomeMinimal({ allProjects, recentWriting }: Props) {
@@ -37,8 +20,8 @@ export default function HomeMinimal({ allProjects, recentWriting }: Props) {
             <h1 className="text-sm tracking-wide">Allen Kang</h1>
             <p className="mt-6 text-[28px] md:text-[32px] leading-[1.35] font-light">
               Design leader with a Fine Arts eye and a systems brain. I build the
-              foundations that help teams ship more thoughtful products — currently
-              merging three into one at Keela.
+              foundations — systems, patterns, culture — that let teams ship more
+              thoughtful products at scale. Open to Staff and Principal roles.
             </p>
           </FadeIn>
 

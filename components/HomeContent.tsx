@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { useLayout, LayoutMode } from "./LayoutProvider";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ReactNode, useMemo } from "react";
+import type { ProjectSummary, WritingSummary } from "@/lib/types";
 
 const HomeEditorial = dynamic(() => import("./HomeEditorial"));
 const HomeIndex = dynamic(() => import("./HomeIndex"));
@@ -13,27 +14,9 @@ const HomeBento = dynamic(() => import("./HomeBento"));
 const HomeTimeline = dynamic(() => import("./HomeTimeline"));
 const HomeDense = dynamic(() => import("./HomeDense"));
 
-interface Project {
-  slug: string;
-  title: string;
-  subtitle: string;
-  category: string;
-  coverColor: string;
-  featured: boolean;
-  role: string;
-  timeline: string;
-}
-
-interface Writing {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt: string;
-}
-
 interface Props {
-  allProjects: Project[];
-  recentWriting: Writing[];
+  allProjects: ProjectSummary[];
+  recentWriting: WritingSummary[];
 }
 
 function LayoutShell({

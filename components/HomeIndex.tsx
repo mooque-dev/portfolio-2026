@@ -3,28 +3,11 @@
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { formatDate } from "@/lib/utils";
-
-interface Project {
-  slug: string;
-  title: string;
-  subtitle: string;
-  category: string;
-  coverColor: string;
-  featured: boolean;
-  role: string;
-  timeline: string;
-}
-
-interface Writing {
-  slug: string;
-  title: string;
-  date: string;
-  excerpt: string;
-}
+import type { ProjectSummary, WritingSummary } from "@/lib/types";
 
 interface Props {
-  allProjects: Project[];
-  recentWriting: Writing[];
+  allProjects: ProjectSummary[];
+  recentWriting: WritingSummary[];
 }
 
 export default function HomeIndex({ allProjects, recentWriting }: Props) {
@@ -216,8 +199,8 @@ export default function HomeIndex({ allProjects, recentWriting }: Props) {
             <FadeIn>
               <p className="font-serif text-xl md:text-2xl leading-snug font-medium">
                 I&apos;m a design leader with a Fine Arts background —
-                currently merging three products into a unified experience
-                at Keela. I care about the craft as much as the outcome.
+                seven years building products, systems, and the teams behind
+                them. I care about the craft as much as the outcome.
               </p>
               <Link
                 href="/about"
