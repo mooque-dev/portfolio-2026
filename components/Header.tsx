@@ -38,7 +38,7 @@ export default function Header() {
       >
         <Link
           href="/"
-          className="font-serif text-xl tracking-tight font-semibold hover:opacity-70 transition-opacity"
+          className="font-serif text-[15px] font-normal tracking-normal hover:opacity-60 transition-opacity"
           aria-label="Allen Kang — Home"
         >
           Allen Kang
@@ -54,10 +54,10 @@ export default function Header() {
                   <Magnetic strength={0.28} radius={65} className="inline-flex">
                     <Link
                       href={href}
-                      className={`text-sm tracking-wide uppercase transition-colors min-h-[44px] inline-flex items-center ${
+                      className={`text-[11px] tracking-[0.14em] uppercase transition-colors min-h-[44px] inline-flex items-center ${
                         isActive
-                          ? "text-foreground font-medium"
-                          : "text-muted hover:text-foreground"
+                          ? "text-foreground"
+                          : "text-muted/70 hover:text-foreground"
                       }`}
                       {...(isActive && { "aria-current": "page" as const })}
                     >

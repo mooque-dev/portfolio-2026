@@ -19,7 +19,7 @@ export default function HomeEditorial({ featured, recentWriting }: Props) {
       <section className="pt-40 pb-24 md:pt-48 md:pb-32 px-6">
         <div className="max-w-6xl mx-auto">
           <FadeIn>
-            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight max-w-4xl">
+            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-normal leading-[1.08] tracking-tight max-w-4xl">
               I design the invisible architecture of products.
             </h1>
           </FadeIn>

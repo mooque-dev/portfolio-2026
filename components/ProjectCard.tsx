@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import Magnetic from "@/components/Magnetic";
 
 interface ProjectCardProps {
@@ -45,16 +44,13 @@ export default function ProjectCard({
           </div>
         </div>
         <div className="mt-4">
-          <Badge
-            variant="outline"
-            className="text-[10px] tracking-widest uppercase text-muted-foreground border-border/50 font-normal h-auto py-0.5 rounded-sm"
-          >
+          <p className="text-[9px] tracking-[0.2em] uppercase text-muted/70">
             {category}
-          </Badge>
-          <h3 className="font-serif text-lg md:text-xl font-semibold mt-2 leading-snug group-hover:opacity-70 transition-opacity">
+          </p>
+          <h3 className="font-serif text-lg md:text-xl font-normal mt-2 leading-snug group-hover:opacity-60 transition-opacity">
             {title}
           </h3>
-          <p className="text-sm text-muted mt-1.5 leading-relaxed line-clamp-2">
+          <p className="text-[13px] text-muted leading-[1.65] mt-1.5 line-clamp-2">
             {subtitle}
           </p>
         </div>

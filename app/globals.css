@@ -130,6 +130,15 @@
 body {
   font-family: var(--font-sans), system-ui, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Refined serif rendering — critical for editorial feel */
+.font-serif,
+h1.font-serif, h2.font-serif, h3.font-serif {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "onum" 1;
+  text-rendering: optimizeLegibility;
 }
 
 /* --- Accessibility: Focus indicators (WCAG 2.4.7 / 2.4.13) --- */

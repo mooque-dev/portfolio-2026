@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { questions, getDailyIndex } from "@/lib/questions";
 import Magnetic from "@/components/Magnetic";
 
-type Phase = "browse" | "submitting" | "responses" | "asking" | "entering";
+type Phase = "browse" | "submitting" | "responses" | "entering";
 
 interface Response {
   id: string;
@@ -21,57 +21,47 @@ function setVisitedCookie() {
 }
 
 const slideVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 32 : -32, opacity: 0 }),
+  enter: (dir: number) => ({ x: dir > 0 ? 24 : -24, opacity: 0 }),
   center: { x: 0, opacity: 1 },
-  exit:  (dir: number) => ({ x: dir > 0 ? -32 : 32, opacity: 0 }),
+  exit:  (dir: number) => ({ x: dir > 0 ? -24 : 24, opacity: 0 }),
 };
 
 export default function GatewayPage() {
   const router = useRouter();
 
-  // ── Question navigation ──────────────────────────────────────────────────
-  const [index, setIndex]       = useState(getDailyIndex);
-  const [direction, setDir]     = useState(0);
+  const [index, setIndex]     = useState(getDailyIndex);
+  const [direction, setDir]   = useState(0);
+  const [phase, setPhase]     = useState<Phase>("browse");
 
-  // ── Flow ─────────────────────────────────────────────────────────────────
-  const [phase, setPhase]       = useState<Phase>("browse");
-
-  // ── Browse form ───────────────────────────────────────────────────────────
   const [answer, setAnswer]       = useState("");
   const [displayName, setDisplay] = useState("");
   const [showName, setShowName]   = useState(false);
-  // keyboard arrows still work silently for power users (no hint shown)
+  const [responses, setResponses] = useState<Response[]>([]);
+  const [responseCount, setCount] = useState<number | null>(null);
 
-  // ── Responses ─────────────────────────────────────────────────────────────
-  const [responses, setResponses]         = useState<Response[]>([]);
-  const [responseCount, setResponseCount] = useState<number | null>(null);
-
-  // ── Ask Allen ─────────────────────────────────────────────────────────────
-  const [visitorQ, setVisitorQ]           = useState("");
+  const [visitorQ, setVisitorQ]             = useState("");
   const [visitorContact, setVisitorContact] = useState("");
-  const [askSent, setAskSent]             = useState(false);
-  const [askExpanded, setAskExpanded]     = useState(false);
+  const [askSent, setAskSent]               = useState(false);
+  const [askExpanded, setAskExpanded]       = useState(false);
 
   const textareaRef  = useRef<HTMLTextAreaElement>(null);
   const inputFocused = useRef(false);
   const currentQ     = questions[index];
 
-
-  // Lazily fetch response count (debounced 400 ms)
+  // Lazy response count
   useEffect(() => {
     if (phase !== "browse") return;
-    setResponseCount(null);
+    setCount(null);
     const t = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/responses?questionId=${currentQ.id}&count=true`);
+        const res  = await fetch(`/api/responses?questionId=${currentQ.id}&count=true`);
         const data = await res.json();
-        setResponseCount(typeof data.count === "number" ? data.count : null);
+        setCount(typeof data.count === "number" ? data.count : null);
       } catch { /* silent */ }
     }, 400);
     return () => clearTimeout(t);
   }, [index, currentQ.id, phase]);
 
-  // ── Navigation ────────────────────────────────────────────────────────────
   const goNext = useCallback(() => {
     setDir(1);
     setIndex(i => (i + 1) % questions.length);
@@ -87,10 +77,9 @@ export default function GatewayPage() {
   const handleEnter = useCallback(() => {
     setVisitedCookie();
     setPhase("entering");
-    setTimeout(() => router.push("/"), 650);
+    setTimeout(() => router.push("/"), 700);
   }, [router]);
 
-  // Keyboard nav (disabled when input focused)
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (inputFocused.current) return;
@@ -103,20 +92,16 @@ export default function GatewayPage() {
     return () => window.removeEventListener("keydown", onKey);
   }, [phase, goNext, goPrev, handleEnter]);
 
-  // Auto-grow textarea
   function onTextChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
     setAnswer(e.target.value);
     e.target.style.height = "auto";
     e.target.style.height = `${e.target.scrollHeight}px`;
   }
 
-  // ── Submit answer ─────────────────────────────────────────────────────────
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!answer.trim()) { handleEnter(); return; }
-
     setPhase("submitting");
-
     try {
       await fetch("/api/responses", {
         method: "POST",
@@ -128,21 +113,17 @@ export default function GatewayPage() {
         }),
       });
     } catch { /* offline */ }
-
     try {
       const res  = await fetch(`/api/responses?questionId=${currentQ.id}`);
       const data = await res.json();
       setResponses(data.responses ?? []);
     } catch { setResponses([]); }
-
     setPhase("responses");
   }
 
-  // ── Ask Allen ─────────────────────────────────────────────────────────────
   async function handleAsk(e: React.FormEvent) {
     e.preventDefault();
     if (!visitorQ.trim()) return;
-
     try {
       await fetch("/api/questions-for-allen", {
         method: "POST",
@@ -154,11 +135,9 @@ export default function GatewayPage() {
         }),
       });
     } catch { /* silent */ }
-
     setAskSent(true);
   }
 
-  // ── Render ────────────────────────────────────────────────────────────────
   return (
     <AnimatePresence>
       {phase !== "entering" && (
@@ -167,29 +146,33 @@ export default function GatewayPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          className="min-h-screen bg-background flex flex-col items-center
-                     justify-center px-6 pb-16 relative"
+          transition={{ duration: 0.6 }}
+          className="fixed inset-0 bg-background"
         >
-          {/* ── Browse / Answer phase ─────────────────────────────────── */}
+          {/* Attribution — top anchor */}
+          <div className="absolute top-0 inset-x-0 h-20 flex items-end justify-center pb-2 pointer-events-none z-10">
+            <p className="text-[9px] tracking-[0.28em] uppercase text-muted/55 select-none">
+              Allen Kang
+            </p>
+          </div>
+
+          {/* Main content — absolutely centered vertically */}
+          <div className="absolute inset-x-0 px-8 md:px-16 lg:px-24"
+               style={{ top: "50%", transform: "translateY(-50%)" }}>
           <AnimatePresence mode="wait">
+
+            {/* ── Browse / Answer ──────────────────────────────────── */}
             {(phase === "browse" || phase === "submitting") && (
               <motion.div
                 key="browse"
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.4 }}
-                className="w-full max-w-md"
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                className="w-full max-w-2xl"
               >
-                {/* Byline */}
-                <p className="text-center text-[11px] tracking-widest uppercase
-                              text-muted mb-14">
-                  Allen Kang
-                </p>
-
-                {/* Question — full width, centered */}
-                <Magnetic strength={0.035} radius={220}>
+                {/* ── Question ── */}
+                <Magnetic strength={0.025} radius={320}>
                   <AnimatePresence mode="wait" custom={direction}>
                     <motion.h1
                       key={index}
@@ -198,207 +181,218 @@ export default function GatewayPage() {
                       initial="enter"
                       animate="center"
                       exit="exit"
-                      transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
-                      className="font-serif text-[1.75rem] md:text-[2.1rem] font-normal
-                                 leading-[1.25] tracking-tight text-center"
+                      transition={{ duration: 0.32, ease: [0.25, 0.1, 0.25, 1] }}
+                      className="font-serif font-normal leading-[1.1]
+                                 tracking-[-0.015em]
+                                 text-[2.5rem] md:text-[3.5rem] lg:text-[4.5rem]"
                     >
                       {currentQ.text}
                     </motion.h1>
                   </AnimatePresence>
                 </Magnetic>
 
-                {/* Counter + conversational next */}
-                <div className="mt-5 flex items-center justify-center gap-3">
-                  <span className="text-[11px] tabular-nums text-muted/60">
-                    {index + 1}&thinsp;/&thinsp;{questions.length}
+                {/* ── Meta row ── */}
+                <div className="mt-7 flex items-center gap-5">
+                  <span className="text-[10px] tracking-[0.14em] uppercase text-muted/50 tabular-nums">
+                    {index + 1} / {questions.length}
                     {responseCount !== null && responseCount > 0 && (
-                      <> &middot; {responseCount}{" "}
-                        {responseCount === 1 ? "response" : "responses"}
-                      </>
+                      <> &middot; {responseCount}</>
                     )}
                   </span>
-                  <span className="text-muted/25 text-[11px]" aria-hidden="true">·</span>
-                  <Magnetic strength={0.4} radius={90}>
+
+                  <Magnetic strength={0.38} radius={80}>
                     <button
                       onClick={goNext}
-                      className="text-[11px] text-muted/60 hover:text-foreground
-                                 transition-colors underline-offset-2 hover:underline
-                                 decoration-muted/40"
+                      className="text-[10px] tracking-[0.14em] uppercase text-muted/40
+                                 hover:text-muted/70 transition-colors duration-300"
                     >
                       show me something else
                     </button>
                   </Magnetic>
                 </div>
 
-                {/* Form */}
-                <form onSubmit={handleSubmit} className="mt-10 space-y-3" noValidate>
-                  <textarea
-                    ref={textareaRef}
-                    value={answer}
-                    onChange={onTextChange}
-                    onFocus={() => { inputFocused.current = true; }}
-                    onBlur={() => { inputFocused.current = false; }}
-                    placeholder="Your answer (optional)"
-                    rows={1}
-                    maxLength={500}
-                    style={{ resize: "none", overflow: "hidden" }}
-                    className="w-full bg-transparent border-b border-border text-[15px]
-                               leading-relaxed outline-none focus-visible:outline-none
-                               focus:border-foreground transition-colors duration-300
-                               placeholder:text-muted/50 py-3 min-h-[48px]"
-                    disabled={phase === "submitting"}
-                  />
+                {/* ── Form ── */}
+                <form
+                  onSubmit={handleSubmit}
+                  className="mt-14 w-full max-w-md"
+                  noValidate
+                >
+                  {/* Answer field */}
+                  <div className="group border-b border-foreground/[0.12] focus-within:border-foreground/40 transition-colors duration-300 pb-px">
+                    <textarea
+                      ref={textareaRef}
+                      value={answer}
+                      onChange={onTextChange}
+                      onFocus={() => { inputFocused.current = true; }}
+                      onBlur={() => { inputFocused.current = false; }}
+                      placeholder="Your answer"
+                      rows={1}
+                      maxLength={500}
+                      style={{ resize: "none", overflow: "hidden" }}
+                      className="w-full bg-transparent text-[14px] leading-[1.8]
+                                 placeholder:text-muted/35 outline-none
+                                 focus-visible:outline-none py-3 min-h-[48px]"
+                      disabled={phase === "submitting"}
+                    />
+                  </div>
 
+                  {/* Name field */}
                   <AnimatePresence>
                     {showName && (
                       <motion.div
-                        initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.22 }}>
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="border-b border-foreground/[0.12] focus-within:border-foreground/40
+                                   transition-colors duration-300 mt-6 pb-px overflow-hidden"
+                      >
                         <input
                           type="text"
                           value={displayName}
                           onChange={e => setDisplay(e.target.value)}
                           onFocus={() => { inputFocused.current = true; }}
                           onBlur={() => { inputFocused.current = false; }}
-                          placeholder="Your name"
+                          placeholder="Name (optional)"
                           maxLength={80}
-                          className="w-full bg-transparent border-b border-border text-sm
-                                     outline-none focus-visible:outline-none focus:border-foreground
-                                     transition-colors duration-300 placeholder:text-muted/50 py-2.5"
+                          className="w-full bg-transparent text-[14px]
+                                     placeholder:text-muted/35 outline-none
+                                     focus-visible:outline-none py-2.5"
                           disabled={phase === "submitting"}
                         />
                       </motion.div>
                     )}
                   </AnimatePresence>
 
-                  <div className="flex items-center justify-between pt-2">
+                  {/* Controls */}
+                  <div className="mt-10 flex items-center justify-between">
                     {!showName ? (
-                      <button type="button" onClick={() => setShowName(true)}
-                        className="text-xs text-muted hover:text-foreground transition-colors">
-                        + add your name
+                      <button
+                        type="button"
+                        onClick={() => setShowName(true)}
+                        className="text-[10px] tracking-[0.14em] uppercase text-muted/50
+                                   hover:text-muted transition-colors"
+                      >
+                        Add name
                       </button>
                     ) : (
-                      <button type="button"
+                      <button
+                        type="button"
                         onClick={() => { setShowName(false); setDisplay(""); }}
-                        className="text-xs text-muted hover:text-foreground transition-colors">
-                        − remove name
+                        className="text-[10px] tracking-[0.14em] uppercase text-muted/50
+                                   hover:text-muted transition-colors"
+                      >
+                        Remove name
                       </button>
                     )}
 
-                    <div className="flex items-center gap-5">
-                      {answer.trim() && (
-                        <button type="button"
-                          onClick={() => { setAnswer(""); if (textareaRef.current) textareaRef.current.style.height = "auto"; }}
-                          className="text-xs text-muted hover:text-foreground transition-colors">
-                          clear
-                        </button>
-                      )}
-                      <Magnetic strength={0.4} radius={80}>
-                        <button type="submit" disabled={phase === "submitting"}
-                          className="text-[13px] font-medium underline underline-offset-4
-                                     decoration-1 hover:opacity-60 transition-opacity disabled:opacity-40">
-                          {phase === "submitting" ? "saving…"
-                            : answer.trim()        ? "submit →"
-                            :                        "enter →"}
-                        </button>
-                      </Magnetic>
-                    </div>
+                    <Magnetic strength={0.38} radius={72}>
+                      <button
+                        type="submit"
+                        disabled={phase === "submitting"}
+                        className="text-[10px] tracking-[0.14em] uppercase text-foreground/65
+                                   hover:text-foreground transition-colors disabled:opacity-40"
+                      >
+                        {phase === "submitting"
+                          ? "Saving"
+                          : answer.trim()
+                          ? "Submit"
+                          : "Enter"}
+                      </button>
+                    </Magnetic>
                   </div>
-
-                  {/* Expectation-setter — only when there's something to reveal */}
-                  {currentQ.allenAnswer && (
-                    <p className="text-[11px] text-muted/50 text-right pt-1">
-                      Submit to see Allen&apos;s answer
-                    </p>
-                  )}
                 </form>
               </motion.div>
             )}
 
-            {/* ── Responses phase ──────────────────────────────────────── */}
+            {/* ── Responses ────────────────────────────────────────── */}
             {phase === "responses" && (
               <motion.div
                 key="responses"
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.45 }}
+                transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                 className="w-full max-w-md"
               >
-                {/* Echo */}
-                <p className="text-[11px] tracking-widest uppercase text-muted
-                              text-center mb-10">
+                {/* Question echo */}
+                <p className="text-[9px] tracking-[0.24em] uppercase text-muted/55 mb-12">
                   {currentQ.text}
                 </p>
 
-                {/* Allen's answer — first, prominent */}
+                {/* Allen's answer */}
                 {currentQ.allenAnswer && (
                   <motion.div
-                    initial={{ opacity: 0, y: 6 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="mb-8 pb-8 border-b border-border"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.15 }}
+                    className="mb-10 pb-10 border-b border-foreground/[0.1]"
                   >
-                    <p className="text-[11px] tracking-widest uppercase text-muted mb-3">
-                      Allen said
+                    <p className="text-[9px] tracking-[0.2em] uppercase text-muted/55 mb-5">
+                      Allen
                     </p>
-                    <p className="font-serif text-[1.15rem] leading-relaxed">
+                    <p className="font-serif font-normal italic text-[1.2rem] leading-[1.65]
+                                  text-foreground/90">
                       &ldquo;{currentQ.allenAnswer}&rdquo;
                     </p>
                   </motion.div>
                 )}
 
                 {/* Others */}
-                {responses.length > 0 ? (
+                {responses.length > 0 && (
                   <>
-                    <p className="text-xs text-muted mb-6">Others said</p>
-                    <div className="space-y-7 max-h-[36vh] overflow-y-auto no-scrollbar pr-1">
+                    <p className="text-[9px] tracking-[0.2em] uppercase text-muted/55 mb-7">
+                      Others
+                    </p>
+                    <div className="space-y-8 max-h-[40vh] overflow-y-auto no-scrollbar">
                       {responses.map((r, i) => (
                         <motion.div
                           key={r.id}
-                          initial={{ opacity: 0, y: 4 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.2 + i * 0.055, duration: 0.35 }}
-                          className="border-b border-border pb-5 last:border-0 last:pb-0"
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ delay: 0.2 + i * 0.06 }}
+                          className="pb-7 border-b border-foreground/[0.08] last:border-0 last:pb-0"
                         >
-                          <p className="font-serif text-[1rem] leading-relaxed">
-                            &ldquo;{r.answer}&rdquo;
+                          <p className="text-[14px] leading-[1.75] text-foreground/85">
+                            {r.answer}
                           </p>
-                          <p className="text-[11px] text-muted mt-1.5">
-                            — {r.display_name ?? "anonymous"}
+                          <p className="text-[9px] tracking-[0.16em] uppercase text-muted/50 mt-2.5">
+                            — {r.display_name ?? "Anonymous"}
                           </p>
                         </motion.div>
                       ))}
                     </div>
                   </>
-                ) : (
-                  !currentQ.allenAnswer && (
-                    <p className="text-sm text-muted mb-8">
-                      You&apos;re the first to answer this.
-                    </p>
-                  )
                 )}
 
-                {/* Ask Allen section */}
+                {!currentQ.allenAnswer && responses.length === 0 && (
+                  <p className="text-[13px] text-muted/60 text-center mb-8">
+                    You&apos;re the first to answer this.
+                  </p>
+                )}
+
+                {/* Ask Allen */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="mt-10 border-t border-border pt-8"
+                  transition={{ delay: 0.45 }}
+                  className="mt-12 pt-8 border-t border-foreground/[0.1]"
                 >
                   {!askSent ? (
                     <>
                       <button
                         onClick={() => setAskExpanded(v => !v)}
-                        className="w-full flex items-center justify-between text-left"
+                        className="w-full flex items-center justify-between group"
                       >
-                        <span className="text-sm text-muted hover:text-foreground transition-colors">
-                          Have a question for Allen?
+                        <span className="text-[10px] tracking-[0.14em] uppercase text-muted/55
+                                         group-hover:text-muted transition-colors">
+                          Ask Allen a question
                         </span>
                         <motion.span
                           animate={{ rotate: askExpanded ? 45 : 0 }}
                           transition={{ duration: 0.2 }}
-                          className="text-muted text-lg leading-none"
+                          className="text-muted/40 text-base leading-none"
+                          aria-hidden="true"
                         >
                           +
                         </motion.span>
@@ -407,54 +401,52 @@ export default function GatewayPage() {
                       <AnimatePresence>
                         {askExpanded && (
                           <motion.form
-                            key="ask-form"
+                            key="ask"
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
-                            transition={{ duration: 0.3 }}
+                            transition={{ duration: 0.28 }}
                             onSubmit={handleAsk}
-                            className="space-y-3 mt-5 overflow-hidden"
+                            className="space-y-5 mt-7 overflow-hidden"
                           >
-                            <textarea
-                              value={visitorQ}
-                              onChange={e => setVisitorQ(e.target.value)}
-                              onFocus={() => { inputFocused.current = true; }}
-                              onBlur={() => { inputFocused.current = false; }}
-                              placeholder="What's your question?"
-                              rows={2}
-                              maxLength={1000}
-                              style={{ resize: "none" }}
-                              className="w-full bg-transparent border-b border-border text-[14px]
-                                         leading-relaxed outline-none focus-visible:outline-none
-                                         focus:border-foreground transition-colors placeholder:text-muted/50
-                                         py-2.5"
-                            />
-                            <input
-                              type="text"
-                              value={visitorContact}
-                              onChange={e => setVisitorContact(e.target.value)}
-                              onFocus={() => { inputFocused.current = true; }}
-                              onBlur={() => { inputFocused.current = false; }}
-                              placeholder="Email, LinkedIn, or phone — if you want Allen to respond"
-                              maxLength={200}
-                              className="w-full bg-transparent border-b border-border text-[13px]
-                                         outline-none focus-visible:outline-none focus:border-foreground
-                                         transition-colors placeholder:text-muted/40 py-2.5"
-                            />
-                            <div className="flex items-center justify-between pt-1">
-                              <p className="text-[11px] text-muted/50">
-                                {visitorContact.trim()
-                                  ? "Allen will try to reach you."
-                                  : "No contact? Allen may answer publicly."}
-                              </p>
+                            <div className="border-b border-foreground/[0.12] focus-within:border-foreground/40 transition-colors pb-px">
+                              <textarea
+                                value={visitorQ}
+                                onChange={e => setVisitorQ(e.target.value)}
+                                onFocus={() => { inputFocused.current = true; }}
+                                onBlur={() => { inputFocused.current = false; }}
+                                placeholder="Your question"
+                                rows={2}
+                                maxLength={1000}
+                                style={{ resize: "none" }}
+                                className="w-full bg-transparent text-[14px] leading-[1.75]
+                                           placeholder:text-muted/35 outline-none
+                                           focus-visible:outline-none py-2.5"
+                              />
+                            </div>
+                            <div className="border-b border-foreground/[0.12] focus-within:border-foreground/40 transition-colors pb-px">
+                              <input
+                                type="text"
+                                value={visitorContact}
+                                onChange={e => setVisitorContact(e.target.value)}
+                                onFocus={() => { inputFocused.current = true; }}
+                                onBlur={() => { inputFocused.current = false; }}
+                                placeholder="Email, LinkedIn, or phone — if you'd like a reply"
+                                maxLength={200}
+                                className="w-full bg-transparent text-[13px]
+                                           placeholder:text-muted/30 outline-none
+                                           focus-visible:outline-none py-2.5"
+                              />
+                            </div>
+                            <div className="flex justify-end pt-1">
                               <button
                                 type="submit"
                                 disabled={!visitorQ.trim()}
-                                className="text-[13px] font-medium underline underline-offset-4
-                                           decoration-1 hover:opacity-60 transition-opacity
-                                           disabled:opacity-30"
+                                className="text-[10px] tracking-[0.14em] uppercase
+                                           text-foreground/60 hover:text-foreground
+                                           transition-colors disabled:opacity-25"
                               >
-                                send →
+                                Send
                               </button>
                             </div>
                           </motion.form>
@@ -463,59 +455,70 @@ export default function GatewayPage() {
                     </>
                   ) : (
                     <motion.p
-                      initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                      className="text-sm text-muted"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="text-[10px] tracking-[0.12em] uppercase text-muted/55"
                     >
                       {visitorContact.trim()
                         ? "Sent. Allen will be in touch."
-                        : "Sent. Keep an eye on this page — Allen may answer publicly."}
+                        : "Sent."}
                     </motion.p>
                   )}
                 </motion.div>
 
-                {/* Footer row */}
+                {/* Footer */}
                 <motion.div
-                  initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                  transition={{ delay: 0.6 }}
-                  className="mt-10 flex items-center justify-between"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.55 }}
+                  className="mt-14 flex items-center justify-between"
                 >
                   <button
                     onClick={() => {
-                      setPhase("browse"); setAnswer("");
-                      setDisplay(""); setShowName(false);
-                      setAskExpanded(false); setAskSent(false);
-                      setVisitorQ(""); setVisitorContact("");
+                      setPhase("browse"); setAnswer(""); setDisplay("");
+                      setShowName(false); setAskExpanded(false);
+                      setAskSent(false); setVisitorQ(""); setVisitorContact("");
                     }}
-                    className="text-xs text-muted hover:text-foreground transition-colors"
+                    className="text-[10px] tracking-[0.14em] uppercase text-muted/50
+                               hover:text-muted transition-colors"
                   >
-                    ← browse more
+                    Browse more
                   </button>
-                  <Magnetic strength={0.5} radius={110}>
+                  <Magnetic strength={0.45} radius={100}>
                     <button
                       onClick={handleEnter}
-                      className="font-serif text-[1.4rem] font-normal hover:opacity-60 transition-opacity"
+                      className="font-serif font-normal text-[1.2rem] leading-none
+                                 hover:opacity-50 transition-opacity"
                     >
-                      Come in →
+                      Enter
                     </button>
                   </Magnetic>
                 </motion.div>
               </motion.div>
             )}
-          </AnimatePresence>
 
-          {/* Persistent escape */}
-          {phase === "browse" && (
-            <motion.button
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 2 }}
-              onClick={handleEnter}
-              className="absolute bottom-7 text-[11px] text-muted/50
-                         hover:text-muted transition-colors tracking-wide"
-            >
-              Enter without answering
-            </motion.button>
-          )}
+          </AnimatePresence>
+          </div>
+
+          {/* Skip — bottom anchor */}
+          <div className="absolute bottom-0 inset-x-0 h-16 flex items-center justify-center">
+            <AnimatePresence>
+              {phase === "browse" && (
+                <motion.button
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ delay: 2.2, duration: 0.4 }}
+                  onClick={handleEnter}
+                  className="text-[9px] tracking-[0.22em] uppercase
+                             text-muted/30 hover:text-muted/55 transition-colors"
+                >
+                  Skip
+                </motion.button>
+              )}
+            </AnimatePresence>
+          </div>
+
         </motion.div>
       )}
     </AnimatePresence>
