@@ -40,7 +40,7 @@ export default function GatewayPage() {
   const [answer, setAnswer]       = useState("");
   const [displayName, setDisplay] = useState("");
   const [showName, setShowName]   = useState(false);
-  const [showHint, setShowHint]   = useState(true);
+  // keyboard arrows still work silently for power users (no hint shown)
 
   // ── Responses ─────────────────────────────────────────────────────────────
   const [responses, setResponses]         = useState<Response[]>([]);
@@ -56,11 +56,6 @@ export default function GatewayPage() {
   const inputFocused = useRef(false);
   const currentQ     = questions[index];
 
-  // Fade keyboard hint
-  useEffect(() => {
-    const t = setTimeout(() => setShowHint(false), 4000);
-    return () => clearTimeout(t);
-  }, []);
 
   // Lazily fetch response count (debounced 400 ms)
   useEffect(() => {
@@ -193,80 +188,47 @@ export default function GatewayPage() {
                   Allen Kang
                 </p>
 
-                {/* Question + arrows */}
-                <div className="flex items-center gap-3">
-                  <Magnetic strength={0.5} radius={80} className="shrink-0">
-                    <button onClick={goPrev} aria-label="Previous question"
-                      className="p-2 -ml-2 text-muted hover:text-foreground
-                                 transition-colors rounded-full hover:bg-foreground/[0.04]">
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                        stroke="currentColor" strokeWidth="1.5"
-                        strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M9 2.5L4.5 7 9 11.5" />
-                      </svg>
-                    </button>
-                  </Magnetic>
-
-                  <Magnetic strength={0.035} radius={220} className="flex-1 overflow-hidden">
-                    <AnimatePresence mode="wait" custom={direction}>
-                      <motion.h1
-                        key={index}
-                        custom={direction}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
-                        className="font-serif text-[1.75rem] md:text-[2.1rem] font-normal
-                                   leading-[1.25] tracking-tight text-center"
-                      >
-                        {currentQ.text}
-                      </motion.h1>
-                    </AnimatePresence>
-                  </Magnetic>
-
-                  <Magnetic strength={0.5} radius={80} className="shrink-0">
-                    <button onClick={goNext} aria-label="Next question"
-                      className="p-2 -mr-2 text-muted hover:text-foreground
-                                 transition-colors rounded-full hover:bg-foreground/[0.04]">
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                        stroke="currentColor" strokeWidth="1.5"
-                        strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M5 2.5L9.5 7 5 11.5" />
-                      </svg>
-                    </button>
-                  </Magnetic>
-                </div>
-
-                {/* Counter */}
-                <div className="mt-4 flex items-center justify-center gap-3 h-5">
-                  <span className="text-[11px] tabular-nums text-muted/70">
-                    {index + 1}&thinsp;/&thinsp;{questions.length}
-                  </span>
-                  {responseCount !== null && responseCount > 0 && (
-                    <>
-                      <span className="text-muted/30 text-[11px]">·</span>
-                      <span className="text-[11px] text-muted/70">
-                        {responseCount}{" "}
-                        {responseCount === 1 ? "response" : "responses"}
-                      </span>
-                    </>
-                  )}
-                </div>
-
-                {/* Hint */}
-                <AnimatePresence>
-                  {showHint && (
-                    <motion.p
-                      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                      transition={{ delay: 1.2, duration: 0.6 }}
-                      className="text-center text-[10px] text-muted/40 mt-1 select-none"
-                      aria-hidden="true"
+                {/* Question — full width, centered */}
+                <Magnetic strength={0.035} radius={220}>
+                  <AnimatePresence mode="wait" custom={direction}>
+                    <motion.h1
+                      key={index}
+                      custom={direction}
+                      variants={slideVariants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      transition={{ duration: 0.28, ease: [0.25, 0.1, 0.25, 1] }}
+                      className="font-serif text-[1.75rem] md:text-[2.1rem] font-normal
+                                 leading-[1.25] tracking-tight text-center"
                     >
-                      ← → to browse · esc to enter
-                    </motion.p>
-                  )}
-                </AnimatePresence>
+                      {currentQ.text}
+                    </motion.h1>
+                  </AnimatePresence>
+                </Magnetic>
+
+                {/* Counter + conversational next */}
+                <div className="mt-5 flex items-center justify-center gap-3">
+                  <span className="text-[11px] tabular-nums text-muted/60">
+                    {index + 1}&thinsp;/&thinsp;{questions.length}
+                    {responseCount !== null && responseCount > 0 && (
+                      <> &middot; {responseCount}{" "}
+                        {responseCount === 1 ? "response" : "responses"}
+                      </>
+                    )}
+                  </span>
+                  <span className="text-muted/25 text-[11px]" aria-hidden="true">·</span>
+                  <Magnetic strength={0.4} radius={90}>
+                    <button
+                      onClick={goNext}
+                      className="text-[11px] text-muted/60 hover:text-foreground
+                                 transition-colors underline-offset-2 hover:underline
+                                 decoration-muted/40"
+                    >
+                      show me something else
+                    </button>
+                  </Magnetic>
+                </div>
 
                 {/* Form */}
                 <form onSubmit={handleSubmit} className="mt-10 space-y-3" noValidate>
@@ -274,7 +236,7 @@ export default function GatewayPage() {
                     ref={textareaRef}
                     value={answer}
                     onChange={onTextChange}
-                    onFocus={() => { inputFocused.current = true; setShowHint(false); }}
+                    onFocus={() => { inputFocused.current = true; }}
                     onBlur={() => { inputFocused.current = false; }}
                     placeholder="Your answer (optional)"
                     rows={1}
