@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import WorldClock from "./WorldClock";
 import { useState, useEffect, useCallback } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Magnetic from "./Magnetic";
@@ -17,7 +18,6 @@ const navItems = [
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/writing", label: "Writing" },
-  { href: "/resume", label: "Resume" },
 ];
 
 export default function Header() {
@@ -33,18 +33,24 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
       <nav
-        className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between"
+        className="max-w-6xl mx-auto px-6 h-16 flex items-center"
         aria-label="Primary"
       >
-        <Link
-          href="/"
-          className="font-serif text-[15px] font-normal tracking-normal hover:opacity-60 transition-opacity"
-          aria-label="Allen Kang — Home"
-        >
-          Allen Kang
-        </Link>
+        <div className="flex-1">
+          <Link
+            href="/gateway"
+            className="font-serif text-[15px] font-normal tracking-normal hover:opacity-60 transition-opacity"
+            aria-label="Allen Kang — Gateway"
+          >
+            Allen Kang
+          </Link>
+        </div>
 
-        <div className="flex items-center gap-2">
+        <div className="hidden md:flex">
+          <WorldClock />
+        </div>
+
+        <div className="flex-1 flex items-center justify-end gap-2">
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-8 mr-4" role="list">
             {navItems.map(({ href, label }) => {
@@ -74,6 +80,7 @@ export default function Header() {
           {/* Mobile menu — Sheet */}
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger
+              id="mobile-nav-trigger"
               className="md:hidden flex flex-col justify-center gap-1.5 p-2.5 ml-1 min-w-[44px] min-h-[44px]"
               aria-label="Navigation menu"
             >

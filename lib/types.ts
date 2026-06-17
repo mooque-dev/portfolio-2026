@@ -3,6 +3,7 @@ export interface ProjectSummary {
   title: string;
   subtitle: string;
   category: string;
+  type: "work" | "personal";
   coverColor: string;
   featured: boolean;
   role: string;

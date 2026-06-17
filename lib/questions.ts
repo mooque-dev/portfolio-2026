@@ -1,11 +1,9 @@
 export interface Question {
   id: string;
   text: string;
-  allenAnswer?: string; // Allen's personal answer — shown after a visitor submits theirs
+  allenAnswer?: string;
 }
 
-// A pool of questions — philosophical, practical, and personal.
-// Designed to invite reflection without demanding it.
 export const questions: Question[] = [
   {
     id: "q01",
@@ -14,37 +12,39 @@ export const questions: Question[] = [
   },
   {
     id: "q02",
-    text: "What does it mean to do work that matters?",
-    allenAnswer: "When you'd still do it if nobody was watching — but you're glad they are.",
+    text: "What makes something feel obvious in hindsight?",
+    allenAnswer:
+      "Someone removed everything that was hiding it. That's the job.",
   },
   {
     id: "q03",
-    text: "What's something you made that you're proud of?",
-    allenAnswer: "A design system nobody had to be told to use. That felt like winning.",
+    text: "When does adding more actually remove clarity?",
+    allenAnswer:
+      "The moment you start designing for your own anxiety instead of the person using it.",
   },
   {
     id: "q04",
-    text: "What does care look like in practice?",
+    text: "What's the difference between being right and being useful?",
     allenAnswer:
-      "Slowing down when everyone else is rushing. Holding space when the room wants to collapse it.",
+      "Being right is for you. Being useful is for someone else. I'd rather be useful.",
   },
   {
     id: "q05",
-    text: "When did you last change your mind about something important?",
+    text: "When did you last change your mind about something you were certain of?",
     allenAnswer:
       "I used to think governance made design systems stick. Turns out, making them easier to use does.",
   },
   {
     id: "q06",
-    text: "What's worth protecting?",
+    text: "When is the best solution also the wrong answer?",
     allenAnswer:
-      "The beginner's mind. I try not to let experience become arrogance.",
+      "When it solves the problem nobody actually has. It happens more than anyone admits.",
   },
   {
     id: "q07",
-    text: "What does home feel like to you?",
+    text: "What makes a constraint feel liberating?",
     allenAnswer:
-      "A kitchen that smells like something real. People who argue about the right way to do something small.",
+      "When it removes the options that were never really options. A smaller room you can actually furnish.",
   },
   {
     id: "q08",
@@ -54,25 +54,27 @@ export const questions: Question[] = [
   },
   {
     id: "q09",
-    text: "What makes collaboration feel good?",
+    text: "When does experience become a liability?",
     allenAnswer:
-      "When everyone in the room is trying to find the best idea — not protect their own.",
+      "When you stop asking why and start just knowing. The beginner sees the problem. The expert sees the solution they've already built.",
   },
   {
     id: "q10",
-    text: "What's one thing you wish more people understood?",
+    text: "What gets lost when everything is optimized?",
     allenAnswer:
-      "That being useful and being right are completely different things. I'd rather be useful.",
+      "The thing that made it worth doing in the first place. Optimization is a direction, not a destination.",
   },
   {
     id: "q11",
-    text: "What is the meaning of love?",
-    allenAnswer: "Showing up when it's inconvenient. Again. Without keeping score.",
+    text: "What's the cost of always being the person with the answer?",
+    allenAnswer:
+      "You stop hearing the question. And eventually, people stop asking.",
   },
   {
     id: "q12",
-    text: "What makes you happy in life?",
-    allenAnswer: "Cooking something for people. Watching them eat.",
+    text: "What does it mean to design for someone you fundamentally disagree with?",
+    allenAnswer:
+      "It means separating your taste from their needs. That's where the real work is.",
   },
   {
     id: "q13",
@@ -81,8 +83,9 @@ export const questions: Question[] = [
   },
   {
     id: "q14",
-    text: "What does rest look like for you?",
-    allenAnswer: "A quiet morning, bad coffee, and something worth reading.",
+    text: "What gets harder to see the closer you are to it?",
+    allenAnswer:
+      "Whether the thing you're building is actually solving a problem, or just becoming a more elaborate version of it.",
   },
   {
     id: "q15",
@@ -91,7 +94,7 @@ export const questions: Question[] = [
   },
 ];
 
-// One question per day, same for all visitors — creates a shared experience.
+// One question per day, same for all visitors — creates a shared moment.
 export function getDailyIndex(): number {
   return Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % questions.length;
 }

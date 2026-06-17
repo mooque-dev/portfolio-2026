@@ -10,6 +10,7 @@ export interface ProjectFrontmatter {
   title: string;
   subtitle: string;
   category: string;
+  type: "work" | "personal";
   role: string;
   timeline: string;
   team: string;
@@ -17,6 +18,24 @@ export interface ProjectFrontmatter {
   coverColor: string;
   featured: boolean;
   order: number;
+}
+
+export interface Heading {
+  id: string;
+  text: string;
+  level: number;
+}
+
+// Parses h2/h3 from rendered HTML, injects IDs, returns both.
+export function extractHeadings(html: string): { html: string; headings: Heading[] } {
+  const headings: Heading[] = [];
+  const processed = html.replace(/<h([23])>(.*?)<\/h\1>/g, (_, lvl, inner) => {
+    const text = inner.replace(/<[^>]+>/g, "").trim();
+    const id = text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    headings.push({ id, text, level: parseInt(lvl, 10) });
+    return `<h${lvl} id="${id}">${inner}</h${lvl}>`;
+  });
+  return { html: processed, headings };
 }
 
 export interface WritingFrontmatter {

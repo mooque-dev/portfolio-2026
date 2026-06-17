@@ -51,10 +51,11 @@ export const metadata: Metadata = {
 const themeScript = `
 (function(){
   try {
-    var t = localStorage.getItem('theme');
-    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-    }
+    var hour = new Date().getHours();
+    var autoDark = hour < 7 || hour >= 19;
+    var override = sessionStorage.getItem('themeOverride');
+    var isDark = override !== null ? override === 'dark' : autoDark;
+    if (isDark) document.documentElement.classList.add('dark');
     var l = localStorage.getItem('layout');
     if (l) document.documentElement.dataset.layout = l;
   } catch(e) {}
@@ -90,7 +91,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased bg-background text-foreground">
+      <body suppressHydrationWarning className="antialiased bg-background text-foreground">
         <TooltipProvider>
           <FluidCursor />
           <ReadingProgress />

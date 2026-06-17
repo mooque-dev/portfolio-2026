@@ -4,20 +4,21 @@ import { useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 const RING = 28;
-const DOT  = 5;
+const DOT  = 4;
+const INTERACTIVE = 'a, button, input, textarea, select, label, [role="button"], [role="link"]';
 
 export default function FluidCursor() {
-  const mx          = useMotionValue(-200);
-  const my          = useMotionValue(-200);
-  const opacity     = useMotionValue(0);
-  const hoverScale  = useMotionValue(1);
+  const mx      = useMotionValue(-200);
+  const my      = useMotionValue(-200);
+  const opacity = useMotionValue(0);
+  const scale   = useMotionValue(1);
 
-  // The ring springs behind the raw pointer — this lag is the "water" feel
-  const sx = useSpring(mx, { stiffness: 130, damping: 18, mass: 0.9 });
-  const sy = useSpring(my, { stiffness: 130, damping: 18, mass: 0.9 });
-  const ss = useSpring(hoverScale, { stiffness: 220, damping: 18 });
+  // Critically-damped: ratio = damping / (2 * sqrt(stiffness * mass)) = 28/(2*√196) = 1.0
+  // Higher stiffness = ring follows closer; ratio still 1.0 so no overshoot
+  const sx = useSpring(mx,    { stiffness: 300, damping: 35, mass: 1 });
+  const sy = useSpring(my,    { stiffness: 300, damping: 35, mass: 1 });
+  const ss = useSpring(scale, { stiffness: 280, damping: 28 });
 
-  // Centre the elements on the pointer
   const ringX = useTransform(sx, v => v - RING / 2);
   const ringY = useTransform(sy, v => v - RING / 2);
   const dotX  = useTransform(mx, v => v - DOT  / 2);
@@ -28,54 +29,43 @@ export default function FluidCursor() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const html = document.documentElement;
+    html.classList.add("fluid-cursor");
 
+    // Event delegation — one listener, no stacking, no MutationObserver needed
     const onMove = (e: MouseEvent) => {
       mx.set(e.clientX);
       my.set(e.clientY);
       opacity.set(1);
+      const isInteractive = !!(e.target as Element)?.closest(INTERACTIVE);
+      scale.set(isInteractive ? 2.0 : 1);
     };
 
-    const onEnter = () => hoverScale.set(2.8);
-    const onLeave = () => hoverScale.set(1);
+    // Hide when mouse exits the browser window
+    const onLeave = () => { opacity.set(0); scale.set(1); };
 
     window.addEventListener("mousemove", onMove, { passive: true });
-
-    function attachHover() {
-      document
-        .querySelectorAll("a, button, input, textarea, [role='button'], select, label")
-        .forEach(el => {
-          el.addEventListener("mouseenter", onEnter);
-          el.addEventListener("mouseleave", onLeave);
-        });
-    }
-    attachHover();
-
-    // Re-attach when the DOM changes (route transitions, dynamic content)
-    const obs = new MutationObserver(attachHover);
-    obs.observe(document.body, { childList: true, subtree: true });
-
-    html.classList.add("fluid-cursor");
+    html.addEventListener("mouseleave", onLeave);
 
     return () => {
       window.removeEventListener("mousemove", onMove);
-      obs.disconnect();
+      html.removeEventListener("mouseleave", onLeave);
       html.classList.remove("fluid-cursor");
     };
-  }, [mx, my, opacity, hoverScale]);
+  }, [mx, my, opacity, scale]);
 
   return (
     <>
-      {/* Trailing ring */}
+      {/* Trailing ring — springs behind the pointer */}
       <motion.div
         style={{ x: ringX, y: ringY, scale: ss, opacity }}
         className="fixed top-0 left-0 pointer-events-none z-[9998] rounded-full
-                   border border-foreground/35"
+                   border border-foreground/25"
         aria-hidden="true"
       >
         <div style={{ width: RING, height: RING }} />
       </motion.div>
 
-      {/* Immediate dot */}
+      {/* Dot — tracks cursor precisely, no spring */}
       <motion.div
         style={{ x: dotX, y: dotY, opacity }}
         className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full bg-foreground"

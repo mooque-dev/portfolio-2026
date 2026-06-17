@@ -4,20 +4,16 @@ import { createContext, useContext, useEffect, useState, ReactNode } from "react
 
 export type LayoutMode =
   | "editorial"
-  | "index"
   | "magazine"
   | "minimal"
   | "bento"
-  | "timeline"
   | "dense";
 
 const ALL_MODES: LayoutMode[] = [
   "editorial",
-  "index",
   "magazine",
   "minimal",
   "bento",
-  "timeline",
   "dense",
 ];
 
@@ -27,7 +23,7 @@ interface LayoutContextValue {
 }
 
 const LayoutContext = createContext<LayoutContextValue>({
-  layout: "editorial",
+  layout: "minimal",
   setLayout: () => {},
 });
 
@@ -40,7 +36,7 @@ function getInitialLayout(): LayoutMode {
     const attr = document.documentElement.dataset.layout as LayoutMode | undefined;
     if (attr && ALL_MODES.includes(attr)) return attr;
   }
-  return "editorial";
+  return "minimal";
 }
 
 export function LayoutProvider({ children }: { children: ReactNode }) {

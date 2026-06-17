@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProject, getProjectSlugs, getAllProjects } from "@/lib/content";
+import { getProject, getProjectSlugs, getAllProjects, extractHeadings } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
+import TableOfContents from "@/components/TableOfContents";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -31,12 +32,14 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const currentIndex = allProjects.findIndex((p) => p.slug === slug);
   const nextProject = allProjects[currentIndex + 1] ?? allProjects[0];
 
-  const { frontmatter, content } = project;
+  const { frontmatter } = project;
+  const { html: content, headings } = extractHeadings(project.content);
 
   return (
-    <article className="pt-32 pb-24 md:pt-40 md:pb-32 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="max-w-3xl">
+    <article className="pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex gap-16 items-start">
+        <div className="flex-1 min-w-0 max-w-3xl">
         {/* Header */}
         <FadeIn>
           <Link
@@ -127,6 +130,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </div>
           </FadeIn>
         )}
+        </div>
+        <TableOfContents headings={headings} />
         </div>
       </div>
     </article>

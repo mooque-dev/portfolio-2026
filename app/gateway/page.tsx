@@ -148,6 +148,10 @@ export default function GatewayPage() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
           className="fixed inset-0 bg-background"
+          style={{
+            backgroundImage: "radial-gradient(circle, var(--border) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+          }}
         >
           {/* Attribution — top anchor */}
           <div className="absolute top-0 inset-x-0 h-20 flex items-end justify-center pb-2 pointer-events-none z-10">
@@ -191,22 +195,57 @@ export default function GatewayPage() {
                   </AnimatePresence>
                 </Magnetic>
 
-                {/* ── Meta row ── */}
-                <div className="mt-7 flex items-center gap-5">
-                  <span className="text-[10px] tracking-[0.14em] uppercase text-muted/50 tabular-nums">
-                    {index + 1} / {questions.length}
-                    {responseCount !== null && responseCount > 0 && (
-                      <> &middot; {responseCount}</>
-                    )}
+                {/* ── Meta row — floating pills ── */}
+                <div className="mt-6 flex items-center gap-2 flex-wrap">
+                  {/* Question counter pill */}
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full
+                                   bg-background/90 backdrop-blur-sm
+                                   border border-foreground/[0.08]
+                                   shadow-[0_1px_4px_rgba(0,0,0,0.06)]
+                                   text-[10px] tabular-nums text-muted/60 select-none">
+                    {index + 1}&thinsp;/&thinsp;{questions.length}
                   </span>
 
+                  {/* Response count pill — green tint, only when there are responses */}
+                  {responseCount !== null && responseCount > 0 && (
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full
+                                     bg-emerald-50 dark:bg-emerald-950/30
+                                     border border-emerald-200/70 dark:border-emerald-800/40
+                                     shadow-[0_1px_4px_rgba(0,0,0,0.05)]
+                                     text-[10px] text-emerald-700 dark:text-emerald-400 select-none">
+                      <span aria-hidden="true">↑</span>
+                      {responseCount}
+                    </span>
+                  )}
+
+                  {/* Navigation pill button */}
                   <Magnetic strength={0.38} radius={80}>
                     <button
                       onClick={goNext}
-                      className="text-[10px] tracking-[0.14em] uppercase text-muted/40
-                                 hover:text-muted/70 transition-colors duration-300"
+                      className="inline-flex items-center px-2.5 py-1 rounded-full
+                                 bg-background/90 backdrop-blur-sm
+                                 border border-foreground/[0.08]
+                                 shadow-[0_1px_4px_rgba(0,0,0,0.06)]
+                                 text-[10px] text-muted/50
+                                 hover:text-foreground hover:border-foreground/20
+                                 transition-all duration-200"
                     >
                       show me something else
+                    </button>
+                  </Magnetic>
+
+                  {/* Portfolio entry — equal weight to browsing */}
+                  <Magnetic strength={0.3} radius={72}>
+                    <button
+                      onClick={handleEnter}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full
+                                 bg-foreground text-background
+                                 shadow-[0_1px_4px_rgba(0,0,0,0.10)]
+                                 text-[10px]
+                                 hover:opacity-75
+                                 transition-all duration-200"
+                    >
+                      portfolio →
                     </button>
                   </Magnetic>
                 </div>
@@ -500,7 +539,7 @@ export default function GatewayPage() {
           </AnimatePresence>
           </div>
 
-          {/* Skip — bottom anchor */}
+          {/* Skip — bottom anchor (fallback for those who missed the pill) */}
           <div className="absolute bottom-0 inset-x-0 h-16 flex items-center justify-center">
             <AnimatePresence>
               {phase === "browse" && (
@@ -508,7 +547,7 @@ export default function GatewayPage() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  transition={{ delay: 2.2, duration: 0.4 }}
+                  transition={{ delay: 0.8, duration: 0.4 }}
                   onClick={handleEnter}
                   className="text-[9px] tracking-[0.22em] uppercase
                              text-muted/30 hover:text-muted/55 transition-colors"

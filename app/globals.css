@@ -132,6 +132,8 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: optimizeLegibility;
+  background-image: radial-gradient(circle, color-mix(in srgb, var(--border) 55%, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 /* Refined serif rendering — critical for editorial feel */

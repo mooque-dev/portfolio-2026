@@ -39,8 +39,8 @@ export default async function WritingPostPage({ params }: PageProps) {
   const { frontmatter, content } = post;
 
   return (
-    <article className="pt-32 pb-24 md:pt-40 md:pb-32 px-6">
-      <div className="max-w-6xl mx-auto">
+    <article className="pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl">
         <FadeIn>
           <Link

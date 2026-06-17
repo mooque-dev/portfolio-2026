@@ -11,6 +11,7 @@ export default async function Home() {
     title: p.frontmatter.title,
     subtitle: p.frontmatter.subtitle,
     category: p.frontmatter.category,
+    type: p.frontmatter.type ?? "work",
     coverColor: p.frontmatter.coverColor,
     featured: p.frontmatter.featured,
     role: p.frontmatter.role,

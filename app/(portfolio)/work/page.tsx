@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getAllProjects } from "@/lib/content";
-import ProjectCard from "@/components/ProjectCard";
+import WorkFilter from "@/components/WorkFilter";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
@@ -10,11 +10,23 @@ export const metadata: Metadata = {
 };
 
 export default async function WorkPage() {
-  const projects = await getAllProjects();
+  const allProjects = await getAllProjects();
+
+  const projects = allProjects.map((p) => ({
+    slug: p.slug,
+    title: p.frontmatter.title,
+    subtitle: p.frontmatter.subtitle,
+    category: p.frontmatter.category,
+    type: (p.frontmatter.type ?? "work") as "work" | "personal",
+    coverColor: p.frontmatter.coverColor,
+    featured: p.frontmatter.featured,
+    role: p.frontmatter.role,
+    timeline: p.frontmatter.timeline,
+  }));
 
   return (
-    <section className="pt-32 pb-24 md:pt-40 md:pb-32 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
             Work
@@ -25,19 +37,7 @@ export default async function WorkPage() {
           </p>
         </FadeIn>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-          {projects.map((project, i) => (
-            <FadeIn key={project.slug} delay={i * 0.08}>
-              <ProjectCard
-                slug={project.slug}
-                title={project.frontmatter.title}
-                subtitle={project.frontmatter.subtitle}
-                category={project.frontmatter.category}
-                coverColor={project.frontmatter.coverColor}
-              />
-            </FadeIn>
-          ))}
-        </div>
+        <WorkFilter projects={projects} />
       </div>
     </section>
   );

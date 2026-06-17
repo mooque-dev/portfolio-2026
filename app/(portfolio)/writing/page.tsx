@@ -13,8 +13,8 @@ export default async function WritingPage() {
   const posts = await getAllWritingPosts();
 
   return (
-    <section className="pt-32 pb-24 md:pt-40 md:pb-32 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
             Writing

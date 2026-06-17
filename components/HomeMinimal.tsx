@@ -12,17 +12,16 @@ interface Props {
 
 export default function HomeMinimal({ allProjects, recentWriting }: Props) {
   return (
-    <section className="pt-32 md:pt-40 pb-24 md:pb-32 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="pt-32 md:pt-40 pb-24 md:pb-32">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-2xl">
-          {/* Name + bio */}
+          {/* Bio */}
           <FadeIn>
-            <h1 className="text-sm tracking-wide">Allen Kang</h1>
-            <p className="mt-6 text-[28px] md:text-[32px] leading-[1.35] font-light">
+            <h1 className="text-[28px] md:text-[32px] leading-[1.35] font-light">
               Design leader with a Fine Arts eye and a systems brain. I build the
               foundations — systems, patterns, culture — that let teams ship more
               thoughtful products at scale. Open to Staff and Principal roles.
-            </p>
+            </h1>
           </FadeIn>
 
           <FadeIn delay={0.1}>

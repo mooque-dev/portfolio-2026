@@ -5,12 +5,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const options: { value: LayoutMode; label: string }[] = [
-  { value: "editorial", label: "Cards" },
-  { value: "index", label: "Index" },
-  { value: "magazine", label: "Magazine" },
   { value: "minimal", label: "Minimal" },
+  { value: "magazine", label: "Magazine" },
   { value: "bento", label: "Bento" },
-  { value: "timeline", label: "Timeline" },
   { value: "dense", label: "Dense" },
 ];
 

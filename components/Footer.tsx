@@ -4,10 +4,6 @@ export default function Footer() {
   return (
     <footer className="border-t border-border mt-32" role="contentinfo">
       <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start gap-8">
-        <div>
-          <p className="font-serif text-lg font-semibold">Allen Kang</p>
-          <p className="text-sm text-muted mt-1">Product Design Leader</p>
-        </div>
         <div className="flex flex-col sm:flex-row gap-8 text-sm">
           <nav aria-label="Footer">
             <ul className="flex flex-col gap-2" role="list">
