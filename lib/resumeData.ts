@@ -19,12 +19,12 @@ export interface Education {
 
 export const experience: Job[] = [
   {
-    company: "Keela — acquired by Aplos",
+    company: "Velora (Keela · Raisely · Aplos)",
     role: "Product Design Lead",
     location: "Toronto, ON",
-    period: "February 2023 — 2026",
+    period: "February 2023 — Present",
     description: [
-      "Owned design direction for a platform serving 5,000+ nonprofit organizations — CRM, accounting, and donor management all under one roof.",
+      "Lead design across Velora's three nonprofit products — merging Keela, Raisely, and Aplos into one connected system used by 85,600+ campaigns across 102 countries.",
       "Built Orchid, a design system that consolidated 340+ scattered components into 86 shared primitives. Adopted across all three products within 6 months, cutting component development time by 40%.",
       "Led the first cross-product initiative post-acquisition — designed the integration experience and established the collaboration framework that every subsequent cross-team project has followed.",
       "Designed a 0→1 automation platform. 45% of active accounts adopted within 3 months. Became a competitive differentiator in sales conversations.",

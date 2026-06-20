@@ -68,6 +68,7 @@ const jsonLd = {
   name: "Allen Kang",
   url: siteUrl,
   jobTitle: "Product Design Leader",
+  worksFor: { "@type": "Organization", name: "Velora" },
   description:
     "Design leader with a Fine Arts background. Building products, systems, and the teams that ship them.",
   sameAs: ["https://www.linkedin.com/in/mooque/"],

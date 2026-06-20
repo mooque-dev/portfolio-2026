@@ -25,9 +25,9 @@ function buildTimeline(projects: ProjectSummary[], writing: WritingSummary[]): T
 
   entries.push({
     type: "milestone",
-    year: "2023–2026",
-    title: "Product Design Lead — Keela (acquired by Aplos)",
-    description: "Led design for a platform serving 5,000+ nonprofits. Built Orchid — consolidating 340+ components into 86 shared primitives. Merged three product teams into one design culture. Shipped a 0→1 automation platform with 45% adoption.",
+    year: "2023–Present",
+    title: "Product Design Lead — Velora (Keela · Raisely · Aplos)",
+    description: "Merging three nonprofit products into one connected system used by 85,600+ campaigns across 102 countries. Built Orchid — consolidating 340+ components into 86 shared primitives. Merged three product teams into one design culture. Shipped a 0→1 automation platform with 45% adoption.",
     href: "/about",
   });
 

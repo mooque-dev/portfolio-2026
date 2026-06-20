@@ -52,14 +52,13 @@ export default function AboutTabs() {
               </p>
               <p>
                 For the past 7+ years, I&apos;ve been designing products across
-                education, healthcare, food tech, and nonprofit tools. Most
-                recently, I led product design at Keela (acquired by Aplos) —
-                responsible for the design direction of a CRM platform that
-                5,000+ nonprofits rely on to manage donors, track finances, and
-                run their operations. I was effectively the founding designer: I
-                built the research practice, the design system, and the culture
-                from scratch, then scaled it across three product teams
-                post-acquisition.
+                education, healthcare, food tech, and nonprofit tools. Today I
+                lead design at Velora, where I&apos;m merging three nonprofit
+                SaaS products — Keela, Raisely, and Aplos — into one connected
+                system used by 85,600+ campaigns across 102 countries. I was
+                effectively the founding designer on this effort: I built the
+                research practice, the design system, and the culture from
+                scratch, then scaled it across three product teams.
               </p>
               <p>
                 The most interesting challenge of that period was merging three
