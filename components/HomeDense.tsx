@@ -23,7 +23,7 @@ export default function HomeDense({ allProjects, recentWriting }: Props) {
               <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight leading-none">
                 Allen Kang
               </h1>
-              <p className="text-xs text-muted hidden md:block">Product Design Leader &middot; Toronto</p>
+              <p className="text-xs text-muted hidden md:block">Product Design Lead &middot; Toronto</p>
             </div>
           </div>
           <div className="flex items-center justify-between text-[10px] text-muted uppercase tracking-widest py-1.5 border-b border-border">
@@ -42,7 +42,7 @@ export default function HomeDense({ allProjects, recentWriting }: Props) {
             </div>
             <div className="md:col-span-4 mt-3 md:mt-0">
               <p className="text-sm text-muted leading-relaxed">
-                A Fine Arts eye, a systems brain, and 7+ years of building design culture from startup through acquisition.
+                Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around.
               </p>
             </div>
           </div>

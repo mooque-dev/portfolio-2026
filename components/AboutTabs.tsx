@@ -51,8 +51,10 @@ export default function AboutTabs() {
                 not just whether it tests well.
               </p>
               <p>
-                For the past 7+ years, I&apos;ve been designing products across
-                education, healthcare, food tech, and nonprofit tools. Today I
+                For the past eight years, I&apos;ve been designing products
+                across education, healthcare, food tech, and nonprofit tools —
+                mission-driven work for people the industry usually designs
+                around. Today I
                 lead design at Velora, where I&apos;m merging three nonprofit
                 SaaS products — Keela, Raisely, and Aplos — into one connected
                 system used by 85,600+ campaigns across 102 countries. I was

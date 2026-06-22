@@ -18,9 +18,9 @@ export default function HomeMinimal({ allProjects, recentWriting }: Props) {
           {/* Bio */}
           <FadeIn>
             <h1 className="text-[28px] md:text-[32px] leading-[1.35] font-light">
-              Design leader with a Fine Arts eye and a systems brain. I build the
-              foundations — systems, patterns, culture — that let teams ship more
-              thoughtful products at scale. Open to Staff and Principal roles.
+              Product Design Lead. Optimist, systems-builder, experience-maker.
+              Eight years designing mission-driven products for people the
+              industry usually designs around.
             </h1>
           </FadeIn>
 
