@@ -90,6 +90,7 @@
   --color-focus: var(--focus);
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
+  --font-script: var(--font-caveat);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);

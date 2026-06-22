@@ -39,10 +39,18 @@ export default function Header() {
         <div className="flex-1">
           <Link
             href="/gateway"
-            className="font-serif text-[15px] font-normal tracking-normal hover:opacity-60 transition-opacity"
-            aria-label="Allen Kang — Gateway"
+            className="group inline-flex flex-col leading-none hover:opacity-70 transition-opacity"
+            aria-label="Allen Kang (mooque) — Gateway"
           >
-            Allen Kang
+            <span
+              className="text-[26px] leading-[0.9] text-foreground"
+              style={{ fontFamily: "var(--font-script)" }}
+            >
+              mooque
+            </span>
+            <span className="text-[8.5px] tracking-[0.18em] uppercase text-muted/80 pl-px mt-0.5">
+              Allen Kang
+            </span>
           </Link>
         </div>
 
