@@ -27,7 +27,7 @@ const tileAspect: Record<number, string> = {
   5: "aspect-square",
 };
 
-export default function HomeBento({ allProjects, recentWriting }: Props) {
+export default function HomeGallery({ allProjects, recentWriting }: Props) {
   return (
     <>
       {/* Compact header */}

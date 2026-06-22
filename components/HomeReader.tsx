@@ -10,7 +10,7 @@ interface Props {
   recentWriting: WritingSummary[];
 }
 
-export default function HomeMinimal({ allProjects, recentWriting }: Props) {
+export default function HomeReader({ allProjects, recentWriting }: Props) {
   return (
     <section className="pt-32 md:pt-40 pb-24 md:pb-32">
       <div className="max-w-6xl mx-auto px-6">

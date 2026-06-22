@@ -5,10 +5,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const options: { value: LayoutMode; label: string }[] = [
-  { value: "minimal", label: "Minimal" },
-  { value: "magazine", label: "Magazine" },
-  { value: "bento", label: "Bento" },
-  { value: "dense", label: "Dense" },
+  { value: "reader", label: "Reader" },
+  { value: "gallery", label: "Gallery" },
+  { value: "index", label: "Index" },
 ];
 
 export default function ControlPanel() {
@@ -39,6 +38,9 @@ export default function ControlPanel() {
       aria-label="Layout switcher"
     >
       <div className="flex items-center gap-0.5 overflow-x-auto no-scrollbar">
+        <span className="pl-2.5 pr-1.5 text-[9px] tracking-[0.18em] uppercase text-background/40 select-none shrink-0">
+          View
+        </span>
         {options.map(({ value, label }) => (
           <button
             key={value}
