@@ -20,7 +20,7 @@ export default function HomeIndex({ allProjects, recentWriting }: Props) {
         <FadeIn>
           <div className="border-b-2 border-foreground pb-3 mb-1">
             <div className="flex items-end justify-between">
-              <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight leading-none">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight leading-none">
                 Allen Kang
               </h1>
               <p className="text-xs text-muted hidden md:block">Product Design Lead &middot; Toronto</p>
@@ -36,7 +36,7 @@ export default function HomeIndex({ allProjects, recentWriting }: Props) {
         <FadeIn delay={0.05}>
           <div className="mt-6 md:grid md:grid-cols-12 gap-6">
             <div className="md:col-span-8">
-              <h2 className="font-serif text-2xl md:text-3xl font-bold leading-tight tracking-tight">
+              <h2 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight">
                 The systems and craft behind products that work
               </h2>
             </div>
@@ -68,7 +68,7 @@ export default function HomeIndex({ allProjects, recentWriting }: Props) {
                       <span className="text-[9px] tracking-widest uppercase text-muted">
                         {project.category}
                       </span>
-                      <h3 className="font-serif text-[15px] font-bold leading-snug mt-0.5 group-hover:opacity-60 transition-opacity">
+                      <h3 className="text-[15px] font-bold leading-snug mt-0.5 group-hover:opacity-60 transition-opacity">
                         {project.title}
                       </h3>
                       <p className="text-xs text-muted mt-1 leading-relaxed line-clamp-2">
@@ -97,7 +97,7 @@ export default function HomeIndex({ allProjects, recentWriting }: Props) {
                       <span className="text-[9px] tracking-widest uppercase text-muted">
                         {project.category}
                       </span>
-                      <h3 className="font-serif text-[15px] font-bold leading-snug mt-0.5 group-hover:opacity-60 transition-opacity">
+                      <h3 className="text-[15px] font-bold leading-snug mt-0.5 group-hover:opacity-60 transition-opacity">
                         {project.title}
                       </h3>
                       <p className="text-xs text-muted mt-1 leading-relaxed line-clamp-2">
@@ -122,7 +122,7 @@ export default function HomeIndex({ allProjects, recentWriting }: Props) {
                       href={`/writing/${post.slug}`}
                       className="group block py-2.5 border-b border-border last:border-b-0"
                     >
-                      <h4 className="font-serif text-sm font-bold leading-snug group-hover:opacity-60 transition-opacity">
+                      <h4 className="text-sm font-bold leading-snug group-hover:opacity-60 transition-opacity">
                         {post.title}
                       </h4>
                       <p className="text-[11px] text-muted mt-0.5 line-clamp-1">{post.excerpt}</p>

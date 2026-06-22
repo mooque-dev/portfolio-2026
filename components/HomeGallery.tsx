@@ -35,7 +35,7 @@ export default function HomeGallery({ allProjects, recentWriting }: Props) {
         <div className="max-w-6xl mx-auto">
           <FadeIn>
             <p className="text-sm text-muted mb-2">Allen Kang</p>
-            <h1 className="font-serif text-3xl md:text-4xl font-bold tracking-tight leading-tight max-w-lg">
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight max-w-lg">
               Designing the foundations that make great products feel inevitable.
             </h1>
           </FadeIn>
@@ -66,7 +66,7 @@ export default function HomeGallery({ allProjects, recentWriting }: Props) {
                   <span className="inline-block self-start bg-background/80 backdrop-blur-sm text-foreground text-[10px] tracking-widest uppercase px-2 py-0.5 rounded-full font-medium mb-2">
                     {project.category}
                   </span>
-                  <h2 className="font-serif text-lg md:text-xl font-bold leading-snug text-foreground drop-shadow-sm">
+                  <h2 className="text-lg md:text-xl font-bold leading-snug text-foreground drop-shadow-sm">
                     {project.title}
                   </h2>
                   {(i === 0 || i === 3) && (
@@ -93,7 +93,7 @@ export default function HomeGallery({ allProjects, recentWriting }: Props) {
                       href={`/writing/${post.slug}`}
                       className="group block"
                     >
-                      <h3 className="font-serif text-sm font-semibold leading-snug group-hover:opacity-60 transition-opacity">
+                      <h3 className="text-sm font-semibold leading-snug group-hover:opacity-60 transition-opacity">
                         {post.title}
                       </h3>
                     </Link>
@@ -112,7 +112,7 @@ export default function HomeGallery({ allProjects, recentWriting }: Props) {
           {/* About tile */}
           <FadeIn delay={(allProjects.length + 1) * 0.06} className="md:col-span-2">
             <div className="h-full bg-surface rounded-xl p-5 md:p-6 flex flex-col justify-between">
-              <p className="font-serif text-lg md:text-xl leading-snug font-medium max-w-lg">
+              <p className="text-lg md:text-xl leading-snug font-medium max-w-lg">
                 Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around — most recently merging three platforms into one at Velora. I also cook, paint, code, and occasionally ship enterprise software.
               </p>
               <div className="flex gap-4 mt-6">
