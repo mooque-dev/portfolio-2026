@@ -14,8 +14,8 @@ export default function HomeIndex({ allProjects, recentWriting }: Props) {
   const col2 = allProjects.filter((_, i) => i % 2 === 1);
 
   return (
-    <section className="pt-28 md:pt-32 pb-16 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="pt-28 md:pt-32 pb-16">
+      <div className="max-w-6xl mx-auto px-6">
         {/* Masthead */}
         <FadeIn>
           <div className="border-b-2 border-foreground pb-3 mb-1">

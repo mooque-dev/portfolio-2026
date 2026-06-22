@@ -31,8 +31,8 @@ export default function HomeGallery({ allProjects, recentWriting }: Props) {
   return (
     <>
       {/* Compact header */}
-      <section className="pt-28 md:pt-32 pb-8 px-6">
-        <div className="max-w-6xl mx-auto">
+      <section className="pt-28 md:pt-32 pb-8">
+        <div className="max-w-6xl mx-auto px-6">
           <FadeIn>
             <p className="text-sm text-muted mb-2">Allen Kang</p>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight max-w-lg">
@@ -43,8 +43,8 @@ export default function HomeGallery({ allProjects, recentWriting }: Props) {
       </section>
 
       {/* Bento grid */}
-      <section className="px-6 pb-16 md:pb-24" aria-label="Project grid">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-3">
+      <section className="pb-16 md:pb-24" aria-label="Project grid">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-3">
           {allProjects.map((project, i) => (
             <FadeIn
               key={project.slug}

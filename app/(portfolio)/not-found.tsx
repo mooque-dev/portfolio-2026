@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="pt-40 pb-24 md:pt-48 md:pb-32 px-6">
-      <div className="max-w-6xl mx-auto text-center">
+    <section className="pt-40 pb-24 md:pt-48 md:pb-32">
+      <div className="max-w-6xl mx-auto px-6 text-center">
         <h1 className="font-serif text-6xl md:text-8xl font-bold tracking-tight">
           404
         </h1>
