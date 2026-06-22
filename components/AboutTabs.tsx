@@ -42,45 +42,39 @@ export default function AboutTabs() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className="mt-12 space-y-6 text-lg leading-relaxed">
+            <div className="mt-12 space-y-7 text-[22px] md:text-[30px] leading-[1.4] font-light tracking-[-0.01em] text-balance">
               <p>
-                I&apos;m Allen. I studied Fine Arts before I ever touched a
-                wireframe, and that background still shapes everything I do — I
-                see composition in complex systems, rhythm in interaction
-                patterns, and I care deeply about whether something feels right,
-                not just whether it tests well.
+                I wanted to be a children&apos;s book illustrator. I studied
+                Fine Arts instead, almost became a wedding photographer — then
+                someone stole my camera gear, and I took it as a sign to chase
+                ideas instead of equipment. Design is where I landed, and
+                where I&apos;ve stayed for eight years.
               </p>
               <p>
-                For the past eight years, I&apos;ve been designing products
-                across education, healthcare, food tech, and nonprofit tools —
-                mission-driven work for people the industry usually designs
-                around. Today I
-                lead design at Velora, where I&apos;m merging three nonprofit
-                SaaS products — Keela, Raisely, and Aplos — into one connected
-                system used by 85,600+ campaigns across 102 countries. I was
-                effectively the founding designer on this effort: I built the
-                research practice, the design system, and the culture from
-                scratch, then scaled it across three product teams.
+                I&apos;ve spent those years on mission-driven products —
+                education, healthcare, nonprofits — building for the people most
+                software forgets. Somewhere in there I realized the work was
+                never really about screens. It&apos;s about how people feel: the
+                person using the thing, and the team in the room making it.
               </p>
               <p>
-                The most interesting challenge of that period was merging three
-                separate products into one coherent experience. That meant
-                building a design system from the ground up, figuring out how to
-                get teams who didn&apos;t choose to work together to collaborate
-                genuinely, and making hard calls about which patterns to keep and
-                which to let go. The work I&apos;m proudest of isn&apos;t any
-                single feature — it&apos;s the shared language and design culture
-                that let the whole org move faster.
-              </p>
-              <p>
-                I&apos;m at my best in the messy, ambiguous early stages of a
-                project — where the problem isn&apos;t well-defined yet and the
-                right approach could go several directions. That&apos;s where my
-                Fine Arts training kicks in. Before I open Figma, I sketch, I
-                map systems on whiteboards, I talk to people. The pixel work
-                comes later, after the thinking.
+                I&apos;m an optimist, and I&apos;ve come to believe optimism is a
+                design tool — it&apos;s how you get people to believe a better
+                version is possible, then go build it. AI can make the screens
+                now. I&apos;m here for the part it can&apos;t.
               </p>
             </div>
+          </FadeIn>
+
+          <FadeIn delay={0.12}>
+            <p className="mt-10 text-base text-muted leading-relaxed max-w-2xl">
+              These days that means leading design at Velora, where I&apos;m
+              merging three nonprofit products — Keela, Raisely, and Aplos —
+              into one connected system used by 85,600+ campaigns across 102
+              countries. I came in as the founding designer on that effort and
+              built the research practice, the design system, and the culture
+              from scratch.
+            </p>
           </FadeIn>
 
           <FadeIn delay={0.15}>
@@ -162,41 +156,44 @@ export default function AboutTabs() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Art &amp; Volunteering</h3>
+                  <h3 className="font-semibold mb-2">Paint &amp; a camera</h3>
                   <p className="text-muted leading-relaxed">
-                    I still paint and draw, though less than I&apos;d like. I
-                    &apos;ve{" "}
+                    I trained in illustration, watercolour, and oil painting,
+                    and shot weddings on the side before design took over. I
+                    still pick up a brush when I can — and I&apos;ve{" "}
                     <Link
                       href="/work/artist-merchandise"
                       className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
                       helped emerging artists
                     </Link>{" "}
-                    develop visual identities and launch merchandise lines.
+                    build visual identities of their own.
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Building Things</h3>
+                  <h3 className="font-semibold mb-2">Running &amp; a stage</h3>
                   <p className="text-muted leading-relaxed">
-                    I like building things end-to-end — design through code
-                    through deployment. It keeps me honest about engineering
-                    trade-offs instead of just theorizing about them. This
-                    portfolio is one of those projects.
+                    I started running just before COVID and ran a half-marathon
+                    on my birthday, fundraising for SickKids Hospital. And in
+                    August 2026 I&apos;ll be on stage — I joined a 40-person
+                    amateur musical, somewhere well outside my comfort zone.
+                    Optimism in practice, I suppose.
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Writing</h3>
+                  <h3 className="font-semibold mb-2">A daily streak</h3>
                   <p className="text-muted leading-relaxed">
-                    I{" "}
+                    I&apos;ve done French on Duolingo every day since December
+                    2020. In 2026 I&apos;m finally trading the streak for real
+                    language school. I also{" "}
                     <Link
                       href="/writing"
                       className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
-                      write occasionally
+                      write
                     </Link>{" "}
-                    about things I&apos;m working through — design systems after
-                    an acquisition, systems thinking, what it actually takes to
-                    get adoption without authority.
+                    about what I&apos;m working through — systems, adoption
+                    without authority, design after an acquisition.
                   </p>
                 </div>
               </div>
