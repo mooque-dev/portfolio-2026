@@ -13,11 +13,40 @@ const FILTERS: { value: Filter; label: string }[] = [
   { value: "personal", label: "Personal" },
 ];
 
+function ProjectGrid({ projects, startIndex = 0 }: { projects: ProjectSummary[]; startIndex?: number }) {
+  return (
+    <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+      <AnimatePresence mode="popLayout">
+        {projects.map((project, i) => (
+          <motion.div
+            key={project.slug}
+            layout
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.96 }}
+            transition={{ duration: 0.22, delay: (startIndex + i) * 0.04 }}
+          >
+            <ProjectCard
+              slug={project.slug}
+              title={project.title}
+              subtitle={project.subtitle}
+              category={project.category}
+              coverColor={project.coverColor}
+              coverImage={project.coverImage}
+            />
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
 export default function WorkFilter({ projects }: { projects: ProjectSummary[] }) {
   const [active, setActive] = useState<Filter>("all");
 
-  const filtered =
-    active === "all" ? projects : projects.filter((p) => p.type === active);
+  const workProjects = projects.filter((p) => p.type === "work");
+  const personalProjects = projects.filter((p) => p.type === "personal");
+  const filtered = active === "all" ? projects : projects.filter((p) => p.type === active);
 
   return (
     <>
@@ -46,31 +75,26 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
         </div>
       </LayoutGroup>
 
-      <motion.div
-        layout
-        className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10"
-      >
-        <AnimatePresence mode="popLayout">
-          {filtered.map((project, i) => (
-            <motion.div
-              key={project.slug}
-              layout
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.96 }}
-              transition={{ duration: 0.22, delay: i * 0.04 }}
-            >
-              <ProjectCard
-                slug={project.slug}
-                title={project.title}
-                subtitle={project.subtitle}
-                category={project.category}
-                coverColor={project.coverColor}
-              />
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+      {active === "all" ? (
+        <div className="mt-12 space-y-16">
+          <div>
+            <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8">
+              Professional Work
+            </p>
+            <ProjectGrid projects={workProjects} startIndex={0} />
+          </div>
+          <div>
+            <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8 border-t border-border pt-16">
+              Side Projects &amp; Archive
+            </p>
+            <ProjectGrid projects={personalProjects} startIndex={workProjects.length} />
+          </div>
+        </div>
+      ) : (
+        <div className="mt-12">
+          <ProjectGrid projects={filtered} />
+        </div>
+      )}
     </>
   );
 }

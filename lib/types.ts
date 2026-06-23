@@ -5,6 +5,7 @@ export interface ProjectSummary {
   category: string;
   type: "work" | "personal";
   coverColor: string;
+  coverImage?: string;
   featured: boolean;
   role: string;
   timeline: string;

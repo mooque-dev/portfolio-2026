@@ -16,6 +16,7 @@ export interface ProjectFrontmatter {
   team: string;
   tools: string[];
   coverColor: string;
+  coverImage?: string;
   featured: boolean;
   order: number;
 }

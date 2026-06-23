@@ -19,6 +19,7 @@ export default async function WorkPage() {
     category: p.frontmatter.category,
     type: (p.frontmatter.type ?? "work") as "work" | "personal",
     coverColor: p.frontmatter.coverColor,
+    coverImage: p.frontmatter.coverImage,
     featured: p.frontmatter.featured,
     role: p.frontmatter.role,
     timeline: p.frontmatter.timeline,

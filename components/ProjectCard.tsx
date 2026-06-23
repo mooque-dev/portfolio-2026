@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Magnetic from "@/components/Magnetic";
 
@@ -10,6 +11,7 @@ interface ProjectCardProps {
   subtitle: string;
   category: string;
   coverColor?: string;
+  coverImage?: string;
   featured?: boolean;
 }
 
@@ -19,6 +21,7 @@ export default function ProjectCard({
   subtitle,
   category,
   coverColor = "#e5e5e0",
+  coverImage,
   featured = false,
 }: ProjectCardProps) {
   return (
@@ -35,11 +38,22 @@ export default function ProjectCard({
             role="img"
             aria-label={`Cover for ${title}`}
           >
-            <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">
-              <span className="font-serif text-foreground/15 text-center text-2xl md:text-3xl font-semibold leading-tight select-none">
-                {title}
-              </span>
-            </div>
+            {coverImage && (
+              <Image
+                src={coverImage}
+                alt=""
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            )}
+            {!coverImage && (
+              <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">
+                <span className="font-serif text-foreground/15 text-center text-2xl md:text-3xl font-semibold leading-tight select-none">
+                  {title}
+                </span>
+              </div>
+            )}
             <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/[0.06] transition-colors duration-300" aria-hidden="true" />
           </div>
         </div>
