@@ -2,20 +2,25 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
-export type LayoutMode =
-  | "editorial"
-  | "magazine"
-  | "minimal"
-  | "bento"
-  | "dense";
+export type LayoutMode = "reader" | "gallery" | "index";
 
-const ALL_MODES: LayoutMode[] = [
-  "editorial",
-  "magazine",
-  "minimal",
-  "bento",
-  "dense",
-];
+const ALL_MODES: LayoutMode[] = ["reader", "gallery", "index"];
+
+// Maps retired/old stored values to their current equivalent so returning
+// visitors keep a sensible layout after the rename.
+const LEGACY_MODES: Record<string, LayoutMode> = {
+  minimal: "reader",
+  editorial: "reader",
+  magazine: "gallery",
+  bento: "gallery",
+  dense: "index",
+};
+
+function normalizeMode(value: string | null | undefined): LayoutMode | null {
+  if (!value) return null;
+  if ((ALL_MODES as string[]).includes(value)) return value as LayoutMode;
+  return LEGACY_MODES[value] ?? null;
+}
 
 interface LayoutContextValue {
   layout: LayoutMode;
@@ -23,7 +28,7 @@ interface LayoutContextValue {
 }
 
 const LayoutContext = createContext<LayoutContextValue>({
-  layout: "minimal",
+  layout: "reader",
   setLayout: () => {},
 });
 
@@ -33,18 +38,17 @@ export function useLayout() {
 
 function getInitialLayout(): LayoutMode {
   if (typeof document !== "undefined") {
-    const attr = document.documentElement.dataset.layout as LayoutMode | undefined;
-    if (attr && ALL_MODES.includes(attr)) return attr;
+    return normalizeMode(document.documentElement.dataset.layout) ?? "reader";
   }
-  return "minimal";
+  return "reader";
 }
 
 export function LayoutProvider({ children }: { children: ReactNode }) {
   const [layout, setLayoutState] = useState<LayoutMode>(getInitialLayout);
 
   useEffect(() => {
-    const stored = localStorage.getItem("layout") as LayoutMode | null;
-    if (stored && ALL_MODES.includes(stored) && stored !== layout) {
+    const stored = normalizeMode(localStorage.getItem("layout"));
+    if (stored && stored !== layout) {
       setLayoutState(stored);
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps

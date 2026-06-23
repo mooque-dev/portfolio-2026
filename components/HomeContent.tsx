@@ -6,10 +6,9 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 import type { ProjectSummary, WritingSummary } from "@/lib/types";
 
-const HomeMagazine = dynamic(() => import("./HomeMagazine"));
-const HomeMinimal = dynamic(() => import("./HomeMinimal"));
-const HomeBento = dynamic(() => import("./HomeBento"));
-const HomeDense = dynamic(() => import("./HomeDense"));
+const HomeReader = dynamic(() => import("./HomeReader"));
+const HomeGallery = dynamic(() => import("./HomeGallery"));
+const HomeIndex = dynamic(() => import("./HomeIndex"));
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -44,20 +43,15 @@ export default function HomeContent({ allProjects, recentWriting }: Props) {
 
   let content: ReactNode;
   switch (layout) {
-    case "magazine":
-      content = <HomeMagazine allProjects={allProjects} recentWriting={recentWriting} />;
+    case "gallery":
+      content = <HomeGallery allProjects={allProjects} recentWriting={recentWriting} />;
       break;
-    case "minimal":
-      content = <HomeMinimal allProjects={allProjects} recentWriting={recentWriting} />;
+    case "index":
+      content = <HomeIndex allProjects={allProjects} recentWriting={recentWriting} />;
       break;
-    case "bento":
-      content = <HomeBento allProjects={allProjects} recentWriting={recentWriting} />;
-      break;
-    case "dense":
-      content = <HomeDense allProjects={allProjects} recentWriting={recentWriting} />;
-      break;
+    case "reader":
     default:
-      content = <HomeMinimal allProjects={allProjects} recentWriting={recentWriting} />;
+      content = <HomeReader allProjects={allProjects} recentWriting={recentWriting} />;
   }
 
   return (

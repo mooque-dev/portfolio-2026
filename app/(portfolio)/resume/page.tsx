@@ -6,7 +6,7 @@ import { experience, sideProjects, education } from "@/lib/resumeData";
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Allen Kang — 7+ years designing products, systems, and teams across education, healthcare, food tech, and nonprofit platforms.",
+    "Allen Kang — eight years designing mission-driven products across education, healthcare, food tech, and nonprofit platforms.",
 };
 
 export default function ResumePage() {
@@ -19,9 +19,9 @@ export default function ResumePage() {
             Resume
           </h1>
           <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
-            Fine Arts trained, systems minded. 7+ years designing products
-            and building the teams that ship them — from startup through
-            acquisition and growth.
+            Optimist, systems-builder, experience-maker. Eight years designing
+            mission-driven products for people the industry usually designs
+            around — and building the teams that ship them.
           </p>
         </FadeIn>
 

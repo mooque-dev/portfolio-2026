@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Caveat } from "next/font/google";
 import ReadingProgress from "@/components/ReadingProgress";
 import FluidCursor from "@/components/FluidCursor";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,16 +17,23 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["700"],
+  display: "swap",
+});
+
 const siteUrl = "https://www.mooque.xyz";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Allen Kang — Product Design Leader",
+    default: "Allen Kang — Product Design Lead",
     template: "%s | Allen Kang",
   },
   description:
-    "Design leader with a Fine Arts background. 7+ years building products, design systems, and the teams behind them — from startup through acquisition.",
+    "Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -34,13 +41,13 @@ export const metadata: Metadata = {
     siteName: "Allen Kang — Portfolio",
     title: "Allen Kang — Product Design Leader",
     description:
-      "Design leader with a Fine Arts background. Building products, systems, and the teams that ship them.",
+      "Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Allen Kang — Product Design Leader",
     description:
-      "Design leader with a Fine Arts background. Building products, systems, and the teams that ship them.",
+      "Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around.",
   },
   robots: {
     index: true,
@@ -67,7 +74,8 @@ const jsonLd = {
   "@type": "Person",
   name: "Allen Kang",
   url: siteUrl,
-  jobTitle: "Product Design Leader",
+  jobTitle: "Product Design Lead",
+  worksFor: { "@type": "Organization", name: "Velora" },
   description:
     "Design leader with a Fine Arts background. Building products, systems, and the teams that ship them.",
   sameAs: ["https://www.linkedin.com/in/mooque/"],
@@ -82,7 +90,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${playfair.variable}`}
+      className={`${inter.variable} ${playfair.variable} ${caveat.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

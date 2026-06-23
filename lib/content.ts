@@ -57,7 +57,9 @@ function getContentFiles(subdir: string): string[] {
 }
 
 async function parseMarkdown(content: string): Promise<string> {
-  const result = await remark().use(remarkHtml).process(content);
+  // sanitize: false lets owner-authored MDX include raw <figure>/<img> markup
+  // for captioned case-study visuals. Content is trusted (repo-authored only).
+  const result = await remark().use(remarkHtml, { sanitize: false }).process(content);
   return result.toString();
 }
 
