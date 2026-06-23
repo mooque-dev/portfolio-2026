@@ -14,12 +14,6 @@ interface Response {
   display_name: string | null;
 }
 
-function setVisitedCookie() {
-  const expires = new Date();
-  expires.setDate(expires.getDate() + 30);
-  document.cookie = `gateway-visited=1; path=/; expires=${expires.toUTCString()}; SameSite=Lax`;
-}
-
 const slideVariants = {
   enter: (dir: number) => ({ x: dir > 0 ? 24 : -24, opacity: 0 }),
   center: { x: 0, opacity: 1 },
@@ -75,7 +69,6 @@ export default function GatewayPage() {
   }, []);
 
   const handleEnter = useCallback(() => {
-    setVisitedCookie();
     setPhase("entering");
     setTimeout(() => router.push("/"), 700);
   }, [router]);

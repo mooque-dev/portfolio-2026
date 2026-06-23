@@ -12,7 +12,6 @@ interface ProjectCardProps {
   category: string;
   coverColor?: string;
   coverImage?: string;
-  featured?: boolean;
   wip?: boolean;
 }
 
@@ -23,7 +22,6 @@ export default function ProjectCard({
   category,
   coverColor = "#e5e5e0",
   coverImage,
-  featured = false,
   wip = false,
 }: ProjectCardProps) {
   return (
@@ -65,7 +63,7 @@ export default function ProjectCard({
           </div>
         </div>
         <div className="mt-4">
-          <p className="text-[9px] tracking-[0.2em] uppercase text-muted/70">
+          <p className="text-[9px] tracking-[0.2em] uppercase text-muted">
             {category}
           </p>
           <h3 className="font-serif text-lg md:text-xl font-normal mt-2 leading-snug group-hover:opacity-60 transition-opacity">
