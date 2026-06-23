@@ -37,7 +37,7 @@ export default function AboutTabs() {
             <Skeleton
               className="mt-10 aspect-[3/2] w-full rounded-sm"
               role="img"
-              aria-label="Portrait of Allen Kang — photo coming soon"
+              aria-label="Portrait of Allen Kang, photo coming soon"
             />
           </FadeIn>
 
@@ -45,7 +45,7 @@ export default function AboutTabs() {
             <div className="mt-12 space-y-6 text-lg leading-relaxed">
               <p>
                 I&apos;m Allen. I studied Fine Arts before I ever touched a
-                wireframe, and that background still shapes everything I do — I
+                wireframe, and that background still shapes everything I do. I
                 see composition in complex systems, rhythm in interaction
                 patterns, and I care deeply about whether something feels right,
                 not just whether it tests well.
@@ -53,13 +53,15 @@ export default function AboutTabs() {
               <p>
                 For the past 7+ years, I&apos;ve been designing products across
                 education, healthcare, food tech, and nonprofit tools. Most
-                recently, I led product design at Keela (acquired by Aplos) —
+                recently, I led product design at Keela (acquired by Aplos),
                 responsible for the design direction of a CRM platform that
                 5,000+ nonprofits rely on to manage donors, track finances, and
-                run their operations. I was effectively the founding designer: I
-                built the research practice, the design system, and the culture
-                from scratch, then scaled it across three product teams
-                post-acquisition.
+                run their operations. As the founding designer, I built the
+                research practice, the design system, and the culture from
+                scratch. That title also meant I was in the room for roadmap
+                calls, not just receiving them: pushing back on scope, making
+                the case for what should get built next, and translating strategy
+                into things engineering could actually ship.
               </p>
               <p>
                 The most interesting challenge of that period was merging three
@@ -68,16 +70,29 @@ export default function AboutTabs() {
                 get teams who didn&apos;t choose to work together to collaborate
                 genuinely, and making hard calls about which patterns to keep and
                 which to let go. The work I&apos;m proudest of isn&apos;t any
-                single feature — it&apos;s the shared language and design culture
+                single feature. It&apos;s the shared language and design culture
                 that let the whole org move faster.
               </p>
               <p>
                 I&apos;m at my best in the messy, ambiguous early stages of a
-                project — where the problem isn&apos;t well-defined yet and the
+                project, when the problem isn&apos;t well-defined yet and the
                 right approach could go several directions. That&apos;s where my
                 Fine Arts training kicks in. Before I open Figma, I sketch, I
                 map systems on whiteboards, I talk to people. The pixel work
                 comes later, after the thinking.
+              </p>
+              <p>
+                Most of what I know about designing with AI I learned by
+                breaking things. I built a conversational recipe app in my own
+                time, not because it fit any roadmap, but because I wanted to
+                understand what happens when a model can take a conversation
+                anywhere. The friction I kept hitting was always the same
+                problem: the interface had to set expectations without killing
+                the open-endedness. That tension fed directly into how I thought
+                about AI features when they showed up seriously on the Keela
+                roadmap. By the time the PMs were asking how we should handle
+                this, I had opinions grounded in something I&apos;d actually
+                made.
               </p>
             </div>
           </FadeIn>
@@ -93,7 +108,7 @@ export default function AboutTabs() {
                   <h3 className="font-semibold mb-2">Systems over screens</h3>
                   <p className="text-muted leading-relaxed">
                     A beautiful screen that doesn&apos;t fit the system it lives
-                    in is just a picture. I design the connections — the data
+                    in is just a picture. I design the connections: the data
                     flows, the edge cases, the way one decision cascades into the
                     next. The highest-leverage work is usually invisible.
                   </p>
@@ -106,7 +121,7 @@ export default function AboutTabs() {
                     I don&apos;t believe in mandating design standards. I believe
                     in building tools and systems so good that people adopt them
                     because they genuinely want to. That&apos;s how Orchid got
-                    adopted — not through governance, but through craft.
+                    adopted, not through governance, but through craft.
                   </p>
                 </div>
                 <div>
@@ -124,7 +139,7 @@ export default function AboutTabs() {
                   </h3>
                   <p className="text-muted leading-relaxed">
                     Every project is a chance to build something that outlasts
-                    you — a reusable pattern, a better process, a piece of
+                    you: a reusable pattern, a better process, a piece of
                     documentation that helps the next person. I want my work to
                     compound.
                   </p>
@@ -148,7 +163,7 @@ export default function AboutTabs() {
                   <h3 className="font-semibold mb-2">Cooking</h3>
                   <p className="text-muted leading-relaxed">
                     I cook almost every day. It&apos;s the one creative practice
-                    where the feedback loop is immediate — you taste it, you
+                    where the feedback loop is immediate. You taste it, you
                     know. I got curious enough about the intersection of food and
                     technology to{" "}
                     <Link
@@ -177,7 +192,7 @@ export default function AboutTabs() {
                 <div>
                   <h3 className="font-semibold mb-2">Building Things</h3>
                   <p className="text-muted leading-relaxed">
-                    I like building things end-to-end — design through code
+                    I like building things end-to-end: design through code
                     through deployment. It keeps me honest about engineering
                     trade-offs instead of just theorizing about them. This
                     portfolio is one of those projects.
@@ -193,7 +208,7 @@ export default function AboutTabs() {
                     >
                       write occasionally
                     </Link>{" "}
-                    about things I&apos;m working through — design systems after
+                    about things I&apos;m working through: design systems after
                     an acquisition, systems thinking, what it actually takes to
                     get adoption without authority.
                   </p>
@@ -256,7 +271,7 @@ export default function AboutTabs() {
             <div className="mt-20">
               <Separator className="mb-12" />
               <p className="text-lg leading-relaxed">
-                I&apos;m currently open to Staff and Principal design roles —
+                I&apos;m currently open to Staff and Principal design roles,
                 particularly where design systems, cross-functional product
                 thinking, or 0→1 platform work is at the center. If you&apos;re
                 building something interesting,{" "}
