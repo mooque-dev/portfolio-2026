@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { Separator } from "@/components/ui/separator";
-import { experience, sideProjects, education } from "@/lib/resumeData";
+import { experience, sideProjects, education, certifications } from "@/lib/resumeData";
 
 type Tab = "bio" | "resume";
 
@@ -333,7 +333,20 @@ export default function AboutTabs() {
                 {sideProjects.map((project, i) => (
                   <div key={i}>
                     <div className="flex items-baseline justify-between">
-                      <h3 className="font-semibold">{project.title}</h3>
+                      <h3 className="font-semibold">
+                        {project.url ? (
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity"
+                          >
+                            {project.title}
+                          </a>
+                        ) : (
+                          project.title
+                        )}
+                      </h3>
                       <span className="text-sm text-muted">{project.year}</span>
                     </div>
                     <p className="text-sm text-muted mt-1">
@@ -356,6 +369,23 @@ export default function AboutTabs() {
                   <div key={i}>
                     <h3 className="font-semibold">{edu.school}</h3>
                     <p className="text-sm text-muted mt-1">{edu.detail}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.18}>
+            <div className="mt-16">
+              <Separator className="mb-8" />
+              <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
+                Certifications
+              </h2>
+              <div className="space-y-4">
+                {certifications.map((cert, i) => (
+                  <div key={i} className="flex items-baseline justify-between">
+                    <h3 className="text-sm font-semibold">{cert.title}</h3>
+                    <span className="text-sm text-muted">{cert.issuer}</span>
                   </div>
                 ))}
               </div>

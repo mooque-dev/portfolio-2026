@@ -10,6 +10,12 @@ export interface SideProject {
   title: string;
   year: string;
   description: string;
+  url?: string;
+}
+
+export interface Certification {
+  title: string;
+  issuer: string;
 }
 
 export interface Education {
@@ -66,16 +72,57 @@ export const experience: Job[] = [
 
 export const sideProjects: SideProject[] = [
   {
-    title: "AI Recipe Book",
+    title: "Forkestrate",
+    year: "2024 to present",
+    description:
+      "Designed and built a conversational AI cooking app exploring trust patterns in AI-assisted instruction. React, Supabase, OpenAI API. Also: I just really like cooking.",
+    url: "https://app.forkestrate.com/",
+  },
+  {
+    title: "arnd",
     year: "2024",
     description:
-      "Solo project: designed and built a conversational recipe app exploring AI trust patterns. React, Supabase, OpenAI API. Also: I just really like cooking.",
+      "Product exploration: how do you make street performing accessible? Focused on discovery, booking, and tip flows for performers and passersby.",
+    url: "https://arnd-alpha.vercel.app/",
+  },
+  {
+    title: "Colour Analysis",
+    year: "2024",
+    description:
+      "Tool exploring colour analysis for beauty and personal styling. Built to understand how AI recommendations map to aesthetic preferences.",
+    url: "https://color-analysis-three.vercel.app/",
+  },
+  {
+    title: "mooze",
+    year: "2024",
+    description:
+      "A tool for collecting and collaging inspiration. Personal project exploring curation UI and mood-board creation flows.",
+    url: "https://mooze.vercel.app/",
   },
   {
     title: "Artist Brand Systems",
     year: "2022 to 2023",
     description:
       "Volunteered design skills to help 4 emerging artists develop visual identities and merchandise. Built reusable systems, not one-off deliverables.",
+  },
+];
+
+export const certifications: Certification[] = [
+  {
+    title: "From Ideas to Action",
+    issuer: "IDEO",
+  },
+  {
+    title: "Generative AI Fundamentals",
+    issuer: "Google Cloud",
+  },
+  {
+    title: "Responsible Use of Generative AI",
+    issuer: "Google Cloud",
+  },
+  {
+    title: "Introduction to Python & Data Structures",
+    issuer: "Georgia Tech via Coursera",
   },
 ];
 
