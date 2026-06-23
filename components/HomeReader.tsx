@@ -18,10 +18,9 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           {/* Bio */}
           <FadeIn>
             <h1 className="text-[28px] md:text-[32px] leading-[1.35] font-light">
-              Product designer, eight years in. Mostly at companies where the
-              work mattered more than the logo: nonprofits, ed-tech, food-tech.
-              The interesting problems were always further upstream than the
-              mockup.
+              Product designer and creative generalist. Eight years across
+              education, healthcare, and nonprofits, from early-stage startup
+              to post-acquisition.
             </h1>
           </FadeIn>
 

@@ -1,6 +1,5 @@
 import { getAllProjects, getAllWritingPosts } from "@/lib/content";
-import HomeContent from "@/components/HomeContent";
-import HomeShell from "@/components/HomeShell";
+import HomeReader from "@/components/HomeReader";
 
 export default async function Home() {
   const allProjects = await getAllProjects();
@@ -25,9 +24,5 @@ export default async function Home() {
     excerpt: w.frontmatter.excerpt,
   }));
 
-  return (
-    <HomeShell>
-      <HomeContent allProjects={projects} recentWriting={writing} />
-    </HomeShell>
-  );
+  return <HomeReader allProjects={projects} recentWriting={writing} />;
 }

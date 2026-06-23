@@ -33,12 +33,12 @@ export default function AboutTabs() {
       {active === "bio" && (
         <div>
           <FadeIn delay={0.05}>
-            <div className="mt-10 relative aspect-[3/2] w-full overflow-hidden rounded-sm">
+            <div className="mt-10 -mx-6 md:-mx-16 lg:-mx-32 relative aspect-[4/3] md:aspect-[16/9] overflow-hidden">
               <Image
                 src="/allen-kang-portrait.png"
                 alt="Portrait of Allen Kang"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-[center_20%]"
                 priority
               />
             </div>

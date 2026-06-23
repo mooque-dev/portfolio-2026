@@ -46,9 +46,6 @@ export default function Header() {
               className="text-[26px] leading-[0.9] text-foreground"
               style={{ fontFamily: "var(--font-script)" }}
             >
-              mooque
-            </span>
-            <span className="text-[8.5px] tracking-[0.18em] uppercase text-muted/80 pl-px mt-0.5">
               Allen Kang
             </span>
           </Link>
