@@ -24,7 +24,7 @@ const caveat = Caveat({
   display: "swap",
 });
 
-const siteUrl = "https://www.mooque.xyz";
+const siteUrl = "https://mooque.xyz";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
