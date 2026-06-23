@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@/components/ui/separator";
 import { experience, sideProjects, education } from "@/lib/resumeData";
 
@@ -32,13 +32,16 @@ export default function AboutTabs() {
 
       {active === "bio" && (
         <div>
-          {/* Photo placeholder */}
           <FadeIn delay={0.05}>
-            <Skeleton
-              className="mt-10 aspect-[3/2] w-full rounded-sm"
-              role="img"
-              aria-label="Portrait of Allen Kang, photo coming soon"
-            />
+            <div className="mt-10 relative aspect-[3/2] w-full overflow-hidden rounded-sm">
+              <Image
+                src="/allen-kang-portrait.png"
+                alt="Portrait of Allen Kang"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </FadeIn>
 
           <FadeIn delay={0.1}>

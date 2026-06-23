@@ -1,16 +1,16 @@
 ---
 title: "Automation for Nonprofits: Building Confidence, Not Just Workflows"
-subtitle: "Nonprofit teams are chronically under-resourced. We built a no-code automation system from 0→1 — and the hardest design problem turned out to be fear, not complexity."
+subtitle: "Nonprofit teams are chronically under-resourced. We built a no-code automation system from 0 to 1 — and the hardest design problem turned out to be fear, not complexity."
 category: "New Feature"
 type: "work"
 role: "Product Design Lead"
-timeline: "2024"
-team: "2 designers, 5 engineers, 1 PM"
+timeline: "2021"
+team: "CTO, Product Manager, SDR"
 tools:
   - Figma
-  - FigJam
-  - Mixpanel
-  - Notion
+  - Linear
+  - MailChimp
+  - Hubspot
 coverColor: "#d4e0e6"
 featured: true
 order: 5
@@ -18,9 +18,9 @@ order: 5
 
 ## Context
 
-Nonprofit staff wear too many hats. Repetitive operational tasks — thank-you emails, donor record updates, follow-up triggers — eat hours that should go toward mission work.
+Nonprofit staff wear too many hats. Repetitive tasks — thank-you emails, donor record updates, follow-up triggers — eat hours that should go toward mission work.
 
-Market research showed automation was the **#1 requested feature category** and a growing competitive gap. I partnered with Product and Sales leadership to frame this as more than a feature: it was a platform capability that would unlock future surface area for integrations, AI-assisted workflows, and custom reporting.
+Automation was the #1 requested feature category and a growing competitive gap. I partnered with the Product Manager and CTO to frame this as more than a feature: a platform capability that would unlock future surface area for integrations, AI-assisted workflows, and custom donor journeys.
 
 ## The Research Surprise
 
@@ -28,9 +28,9 @@ I talked to 15 nonprofit operations managers and expected to hear about complexi
 
 > "What if I accidentally email all 5,000 of our donors?"
 
-That insight reshaped the entire design. The problem wasn't complexity — it was **confidence**. People needed to trust the system before they'd use it.
+That insight reshaped the entire design. The problem wasn't complexity — it was confidence. People needed to trust the system before they'd use it.
 
-We also identified three tiers of automation needs: simple triggers ("when X, do Y"), conditional workflows with branching, and scheduled operations. 80% of needs fell into tier 1, but I advocated for building the tier 2/3 architecture from day one. It meant more engineering investment upfront, but avoided a costly rewrite later.
+I also studied the competitive landscape by testing Hubspot and Mailchimp directly using Keela's internal accounts — finding strengths and weaknesses, not just feature lists. I analyzed Phrasee, Klaviyo, Simplero, and ActiveCampaign. The research surfaced user stories we hadn't initially captured and exposed real gaps in competitor approaches around re-enrollment logic and contact-level control.
 
 ## The Design
 
@@ -40,22 +40,25 @@ A node-based canvas that makes automation logic tangible. Users see their automa
 
 ### Preview Mode (The Key Feature)
 
-Before activating any automation, users can preview exactly which contacts it would affect. This was the feature that gave people the courage to actually turn things on. They could verify without risk. This design decision directly traces back to that research insight about the 5,000-donor nightmare.
+Before activating any automation, users can preview exactly which contacts it would affect. This was the feature that gave people the courage to actually turn things on. They could verify without risk. This design decision directly traces back to the 5,000-donor fear uncovered in research.
+
+### Templated Journeys
+
+Rather than a blank canvas, users start from pre-built journey types: New Donor Journey, Recurring Donor Journey, Disengaged Donor Journey. Each template suggests trigger timing and email structure — not the copy, but the scaffolding. Getting the scaffolding right is what most organizations struggle with.
 
 ### Progressive Complexity
 
-New users see a curated template library. As they build confidence, the interface reveals more — custom triggers, conditional logic, webhook integrations. The system grows with the user. Same philosophy as Orchid's contribution model: meet people where they are.
+New users see a curated template library. As they build confidence, the interface reveals more — custom triggers, conditional logic, multiple branches. The system grows with the user.
 
-## Beyond Design
+## Testing
 
-I worked with Sales and Marketing on launch positioning, created demo flows for the sales team, and ran training sessions for Customer Success. Good product design doesn't stop at the Figma file — it includes the story you tell about the product.
+I ran three rounds of prototype testing, each focused on a different part of the experience: creating and activating a workflow, monitoring an active automation, and pausing or reactivating individual contacts. The PM and Lead Designer joined sessions to record notes directly. Each round fed back into Linear as prioritized action items.
 
 ## What Happened
 
-- **45% of active accounts** created an automation within 3 months
-- Teams saved an average of **4.2 hours per week**
-- 78% of automations started from templates (validating the template-first approach)
-- Became a key differentiator in competitive sales conversations
-- Architecture now supports the AI-assisted workflow roadmap
+Automation launched as a premium paid add-on:
 
-The preview mode insight — building for confidence, not just capability — is something I keep coming back to. It applies to design systems, data integrations, and really any feature where users fear irreversible consequences.
+- **20% of newly onboarded organizations** purchased the add-on since release
+- Keela's MRR increased by an average of **30% monthly** from the add-on alone
+
+The preview mode insight — building for confidence, not just capability — is something I keep returning to. It applies to design systems, data integrations, and any feature where users fear irreversible consequences.

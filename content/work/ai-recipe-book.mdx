@@ -1,15 +1,15 @@
 ---
 title: "AI Recipe Book: A Side Project About Trust"
-subtitle: "I built this because I cook every day and recipe apps are terrible at the things AI should be great at — adaptation, substitution, context. It also taught me how to design for AI before it hit my day job."
+subtitle: "I partnered with a PM and two engineers to build an AI cooking app from zero to MVP in under three months. It also taught me how to design for AI before it hit my day job."
 category: "Side Project"
 type: "personal"
-role: "Designer & Developer"
+role: "Founding Designer"
 timeline: "2024"
-team: "Solo project"
+team: "Founding designer, PM, 2 engineers"
 tools:
   - Figma
-  - React
-  - OpenAI API
+  - Vercel
+  - PostHog
   - Supabase
 coverColor: "#e6ddd4"
 featured: false
@@ -22,34 +22,40 @@ I cook almost every day. It's my main creative outlet outside of work — the fe
 
 Traditional recipe apps are frustrating. They can't answer "what if I don't have cilantro?" or "make this work in 30 minutes instead of an hour." Those are exactly the problems AI handles well — adaptation, substitution reasoning, contextual guidance.
 
-But I also had a professional motivation: AI-powered features were becoming central to our product roadmap at Keela, and I wanted hands-on experience with conversational UI patterns before I had to lead design decisions about them.
+I also had a professional reason: AI-powered features were becoming central to our product roadmap at Keela, and I wanted hands-on experience with conversational UI patterns before I had to lead design decisions about them.
+
+## How We Built It
+
+I partnered with a PM and two engineers to take the product from zero to a functional MVP in under three months, shipping multiple iterations per week. Vercel for deployment, PostHog for real-time analytics, a modern serverless stack designed for experimentation.
+
+As founding designer, I owned the end-to-end product experience: problem framing, concept validation, interaction design, AI workflow definition, and system-level UX decisions. I worked closely with engineering to translate complex AI behavior into clear, human-centered experiences, and introduced AI-assisted design workflows to accelerate iteration without sacrificing quality.
 
 ## What I Designed
 
 ### Conversational Adaptation
 
-Instead of static recipe cards, users can ask natural language questions: "Make this dairy-free," "I only have 30 minutes," "What can I substitute for shallots?" The AI responds with an adapted recipe and explains the reasoning behind each change.
+Instead of static recipe cards, users ask natural language questions: "Make this dairy-free," "I only have 30 minutes," "What can I substitute for shallots?" The AI responds with an adapted recipe and explains the reasoning behind each change.
 
-The key insight was that **transparency is the trust mechanism**. Users accepted AI suggestions only when they could see the why. "Use coconut cream instead of heavy cream — it provides similar fat content for this sauce" lands differently than just swapping the ingredient silently.
+The key insight: transparency is the trust mechanism. Users accepted AI suggestions only when they could see the why. "Use coconut cream instead of heavy cream — it provides similar fat content for this sauce" lands differently than just swapping the ingredient silently.
 
 This directly influenced how I later designed the automation preview feature at Keela. Same principle: make system logic visible to build confidence.
 
 ### Step-by-Step Cooking Mode
 
-A focused view that breaks recipes into discrete actions with timing. Each step shows only what you need right now — ingredients, technique, timer. Designed for the reality of cooking: messy hands, divided attention, a phone propped up on the counter.
+A focused view that breaks recipes into discrete steps with timing. Each step shows only what you need right now — ingredients, technique, timer. Designed for the reality of cooking: messy hands, divided attention, a phone propped on the counter.
+
+### Instacart Integration
+
+Users send a recipe's ingredient list directly to an Instacart cart. Bridging "I want to make this" and "I have everything I need to make this" turned out to be a high-value moment in the flow.
 
 ### Shareable Collections
 
-Users curate recipe collections and share them as link-based cookbooks. I wanted the sharing experience to feel personal — like passing a handwritten recipe card to a friend, not forwarding a URL.
+Users curate recipe collections and share them as link-based cookbooks. The experience should feel personal — like passing a handwritten recipe card to a friend, not forwarding a URL.
 
-## Building End-to-End
+## What Happened
 
-React frontend, Supabase backend, OpenAI API for recipe adaptation. I focused heavily on prompt engineering — the AI needed to understand food science, not just swap ingredients mechanically.
+- Zero to functional MVP in **under three months**, shipping multiple iterations per week
+- Reddit post reached **120K+** people, driving early validation
+- Strong engagement across core flows before any formal marketing
 
 Building end-to-end keeps me honest. I know what API latency feels like, what error states look like in reality (not just in a Figma frame), and where the gap between design intent and engineering reality tends to widen. That empathy makes me a better design leader.
-
-## What I Took Away
-
-- Designing for AI is fundamentally about trust, not intelligence
-- The best AI interfaces augment human judgment rather than replacing it
-- Personal projects are how I stay fluent in the materials my engineering partners work with every day
