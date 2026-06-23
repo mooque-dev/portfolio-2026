@@ -61,21 +61,6 @@ export default function AboutTabs() {
                 the person using the thing, and the team in the room making it.
               </p>
               <p>
-                Most of what I know about designing with AI I learned from the
-                people I built with. A PM and a pair of fractional engineers
-                brought me into a conversational recipe app they were putting
-                together, not because it fit any roadmap, but because we all
-                wanted to understand what happens when a model can take a
-                conversation anywhere. My job was interaction and design; theirs
-                was the model and the stack. The friction we kept hitting was
-                always the same problem: the interface had to set expectations
-                without killing the open-endedness. That tension fed directly
-                into how I thought about AI features when they showed up
-                seriously on the Keela roadmap. By the time the PMs were asking
-                how we should handle this, I had opinions grounded in something
-                we&apos;d actually shipped together.
-              </p>
-              <p>
                 I&apos;m an optimist, and I&apos;ve come to believe optimism is
                 a design tool. It&apos;s how you get people to believe a better
                 version is possible, then go build it. AI can make the screens
