@@ -26,15 +26,35 @@ But here's what I recognized early: this wasn't a design system problem — it w
 
 Previous design system efforts had died because they couldn't secure dedicated engineering time. I pitched Orchid differently.
 
-Before the pitch, I ran internal surveys across five departments: Engineering, Customer Care, Sales, Marketing, and Product. The goal was to surface recurring pain points that leadership could see in their own teams' words, not just hear from design. Each department had a different relationship to the inconsistency problem — developers were frustrated by unique variants and missing documentation, Customer Care was explaining UI inconsistencies to users daily, Sales was fielding upmarket prospects who compared Keela unfavorably to competitors.
+Before the pitch, I ran internal surveys across five departments: Engineering, Customer Care, Sales, Marketing, and Product. The goal was to surface recurring pain points that leadership could see in their own teams' words, not just hear from design.
 
-The survey data let me tie the design system investment to three concrete numbers: faster feature delivery, less QA rework, and a coherent experience that would smooth the product merger. It worked. We got two dedicated frontend engineers — the first time a design system had earned that commitment.
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-1.png" alt="Development and Engineering survey results — inconsistencies causing rework" />
+  <figcaption>Engineering survey — unique variants and missing documentation causing significant rework</figcaption>
+</figure>
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-2.png" alt="Customer Care survey results — explaining UI inconsistencies to users daily" />
+  <figcaption>Customer Care — explaining visual inconsistencies to users was a weekly burden</figcaption>
+</figure>
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-3.png" alt="Sales survey results — upmarket prospects comparing Keela unfavorably to competitors on design quality" />
+  <figcaption>Sales — upmarket prospects noticing UI inconsistencies in demos</figcaption>
+</figure>
+
+The survey data let me tie the design system investment to three concrete numbers: faster feature delivery, less QA rework, and a coherent experience that would smooth the product merger. We got two dedicated frontend engineers — the first time a design system had earned that commitment.
 
 ## How We Built It
 
 ### The Audit
 
-I led a comprehensive inventory across all three products: 340+ unique components. Through workshops with each team (not presentations to them), we distilled those down to 86 foundational primitives covering 95% of interface needs. The workshops mattered as much as the output — every team had a voice in the system they'd be living with.
+I led a comprehensive inventory across all three products: 340+ unique components. Through workshops with each team (not presentations to them), we distilled those down to 86 foundational primitives covering 95% of interface needs.
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-6.png" alt="Old Keela designs showing inconsistent components, decimal values, and messy layering" />
+  <figcaption>Pre-Orchid — inconsistent components, decimal measurements, non-reusable elements</figcaption>
+</figure>
 
 ### Tokens First
 
@@ -42,7 +62,32 @@ Orchid is built on a token foundation. Colors, spacing, typography, elevation, a
 
 ### Storybook as Source of Truth
 
-We adopted Storybook integrated with Chromatic to give the design team a workflow linked to GitHub. Components live in Storybook — not just as documentation, but as the canonical reference for both design and engineering. Chromatic runs visual regression tests on every PR so inconsistencies surface before release, not after.
+We adopted Storybook integrated with Chromatic to give the design team a workflow linked to GitHub. Components live in Storybook as the canonical reference for both design and engineering. Chromatic runs visual regression tests on every PR so inconsistencies surface before release, not after.
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-7.png" alt="Pagination component built with Orchid tokens — release ready" />
+  <figcaption>Rebuilt pagination — clean token-based component ready for release</figcaption>
+</figure>
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-8.png" alt="Chromatic showing release-ready components with visual regression testing" />
+  <figcaption>Chromatic — visual regression testing integrated with the PR workflow</figcaption>
+</figure>
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-9.png" alt="Storybook component library" />
+  <figcaption>Storybook as the shared source of truth for design and engineering</figcaption>
+</figure>
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-10.png" alt="Figma documentation with developer annotations and usage notes" />
+  <figcaption>Figma documentation — annotated for developers, not just designers</figcaption>
+</figure>
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-11.png" alt="Audit of existing production UI showing inconsistencies" />
+  <figcaption>Production audit — cataloguing inconsistencies across the live product</figcaption>
+</figure>
 
 ### A Contribution Model That Actually Works
 
@@ -64,5 +109,15 @@ I had no direct authority over most of the people who needed to adopt Orchid. Wh
 - 70% reduction in visual inconsistency bugs
 - 12+ designers and engineers contributing monthly
 - Orchid is now the foundation for the unified product experience
+
+<figure class="wide">
+  <img src="/case-studies/orchid-design-system/untitled-12.png" alt="Future vision for Orchid — unified product experience across Keela, Raisely, and Aplos" />
+  <figcaption>Where Orchid is headed — a unified product experience across all three platforms</figcaption>
+</figure>
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-14.png" alt="Phase 1 release recognition — team collaboration across PM, Engineering, and QA" />
+  <figcaption>Phase 1 shipped — Lead PM Natalie, Lead Dev Marco, Senior Dev Keiner, Lead QA Badal, QA Engineers Ronnie and Binay</figcaption>
+</figure>
 
 The contribution model is the thing I'm proudest of. A design system nobody contributes to is just a style guide with extra steps.

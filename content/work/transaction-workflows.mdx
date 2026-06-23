@@ -24,11 +24,21 @@ Signal we used to prioritize this:
 - **56%** of newly onboarded orgs (40 of 72) upvoted transaction flexibility in roadmap voting
 - **~500 support tickets per quarter** tied to splitting, incorrect receipts, and reporting mismatches
 
+<figure>
+  <img src="/case-studies/transaction-workflows/image-4.png" alt="Dashboard showing roadmap voting signal — 56% of new orgs upvoting transaction flexibility" />
+  <figcaption>Roadmap voting data that made the prioritization case</figcaption>
+</figure>
+
 This wasn't a nice-to-have redesign. As the team pushed upmarket after acquisition, transaction rigidity had become a growth blocker.
 
 ## What I Learned From Watching People Work
 
 I spent time with 8 nonprofit accountants during their actual tax preparation process — not usability tests with tasks I'd written, but genuine contextual inquiry. I sat next to them while they reconciled.
+
+<figure>
+  <img src="/case-studies/transaction-workflows/image-1.png" alt="User problem statement: as a nonprofit admin I need to split a single payment into multiple items" />
+  <figcaption>The user problem statement that framed the project</figcaption>
+</figure>
 
 Three things stood out:
 
@@ -39,6 +49,11 @@ Three things stood out:
 ## Approach
 
 Before designing anything, I aligned stakeholders on what we couldn't do: no full backend refactor, no breaking a legacy data model tied to reporting. We agreed to ship in phases and design for extensibility so future capabilities could layer on without rework.
+
+<figure>
+  <img src="/case-studies/transaction-workflows/image-5.png" alt="Phased delivery plan — stakeholder alignment on constraints" />
+  <figcaption>Phased approach: deliver value without a full backend refactor</figcaption>
+</figure>
 
 ## The Design
 
@@ -56,9 +71,19 @@ Instead of a flat table with checkboxes, I redesigned batch editing around natur
 
 The old design accumulated errors silently and surfaced them all at report time. The new design validates continuously, showing the health of each reporting period as an ambient signal. Issues surface as they happen, not as a year-end surprise.
 
+<figure class="wide">
+  <img src="/case-studies/transaction-workflows/image-11.png" alt="Final transaction workflow design" />
+  <figcaption>The final design — split workflow with continuous validation</figcaption>
+</figure>
+
 ## Iteration Was the Work
 
 Moving from a modal flow to a full-screen split workflow alone moved satisfaction from **5.5/10 to 8.8/10** on the creation experience.
+
+<figure>
+  <img src="/case-studies/transaction-workflows/image-6.png" alt="Satisfaction score chart showing improvement from 5.5 to 8.8 out of 10" />
+  <figcaption>Creation flow satisfaction across prototype rounds</figcaption>
+</figure>
 
 The transaction details view required three full rounds:
 
@@ -66,11 +91,26 @@ The transaction details view required three full rounds:
 - **V2** (borrowed ecosystem patterns, introduced DS components): 7.5/10
 - **V3** (associations secondary, items primary): 9.5/10
 
+<figure>
+  <img src="/case-studies/transaction-workflows/image-7.png" alt="V1 transaction detail layout — minimal change" />
+  <figcaption>V1 — minimal change, 6/10</figcaption>
+</figure>
+
+<figure>
+  <img src="/case-studies/transaction-workflows/image-9.png" alt="V3 transaction detail layout — associations secondary, items primary" />
+  <figcaption>V3 — associations secondary, items primary, 9.5/10</figcaption>
+</figure>
+
 V3 won because it matched how accountants actually think: what they're recording first, who it belongs to second. The organizational hierarchy wasn't wrong in V1 and V2 — it was just answered in the wrong order.
 
 Feature flags enabled safe rollout. Usage data helped us simplify the UI by removing low-value sections and prioritizing split clarity.
 
 ## What Happened
+
+<figure>
+  <img src="/case-studies/transaction-workflows/image-12.png" alt="Impact dashboard showing 70% drop in tickets, 60% reduction in manual adjustments, $1.8M ARR supported" />
+  <figcaption>Impact — first month post-launch</figcaption>
+</figure>
 
 Within the first month:
 
