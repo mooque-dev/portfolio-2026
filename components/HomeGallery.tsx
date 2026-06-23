@@ -36,7 +36,7 @@ export default function HomeGallery({ allProjects, recentWriting }: Props) {
           <FadeIn>
             <p className="text-sm text-muted mb-2">Allen Kang</p>
             <h1 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight max-w-lg">
-              Designing the foundations that make great products feel inevitable.
+              Eight years building for the people most software forgets.
             </h1>
           </FadeIn>
         </div>

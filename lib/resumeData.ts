@@ -83,7 +83,7 @@ export const education: Education[] = [
   {
     school: "York University",
     detail:
-      "Bachelor of Design, Graphic Design — Visual communication, interactive design, and systematic thinking",
+      "Bachelor of Design, Graphic Design. Visual communication, interactive design, and systematic thinking.",
   },
   {
     school: "Fine Arts",
