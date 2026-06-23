@@ -40,7 +40,7 @@ export default function Header() {
           <Link
             href="/gateway"
             className="group inline-flex flex-col leading-none hover:opacity-70 transition-opacity"
-            aria-label="Allen Kang (mooque) — Gateway"
+            aria-label="Allen Kang (mooque), go to gateway"
           >
             <span
               className="text-[26px] leading-[0.9] text-foreground"

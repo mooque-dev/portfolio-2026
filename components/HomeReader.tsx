@@ -19,7 +19,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           <FadeIn>
             <h1 className="text-[28px] md:text-[32px] leading-[1.35] font-light">
               Product designer, eight years in. Mostly at companies where the
-              work mattered more than the logo — nonprofits, ed-tech, food-tech.
+              work mattered more than the logo: nonprofits, ed-tech, food-tech.
               The interesting problems were always further upstream than the
               mockup.
             </h1>

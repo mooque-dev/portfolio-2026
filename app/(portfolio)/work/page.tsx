@@ -32,7 +32,7 @@ export default async function WorkPage() {
             Work
           </h1>
           <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
-            Selected projects — design systems, product strategy, integrations,
+            Selected projects: design systems, product strategy, integrations,
             and a couple of things I built for fun.
           </p>
         </FadeIn>

@@ -113,7 +113,7 @@ export default function HomeGallery({ allProjects, recentWriting }: Props) {
           <FadeIn delay={(allProjects.length + 1) * 0.06} className="md:col-span-2">
             <div className="h-full bg-surface rounded-xl p-5 md:p-6 flex flex-col justify-between">
               <p className="text-lg md:text-xl leading-snug font-medium max-w-lg">
-                Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around — most recently merging three platforms into one at Velora. I also cook, paint, code, and occasionally ship enterprise software.
+                Product designer, eight years in. Mostly at companies where the work mattered more than the logo. Most recently merging three nonprofit platforms into one at Velora. I also cook, paint, code, and occasionally ship enterprise software.
               </p>
               <div className="flex gap-4 mt-6">
                 <Link href="/about" className="text-xs text-muted hover:text-foreground transition-colors">

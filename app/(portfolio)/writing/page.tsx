@@ -20,7 +20,7 @@ export default async function WritingPage() {
             Writing
           </h1>
           <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
-            Things I&apos;m working through — design systems, what adoption
+            Things I&apos;m working through: design systems, what adoption
             actually looks like in practice, and what it&apos;s like to redesign
             a product while the company is mid-acquisition.
           </p>

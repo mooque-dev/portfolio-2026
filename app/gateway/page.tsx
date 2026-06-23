@@ -470,7 +470,7 @@ export default function GatewayPage() {
                                 onChange={e => setVisitorContact(e.target.value)}
                                 onFocus={() => { inputFocused.current = true; }}
                                 onBlur={() => { inputFocused.current = false; }}
-                                placeholder="Email, LinkedIn, or phone — if you'd like a reply"
+                                placeholder="Email, LinkedIn, or phone (if you'd like a reply)"
                                 maxLength={200}
                                 className="w-full bg-transparent text-[13px]
                                            placeholder:text-muted/30 outline-none

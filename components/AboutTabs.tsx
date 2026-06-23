@@ -54,9 +54,9 @@ export default function AboutTabs() {
                 I&apos;ve stayed for eight years.
               </p>
               <p>
-                I&apos;ve spent those years on mission-driven products in
-                education, healthcare, and nonprofits, building for the people
-                most software forgets. Somewhere in there I realized the work
+                I&apos;ve spent those years on products in education,
+                healthcare, and nonprofits, building for the people most
+                software forgets. Somewhere in there I realized the work
                 was never really about screens. It&apos;s about how people feel:
                 the person using the thing, and the team in the room making it.
               </p>
@@ -84,7 +84,7 @@ export default function AboutTabs() {
 
           <FadeIn delay={0.12}>
             <p className="mt-10 text-base text-muted leading-relaxed max-w-2xl">
-              Most recently that meant leading design at Velora — merging
+              Most recently that meant leading design at Velora: merging
               Keela, Raisely, and Aplos into one shared platform. I came in
               to build the design practice and the system from scratch, which
               is my favorite kind of problem.
@@ -113,7 +113,7 @@ export default function AboutTabs() {
                   </h3>
                   <p className="text-muted leading-relaxed">
                     I don&apos;t believe in mandating design standards. I believe
-                    in making the right thing the easier thing — building tools
+                    in making the right thing the easier thing, building tools
                     people actually want to use. Orchid spread because designers
                     reached for it, not because anyone told them to.
                   </p>
@@ -269,8 +269,8 @@ export default function AboutTabs() {
               <Separator className="mb-12" />
               <p className="text-lg leading-relaxed">
                 I&apos;m currently open to Staff and Principal design roles,
-                particularly where design systems, cross-functional product
-                thinking, or 0→1 platform work is at the center. If you&apos;re
+                particularly where design systems, working across product and
+                engineering, or 0→1 platform work is at the center. If you&apos;re
                 building something interesting,{" "}
                 <a
                   href="mailto:hello@mooque.xyz"

@@ -42,7 +42,7 @@ export default function HomeIndex({ allProjects, recentWriting }: Props) {
             </div>
             <div className="md:col-span-4 mt-3 md:mt-0">
               <p className="text-sm text-muted leading-relaxed">
-                Came up through Fine Arts. Eight years mostly at companies where the work mattered more than the logo — nonprofits, ed-tech, food-tech.
+                Came up through Fine Arts. Eight years mostly at companies where the work mattered more than the logo: nonprofits, ed-tech, food-tech.
               </p>
             </div>
           </div>

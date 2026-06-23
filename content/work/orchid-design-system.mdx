@@ -20,40 +20,40 @@ order: 4
 
 After Keela's acquisition by Aplos, three products needed to become one. Each had its own component libraries, color palettes, spacing scales, and interaction patterns. The inconsistency was visible to users and frustrating for the teams building across products.
 
-But here's what I recognized early: this wasn't a design system problem — it was a culture problem. The real challenge was getting three teams with different histories and priorities to build on shared foundations. You can't mandate that.
+But here's what I recognized early: this wasn't a design system problem. It was a culture problem. The real challenge was getting three teams with different histories and priorities to build on shared foundations. You can't mandate that.
 
 ## Making the Case
 
 Previous design system efforts had died because they couldn't secure dedicated engineering time. I pitched Orchid differently.
 
-Before the pitch, I ran internal surveys across five departments: Engineering, Customer Care, Sales, Marketing, and Product. The goal was to surface recurring pain points that leadership could see in their own teams' words, not just hear from design.
+Before the pitch, I ran internal surveys across five departments: Engineering, Customer Care, Sales, Marketing, and Product. The goal was to surface recurring problems that leadership could see in their own teams' words, not just hear from design.
 
 <figure>
-  <img src="/case-studies/orchid-design-system/untitled-1.png" alt="Development and Engineering survey results — inconsistencies causing rework" />
-  <figcaption>Engineering survey — unique variants and missing documentation causing significant rework</figcaption>
+  <img src="/case-studies/orchid-design-system/untitled-1.png" alt="Development and Engineering survey results inconsistencies causing rework" />
+  <figcaption>Engineering survey: unique variants and missing documentation causing significant rework</figcaption>
 </figure>
 
 <figure>
-  <img src="/case-studies/orchid-design-system/untitled-2.png" alt="Customer Care survey results — explaining UI inconsistencies to users daily" />
-  <figcaption>Customer Care — explaining visual inconsistencies to users was a weekly burden</figcaption>
+  <img src="/case-studies/orchid-design-system/untitled-2.png" alt="Customer Care survey results explaining UI inconsistencies to users daily" />
+  <figcaption>Customer Care: explaining visual inconsistencies to users was a weekly burden</figcaption>
 </figure>
 
 <figure>
-  <img src="/case-studies/orchid-design-system/untitled-3.png" alt="Sales survey results — upmarket prospects comparing Keela unfavorably to competitors on design quality" />
-  <figcaption>Sales — upmarket prospects noticing UI inconsistencies in demos</figcaption>
+  <img src="/case-studies/orchid-design-system/untitled-3.png" alt="Sales survey results upmarket prospects comparing Keela unfavorably to competitors on design quality" />
+  <figcaption>Sales: upmarket prospects noticing UI inconsistencies in demos</figcaption>
 </figure>
 
-The survey data let me tie the design system investment to three concrete numbers: faster feature delivery, less QA rework, and a coherent experience that would smooth the product merger. We got two dedicated frontend engineers — the first time a design system had earned that commitment.
+The survey data let me tie the design system investment to three concrete numbers: faster feature delivery, less QA rework, and a coherent experience that would smooth the product merger. We got two dedicated frontend engineers. First time a design system had earned that at Keela.
 
 ## How We Built It
 
 ### The Audit
 
-I led a comprehensive inventory across all three products: 340+ unique components. Through workshops with each team (not presentations to them), we distilled those down to 86 foundational primitives covering 95% of interface needs.
+I ran a full inventory across all three products: 340+ unique components. Through workshops with each team (not presentations to them), we distilled those down to 86 foundational primitives covering 95% of interface needs.
 
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-6.png" alt="Old Keela designs showing inconsistent components, decimal values, and messy layering" />
-  <figcaption>Pre-Orchid — inconsistent components, decimal measurements, non-reusable elements</figcaption>
+  <figcaption>Pre-Orchid: inconsistent components, decimal measurements, non-reusable elements</figcaption>
 </figure>
 
 ### Tokens First
@@ -65,13 +65,13 @@ Orchid is built on a token foundation. Colors, spacing, typography, elevation, a
 We adopted Storybook integrated with Chromatic to give the design team a workflow linked to GitHub. Components live in Storybook as the canonical reference for both design and engineering. Chromatic runs visual regression tests on every PR so inconsistencies surface before release, not after.
 
 <figure>
-  <img src="/case-studies/orchid-design-system/untitled-7.png" alt="Pagination component built with Orchid tokens — release ready" />
-  <figcaption>Rebuilt pagination — clean token-based component ready for release</figcaption>
+  <img src="/case-studies/orchid-design-system/untitled-7.png" alt="Pagination component built with Orchid tokens release ready" />
+  <figcaption>Rebuilt pagination clean token-based component ready for release</figcaption>
 </figure>
 
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-8.png" alt="Chromatic showing release-ready components with visual regression testing" />
-  <figcaption>Chromatic — visual regression testing integrated with the PR workflow</figcaption>
+  <figcaption>Chromatic visual regression testing integrated with the PR workflow</figcaption>
 </figure>
 
 <figure>
@@ -81,25 +81,25 @@ We adopted Storybook integrated with Chromatic to give the design team a workflo
 
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-10.png" alt="Figma documentation with developer annotations and usage notes" />
-  <figcaption>Figma documentation — annotated for developers, not just designers</figcaption>
+  <figcaption>Figma documentation annotated for developers, not just designers</figcaption>
 </figure>
 
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-11.png" alt="Audit of existing production UI showing inconsistencies" />
-  <figcaption>Production audit — cataloguing inconsistencies across the live product</figcaption>
+  <figcaption>Production audit cataloguing inconsistencies across the live product</figcaption>
 </figure>
 
 ### A Contribution Model That Actually Works
 
-My first attempt at governance was too formal — proposal templates, committee reviews, multi-day turnarounds. Contribution proposals dropped to near zero. I simplified: async reviews, 48-hour turnaround, lightweight templates. Proposals doubled overnight. Governance should reduce friction, not create it. That was a hard lesson.
+My first attempt at governance was too formal: proposal templates, committee reviews, multi-day turnarounds. Contribution proposals dropped to near zero. I simplified: async reviews, 48-hour turnaround, lightweight templates. Proposals doubled overnight. Governance should reduce friction, not create it. That was a hard lesson.
 
 ## Getting Adoption Without Authority
 
 I had no direct authority over most of the people who needed to adopt Orchid. What worked:
 
-- **Weekly office hours** — drop-in sessions where anyone could get help migrating or propose components. These built relationships and gave real-time signal about what was actually hard.
-- **Paired adoption sprints** — I sat with engineers during migration, pair-designing and debugging together. Teams adopted because Orchid was genuinely faster, not because it was required.
-- **Migration guides per product** — meeting each team where they were, not where I wanted them to be. Each guide looked different because each codebase was different.
+- **Weekly office hours:** drop-in sessions where anyone could get help migrating or propose components. These built relationships and gave real-time signal about what was actually hard.
+- **Paired adoption sprints:** I sat with engineers during migration, pair-designing and debugging together. Teams adopted because Orchid was genuinely faster, not because it was required.
+- **Migration guides per product:** meeting each team where they were, not where I wanted them to be. Each guide looked different because each codebase was different.
 
 ## What Happened
 
@@ -111,13 +111,13 @@ I had no direct authority over most of the people who needed to adopt Orchid. Wh
 - Orchid is now the foundation for the unified product experience
 
 <figure class="wide">
-  <img src="/case-studies/orchid-design-system/untitled-12.png" alt="Future vision for Orchid — unified product experience across Keela, Raisely, and Aplos" />
-  <figcaption>Where Orchid is headed — a unified product experience across all three platforms</figcaption>
+  <img src="/case-studies/orchid-design-system/untitled-12.png" alt="Future vision for Orchid unified product experience across Keela, Raisely, and Aplos" />
+  <figcaption>Where Orchid is headed: a unified product experience across all three platforms</figcaption>
 </figure>
 
 <figure>
-  <img src="/case-studies/orchid-design-system/untitled-14.png" alt="Phase 1 release recognition — team collaboration across PM, Engineering, and QA" />
-  <figcaption>Phase 1 shipped — Lead PM Natalie, Lead Dev Marco, Senior Dev Keiner, Lead QA Badal, QA Engineers Ronnie and Binay</figcaption>
+  <img src="/case-studies/orchid-design-system/untitled-14.png" alt="Phase 1 release recognition team collaboration across PM, Engineering, and QA" />
+  <figcaption>Phase 1 shipped. Lead PM Natalie, Lead Dev Marco, Senior Dev Keiner, Lead QA Badal, QA Engineers Ronnie and Binay</figcaption>
 </figure>
 
 The contribution model is the thing I'm proudest of. A design system nobody contributes to is just a style guide with extra steps.

@@ -5,7 +5,7 @@ import AboutTabs from "@/components/AboutTabs";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Allen Kang — Product Design Lead. Optimist, systems-builder, experience-maker, designing mission-driven products for people the industry usually designs around.",
+    "Allen Kang, Product Design Lead. Eight years designing products for nonprofits, ed-tech, and food-tech. Fine Arts background, systems thinker.",
 };
 
 export default function AboutPage() {

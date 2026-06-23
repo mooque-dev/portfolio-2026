@@ -17,7 +17,7 @@ order: 3
 
 ## Why This Mattered
 
-Keela's transaction model handled simple one-time donations well. It broke down for larger nonprofits who needed to record one payment split across multiple purposes: ticket plus donation plus campaign attribution in a single transaction. The workaround forced staff to log multiple records — creating inaccurate receipts, messy accounting, and more support tickets.
+Keela's transaction model handled simple one-time donations well. It broke down for larger nonprofits who needed to record one payment split across multiple purposes: ticket plus donation plus campaign attribution in a single transaction. The workaround forced staff to log multiple records, creating inaccurate receipts, messy accounting, and more support tickets.
 
 Signal we used to prioritize this:
 
@@ -33,7 +33,7 @@ This wasn't a nice-to-have redesign. As the team pushed upmarket after acquisiti
 
 ## What I Learned From Watching People Work
 
-I spent time with 8 nonprofit accountants during their actual tax preparation process — not usability tests with tasks I'd written, but genuine contextual inquiry. I sat next to them while they reconciled.
+I spent time with 8 nonprofit accountants during their actual tax preparation process, not usability tests with tasks I'd written, but genuine contextual inquiry. I sat next to them while they reconciled.
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-1.png" alt="User problem statement: as a nonprofit admin I need to split a single payment into multiple items" />
@@ -44,11 +44,11 @@ Three things stood out:
 
 - Every single accountant maintained a parallel spreadsheet. The product couldn't handle their categorization needs, so they worked around it.
 - The batch editing interface required too many clicks. One person described it as "death by checkbox."
-- Error states were invisible. Users couldn't tell if a transaction was miscategorized until the final report — by which point they'd have to start over.
+- Error states were invisible. Users couldn't tell if a transaction was miscategorized until the final report. By that point they'd have to start over.
 
 ## Approach
 
-Before designing anything, I aligned stakeholders on what we couldn't do: no full backend refactor, no breaking a legacy data model tied to reporting. We agreed to ship in phases and design for extensibility so future capabilities could layer on without rework.
+Before designing anything, I got alignment with the PM and engineering lead on what we couldn't do: no full backend refactor, no breaking a legacy data model tied to reporting. We agreed to ship in phases and design for extensibility so future capabilities could layer on without rework.
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-5.png" alt="Phased delivery plan — stakeholder alignment on constraints" />
@@ -73,7 +73,7 @@ The old design accumulated errors silently and surfaced them all at report time.
 
 <figure class="wide">
   <img src="/case-studies/transaction-workflows/image-11.png" alt="Final transaction workflow design" />
-  <figcaption>The final design — split workflow with continuous validation</figcaption>
+  <figcaption>The final design: split workflow with continuous validation</figcaption>
 </figure>
 
 ## Iteration Was the Work
@@ -93,15 +93,15 @@ The transaction details view required three full rounds:
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-7.png" alt="V1 transaction detail layout — minimal change" />
-  <figcaption>V1 — minimal change, 6/10</figcaption>
+  <figcaption>V1: minimal change, 6/10</figcaption>
 </figure>
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-9.png" alt="V3 transaction detail layout — associations secondary, items primary" />
-  <figcaption>V3 — associations secondary, items primary, 9.5/10</figcaption>
+  <figcaption>V3: associations secondary, items primary, 9.5/10</figcaption>
 </figure>
 
-V3 won because it matched how accountants actually think: what they're recording first, who it belongs to second. The organizational hierarchy wasn't wrong in V1 and V2 — it was just answered in the wrong order.
+V3 won because it matched how accountants actually think: what they're recording first, who it belongs to second. The organizational hierarchy wasn't wrong in V1 and V2. It was just answered in the wrong order.
 
 Feature flags enabled safe rollout. Usage data helped us simplify the UI by removing low-value sections and prioritizing split clarity.
 
@@ -109,7 +109,7 @@ Feature flags enabled safe rollout. Usage data helped us simplify the UI by remo
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-12.png" alt="Impact dashboard showing 70% drop in tickets, 60% reduction in manual adjustments, $1.8M ARR supported" />
-  <figcaption>Impact — first month post-launch</figcaption>
+  <figcaption>Impact: first month post-launch</figcaption>
 </figure>
 
 Within the first month:
@@ -123,4 +123,4 @@ Business impact:
 - Supported **$1.8M ARR** in connected accounts
 - Unlocked **$2M** in additional revenue potential
 
-The system map I drew in week one — arrows and question marks on a whiteboard — was the most important artifact of the project. More important than any Figma file.
+The system map I drew in week one (arrows and question marks on a whiteboard) was the most important artifact of the project. More important than any Figma file.

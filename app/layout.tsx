@@ -29,25 +29,25 @@ const siteUrl = "https://www.mooque.xyz";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Allen Kang — Product Design Lead",
+    default: "Allen Kang, Product Design Lead",
     template: "%s | Allen Kang",
   },
   description:
-    "Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around.",
+    "Product designer, eight years in. Mostly at companies where the work mattered more than the logo.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Allen Kang — Portfolio",
-    title: "Allen Kang — Product Design Leader",
+    siteName: "Allen Kang Portfolio",
+    title: "Allen Kang, Product Design Lead",
     description:
-      "Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around.",
+      "Product designer, eight years in. Mostly at companies where the work mattered more than the logo.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Allen Kang — Product Design Leader",
+    title: "Allen Kang, Product Design Lead",
     description:
-      "Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around.",
+      "Product designer, eight years in. Mostly at companies where the work mattered more than the logo.",
   },
   robots: {
     index: true,

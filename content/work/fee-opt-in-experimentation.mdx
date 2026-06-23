@@ -1,6 +1,6 @@
 ---
 title: "Fee Opt-In: Winning the Moment Donors Change Their Mind"
-subtitle: "A behavioral A/B test on Raisely's donation flow. The default was already working — the real opportunity was redesigning what happens the moment a donor decides to edit it. The winning variant moved fee opt-in from 75% to 92%."
+subtitle: "A behavioral A/B test on Raisely's donation flow. The default was already working. The real opportunity was redesigning what happens the moment a donor decides to edit it. The winning variant moved fee opt-in from 75% to 92%."
 category: "Experimentation"
 type: "work"
 role: "Lead Product Designer"
@@ -18,17 +18,17 @@ order: 1
 
 ## The Deceptive Win
 
-Raisely lets nonprofits cover the platform fee at checkout, and a redesigned edit box had just moved fee opt-in from **75% to 82%** — a clear win on paper, close to the **90% benchmark** set by platforms like Funraise and Givebutter.
+Raisely lets nonprofits cover the platform fee at checkout, and a redesigned edit box had just moved fee opt-in from **75% to 82%**, a clear win on paper, close to the **90% benchmark** set by platforms like Funraise and Givebutter.
 
 But the headline number hid the actual problem. When I looked at the **12–20% of donors who clicked "Edit"** on the fee, a pattern jumped out: once they entered the edit flow, they overwhelmingly dragged the amount to the *lowest possible value* or opted out entirely.
 
-The opportunity wasn't increasing awareness of the fee. Awareness was fine. The opportunity was **decision design** — what happens in the few seconds *after* a donor has already signalled they want to change something.
+The opportunity wasn't increasing awareness of the fee. Awareness was fine. The opportunity was **decision design**: what happens in the few seconds *after* a donor has already signalled they want to change something.
 
 ## Reframing the Problem
 
-The conventional move here would be to ship the 82% and move on. Instead, I argued we should pause the rollout. The new edit box and the legacy fallback UI it dropped donors into were visually fragmented and behaved inconsistently — and worse, the fallback unintentionally **nudged donors toward the smallest contribution**. We'd have been optimizing the front door while leaving a leak in the back.
+The conventional move here would be to ship the 82% and move on. Instead, I argued we should pause the rollout. The new edit box and the legacy fallback UI it dropped donors into were visually fragmented and behaved inconsistently. Worse, the fallback unintentionally **nudged donors toward the smallest contribution**. We'd have been optimizing the front door while leaving a leak in the back.
 
-So I reframed the brief from "raise opt-in" to a sharper question: *how do we design the moment a donor edits their decision so the easiest path is also a fair one — without ever feeling coercive?* Donor trust is the entire product here. A few extra points of fee revenue isn't worth a flow that feels manipulative.
+So I reframed the brief from "raise opt-in" to a sharper question: *how do we design the moment a donor edits their decision so the easiest path is also a fair one, without ever feeling coercive?* Donor trust is the entire product here. A few extra points of fee revenue isn't worth a flow that feels manipulative.
 
 <figure>
   <img src="/case-studies/fee-opt-in/01-before-fallback.svg" alt="The legacy fallback experience before the redesign" />
@@ -37,13 +37,13 @@ So I reframed the brief from "raise opt-in" to a sharper question: *how do we de
 
 ## Designing the Decision, Not the Default
 
-The experiment centered on the fallback control itself. I designed three variants grounded in established behavioral patterns — **defaults, anchoring, and soft-decline** — rather than guessing:
+The experiment centered on the fallback control itself. I designed three variants grounded in established behavioral patterns (defaults, anchoring, and soft-decline) rather than guessing:
 
-- **Slider** — a continuous control anchored at a sensible default, making "a little less" feel like a small nudge rather than a cliff to zero.
-- **Toggle buttons** — discrete, pre-framed choices that removed the blank-slate problem of a free-entry field.
-- **Segmented dropdown** — a compact, familiar pattern for donors who wanted to pick quickly and move on.
+- **Slider:** a continuous control anchored at a sensible default, making "a little less" feel like a small nudge rather than a cliff to zero.
+- **Toggle buttons:** discrete, pre-framed choices that removed the blank-slate problem of a free-entry field.
+- **Segmented dropdown:** a compact, familiar pattern for donors who wanted to pick quickly and move on.
 
-Each was treated as **production-ready**, not disposable test UI — because the winner had to scale across the whole platform the day the test closed.
+Each was treated as **production-ready**, not disposable test UI. The winner had to scale across the whole platform the day the test closed.
 
 <figure class="wide">
   <img src="/case-studies/fee-opt-in/02-variants.svg" alt="The three fallback control variants tested side by side" />
@@ -52,7 +52,7 @@ Each was treated as **production-ready**, not disposable test UI — because the
 
 ## Prototyping With AI
 
-To move fast without sacrificing rigor — and frankly, to push my own craft — I introduced **AI-assisted prototyping** into the exploration phase. Using **Cursor** and **MagicPatterns**, I built interactive, control-panel-style prototypes instead of static mocks. PMs and engineers could:
+To move fast without sacrificing rigor (and frankly, to push my own craft) I introduced **AI-assisted prototyping** into the exploration phase. Using **Cursor** and **MagicPatterns**, I built interactive, control-panel-style prototypes instead of static mocks. PMs and engineers could:
 
 - simulate donation thresholds and live fee calculations
 - toggle default states and fallback logic
@@ -63,10 +63,10 @@ This collapsed alignment time and surfaced technical constraints **before** we c
 
 <figure class="wide">
   <img src="/case-studies/fee-opt-in/03-magicpatterns-prototype.svg" alt="Interactive MagicPatterns prototype with live fee logic" />
-  <figcaption>Instead of static mocks, an inspectable control panel — PMs and engineers could toggle defaults and watch the behavior change in real time.</figcaption>
+  <figcaption>Instead of static mocks, an inspectable control panel: PMs and engineers could toggle defaults and watch the behavior change in real time.</figcaption>
 </figure>
 
-I also built a future-state concept prototype to show how the fallback could eventually evolve into a single, unified contribution experience — giving the team a north star beyond the immediate test.
+I also built a future-state concept prototype to show how the fallback could eventually evolve into a single, unified contribution experience, giving the team a direction beyond the immediate test.
 
 <figure>
   <img src="/case-studies/fee-opt-in/04-future-state.svg" alt="Future-state concept for a unified contribution experience" />
@@ -77,22 +77,22 @@ I also built a future-state concept prototype to show how the fallback could eve
 
 > Introducing a modernized fallback control when a donor clicks "Edit" will increase the average fee opt-in value while maintaining or improving the existing conversion rate.
 
-Grounded in internal behavioral data, competitive analysis, and the anchoring and soft-decline literature — not a hunch.
+Grounded in internal behavioral data, competitive analysis, and the anchoring and soft-decline literature, not a hunch.
 
 ## What Happened
 
 - The winning **Slider** variant lifted fee opt-in from **75% to 92%**, clearing the 90% benchmark
-- **Donation conversion and average gift size held steady** — the lift came from better decisions, not pressure
+- **Donation conversion and average gift size held steady:** the lift came from better decisions, not pressure
 - The validated pattern shipped as the platform-wide fallback, scaling beyond the single test surface
 
 <figure class="wide">
   <img src="/case-studies/fee-opt-in/05-results.svg" alt="Fee opt-in increased from 75 percent to 92 percent" />
-  <figcaption>The winning Slider variant cleared the 90% benchmark — without trading away conversion or average gift size.</figcaption>
+  <figcaption>The winning Slider variant cleared the 90% benchmark, without trading away conversion or average gift size.</figcaption>
 </figure>
 
 The result validated the core insight I'd been chasing:
 
-> Improving *how* a user changes their decision can be just as impactful as improving the default itself.
+> Improving *how* a user changes their decision can be just as effective as improving the default itself.
 
 ## What's Next
 
