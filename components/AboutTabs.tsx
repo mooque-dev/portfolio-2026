@@ -95,49 +95,27 @@ export default function AboutTabs() {
             <div className="mt-20">
               <Separator className="mb-12" />
               <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-8">
-                How I Think About Design
+                On the name
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div>
-                  <h3 className="font-semibold mb-2">Systems over screens</h3>
-                  <p className="text-muted leading-relaxed">
-                    A beautiful screen that doesn&apos;t fit the system it lives
-                    in is just a picture. I design the connections: the data
-                    flows, the edge cases, the way one decision cascades into the
-                    next. That&apos;s usually where the actual work is.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">
-                    Make the better thing the easier thing
-                  </h3>
-                  <p className="text-muted leading-relaxed">
-                    I don&apos;t believe in mandating design standards. I believe
-                    in making the right thing the easier thing, building tools
-                    people actually want to use. Orchid spread because designers
-                    reached for it, not because anyone told them to.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Sketch before you pixel</h3>
-                  <p className="text-muted leading-relaxed">
-                    I start every project with ugly whiteboard maps and hard
-                    questions, not polished mockups. The goal is to find the
-                    problems early, when changing direction is cheap. Pretty comes
-                    later.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">
-                    Leave things better than you found them
-                  </h3>
-                  <p className="text-muted leading-relaxed">
-                    Every project is a chance to build something that outlasts
-                    you: a reusable pattern, a better process, a piece of
-                    documentation that helps the next person. I want my work to
-                    compound.
-                  </p>
-                </div>
+              <div className="space-y-7 text-base text-muted leading-relaxed max-w-2xl">
+                <p>
+                  My Korean name is Sung Mook. Over time it became{" "}
+                  <span className="text-foreground font-medium">mooque</span> —
+                  a contraction I&apos;ve worn long enough that it&apos;s mine now.
+                  Something between a handle and a brand. Easy to remember, hard
+                  to place, which felt right for someone who doesn&apos;t fit
+                  neatly into a single box.
+                </p>
+                <p>
+                  The email is ncsstyco — short for{" "}
+                  <span className="text-foreground font-medium">Necessity Company</span>.
+                  The idea is straightforward: good work should create genuine
+                  necessity, not manufactured urgency. I&apos;ve spent eight years
+                  building for nonprofits, schools, and healthcare — places where
+                  software failing isn&apos;t just an inconvenience. That shapes
+                  how I think about what&apos;s worth making. Purpose over profit,
+                  not the other way around.
+                </p>
               </div>
             </div>
           </FadeIn>

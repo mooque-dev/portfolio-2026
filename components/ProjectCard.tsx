@@ -31,7 +31,7 @@ export default function ProjectCard({
         whileHover={{ y: -4 }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
-        <div className={`overflow-hidden rounded-sm ${featured ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+        <div className="overflow-hidden rounded-sm aspect-[4/3]">
           <div
             className="cover-tinted relative w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.03]"
             style={{ backgroundColor: coverColor }}
@@ -43,7 +43,7 @@ export default function ProjectCard({
                 src={coverImage}
                 alt=""
                 fill
-                className="object-cover object-top"
+                className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             )}
