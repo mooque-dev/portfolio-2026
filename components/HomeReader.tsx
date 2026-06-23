@@ -49,29 +49,47 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           {/* Projects — text only */}
           <FadeIn delay={0.15}>
             <div className="mt-20">
-              <h2 className="text-sm tracking-wide mb-8">Selected Work</h2>
-              <ol className="space-y-0">
-                {allProjects.map((project, i) => (
-                  <li key={project.slug}>
-                    <Link
-                      href={`/work/${project.slug}`}
-                      className="group flex items-baseline justify-between py-4 border-b border-border"
-                    >
-                      <div className="flex items-baseline gap-4 min-w-0">
-                        <span className="text-xs text-muted tabular-nums shrink-0 w-5">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <span className="font-light text-lg leading-snug group-hover:opacity-60 transition-opacity truncate">
-                          {project.title}
-                        </span>
+              {(() => {
+                const featured = allProjects.filter((p) => p.featured);
+                const work = featured.filter((p) => p.type === "work");
+                const personal = featured.filter((p) => p.type === "personal");
+                const renderList = (projects: typeof featured, offset: number) => (
+                  <ol className="space-y-0">
+                    {projects.map((project, i) => (
+                      <li key={project.slug}>
+                        <Link
+                          href={`/work/${project.slug}`}
+                          className="group flex items-baseline justify-between py-4 border-b border-border"
+                        >
+                          <div className="flex items-baseline gap-4 min-w-0">
+                            <span className="text-xs text-muted tabular-nums shrink-0 w-5">
+                              {String(offset + i + 1).padStart(2, "0")}
+                            </span>
+                            <span className="font-light text-lg leading-snug group-hover:opacity-60 transition-opacity truncate">
+                              {project.title}
+                            </span>
+                          </div>
+                          <span className="text-xs text-muted shrink-0 ml-4 hidden sm:block">
+                            {project.timeline}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ol>
+                );
+                return (
+                  <>
+                    <h2 className="text-sm tracking-wide mb-8">Work</h2>
+                    {renderList(work, 0)}
+                    {personal.length > 0 && (
+                      <div className="mt-12">
+                        <h2 className="text-sm tracking-wide mb-8">Personal</h2>
+                        {renderList(personal, work.length)}
                       </div>
-                      <span className="text-xs text-muted shrink-0 ml-4 hidden sm:block">
-                        {project.timeline}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ol>
+                    )}
+                  </>
+                );
+              })()}
             </div>
           </FadeIn>
 
@@ -106,7 +124,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           {/* Colophon */}
           <FadeIn delay={0.25}>
             <p className="mt-20 text-xs text-muted leading-relaxed">
-              Fine Arts grad. Home cook. Six years into a Duolingo streak I keep meaning to trade for real French classes.
+              Fine Arts kid. Graphic Design grad. Avid runner, music enthusiast, and an amateur musical act.
             </p>
           </FadeIn>
         </div>
