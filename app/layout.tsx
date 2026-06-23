@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Caveat } from "next/font/google";
 import ReadingProgress from "@/components/ReadingProgress";
 import FluidCursor from "@/components/FluidCursor";
@@ -53,6 +53,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafaf8" },
+    { media: "(prefers-color-scheme: dark)", color: "#111110" },
+  ],
 };
 
 const themeScript = `
