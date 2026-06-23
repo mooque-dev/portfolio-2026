@@ -64,7 +64,7 @@ export default function AboutTabs() {
                 Most of what I know about designing with AI I learned from the
                 people I built with. A PM and a pair of fractional engineers
                 brought me into a conversational recipe app they were putting
-                together — not because it fit any roadmap, but because we all
+                together, not because it fit any roadmap, but because we all
                 wanted to understand what happens when a model can take a
                 conversation anywhere. My job was interaction and design; theirs
                 was the model and the stack. The friction we kept hitting was
@@ -102,18 +102,18 @@ export default function AboutTabs() {
               <div className="space-y-7 text-base text-muted leading-relaxed max-w-2xl">
                 <p>
                   My Korean name is Sung Mook. Over time it became{" "}
-                  <span className="text-foreground font-medium">mooque</span> —
+                  <span className="text-foreground font-medium">mooque</span>,
                   a contraction I&apos;ve worn long enough that it&apos;s mine now.
                   Something between a handle and a brand. Easy to remember, hard
                   to place, which felt right for someone who doesn&apos;t fit
                   neatly into a single box.
                 </p>
                 <p>
-                  The email is ncsstyco — short for{" "}
+                  The email is ncsstyco, short for{" "}
                   <span className="text-foreground font-medium">Necessity Company</span>.
                   The idea is straightforward: good work should create genuine
                   necessity, not manufactured urgency. I&apos;ve spent eight years
-                  building for nonprofits, schools, and healthcare — places where
+                  building for nonprofits, schools, and healthcare. Places where
                   software failing isn&apos;t just an inconvenience. That shapes
                   how I think about what&apos;s worth making. Purpose over profit,
                   not the other way around.
@@ -134,19 +134,21 @@ export default function AboutTabs() {
               </p>
               <div className="space-y-10">
                 <div>
-                  <h3 className="font-semibold mb-2">Cooking</h3>
+                  <h3 className="font-semibold mb-2">Food &amp; people</h3>
                   <p className="text-muted leading-relaxed">
-                    I cook almost every day. It&apos;s the one creative practice
-                    where the feedback loop is immediate. You taste it, you
-                    know. I got curious enough about the intersection of food and
-                    technology to{" "}
+                    My family are the cooks. I grew up around chefs and home
+                    cooks, musicians and artists. That world is where most of my
+                    real inspiration comes from: the improvisation, the care
+                    about detail, the way something has to earn its place. That
+                    curiosity about food and technology eventually led me to
+                    collaborate on{" "}
                     <Link
                       href="/work/ai-recipe-book"
                       className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
-                      build an AI-powered recipe app
+                      an AI-powered recipe app
                     </Link>{" "}
-                    that adapts recipes conversationally.
+                    built around conversational design.
                   </p>
                 </div>
                 <div>
