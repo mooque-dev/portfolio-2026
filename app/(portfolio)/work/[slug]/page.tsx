@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getProject, getProjectSlugs, getAllProjects, extractHeadings } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
@@ -93,18 +94,20 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </FadeIn>
 
         {/* Cover */}
-        <FadeIn delay={0.3}>
-          <div
-            className="cover-tinted mt-12 aspect-[16/9] rounded-sm flex items-center justify-center"
-            style={{ backgroundColor: frontmatter.coverColor }}
-            role="img"
-            aria-label={`Cover image for ${frontmatter.title}`}
-          >
-            <span className="font-serif text-foreground/10 text-3xl md:text-4xl font-semibold text-center px-8 select-none" aria-hidden="true">
-              {frontmatter.title}
-            </span>
-          </div>
-        </FadeIn>
+        {frontmatter.coverImage && (
+          <FadeIn delay={0.3}>
+            <div className="mt-12 aspect-[16/9] rounded-sm overflow-hidden relative"
+              style={{ backgroundColor: frontmatter.coverColor }}>
+              <Image
+                src={frontmatter.coverImage}
+                alt={frontmatter.title}
+                fill
+                className="object-cover object-center"
+                priority
+              />
+            </div>
+          </FadeIn>
+        )}
 
         {/* Content */}
         <FadeIn delay={0.35}>
