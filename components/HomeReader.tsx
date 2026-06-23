@@ -39,7 +39,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
                 LinkedIn<span className="sr-only"> (opens in new tab)</span>
               </a>
               <a
-                href="mailto:hello@mooque.xyz"
+                href="mailto:ncsstyco@gmail.com"
                 className="hover:text-foreground transition-colors"
               >
                 Email

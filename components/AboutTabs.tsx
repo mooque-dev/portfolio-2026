@@ -38,7 +38,7 @@ export default function AboutTabs() {
                 src="/allen-kang-portrait.png"
                 alt="Portrait of Allen Kang"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
             </div>
@@ -217,63 +217,13 @@ export default function AboutTabs() {
           <FadeIn delay={0.25}>
             <div className="mt-20">
               <Separator className="mb-12" />
-              <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-8">
-                Tools &amp; Skills
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                  <h3 className="text-xs tracking-widest uppercase text-muted mb-3">
-                    Design
-                  </h3>
-                  <ul className="space-y-2 text-sm">
-                    <li>Product &amp; Design Strategy</li>
-                    <li>Design Systems</li>
-                    <li>User Research &amp; Synthesis</li>
-                    <li>Interaction Design</li>
-                    <li>Information Architecture</li>
-                    <li>Visual Design &amp; Typography</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xs tracking-widest uppercase text-muted mb-3">
-                    Tools
-                  </h3>
-                  <ul className="space-y-2 text-sm">
-                    <li>Figma &amp; FigJam</li>
-                    <li>Storybook &amp; Chromatic</li>
-                    <li>Amplitude &amp; Mixpanel</li>
-                    <li>React &amp; Next.js</li>
-                    <li>Illustrator &amp; Procreate</li>
-                    <li>Jira, Linear &amp; Notion</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xs tracking-widest uppercase text-muted mb-3">
-                    Leadership
-                  </h3>
-                  <ul className="space-y-2 text-sm">
-                    <li>Team Building &amp; Mentorship</li>
-                    <li>Design Operations</li>
-                    <li>Stakeholder Communication</li>
-                    <li>Workshop Facilitation</li>
-                    <li>Design Critique</li>
-                    <li>Research Operations</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={0.3}>
-            <div className="mt-20">
-              <Separator className="mb-12" />
               <p className="text-lg leading-relaxed">
                 I&apos;m currently open to Staff and Principal design roles,
                 particularly where design systems, working across product and
                 engineering, or 0→1 platform work is at the center. If you&apos;re
                 building something interesting,{" "}
                 <a
-                  href="mailto:hello@mooque.xyz"
+                  href="mailto:ncsstyco@gmail.com"
                   className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity"
                 >
                   I&apos;d love to talk
@@ -400,10 +350,10 @@ export default function AboutTabs() {
               </h2>
               <div className="flex flex-wrap gap-6 text-sm">
                 <a
-                  href="mailto:hello@mooque.xyz"
+                  href="mailto:ncsstyco@gmail.com"
                   className="underline underline-offset-4 decoration-1 hover:opacity-70 transition-opacity"
                 >
-                  hello@mooque.xyz
+                  ncsstyco@gmail.com
                 </a>
                 <a
                   href="https://www.linkedin.com/in/mooque/"

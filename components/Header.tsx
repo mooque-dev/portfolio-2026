@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import WorldClock from "./WorldClock";
 import { useState, useEffect, useCallback } from "react";
 import ThemeToggle from "./ThemeToggle";
-import LayoutToggle from "./LayoutToggle";
 import Magnetic from "./Magnetic";
 import {
   Sheet,
@@ -84,12 +83,6 @@ export default function Header() {
             })}
           </ul>
 
-          {pathname === "/" && (
-            <div className="hidden md:flex items-center mr-1 border-r border-border pr-3">
-              <LayoutToggle />
-            </div>
-          )}
-
           <ThemeToggle />
 
           {/* Mobile menu — Sheet */}
@@ -146,14 +139,6 @@ export default function Header() {
                     );
                   })}
                 </ul>
-                {pathname === "/" && (
-                  <div className="mt-6 px-2 border-t border-border pt-6">
-                    <p className="text-[9px] tracking-[0.18em] uppercase text-muted/50 mb-3 px-2">
-                      View
-                    </p>
-                    <LayoutToggle />
-                  </div>
-                )}
               </nav>
             </SheetContent>
           </Sheet>
