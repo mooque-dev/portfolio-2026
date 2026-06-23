@@ -33,6 +33,7 @@ function ProjectGrid({ projects, startIndex = 0 }: { projects: ProjectSummary[];
               category={project.category}
               coverColor={project.coverColor}
               coverImage={project.coverImage}
+              wip={project.wip}
             />
           </motion.div>
         ))}

@@ -23,6 +23,7 @@ export default async function WorkPage() {
     featured: p.frontmatter.featured,
     role: p.frontmatter.role,
     timeline: p.frontmatter.timeline,
+    wip: p.frontmatter.wip,
   }));
 
   return (

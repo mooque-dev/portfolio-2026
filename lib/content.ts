@@ -18,6 +18,7 @@ export interface ProjectFrontmatter {
   coverColor: string;
   coverImage?: string;
   featured: boolean;
+  wip?: boolean;
   order: number;
 }
 

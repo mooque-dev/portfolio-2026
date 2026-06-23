@@ -13,6 +13,7 @@ interface ProjectCardProps {
   coverColor?: string;
   coverImage?: string;
   featured?: boolean;
+  wip?: boolean;
 }
 
 export default function ProjectCard({
@@ -23,6 +24,7 @@ export default function ProjectCard({
   coverColor = "#e5e5e0",
   coverImage,
   featured = false,
+  wip = false,
 }: ProjectCardProps) {
   return (
     <Magnetic strength={0.04} radius={260}>
@@ -43,9 +45,14 @@ export default function ProjectCard({
                 src={coverImage}
                 alt=""
                 fill
-                className="object-cover object-center"
+                className={`object-cover object-center transition-[filter] duration-300 ${wip ? "blur-lg brightness-75" : ""}`}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
+            )}
+            {wip && (
+              <div className="absolute bottom-3 left-3 z-10" aria-hidden="true">
+                <span className="text-[9px] tracking-[0.22em] uppercase text-white/40">WIP</span>
+              </div>
             )}
             {!coverImage && (
               <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">

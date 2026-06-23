@@ -7,6 +7,7 @@ export interface ProjectSummary {
   coverColor: string;
   coverImage?: string;
   featured: boolean;
+  wip?: boolean;
   role: string;
   timeline: string;
 }
