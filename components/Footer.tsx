@@ -56,7 +56,7 @@ export default function Footer() {
           href="/gateway"
           className="text-xs text-muted/50 hover:text-muted transition-colors tracking-wide"
         >
-          Gateway
+          Elsewhere ↗
         </Link>
       </div>
     </footer>

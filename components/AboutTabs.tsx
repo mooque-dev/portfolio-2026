@@ -47,11 +47,13 @@ export default function AboutTabs() {
           <FadeIn delay={0.1}>
             <div className="mt-12 space-y-7 text-[22px] md:text-[30px] leading-[1.4] font-light tracking-[-0.01em] text-balance">
               <p>
-                I wanted to be a children&apos;s book illustrator. I studied
-                Fine Arts instead, almost became a wedding photographer. Someone
-                stole my camera gear, and I took it as a sign to chase ideas
-                instead of equipment. Design is where I landed, and where
-                I&apos;ve stayed for eight years.
+                I grew up wanting to illustrate children&apos;s books — the
+                painted kind, with stories that didn&apos;t talk down to kids.
+                Fine Arts pulled me sideways, photography pulled me further, and
+                I spent a few years shooting weddings until someone stole my
+                camera gear. I took it as a reason to stop chasing tools and
+                start chasing problems. Design is where I landed, eight years
+                ago and still here.
               </p>
               <p>
                 I&apos;ve spent those years on products in education,
