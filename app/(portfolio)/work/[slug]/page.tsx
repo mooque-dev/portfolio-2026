@@ -102,7 +102,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 src={frontmatter.coverImage}
                 alt={frontmatter.title}
                 fill
-                className="object-cover object-center"
+                className={`object-cover object-center ${frontmatter.wip ? "blur-md brightness-75" : ""}`}
                 priority
               />
             </div>
@@ -112,7 +112,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {/* Content */}
         <FadeIn delay={0.35}>
           <div
-            className="prose mt-16"
+            className={`prose mt-16 ${frontmatter.wip ? "[&_img]:blur-md [&_img]:brightness-75" : ""}`}
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </FadeIn>
