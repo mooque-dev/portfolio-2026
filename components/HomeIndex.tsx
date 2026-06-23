@@ -37,12 +37,12 @@ export default function HomeIndex({ allProjects, recentWriting }: Props) {
           <div className="mt-6 md:grid md:grid-cols-12 gap-6">
             <div className="md:col-span-8">
               <h2 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight">
-                The systems and craft behind products that work
+                Eight years designing the systems between the screens
               </h2>
             </div>
             <div className="md:col-span-4 mt-3 md:mt-0">
               <p className="text-sm text-muted leading-relaxed">
-                Optimist, systems-builder, experience-maker. Eight years designing mission-driven products for people the industry usually designs around.
+                Came up through Fine Arts. Eight years mostly at companies where the work mattered more than the logo — nonprofits, ed-tech, food-tech.
               </p>
             </div>
           </div>

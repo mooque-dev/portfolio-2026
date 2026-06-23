@@ -84,12 +84,10 @@ export default function AboutTabs() {
 
           <FadeIn delay={0.12}>
             <p className="mt-10 text-base text-muted leading-relaxed max-w-2xl">
-              These days that means leading design at Velora, where I&apos;m
-              merging three nonprofit products (Keela, Raisely, and Aplos)
-              into one connected system used by 85,600+ campaigns across 102
-              countries. I came in as the founding designer on that effort and
-              built the research practice, the design system, and the culture
-              from scratch.
+              Most recently that meant leading design at Velora — merging
+              Keela, Raisely, and Aplos into one shared platform. I came in
+              to build the design practice and the system from scratch, which
+              is my favorite kind of problem.
             </p>
           </FadeIn>
 
@@ -106,7 +104,7 @@ export default function AboutTabs() {
                     A beautiful screen that doesn&apos;t fit the system it lives
                     in is just a picture. I design the connections: the data
                     flows, the edge cases, the way one decision cascades into the
-                    next. The highest-leverage work is usually invisible.
+                    next. That&apos;s usually where the actual work is.
                   </p>
                 </div>
                 <div>
@@ -115,9 +113,9 @@ export default function AboutTabs() {
                   </h3>
                   <p className="text-muted leading-relaxed">
                     I don&apos;t believe in mandating design standards. I believe
-                    in building tools and systems so good that people adopt them
-                    because they genuinely want to. That&apos;s how Orchid got
-                    adopted, not through governance, but through craft.
+                    in making the right thing the easier thing — building tools
+                    people actually want to use. Orchid spread because designers
+                    reached for it, not because anyone told them to.
                   </p>
                 </div>
                 <div>

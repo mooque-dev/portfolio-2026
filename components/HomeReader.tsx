@@ -18,9 +18,10 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           {/* Bio */}
           <FadeIn>
             <h1 className="text-[28px] md:text-[32px] leading-[1.35] font-light">
-              Product Design Lead. Optimist, systems-builder, experience-maker.
-              Eight years designing mission-driven products for people the
-              industry usually designs around.
+              Product designer, eight years in. Mostly at companies where the
+              work mattered more than the logo — nonprofits, ed-tech, food-tech.
+              The interesting problems were always further upstream than the
+              mockup.
             </h1>
           </FadeIn>
 
@@ -106,7 +107,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           {/* Colophon */}
           <FadeIn delay={0.25}>
             <p className="mt-20 text-xs text-muted leading-relaxed">
-              Fine Arts graduate, home cook, occasional painter. Building things that outlast any single project.
+              Fine Arts grad. Home cook. Six years into a Duolingo streak I keep meaning to trade for real French classes.
             </p>
           </FadeIn>
         </div>
