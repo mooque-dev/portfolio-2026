@@ -40,7 +40,14 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
       </p>
       <ul className="space-y-2">
         {headings.map((h) => (
-          <li key={h.id} style={{ paddingLeft: h.level === 3 ? "10px" : "0" }}>
+          <li key={h.id} className="relative flex items-start gap-2" style={{ paddingLeft: h.level === 3 ? "10px" : "0" }}>
+            <span
+              className="mt-[3px] shrink-0 w-px self-stretch transition-all duration-300"
+              style={{
+                background: active === h.id ? "var(--foreground)" : "transparent",
+                opacity: active === h.id ? 1 : 0,
+              }}
+            />
             <a
               href={`#${h.id}`}
               className={`block text-[11px] leading-snug transition-colors duration-150 ${

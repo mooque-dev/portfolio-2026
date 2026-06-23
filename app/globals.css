@@ -334,6 +334,35 @@ html {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Nav link — sliding underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.22s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* Prose image hover — gentle zoom */
+.prose figure img,
+.prose img {
+  transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.prose figure img:hover,
+.prose img:hover {
+  transform: scale(1.015);
+}
+
 /* Fluid cursor — hide system pointer when our custom cursor is active */
 .fluid-cursor,
 .fluid-cursor * {

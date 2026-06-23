@@ -68,7 +68,7 @@ export default function Header() {
                   <Magnetic strength={0.28} radius={65} className="inline-flex">
                     <Link
                       href={href}
-                      className={`text-[11px] tracking-[0.14em] uppercase transition-colors min-h-[44px] inline-flex items-center ${
+                      className={`nav-link text-[11px] tracking-[0.14em] uppercase transition-colors min-h-[44px] inline-flex items-center ${
                         isActive
                           ? "text-foreground"
                           : "text-muted/70 hover:text-foreground"
