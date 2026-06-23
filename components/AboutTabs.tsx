@@ -384,6 +384,13 @@ export default function AboutTabs() {
                   LinkedIn
                   <span className="sr-only"> (opens in new tab)</span>
                 </a>
+                <a
+                  href="/allen-kang-resume.pdf"
+                  download
+                  className="underline underline-offset-4 decoration-1 hover:opacity-70 transition-opacity"
+                >
+                  Download PDF
+                </a>
               </div>
             </div>
           </FadeIn>

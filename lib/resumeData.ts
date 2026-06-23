@@ -81,9 +81,9 @@ export const sideProjects: SideProject[] = [
 
 export const education: Education[] = [
   {
-    school: "Graphic Design",
+    school: "York University",
     detail:
-      "Diploma: Visual communication, interactive design, and systematic thinking",
+      "Bachelor of Design, Graphic Design — Visual communication, interactive design, and systematic thinking",
   },
   {
     school: "Fine Arts",

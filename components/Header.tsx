@@ -38,9 +38,9 @@ export default function Header() {
       >
         <div className="flex-1">
           <Link
-            href="/gateway"
+            href="/"
             className="group inline-flex flex-col leading-none hover:opacity-70 transition-opacity"
-            aria-label="Allen Kang (mooque), go to gateway"
+            aria-label="Allen Kang (mooque), go to home"
           >
             <span
               className="text-[26px] leading-[0.9] text-foreground"

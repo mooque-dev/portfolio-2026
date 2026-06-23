@@ -15,13 +15,24 @@ export default function ResumePage() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl">
         <FadeIn>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
-            Resume
-          </h1>
-          <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
-            Eight years across nonprofits, ed-tech, and food-tech. The work was
-            always about the team as much as the product.
-          </p>
+          <div className="flex items-start justify-between gap-6">
+            <div>
+              <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
+                Resume
+              </h1>
+              <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
+                Eight years across nonprofits, ed-tech, and food-tech. The work was
+                always about the team as much as the product.
+              </p>
+            </div>
+            <a
+              href="/allen-kang-resume.pdf"
+              download
+              className="shrink-0 mt-2 px-4 py-2 text-xs tracking-[0.1em] uppercase border border-border rounded-full hover:border-foreground/40 hover:text-foreground text-muted/70 transition-colors"
+            >
+              Download PDF
+            </a>
+          </div>
         </FadeIn>
 
         {/* Experience */}
