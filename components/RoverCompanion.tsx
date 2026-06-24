@@ -26,28 +26,28 @@ function loadCss(href: string) {
 
 function tipFor(path: string, onboarded: boolean): string {
   if (!onboarded)
-    return "Hi! I'm Clippy. It looks like you're exploring Allen's portfolio. Need a hand? Try the Work tab for his projects, or About to get to know him.";
+    return "Woof! I'm Rover. Looking for something on Allen's site? I can fetch it. Try Work for his projects, or About to meet him.";
   if (path.startsWith("/work/fee-opt-in"))
-    return "Great pick — this is the one Allen's proudest of. A behavioral A/B test that moved fee opt-in from 75% to 92%.";
+    return "Good find! This is the one Allen's proudest of — a behavioral A/B test that moved fee opt-in from 75% to 92%.";
   if (path.startsWith("/work"))
-    return "These are Allen's projects. The standout is the Fee Opt-In case study — opt-in went 75% to 92%. Open it from the list.";
+    return "Sniff around — these are Allen's projects. The standout is the Fee Opt-In case study: opt-in went 75% to 92%.";
   if (path.startsWith("/about"))
-    return "This is Allen — wanted to be a children's book illustrator, almost became a photographer, ended up in design. Keep reading, it's a good story.";
+    return "This is Allen — wanted to be a children's book illustrator, almost became a photographer, ended up in design. Good story, keep reading.";
   if (path.startsWith("/writing"))
-    return "Allen writes about systems, design after an acquisition, and getting adoption without authority. Pick one to dig in.";
+    return "Allen writes about systems, design after an acquisition, and getting adoption without authority. Fetch one and dig in.";
   if (path.startsWith("/resume"))
-    return "The formal résumé lives here. Honestly though, the Work tab says more about him.";
-  return "Welcome! I'm here to help you find your way around Allen's site. Start with Work, or click me anytime for a tip.";
+    return "The formal résumé is right here. Between us, though — the Work tab says more about him.";
+  return "Welcome! I'm Rover, here to help you find your way around Allen's site. Start with Work, or click me anytime for a tip.";
 }
 
-export default function ClippyCompanion() {
+export default function RoverCompanion() {
   const pathname = usePathname();
   const agentRef = useRef<any>(null);
   const [ready, setReady] = useState(false);
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem("clippy-dismissed") === "1") {
+    if (localStorage.getItem("rover-dismissed") === "1") {
       setDismissed(true);
       return;
     }
@@ -60,7 +60,7 @@ export default function ClippyCompanion() {
         const w = window as any;
         if (!w.clippy) return;
         w.clippy.BASE_PATH = "/clippy/agents/";
-        w.clippy.load("Clippy", (agent: any) => {
+        w.clippy.load("Rover", (agent: any) => {
           if (cancelled) return;
           agentRef.current = agent;
           agent.show();
@@ -69,14 +69,14 @@ export default function ClippyCompanion() {
             Math.max(20, window.innerHeight - 220),
             0
           );
-          agent.play("Greeting");
-          const onboarded = localStorage.getItem("clippy-onboarded") === "1";
+          agent.play("Greet");
+          const onboarded = localStorage.getItem("rover-onboarded") === "1";
           agent.speak(tipFor(window.location.pathname, onboarded));
-          localStorage.setItem("clippy-onboarded", "1");
+          localStorage.setItem("rover-onboarded", "1");
           const el = document.querySelector(".clippy");
           if (el) {
             el.addEventListener("click", () => {
-              agent.play("GetAttention");
+              agent.play("Pleased");
               agent.speak(tipFor(window.location.pathname, true));
             });
           }
@@ -86,7 +86,7 @@ export default function ClippyCompanion() {
           }, 13000);
         });
       } catch {
-        /* offline / blocked — fail quietly, no companion */
+        /* offline / blocked — fail quietly */
       }
     })();
     return () => {
@@ -94,27 +94,27 @@ export default function ClippyCompanion() {
     };
   }, []);
 
-  // Speak page-specific help on navigation.
+  // Fetch page-specific help on navigation.
   useEffect(() => {
     const agent = agentRef.current;
     if (!agent || !ready) return;
     agent.stop();
-    agent.play("GestureRight");
+    agent.play("Searching");
     agent.speak(tipFor(pathname, true));
   }, [pathname, ready]);
 
   function dismiss() {
     const agent = agentRef.current;
     if (agent) {
-      agent.play("GoodBye");
+      agent.play("Hide");
       window.setTimeout(() => agent.hide(), 800);
     }
     setDismissed(true);
-    localStorage.setItem("clippy-dismissed", "1");
+    localStorage.setItem("rover-dismissed", "1");
   }
 
   function bringBack() {
-    localStorage.removeItem("clippy-dismissed");
+    localStorage.removeItem("rover-dismissed");
     window.location.reload();
   }
 
@@ -124,7 +124,7 @@ export default function ClippyCompanion() {
         onClick={bringBack}
         className="fixed bottom-3 right-3 z-[60] rounded-full border border-border bg-background/90 px-3 py-1.5 text-[11px] text-muted hover:text-foreground transition-colors print:hidden"
       >
-        Bring back Clippy
+        Bring back Rover
       </button>
     );
   }
@@ -132,10 +132,10 @@ export default function ClippyCompanion() {
   return (
     <button
       onClick={dismiss}
-      aria-label="Hide Clippy"
+      aria-label="Hide Rover"
       className="fixed bottom-3 right-3 z-[60] rounded-full border border-border bg-background/90 px-2.5 py-1 text-[10px] tracking-wide text-muted/70 hover:text-foreground transition-colors print:hidden"
     >
-      hide Clippy
+      hide Rover
     </button>
   );
 }
