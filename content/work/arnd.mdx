@@ -1,6 +1,6 @@
 ---
 title: "ARND: A Map for Live Music Happening Right Now"
-subtitle: "A concept for a map-first marketplace that turns buskers, pop-ups, and small-venue sets into something you can actually find — and that pays artists on verified attendance, not vanity metrics."
+subtitle: "A concept for a map-first marketplace that turns buskers, pop-ups, and small-venue sets into something you can actually find, and that pays artists on verified attendance rather than vanity metrics."
 category: "Mobile App"
 type: "experiment"
 role: "Concept, design & build"
@@ -12,7 +12,8 @@ tools:
   - Supabase
   - React Query
   - TypeScript
-coverColor: "#e8dccd"
+coverColor: "#1c140d"
+coverImage: "/case-studies/arnd/cover.png"
 featured: true
 order: 16
 ---
@@ -20,11 +21,12 @@ order: 16
 ## The idea
 
 Live, local music is everywhere and almost impossible to find. Buskers, pop-ups,
-secret sets, small-venue gigs — they happen all around you and vanish without a
+secret sets, small-venue gigs. They happen all around you and vanish without a
 trace. ARND ("around") is a concept for fixing that: open the app the way you'd
-open a maps app to find food, and see **live music near you, tonight**.
+open a maps app to find food, and see live music near you, tonight.
 
-It's a thought experiment about three audiences sharing one map:
+The stage is outside. It's a thought experiment about three audiences sharing one
+map:
 
 - **Fans** discover shows nearby, follow artists, and get a nudge when someone
   goes live around the corner.
@@ -34,12 +36,12 @@ It's a thought experiment about three audiences sharing one map:
 
 ## What I wanted to explore
 
-The interesting design problem isn't the map — it's **credibility**. So the core
+The interesting design problem isn't the map. It's **credibility**. So the core
 loop is built around showing up: you check in at a show, that check-in becomes a
 verified "proof of attendance," and your ratings and attendance become an
 artist's real signal. A performer's reputation grows from people who actually
-came, not from follower counts. "Hidden gems" — high live draw, low online
-following — surface to venues from that data.
+came, not from follower counts. "Hidden gems" (high live draw, low online
+following) surface to venues from that data.
 
 ## How it's built
 
@@ -47,5 +49,5 @@ A native mobile app in React Native and Expo (Expo Router), with Supabase for
 data and auth and React Query for the live feed. The prototype focuses on the
 fan side of the loop: the map, the feed, saving shows, and the check-in flow.
 
-This one is a concept piece — a way to think through a two-sided marketplace and
-a reputation system end to end, in something you can hold in your hand.
+This one is a concept piece, a way to think through a two-sided marketplace and a
+reputation system end to end, in something you can hold in your hand.

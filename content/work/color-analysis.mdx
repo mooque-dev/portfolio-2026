@@ -1,6 +1,6 @@
 ---
 title: "Personal Color Analysis: Your Palette, From Your Camera"
-subtitle: "A browser-based take on personal color analysis — on-device face and color detection that suggests a seasonal palette from your webcam, no appointment required."
+subtitle: "A browser-based take on personal color analysis: on-device face and color detection that grades every color against your skin tone and places you in a seasonal palette, no appointment required."
 category: "Computer Vision"
 type: "experiment"
 role: "Design & build"
@@ -12,25 +12,29 @@ tools:
   - TypeScript
   - MediaPipe
   - Radix UI
-coverColor: "#e7d4d9"
+coverColor: "#0a0e1a"
+coverImage: "/case-studies/color-analysis/cover.png"
 featured: true
 order: 20
 ---
 
 ## The premise
 
-Personal color analysis — figuring out which seasonal palette flatters you — is
+Personal color analysis, figuring out which seasonal palette flatters you, is
 usually a paid, in-person session. I wanted to see how much of it could happen
 right in the browser, instantly, with nothing leaving your device.
 
 ## What I explored
 
-- **Camera as input.** Using on-device computer vision to find a face and sample
-  the tones that actually matter — skin, hair, eyes — from a live webcam frame.
-- **From tones to a palette.** Turning those samples into a seasonal reading and a
-  suggested palette, presented simply enough to be useful rather than clinical.
+- **Camera as input.** On-device computer vision finds your face and reads the
+  tones that actually matter: skin undertone and brightness, from a live webcam
+  frame or an uploaded photo.
+- **Live color draping.** Tap a swatch and it recolors your outfit in real time,
+  the digital version of holding fabric up to your face.
+- **A seasonal result.** Those readings grade every color and place you in one of
+  the four seasons: Spring, Summer, Autumn, or Winter.
 - **Privacy by architecture.** Because the vision model runs locally, the analysis
-  happens on-device — the camera frame doesn't need to go anywhere.
+  happens on-device. It runs entirely in your browser, and no data is stored.
 
 ## How it's built
 
@@ -38,5 +42,5 @@ A Vite + React app in TypeScript, using MediaPipe's vision tasks for on-device
 face and landmark detection, with a Radix UI component layer for the interface.
 
 This was mostly an excuse to get my hands dirty with real-time computer vision in
-the browser — and to see how close a free, instant, private tool could get to
+the browser, and to see how close a free, instant, private tool could get to
 something people normally pay for.

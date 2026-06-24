@@ -1,6 +1,6 @@
 ---
-title: "Vesta Press: A Quiet Place to Read and Think"
-subtitle: "An exploration of a personal reading tool — save an article, strip it down to clean text, and keep a journal right alongside what you read."
+title: "Vesta Press: Read Anything, Beautifully"
+subtitle: "An exploration of a reading tool that strips the noise from anything you paste in (a link, some text, a screenshot) and typesets it cleanly, in whichever reading style suits the moment."
 category: "Reading Tool"
 type: "experiment"
 role: "Design & build"
@@ -12,34 +12,36 @@ tools:
   - TypeScript
   - Anthropic API
   - Supabase
-coverColor: "#dcd7cf"
+coverColor: "#fbf7ec"
+coverImage: "/case-studies/vesta-press/cover.png"
 featured: true
 order: 17
 ---
 
 ## Why I built it
 
-I read a lot online and lose almost all of it. Vesta Press was a first attempt at
-a calmer alternative to the read-it-later pile: a place to save something, read it
-without the clutter, and actually write down what it made me think.
+I read a lot online and most of it arrives ugly: cramped columns, popovers, ads
+fighting the words. Vesta Press was an attempt at a calmer alternative. Paste a
+link, drop some text, or drag in a screenshot, and it strips the noise and
+typesets what matters.
 
 ## What I explored
 
-- **Save and clean.** Paste a link and it extracts the article into clean,
-  readable markdown — no ads, no popovers, no chrome.
+- **One input, three kinds of source.** A link, raw text, or an image. It pulls
+  the real content out and leaves the clutter behind.
+- **Four ways to read.** The same piece can be set as Editorial (magazine-grade
+  serif with drop caps), Minimal (clean sans, generous whitespace), Manuscript,
+  or Document. Reading is a mood, so the typography should bend to it.
+- **A library and a journal.** Somewhere to keep what you've saved, and a space
+  to write alongside it.
 - **OCR.** Point it at an image of text and pull the words out, so a photo of a
-  page becomes something you can read and keep.
-- **A reader and a library.** A focused reading view, and a library of everything
-  you've saved.
-- **A journal beside it.** A writing space that sits next to your reading, so
-  reflection isn't a separate app.
+  page becomes something readable.
 
 ## How it's built
 
-Next.js and React with TypeScript. Article extraction uses Readability and a
+Next.js and React with TypeScript. Article extraction uses Readability and an
 HTML-to-markdown pass; the Anthropic API handles the AI assistance; Supabase
-stores everything. There's a clean export-to-markdown path so nothing you save is
-trapped.
+stores everything. There's a clean export-to-markdown path, so nothing you save
+is trapped.
 
-Vesta Press was the sketch. [Mooze](/work/mooze) is where I took the same idea and
-built it out properly.
+The whole point was restraint: take something messy and give it room to breathe.

@@ -1,7 +1,7 @@
 ---
-title: "Mooze: A Reading and Journaling Workspace"
-subtitle: "The fuller take on the reading-tool idea — a signed-in, multilingual workspace where saved articles and a journal live together, with AI helping distill what you read."
-category: "Reading Tool"
+title: "Mooze: A Personal Inspiration Vault"
+subtitle: "One place to save everything that moves you: videos, articles, books, films, music, from any platform. A signed-in workspace with AI helping you make sense of what you collect."
+category: "Inspiration Vault"
 type: "experiment"
 role: "Design & build"
 timeline: "2026"
@@ -12,26 +12,28 @@ tools:
   - Drizzle
   - Postgres
   - Anthropic API
-coverColor: "#d7dad7"
+coverColor: "#1a1a17"
+coverImage: "/case-studies/mooze/cover.png"
 featured: true
 order: 18
 ---
 
-## Where it came from
+## The idea
 
-Mooze is what [Vesta Press](/work/vesta-press) wanted to be. Same core belief —
-reading and reflecting belong in one calm place — but built as a real,
-signed-in product instead of a sketch.
+Inspiration is scattered across a dozen apps. A video here, an article there, a
+book you meant to read, a song that stuck with you. Mooze is one vault for all of
+it: save anything that moves you, from any platform, and keep it somewhere that's
+actually yours.
 
 ## What I explored
 
-- **Items and journal, together.** You save articles ("items"), read them in a
-  focused view, and keep journal entries — all in one account, all searchable.
-- **AI distillation.** A journal entry can be distilled with AI, turning a messy
-  thought into something clearer to keep.
+- **Save anything, from anywhere.** Videos, articles, books, films, music. Each
+  becomes an "item" you can find later, instead of a tab you lose.
+- **Make sense of it.** A reading view for what you've saved, and an AI pass that
+  can distill a note or entry down to what actually matters.
 - **Built for keeping.** Accounts and sessions, a real database, file uploads,
-  and a command palette to move quickly. It's designed to hold years of reading,
-  not a weekend's.
+  and a command palette to move quickly. It's designed to hold years of
+  collecting, not a weekend's.
 - **Multilingual from the start.** Routing is locale-aware, so the whole app can
   speak more than one language.
 
@@ -39,8 +41,8 @@ signed-in product instead of a sketch.
 
 Next.js with next-auth for accounts, Drizzle ORM over a Neon Postgres database,
 and Vercel Blob for uploads. The Anthropic API powers the distillation; the data
-model is simple and honest — users, sessions, items, journal entries.
+model stays simple and honest: users, sessions, items, journal entries.
 
-The interesting part wasn't any single feature. It was taking a rough personal
-tool and giving it the structure — auth, schema, i18n — that a thing you actually
-rely on needs.
+The interesting part wasn't any single feature. It was taking the messy habit of
+saving things everywhere and giving it the structure, auth, schema, and i18n that
+a thing you actually rely on needs.
