@@ -109,6 +109,17 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </FadeIn>
         )}
 
+        {/* Confidentiality note (redacted visuals) */}
+        {frontmatter.wip && (
+          <FadeIn delay={0.32}>
+            <p className="mt-8 border-l-2 border-border pl-4 text-sm text-muted leading-relaxed">
+              The visuals here are intentionally blurred — this work is
+              confidential. I&apos;m glad to walk through the real screens and
+              the full thinking in conversation.
+            </p>
+          </FadeIn>
+        )}
+
         {/* Content */}
         <FadeIn delay={0.35}>
           <div

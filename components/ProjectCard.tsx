@@ -49,7 +49,7 @@ export default function ProjectCard({
             )}
             {wip && (
               <div className="absolute bottom-3 left-3 z-10" aria-hidden="true">
-                <span className="text-[9px] tracking-[0.22em] uppercase text-white/40">WIP</span>
+                <span className="text-[9px] tracking-[0.22em] uppercase text-white/50">Confidential</span>
               </div>
             )}
             {!coverImage && (

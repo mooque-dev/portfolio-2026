@@ -4,8 +4,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
-// A quiet, optional guide. Default closed so it never interrupts; one tasteful
-// affordance in the corner. The notes are contextual to the current section.
+// A quiet, optional guide. Auto-opens on relevant content pages so it's useful
+// by default, stays out of the way on home, and is a one-tap on/off icon.
 const NOTES: Record<string, string[]> = {
   home: [
     "Allen is a Product Design Lead who goes by mooque. Start with Work to see how he thinks, or About for the short version of how he got here.",
@@ -42,35 +42,55 @@ function poolFor(path: string): string[] {
   return NOTES.home;
 }
 
+// Pages where the guide proactively opens (content pages, not the landing).
+function isRelevant(path: string): boolean {
+  return (
+    path.startsWith("/work") ||
+    path.startsWith("/about") ||
+    path.startsWith("/writing") ||
+    path.startsWith("/resume")
+  );
+}
+
 export default function CapyCompanion() {
   const pathname = usePathname();
   const reduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
+  const explicit = useRef(false); // has the visitor manually toggled?
 
   useEffect(() => {
     setMounted(true);
-    setOpen(localStorage.getItem("guide-open") === "1");
+    const pref = localStorage.getItem("guide-open");
+    if (pref === null) {
+      explicit.current = false;
+      setOpen(isRelevant(window.location.pathname));
+    } else {
+      explicit.current = true;
+      setOpen(pref === "1");
+    }
   }, []);
 
-  // Reset to the first note for the section whenever the route changes.
+  // New section: reset the note and (unless toggled) proc on relevant pages.
   useEffect(() => {
     setIndex(0);
+    if (!explicit.current) setOpen(isRelevant(pathname));
   }, [pathname]);
 
-  const setOpenPersisted = useCallback((next: boolean) => {
-    setOpen(next);
-    localStorage.setItem("guide-open", next ? "1" : "0");
+  const toggle = useCallback(() => {
+    setOpen((o) => {
+      const next = !o;
+      explicit.current = true;
+      localStorage.setItem("guide-open", next ? "1" : "0");
+      return next;
+    });
   }, []);
 
   if (!mounted) return null;
 
   const pool = poolFor(pathname);
   const note = pool[index % pool.length];
-
-  const pill =
-    "rounded-full border border-border bg-background/90 backdrop-blur-sm px-3 py-1.5 text-[11px] tracking-wide text-muted hover:text-foreground hover:border-foreground/40 transition-colors";
 
   return (
     <div className="fixed bottom-4 right-4 z-[60] flex flex-col items-end gap-2 print:hidden">
@@ -101,13 +121,36 @@ export default function CapyCompanion() {
       </AnimatePresence>
 
       <button
-        onClick={() => setOpenPersisted(!open)}
-        className={pill}
-        aria-expanded={open}
-        aria-label={open ? "Hide guide" : "Show guide"}
+        onClick={toggle}
+        aria-pressed={open}
+        aria-label={open ? "Turn guide off" : "Turn guide on"}
+        title={open ? "Guide on — click to turn off" : "Guide off — click to turn on"}
+        className={`flex h-9 w-9 items-center justify-center rounded-full border shadow-sm transition-colors ${
+          open
+            ? "border-foreground/15 bg-foreground text-background hover:bg-foreground/90"
+            : "border-border bg-background/85 text-muted/70 hover:text-foreground hover:border-foreground/40"
+        }`}
       >
-        {open ? "Hide" : "Show"}
+        <GuideIcon off={!open} />
       </button>
     </div>
+  );
+}
+
+function GuideIcon({ off }: { off?: boolean }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M4 3.5h16a2.5 2.5 0 0 1 2.5 2.5v8.5a2.5 2.5 0 0 1-2.5 2.5H10l-5 4v-4H4a2.5 2.5 0 0 1-2.5-2.5V6A2.5 2.5 0 0 1 4 3.5z" />
+      {!off && (
+        <g fill="var(--background)">
+          <circle cx="8" cy="10.2" r="1.2" />
+          <circle cx="12" cy="10.2" r="1.2" />
+          <circle cx="16" cy="10.2" r="1.2" />
+        </g>
+      )}
+      {off && (
+        <line x1="3" y1="21" x2="21" y2="3" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+      )}
+    </svg>
   );
 }

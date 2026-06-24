@@ -192,9 +192,11 @@ h1.font-serif, h2.font-serif, h3.font-serif {
   }
 }
 
-/* Dark mode cover images: tint the pastel covers to work on dark bg */
+/* Real cover images: keep them clear in dark mode (subtle pop only).
+   The old brightness(0.35) was for pastel placeholder covers and dimmed
+   real photos/screenshots to ~35% — now removed for clarity. */
 .dark .cover-tinted {
-  filter: brightness(0.35) saturate(1.2);
+  filter: saturate(1.05);
 }
 
 /* Editorial prose styling for MDX content */
