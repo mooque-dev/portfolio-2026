@@ -380,3 +380,22 @@ html {
     @apply font-sans;
   }
 }
+/* mooque-edition Rover (clippy.js) — branded speech bubble */
+.clippy-balloon {
+  background: var(--background) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16) !important;
+  color: var(--foreground) !important;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+  padding: 11px 14px !important;
+  max-width: 232px !important;
+}
+.clippy-content {
+  color: var(--foreground) !important;
+  font-family: var(--font-sans), system-ui, sans-serif !important;
+}
+.clippy-tip { display: none !important; }
+.clippy { z-index: 55 !important; }
