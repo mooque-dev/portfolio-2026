@@ -17,7 +17,7 @@ export default async function WorkPage() {
     title: p.frontmatter.title,
     subtitle: p.frontmatter.subtitle,
     category: p.frontmatter.category,
-    type: (p.frontmatter.type ?? "work") as "work" | "personal",
+    type: (p.frontmatter.type ?? "work") as "work" | "personal" | "experiment",
     coverColor: p.frontmatter.coverColor,
     coverImage: p.frontmatter.coverImage,
     featured: p.frontmatter.featured,

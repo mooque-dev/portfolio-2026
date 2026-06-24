@@ -10,7 +10,7 @@ export interface ProjectFrontmatter {
   title: string;
   subtitle: string;
   category: string;
-  type: "work" | "personal";
+  type: "work" | "personal" | "experiment";
   role: string;
   timeline: string;
   team: string;

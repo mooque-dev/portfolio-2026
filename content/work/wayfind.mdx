@@ -1,0 +1,54 @@
+---
+title: "Wayfind: A Trip Companion for a Design & Jazz Tour of Europe"
+subtitle: "A mobile-first travel app I built for one specific trip — London, Frankfurt, Berlin, Copenhagen — pulling the itinerary, budget, and map into a single place I could check on the go."
+category: "Travel App"
+type: "experiment"
+role: "Design & build"
+timeline: "2026"
+team: "Solo, with Claude Code"
+tools:
+  - Next.js
+  - React
+  - TypeScript
+  - Tailwind
+  - Zustand
+  - Recharts
+coverColor: "#dbe4e0"
+featured: true
+order: 15
+---
+
+## Why I built it
+
+I was planning a trip through Europe built around design studios and jazz —
+London, Frankfurt, Berlin, Copenhagen — and the planning was scattered across
+notes, spreadsheets, and screenshots. Wayfind was an excuse to see how quickly I
+could turn that mess into a single mobile app I'd actually use while traveling.
+
+It's not a product. It's a personal tool for one trip, which is exactly why it
+was a good exploration: real constraints, real data, no committee.
+
+## What I explored
+
+- **A day-by-day itinerary** with event cards for each stop, so the whole trip
+  reads as a timeline rather than a pile of bookings.
+- **A budget tracker** with quick expense logging and a running view of spend
+  against plan, charted so the trend is legible at a glance.
+- **A map view** to anchor each day geographically across the four cities.
+- **Travel alerts** surfaced up top, so anything time-sensitive isn't buried.
+
+The interface is built mobile-first around a bottom nav — the way you'd actually
+hold it walking out of a station.
+
+## How it's built
+
+Next.js (App Router) and React with TypeScript, styled in Tailwind with a small
+shadcn / Base UI component layer. Trip data lives in a single typed source file;
+client state runs through Zustand; budget charts use Recharts; dates are handled
+with date-fns. The whole thing deploys on Vercel.
+
+It's deliberately small and self-contained — the point was speed and feel, not
+scale.
+
+[View it live](https://wayfind-gamma.vercel.app) ·
+[Source on GitHub](https://github.com/mooque-dev/wayfind)

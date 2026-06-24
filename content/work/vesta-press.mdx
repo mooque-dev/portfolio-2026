@@ -1,0 +1,45 @@
+---
+title: "Vesta Press: A Quiet Place to Read and Think"
+subtitle: "An exploration of a personal reading tool — save an article, strip it down to clean text, and keep a journal right alongside what you read."
+category: "Reading Tool"
+type: "experiment"
+role: "Design & build"
+timeline: "2026"
+team: "Solo, with Claude Code"
+tools:
+  - Next.js
+  - React
+  - TypeScript
+  - Anthropic API
+  - Supabase
+coverColor: "#dcd7cf"
+featured: true
+order: 17
+---
+
+## Why I built it
+
+I read a lot online and lose almost all of it. Vesta Press was a first attempt at
+a calmer alternative to the read-it-later pile: a place to save something, read it
+without the clutter, and actually write down what it made me think.
+
+## What I explored
+
+- **Save and clean.** Paste a link and it extracts the article into clean,
+  readable markdown — no ads, no popovers, no chrome.
+- **OCR.** Point it at an image of text and pull the words out, so a photo of a
+  page becomes something you can read and keep.
+- **A reader and a library.** A focused reading view, and a library of everything
+  you've saved.
+- **A journal beside it.** A writing space that sits next to your reading, so
+  reflection isn't a separate app.
+
+## How it's built
+
+Next.js and React with TypeScript. Article extraction uses Readability and a
+HTML-to-markdown pass; the Anthropic API handles the AI assistance; Supabase
+stores everything. There's a clean export-to-markdown path so nothing you save is
+trapped.
+
+Vesta Press was the sketch. [Mooze](/work/mooze) is where I took the same idea and
+built it out properly.

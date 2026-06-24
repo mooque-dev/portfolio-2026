@@ -1,0 +1,46 @@
+---
+title: "Mooze: A Reading and Journaling Workspace"
+subtitle: "The fuller take on the reading-tool idea — a signed-in, multilingual workspace where saved articles and a journal live together, with AI helping distill what you read."
+category: "Reading Tool"
+type: "experiment"
+role: "Design & build"
+timeline: "2026"
+team: "Solo, with Claude Code"
+tools:
+  - Next.js
+  - next-auth
+  - Drizzle
+  - Postgres
+  - Anthropic API
+coverColor: "#d7dad7"
+featured: true
+order: 18
+---
+
+## Where it came from
+
+Mooze is what [Vesta Press](/work/vesta-press) wanted to be. Same core belief —
+reading and reflecting belong in one calm place — but built as a real,
+signed-in product instead of a sketch.
+
+## What I explored
+
+- **Items and journal, together.** You save articles ("items"), read them in a
+  focused view, and keep journal entries — all in one account, all searchable.
+- **AI distillation.** A journal entry can be distilled with AI, turning a messy
+  thought into something clearer to keep.
+- **Built for keeping.** Accounts and sessions, a real database, file uploads,
+  and a command palette to move quickly. It's designed to hold years of reading,
+  not a weekend's.
+- **Multilingual from the start.** Routing is locale-aware, so the whole app can
+  speak more than one language.
+
+## How it's built
+
+Next.js with next-auth for accounts, Drizzle ORM over a Neon Postgres database,
+and Vercel Blob for uploads. The Anthropic API powers the distillation; the data
+model is simple and honest — users, sessions, items, journal entries.
+
+The interesting part wasn't any single feature. It was taking a rough personal
+tool and giving it the structure — auth, schema, i18n — that a thing you actually
+rely on needs.

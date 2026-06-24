@@ -5,12 +5,13 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import type { ProjectSummary } from "@/lib/types";
 
-type Filter = "all" | "work" | "personal";
+type Filter = "all" | "work" | "personal" | "experiment";
 
 const FILTERS: { value: Filter; label: string }[] = [
   { value: "all", label: "All" },
   { value: "work", label: "Work" },
   { value: "personal", label: "Personal" },
+  { value: "experiment", label: "Experiments" },
 ];
 
 function ProjectGrid({ projects, startIndex = 0 }: { projects: ProjectSummary[]; startIndex?: number }) {
@@ -47,6 +48,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
 
   const workProjects = projects.filter((p) => p.type === "work");
   const personalProjects = projects.filter((p) => p.type === "personal");
+  const experimentProjects = projects.filter((p) => p.type === "experiment");
   const filtered = active === "all" ? projects : projects.filter((p) => p.type === active);
 
   return (
@@ -78,18 +80,33 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
 
       {active === "all" ? (
         <div className="mt-12 space-y-16">
-          <div>
-            <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8">
-              Professional Work
-            </p>
-            <ProjectGrid projects={workProjects} startIndex={0} />
-          </div>
-          <div>
-            <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8 border-t border-border pt-16">
-              Side Projects &amp; Archive
-            </p>
-            <ProjectGrid projects={personalProjects} startIndex={workProjects.length} />
-          </div>
+          {workProjects.length > 0 && (
+            <div>
+              <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8">
+                Professional Work
+              </p>
+              <ProjectGrid projects={workProjects} startIndex={0} />
+            </div>
+          )}
+          {personalProjects.length > 0 && (
+            <div>
+              <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8 border-t border-border pt-16">
+                Side Projects &amp; Archive
+              </p>
+              <ProjectGrid projects={personalProjects} startIndex={workProjects.length} />
+            </div>
+          )}
+          {experimentProjects.length > 0 && (
+            <div>
+              <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8 border-t border-border pt-16">
+                Experiments &amp; Prototypes
+              </p>
+              <ProjectGrid
+                projects={experimentProjects}
+                startIndex={workProjects.length + personalProjects.length}
+              />
+            </div>
+          )}
         </div>
       ) : (
         <div className="mt-12">

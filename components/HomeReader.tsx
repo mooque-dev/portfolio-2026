@@ -53,6 +53,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
                 const featured = allProjects.filter((p) => p.featured);
                 const work = featured.filter((p) => p.type === "work");
                 const personal = featured.filter((p) => p.type === "personal");
+                const experiments = featured.filter((p) => p.type === "experiment");
                 const renderList = (projects: typeof featured, offset: number) => (
                   <ol className="space-y-0">
                     {projects.map((project, i) => (
@@ -85,6 +86,12 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
                       <div className="mt-12">
                         <h2 className="text-sm tracking-wide mb-8">Personal</h2>
                         {renderList(personal, work.length)}
+                      </div>
+                    )}
+                    {experiments.length > 0 && (
+                      <div className="mt-12">
+                        <h2 className="text-sm tracking-wide mb-8">Experiments</h2>
+                        {renderList(experiments, work.length + personal.length)}
                       </div>
                     )}
                   </>

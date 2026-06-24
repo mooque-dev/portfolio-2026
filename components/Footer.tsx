@@ -40,6 +40,15 @@ export default function Footer() {
               <span className="sr-only"> (opens in new tab)</span>
             </a>
             <a
+              href="https://www.instagram.com/mooque_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground transition-colors min-h-[44px] inline-flex items-center"
+            >
+              Instagram
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+            <a
               href="mailto:ncsstyco@gmail.com"
               className="hover:text-foreground transition-colors min-h-[44px] inline-flex items-center"
             >
