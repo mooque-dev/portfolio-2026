@@ -25,35 +25,70 @@ function loadCss(href: string) {
   document.head.appendChild(l);
 }
 
-function tipFor(path: string, onboarded: boolean): string {
-  if (!onboarded)
-    return "Woof! I'm Rover. Looking for something on Allen's site? I can fetch it. Try Work for his projects, or About to meet him.";
-  if (path.startsWith("/work/fee-opt-in"))
-    return "Good find! This is the one Allen's proudest of — a behavioral A/B test that moved fee opt-in from 75% to 92%.";
-  if (path.startsWith("/work"))
-    return "Sniff around — these are Allen's projects. The standout is the Fee Opt-In case study: opt-in went 75% to 92%.";
-  if (path.startsWith("/about"))
-    return "This is Allen — wanted to be a children's book illustrator, almost became a photographer, ended up in design. Good story, keep reading.";
-  if (path.startsWith("/writing"))
-    return "Allen writes about systems, design after an acquisition, and getting adoption without authority. Fetch one and dig in.";
-  if (path.startsWith("/resume"))
-    return "The formal résumé is right here. Between us, though — the Work tab says more about him.";
-  return "Welcome! I'm Rover, here to help you find your way around Allen's site. Start with Work, or click me anytime for a tip.";
-}
+// Rotating tips — Rover shares more as you keep clicking him.
+const TIPS: Record<string, string[]> = {
+  home: [
+    "Woof! I'm Rover, Allen's guide around here. He's a Product Design Lead — goes by mooque. Want the tour?",
+    "Allen's an optimist: he thinks design is really about how people feel. The Work tab is where you see what that means.",
+    "New here? The fastest way to get Allen is the About page — there's a good origin story. Or click me again for more.",
+    "Fun fact: he's training toward a half-marathon and performing in a 40-person musical this August. Busy human.",
+  ],
+  work: [
+    "These are Allen's projects. The headline is the Fee Opt-In study — a behavioral A/B test, opt-in 75% to 92%.",
+    "He leads design at Velora, merging three nonprofit products (Keela, Raisely, Aplos) into one system — 85,600+ campaigns across 102 countries.",
+    "Notice the range: experimentation, design systems, 0-to-1 features. Allen likes the messy early stages best.",
+    "Want the one he's proudest of? Open the Fee Opt-In case study.",
+  ],
+  feeopt: [
+    "Great pick — Allen's favorite. A behavioral A/B test that moved fee opt-in from 75% to 92% without hurting conversion.",
+    "The clever part: the default was already fine. He redesigned the moment donors edit their choice. Decision design, not awareness.",
+    "He prototyped it in Cursor and MagicPatterns before committing in Figma — AI-assisted, but the judgment is all his.",
+  ],
+  about: [
+    "This is Allen — wanted to be a children's book illustrator, almost became a photographer, then someone stole his camera gear and he turned to design.",
+    "Eight years of mission-driven work: education, healthcare, nonprofits — building for people most software forgets.",
+    "His line: 'AI can make the screens now. I'm here for the part it can't.' He means taste, trust, and a good experience.",
+  ],
+  writing: [
+    "Allen writes while figuring things out — design systems after an acquisition, systems thinking, adoption without authority.",
+    "Good place to start: how he got a design system adopted through craft, not a mandate.",
+  ],
+  resume: [
+    "The formal résumé's right here. Honestly though, the Work tab says more about him than bullet points do.",
+    "Short version: Product Design Lead at Velora, eight years, Fine Arts background, systems plus experimentation.",
+  ],
+};
 
-// Rover's own animation set, mapped to context.
-function animFor(path: string): string {
+function poolFor(path: string): string[] {
+  if (path.startsWith("/work/fee-opt-in")) return TIPS.feeopt;
+  if (path.startsWith("/work")) return TIPS.work;
+  if (path.startsWith("/about")) return TIPS.about;
+  if (path.startsWith("/writing")) return TIPS.writing;
+  if (path.startsWith("/resume")) return TIPS.resume;
+  return TIPS.home;
+}
+function navAnim(path: string): string {
   if (path.startsWith("/work/fee-opt-in")) return "Congratulate";
   if (path.startsWith("/writing")) return "Books";
   if (path.startsWith("/about")) return "Pleased";
-  if (path.startsWith("/work")) return "Searching";
   return "Searching";
 }
+// Varied animations on click → varied sounds + motion.
+const CLICK_ANIMS = [
+  "Pleased",
+  "Acknowledge",
+  "Surprised",
+  "LookUp",
+  "GetAttention",
+  "Thinking",
+  "Congratulate",
+];
 
 export default function RoverCompanion() {
   const pathname = usePathname();
   const agentRef = useRef<any>(null);
   const idleTimer = useRef<number | null>(null);
+  const tipIndex = useRef(0);
   const [ready, setReady] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const [napping, setNapping] = useState(false);
@@ -85,7 +120,6 @@ export default function RoverCompanion() {
     idleTimer.current = window.setTimeout(nap, IDLE_MS);
   }, [nap]);
 
-  // Boot the agent.
   useEffect(() => {
     if (localStorage.getItem("rover-dismissed") === "1") {
       setDismissed(true);
@@ -111,13 +145,14 @@ export default function RoverCompanion() {
             0
           );
           agent.play("Greet");
-          const onboarded = localStorage.getItem("rover-onboarded") === "1";
-          agent.speak(tipFor(window.location.pathname, onboarded));
-          localStorage.setItem("rover-onboarded", "1");
+          const pool = poolFor(window.location.pathname);
+          agent.speak(pool[0]);
           const el = document.querySelector(".clippy");
           el?.addEventListener("click", () => {
-            agent.play("Pleased");
-            agent.speak(tipFor(window.location.pathname, true));
+            const p = poolFor(window.location.pathname);
+            tipIndex.current = (tipIndex.current + 1) % p.length;
+            agent.play(CLICK_ANIMS[Math.floor(Math.random() * CLICK_ANIMS.length)]);
+            agent.speak(p[tipIndex.current]);
             resetIdle();
           });
           setReady(true);
@@ -133,15 +168,20 @@ export default function RoverCompanion() {
     };
   }, [applyMute, resetIdle]);
 
-  // Contextual help + animation on navigation.
+  // New page → reset rotation, give contextual animation + first tip.
   useEffect(() => {
     const agent = agentRef.current;
     if (!agent || !ready || napping) return;
+    tipIndex.current = 0;
     agent.stop();
-    agent.play(animFor(pathname));
-    agent.speak(tipFor(pathname, true));
+    agent.play(navAnim(pathname));
+    agent.speak(poolFor(pathname)[0]);
     resetIdle();
   }, [pathname, ready, napping, resetIdle]);
+
+  useEffect(() => {
+    applyMute(!sound);
+  }, [sound, ready, applyMute]);
 
   function wake() {
     const agent = agentRef.current;
@@ -149,11 +189,8 @@ export default function RoverCompanion() {
     setNapping(false);
     agent.show();
     agent.play("Greet");
-    agent.speak(tipFor(window.location.pathname, true));
+    agent.speak(poolFor(window.location.pathname)[0]);
     resetIdle();
-  }
-  function toggleSound() {
-    setSound((s) => !s); // the effect below applies the mute state
   }
   function dismiss() {
     const agent = agentRef.current;
@@ -169,11 +206,6 @@ export default function RoverCompanion() {
     localStorage.removeItem("rover-dismissed");
     window.location.reload();
   }
-
-  // Keep mute in sync whenever the toggle changes.
-  useEffect(() => {
-    applyMute(!sound);
-  }, [sound, ready, applyMute]);
 
   const btn =
     "rounded-full border border-border bg-background/90 px-2.5 py-1 text-[10px] tracking-wide text-muted/80 hover:text-foreground hover:border-foreground/40 transition-colors";
@@ -193,7 +225,7 @@ export default function RoverCompanion() {
           wake Rover
         </button>
       ) : (
-        <button onClick={toggleSound} className={btn} aria-pressed={sound}>
+        <button onClick={() => setSound((s) => !s)} className={btn} aria-pressed={sound}>
           sound: {sound ? "on" : "off"}
         </button>
       )}
