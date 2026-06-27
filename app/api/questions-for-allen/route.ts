@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import { rateLimit, clientKey } from "@/lib/ratelimit";
 
 export async function POST(request: NextRequest) {
+  if (!rateLimit(clientKey(request, "questions"))) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
+
   let body: { question?: string; contact?: string; contextQuestionId?: string };
   try {
     body = await request.json();

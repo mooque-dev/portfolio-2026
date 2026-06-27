@@ -68,7 +68,7 @@ export default function Header() {
                       className={`nav-link text-[11px] tracking-[0.14em] uppercase transition-colors min-h-[44px] inline-flex items-center ${
                         isActive
                           ? "text-foreground"
-                          : "text-muted/70 hover:text-foreground"
+                          : "text-muted hover:text-foreground"
                       }`}
                       {...(isActive && { "aria-current": "page" as const })}
                     >

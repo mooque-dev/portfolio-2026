@@ -22,7 +22,7 @@ export default function AboutTabs() {
             className={`px-4 py-1.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-colors ${
               active === tab
                 ? "bg-foreground text-background"
-                : "text-muted/70 border border-border hover:border-foreground/40 hover:text-foreground"
+                : "text-muted border border-border hover:border-foreground/40 hover:text-foreground"
             }`}
           >
             {tab === "bio" ? "Bio" : "Resume"}
@@ -96,7 +96,7 @@ export default function AboutTabs() {
                   neatly into a single box.
                 </p>
                 <p>
-                  The email is ncsstyco, short for{" "}
+                  ncsstyco, a handle I&apos;ve carried for years, is short for{" "}
                   <span className="text-foreground font-medium">Necessity Company</span>.
                   The idea is straightforward: good work should create genuine
                   necessity, not manufactured urgency. I&apos;ve spent eight years
@@ -192,7 +192,7 @@ export default function AboutTabs() {
                 engineering, or 0→1 platform work is at the center. If you&apos;re
                 building something interesting,{" "}
                 <a
-                  href="mailto:ncsstyco@gmail.com"
+                  href="mailto:allenella0711@gmail.com"
                   className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity"
                 >
                   I&apos;d love to talk
@@ -319,10 +319,10 @@ export default function AboutTabs() {
               </h2>
               <div className="flex flex-wrap gap-6 text-sm">
                 <a
-                  href="mailto:ncsstyco@gmail.com"
+                  href="mailto:allenella0711@gmail.com"
                   className="underline underline-offset-4 decoration-1 hover:opacity-70 transition-opacity"
                 >
-                  ncsstyco@gmail.com
+                  allenella0711@gmail.com
                 </a>
                 <a
                   href="https://www.linkedin.com/in/mooque/"

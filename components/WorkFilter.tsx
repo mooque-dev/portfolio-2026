@@ -59,10 +59,10 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
             <button
               key={value}
               onClick={() => setActive(value)}
-              className={`relative px-4 py-1.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-colors ${
+              className={`relative inline-flex items-center justify-center min-h-[44px] px-4 py-1.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-colors ${
                 active === value
                   ? "text-background"
-                  : "text-muted/70 border border-border hover:border-foreground/40 hover:text-foreground"
+                  : "text-muted border border-border hover:border-foreground/40 hover:text-foreground"
               }`}
             >
               {active === value && (
@@ -82,7 +82,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
         <div className="mt-12 space-y-16">
           {workProjects.length > 0 && (
             <div>
-              <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8">
+              <p className="text-[9px] tracking-[0.22em] uppercase text-muted mb-8">
                 Professional Work
               </p>
               <ProjectGrid projects={workProjects} startIndex={0} />
@@ -90,7 +90,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
           )}
           {personalProjects.length > 0 && (
             <div>
-              <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8 border-t border-border pt-16">
+              <p className="text-[9px] tracking-[0.22em] uppercase text-muted mb-8 border-t border-border pt-16">
                 Side Projects &amp; Archive
               </p>
               <ProjectGrid projects={personalProjects} startIndex={workProjects.length} />
@@ -98,7 +98,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
           )}
           {experimentProjects.length > 0 && (
             <div>
-              <p className="text-[9px] tracking-[0.22em] uppercase text-muted/50 mb-8 border-t border-border pt-16">
+              <p className="text-[9px] tracking-[0.22em] uppercase text-muted mb-8 border-t border-border pt-16">
                 Experiments &amp; Prototypes
               </p>
               <ProjectGrid

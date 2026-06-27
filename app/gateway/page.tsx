@@ -200,7 +200,7 @@ export default function GatewayPage() {
                                    bg-background/90 backdrop-blur-sm
                                    border border-foreground/[0.08]
                                    shadow-[0_1px_4px_rgba(0,0,0,0.06)]
-                                   text-[10px] tabular-nums text-muted/60 select-none">
+                                   text-[10px] tabular-nums text-muted select-none">
                     {index + 1}&thinsp;/&thinsp;{questions.length}
                   </span>
 
@@ -224,7 +224,7 @@ export default function GatewayPage() {
                                  bg-background/90 backdrop-blur-sm
                                  border border-foreground/[0.08]
                                  shadow-[0_1px_4px_rgba(0,0,0,0.06)]
-                                 text-[10px] text-muted/50
+                                 text-[10px] text-muted
                                  hover:text-foreground hover:border-foreground/20
                                  transition-all duration-200"
                     >
@@ -267,7 +267,7 @@ export default function GatewayPage() {
                       maxLength={500}
                       style={{ resize: "none", overflow: "hidden" }}
                       className="w-full bg-transparent text-[14px] leading-[1.8]
-                                 placeholder:text-muted/35 outline-none
+                                 placeholder:text-muted/55 outline-none
                                  focus-visible:outline-none py-3 min-h-[48px]"
                       disabled={phase === "submitting"}
                     />
@@ -293,7 +293,7 @@ export default function GatewayPage() {
                           placeholder="Name (optional)"
                           maxLength={80}
                           className="w-full bg-transparent text-[14px]
-                                     placeholder:text-muted/35 outline-none
+                                     placeholder:text-muted/55 outline-none
                                      focus-visible:outline-none py-2.5"
                           disabled={phase === "submitting"}
                         />
@@ -307,7 +307,7 @@ export default function GatewayPage() {
                       <button
                         type="button"
                         onClick={() => setShowName(true)}
-                        className="text-[10px] tracking-[0.14em] uppercase text-muted/50
+                        className="text-[10px] tracking-[0.14em] uppercase text-muted
                                    hover:text-muted transition-colors"
                       >
                         Add name
@@ -316,7 +316,7 @@ export default function GatewayPage() {
                       <button
                         type="button"
                         onClick={() => { setShowName(false); setDisplay(""); }}
-                        className="text-[10px] tracking-[0.14em] uppercase text-muted/50
+                        className="text-[10px] tracking-[0.14em] uppercase text-muted
                                    hover:text-muted transition-colors"
                       >
                         Remove name
@@ -338,6 +338,9 @@ export default function GatewayPage() {
                       </button>
                     </Magnetic>
                   </div>
+                  <p className="mt-5 text-[10px] leading-relaxed text-muted">
+                    Shared answers may appear for other visitors. No email is collected here.
+                  </p>
                 </form>
               </motion.div>
             )}
@@ -393,7 +396,7 @@ export default function GatewayPage() {
                           <p className="text-[14px] leading-[1.75] text-foreground/85">
                             {r.answer}
                           </p>
-                          <p className="text-[9px] tracking-[0.16em] uppercase text-muted/50 mt-2.5">
+                          <p className="text-[9px] tracking-[0.16em] uppercase text-muted mt-2.5">
                             — {r.display_name ?? "Anonymous"}
                           </p>
                         </motion.div>
@@ -403,7 +406,7 @@ export default function GatewayPage() {
                 )}
 
                 {!currentQ.allenAnswer && responses.length === 0 && (
-                  <p className="text-[13px] text-muted/60 text-center mb-8">
+                  <p className="text-[13px] text-muted text-center mb-8">
                     You&apos;re the first to answer this.
                   </p>
                 )}
@@ -457,7 +460,7 @@ export default function GatewayPage() {
                                 maxLength={1000}
                                 style={{ resize: "none" }}
                                 className="w-full bg-transparent text-[14px] leading-[1.75]
-                                           placeholder:text-muted/35 outline-none
+                                           placeholder:text-muted/55 outline-none
                                            focus-visible:outline-none py-2.5"
                               />
                             </div>
@@ -471,7 +474,7 @@ export default function GatewayPage() {
                                 placeholder="Email, LinkedIn, or phone (if you'd like a reply)"
                                 maxLength={200}
                                 className="w-full bg-transparent text-[13px]
-                                           placeholder:text-muted/30 outline-none
+                                           placeholder:text-muted/55 outline-none
                                            focus-visible:outline-none py-2.5"
                               />
                             </div>
@@ -494,6 +497,10 @@ export default function GatewayPage() {
                                 Send
                               </button>
                             </div>
+                            <p className="text-[10px] leading-relaxed text-muted">
+                              Goes straight to Allen — not published. Contact is
+                              only used to reply.
+                            </p>
                           </motion.form>
                         )}
                       </AnimatePresence>
@@ -524,7 +531,7 @@ export default function GatewayPage() {
                       setShowName(false); setAskExpanded(false);
                       setAskSent(false); setVisitorQ(""); setVisitorContact("");
                     }}
-                    className="text-[10px] tracking-[0.14em] uppercase text-muted/50
+                    className="text-[10px] tracking-[0.14em] uppercase text-muted
                                hover:text-muted transition-colors"
                   >
                     Browse more

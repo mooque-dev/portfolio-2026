@@ -28,7 +28,7 @@ export default function ResumePage() {
             <a
               href="/allen-kang-resume.pdf"
               download
-              className="shrink-0 mt-2 px-4 py-2 text-xs tracking-[0.1em] uppercase border border-border rounded-full hover:border-foreground/40 hover:text-foreground text-muted/70 transition-colors"
+              className="shrink-0 mt-2 px-4 py-2 text-xs tracking-[0.1em] uppercase border border-border rounded-full hover:border-foreground/40 hover:text-foreground text-muted transition-colors"
             >
               Download PDF
             </a>
@@ -120,10 +120,10 @@ export default function ResumePage() {
             </h2>
             <div className="flex flex-wrap gap-6 text-sm">
               <a
-                href="mailto:ncsstyco@gmail.com"
+                href="mailto:allenella0711@gmail.com"
                 className="underline underline-offset-4 decoration-1 hover:opacity-70 transition-opacity"
               >
-                ncsstyco@gmail.com
+                allenella0711@gmail.com
               </a>
               <a
                 href="https://www.linkedin.com/in/mooque/"

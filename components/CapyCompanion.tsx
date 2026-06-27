@@ -104,14 +104,14 @@ export default function CapyCompanion() {
             className="w-[17rem] rounded-xl border border-border bg-background/95 backdrop-blur-sm px-4 pt-3 pb-2.5 shadow-sm"
             role="status"
           >
-            <p className="text-[9px] tracking-[0.2em] uppercase text-muted/70 mb-1.5">
+            <p className="text-[9px] tracking-[0.2em] uppercase text-muted mb-1.5">
               Guide
             </p>
             <p className="text-[13px] leading-relaxed text-foreground">{note}</p>
             {pool.length > 1 && (
               <button
                 onClick={() => setIndex((i) => i + 1)}
-                className="mt-2.5 text-[11px] tracking-wide text-muted hover:text-foreground transition-colors"
+                className="mt-1.5 inline-flex items-center min-h-[44px] text-[11px] tracking-wide text-muted hover:text-foreground transition-colors"
               >
                 More &rarr;
               </button>
@@ -128,7 +128,7 @@ export default function CapyCompanion() {
         className={`flex h-11 w-11 items-center justify-center rounded-full border shadow-sm transition-colors ${
           open
             ? "border-foreground/15 bg-foreground text-background hover:bg-foreground/90"
-            : "border-border bg-background/85 text-muted/70 hover:text-foreground hover:border-foreground/40"
+            : "border-border bg-background/85 text-muted hover:text-foreground hover:border-foreground/40"
         }`}
       >
         <GuideIcon off={!open} />

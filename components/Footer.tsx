@@ -49,7 +49,7 @@ export default function Footer() {
               <span className="sr-only"> (opens in new tab)</span>
             </a>
             <a
-              href="mailto:ncsstyco@gmail.com"
+              href="mailto:allenella0711@gmail.com"
               className="hover:text-foreground transition-colors min-h-[44px] inline-flex items-center"
             >
               Email
@@ -63,7 +63,7 @@ export default function Footer() {
         </p>
         <Link
           href="/gateway"
-          className="text-xs text-muted/50 hover:text-muted transition-colors tracking-wide"
+          className="text-xs text-muted hover:text-muted transition-colors tracking-wide"
         >
           Elsewhere ↗
         </Link>
