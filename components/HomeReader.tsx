@@ -61,6 +61,66 @@ function ProjectRow({ project, n }: { project: ProjectSummary; n: number }) {
   );
 }
 
+function FeatureCard({ project }: { project: ProjectSummary }) {
+  return (
+    <Link
+      href={`/work/${project.slug}`}
+      className="group block overflow-hidden rounded-lg border border-border hover:border-foreground/30 transition-colors"
+    >
+      <div
+        className="relative aspect-[16/7] md:aspect-[16/6]"
+        style={{ backgroundColor: project.coverColor }}
+      >
+        {project.coverImage && (
+          <Image
+            src={project.coverImage}
+            alt=""
+            fill
+            sizes="(max-width: 768px) 100vw, 672px"
+            className={`object-cover object-center ${
+              project.wip
+                ? "blur-lg brightness-[0.7]"
+                : "transition-transform duration-500 group-hover:scale-[1.03]"
+            }`}
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
+        {project.featuredStat && (
+          <div className="absolute inset-x-0 bottom-0 p-5 md:p-6 text-white">
+            <div className="text-4xl md:text-5xl font-light tabular-nums leading-none">
+              {project.featuredStat}
+            </div>
+            {project.featuredStatLabel && (
+              <div className="mt-2 text-[11px] tracking-[0.14em] uppercase text-white/75">
+                {project.featuredStatLabel}
+              </div>
+            )}
+          </div>
+        )}
+        {project.wip && (
+          <span className="absolute top-3 right-3 rounded-full bg-black/40 backdrop-blur-sm px-2.5 py-1 text-[9px] tracking-[0.18em] uppercase text-white/80">
+            Confidential
+          </span>
+        )}
+      </div>
+      <div className="p-5 md:p-6">
+        <div className="flex items-center gap-2 text-[10px] tracking-[0.16em] uppercase text-muted mb-2">
+          <span>{project.category}</span>
+          <span aria-hidden>&middot;</span>
+          <span>{project.timeline}</span>
+        </div>
+        <h3 className="font-serif text-lg md:text-xl leading-snug">{project.title}</h3>
+        <p className="mt-1.5 text-[13px] leading-relaxed text-muted line-clamp-2">
+          {project.subtitle}
+        </p>
+        <span className="mt-3.5 inline-flex items-center gap-1 text-[12px] font-medium underline-offset-4 group-hover:underline">
+          Read the case study <span aria-hidden>&rarr;</span>
+        </span>
+      </div>
+    </Link>
+  );
+}
+
 export default function HomeReader({ allProjects, recentWriting }: Props) {
   const featured = allProjects.filter((p) => p.featured);
   const work = featured.filter((p) => p.type === "work");
@@ -116,11 +176,14 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           <FadeIn delay={0.18}>
             <div className="mt-16">
               <h2 className="text-sm tracking-wide mb-6">Work</h2>
-              <ol className="space-y-0">
-                {work.map((p, i) => (
-                  <ProjectRow key={p.slug} project={p} n={i + 1} />
-                ))}
-              </ol>
+              {work[0] && <FeatureCard project={work[0]} />}
+              {work.length > 1 && (
+                <ol className="space-y-0 mt-2">
+                  {work.slice(1).map((p, i) => (
+                    <ProjectRow key={p.slug} project={p} n={i + 2} />
+                  ))}
+                </ol>
+              )}
 
               {personal.length > 0 && (
                 <div className="mt-12">

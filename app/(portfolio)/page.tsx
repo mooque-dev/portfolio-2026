@@ -17,6 +17,8 @@ export default async function Home() {
     role: p.frontmatter.role,
     timeline: p.frontmatter.timeline,
     wip: p.frontmatter.wip,
+    featuredStat: p.frontmatter.featuredStat,
+    featuredStatLabel: p.frontmatter.featuredStatLabel,
   }));
 
   const writing = recentWriting.map((w) => ({

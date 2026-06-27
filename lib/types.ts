@@ -10,6 +10,8 @@ export interface ProjectSummary {
   wip?: boolean;
   role: string;
   timeline: string;
+  featuredStat?: string;
+  featuredStatLabel?: string;
 }
 
 export interface WritingSummary {

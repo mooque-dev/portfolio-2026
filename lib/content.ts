@@ -20,6 +20,9 @@ export interface ProjectFrontmatter {
   featured: boolean;
   wip?: boolean;
   order: number;
+  // Optional headline stat for the home feature card (e.g. "75% → 92%").
+  featuredStat?: string;
+  featuredStatLabel?: string;
 }
 
 export interface Heading {
