@@ -49,7 +49,7 @@ export default function Footer() {
               <span className="sr-only"> (opens in new tab)</span>
             </a>
             <a
-              href="mailto:allenella0711@gmail.com"
+              href="mailto:allen@mooque.xyz"
               className="hover:text-foreground transition-colors min-h-[44px] inline-flex items-center"
             >
               Email
