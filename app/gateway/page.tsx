@@ -36,6 +36,7 @@ export default function GatewayPage() {
   const [visitorQ, setVisitorQ]             = useState("");
   const [visitorContact, setVisitorContact] = useState("");
   const [askSent, setAskSent]               = useState(false);
+  const [askError, setAskError]             = useState(false);
   const [askExpanded, setAskExpanded]       = useState(false);
 
   const textareaRef  = useRef<HTMLTextAreaElement>(null);
@@ -117,8 +118,9 @@ export default function GatewayPage() {
   async function handleAsk(e: React.FormEvent) {
     e.preventDefault();
     if (!visitorQ.trim()) return;
+    setAskError(false);
     try {
-      await fetch("/api/questions-for-allen", {
+      const res = await fetch("/api/questions-for-allen", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -127,8 +129,11 @@ export default function GatewayPage() {
           contextQuestionId: currentQ.id,
         }),
       });
-    } catch { /* silent */ }
-    setAskSent(true);
+      if (!res.ok) throw new Error("save failed");
+      setAskSent(true);
+    } catch {
+      setAskError(true);
+    }
   }
 
   return (
@@ -470,13 +475,21 @@ export default function GatewayPage() {
                                            focus-visible:outline-none py-2.5"
                               />
                             </div>
-                            <div className="flex justify-end pt-1">
+                            <div className="flex items-center justify-between pt-1">
+                              {askError ? (
+                                <p className="text-[11px] text-foreground/55">
+                                  That didn&apos;t send — mind trying again?
+                                </p>
+                              ) : (
+                                <span />
+                              )}
                               <button
                                 type="submit"
                                 disabled={!visitorQ.trim()}
                                 className="text-[10px] tracking-[0.14em] uppercase
                                            text-foreground/60 hover:text-foreground
-                                           transition-colors disabled:opacity-25"
+                                           transition-colors disabled:opacity-25
+                                           inline-flex items-center min-h-[44px] px-1"
                               >
                                 Send
                               </button>

@@ -125,7 +125,7 @@ export default function CapyCompanion() {
         aria-pressed={open}
         aria-label={open ? "Turn guide off" : "Turn guide on"}
         title={open ? "Guide on — click to turn off" : "Guide off — click to turn on"}
-        className={`flex h-9 w-9 items-center justify-center rounded-full border shadow-sm transition-colors ${
+        className={`flex h-11 w-11 items-center justify-center rounded-full border shadow-sm transition-colors ${
           open
             ? "border-foreground/15 bg-foreground text-background hover:bg-foreground/90"
             : "border-border bg-background/85 text-muted/70 hover:text-foreground hover:border-foreground/40"

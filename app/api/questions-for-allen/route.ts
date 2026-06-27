@@ -2,7 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 export async function POST(request: NextRequest) {
-  const body = await request.json();
+  let body: { question?: string; contact?: string; contextQuestionId?: string };
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
   const { question, contact, contextQuestionId } = body;
 
   if (!question || typeof question !== "string" || question.trim().length === 0) {
