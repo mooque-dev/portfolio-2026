@@ -143,7 +143,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           <FadeIn delay={0.08}>
             <p className="mt-5 inline-flex items-center gap-2 text-[12px] text-muted">
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/60" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/60 motion-reduce:hidden" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
               </span>
               Open to Staff &amp; Principal roles
@@ -175,7 +175,15 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           {/* Projects — now with thumbnails + a one-line result */}
           <FadeIn delay={0.18}>
             <div className="mt-16">
-              <h2 className="text-sm tracking-wide mb-6">Work</h2>
+              <div className="flex items-baseline justify-between mb-6">
+                <h2 className="text-sm tracking-wide">Work</h2>
+                <Link
+                  href="/work"
+                  className="text-xs text-muted hover:text-foreground transition-colors"
+                >
+                  All
+                </Link>
+              </div>
               {work[0] && <FeatureCard project={work[0]} />}
               {work.length > 1 && (
                 <ol className="space-y-0 mt-2">
