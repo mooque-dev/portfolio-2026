@@ -1,39 +1,90 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
-// A quiet, optional guide. Auto-opens on relevant content pages so it's useful
-// by default, stays out of the way on home, and is a one-tap on/off icon.
-const NOTES: Record<string, string[]> = {
+type Note = { text: string; cta?: { label: string; href: string } };
+
+const FEE = "/work/fee-opt-in-experimentation";
+
+// A quiet, optional guide. Each note can hand you a relevant next step, so it
+// actually helps you navigate — not just talk. Auto-opens on content pages.
+const NOTES: Record<string, Note[]> = {
   home: [
-    "Allen is a Product Design Lead who goes by mooque. Start with Work to see how he thinks, or About for the short version of how he got here.",
-    "His view: design is really about how people feel. Eight years of it, across education, healthcare, and nonprofits.",
-    "In a hurry? The Fee Opt-In study under Work is the one he's proudest of.",
+    {
+      text: "Allen is a Product Design Lead who goes by mooque. Start with the work to see how he thinks.",
+      cta: { label: "See the work", href: "/work" },
+    },
+    {
+      text: "His view: design is really about how people feel. Eight years of it, across education, healthcare, and nonprofits.",
+      cta: { label: "His story", href: "/about" },
+    },
+    {
+      text: "In a hurry? The Fee Opt-In study is the one he's proudest of — opt-in went 75% to 92%.",
+      cta: { label: "Open it", href: FEE },
+    },
   ],
   work: [
-    "The headline here is the Fee Opt-In study, a behavioral A/B test that lifted opt-in from 75% to 92% without hurting conversion.",
-    "He leads design at Velora, merging three nonprofit products (Keela, Raisely, Aplos) into one system used across 102 countries.",
-    "The range is intentional: experimentation, design systems, and 0-to-1 features. He likes the messy early stages best.",
+    {
+      text: "The headline is the Fee Opt-In study — a behavioral A/B test that lifted opt-in from 75% to 92% without hurting conversion.",
+      cta: { label: "Open it", href: FEE },
+    },
+    {
+      text: "He leads design at Velora, merging Keela, Raisely, and Aplos into one system used across 102 countries.",
+      cta: { label: "Read the story", href: "/about" },
+    },
+    {
+      text: "The range is intentional: experimentation, design systems, and 0-to-1 features. He likes the messy early stages best.",
+    },
   ],
   feeopt: [
-    "Allen's favorite. A behavioral A/B test that moved fee opt-in from 75% to 92% without hurting conversion.",
-    "The insight: the default was already fine, so he redesigned the moment donors edit their choice. Decision design, not awareness.",
+    {
+      text: "Allen's favorite. A behavioral A/B test that moved fee opt-in from 75% to 92% without hurting conversion.",
+    },
+    {
+      text: "The insight: the default was already fine, so he redesigned the moment donors edit their choice. Decision design, not awareness.",
+    },
+    {
+      text: "Visuals are blurred — this work is confidential from a former role. He's glad to walk you through the real screens.",
+      cta: { label: "Email Allen", href: "mailto:allen@mooque.xyz" },
+    },
   ],
   about: [
-    "Allen wanted to be a children's book illustrator, nearly became a photographer, then turned to design and stayed eight years.",
-    "His line: 'AI can make the screens now. I'm here for the part it can't.' He means taste, trust, and judgment.",
+    {
+      text: "Allen wanted to be a children's book illustrator, nearly became a photographer, then turned to design and stayed eight years.",
+      cta: { label: "See the work", href: "/work" },
+    },
+    {
+      text: "His line: 'AI can make the screens now. I'm here for the part it can't.' He means taste, trust, and judgment.",
+    },
+    {
+      text: "Want to reach him directly?",
+      cta: { label: "allen@mooque.xyz", href: "mailto:allen@mooque.xyz" },
+    },
   ],
   writing: [
-    "Allen writes while working things out: design systems after an acquisition, adoption without authority, systems thinking.",
+    {
+      text: "Allen writes while working things out: design systems after an acquisition, adoption without authority, systems thinking.",
+      cta: { label: "Back to the work", href: "/work" },
+    },
   ],
   resume: [
-    "The formal résumé is here. Honestly, the Work tab says more about him than bullet points do.",
+    {
+      text: "The formal résumé is here. Honestly, the Work tab says more about him than bullet points do.",
+      cta: { label: "See the work", href: "/work" },
+    },
   ],
 };
 
-function poolFor(path: string): string[] {
+const NAV = [
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Writing", href: "/writing" },
+];
+
+function poolFor(path: string): Note[] {
   if (path.startsWith("/work/fee-opt-in")) return NOTES.feeopt;
   if (path.startsWith("/work")) return NOTES.work;
   if (path.startsWith("/about")) return NOTES.about;
@@ -42,7 +93,6 @@ function poolFor(path: string): string[] {
   return NOTES.home;
 }
 
-// Pages where the guide proactively opens (content pages, not the landing).
 function isRelevant(path: string): boolean {
   return (
     path.startsWith("/work") ||
@@ -52,13 +102,36 @@ function isRelevant(path: string): boolean {
   );
 }
 
+function GuideLink({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  if (href.startsWith("mailto:") || href.startsWith("http")) {
+    return (
+      <a href={href} className={className}>
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 export default function CapyCompanion() {
   const pathname = usePathname();
   const reduced = useReducedMotion();
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
-  const explicit = useRef(false); // has the visitor manually toggled?
+  const explicit = useRef(false);
 
   useEffect(() => {
     setMounted(true);
@@ -72,7 +145,6 @@ export default function CapyCompanion() {
     }
   }, []);
 
-  // New section: reset the note and (unless toggled) proc on relevant pages.
   useEffect(() => {
     setIndex(0);
     if (!explicit.current) setOpen(isRelevant(pathname));
@@ -101,21 +173,74 @@ export default function CapyCompanion() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: reduced ? 0 : 0.18 }}
-            className="w-[17rem] rounded-xl border border-border bg-background/95 backdrop-blur-sm px-4 pt-3 pb-2.5 shadow-sm"
+            className="w-[17.5rem] rounded-xl border border-border bg-background/95 backdrop-blur-sm px-4 pt-3 pb-3 shadow-sm"
             role="status"
           >
             <p className="text-[9px] tracking-[0.2em] uppercase text-muted mb-1.5">
               Guide
             </p>
-            <p className="text-[13px] leading-relaxed text-foreground">{note}</p>
-            {pool.length > 1 && (
-              <button
-                onClick={() => setIndex((i) => i + 1)}
-                className="mt-1.5 inline-flex items-center min-h-[44px] text-[11px] tracking-wide text-muted hover:text-foreground transition-colors"
+
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={index}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: reduced ? 0 : 0.15 }}
+                className="text-[13px] leading-relaxed text-foreground"
               >
-                More &rarr;
-              </button>
+                {note.text}
+              </motion.p>
+            </AnimatePresence>
+
+            {note.cta && (
+              <GuideLink
+                href={note.cta.href}
+                className="mt-2.5 inline-flex items-center gap-1 rounded-full bg-foreground px-3 py-1.5 text-[11px] font-medium text-background hover:bg-foreground/90 transition-colors"
+              >
+                {note.cta.label} <span aria-hidden>&rarr;</span>
+              </GuideLink>
             )}
+
+            {pool.length > 1 && (
+              <div className="mt-3 flex items-center justify-between">
+                <div className="flex items-center gap-1" aria-hidden>
+                  {pool.map((_, i) => (
+                    <span
+                      key={i}
+                      className={`h-1 w-1 rounded-full transition-colors ${
+                        i === index % pool.length ? "bg-foreground" : "bg-border"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <button
+                  onClick={() => setIndex((i) => i + 1)}
+                  className="inline-flex items-center min-h-[36px] text-[11px] tracking-wide text-muted hover:text-foreground transition-colors"
+                >
+                  Next &rarr;
+                </button>
+              </div>
+            )}
+
+            <div className="mt-3 flex items-center gap-3 border-t border-border pt-2.5">
+              {NAV.map((n) => {
+                const active = pathname.startsWith(n.href);
+                return (
+                  <Link
+                    key={n.href}
+                    href={n.href}
+                    className={`text-[11px] tracking-wide transition-colors ${
+                      active
+                        ? "text-foreground"
+                        : "text-muted hover:text-foreground"
+                    }`}
+                  >
+                    {n.label}
+                  </Link>
+                );
+              })}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
