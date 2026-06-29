@@ -31,7 +31,7 @@ export default function FluidCursor() {
     const html = document.documentElement;
     html.classList.add("fluid-cursor");
 
-    // Event delegation — one listener, no stacking, no MutationObserver needed
+    // Event delegation, one listener, no stacking, no MutationObserver needed
     const onMove = (e: MouseEvent) => {
       mx.set(e.clientX);
       my.set(e.clientY);
@@ -55,7 +55,7 @@ export default function FluidCursor() {
 
   return (
     <>
-      {/* Trailing ring — springs behind the pointer */}
+      {/* Trailing ring, springs behind the pointer */}
       <motion.div
         style={{ x: ringX, y: ringY, scale: ss, opacity }}
         className="fixed top-0 left-0 pointer-events-none z-[9998] rounded-full
@@ -65,7 +65,7 @@ export default function FluidCursor() {
         <div style={{ width: RING, height: RING }} />
       </motion.div>
 
-      {/* Dot — tracks cursor precisely, no spring */}
+      {/* Dot, tracks cursor precisely, no spring */}
       <motion.div
         style={{ x: dotX, y: dotY, opacity }}
         className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full bg-foreground"

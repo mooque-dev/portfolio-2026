@@ -151,14 +151,14 @@ export default function GatewayPage() {
             backgroundSize: "28px 28px",
           }}
         >
-          {/* Attribution — top anchor */}
+          {/* Attribution, top anchor */}
           <div className="absolute top-0 inset-x-0 h-20 flex items-end justify-center pb-2 pointer-events-none z-10">
             <p className="text-[9px] tracking-[0.28em] uppercase text-muted/55 select-none">
               Allen Kang
             </p>
           </div>
 
-          {/* Main content — absolutely centered vertically */}
+          {/* Main content, absolutely centered vertically */}
           <div className="absolute inset-x-0 px-8 md:px-16 lg:px-24"
                style={{ top: "50%", transform: "translateY(-50%)" }}>
           <AnimatePresence mode="wait">
@@ -193,7 +193,7 @@ export default function GatewayPage() {
                   </AnimatePresence>
                 </Magnetic>
 
-                {/* ── Meta row — floating pills ── */}
+                {/* ── Meta row, floating pills ── */}
                 <div className="mt-6 flex items-center gap-2 flex-wrap">
                   {/* Question counter pill */}
                   <span className="inline-flex items-center px-2.5 py-1 rounded-full
@@ -204,7 +204,7 @@ export default function GatewayPage() {
                     {index + 1}&thinsp;/&thinsp;{questions.length}
                   </span>
 
-                  {/* Response count pill — green tint, only when there are responses */}
+                  {/* Response count pill, green tint, only when there are responses */}
                   {responseCount !== null && responseCount > 0 && (
                     <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full
                                      bg-emerald-50 dark:bg-emerald-950/30
@@ -232,7 +232,7 @@ export default function GatewayPage() {
                     </button>
                   </Magnetic>
 
-                  {/* Portfolio entry — equal weight to browsing */}
+                  {/* Portfolio entry, equal weight to browsing */}
                   <Magnetic strength={0.3} radius={72}>
                     <button
                       onClick={handleEnter}
@@ -397,7 +397,7 @@ export default function GatewayPage() {
                             {r.answer}
                           </p>
                           <p className="text-[9px] tracking-[0.16em] uppercase text-muted mt-2.5">
-                            — {r.display_name ?? "Anonymous"}
+                            {r.display_name ?? "Anonymous"}
                           </p>
                         </motion.div>
                       ))}
@@ -481,7 +481,7 @@ export default function GatewayPage() {
                             <div className="flex items-center justify-between pt-1">
                               {askError ? (
                                 <p className="text-[11px] text-foreground/55">
-                                  That didn&apos;t send — mind trying again?
+                                  That didn&apos;t send. Mind trying again?
                                 </p>
                               ) : (
                                 <span />
@@ -498,7 +498,7 @@ export default function GatewayPage() {
                               </button>
                             </div>
                             <p className="text-[10px] leading-relaxed text-muted">
-                              Goes straight to Allen — not published. Contact is
+                              Goes straight to Allen, not published. Contact is
                               only used to reply.
                             </p>
                           </motion.form>
@@ -552,7 +552,7 @@ export default function GatewayPage() {
           </AnimatePresence>
           </div>
 
-          {/* Skip — bottom anchor (fallback for those who missed the pill) */}
+          {/* Skip, bottom anchor (fallback for those who missed the pill) */}
           <div className="absolute bottom-0 inset-x-0 h-16 flex items-center justify-center">
             <AnimatePresence>
               {phase === "browse" && (

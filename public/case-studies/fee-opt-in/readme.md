@@ -1,4 +1,4 @@
-# Fee Opt-In case study — image slots
+# Fee Opt-In case study, image slots
 
 These are labeled **placeholders**. The case study at
 `content/work/fee-opt-in-experimentation.mdx` already references them, so the
@@ -7,7 +7,7 @@ layout looks complete right now. To use your real Raisely screenshots:
 1. Export each screenshot and name it to match the slot (keep the number prefix).
 2. Drop it in this folder, **overwriting the `.svg` placeholder**.
 3. If you save as `.png` (recommended for screenshots), update that slot's
-   extension in the MDX — find `fee-opt-in/<name>.svg` and change `.svg` → `.png`.
+   extension in the MDX, find `fee-opt-in/<name>.svg` and change `.svg` → `.png`.
    (Saving your export as `.svg` with the same name needs no MDX edit.)
 
 | Slot file                     | What goes here                                              |

@@ -113,7 +113,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {frontmatter.wip && (
           <FadeIn delay={0.32}>
             <p className="mt-8 border-l-2 border-border pl-4 text-sm text-muted leading-relaxed">
-              The visuals here are intentionally blurred — this work is
+              The visuals here are intentionally blurred. This work is
               confidential. I&apos;m glad to walk through the real screens and
               the full thinking in conversation.
             </p>

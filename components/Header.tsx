@@ -83,7 +83,7 @@ export default function Header() {
 
           <ThemeToggle />
 
-          {/* Mobile menu — Sheet */}
+          {/* Mobile menu, Sheet */}
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger
               id="mobile-nav-trigger"

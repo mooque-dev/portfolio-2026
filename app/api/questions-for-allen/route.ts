@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
   }
 
   if (!isSupabaseConfigured || !supabase) {
-    // No DB — acknowledge gracefully, visitor message isn't lost
+    // No DB, acknowledge gracefully, visitor message isn't lost
     return NextResponse.json({ ok: true, offline: true });
   }
 

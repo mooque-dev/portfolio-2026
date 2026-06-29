@@ -94,7 +94,7 @@ export const questions: Question[] = [
   },
 ];
 
-// One question per day, same for all visitors — creates a shared moment.
+// One question per day, same for all visitors, creates a shared moment.
 export function getDailyIndex(): number {
   return Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % questions.length;
 }

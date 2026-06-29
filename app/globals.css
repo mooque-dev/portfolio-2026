@@ -137,7 +137,7 @@ body {
   background-size: 28px 28px;
 }
 
-/* Refined serif rendering — critical for editorial feel */
+/* Refined serif rendering, critical for editorial feel */
 .font-serif,
 h1.font-serif, h2.font-serif, h3.font-serif {
   font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "onum" 1;
@@ -194,7 +194,7 @@ h1.font-serif, h2.font-serif, h3.font-serif {
 
 /* Real cover images: keep them clear in dark mode (subtle pop only).
    The old brightness(0.35) was for pastel placeholder covers and dimmed
-   real photos/screenshots to ~35% — now removed for clarity. */
+   real photos/screenshots to ~35%, now removed for clarity. */
 .dark .cover-tinted {
   filter: saturate(1.05);
 }
@@ -336,7 +336,7 @@ html {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Nav link — sliding underline */
+/* Nav link, sliding underline */
 .nav-link {
   position: relative;
 }
@@ -355,7 +355,7 @@ html {
   width: 100%;
 }
 
-/* Prose image hover — gentle zoom */
+/* Prose image hover, gentle zoom */
 .prose figure img,
 .prose img {
   transition: transform 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -365,7 +365,7 @@ html {
   transform: scale(1.015);
 }
 
-/* Fluid cursor — hide system pointer when our custom cursor is active */
+/* Fluid cursor, hide system pointer when our custom cursor is active */
 .fluid-cursor,
 .fluid-cursor * {
   cursor: none !important;

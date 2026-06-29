@@ -1,11 +1,11 @@
 "use client";
 
 /**
- * Magnetic — wraps any element and pulls it toward the cursor when
+ * Magnetic: wraps any element and pulls it toward the cursor when
  * the cursor passes within `radius` pixels of its centre.
  *
  * Strength × distance × (1 - dist/radius) gives the offset, so the
- * pull peaks at radius/2 and falls to zero at the edge — like a water
+ * pull peaks at radius/2 and falls to zero at the edge, like a water
  * surface tension gradient.
  *
  * Usage:

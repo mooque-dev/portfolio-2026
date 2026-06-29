@@ -134,7 +134,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           {/* Hero */}
           <FadeIn>
             <h1 className="text-[26px] md:text-[34px] leading-[1.3] font-light tracking-[-0.01em] text-balance">
-              Product Design Lead — optimist, systems-builder, and
+              Product Design Lead, optimist, systems-builder, and
               experience-maker. Eight years designing mission-driven products
               for the people most software forgets.
             </h1>
@@ -172,7 +172,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
             </div>
           </FadeIn>
 
-          {/* Projects — now with thumbnails + a one-line result */}
+          {/* Projects, now with thumbnails + a one-line result */}
           <FadeIn delay={0.18}>
             <div className="mt-16">
               <div className="flex items-baseline justify-between mb-6">

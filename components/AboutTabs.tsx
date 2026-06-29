@@ -47,7 +47,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.1}>
             <div className="mt-12 space-y-7 text-[22px] md:text-[30px] leading-[1.4] font-light tracking-[-0.01em] text-balance">
               <p>
-                I grew up wanting to illustrate children&apos;s books — the
+                I grew up wanting to illustrate children&apos;s books, the
                 painted kind, with stories that didn&apos;t talk down to kids.
                 Fine Arts pulled me sideways, photography pulled me further, and
                 I spent a few years shooting weddings until someone stole my

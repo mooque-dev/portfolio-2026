@@ -10,7 +10,7 @@ type Note = { text: string; cta?: { label: string; href: string } };
 const FEE = "/work/fee-opt-in-experimentation";
 
 // A quiet, optional guide. Each note can hand you a relevant next step, so it
-// actually helps you navigate — not just talk. Auto-opens on content pages.
+// actually helps you navigate, not just talk. Auto-opens on content pages.
 const NOTES: Record<string, Note[]> = {
   home: [
     {
@@ -22,13 +22,13 @@ const NOTES: Record<string, Note[]> = {
       cta: { label: "His story", href: "/about" },
     },
     {
-      text: "In a hurry? The Fee Opt-In study is the one he's proudest of — opt-in went 75% to 92%.",
+      text: "In a hurry? The Fee Opt-In study is the one he's proudest of: opt-in went 75% to 92%.",
       cta: { label: "Open it", href: FEE },
     },
   ],
   work: [
     {
-      text: "The headline is the Fee Opt-In study — a behavioral A/B test that lifted opt-in from 75% to 92% without hurting conversion.",
+      text: "The headline is the Fee Opt-In study, a behavioral A/B test that lifted opt-in from 75% to 92% without hurting conversion.",
       cta: { label: "Open it", href: FEE },
     },
     {
@@ -47,7 +47,7 @@ const NOTES: Record<string, Note[]> = {
       text: "The insight: the default was already fine, so he redesigned the moment donors edit their choice. Decision design, not awareness.",
     },
     {
-      text: "Visuals are blurred — this work is confidential from a former role. He's glad to walk you through the real screens.",
+      text: "Visuals are blurred: this work is confidential from a former role. He's glad to walk you through the real screens.",
       cta: { label: "Email Allen", href: "mailto:allen@mooque.xyz" },
     },
   ],
@@ -249,7 +249,7 @@ export default function CapyCompanion() {
         onClick={toggle}
         aria-pressed={open}
         aria-label={open ? "Turn guide off" : "Turn guide on"}
-        title={open ? "Guide on — click to turn off" : "Guide off — click to turn on"}
+        title={open ? "Guide on, click to turn off" : "Guide off, click to turn on"}
         className={`flex h-11 w-11 items-center justify-center rounded-full border shadow-sm transition-colors ${
           open
             ? "border-foreground/15 bg-foreground text-background hover:bg-foreground/90"
