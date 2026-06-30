@@ -141,16 +141,6 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           </FadeIn>
 
           <FadeIn delay={0.08}>
-            <p className="mt-5 inline-flex items-center gap-2 text-[12px] text-muted">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/60 motion-reduce:hidden" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              Open to Staff &amp; Principal roles
-            </p>
-          </FadeIn>
-
-          <FadeIn delay={0.12}>
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
               <Link href="/about" className="hover:text-foreground transition-colors">
                 About
