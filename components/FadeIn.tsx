@@ -1,6 +1,4 @@
-"use client";
-
-import { ReactNode, useEffect, useRef, useState } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 interface FadeInProps {
   children: ReactNode;
@@ -10,14 +8,9 @@ interface FadeInProps {
   duration?: number;
 }
 
-const directionOffset = {
-  up: "translateY(16px)",
-  down: "translateY(-16px)",
-  left: "translateX(16px)",
-  right: "translateX(-16px)",
-  none: "translate(0,0)",
-};
-
+// CSS-first reveal. The animation is plain CSS (see .fi in globals.css), so
+// content is visible and animating as soon as styles load: no hydration wait,
+// no blank first paint. Reduced motion is handled by a media query.
 export default function FadeIn({
   children,
   delay = 0,
@@ -25,44 +18,15 @@ export default function FadeIn({
   className = "",
   duration = 0.5,
 }: FadeInProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (mq.matches) {
-      setVisible(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "-60px" }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div
-      ref={ref}
-      className={className}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translate(0,0)" : directionOffset[direction],
-        transition: visible
-          ? `opacity ${duration}s cubic-bezier(0.25,0.1,0.25,1) ${delay}s, transform ${duration}s cubic-bezier(0.25,0.1,0.25,1) ${delay}s`
-          : "none",
-        willChange: visible ? "auto" : "opacity, transform",
-      }}
+      className={`fi fi-${direction} ${className}`}
+      style={
+        {
+          "--fi-delay": `${delay}s`,
+          "--fi-duration": `${duration}s`,
+        } as CSSProperties
+      }
     >
       {children}
     </div>

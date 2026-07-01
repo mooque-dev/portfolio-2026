@@ -129,7 +129,29 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
 
   return (
     <section className="pt-28 md:pt-36 pb-24 md:pb-32">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="relative max-w-6xl mx-auto px-6">
+        {/* Quiet right rail, xl+ only. Mirrors the case-page TOC treatment so
+            the wide-screen whitespace has a job without competing for focus. */}
+        <FadeIn delay={0.3} className="hidden xl:block absolute right-6 top-2 w-52">
+          <aside aria-label="Now" className="sticky top-28">
+            <p className="text-[10px] tracking-[0.2em] uppercase text-muted mb-4">
+              Now
+            </p>
+            <ul className="space-y-3 text-[13px] leading-relaxed text-muted">
+              <li>Leading design at Velora</li>
+              <li>Rehearsing a 40-person musical for an August debut</li>
+              <li>
+                <Link
+                  href="/writing/earned-black"
+                  className="hover:text-foreground transition-colors underline underline-offset-4 decoration-border"
+                >
+                  Latest writing: Earned Black
+                </Link>
+              </li>
+            </ul>
+          </aside>
+        </FadeIn>
+
         <div className="max-w-2xl">
           {/* Hero */}
           <FadeIn>

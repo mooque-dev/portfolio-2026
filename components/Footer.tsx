@@ -24,7 +24,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/resume" className="hover:opacity-70 transition-opacity min-h-[44px] inline-flex items-center">
-                  Resume
+                  R&eacute;sum&eacute;
                 </Link>
               </li>
             </ul>

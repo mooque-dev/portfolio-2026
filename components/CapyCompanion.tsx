@@ -150,6 +150,18 @@ export default function CapyCompanion() {
     if (!explicit.current) setOpen(isRelevant(pathname));
   }, [pathname]);
 
+  // An auto-opened guide gets out of the way once the visitor is deep in the
+  // page (it was overlapping footers on long scrolls). An explicit open stays
+  // until they close it, and the toggle button always brings it back.
+  useEffect(() => {
+    if (!open || explicit.current) return;
+    const onScroll = () => {
+      if (window.scrollY > window.innerHeight * 1.5) setOpen(false);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [open, pathname]);
+
   const toggle = useCallback(() => {
     setOpen((o) => {
       const next = !o;

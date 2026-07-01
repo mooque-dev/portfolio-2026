@@ -144,6 +144,38 @@ h1.font-serif, h2.font-serif, h3.font-serif {
   text-rendering: optimizeLegibility;
 }
 
+/* --- FadeIn: CSS-first reveal --- */
+/* Pure CSS so content paints (and animates) the moment styles load, with no
+   hydration dependency. Used by components/FadeIn.tsx. */
+.fi {
+  opacity: 0;
+  animation: fi-in var(--fi-duration, 0.5s) cubic-bezier(0.25, 0.1, 0.25, 1)
+    var(--fi-delay, 0s) forwards;
+}
+.fi-up { --fi-from: translateY(16px); }
+.fi-down { --fi-from: translateY(-16px); }
+.fi-left { --fi-from: translateX(16px); }
+.fi-right { --fi-from: translateX(-16px); }
+.fi-none { --fi-from: translate(0, 0); }
+
+@keyframes fi-in {
+  from {
+    opacity: 0;
+    transform: var(--fi-from, translateY(16px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fi {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 /* --- Accessibility: Focus indicators (WCAG 2.4.7 / 2.4.13) --- */
 *:focus-visible {
   outline: 2px solid var(--focus);

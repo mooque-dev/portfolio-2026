@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#f6e8d4"/>
+  <!-- radar rings: live music happening around you -->
+  <circle cx="400" cy="260" r="150" fill="none" stroke="#d97b16" stroke-opacity="0.25" stroke-width="3"/>
+  <circle cx="400" cy="260" r="100" fill="none" stroke="#d97b16" stroke-opacity="0.45" stroke-width="3"/>
+  <circle cx="400" cy="260" r="50" fill="none" stroke="#d97b16" stroke-opacity="0.7" stroke-width="3"/>
+  <circle cx="400" cy="260" r="16" fill="#d97b16"/>
+  <!-- nearby sets -->
+  <circle cx="510" cy="180" r="9" fill="#b3541e"/>
+  <circle cx="300" cy="340" r="9" fill="#b3541e"/>
+  <circle cx="540" cy="330" r="7" fill="#b3541e" fill-opacity="0.6"/>
+</svg>

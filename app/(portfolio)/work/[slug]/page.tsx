@@ -113,9 +113,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {frontmatter.wip && (
           <FadeIn delay={0.32}>
             <p className="mt-8 border-l-2 border-border pl-4 text-sm text-muted leading-relaxed">
-              The visuals here are intentionally blurred. This work is
-              confidential. I&apos;m glad to walk through the real screens and
-              the full thinking in conversation.
+              The product visuals here are intentionally blurred. This work is
+              confidential. The aggregate results are shown as reported, and
+              I&apos;m glad to walk through the real screens in conversation.
             </p>
           </FadeIn>
         )}
@@ -123,7 +123,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {/* Content */}
         <FadeIn delay={0.35}>
           <div
-            className={`prose mt-16 ${frontmatter.wip ? "[&_img]:blur-md [&_img]:brightness-75" : ""}`}
+            className={`prose mt-16 ${frontmatter.wip ? "[&_img]:blur-md [&_img]:brightness-75 [&_img.clear]:blur-none [&_img.clear]:brightness-100" : ""}`}
             dangerouslySetInnerHTML={{ __html: content }}
           />
         </FadeIn>
