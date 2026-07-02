@@ -13,6 +13,8 @@ interface ProjectCardProps {
   coverColor?: string;
   coverImage?: string;
   wip?: boolean;
+  featuredStat?: string;
+  featuredStatLabel?: string;
 }
 
 export default function ProjectCard({
@@ -23,6 +25,8 @@ export default function ProjectCard({
   coverColor = "#e5e5e0",
   coverImage,
   wip = false,
+  featuredStat,
+  featuredStatLabel,
 }: ProjectCardProps) {
   return (
     <Magnetic strength={0.04} radius={260}>
@@ -48,9 +52,27 @@ export default function ProjectCard({
               />
             )}
             {wip && (
-              <div className="absolute bottom-3 left-3 z-10" aria-hidden="true">
-                <span className="text-[9px] tracking-[0.22em] uppercase text-white/50">Confidential</span>
-              </div>
+              <>
+                <div
+                  className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
+                  aria-hidden="true"
+                />
+                <span className="absolute top-3 right-3 z-10 rounded-full bg-black/40 backdrop-blur-sm px-2.5 py-1 text-[9px] tracking-[0.18em] uppercase text-white/80">
+                  Confidential
+                </span>
+                {featuredStat && (
+                  <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-white">
+                    <div className="text-3xl md:text-4xl font-light tabular-nums leading-none">
+                      {featuredStat}
+                    </div>
+                    {featuredStatLabel && (
+                      <div className="mt-1.5 text-[10px] tracking-[0.14em] uppercase text-white/75">
+                        {featuredStatLabel}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </>
             )}
             {!coverImage && (
               <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">

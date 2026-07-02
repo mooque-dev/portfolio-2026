@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 
 export type LayoutMode = "reader" | "gallery" | "index";
 
@@ -36,22 +36,19 @@ export function useLayout() {
   return useContext(LayoutContext);
 }
 
+// The head script copies localStorage onto <html data-layout> before
+// hydration; localStorage is the fallback for the rare case it didn't run.
 function getInitialLayout(): LayoutMode {
-  if (typeof document !== "undefined") {
-    return normalizeMode(document.documentElement.dataset.layout) ?? "reader";
-  }
-  return "reader";
+  if (typeof document === "undefined") return "reader";
+  return (
+    normalizeMode(document.documentElement.dataset.layout) ??
+    normalizeMode(localStorage.getItem("layout")) ??
+    "reader"
+  );
 }
 
 export function LayoutProvider({ children }: { children: ReactNode }) {
   const [layout, setLayoutState] = useState<LayoutMode>(getInitialLayout);
-
-  useEffect(() => {
-    const stored = normalizeMode(localStorage.getItem("layout"));
-    if (stored && stored !== layout) {
-      setLayoutState(stored);
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   function setLayout(mode: LayoutMode) {
     setLayoutState(mode);

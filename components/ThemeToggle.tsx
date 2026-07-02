@@ -1,23 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export default function ThemeToggle() {
-  const [dark, setDark] = useState(false);
+const emptySubscribe = () => () => {};
 
-  useEffect(() => {
-    const hour = new Date().getHours();
-    const autoDark = hour < 7 || hour >= 19;
-    const override = sessionStorage.getItem("themeOverride");
-    const shouldBeDark = override !== null ? override === "dark" : autoDark;
-    setDark(shouldBeDark);
-    document.documentElement.classList.toggle("dark", shouldBeDark);
-  }, []);
+export default function ThemeToggle() {
+  // The head script already applied the right class before hydration, so the
+  // DOM is the source of truth for the initial value; the override state
+  // takes over once the visitor toggles.
+  const domDark = useSyncExternalStore(
+    emptySubscribe,
+    () => document.documentElement.classList.contains("dark"),
+    () => false
+  );
+  const [override, setOverride] = useState<boolean | null>(null);
+  const dark = override ?? domDark;
 
   function toggle() {
     const next = !dark;
-    setDark(next);
+    setOverride(next);
     document.documentElement.classList.toggle("dark", next);
     sessionStorage.setItem("themeOverride", next ? "dark" : "light");
   }

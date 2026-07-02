@@ -35,6 +35,8 @@ function ProjectGrid({ projects, startIndex = 0 }: { projects: ProjectSummary[];
               coverColor={project.coverColor}
               coverImage={project.coverImage}
               wip={project.wip}
+              featuredStat={project.featuredStat}
+              featuredStatLabel={project.featuredStatLabel}
             />
           </motion.div>
         ))}

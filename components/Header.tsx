@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import WorldClock from "./WorldClock";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useCallback } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Magnetic from "./Magnetic";
 import {
@@ -27,9 +27,13 @@ export default function Header() {
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
-  useEffect(() => {
-    closeMenu();
-  }, [pathname, closeMenu]);
+  // Close the mobile menu when the route changes: state adjusted during
+  // render (the pattern React docs recommend over a setState effect).
+  const [prevPath, setPrevPath] = useState(pathname);
+  if (prevPath !== pathname) {
+    setPrevPath(pathname);
+    setMenuOpen(false);
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">

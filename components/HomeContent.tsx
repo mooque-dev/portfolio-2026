@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useLayout, LayoutMode } from "./LayoutProvider";
+import { useLayout } from "./LayoutProvider";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ReactNode } from "react";
 import type { ProjectSummary, WritingSummary } from "@/lib/types";

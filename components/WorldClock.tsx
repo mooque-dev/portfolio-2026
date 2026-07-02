@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
 
 function fmt(date: Date, tz: string) {
   return date.toLocaleTimeString("en-US", {
@@ -11,16 +11,23 @@ function fmt(date: Date, tz: string) {
   });
 }
 
+// The store is "the current minute": stable within a minute (so snapshots
+// don't churn) and ticking via the interval subscription. Server snapshot is
+// null so nothing renders until the client knows the time.
+function subscribe(onStoreChange: () => void) {
+  const id = setInterval(onStoreChange, 60_000);
+  return () => clearInterval(id);
+}
+
+function getMinute() {
+  return Math.floor(Date.now() / 60_000);
+}
+
 export default function WorldClock() {
-  const [now, setNow] = useState<Date | null>(null);
+  const minute = useSyncExternalStore(subscribe, getMinute, () => null);
 
-  useEffect(() => {
-    setNow(new Date());
-    const id = setInterval(() => setNow(new Date()), 60_000);
-    return () => clearInterval(id);
-  }, []);
-
-  if (!now) return null;
+  if (minute === null) return null;
+  const now = new Date(minute * 60_000);
 
   return (
     <div className="flex items-center gap-2.5 text-[10px] tracking-wide text-muted/40 select-none tabular-nums pointer-events-none">

@@ -1,9 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useMounted } from "@/lib/useMounted";
 
 type Note = { text: string; cta?: { label: string; href: string } };
 
@@ -93,9 +94,12 @@ function poolFor(path: string): Note[] {
   return NOTES.home;
 }
 
+// Auto-open on reading pages only. The /work index is a browsing grid where
+// the panel would sit on top of cards, so it stays closed there (the toggle
+// still works everywhere).
 function isRelevant(path: string): boolean {
   return (
-    path.startsWith("/work") ||
+    path.startsWith("/work/") ||
     path.startsWith("/about") ||
     path.startsWith("/writing") ||
     path.startsWith("/resume")
@@ -128,44 +132,45 @@ function GuideLink({
 export default function CapyCompanion() {
   const pathname = usePathname();
   const reduced = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-  const [open, setOpen] = useState(false);
-  const [index, setIndex] = useState(0);
-  const explicit = useRef(false);
-
-  useEffect(() => {
-    setMounted(true);
+  const mounted = useMounted();
+  // Lazy inits read the stored preference once on the client; the component
+  // renders null until mounted, so SSR never sees these values.
+  const [explicit, setExplicit] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("guide-open") !== null;
+  });
+  const [open, setOpen] = useState(() => {
+    if (typeof window === "undefined") return false;
     const pref = localStorage.getItem("guide-open");
-    if (pref === null) {
-      explicit.current = false;
-      setOpen(isRelevant(window.location.pathname));
-    } else {
-      explicit.current = true;
-      setOpen(pref === "1");
-    }
-  }, []);
+    return pref === null ? isRelevant(window.location.pathname) : pref === "1";
+  });
+  const [index, setIndex] = useState(0);
 
-  useEffect(() => {
+  // Reset per-route state during render on navigation (instead of a
+  // setState-in-effect on pathname).
+  const [prevPath, setPrevPath] = useState(pathname);
+  if (prevPath !== pathname) {
+    setPrevPath(pathname);
     setIndex(0);
-    if (!explicit.current) setOpen(isRelevant(pathname));
-  }, [pathname]);
+    if (!explicit) setOpen(isRelevant(pathname));
+  }
 
   // An auto-opened guide gets out of the way once the visitor is deep in the
   // page (it was overlapping footers on long scrolls). An explicit open stays
   // until they close it, and the toggle button always brings it back.
   useEffect(() => {
-    if (!open || explicit.current) return;
+    if (!open || explicit) return;
     const onScroll = () => {
       if (window.scrollY > window.innerHeight * 1.5) setOpen(false);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [open, pathname]);
+  }, [open, explicit, pathname]);
 
   const toggle = useCallback(() => {
+    setExplicit(true);
     setOpen((o) => {
       const next = !o;
-      explicit.current = true;
       localStorage.setItem("guide-open", next ? "1" : "0");
       return next;
     });
