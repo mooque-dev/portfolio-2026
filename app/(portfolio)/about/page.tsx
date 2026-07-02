@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import AboutTabs from "@/components/AboutTabs";
+import AboutStickers from "@/components/AboutStickers";
 
 export const metadata: Metadata = {
   title: "About",
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <section className="pt-32 pb-24 md:pt-40 md:pb-32">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="relative max-w-6xl mx-auto px-6">
+        <AboutStickers />
         <div className="max-w-3xl">
           <FadeIn>
             <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">

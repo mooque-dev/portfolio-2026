@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-02",
+    title: "Pixel stickers land on the About page",
+    tags: ["design"],
+    what: "Nine hand-pixeled, die-cut stickers scattered scrapbook-style down the About margins: a running shoe, the Korean and Canadian flags, Jacob Collier, Hiromi, and a clarinet, trumpet, guitar, and piano. They drag, and your arrangement is saved locally. Drawn pixel by pixel with a render-and-review loop; the runner figure took three attempts and lost to the shoe.",
+    why: "The About page told the story in words only. Stickers are the margin-doodle layer: the things I love, drawn the way I loved drawing as a kid.",
+  },
+  {
+    date: "2026-07-02",
     title: "A second audit, and the work grid gets its proof back",
     tags: ["fix", "engineering"],
     what: "Re-audited the whole site from recruiter, designer, and engineer seats. The flagship card on the work grid now leads with its 75% to 92% result instead of an unlabeled blur, the guide stays closed on browsing pages, ESLint went from seven problems to zero, and dependencies got patched.",
