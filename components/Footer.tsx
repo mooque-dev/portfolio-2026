@@ -27,6 +27,11 @@ export default function Footer() {
                   R&eacute;sum&eacute;
                 </Link>
               </li>
+              <li>
+                <Link href="/changelog" className="hover:opacity-70 transition-opacity min-h-[44px] inline-flex items-center">
+                  Changelog
+                </Link>
+              </li>
             </ul>
           </nav>
           <div className="flex flex-col gap-2 text-muted">
