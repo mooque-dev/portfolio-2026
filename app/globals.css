@@ -408,11 +408,6 @@ html {
   transform: scale(1.015);
 }
 
-/* Fluid cursor, hide system pointer when our custom cursor is active */
-.fluid-cursor,
-.fluid-cursor * {
-  cursor: none !important;
-}
 
 @layer base {
   * {

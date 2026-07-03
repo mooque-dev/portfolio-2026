@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "Retired the custom cursor",
+    tags: ["design"],
+    what: "Removed the trailing ring-and-dot cursor. With the dot grid now visible, the cursor's ring looked like a circled, broken grid cell. The native pointer is back.",
+    why: "Two ideas were competing for the same pixels. The grid is the texture worth keeping; a decorative cursor that reads as a glitch is not.",
+  },
+  {
+    date: "2026-07-03",
     title: "The dot grid you can actually see",
     tags: ["design"],
     what: "The background dot grid was barely there in light mode. Gave it a dedicated color per theme, a slightly larger dot, and tighter spacing so it reads as intentional paper texture instead of a rendering artifact.",

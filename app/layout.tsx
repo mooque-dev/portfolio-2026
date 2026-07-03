@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Caveat } from "next/font/google";
 import ReadingProgress from "@/components/ReadingProgress";
-import FluidCursor from "@/components/FluidCursor";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
 
@@ -106,7 +105,6 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className="antialiased bg-background text-foreground">
         <TooltipProvider>
-          <FluidCursor />
           <ReadingProgress />
           <a href="#main-content" className="skip-link">
             Skip to main content
