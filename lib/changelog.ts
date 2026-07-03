@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "The dot grid you can actually see",
+    tags: ["design"],
+    what: "The background dot grid was barely there in light mode. Gave it a dedicated color per theme, a slightly larger dot, and tighter spacing so it reads as intentional paper texture instead of a rendering artifact.",
+    why: "Texture only works if you can tell it is there. Too faint reads as a smudge, not a decision.",
+  },
+  {
+    date: "2026-07-03",
     title: "Redrew the stickers that didn't read",
     tags: ["design"],
     what: "Audited the About stickers at their real size. The paintbrush read as a lipstick, the clarinet as a chess pawn, and the guitar as a gourd. Swapped the brush for a paint palette with color dabs, angled the clarinet so the keys and mouthpiece show, gave the guitar a proper figure-eight waist and round sound hole, and tightened the trumpet bell and capybara.",
