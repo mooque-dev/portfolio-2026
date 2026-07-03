@@ -18,6 +18,10 @@ const STICKERS = [
   { id: "trumpet", w: 104, h: 72, left: 71, top: 1480, rot: -10 },
   { id: "clarinet", w: 60, h: 90, left: 88, top: 1560, rot: 9 },
   { id: "guitar", w: 84, h: 103, left: 78, top: 1800, rot: -6 },
+  { id: "brush", w: 60, h: 90, left: 71, top: 620, rot: 7 },
+  { id: "seal", w: 80, h: 80, left: 86, top: 1950, rot: -4 },
+  { id: "capybara", w: 112, h: 72, left: 83, top: 2320, rot: 5 },
+  { id: "camera", w: 104, h: 76, left: 73, top: 2600, rot: -7 },
 ] as const;
 
 const STORAGE_KEY = "about-stickers-v1";

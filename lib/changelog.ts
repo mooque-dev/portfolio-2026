@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-02",
+    title: "Sticker round two: the ones with stories",
+    tags: ["design"],
+    what: "Four more for the About scrapbook: a film camera, a loaded paintbrush, a red seal carved with 묵, and a capybara with an orange on its head. Each is placed beside the paragraph that explains it; the seal sits next to On the name, since Mook is a homophone for ink.",
+    why: "The best sticker is one that makes you ask why it is there, and the page answers. The capybara is the retired site mascot, enjoying its afterlife where it can no longer interrupt anyone.",
+  },
+  {
+    date: "2026-07-02",
     title: "Pixel stickers land on the About page",
     tags: ["design"],
     what: "Nine hand-pixeled, die-cut stickers scattered scrapbook-style down the About margins: a running shoe, the Korean and Canadian flags, Jacob Collier, Hiromi, and a clarinet, trumpet, guitar, and piano. They drag, and your arrangement is saved locally. Drawn pixel by pixel with a render-and-review loop; the runner figure took three attempts and lost to the shoe.",
