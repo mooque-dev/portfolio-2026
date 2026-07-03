@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "Paper grain, and a warm dark canvas to match",
+    tags: ["design"],
+    what: "Added a faint paper grain: fine grayscale noise, overlay-blended so it adds tooth without dulling the page, tuned to a whisper. One texture covers both themes. Warmed the dark background from a cool near-black to a warm ink so both modes feel like the same paper.",
+    why: "Organic grain reads as material, not the geometric pattern that made the dot grid feel like a glitch. This is the tactile half of paper; the ivory tint was the color half.",
+  },
+  {
+    date: "2026-07-03",
     title: "Warmed the canvas to paper ivory",
     tags: ["design"],
     what: "Shifted the light background from a cool near-white to a warm ivory. Pure color, no pattern, so it reads as paper stock instead of a screen. A nice side effect: the stickers' white die-cut borders pop a little more against it.",
