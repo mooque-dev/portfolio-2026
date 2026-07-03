@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "Warmed the canvas to paper ivory",
+    tags: ["design"],
+    what: "Shifted the light background from a cool near-white to a warm ivory. Pure color, no pattern, so it reads as paper stock instead of a screen. A nice side effect: the stickers' white die-cut borders pop a little more against it.",
+    why: "The honest way to add paper warmth is the material itself, not a texture laid on top. This is what the dot grid was reaching for and failing to be.",
+  },
+  {
+    date: "2026-07-03",
     title: "Cleaned the canvas: no cursor, no grid",
     tags: ["design"],
     what: "Removed two decorations in one pass: the trailing ring-and-dot cursor and the background dot grid. The grid got three tries (too faint, then distracting, then crisp but still competing), and the cursor's ring read as a glitch over it. Native pointer, bare cream canvas.",

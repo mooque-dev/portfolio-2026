@@ -6,7 +6,7 @@
 
 :root {
   /* ── Brand palette (editorial warm neutrals) ── */
-  --background: #fafaf8;
+  --background: #f7f4ec;      /* warm paper ivory, not cool white */
   --foreground: #1a1a1a;
   --muted: #636360;           /* used by text-muted across the site */
   --muted-foreground: #636360; /* shadcn components use this for secondary text */
