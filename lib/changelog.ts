@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-07-03",
+    title: "Redrew the stickers that didn't read",
+    tags: ["design"],
+    what: "Audited the About stickers at their real size. The paintbrush read as a lipstick, the clarinet as a chess pawn, and the guitar as a gourd. Swapped the brush for a paint palette with color dabs, angled the clarinet so the keys and mouthpiece show, gave the guitar a proper figure-eight waist and round sound hole, and tightened the trumpet bell and capybara.",
+    why: "A sticker that needs a caption has failed. If it can't be read in a glance at margin size, it is noise, not personality.",
+  },
+  {
     date: "2026-07-02",
     title: "One accent color, and a lighter codebase",
     tags: ["design", "engineering"],
