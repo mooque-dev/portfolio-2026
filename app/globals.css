@@ -12,7 +12,11 @@
   --muted-foreground: #636360; /* shadcn components use this for secondary text */
   --border: #e5e5e0;
   --surface: #f0f0ec;
-  --focus: #2563eb;
+  /* Seal: the one signature accent, taken from the 묵 stamp on About.
+     Used for focus rings and text selection only, so it stays a signature
+     rather than wallpaper. */
+  --seal: #cd2e3a;
+  --focus: var(--seal);
   /* ── shadcn semantic tokens mapped to brand palette ── */
   --card: #fafaf8;
   --card-foreground: #1a1a1a;
@@ -51,7 +55,8 @@
   --muted-foreground: #9a9a97; /* shadcn components use this for secondary text */
   --border: #2a2a28;
   --surface: #1c1c1a;
-  --focus: #60a5fa;
+  --seal: #ef5350;
+  --focus: var(--seal);
   /* ── shadcn semantic tokens ── */
   --card: #1c1c1a;
   --card-foreground: #ededeb;
@@ -361,8 +366,12 @@ html {
 }
 
 ::selection {
-  background: var(--foreground);
-  color: var(--background);
+  background: var(--seal);
+  color: #fff;
+}
+::-moz-selection {
+  background: var(--seal);
+  color: #fff;
 }
 
 .no-scrollbar::-webkit-scrollbar { display: none; }

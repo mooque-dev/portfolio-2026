@@ -102,7 +102,7 @@ export default function AboutStickers() {
             onPointerMove={onPointerMove}
             onPointerUp={endDrag}
             onPointerCancel={endDrag}
-            className={`absolute pointer-events-auto select-none touch-none ${
+            className={`group absolute pointer-events-auto select-none touch-none ${
               dragging === s.id ? "cursor-grabbing z-30" : "cursor-grab z-10"
             }`}
             style={{
@@ -119,7 +119,7 @@ export default function AboutStickers() {
               height={s.h}
               unoptimized
               draggable={false}
-              className="pointer-events-none"
+              className="pointer-events-none transition-transform duration-150 ease-out group-hover:-translate-y-1 group-hover:scale-[1.06] group-hover:drop-shadow-[0_6px_7px_rgba(0,0,0,0.2)]"
               style={{ imageRendering: "pixelated", width: "100%", height: "auto" }}
             />
           </div>

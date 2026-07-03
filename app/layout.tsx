@@ -70,8 +70,6 @@ const themeScript = `
     var override = sessionStorage.getItem('themeOverride');
     var isDark = override !== null ? override === 'dark' : autoDark;
     if (isDark) document.documentElement.classList.add('dark');
-    var l = localStorage.getItem('layout');
-    if (l) document.documentElement.dataset.layout = l;
   } catch(e) {}
 })();
 `;

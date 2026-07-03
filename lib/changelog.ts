@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-02",
+    title: "One accent color, and a lighter codebase",
+    tags: ["design", "engineering"],
+    what: "Gave the site a single signature color, drawn from the 묵 seal: highlight any text and it glows seal red, and focus rings switched from a generic blue to the same. Stickers now peel up on hover so they read as grabbable. Under the hood, deleted an entire orphaned layout-switching system (six components) that nothing rendered anymore.",
+    why: "The palette had one off-brand color left, the blue focus ring, in an otherwise ink-and-cream site. One accent used sparingly is identity; used everywhere it is wallpaper. And dead code is a tax every future change pays.",
+  },
+  {
+    date: "2026-07-02",
     title: "Sticker round two: the ones with stories",
     tags: ["design"],
     what: "Four more for the About scrapbook: a film camera, a loaded paintbrush, a red seal carved with 묵, and a capybara with an orange on its head. Each is placed beside the paragraph that explains it; the seal sits next to On the name, since Mook is a homophone for ink.",
