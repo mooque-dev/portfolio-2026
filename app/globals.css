@@ -140,8 +140,10 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: optimizeLegibility;
-  background-image: radial-gradient(circle, var(--dot) 1.3px, transparent 1.5px);
-  background-size: 26px 26px;
+  /* Matching color stops keep the dot a crisp round shape. A feathered edge
+     (different stops) renders as a diamond/sparkle at this size. */
+  background-image: radial-gradient(circle, var(--dot) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
 }
 
 /* Refined serif rendering, critical for editorial feel */
