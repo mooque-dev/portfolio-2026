@@ -14,17 +14,10 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
-    title: "Retired the custom cursor",
+    title: "Cleaned the canvas: no cursor, no grid",
     tags: ["design"],
-    what: "Removed the trailing ring-and-dot cursor. With the dot grid now visible, the cursor's ring looked like a circled, broken grid cell. The native pointer is back.",
-    why: "Two ideas were competing for the same pixels. The grid is the texture worth keeping; a decorative cursor that reads as a glitch is not.",
-  },
-  {
-    date: "2026-07-03",
-    title: "The dot grid you can actually see",
-    tags: ["design"],
-    what: "The background dot grid was barely there in light mode. Gave it a dedicated color per theme, a slightly larger dot, and tighter spacing so it reads as intentional paper texture instead of a rendering artifact.",
-    why: "Texture only works if you can tell it is there. Too faint reads as a smudge, not a decision.",
+    what: "Removed two decorations in one pass: the trailing ring-and-dot cursor and the background dot grid. The grid got three tries (too faint, then distracting, then crisp but still competing), and the cursor's ring read as a glitch over it. Native pointer, bare cream canvas.",
+    why: "When a decoration keeps fighting you, it isn't earning its place. The work, the writing, and the stickers carry the personality; the background should recede so they can breathe.",
   },
   {
     date: "2026-07-03",

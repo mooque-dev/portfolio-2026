@@ -12,7 +12,6 @@
   --muted-foreground: #636360; /* shadcn components use this for secondary text */
   --border: #e5e5e0;
   --surface: #f0f0ec;
-  --dot: #d3d2c8;             /* background dot grid, needs to read on cream */
   /* Seal: the one signature accent, taken from the 묵 stamp on About.
      Used for focus rings and text selection only, so it stays a signature
      rather than wallpaper. */
@@ -56,7 +55,6 @@
   --muted-foreground: #9a9a97; /* shadcn components use this for secondary text */
   --border: #2a2a28;
   --surface: #1c1c1a;
-  --dot: #2f2f2b;
   --seal: #ef5350;
   --focus: var(--seal);
   /* ── shadcn semantic tokens ── */
@@ -140,10 +138,6 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: optimizeLegibility;
-  /* Matching color stops keep the dot a crisp round shape. A feathered edge
-     (different stops) renders as a diamond/sparkle at this size. */
-  background-image: radial-gradient(circle, var(--dot) 1.2px, transparent 1.2px);
-  background-size: 24px 24px;
 }
 
 /* Refined serif rendering, critical for editorial feel */
