@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "The vault opens",
+    tags: ["design", "content", "engineering"],
+    what: "New direction made structural: /vault is a living record that weaves notes, moments, frames, and artifacts with the essays and now-snapshots the site already had. /now keeps every dated snapshot instead of overwriting, so it shows the path, not just the position. An importer stands ready to bring curated posts over from a decade of Instagram, original dates intact. Vault joins the nav.",
+    why: "A portfolio shows what Allen made; the vault records who he was while making it. Provenance over polish: timestamps, reversals, and things in progress are the point, not a liability.",
+  },
+  {
+    date: "2026-07-03",
     title: "Paper grain, and a warm dark canvas to match",
     tags: ["design"],
     what: "Added a faint paper grain: fine grayscale noise, overlay-blended so it adds tooth without dulling the page, tuned to a whisper. One texture covers both themes. Warmed the dark background from a cool near-black to a warm ink so both modes feel like the same paper.",

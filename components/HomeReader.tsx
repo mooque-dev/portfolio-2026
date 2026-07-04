@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import { formatDate } from "@/lib/utils";
+import { latestNow } from "@/lib/now";
 import type { ProjectSummary, WritingSummary } from "@/lib/types";
 
 interface Props {
@@ -134,20 +135,27 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
             the wide-screen whitespace has a job without competing for focus. */}
         <FadeIn delay={0.3} className="hidden xl:block absolute right-6 top-2 w-52">
           <aside aria-label="Now" className="sticky top-28">
-            <p className="text-[10px] tracking-[0.2em] uppercase text-muted mb-4">
+            <Link
+              href="/now"
+              className="text-[10px] tracking-[0.2em] uppercase text-muted mb-4 block hover:text-foreground transition-colors"
+            >
               Now
-            </p>
+            </Link>
             <ul className="space-y-3 text-[13px] leading-relaxed text-muted">
-              <li>Leading design at Velora</li>
-              <li>Rehearsing a 40-person musical for an August debut</li>
-              <li>
-                <Link
-                  href="/writing/earned-black"
-                  className="hover:text-foreground transition-colors underline underline-offset-4 decoration-border"
-                >
-                  Latest writing: Earned Black
-                </Link>
-              </li>
+              {latestNow().items.map((item) => (
+                <li key={item.text}>
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      className="hover:text-foreground transition-colors underline underline-offset-4 decoration-border"
+                    >
+                      {item.text}
+                    </Link>
+                  ) : (
+                    item.text
+                  )}
+                </li>
+              ))}
             </ul>
           </aside>
         </FadeIn>

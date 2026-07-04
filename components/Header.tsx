@@ -18,6 +18,7 @@ const navItems = [
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/writing", label: "Writing" },
+  { href: "/vault", label: "Vault" },
   { href: "/resume", label: "Résumé" },
 ];
 

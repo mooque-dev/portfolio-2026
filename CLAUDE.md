@@ -21,3 +21,10 @@ Production deploys from `main` via Vercel to https://www.mooque.xyz.
   browser against a local `next start` before pushing.
 - **Confidential work stays blurred.** Fee Opt-In product visuals are blurred
   on purpose (`wip: true`); aggregate results may show crisp via `img.clear`.
+- **The vault (`/vault`) is Allen's record; the changelog is the site's.**
+  Vault entries live in `content/vault/*.mdx` (type: note | moment | frame |
+  artifact, plus date, optional media/signed). Now-snapshots in `lib/now.ts`
+  are append-only: never edit or delete an old snapshot, add a new one.
+  Instagram imports go through `scripts/import-instagram.mjs` (curated via
+  `scripts/instagram-selects.json`, never bulk-mirrored). Documents and IDs
+  never migrate to the site.

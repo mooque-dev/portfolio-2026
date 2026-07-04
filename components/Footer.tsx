@@ -28,6 +28,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/vault" className="hover:opacity-70 transition-opacity min-h-[44px] inline-flex items-center">
+                  Vault
+                </Link>
+              </li>
+              <li>
                 <Link href="/changelog" className="hover:opacity-70 transition-opacity min-h-[44px] inline-flex items-center">
                   Changelog
                 </Link>
