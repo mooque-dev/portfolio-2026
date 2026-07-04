@@ -14,7 +14,6 @@ export const nowSnapshots: NowSnapshot[] = [
       { text: "Leading design at Velora" },
       { text: "Rehearsing a 40-person musical for an August debut" },
       { text: "Latest writing: Earned Black", href: "/writing/earned-black" },
-      { text: "Turning this site into a vault", href: "/vault" },
     ],
   },
   {

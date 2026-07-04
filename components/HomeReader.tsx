@@ -157,6 +157,18 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
                 </li>
               ))}
             </ul>
+
+            <div className="mt-10 border-t border-border pt-6">
+              <Link
+                href="/vault"
+                className="text-[10px] tracking-[0.2em] uppercase text-muted mb-3 block hover:text-foreground transition-colors"
+              >
+                Vault
+              </Link>
+              <p className="text-[13px] leading-relaxed text-muted">
+                Notes, frames, and artifacts. A life recorded in the open.
+              </p>
+            </div>
           </aside>
         </FadeIn>
 
@@ -171,13 +183,8 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           </FadeIn>
 
           <FadeIn delay={0.08}>
+            {/* Only what the fixed header doesn't already offer */}
             <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted">
-              <Link href="/about" className="hover:text-foreground transition-colors">
-                About
-              </Link>
-              <Link href="/resume" className="hover:text-foreground transition-colors">
-                Résumé
-              </Link>
               <a
                 href="https://www.linkedin.com/in/mooque/"
                 target="_blank"

@@ -4,13 +4,13 @@ import matter from "gray-matter";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
 import { getAllWritingPosts } from "./content";
-import { nowSnapshots } from "./now";
 
 // The vault is Allen's record: notes, moments, frames, artifacts, plus the
-// essays and now-snapshots it inherits from elsewhere on the site. The
-// changelog stays separate; that one is the site's own diary.
+// essays it inherits from /writing. The present tense lives at /now and the
+// site's own diary at /changelog; the vault links to both rather than
+// repeating them.
 
-export type VaultType = "note" | "moment" | "frame" | "artifact" | "essay" | "now";
+export type VaultType = "note" | "moment" | "frame" | "artifact" | "essay";
 
 export interface VaultEntry {
   type: VaultType;
@@ -26,7 +26,7 @@ export interface VaultEntry {
 }
 
 interface VaultFrontmatter {
-  type: Exclude<VaultType, "essay" | "now">;
+  type: Exclude<VaultType, "essay">;
   date: string;
   title?: string;
   media?: string;
@@ -78,15 +78,7 @@ export async function getVaultFeed(): Promise<VaultEntry[]> {
     signed: true,
   }));
 
-  const nows: VaultEntry[] = nowSnapshots.map((s) => ({
-    type: "now",
-    date: s.date,
-    slug: `now-${s.date}`,
-    html: `<p>${s.items.map((i) => i.text).join(". ")}.</p>`,
-    href: "/now",
-  }));
-
-  return [...native, ...essays, ...nows].sort(
+  return [...native, ...essays].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 }

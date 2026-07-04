@@ -62,7 +62,6 @@ export default function NowPage() {
           <FadeIn delay={0.2}>
             <p className="mt-16 text-sm text-muted leading-relaxed">
               Part of the <Link href="/vault" className="underline underline-offset-4 decoration-border hover:text-foreground transition-colors">vault</Link>.
-              Inspired by the nownownow.com convention, kept with history.
             </p>
           </FadeIn>
         </div>

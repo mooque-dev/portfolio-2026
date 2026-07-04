@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "The vault steps out of the nav",
+    tags: ["design"],
+    what: "Same-day edit: Vault left the header nav and now lives in the home page's right rail, under Now, where the wandering begins anyway. Also cut the repetition that had crept in: the vault feed no longer mirrors now-snapshots, and the hero links dropped About and Resume, which the fixed header already offers a glance away.",
+    why: "The header is for the hiring path; the vault is for wanderers. And saying something twice on one screen is not emphasis, it is noise.",
+  },
+  {
+    date: "2026-07-03",
     title: "The vault opens",
     tags: ["design", "content", "engineering"],
     what: "New direction made structural: /vault is a living record that weaves notes, moments, frames, and artifacts with the essays and now-snapshots the site already had. /now keeps every dated snapshot instead of overwriting, so it shows the path, not just the position. An importer stands ready to bring curated posts over from a decade of Instagram, original dates intact. Vault joins the nav.",

@@ -16,7 +16,6 @@ const TYPE_LABEL: Record<VaultType, string> = {
   frame: "Frame",
   artifact: "Artifact",
   essay: "Essay",
-  now: "Now",
 };
 
 export default async function VaultPage() {
@@ -128,8 +127,12 @@ export default async function VaultPage() {
           <FadeIn delay={0.2}>
             <p className="mt-16 text-sm text-muted leading-relaxed max-w-xl">
               The red mark means signed: finished thinking I stand behind.
-              Everything else is allowed to be in progress. The site keeps its
-              own diary too, in the{" "}
+              Everything else is allowed to be in progress. The present tense
+              lives at{" "}
+              <Link href="/now" className="underline underline-offset-4 decoration-border hover:text-foreground transition-colors">
+                now
+              </Link>
+              , and the site keeps its own diary in the{" "}
               <Link href="/changelog" className="underline underline-offset-4 decoration-border hover:text-foreground transition-colors">
                 changelog
               </Link>
