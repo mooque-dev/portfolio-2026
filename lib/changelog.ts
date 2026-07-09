@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "The side projects go live, for real",
+    tags: ["content", "engineering"],
+    what: "The Claude-built experiments that are actually deployed now carry a 'Visit the live app' link on their case study, so you can open the real thing instead of only reading about it: Mooze, Vesta Press, Toronto Yuwol, and Wayfind. Only verified-and-public deployments got linked.",
+    why: "A case study says I built it; a live link lets you use it. For self-shipped software, the proof is that it runs.",
+  },
+  {
+    date: "2026-07-03",
     title: "The vault steps out of the nav",
     tags: ["design"],
     what: "Same-day edit: Vault left the header nav and now lives in the home page's right rail, under Now, where the wandering begins anyway. Also cut the repetition that had crept in: the vault feed no longer mirrors now-snapshots, and the hero links dropped About and Resume, which the fixed header already offers a glance away.",

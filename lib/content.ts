@@ -23,6 +23,9 @@ export interface ProjectFrontmatter {
   // Optional headline stat for the home feature card (e.g. "75% → 92%").
   featuredStat?: string;
   featuredStatLabel?: string;
+  // Optional live deployment. When set, the case study shows a "visit the app"
+  // link so a visitor can open the real thing, not just read about it.
+  liveUrl?: string;
 }
 
 export interface Heading {

@@ -61,6 +61,18 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <p className="mt-4 text-lg text-muted leading-relaxed">
             {frontmatter.subtitle}
           </p>
+          {frontmatter.liveUrl && (
+            <a
+              href={frontmatter.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-[13px] font-medium text-background hover:bg-foreground/90 transition-colors"
+            >
+              Visit the live app
+              <span aria-hidden>&#8599;</span>
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+          )}
         </FadeIn>
 
         {/* Metadata */}
