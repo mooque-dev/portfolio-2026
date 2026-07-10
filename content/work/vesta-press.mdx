@@ -19,30 +19,18 @@ order: 17
 liveUrl: "https://vesta-press.vercel.app"
 ---
 
-## Why I built it
+## The temptation was to summarize
 
-I read a lot online and most of it arrives ugly: cramped columns, popovers, ads
-fighting the words. Vesta Press was an attempt at a calmer alternative. Paste a
-link, drop some text, or drag in a screenshot, and it strips the noise and
-typesets what matters.
+The easy version of an AI reading tool summarizes the article for you. I decided this one never would. Vesta reformats, it does not rewrite: it strips the ads and the cramped columns and the popovers, keeps every word the writer put down, and only changes how those words are set.
 
-## What I explored
+Summarizing would have felt more like AI. It would also have quietly said your time matters more than the writer's, which is the opposite of what reading is for.
 
-- **One input, three kinds of source.** A link, raw text, or an image. It pulls
-  the real content out and leaves the clutter behind.
-- **Four ways to read.** The same piece can be set as Editorial (magazine-grade
-  serif with drop caps), Minimal (clean sans, generous whitespace), Manuscript,
-  or Document. Reading is a mood, so the typography should bend to it.
-- **A library and a journal.** Somewhere to keep what you've saved, and a space
-  to write alongside it.
-- **OCR.** Point it at an image of text and pull the words out, so a photo of a
-  page becomes something readable.
+## What I decided
 
-## How it's built
+Reading is a mood, so the typography should bend to it. The same piece can be set as Editorial (magazine serif with drop caps), Minimal (clean sans and air), Manuscript, or Document, and switching between them is one tap. It takes a link, raw text, or a photo of a page, and once the words are pulled out it treats all three the same.
 
-Next.js and React with TypeScript. Article extraction uses Readability and an
-HTML-to-markdown pass; the Anthropic API handles the AI assistance; Supabase
-stores everything. There's a clean export-to-markdown path, so nothing you save
-is trapped.
+Nothing you save is trapped, either. There is a clean export to markdown, because a reading tool that holds your library hostage is not calm, it is just another silo wearing a nicer font.
 
-The whole point was restraint: take something messy and give it room to breathe.
+## The discipline
+
+The hard part was using AI to do less, not more. Restraint was the whole product: take something loud and give it room to breathe.

@@ -19,31 +19,18 @@ order: 18
 liveUrl: "https://mooze.vercel.app"
 ---
 
-## The idea
+## The graveyard problem
 
-Inspiration is scattered across a dozen apps. A video here, an article there, a
-book you meant to read, a song that stuck with you. Mooze is one vault for all of
-it: save anything that moves you, from any platform, and keep it somewhere that's
-actually yours.
+Everyone already saves things. Bookmarks, Instagram collections, twelve open tabs, a Notes app full of links you meant to read. Saving was never the problem. The problem is that almost none of it comes back. A save-it-later tool is only worth the odds that you return to it, and for most of them those odds are close to zero.
 
-## What I explored
+So I designed Mooze around the return, not the save.
 
-- **Save anything, from anywhere.** Videos, articles, books, films, music. Each
-  becomes an "item" you can find later, instead of a tab you lose.
-- **Make sense of it.** A reading view for what you've saved, and an AI pass that
-  can distill a note or entry down to what actually matters.
-- **Built for keeping.** Accounts and sessions, a real database, file uploads,
-  and a command palette to move quickly. It's designed to hold years of
-  collecting, not a weekend's.
-- **Multilingual from the start.** Routing is locale-aware, so the whole app can
-  speak more than one language.
+## What I decided
 
-## How it's built
+The save is the cheap part, so it got the least attention. Everything you keep, a video, an article, a book, a song, becomes one kind of thing: an item. A Spotify link and a PDF land in the same searchable place instead of scattering across five apps. The AI pass exists for a single reason, that a thing you saved and never reopened is worthless, so it distills an entry down to why you kept it, not just what it is.
 
-Next.js with next-auth for accounts, Drizzle ORM over a Neon Postgres database,
-and Vercel Blob for uploads. The Anthropic API powers the distillation; the data
-model stays simple and honest: users, sessions, items, journal entries.
+And it is signed-in, on a real database, because the premise collapses if it cannot hold years. That was the deliberate tradeoff: the heavier "built to keep" version over a quick, disposable one. Inspiration only compounds if it survives.
 
-The interesting part wasn't any single feature. It was taking the messy habit of
-saving things everywhere and giving it the structure, auth, schema, and i18n that
-a thing you actually rely on needs.
+## Why it's here
+
+Mooze is where the vault idea on this site started. Same belief underneath both: the value is never in collecting, it is in whether you can find it again.

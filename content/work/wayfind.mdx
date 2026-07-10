@@ -20,38 +20,14 @@ order: 15
 liveUrl: "https://wayfind.vercel.app"
 ---
 
-## Why I built it
+## An app with exactly one user
 
-I was planning a trip through Europe built around design studios and jazz, with
-stops in London, Frankfurt, Berlin, and Copenhagen. The planning was scattered
-across notes, spreadsheets, and screenshots. Wayfind was an excuse to see how
-quickly I could turn that mess into a single mobile app I'd actually use while
-traveling.
+Most travel apps are built for everyone, which is why they serve no one in particular: accounts, feeds, booking upsells, features for trips you are not taking. Wayfind had one user, me, and one trip: London, Frankfurt, Berlin, and Copenhagen, built around design studios and jazz. That constraint is the whole reason it works. No committee, no personas, no imagined general case. Just the actual thing I needed while walking out of a train station.
 
-It's not a product. It's a personal tool for one trip, which is exactly why it
-was a good exploration: real constraints, real data, no committee.
+## What I decided
 
-## What I explored
+So it is designed for the hand, not the desk. Mobile-first, bottom nav, one thumb, because that is the real posture of travel. The trip reads as a timeline instead of a pile of bookings, so "what is next" is always one glance away, which on the ground is the only question you have. Logging an expense takes two taps, because any friction at the moment of spending means it never gets logged and the budget quietly turns into fiction. Time-sensitive alerts sit on top; everything else gets out of the way.
 
-- **A day-by-day itinerary** with event cards for each stop, so the whole trip
-  reads as a timeline rather than a pile of bookings.
-- **A budget tracker** with quick expense logging and a running view of spend
-  against plan, charted so the trend is legible at a glance.
-- **A map view** to anchor each day geographically across the four cities.
-- **Travel alerts** surfaced up top, so anything time-sensitive isn't buried.
+## What it taught me
 
-The interface is built mobile-first around a bottom nav, the way you'd actually
-hold it walking out of a station.
-
-## How it's built
-
-Next.js (App Router) and React with TypeScript, styled in Tailwind with a small
-shadcn / Base UI component layer. Trip data lives in a single typed source file;
-client state runs through Zustand; budget charts use Recharts; dates are handled
-with date-fns. The whole thing deploys on Vercel.
-
-It's deliberately small and self-contained. The point was speed and feel, not
-scale.
-
-[View it live](https://wayfind-gamma.vercel.app) ·
-[Source on GitHub](https://github.com/mooque-dev/wayfind)
+Designing for one real use, honestly, beats designing for an imagined everyone. You can feel the difference in the result, and I have carried that bias back into product work since.

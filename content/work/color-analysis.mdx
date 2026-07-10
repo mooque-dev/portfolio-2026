@@ -18,29 +18,14 @@ featured: true
 order: 20
 ---
 
-## The premise
+## Make it tactile, not a verdict
 
-Personal color analysis, figuring out which seasonal palette flatters you, is
-usually a paid, in-person session. I wanted to see how much of it could happen
-right in the browser, instantly, with nothing leaving your device.
+Personal color analysis is normally a paid, in-person session: someone holds fabric to your face and you watch your skin either come alive or go grey. The lazy digital version takes a selfie and hands back a verdict, "you are an Autumn," and calls it done. I did not want a verdict. The value is in seeing it on yourself, so the core interaction is live draping: tap a swatch and it recolors your outfit in real time, the same hold-it-up-and-look that makes the real thing work. The season it lands on matters less than letting you feel why.
 
-## What I explored
+## What I decided
 
-- **Camera as input.** On-device computer vision finds your face and reads the
-  tones that actually matter: skin undertone and brightness, from a live webcam
-  frame or an uploaded photo.
-- **Live color draping.** Tap a swatch and it recolors your outfit in real time,
-  the digital version of holding fabric up to your face.
-- **A seasonal result.** Those readings grade every color and place you in one of
-  the four seasons: Spring, Summer, Autumn, or Winter.
-- **Privacy by architecture.** Because the vision model runs locally, the analysis
-  happens on-device. It runs entirely in your browser, and no data is stored.
+The camera is the input, reading skin undertone and brightness off a live frame. Privacy was an architecture decision, not a line in a footer: the vision model runs entirely on your device, so nothing you show it ever leaves the browser. For something as personal as your own face, "we don't store it" only means anything if it was never sent in the first place.
 
-## How it's built
+## The question underneath
 
-A Vite + React app in TypeScript, using MediaPipe's vision tasks for on-device
-face and landmark detection, with a Radix UI component layer for the interface.
-
-This was mostly an excuse to get my hands dirty with real-time computer vision in
-the browser, and to see how close a free, instant, private tool could get to
-something people normally pay for.
+It also asks a fair one: how much of a paid, gatekept ritual is really just interaction design and a webcam?
