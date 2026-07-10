@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "Varied the closing line on three case studies",
+    tags: ["content"],
+    what: "Orchid, Aplos x Keela, and Forkable all ended on the same construction: 'the thing I'm proudest of isn't X, it's Y.' Once a reader notices a template, it stops reading as reflection. Rewrote each closer to land the same real point in its own words.",
+    why: "Repetition across strong case studies reads as formula, and it undercuts writing that's otherwise specific and earned.",
+  },
+  {
+    date: "2026-07-03",
     title: "Rewrote the experiments as design stories",
     tags: ["content"],
     what: "Mooze, Vesta Press, Wayfind, and Color Analysis read like feature lists with a tech stack attached, which for a design portfolio quietly says 'I prompted an AI to build this.' Rewrote each to lead with one real decision: Mooze designs for the return not the save, Vesta refuses to summarize, Wayfind is built for one hand on one trip, Color Analysis is tactile instead of a verdict. Cut the feature bullets and the stack sections; the tools already sit in each case study's meta.",
