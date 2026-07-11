@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display, Caveat } from "next/font/google";
 import ReadingProgress from "@/components/ReadingProgress";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { MotionConfig } from "framer-motion";
 import "./globals.css";
 
 const inter = Inter({
@@ -105,11 +106,15 @@ export default function RootLayout({
       </head>
       <body suppressHydrationWarning className="antialiased bg-background text-foreground">
         <TooltipProvider>
-          <ReadingProgress />
-          <a href="#main-content" className="skip-link">
-            Skip to main content
-          </a>
-          {children}
+          {/* Honor prefers-reduced-motion across every framer-motion component
+              at once: transform/layout animations are disabled, opacity kept. */}
+          <MotionConfig reducedMotion="user">
+            <ReadingProgress />
+            <a href="#main-content" className="skip-link">
+              Skip to main content
+            </a>
+            {children}
+          </MotionConfig>
         </TooltipProvider>
       </body>
     </html>

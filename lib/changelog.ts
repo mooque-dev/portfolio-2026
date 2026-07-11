@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "An accessibility and legibility pass",
+    tags: ["design", "engineering"],
+    what: "Audited contrast, motion, and reading comfort. The paper grain moved behind all content so it textures the page without ever sitting on top of the words. Reduced motion is now honored everywhere: framer-motion animations disable for anyone who asks (one setting at the root), plus a CSS reset for transitions and smooth scroll. The ambient dual-clock in the header is hidden from screen readers, since it is decoration, not information.",
+    why: "The audit found the fundamentals already sound (every text color passes AA, the reading measure is a comfortable 68 characters), so this was about the edges: texture that respects the text, and motion that respects the person.",
+  },
+  {
+    date: "2026-07-03",
     title: "Varied the closing line on three case studies",
     tags: ["content"],
     what: "Orchid, Aplos x Keela, and Forkable all ended on the same construction: 'the thing I'm proudest of isn't X, it's Y.' Once a reader notices a template, it stops reading as reflection. Rewrote each closer to land the same real point in its own words.",

@@ -30,7 +30,10 @@ export default function WorldClock() {
   const now = new Date(minute * 60_000);
 
   return (
-    <div className="flex items-center gap-2.5 text-[10px] tracking-wide text-muted/40 select-none tabular-nums pointer-events-none">
+    <div
+      aria-hidden="true"
+      className="flex items-center gap-2.5 text-[10px] tracking-wide text-muted/40 select-none tabular-nums pointer-events-none"
+    >
       <span>
         <span className="text-muted/30 mr-1.5">YYZ</span>
         {fmt(now, "America/Toronto")}
