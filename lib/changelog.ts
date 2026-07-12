@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-07-03",
+    title: "Added Schematic, retired Wayfind, linked ARND live",
+    tags: ["content"],
+    what: "New case study: Schematic, a 2016 design-research project on the 18 maladaptive schemas from schema therapy, rebuilt in 2026 as a navigable archive with a private browser-only self-check. ARND now links to its live alpha, and Wayfind came off the shelf. Mooze, Vesta Press, and Toronto Yuwol keep their live links.",
+    why: "Schematic is real design research, not a weekend build, so it earns a place. And the work should show what's live and current, not what's stale.",
+  },
+  {
+    date: "2026-07-03",
     title: "An accessibility and legibility pass",
     tags: ["design", "engineering"],
     what: "Audited contrast, motion, and reading comfort. The paper grain moved behind all content so it textures the page without ever sitting on top of the words. Reduced motion is now honored everywhere: framer-motion animations disable for anyone who asks (one setting at the root), plus a CSS reset for transitions and smooth scroll. The ambient dual-clock in the header is hidden from screen readers, since it is decoration, not information.",
