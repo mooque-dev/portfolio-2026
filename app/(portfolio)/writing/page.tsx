@@ -16,14 +16,16 @@ export default async function WritingPage() {
     <section className="pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
-            Writing
-          </h1>
-          <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
-            Things I&apos;m working through: design systems, what adoption
-            actually looks like in practice, and what it&apos;s like to redesign
-            a product while the company is mid-acquisition.
-          </p>
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
+            <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
+              Writing
+            </h1>
+            <p className="text-lg text-muted max-w-sm leading-relaxed md:text-right">
+              Things I&apos;m working through: design systems, what adoption
+              actually looks like in practice, and what it&apos;s like to redesign
+              a product while the company is mid-acquisition.
+            </p>
+          </div>
         </FadeIn>
 
         <div className="mt-12 max-w-4xl">

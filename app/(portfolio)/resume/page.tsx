@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { experience, sideProjects, education } from "@/lib/resumeData";
 
 export const metadata: Metadata = {
-  title: "Resume",
+  title: "Résumé",
   description:
     "Allen Kang, product designer. Eight years across education, healthcare, food tech, and nonprofits.",
 };
@@ -18,7 +18,7 @@ export default function ResumePage() {
           <div className="flex items-start justify-between gap-6">
             <div>
               <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
-                Resume
+                Résumé
               </h1>
               <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
                 Eight years across nonprofits, ed-tech, and food-tech. The work was

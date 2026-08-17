@@ -32,13 +32,15 @@ export default async function WorkPage() {
     <section className="pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
-            Work
-          </h1>
-          <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
-            Selected projects: design systems, product strategy, integrations,
-            and a couple of things I built for fun.
-          </p>
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
+            <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
+              Work
+            </h1>
+            <p className="text-lg text-muted max-w-sm leading-relaxed md:text-right">
+              Selected projects: design systems, product strategy, integrations,
+              and a couple of things I built for fun.
+            </p>
+          </div>
         </FadeIn>
 
         <WorkFilter projects={projects} />

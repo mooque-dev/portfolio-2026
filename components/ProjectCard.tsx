@@ -81,6 +81,10 @@ export default function ProjectCard({
                 </span>
               </div>
             )}
+            {/* Consistent hairline frame so every cover reads as a framed
+                object, whether it's a bright product screenshot, a color
+                field, or the blurred confidential card. */}
+            <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/[0.07] dark:ring-white/10" aria-hidden="true" />
             <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/[0.06] transition-colors duration-300" aria-hidden="true" />
           </div>
         </div>

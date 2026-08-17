@@ -13,6 +13,20 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-08-17",
+    title: "Tightened the layout and framed the work",
+    tags: ["design"],
+    what: "The Work and Writing pages got an editorial masthead: the title on the left, the one-line description on the right, so the header fills the width instead of hugging one corner. Every project cover now carries a consistent hairline frame, so a bright product screenshot, a color field, and the blurred confidential card all read as the same kind of object. The guide card is fully opaque now, so a decorative sticker can no longer show through it on the About page. And the Résumé page finally spells its own name with the accents the nav already used.",
+    why: "These were small distances between things that were supposed to match. A portfolio that pays attention to its own edges is most of the argument.",
+  },
+  {
+    date: "2026-08-17",
+    title: "Quieter foundations: recovery screens, lighter images, first tests",
+    tags: ["engineering"],
+    what: "Three things under the hood. If a page ever throws, you now land on a branded recovery screen instead of a raw error, on any route, and even if the whole layout fails. The three heaviest case-study images were re-encoded from PNG to JPEG, cutting about 2.8MB off those pages with no visible change. And the content pipeline, the rate limiter, and the two write endpoints now have a test suite, so the parts that quietly matter can't break unnoticed.",
+    why: "None of this shows on a good day. It is what keeps a bad day from turning into a broken one.",
+  },
+  {
     date: "2026-07-03",
     title: "Added Schematic, retired Wayfind, linked ARND live",
     tags: ["content"],

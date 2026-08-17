@@ -190,7 +190,7 @@ export default function CapyCompanion() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: reduced ? 0 : 0.18 }}
-            className="w-[17.5rem] rounded-xl border border-border bg-background/95 backdrop-blur-sm px-4 pt-3 pb-3 shadow-sm"
+            className="w-[17.5rem] rounded-xl border border-border bg-background px-4 pt-3 pb-3 shadow-md"
             role="status"
           >
             <p className="text-[9px] tracking-[0.2em] uppercase text-muted mb-1.5">
