@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { formatDate } from "@/lib/utils";
 
 interface WritingCardProps {
@@ -11,11 +10,6 @@ interface WritingCardProps {
   excerpt: string;
 }
 
-const arrowVariants = {
-  rest: { opacity: 0, x: -6 },
-  hover: { opacity: 1, x: 0 },
-};
-
 export default function WritingCard({
   slug,
   title,
@@ -23,13 +17,8 @@ export default function WritingCard({
   excerpt,
 }: WritingCardProps) {
   return (
-    <Link href={`/writing/${slug}`} className="block">
-      <motion.article
-        initial="rest"
-        whileHover="hover"
-        animate="rest"
-        className="py-6 border-b border-border flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8"
-      >
+    <Link href={`/writing/${slug}`} className="group block">
+      <article className="py-6 border-b border-border flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
         <time dateTime={date} className="text-sm text-muted shrink-0 md:w-40">
           {formatDate(date)}
         </time>
@@ -38,20 +27,18 @@ export default function WritingCard({
             <h3 className="font-serif text-lg font-semibold leading-snug transition-opacity group-hover:opacity-70">
               {title}
             </h3>
-            <motion.span
-              variants={arrowVariants}
-              transition={{ duration: 0.18, ease: "easeOut" }}
-              className="text-muted text-base"
+            <span
+              className="text-muted text-base opacity-0 -translate-x-1.5 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-x-0"
               aria-hidden="true"
             >
               →
-            </motion.span>
+            </span>
           </div>
           <p className="text-sm text-muted mt-1 leading-relaxed line-clamp-2">
             {excerpt}
           </p>
         </div>
-      </motion.article>
+      </article>
     </Link>
   );
 }

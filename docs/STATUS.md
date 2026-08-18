@@ -42,9 +42,11 @@ We work these together: each batch pairs one feature with one system piece.
 - **Writing** has three posts. A cadence question, not a bug.
 
 ### System backlog (how we build)
-- Performance: framer-motion is imported in eight components with no
-  code-splitting. Dynamic-import the non-critical ones (respect the instant-paint
-  contract, see `docs/CONTRACTS.md`).
+- Performance: framer-motion is now off the home page's initial JS (the project
+  cards, theme toggle, and magnetic effect use CSS or a tiny rAF; the guide loads
+  lazily). It still loads route-scoped on `/work` (the filter grid) and `/gateway`,
+  and `MotionConfig` stays at the root for reduced-motion governance. Converting
+  those two remaining route uses off framer-motion is a possible future pass. _(done: home critical path, 2026-08-17)_
 - Wire real crash reporting into the ErrorBoundary.
 - `loading.tsx` skeletons for `work/[slug]` and `vault`.
 - Sanitize Instagram captions before they enter vault MDX.

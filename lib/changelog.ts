@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-08-17",
+    title: "The home page stopped shipping the animation engine",
+    tags: ["engineering"],
+    what: "The motion library was loading on every page, roughly 128KB of JavaScript, even though the home page used it only for a hover lift and an icon swap. Those are plain CSS now, the magnetic card effect is a few lines of hand-rolled motion, and the floating guide loads lazily after the page is interactive. The home page no longer downloads the animation engine at all; it now loads only where it earns its place, on the Work grid and the gateway. The animations look the same.",
+    why: "The fastest code is the code you don't send. A portfolio should open instantly, especially for someone skimming on a phone between meetings.",
+  },
+  {
+    date: "2026-08-17",
     title: "The work has flagships again",
     tags: ["content"],
     what: "The home page used to feature nearly every project, which meant it featured nothing. It now leads with four: the transaction-workflow redesign, the Orchid design system, the Aplos and Keela integration, and the fee opt-in experiment, the pieces that best show senior product work. Two more sit behind them for range. Every other case study is still here, one click away under Work; they just no longer crowd the front door.",

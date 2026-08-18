@@ -1,12 +1,15 @@
 "use client";
 
 /**
- * Magnetic: wraps any element and pulls it toward the cursor when
- * the cursor passes within `radius` pixels of its centre.
+ * Magnetic: wraps any element and pulls it toward the cursor when the cursor
+ * passes within `radius` pixels of its centre.
  *
- * Strength × distance × (1 - dist/radius) gives the offset, so the
- * pull peaks at radius/2 and falls to zero at the edge, like a water
- * surface tension gradient.
+ * strength × distance × (1 - dist/radius) gives the offset, so the pull peaks
+ * around radius/2 and falls to zero at the edge, like surface tension.
+ *
+ * Implemented with a small requestAnimationFrame lerp instead of a motion
+ * library, so it adds no framer-motion weight to the pages that use it (the
+ * work grid). No effect on touch or reduced-motion devices.
  *
  * Usage:
  *   <Magnetic strength={0.35} radius={90}>
@@ -15,13 +18,12 @@
  */
 
 import { useRef, useEffect } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
 import type { ReactNode, CSSProperties } from "react";
 
 interface Props {
   children: ReactNode;
-  strength?: number;   // how far the element travels (higher = more)
-  radius?: number;     // influence radius in px
+  strength?: number; // how far the element travels (higher = more)
+  radius?: number; // influence radius in px
   className?: string;
   style?: CSSProperties;
 }
@@ -33,44 +35,73 @@ export default function Magnetic({
   className,
   style,
 }: Props) {
-  const ref   = useRef<HTMLDivElement>(null);
-  const rawX  = useMotionValue(0);
-  const rawY  = useMotionValue(0);
-  const x     = useSpring(rawX, { stiffness: 220, damping: 20, mass: 0.7 });
-  const y     = useSpring(rawY, { stiffness: 220, damping: 20, mass: 0.7 });
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // No effect on touch-only or reduced-motion devices
+    const el = ref.current;
+    if (!el) return;
+    // No effect on touch-only or reduced-motion devices.
     if (!window.matchMedia("(hover: hover)").matches) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    function onMove(e: MouseEvent) {
-      const el = ref.current;
-      if (!el) return;
+    let targetX = 0;
+    let targetY = 0;
+    let curX = 0;
+    let curY = 0;
+    let raf = 0;
+    let running = false;
+
+    const tick = () => {
+      curX += (targetX - curX) * 0.15;
+      curY += (targetY - curY) * 0.15;
+      if (Math.abs(targetX - curX) < 0.1 && Math.abs(targetY - curY) < 0.1) {
+        curX = targetX;
+        curY = targetY;
+        el.style.transform =
+          curX === 0 && curY === 0 ? "" : `translate(${curX}px, ${curY}px)`;
+        running = false;
+        return;
+      }
+      el.style.transform = `translate(${curX.toFixed(2)}px, ${curY.toFixed(2)}px)`;
+      raf = requestAnimationFrame(tick);
+    };
+
+    const ensureRunning = () => {
+      if (!running) {
+        running = true;
+        raf = requestAnimationFrame(tick);
+      }
+    };
+
+    const onMove = (e: MouseEvent) => {
       const rect = el.getBoundingClientRect();
-      const cx   = rect.left + rect.width  / 2;
-      const cy   = rect.top  + rect.height / 2;
-      const dx   = e.clientX - cx;
-      const dy   = e.clientY - cy;
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = e.clientX - cx;
+      const dy = e.clientY - cy;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
       if (dist < radius) {
         const pull = (1 - dist / radius) * strength;
-        rawX.set(dx * pull);
-        rawY.set(dy * pull);
+        targetX = dx * pull;
+        targetY = dy * pull;
       } else {
-        rawX.set(0);
-        rawY.set(0);
+        targetX = 0;
+        targetY = 0;
       }
-    }
+      ensureRunning();
+    };
 
     window.addEventListener("mousemove", onMove, { passive: true });
-    return () => window.removeEventListener("mousemove", onMove);
-  }, [radius, strength, rawX, rawY]);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, [radius, strength]);
 
   return (
-    <motion.div ref={ref} style={{ x, y, ...style }} className={className}>
+    <div ref={ref} className={className} style={style}>
       {children}
-    </motion.div>
+    </div>
   );
 }

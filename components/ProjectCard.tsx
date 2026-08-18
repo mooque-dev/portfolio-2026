@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Magnetic from "@/components/Magnetic";
 
 interface ProjectCardProps {
@@ -31,10 +30,7 @@ export default function ProjectCard({
   return (
     <Magnetic strength={0.04} radius={260}>
     <Link href={`/work/${slug}`} className="group block">
-      <motion.article
-        whileHover={{ y: -4 }}
-        transition={{ type: "spring", stiffness: 400, damping: 25 }}
-      >
+      <article className="transition-transform duration-300 ease-out group-hover:-translate-y-1">
         <div className="overflow-hidden rounded-sm aspect-[4/3]">
           <div
             className="cover-tinted relative w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.03]"
@@ -99,7 +95,7 @@ export default function ProjectCard({
             {subtitle}
           </p>
         </div>
-      </motion.article>
+      </article>
     </Link>
     </Magnetic>
   );

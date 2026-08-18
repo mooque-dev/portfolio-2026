@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CapyCompanion from "@/components/CapyCompanion";
+import DeferredGuide from "@/components/DeferredGuide";
 import { ReactNode } from "react";
 
 export default function PortfolioLayout({ children }: { children: ReactNode }) {
@@ -11,7 +11,7 @@ export default function PortfolioLayout({ children }: { children: ReactNode }) {
         {children}
       </main>
       <Footer />
-      <CapyCompanion />
+      <DeferredGuide />
     </>
   );
 }
