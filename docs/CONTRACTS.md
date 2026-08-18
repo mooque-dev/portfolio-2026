@@ -33,14 +33,15 @@ the thing you are about to change on the left, and do the checks on the right.
 
 ### 2. `featured` and `order` (what leads, and in what sequence)
 - **Where:** the `featured:` and `order:` lines in each case study's frontmatter.
-- **The contract:** `featured: true` promotes a study to the home feature surface;
-  `order` sets the sequence on `/work`. These are read in four runtime places:
-  `app/(portfolio)/page.tsx`, `components/HomeReader.tsx` (the featured filter),
-  `app/(portfolio)/work/page.tsx`, and `lib/content.ts` (`getFeaturedProjects`).
-- **If you change which studies are featured:** the home page and `/work` both
-  re-rank at once. That is the intended effect, but it is a visible content
-  decision, so preview both pages. Featuring works only if it stays scarce: if
-  almost everything is featured, nothing is.
+- **The contract:** `featured: true` promotes a study to the home page grid,
+  which `components/HomeReader.tsx` builds by filtering on `featured` and grouping
+  by type. `order` sets the sequence on `/work`. Note: `/work` shows every study
+  regardless of `featured` (it sorts by `order` and type via `WorkFilter`), so
+  `featured` changes the home page only, not `/work`.
+- **If you change which studies are featured:** the home page grid re-ranks. It is
+  a visible content decision, so preview the home page. Featuring works only if it
+  stays scarce: if almost everything is featured, nothing is. The shelf is 6 (4
+  flagships plus a 2-piece second tier).
 
 ### 3. The changelog (the public record)
 - **Where:** `lib/changelog.ts`, shown at `/changelog`.
@@ -95,7 +96,8 @@ the thing you are about to change on the left, and do the checks on the right.
 
 | If you change... | Re-verify... |
 | --- | --- |
-| A case study's `featured` / `order` | Home feature surface + `/work` ordering |
+| A case study's `featured` | The home page grid (`HomeReader`); `/work` is unaffected |
+| A case study's `order` | Its sequence within its group on `/work` |
 | Frontmatter fields (add/rename) | `lib/content.ts`, `lib/types.ts`, every reader, the case-study template |
 | A page's route (add/rename/remove) | `Header.tsx` nav, `Footer.tsx` links, `sitemap.ts`, `CapyCompanion.tsx` note |
 | `lib/changelog.ts` | It renders on `/changelog`, and the entry is visitor-facing (voice + no em-dashes) |

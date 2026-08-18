@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-08-17",
+    title: "The work has flagships again",
+    tags: ["content"],
+    what: "The home page used to feature nearly every project, which meant it featured nothing. It now leads with four: the transaction-workflow redesign, the Orchid design system, the Aplos and Keela integration, and the fee opt-in experiment, the pieces that best show senior product work. Two more sit behind them for range. Every other case study is still here, one click away under Work; they just no longer crowd the front door.",
+    why: "A portfolio that features everything is a list, not a point of view. Choosing what leads is one of the more honest things the home page can do.",
+  },
+  {
+    date: "2026-08-17",
     title: "Tightened the layout and framed the work",
     tags: ["design"],
     what: "The Work and Writing pages got an editorial masthead: the title on the left, the one-line description on the right, so the header fills the width instead of hugging one corner. Every project cover now carries a consistent hairline frame, so a bright product screenshot, a color field, and the blurred confidential card all read as the same kind of object. The guide card is fully opaque now, so a decorative sticker can no longer show through it on the About page. And the Résumé page finally spells its own name with the accents the nav already used.",
