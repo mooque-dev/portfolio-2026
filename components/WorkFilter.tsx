@@ -14,9 +14,25 @@ const FILTERS: { value: Filter; label: string }[] = [
   { value: "experiment", label: "Experiments" },
 ];
 
-function ProjectGrid({ projects, startIndex = 0 }: { projects: ProjectSummary[]; startIndex?: number }) {
+function ProjectGrid({
+  projects,
+  startIndex = 0,
+  compact = false,
+}: {
+  projects: ProjectSummary[];
+  startIndex?: number;
+  // Experiments read as a denser, quieter shelf: three-up, cover + title only.
+  compact?: boolean;
+}) {
   return (
-    <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+    <motion.div
+      layout
+      className={
+        compact
+          ? "grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-6"
+          : "grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10"
+      }
+    >
       <AnimatePresence mode="popLayout">
         {projects.map((project, i) => (
           <motion.div
@@ -37,6 +53,7 @@ function ProjectGrid({ projects, startIndex = 0 }: { projects: ProjectSummary[];
               wip={project.wip}
               featuredStat={project.featuredStat}
               featuredStatLabel={project.featuredStatLabel}
+              compact={compact}
             />
           </motion.div>
         ))}
@@ -106,13 +123,14 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
               <ProjectGrid
                 projects={experimentProjects}
                 startIndex={workProjects.length + personalProjects.length}
+                compact
               />
             </div>
           )}
         </div>
       ) : (
         <div className="mt-12">
-          <ProjectGrid projects={filtered} />
+          <ProjectGrid projects={filtered} compact={active === "experiment"} />
         </div>
       )}
     </>

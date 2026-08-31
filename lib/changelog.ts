@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-08-31",
+    title: "The experiments shelf shows the real things",
+    tags: ["design", "content"],
+    what: "The Experiments section on Work is a denser three-up shelf now: cover, category, and the app's name, nothing else. And the covers stopped being abstract stand-ins. ARND's card is two real screens from the app (the feed and the live Toronto map) on its own bellflower blue; Mooze, Vesta Press, and Toronto Yuwol show their actual landing pages, captured from the live deployments. Schematic keeps its schema-tile grid and Color Analysis its four-season palette, since those are the product.",
+    why: "Four of these six are live software. A shelf of real screenshots says 'these exist and you can open them' in a way no illustration can. It also fixed a quiet embarrassment: ARND's old cover was orange, and ARND has never been orange.",
+  },
+  {
+    date: "2026-08-31",
     title: "Quieter everywhere: the minimal pass",
     tags: ["design"],
     what: "Three subtractions. The dual clock (Toronto and Seoul) left the header, where it was decoration on every page, and moved to About, where it's biography. The guide now lives on the home page only: a smaller, calmer card with a plain link instead of a button, and if you close it, it stays closed for the rest of your visit. And the site's small uppercase labels, which had drifted into nineteen slightly different sizes and letterspacings, now share one spec.",

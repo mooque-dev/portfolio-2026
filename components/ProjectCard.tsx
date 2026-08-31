@@ -14,6 +14,9 @@ interface ProjectCardProps {
   wip?: boolean;
   featuredStat?: string;
   featuredStatLabel?: string;
+  // Compact: the denser experiments shelf. Cover + category + title only,
+  // shorter titles, no subtitle. The full card stays for professional work.
+  compact?: boolean;
 }
 
 export default function ProjectCard({
@@ -26,6 +29,7 @@ export default function ProjectCard({
   wip = false,
   featuredStat,
   featuredStatLabel,
+  compact = false,
 }: ProjectCardProps) {
   return (
     <Magnetic strength={0.04} radius={260}>
@@ -84,16 +88,22 @@ export default function ProjectCard({
             <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/[0.06] transition-colors duration-300" aria-hidden="true" />
           </div>
         </div>
-        <div className="mt-4">
+        <div className={compact ? "mt-3" : "mt-4"}>
           <p className="microlabel text-muted">
             {category}
           </p>
-          <h3 className="font-serif text-lg md:text-xl font-normal mt-2 leading-snug group-hover:opacity-60 transition-opacity">
-            {title}
+          <h3
+            className={`font-serif font-normal leading-snug group-hover:opacity-60 transition-opacity ${
+              compact ? "text-[15px] md:text-base mt-1.5" : "text-lg md:text-xl mt-2"
+            }`}
+          >
+            {compact ? title.split(":")[0] : title}
           </h3>
-          <p className="text-[13px] text-muted leading-[1.65] mt-1.5 line-clamp-2">
-            {subtitle}
-          </p>
+          {!compact && (
+            <p className="text-[13px] text-muted leading-[1.65] mt-1.5 line-clamp-2">
+              {subtitle}
+            </p>
+          )}
         </div>
       </article>
     </Link>

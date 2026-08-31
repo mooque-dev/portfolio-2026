@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
-  <rect width="800" height="520" fill="#f3ead2"/>
-  <!-- the Mooze spark: one keeper among the collected -->
-  <path d="M400 150 L426 234 L510 260 L426 286 L400 370 L374 286 L290 260 L374 234 Z" fill="#d4a017"/>
-  <path d="M560 140 L570 172 L602 182 L570 192 L560 224 L550 192 L518 182 L550 172 Z" fill="#1a1a17" fill-opacity="0.75"/>
-  <path d="M250 320 L258 344 L282 352 L258 360 L250 384 L242 360 L218 352 L242 344 Z" fill="#1a1a17" fill-opacity="0.35"/>
-</svg>
