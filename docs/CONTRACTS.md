@@ -56,13 +56,12 @@ the thing you are about to change on the left, and do the checks on the right.
 ### 4. Navigation and routes (how pages connect)
 - **Where:** the nav is defined in **two** places today: `components/Header.tsx`
   (`navItems`) and `components/Footer.tsx` (hardcoded links). Routes are also
-  listed in `app/sitemap.ts`, and the on-page Guide has per-route text in
-  `components/CapyCompanion.tsx` (`NOTES`).
-- **The contract:** these four should agree on what pages exist.
+  listed in `app/sitemap.ts`. (The Guide in `components/CapyCompanion.tsx` is
+  home-page-only and no longer carries per-route text.)
+- **The contract:** these three should agree on what pages exist.
 - **If you add, rename, or remove a page:** update `Header.tsx` navItems,
-  `Footer.tsx` links, `app/sitemap.ts`, and add a Guide note in `CapyCompanion.tsx`
-  (without one, the Guide falls back to generic text on that route). Missing one
-  of these is the most common "why is this inconsistent" bug.
+  `Footer.tsx` links, and `app/sitemap.ts`. Missing one of these is the most
+  common "why is this inconsistent" bug.
 
 ### 5. Security: RLS and the write endpoints
 - **Where:** `supabase/schema.sql` (row-level security policies) and the two API
@@ -101,12 +100,13 @@ the thing you are about to change on the left, and do the checks on the right.
 | A case study's `featured` | The home page grid (`HomeReader`); `/work` is unaffected |
 | A case study's `order` | Its sequence within its group on `/work` |
 | Frontmatter fields (add/rename) | `lib/content.ts`, `lib/types.ts`, every reader, the case-study template |
-| A page's route (add/rename/remove) | `Header.tsx` nav, `Footer.tsx` links, `sitemap.ts`, `CapyCompanion.tsx` note |
+| A page's route (add/rename/remove) | `Header.tsx` nav, `Footer.tsx` links, `sitemap.ts` |
 | `lib/changelog.ts` | It renders on `/changelog`, and the entry is visitor-facing (voice + no em-dashes) |
 | Supabase schema or RLS | Both API routes, their offline fallbacks, no private table made public |
 | Vault import / external content | It flows through `sanitize: false`; escape it first |
 | Animation / reveal behavior | Instant paint, no blank-on-load, reduced-motion honored |
 | Brand color / core tokens | `app/globals.css` light AND dark blocks; contrast still passes |
+| Adding a small uppercase label | Use `.microlabel` (globals.css), don't hand-roll a new size/tracking combo |
 
 ## The verify gate (before any ship)
 

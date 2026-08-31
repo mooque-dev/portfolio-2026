@@ -35,7 +35,7 @@ function ProjectRow({ project, n }: { project: ProjectSummary; n: number }) {
             />
           )}
           {project.wip && (
-            <span className="absolute bottom-1 left-1.5 text-[8px] tracking-[0.18em] uppercase text-white/70">
+            <span className="absolute bottom-1 left-1.5 microlabel text-white/70">
               Confidential
             </span>
           )}
@@ -92,20 +92,20 @@ function FeatureCard({ project }: { project: ProjectSummary }) {
               {project.featuredStat}
             </div>
             {project.featuredStatLabel && (
-              <div className="mt-2 text-[11px] tracking-[0.14em] uppercase text-white/75">
+              <div className="mt-2 microlabel text-white/75">
                 {project.featuredStatLabel}
               </div>
             )}
           </div>
         )}
         {project.wip && (
-          <span className="absolute top-3 right-3 rounded-full bg-black/40 backdrop-blur-sm px-2.5 py-1 text-[9px] tracking-[0.18em] uppercase text-white/80">
+          <span className="absolute top-3 right-3 rounded-full bg-black/40 backdrop-blur-sm px-2.5 py-1 microlabel text-white/80">
             Confidential
           </span>
         )}
       </div>
       <div className="p-5 md:p-6">
-        <div className="flex items-center gap-2 text-[10px] tracking-[0.16em] uppercase text-muted mb-2">
+        <div className="flex items-center gap-2 microlabel text-muted mb-2">
           <span>{project.category}</span>
           <span aria-hidden>&middot;</span>
           <span>{project.timeline}</span>
@@ -137,7 +137,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           <aside aria-label="Now" className="sticky top-28">
             <Link
               href="/now"
-              className="text-[10px] tracking-[0.2em] uppercase text-muted mb-4 block hover:text-foreground transition-colors"
+              className="microlabel text-muted mb-4 block hover:text-foreground transition-colors"
             >
               Now
             </Link>
@@ -161,7 +161,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
             <div className="mt-10 border-t border-border pt-6">
               <Link
                 href="/vault"
-                className="text-[10px] tracking-[0.2em] uppercase text-muted mb-3 block hover:text-foreground transition-colors"
+                className="microlabel text-muted mb-3 block hover:text-foreground transition-colors"
               >
                 Vault
               </Link>

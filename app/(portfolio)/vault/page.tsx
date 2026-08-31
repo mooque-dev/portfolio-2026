@@ -56,7 +56,7 @@ export default async function VaultPage() {
                     aria-hidden="true"
                   />
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                    <span className="rounded-full border border-border px-2 py-0.5 text-[9px] tracking-[0.14em] uppercase text-muted">
+                    <span className="rounded-full border border-border px-2 py-0.5 microlabel text-muted">
                       {TYPE_LABEL[entry.type]}
                     </span>
                     <time

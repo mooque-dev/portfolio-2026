@@ -53,7 +53,7 @@ export default function ProjectCard({
                   className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"
                   aria-hidden="true"
                 />
-                <span className="absolute top-3 right-3 z-10 rounded-full bg-black/40 backdrop-blur-sm px-2.5 py-1 text-[9px] tracking-[0.18em] uppercase text-white/80">
+                <span className="absolute top-3 right-3 z-10 rounded-full bg-black/40 backdrop-blur-sm px-2.5 py-1 microlabel text-white/80">
                   Confidential
                 </span>
                 {featuredStat && (
@@ -62,7 +62,7 @@ export default function ProjectCard({
                       {featuredStat}
                     </div>
                     {featuredStatLabel && (
-                      <div className="mt-1.5 text-[10px] tracking-[0.14em] uppercase text-white/75">
+                      <div className="mt-1.5 microlabel text-white/75">
                         {featuredStatLabel}
                       </div>
                     )}
@@ -85,7 +85,7 @@ export default function ProjectCard({
           </div>
         </div>
         <div className="mt-4">
-          <p className="text-[9px] tracking-[0.2em] uppercase text-muted">
+          <p className="microlabel text-muted">
             {category}
           </p>
           <h3 className="font-serif text-lg md:text-xl font-normal mt-2 leading-snug group-hover:opacity-60 transition-opacity">

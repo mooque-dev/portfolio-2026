@@ -444,3 +444,13 @@ html {
     @apply font-sans;
   }
 }
+
+/* One spec for metadata micro-labels (categories, meta keys, rail headings,
+   badges). Two deliberate tiers exist site-wide: this one, and the larger
+   text-xs tracking-widest section tier. The header nav and the gateway's
+   theatrical type keep their own voices. */
+.microlabel {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}

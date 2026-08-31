@@ -35,7 +35,7 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
       aria-label="Table of contents"
       className="hidden xl:block sticky top-28 self-start w-44 shrink-0"
     >
-      <p className="text-[9px] tracking-[0.22em] uppercase text-muted mb-4 select-none">
+      <p className="microlabel text-muted mb-4 select-none">
         On this page
       </p>
       <ul className="space-y-2">

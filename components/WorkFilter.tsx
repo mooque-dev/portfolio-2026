@@ -84,7 +84,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
         <div className="mt-12 space-y-16">
           {workProjects.length > 0 && (
             <div>
-              <p className="text-[9px] tracking-[0.22em] uppercase text-muted mb-8">
+              <p className="microlabel text-muted mb-8">
                 Professional Work
               </p>
               <ProjectGrid projects={workProjects} startIndex={0} />
@@ -92,7 +92,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
           )}
           {personalProjects.length > 0 && (
             <div>
-              <p className="text-[9px] tracking-[0.22em] uppercase text-muted mb-8 border-t border-border pt-16">
+              <p className="microlabel text-muted mb-8 border-t border-border pt-16">
                 Side Projects &amp; Archive
               </p>
               <ProjectGrid projects={personalProjects} startIndex={workProjects.length} />
@@ -100,7 +100,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
           )}
           {experimentProjects.length > 0 && (
             <div>
-              <p className="text-[9px] tracking-[0.22em] uppercase text-muted mb-8 border-t border-border pt-16">
+              <p className="microlabel text-muted mb-8 border-t border-border pt-16">
                 Experiments &amp; Prototypes
               </p>
               <ProjectGrid

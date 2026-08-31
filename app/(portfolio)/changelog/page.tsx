@@ -55,7 +55,7 @@ export default function ChangelogPage() {
                       {entry.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full border border-border px-2 py-0.5 text-[9px] tracking-[0.14em] uppercase text-muted"
+                          className="rounded-full border border-border px-2 py-0.5 microlabel text-muted"
                         >
                           {TAG_LABEL[tag]}
                         </span>
@@ -69,7 +69,7 @@ export default function ChangelogPage() {
                     {entry.what}
                   </p>
                   <p className="mt-3 text-[14px] leading-relaxed text-muted">
-                    <span className="text-[10px] tracking-[0.16em] uppercase mr-2">
+                    <span className="microlabel mr-2">
                       Why
                     </span>
                     {entry.why}

@@ -24,7 +24,7 @@ export default function NotFound() {
 
       <main className="flex-1 flex items-center justify-center px-6 text-center">
         <div className="-mt-16">
-          <p className="text-xs tracking-[0.2em] uppercase text-muted mb-4">
+          <p className="text-xs tracking-widest uppercase text-muted mb-4">
             Error 404
           </p>
           <h1 className="font-serif text-7xl md:text-9xl font-bold tracking-tight">

@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-08-31",
+    title: "Quieter everywhere: the minimal pass",
+    tags: ["design"],
+    what: "Three subtractions. The dual clock (Toronto and Seoul) left the header, where it was decoration on every page, and moved to About, where it's biography. The guide now lives on the home page only: a smaller, calmer card with a plain link instead of a button, and if you close it, it stays closed for the rest of your visit. And the site's small uppercase labels, which had drifted into nineteen slightly different sizes and letterspacings, now share one spec.",
+    why: "Minimal isn't a look, it's a discipline: every element either earns its place on every page it appears on, or it moves to the one page where it means something.",
+  },
+  {
+    date: "2026-08-31",
     title: "ARND joins the front door, as itself",
     tags: ["content"],
     what: "ARND's case study stopped calling it a thought experiment, because it stopped being one. The rewrite tells the current story: a working app running on live curated Toronto listings, in beta at arnd.app, with real screens from the app itself (the map on live data, the feed, a hosted listening night). It now leads a self-built Experiments section on the home page, under the professional flagships, and its live link points at the real domain.",

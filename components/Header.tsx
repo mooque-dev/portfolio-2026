@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import WorldClock from "./WorldClock";
 import { useState, useCallback } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Magnetic from "./Magnetic";
@@ -54,10 +53,6 @@ export default function Header() {
               Allen Kang
             </span>
           </Link>
-        </div>
-
-        <div className="hidden md:flex">
-          <WorldClock />
         </div>
 
         <div className="flex-1 flex items-center justify-end gap-2">
