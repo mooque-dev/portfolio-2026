@@ -220,26 +220,28 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
                 </ol>
               )}
 
-              {personal.length > 0 && (
+              {/* Experiments above Personal, matching /work: the live
+                  self-built work is the second act, the archive closes. */}
+              {experiments.length > 0 && (
                 <div className="mt-12">
-                  <h2 className="text-sm tracking-wide mb-6">Personal</h2>
+                  <h2 className="text-sm tracking-wide mb-6">Experiments</h2>
                   <ol className="space-y-0">
-                    {personal.map((p, i) => (
+                    {experiments.map((p, i) => (
                       <ProjectRow key={p.slug} project={p} n={work.length + i + 1} />
                     ))}
                   </ol>
                 </div>
               )}
 
-              {experiments.length > 0 && (
+              {personal.length > 0 && (
                 <div className="mt-12">
-                  <h2 className="text-sm tracking-wide mb-6">Experiments</h2>
+                  <h2 className="text-sm tracking-wide mb-6">Personal</h2>
                   <ol className="space-y-0">
-                    {experiments.map((p, i) => (
+                    {personal.map((p, i) => (
                       <ProjectRow
                         key={p.slug}
                         project={p}
-                        n={work.length + personal.length + i + 1}
+                        n={work.length + experiments.length + i + 1}
                       />
                     ))}
                   </ol>

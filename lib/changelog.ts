@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-08-31",
+    title: "The experiments move up a shelf",
+    tags: ["design"],
+    what: "On Work and on the home page, the Experiments section now sits directly under Professional Work, with the archive closing the page instead of splitting the middle. ARND, live and current, is the second thing you meet; the oldest material is the last. The filter pills follow the same order.",
+    why: "Reading order is an argument. The professional work makes the case, the live experiments show the range, and the archive is the epilogue, not the second chapter.",
+  },
+  {
+    date: "2026-08-31",
     title: "The ARND story goes end to end",
     tags: ["content"],
     what: "The ARND case study now shows the whole arc, not just the app. Three more screens cover the loop (the show page, proof-by-check-in, the performer's side), the arnd.app front door and per-event cover art show the brand carrying through, and a new Run in the open section shows the public changelog (a hundred-plus updates, each with its why) and the governed design system page. Screens sit in a compact row now instead of stacking full-width.",

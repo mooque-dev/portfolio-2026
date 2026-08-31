@@ -10,8 +10,8 @@ type Filter = "all" | "work" | "personal" | "experiment";
 const FILTERS: { value: Filter; label: string }[] = [
   { value: "all", label: "All" },
   { value: "work", label: "Work" },
-  { value: "personal", label: "Personal" },
   { value: "experiment", label: "Experiments" },
+  { value: "personal", label: "Personal" },
 ];
 
 function ProjectGrid({
@@ -107,14 +107,8 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
               <ProjectGrid projects={workProjects} startIndex={0} />
             </div>
           )}
-          {personalProjects.length > 0 && (
-            <div>
-              <p className="microlabel text-muted mb-8 border-t border-border pt-16">
-                Side Projects &amp; Archive
-              </p>
-              <ProjectGrid projects={personalProjects} startIndex={workProjects.length} />
-            </div>
-          )}
+          {/* Experiments sit above the archive: the live self-built work is a
+              stronger second act than the oldest material. */}
           {experimentProjects.length > 0 && (
             <div>
               <p className="microlabel text-muted mb-8 border-t border-border pt-16">
@@ -122,8 +116,19 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
               </p>
               <ProjectGrid
                 projects={experimentProjects}
-                startIndex={workProjects.length + personalProjects.length}
+                startIndex={workProjects.length}
                 compact
+              />
+            </div>
+          )}
+          {personalProjects.length > 0 && (
+            <div>
+              <p className="microlabel text-muted mb-8 border-t border-border pt-16">
+                Side Projects &amp; Archive
+              </p>
+              <ProjectGrid
+                projects={personalProjects}
+                startIndex={workProjects.length + experimentProjects.length}
               />
             </div>
           )}
