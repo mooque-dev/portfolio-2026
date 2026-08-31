@@ -359,6 +359,18 @@ h1.font-serif, h2.font-serif, h3.font-serif {
   margin-left: -2rem;
   margin-right: -2rem;
 }
+/* Tall portrait captures (phone screens, long scroll grabs): constrained and
+   centered, styled like a device, so one screen never swallows a whole
+   viewport. Use <figure class="phone"> in MDX. */
+.prose figure.phone img {
+  width: min(300px, 78%);
+  margin-inline: auto;
+  border-radius: 1.25rem;
+  box-shadow: 0 14px 34px -18px rgba(15, 12, 40, 0.28);
+}
+.prose figure.phone figcaption {
+  text-align: center;
+}
 @media (max-width: 768px) {
   .prose figure.wide {
     margin-left: 0;

@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-08-31",
+    title: "Phone screens stopped hogging the page",
+    tags: ["design", "fix"],
+    what: "Portrait app screenshots in case studies used to stretch to the full reading column, which made a single phone screen taller than the whole viewport, two and a half screens of scrolling for one image. Tall captures now render at phone size: centered, rounded like a device, with a soft shadow and a centered caption. Applied to ARND's three screens and the tall captures on the automation and Orchid studies.",
+    why: "A phone screen shown at phone size reads as a product. The same screen blown up to fill the column reads as an obstacle.",
+  },
+  {
+    date: "2026-08-31",
     title: "The experiments shelf shows the real things",
     tags: ["design", "content"],
     what: "The Experiments section on Work is a denser three-up shelf now: cover, category, and the app's name, nothing else. And the covers stopped being abstract stand-ins. ARND's card is two real screens from the app (the feed and the live Toronto map) on its own bellflower blue; Mooze, Vesta Press, and Toronto Yuwol show their actual landing pages, captured from the live deployments. Schematic keeps its schema-tile grid and Color Analysis its four-season palette, since those are the product.",
