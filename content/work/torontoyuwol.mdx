@@ -1,10 +1,10 @@
 ---
-title: "Toronto Yuwol: A Schedule Tracker for a 40-Person Musical"
-subtitle: "A small, practical tool I built for the amateur musical I joined, keeping practice and performance attendance straight for a bilingual cast of about forty."
+title: "Toronto Yuwol: The Tools Behind a Ten-Month Musical"
+subtitle: "Internal tooling for a bilingual musical company of about forty: scheduling and attendance, a Korean-English script reader used daily, and a ticketing platform that sold real seats for the production's run."
 category: "Internal Tool"
 type: "experiment"
-role: "Design & build"
-timeline: "2026"
+role: "Designer & developer"
+timeline: "2025 to present"
 team: "Solo, with Claude Code"
 tools:
   - Next.js
@@ -13,35 +13,47 @@ tools:
   - Postgres
 coverColor: "#0b0b0e"
 coverImage: "/case-studies/torontoyuwol/cover.png"
-featured: false
+featured: true
 order: 19
 liveUrl: "https://torontoyuwol.vercel.app"
 ---
 
 ## Why it exists
 
-In 2026 I joined a roughly forty-person amateur musical, well outside my comfort
-zone and a real test of keeping a big group on the same page. Coordinating who's
-at which rehearsal, across months of practices building to performance, was the
-kind of small, annoying problem that a focused tool solves better than a group
-chat.
+In 2025 I joined an amateur musical company, well outside my comfort zone, and
+found the operational chaos every volunteer group knows: months of rehearsals,
+about forty people across cast, production, and promotion teams, two languages,
+and everything coordinated through group chat. The people were committed. The
+tools were a spreadsheet nobody opened and a chat nobody could search.
 
-So I built one.
+So I started building, one annoyance at a time.
 
-## What it does
+## One tool became a suite
 
-- **A shared schedule** of practices and performances for the 2026 run.
-- **Attendance tracking** for both rehearsals and shows, so it's clear at a glance
-  who's in for each date.
-- **Built for the cast.** People pick their team (cast, production, or promotion)
-  and their language. The whole thing works in Korean and English, because the
-  group does too.
+**Scheduling and attendance.** A shared calendar of practices and performances,
+with attendance tracked per date, so who's in the room is a glance instead of a
+thread. People pick their team and their language; the whole thing runs in
+Korean and English because the company does.
 
-## How it's built
+**A bilingual script reader.** Rehearsing a translated show means half the room
+works from Korean and half from English. The reader keeps both scripts in one
+place, used daily through the run, which quietly made it the most-loved thing I
+built for them.
 
-Next.js and React with TypeScript, backed by a Neon Postgres database. It's
-deliberately small: one job, done well, for an actual group of real people who
-needed it.
+**Ticketing, with real money.** When the production needed to sell seats, I
+built that too: performance browsing, seat selection, payment, and
+confirmation, shipped and used to sell tickets for the ten-month run. Designing
+a payment flow for your own community, where every buyer might sit next to you
+at rehearsal, is a very effective accountability structure.
 
-The point of this one wasn't ambition. It was designing for a non-technical
-audience I happen to see every week, and watching whether they'd actually use it.
+## Designing for people who see you every week
+
+This is internal tooling in its purest form: a non-technical user base of real
+people I couldn't avoid, using the tools daily, telling me directly what was
+broken. I iterated weekly on that feedback. No analytics dashboard substitutes
+for the stage manager walking over to say the attendance view confused her.
+
+Adoption was never mandated. It happened because each tool removed a specific,
+named annoyance, and because the people it served watched it get better every
+week. That's the whole playbook for internal tools, at any scale: earn the
+workflow, don't decree it.

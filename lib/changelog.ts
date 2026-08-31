@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-08-31",
+    title: "The shelf grows to nine, and two quiet studies grow up",
+    tags: ["content"],
+    what: "The home page now features nine: the five professional studies, two experiments, and two personal projects. Toronto Yuwol earned its spot with the full story it always had: not just a schedule tracker but a suite, with a bilingual script reader used daily and a ticketing platform that sold real seats for a ten-month run. The blockchain year gained the section it was missing, what designing for wallets, gas, and smart contracts taught me about hiding complexity without breaking trust. ARND's study now mentions the unglamorous App Store readiness work, and the Automation numbers were tightened to the ones I can defend in a room: 30% adoption across 355 organizations, part of a 13% ARR increase.",
+    why: "A portfolio should show range without diluting the lead. Nine is the shelf where the professional case holds and the breadth finally shows.",
+  },
+  {
+    date: "2026-08-31",
     title: "The last two experiment covers go live too",
     tags: ["design", "content"],
     what: "Schematic's card now shows its actual site: the wine-dark hero with the wireframe form. Personal Color Analysis shows its landing (Find your perfect color season) and finally carries its live link, so all six experiments now open to the real thing. Every card on the experiments shelf is a screenshot of running software.",
