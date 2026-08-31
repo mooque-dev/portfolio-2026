@@ -107,7 +107,7 @@ the thing you are about to change on the left, and do the checks on the right.
 | Animation / reveal behavior | Instant paint, no blank-on-load, reduced-motion honored |
 | Brand color / core tokens | `app/globals.css` light AND dark blocks; contrast still passes |
 | Adding a small uppercase label | Use `.microlabel` (globals.css), don't hand-roll a new size/tracking combo |
-| Adding case-study media | Tall portrait captures get `<figure class="phone">` (phone-size, centered); extra-wide art gets `<figure class="wide">`; plain figures fill the column |
+| Adding case-study media | Tall portrait captures get `<figure class="phone">` (phone-size, centered); several screens sharing one caption get `<figure class="phones">`; extra-wide art gets `<figure class="wide">`; plain figures fill the column |
 
 ## The verify gate (before any ship)
 

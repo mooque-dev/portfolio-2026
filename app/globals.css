@@ -371,6 +371,24 @@ h1.font-serif, h2.font-serif, h3.font-serif {
 .prose figure.phone figcaption {
   text-align: center;
 }
+/* A row of phone screens sharing one caption. Wraps to two-up on small
+   screens. Use <figure class="phones"> with several imgs inside. */
+.prose figure.phones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.prose figure.phones img {
+  width: min(224px, 46%);
+  border-radius: 1rem;
+  box-shadow: 0 14px 34px -18px rgba(15, 12, 40, 0.28);
+  margin: 0;
+}
+.prose figure.phones figcaption {
+  width: 100%;
+  text-align: center;
+}
 @media (max-width: 768px) {
   .prose figure.wide {
     margin-left: 0;

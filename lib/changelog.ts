@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-08-31",
+    title: "The ARND story goes end to end",
+    tags: ["content"],
+    what: "The ARND case study now shows the whole arc, not just the app. Three more screens cover the loop (the show page, proof-by-check-in, the performer's side), the arnd.app front door and per-event cover art show the brand carrying through, and a new Run in the open section shows the public changelog (a hundred-plus updates, each with its why) and the governed design system page. Screens sit in a compact row now instead of stacking full-width.",
+    why: "Designing an app is the visible half. Running one, with a brand, a changelog culture, and rules that outlive the author, is the half a portfolio rarely gets to show.",
+  },
+  {
+    date: "2026-08-31",
     title: "Phone screens stopped hogging the page",
     tags: ["design", "fix"],
     what: "Portrait app screenshots in case studies used to stretch to the full reading column, which made a single phone screen taller than the whole viewport, two and a half screens of scrolling for one image. Tall captures now render at phone size: centered, rounded like a device, with a soft shadow and a centered caption. Applied to ARND's three screens and the tall captures on the automation and Orchid studies.",
