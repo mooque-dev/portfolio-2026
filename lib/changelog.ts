@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-08-31",
+    title: "The last two experiment covers go live too",
+    tags: ["design", "content"],
+    what: "Schematic's card now shows its actual site: the wine-dark hero with the wireframe form. Personal Color Analysis shows its landing (Find your perfect color season) and finally carries its live link, so all six experiments now open to the real thing. Every card on the experiments shelf is a screenshot of running software.",
+    why: "The shelf's whole argument is 'these exist.' The last two illustrations were the only cards still saying 'trust me' instead of 'look.'",
+  },
+  {
+    date: "2026-08-31",
     title: "The experiments move up a shelf",
     tags: ["design"],
     what: "On Work and on the home page, the Experiments section now sits directly under Professional Work, with the archive closing the page instead of splitting the middle. ARND, live and current, is the second thing you meet; the oldest material is the last. The filter pills follow the same order.",

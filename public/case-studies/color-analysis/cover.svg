@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
-  <rect width="800" height="520" fill="#efe9e4"/>
-  <!-- four seasons, one palette -->
-  <rect x="212" y="112" width="180" height="140" rx="18" fill="#e8a288"/>
-  <rect x="408" y="112" width="180" height="140" rx="18" fill="#9db8cc"/>
-  <rect x="212" y="268" width="180" height="140" rx="18" fill="#a89a5e"/>
-  <rect x="408" y="268" width="180" height="140" rx="18" fill="#2c3a5c"/>
-</svg>
