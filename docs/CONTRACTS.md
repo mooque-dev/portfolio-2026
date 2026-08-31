@@ -40,8 +40,10 @@ the thing you are about to change on the left, and do the checks on the right.
   `featured` changes the home page only, not `/work`.
 - **If you change which studies are featured:** the home page grid re-ranks. It is
   a visible content decision, so preview the home page. Featuring works only if it
-  stays scarce: if almost everything is featured, nothing is. The shelf is 6 (4
-  flagships plus a 2-piece second tier).
+  stays scarce: if almost everything is featured, nothing is. The shelf is 7: 4
+  professional flagships, a 2-piece second tier, and ARND leading a self-built
+  Experiments section (featured studies group by `type` on the home page, so an
+  experiment surfaces under its own heading, not among the work pieces).
 
 ### 3. The changelog (the public record)
 - **Where:** `lib/changelog.ts`, shown at `/changelog`.

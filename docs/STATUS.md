@@ -32,9 +32,11 @@ is how the project stays both fluid and hard to break.
 We work these together: each batch pairs one feature with one system piece.
 
 ### Feature backlog (visitor-facing)
-- **Flagship hierarchy.** 19 of 20 case studies are `featured: true`, so featuring
-  signals nothing. Pick 3 to 4 true flagships and demote the rest. _(in progress:
-  shortlist being proposed for Allen's approval)_
+- **Flagship hierarchy.** Done: the shelf went 19 to 6 (4 professional flagships
+  plus a 2-piece second tier), then to 7 when Allen promoted ARND, now a working
+  app on live curated Toronto data, to lead a self-built Experiments section on
+  the home page. Its case study was rewritten from "concept" to the true current
+  story with real app screens.
 - **Vault** has one entry and is text-only. Under-populated for the "life vault"
   idea; needs real entries and visual frames.
 - **Metrics** in the professional case studies (for example 340 to 86, 45%,

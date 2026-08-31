@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-08-31",
+    title: "ARND joins the front door, as itself",
+    tags: ["content"],
+    what: "ARND's case study stopped calling it a thought experiment, because it stopped being one. The rewrite tells the current story: a working app running on live curated Toronto listings, in beta at arnd.app, with real screens from the app itself (the map on live data, the feed, a hosted listening night). It now leads a self-built Experiments section on the home page, under the professional flagships, and its live link points at the real domain.",
+    why: "The judges who shaped the flagship shelf read the old write-up and fairly called it a concept piece. It isn't one anymore, and the portfolio should say what's true now.",
+  },
+  {
     date: "2026-08-17",
     title: "The home page stopped shipping the animation engine",
     tags: ["engineering"],
