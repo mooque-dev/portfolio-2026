@@ -108,6 +108,7 @@ the thing you are about to change on the left, and do the checks on the right.
 | Brand color / core tokens | `app/globals.css` light AND dark blocks; contrast still passes |
 | Adding a small uppercase label | Use `.microlabel` (globals.css), don't hand-roll a new size/tracking combo |
 | Adding case-study media | Tall portrait captures get `<figure class="phone">` (phone-size, centered); several screens sharing one caption get `<figure class="phones">`; extra-wide art gets `<figure class="wide">`; plain figures fill the column |
+| Adding or changing a cover | Covers are authored 3:2 canvases (1800x1200), never CSS-cropped: run `python3 scripts/make-cover.py <source> <coverColor> <out>` to mat the artifact whole on the study's ground. Custom compositions (like ARND's) still author to the same canvas |
 
 ## The verify gate (before any ship)
 

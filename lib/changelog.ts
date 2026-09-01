@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-09-01",
+    title: "Twenty covers, one system, nothing cropped",
+    tags: ["design"],
+    what: "Every project cover is now a composed 3:2 canvas: the artifact shown whole on its own ground color, consistent padding, soft shadow. Before this, the card's crop was quietly eating the work, some covers lost a third of their width, including two flagships. A small cover-factory script builds them, so the next case study gets the same treatment by running one command. Live experiments were re-captured at the new ratio; ARND's two-phone canvas was recomposed; the confidential flagship keeps its blur, now over a properly built substrate.",
+    why: "A cover should present the work, not sample it. Authoring every cover to the frame, instead of letting the frame crop the cover, is the difference between a gallery and a contact sheet.",
+  },
+  {
     date: "2026-08-31",
     title: "The shelf grows to nine, and two quiet studies grow up",
     tags: ["content"],

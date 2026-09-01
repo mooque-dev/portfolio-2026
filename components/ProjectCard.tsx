@@ -35,7 +35,7 @@ export default function ProjectCard({
     <Magnetic strength={0.04} radius={260}>
     <Link href={`/work/${slug}`} className="group block">
       <article className="transition-transform duration-300 ease-out group-hover:-translate-y-1">
-        <div className="overflow-hidden rounded-sm aspect-[4/3]">
+        <div className="overflow-hidden rounded-sm aspect-[3/2]">
           <div
             className="cover-tinted relative w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.03]"
             style={{ backgroundColor: coverColor }}
