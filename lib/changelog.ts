@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-09-11",
+    title: "The email matches the address",
+    tags: ["engineering"],
+    what: "Every contact point on the site now says allen@allenkang.com, matching the new domain. Mail to the old allen@mooque.xyz still arrives, nothing sent to it is ever lost, but the address you see is the address that belongs here.",
+    why: "A domain move is finished when the email agrees with it.",
+  },
+  {
+    date: "2026-09-11",
     title: "The site moves to allenkang.com",
     tags: ["engineering"],
     what: "This site now lives at allenkang.com. Nothing else changed: mooque.xyz stays alive forever as an alias, and every old link redirects here permanently, along with www and the original deployment URL. The canonical address, the sitemap, and the metadata all point at the new home.",

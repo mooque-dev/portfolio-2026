@@ -120,10 +120,10 @@ export default function ResumePage() {
             </h2>
             <div className="flex flex-wrap gap-6 text-sm">
               <a
-                href="mailto:allen@mooque.xyz"
+                href="mailto:allen@allenkang.com"
                 className="underline underline-offset-4 decoration-1 hover:opacity-70 transition-opacity"
               >
-                allen@mooque.xyz
+                allen@allenkang.com
               </a>
               <a
                 href="https://www.linkedin.com/in/mooque/"
