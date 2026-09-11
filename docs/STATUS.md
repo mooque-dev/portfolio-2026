@@ -10,7 +10,7 @@ _Last updated: 2026-08-17._
 ## What this is
 
 Allen Kang's (mooque) portfolio and personal record. Next.js App Router, MDX case
-studies in `content/`, deployed from `main` to https://www.mooque.xyz via Vercel.
+studies in `content/`, deployed from `main` to https://allenkang.com via Vercel.
 Beyond the portfolio, it is growing into a "life vault": a dated, honest record of
 the work and the person behind it.
 

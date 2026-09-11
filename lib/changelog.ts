@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-09-11",
+    title: "The site moves to allenkang.com",
+    tags: ["engineering"],
+    what: "This site now lives at allenkang.com. Nothing else changed: mooque.xyz stays alive forever as an alias, and every old link redirects here permanently, along with www and the original deployment URL. The canonical address, the sitemap, and the metadata all point at the new home.",
+    why: "Corporate email filters and web proxies sometimes block cheap domain endings outright, and a portfolio you can't open is a portfolio that doesn't exist. A name-dot-com opens everywhere, including the places that decide whether to interview you.",
+  },
+  {
     date: "2026-09-01",
     title: "Twenty covers, one system, nothing cropped",
     tags: ["design"],

@@ -1,7 +1,7 @@
 # mooque portfolio
 
 Allen Kang's portfolio (Next.js App Router, MDX case studies in `content/`).
-Production deploys from `main` via Vercel to https://www.mooque.xyz.
+Production deploys from `main` via Vercel to https://allenkang.com.
 
 New here? Read this file (the rules and voice), then `docs/CONTRACTS.md` (what
 connects to what, and what to re-verify when you change it), `docs/STATUS.md`

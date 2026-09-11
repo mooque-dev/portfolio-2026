@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getProjectSlugs, getAllWritingPosts } from "@/lib/content";
 
-const base = "https://mooque.xyz";
+const base = "https://allenkang.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPaths: { path: string; priority: number }[] = [
