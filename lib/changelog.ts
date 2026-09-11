@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-09-11",
+    title: "The downloadable resume catches up",
+    tags: ["fix", "content"],
+    what: "The PDF behind the Download button was still carrying the old domain and email. Rebuilt clean: one page, plain parseable text for applicant tracking systems, allenkang.com and the current contact on top. Same story, current coordinates.",
+    why: "The resume PDF is the copy recruiters actually keep. It should never be the stalest thing on the site.",
+  },
+  {
+    date: "2026-09-11",
     title: "The email matches the address",
     tags: ["engineering"],
     what: "Every contact point on the site now says allen@allenkang.com, matching the new domain. Mail to the old allen@mooque.xyz still arrives, nothing sent to it is ever lost, but the address you see is the address that belongs here.",
