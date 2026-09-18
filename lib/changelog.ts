@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-09-18",
+    title: "A number that was never measured comes out",
+    tags: ["fix", "content"],
+    what: "The Transaction Workflows study claimed the redesign moved satisfaction from 5.5 to 8.8 out of 10, and pointed at a chart as proof. The image was never a chart; it is a screenshot of a design review. The real 5.5 and 8.8 are company revenue figures in millions that got mislabeled somewhere between the source notes and the page. The claim is gone. What stays is what was actually measured: the three prototype rounds the accountants scored themselves, 6, 7.5, and 9.5 out of ten, and the review image now says what it is.",
+    why: "A portfolio's numbers are only worth what you can defend in a room. One unearned metric taints the earned ones next to it, so it goes, even when it flattered me.",
+  },
+  {
     date: "2026-09-11",
     title: "The downloadable resume catches up",
     tags: ["fix", "content"],
