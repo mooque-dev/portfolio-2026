@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-09-22",
+    title: "One title stopped sounding like a template",
+    tags: ["content"],
+    what: "AI Recipe Book was titled 'A Side Project About Trust,' the abstract-noun-about-X pattern that reads as generated rather than written. Every other title on the site names a concrete thing that happened; this one now does too: Recipes That Show Their Work, after the actual mechanic, the AI explains its substitutions instead of making them silently.",
+    why: "A title that names a theme could belong to any project. A title that names what the thing actually does could only belong to this one.",
+  },
+  {
+    date: "2026-09-22",
     title: "The recipe app tells the truth about who cooks",
     tags: ["content", "fix"],
     what: "AI Recipe Book opened with 'I cook almost every day,' which was not true and read that way. The real story is better anyway: I'm not the cook, I'm surrounded by them, my mother has cooked professionally for years, and close friends make cooking content for a living. The Instacart integration also got the space it earned: a small piece of interaction design that closed the real gap in the product, the moment between wanting to cook something and actually having what it takes.",
