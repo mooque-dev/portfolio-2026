@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-09-22",
+    title: "The recipe app tells the truth about who cooks",
+    tags: ["content", "fix"],
+    what: "AI Recipe Book opened with 'I cook almost every day,' which was not true and read that way. The real story is better anyway: I'm not the cook, I'm surrounded by them, my mother has cooked professionally for years, and close friends make cooking content for a living. The Instacart integration also got the space it earned: a small piece of interaction design that closed the real gap in the product, the moment between wanting to cook something and actually having what it takes.",
+    why: "A side project should show real judgment, not a persona. And the parts I actually built, however small, are more convincing than the parts I didn't.",
+  },
+  {
     date: "2026-09-18",
     title: "A number that was never measured comes out",
     tags: ["fix", "content"],
