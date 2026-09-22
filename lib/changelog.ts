@@ -14,6 +14,20 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-09-22",
+    title: "The recipe app names its mission and links its receipts",
+    tags: ["content"],
+    what: "AI Recipe Book now says the goal directly: make everyday cooking accessible enough that someone who barely cooks could still get dinner on the table, not another tool for people who already love cooking. The Instacart section grew a companion point: the ingredient gap it closes hits newer cooks hardest, since an experienced cook can eyeball a recipe and know what's missing and a newer one usually can't. The Reddit post that brought the first real users is now a real link instead of a claim.",
+    why: "A mission is worth stating once, plainly, instead of leaving it implied. And a number is worth more when you can click through and check it yourself.",
+  },
+  {
+    date: "2026-09-22",
+    title: "Two more titles stop sounding like templates",
+    tags: ["content"],
+    what: "ArtsGaze and Mooze both had titles built from a generic pattern, 'Helping X Build Y' and a plain noun label, rather than a concrete decision. Renamed to Design Systems Artists Can Run Themselves and Built for the Return, Not the Save, both taken from the actual thesis each case study already argues.",
+    why: "Started as one title that read as generated. Once I looked, two more had the same tell.",
+  },
+  {
+    date: "2026-09-22",
     title: "One title stopped sounding like a template",
     tags: ["content"],
     what: "AI Recipe Book was titled 'A Side Project About Trust,' the abstract-noun-about-X pattern that reads as generated rather than written. Every other title on the site names a concrete thing that happened; this one now does too: Recipes That Show Their Work, after the actual mechanic, the AI explains its substitutions instead of making them silently.",
