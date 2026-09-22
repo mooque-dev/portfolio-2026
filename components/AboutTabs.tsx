@@ -136,7 +136,7 @@ export default function AboutTabs() {
                     curiosity about food and technology eventually led me to
                     collaborate on{" "}
                     <Link
-                      href="/work/ai-recipe-book"
+                      href="/work/forkestrate"
                       className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
                       an AI-powered recipe app

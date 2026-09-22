@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-09-22",
+    title: "The recipe app goes by its real name",
+    tags: ["content", "engineering"],
+    what: "The case study lived at /work/ai-recipe-book while the resume called the project Forkestrate, two names for one thing. It is Forkestrate now, on the URL and in the title, with the old link permanently redirected so nothing that pointed to it breaks. The page also picked up a section it was missing: pasting in a link, from a recipe site or a cooking video, and having it come back as something you can actually follow, ingredients and instructions and a time breakdown, instead of a video you keep rewinding.",
+    why: "A resume and a portfolio should tell you the same name for the same project. And a lot of cooking inspiration starts as a video; the app's real job was turning that into something you could stand at a stove and follow.",
+  },
+  {
+    date: "2026-09-22",
     title: "The recipe app names its mission and links its receipts",
     tags: ["content"],
     what: "AI Recipe Book now says the goal directly: make everyday cooking accessible enough that someone who barely cooks could still get dinner on the table, not another tool for people who already love cooking. The Instacart section grew a companion point: the ingredient gap it closes hits newer cooks hardest, since an experienced cook can eyeball a recipe and know what's missing and a newer one usually can't. The Reddit post that brought the first real users is now a real link instead of a claim.",
