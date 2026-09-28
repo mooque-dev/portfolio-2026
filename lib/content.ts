@@ -142,6 +142,29 @@ export async function getAllWritingPosts(): Promise<
     );
 }
 
+export interface SimplePageFrontmatter {
+  title: string;
+  subtitle: string;
+}
+
+// A one-off, hand-authored page outside the work/writing collections (for
+// example a curated illustration retrospective). Same pipeline, single file,
+// no slug list or index needed.
+export async function getSimplePage(
+  filename: string
+): Promise<ContentItem<SimplePageFrontmatter> | null> {
+  const filePath = path.join(contentDirectory, `${filename}.mdx`);
+  if (!fs.existsSync(filePath)) return null;
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const { data, content } = matter(raw);
+  const html = await parseMarkdown(content);
+  return {
+    slug: filename,
+    frontmatter: data as SimplePageFrontmatter,
+    content: html,
+  };
+}
+
 export function getProjectSlugs(): string[] {
   return getContentFiles("work").map((f) => f.replace(/\.mdx$/, ""));
 }

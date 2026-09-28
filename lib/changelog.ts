@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-09-28",
+    title: "A page for the drawings",
+    tags: ["content", "engineering"],
+    what: "New page at /illustration, a retrospective pulling the drawn work out of four projects: the three characters that became ARND's onboarding paths, a personal zine's hand lettering, a hundred days of small interface drawings, and De Mello's tiger carrying a brand across packaging, social, and gift cards. It is not in the main nav. It exists to be shared directly, for conversations where illustration itself is what's being evaluated.",
+    why: "Most of this site argues that I can design a workflow. This page argues something narrower and, for the right room, more useful: that I can draw, and that drawing has changed real decisions, not just decorated them.",
+  },
+  {
     date: "2026-09-22",
     title: "The recipe app goes by its real name",
     tags: ["content", "engineering"],
