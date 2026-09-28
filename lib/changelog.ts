@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-09-28",
+    title: "2024 Wrapped gets a better cover",
+    tags: ["design"],
+    what: "Swapped the 2024 Wrapped cover for the pet social app screens, cropped to their actual content and composed through the same cover system every other project uses, matted whole on the sage green ground instead of a generic placeholder.",
+    why: "A year-in-review deserves a cover that actually shows something from the year.",
+  },
+  {
+    date: "2026-09-28",
     title: "A page for the drawings",
     tags: ["content", "engineering"],
     what: "New page at /illustration, a retrospective pulling the drawn work out of four projects: the three characters that became ARND's onboarding paths, a personal zine's hand lettering, a hundred days of small interface drawings, and De Mello's tiger carrying a brand across packaging, social, and gift cards. It is not in the main nav. It exists to be shared directly, for conversations where illustration itself is what's being evaluated.",
