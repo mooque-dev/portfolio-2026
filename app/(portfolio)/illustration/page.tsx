@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   if (!page) return {};
   return {
     title: page.frontmatter.title,
-    description: page.frontmatter.subtitle,
+    ...(page.frontmatter.subtitle && { description: page.frontmatter.subtitle }),
   };
 }
 
@@ -43,9 +43,11 @@ export default async function IllustrationPage() {
               <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight mt-6 leading-[1.1]">
                 {frontmatter.title}
               </h1>
-              <p className="mt-4 text-lg text-muted leading-relaxed">
-                {frontmatter.subtitle}
-              </p>
+              {frontmatter.subtitle && (
+                <p className="mt-4 text-lg text-muted leading-relaxed">
+                  {frontmatter.subtitle}
+                </p>
+              )}
             </FadeIn>
 
             <FadeIn delay={0.2}>

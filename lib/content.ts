@@ -144,7 +144,7 @@ export async function getAllWritingPosts(): Promise<
 
 export interface SimplePageFrontmatter {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 // A one-off, hand-authored page outside the work/writing collections (for
