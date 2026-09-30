@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-09-30",
+    title: "The link preview card catches up too",
+    tags: ["fix"],
+    what: "The image that shows up when this site's link is pasted into iMessage, LinkedIn, or Slack still said mooque.xyz at the bottom, a static image made before the move to allenkang.com that the domain migration missed because it's pixels, not text. Rebuilt it at the same size and design, with the right address.",
+    why: "The link preview is often the first thing a recruiter sees, before they've clicked anything. It should say where the site actually lives.",
+  },
+  {
     date: "2026-09-28",
     title: "2024 Wrapped gets a better cover",
     tags: ["design"],
