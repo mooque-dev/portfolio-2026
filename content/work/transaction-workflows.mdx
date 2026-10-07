@@ -18,7 +18,7 @@ order: 3
 
 ## Why This Mattered
 
-Keela's transaction model handled simple one-time donations well. It broke down for larger nonprofits who needed to record one payment split across multiple purposes: ticket plus donation plus campaign attribution in a single transaction. The workaround forced staff to log multiple records, creating inaccurate receipts, messy accounting, and more support tickets.
+As Keela pushed upmarket after its acquisition, this feature stood between the roadmap and the larger nonprofits the growth plan depended on. Keela's transaction model handled simple one-time donations well. It broke down for larger nonprofits who needed to record one payment split across multiple purposes: ticket plus donation plus campaign attribution in a single transaction. The workaround forced staff to log multiple records, creating inaccurate receipts, messy accounting, and more support tickets.
 
 Signal we used to prioritize this:
 
@@ -49,7 +49,7 @@ Three things stood out:
 
 ## Approach
 
-Before designing anything, I got alignment with the PM and engineering lead on what we couldn't do: no full backend refactor, no breaking a legacy data model tied to reporting. We agreed to ship in phases and design for extensibility so future capabilities could layer on without rework.
+The easy path was a narrow fix: ship a one-off split-transaction screen scoped to the loudest complaint, then move to the next fire. I pushed back, because a narrow fix would leave the same fragile data model waiting to break again at the next growth motion. I decided to design for extensibility instead, so future capabilities could layer on without rework, not just clear the ticket backlog. Before designing anything, I got alignment with the PM and engineering lead on what we couldn't do: no full backend refactor, no breaking a legacy data model tied to reporting. We agreed to ship in phases.
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-5.jpg" alt="Phased delivery plan, stakeholder alignment on constraints" />
