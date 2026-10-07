@@ -12,6 +12,7 @@ export interface ProjectSummary {
   timeline: string;
   featuredStat?: string;
   featuredStatLabel?: string;
+  company?: string;
 }
 
 export interface WritingSummary {

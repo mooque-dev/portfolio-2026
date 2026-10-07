@@ -15,7 +15,7 @@ const FEE = "/work/fee-opt-in-experimentation";
 // lets the work speak for itself.
 const NOTES: Note[] = [
   {
-    text: "Allen is a Product Design Lead who goes by mooque. Start with the work to see how he thinks.",
+    text: "Allen is a senior product designer who goes by mooque. Start with the work to see how he thinks.",
     cta: { label: "See the work", href: "/work" },
   },
   {
@@ -41,7 +41,8 @@ export default function CapyCompanion() {
   const [open, setOpen] = useState(() => {
     if (typeof window === "undefined") return false;
     const pref = sessionStorage.getItem("guide-open");
-    return pref === null ? window.location.pathname === "/" : pref === "1";
+    // Auto-open on wide screens only: on a phone it would cover the first case study.
+    return pref === null ? window.location.pathname === "/" && window.innerWidth >= 1280 : pref === "1";
   });
   const [index, setIndex] = useState(0);
 

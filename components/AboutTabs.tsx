@@ -73,10 +73,10 @@ export default function AboutTabs() {
 
           <FadeIn delay={0.12}>
             <p className="mt-10 text-base text-muted leading-relaxed max-w-2xl">
-              Most recently that meant leading design at Velora: merging
-              Keela, Raisely, and Aplos into one shared platform. I came in
-              to build the design practice and the system from scratch, which
-              is my favorite kind of problem.
+              Most recently, at Aplos, that meant designing across Aplos,
+              Keela, and Raisely as three products merged into one, including
+              the shared component library they now build on. Systems that
+              have to reconcile with each other are my favorite kind of problem.
             </p>
           </FadeIn>
 
@@ -193,9 +193,9 @@ export default function AboutTabs() {
             <div className="mt-20">
               <Separator className="mb-12" />
               <p className="text-lg leading-relaxed">
-                I&apos;m currently open to Staff and Principal design roles,
-                particularly where design systems, working across product and
-                engineering, or 0→1 platform work is at the center. If you&apos;re
+                I&apos;m currently open to senior and staff product design roles,
+                particularly where transaction-heavy flows, design systems, or
+                0→1 platform work is at the center. If you&apos;re
                 building something interesting,{" "}
                 <a
                   href="mailto:allen@allenkang.com"

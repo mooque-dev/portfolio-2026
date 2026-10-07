@@ -29,25 +29,25 @@ const siteUrl = "https://allenkang.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Allen Kang, Product Design Lead",
+    default: "Allen Kang, Senior Product Designer",
     template: "%s | Allen Kang",
   },
   description:
-    "Product designer, eight years in. Mostly at companies where the work mattered more than the logo.",
+    "Senior product designer for transaction-heavy products: donation and payment flows, multi-entity financial data, and the design systems behind them.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
     siteName: "Allen Kang Portfolio",
-    title: "Allen Kang, Product Design Lead",
+    title: "Allen Kang, Senior Product Designer",
     description:
-      "Product designer, eight years in. Mostly at companies where the work mattered more than the logo.",
+      "Senior product designer for transaction-heavy products: donation and payment flows, multi-entity financial data, and the design systems behind them.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Allen Kang, Product Design Lead",
+    title: "Allen Kang, Senior Product Designer",
     description:
-      "Product designer, eight years in. Mostly at companies where the work mattered more than the logo.",
+      "Senior product designer for transaction-heavy products: donation and payment flows, multi-entity financial data, and the design systems behind them.",
   },
   robots: {
     index: true,
@@ -79,10 +79,9 @@ const jsonLd = {
   "@type": "Person",
   name: "Allen Kang",
   url: siteUrl,
-  jobTitle: "Product Design Lead",
-  worksFor: { "@type": "Organization", name: "Velora" },
+  jobTitle: "Senior Product Designer",
   description:
-    "Design leader with a Fine Arts background. Building products, systems, and the teams that ship them.",
+    "Senior product designer for transaction-heavy products and the design systems behind them.",
   sameAs: ["https://www.linkedin.com/in/mooque/"],
 };
 

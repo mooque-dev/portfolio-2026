@@ -25,85 +25,78 @@ export interface Education {
 
 export const experience: Job[] = [
   {
-    company: "Velora (Keela · Raisely · Aplos)",
-    role: "Product Design Lead",
+    company: "Aplos",
+    role: "Senior Product Designer",
     location: "Toronto, ON",
-    period: "February 2023 to present",
+    period: "Feb 2025 to Jun 2026",
     description: [
-      "Lead design across Velora's three nonprofit products: merging Keela, Raisely, and Aplos into one connected system used by 85,600+ campaigns across 102 countries.",
-      "Built Orchid, a design system that consolidated 340+ scattered components into 86 shared primitives. Adopted across all three products within 6 months, cutting component development time by 40%.",
-      "Led the first cross-product initiative post-acquisition: designed the integration experience and established the collaboration framework that every subsequent cross-team project followed.",
-      "Designed a 0 to 1 automation platform. 45% of active accounts adopted within 3 months. Became a differentiator in sales conversations.",
-      "Grew and mentored a design team of 3. Established critique processes, a contribution model with 12+ active contributors, and research operations that didn't exist before.",
+      "Designed unified experiences across a three-product nonprofit software suite (Aplos, Keela, Raisely) as separate platforms merged into one.",
+      "Led integration design across all three products: data import and export, schema translation, and cross-platform data fidelity for accurate, auditable financial records.",
+      "Consolidated roughly 340 components into a single Figma library serving three products with different existing conventions, owning deprecation decisions, naming governance, and adoption across three engineering teams.",
+      "Designed a split-transaction feature for multi-category donation logging, keeping financial data compliant across Canadian, US, and Australian tax rules.",
     ],
   },
   {
-    company: "Keela & KIT",
-    role: "Product Designer",
-    location: "Vancouver, BC",
-    period: "February 2021 to January 2023",
+    company: "Keela",
+    role: "Product Design Lead",
+    location: "Toronto, ON",
+    period: "Mar 2023 to Feb 2025",
     description: [
-      "Redesigned the transaction workflow, the #1 driver of tax-season churn. Cut monthly reconciliation time by 60% and moved feature NPS from -12 to +34.",
-      "Ran 40+ user research sessions that directly shaped what the product team built next. Built the research practice from nothing.",
-      "Created the design system foundations that later became Orchid after the acquisition.",
+      "Led design of core fundraising tools (Automation, Pipelines, Reports & Dashboards) for donor management, donation tracking, and revenue reporting.",
+      "Contributed to a 13% ARR increase through the Automation feature, which reached 30% adoption across 355 organizations.",
+      "Established the design system and launch process that improved cross-team collaboration and shipping consistency.",
+    ],
+  },
+  {
+    company: "Keela",
+    role: "Product Designer & Associate PM",
+    location: "Vancouver, BC",
+    period: "Feb 2021 to Mar 2023",
+    description: [
+      "Redesigned onboarding and checkout flows, cutting support volume by roughly 70% from a baseline of 500 tickets per quarter and bringing self-serve setup completion to 92%.",
+      "Stepped in as Associate PM to ship the Pipelines feature, earning recognition for autonomy and leadership.",
     ],
   },
   {
     company: "Forkable",
-    role: "UI/UX Designer, Design Systems",
+    role: "UX/UI Designer",
     location: "San Francisco, CA",
-    period: "January 2020 to September 2022",
+    period: "Jan 2020 to Sep 2022",
     description: [
-      "Built and maintained a design system for a food-tech platform. Improved feature delivery speed by 35% through reusable components and documented patterns.",
-      "Established component API standards and a design-engineering handoff process that the entire product team adopted.",
+      "Migrated the product design practice from Sketch to Figma over a two-and-a-half-year engagement, building and maintaining the component library and design system that came out of it.",
     ],
   },
   {
-    company: "Xperly",
-    role: "UI/UX Designer",
+    company: "MyJourney",
+    role: "Product Designer",
     location: "Toronto, ON",
-    period: "October 2018 to December 2019",
+    period: "Aug 2019 to Jul 2022",
     description: [
-      "Designed an expert-matching platform from scratch to product-market fit, connecting businesses with industry professionals.",
-      "Led competitive analysis and usability testing, iterating on core matching and onboarding flows. Improved activation rate by 22%.",
+      "Ran user research and usability testing with patients and clinicians to shape accessible, patient-centered flows for a cancer-care web and mobile app.",
     ],
   },
 ];
 
 export const sideProjects: SideProject[] = [
   {
-    title: "Forkestrate",
+    title: "ARND, founding designer",
+    year: "2025 to present",
+    description:
+      "A native iOS app for independent musicians, built solo with agentic AI tooling and taken through App Store readiness: Sign in with Apple, in-app account deletion, a privacy manifest, and accessibility (VoiceOver, Dynamic Type).",
+    url: "https://arnd.app",
+  },
+  {
+    title: "Yuwol Productions, designer and developer",
+    year: "Oct 2025 to present",
+    description:
+      "Internal tooling for a Toronto musical company: a ticketing platform that sold seats for a ten-month production, plus a scheduling tool and a bilingual (Korean and English) script reader used daily by a thirty-person company.",
+    url: "https://torontoyuwol.vercel.app",
+  },
+  {
+    title: "Forkestrate, founding designer",
     year: "2024 to present",
-    description:
-      "Designed and built a conversational AI cooking app exploring trust patterns in AI-assisted instruction. React, Supabase, OpenAI API. Also: I just really like cooking.",
+    description: "A consumer recipe app that adapts recipes conversationally.",
     url: "https://app.forkestrate.com/",
-  },
-  {
-    title: "arnd",
-    year: "2024",
-    description:
-      "Product exploration: how do you make street performing accessible? Focused on discovery, booking, and tip flows for performers and passersby.",
-    url: "https://arnd-alpha.vercel.app/",
-  },
-  {
-    title: "Colour Analysis",
-    year: "2024",
-    description:
-      "Tool exploring colour analysis for beauty and personal styling. Built to understand how AI recommendations map to aesthetic preferences.",
-    url: "https://color-analysis-three.vercel.app/",
-  },
-  {
-    title: "mooze",
-    year: "2024",
-    description:
-      "A tool for collecting and collaging inspiration. Personal project exploring curation UI and mood-board creation flows.",
-    url: "https://mooze.vercel.app/",
-  },
-  {
-    title: "Artist Brand Systems",
-    year: "2022 to 2023",
-    description:
-      "Volunteered design skills to help 4 emerging artists develop visual identities and merchandise. Built reusable systems, not one-off deliverables.",
   },
 ];
 
@@ -128,9 +121,8 @@ export const certifications: Certification[] = [
 
 export const education: Education[] = [
   {
-    school: "York University",
-    detail:
-      "Bachelor of Design, Graphic Design. Visual communication, interactive design, and systematic thinking.",
+    school: "YSDN (York University & Sheridan College joint program)",
+    detail: "Bachelor of Design, Graphic Design, 2012 to 2017.",
   },
   {
     school: "Fine Arts",

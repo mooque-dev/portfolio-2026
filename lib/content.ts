@@ -26,6 +26,10 @@ export interface ProjectFrontmatter {
   // Optional live deployment. When set, the case study shows a "visit the app"
   // link so a visitor can open the real thing, not just read about it.
   liveUrl?: string;
+  // Employer or context for the work, shown beside the role.
+  company?: string;
+  // A 30-second summary for skimming reviewers: [label, text] pairs.
+  tldr?: [string, string][];
 }
 
 export interface Heading {

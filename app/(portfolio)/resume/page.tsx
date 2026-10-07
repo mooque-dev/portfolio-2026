@@ -6,7 +6,7 @@ import { experience, sideProjects, education } from "@/lib/resumeData";
 export const metadata: Metadata = {
   title: "Résumé",
   description:
-    "Allen Kang, product designer. Eight years across education, healthcare, food tech, and nonprofits.",
+    "Allen Kang, senior product designer. Eight years on transaction-heavy products and design systems.",
 };
 
 export default function ResumePage() {
@@ -21,8 +21,9 @@ export default function ResumePage() {
                 Résumé
               </h1>
               <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
-                Eight years across nonprofits, ed-tech, and food-tech. The work was
-                always about the team as much as the product.
+                Eight years on transaction-heavy products: donation and payment
+                flows, multi-entity financial data, and design systems spanning a
+                merged product suite.
               </p>
             </div>
             <a
@@ -77,7 +78,7 @@ export default function ResumePage() {
           <div className="mt-16">
             <Separator className="mb-8" />
             <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
-              Side Projects
+              Independent Projects
             </h2>
             <div className="space-y-6">
               {sideProjects.map((project, i) => (

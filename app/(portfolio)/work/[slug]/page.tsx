@@ -82,7 +82,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
               <dt className="text-xs tracking-widest uppercase text-muted mb-1">
                 Role
               </dt>
-              <dd className="text-sm">{frontmatter.role}</dd>
+              <dd className="text-sm">
+                {frontmatter.role}
+                {frontmatter.company && (
+                  <span className="block text-muted">{frontmatter.company}</span>
+                )}
+              </dd>
             </div>
             <div>
               <dt className="text-xs tracking-widest uppercase text-muted mb-1">
@@ -104,6 +109,29 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </div>
           </dl>
         </FadeIn>
+
+        {frontmatter.tldr && frontmatter.tldr.length > 0 && (
+          <FadeIn delay={0.25}>
+            <section
+              aria-labelledby="tldr-heading"
+              className="mt-10 rounded-lg border border-border bg-surface/60 p-6 md:p-7"
+            >
+              <h2 id="tldr-heading" className="microlabel text-muted">
+                In 30 seconds
+              </h2>
+              <dl className="mt-4 grid gap-x-6 gap-y-4 md:grid-cols-[110px_1fr]">
+                {frontmatter.tldr.map(([label, text]) => (
+                  <div key={label} className="contents">
+                    <dt className="text-xs tracking-widest uppercase text-muted pt-0.5">
+                      {label}
+                    </dt>
+                    <dd className="text-[15px] leading-relaxed">{text}</dd>
+                  </div>
+                ))}
+              </dl>
+            </section>
+          </FadeIn>
+        )}
 
         {/* Cover */}
         {frontmatter.coverImage && (

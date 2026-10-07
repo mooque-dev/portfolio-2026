@@ -122,7 +122,7 @@ export default async function MastercardPage() {
             Making high-stakes numbers easy to trust.
           </h1>
           <p className="mt-6 text-lg text-muted max-w-2xl leading-relaxed">
-            I&rsquo;m Allen, a Product Design Lead with eight years of design
+            I&rsquo;m Allen, a senior product designer with eight years of design
             experience. I design the screens where people reconcile, approve, and
             decide with money and data on the line: accountants closing out tax
             season, finance teams trusting a sync, donors changing their minds at
