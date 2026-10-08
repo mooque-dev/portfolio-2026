@@ -31,6 +31,15 @@ const WORLDS = [
   { a: "Software", b: "The people it forgets", text: "Most of my users never asked for software: nonprofit accountants, clinicians, donors, an amateur musical company. I design so they don't need a manual.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
 ];
 
+// Life outside the work, from the About page, with the site's own stickers.
+const OFF_CLOCK = [
+  { img: "/stickers/shoe.png", text: "Ran a half-marathon on my birthday, fundraising for SickKids Hospital." },
+  { img: "/stickers/piano.png", text: "Took the stage in a 40-person amateur musical, well outside my comfort zone." },
+  { img: "/stickers/korea.png", text: "Write a small zine about daily life in Toronto, in Korean, with hand-lettered titles." },
+  { img: "/stickers/canada.png", text: "Practising French every day since December 2020. A third language, slowly." },
+  { img: "/stickers/palette.png", text: "Grew up among cooks, musicians and artists, and still pick up a brush when I can." },
+];
+
 // Exact excerpts from LinkedIn recommendations.
 const QUOTES = [
   { q: "Allen has this rare ability to zoom from the tiniest UI detail all the way out to cross-product systems thinking without missing a beat.", who: "Natalie Freckleton", role: "Director of Product Management, Velora" },
@@ -136,7 +145,17 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
     <section className="pt-28 md:pt-36 pb-24 md:pb-32">
       <div className="max-w-5xl mx-auto px-6">
         <FadeIn>
-          <p className="microlabel text-muted">Senior Product Designer · Toronto</p>
+          <div className="flex items-center gap-3">
+            <Image
+              src="/allen-kang-portrait.png"
+              alt="Allen Kang"
+              width={44}
+              height={44}
+              className="h-11 w-11 rounded-full object-cover object-[center_20%] ring-1 ring-border"
+              priority
+            />
+            <p className="microlabel text-muted">Allen Kang · Senior Product Designer · Toronto</p>
+          </div>
           <h1 className="mt-4 text-[26px] md:text-[44px] leading-[1.15] font-light tracking-[-0.015em] text-balance max-w-4xl">
             I design transaction-heavy products: donation and payment flows,
             multi-entity financial data, and the systems that keep them consistent.
@@ -281,6 +300,26 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
             </div>
           </FadeIn>
         )}
+
+        <FadeIn delay={0.2}>
+          <div className="mt-20">
+            <h2 className="microlabel text-muted">Off the clock</h2>
+            <p className="mt-3 font-serif text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+              I&rsquo;m an optimist. Optimism is a design tool: it&rsquo;s how you get people to believe a better version is possible, then go build it.
+            </p>
+            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+              {OFF_CLOCK.map((o) => (
+                <li key={o.img} className="flex flex-col gap-3 min-w-0">
+                  <Image src={o.img} alt="" width={64} height={48} className="h-12 w-auto object-contain object-left [image-rendering:pixelated]" />
+                  <p className="text-[14px] leading-relaxed text-muted">{o.text}</p>
+                </li>
+              ))}
+            </ul>
+            <Link href="/about" className="mt-6 inline-block text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity">
+              More about me &rarr;
+            </Link>
+          </div>
+        </FadeIn>
 
         {recentWriting.length > 0 && (
           <FadeIn delay={0.22}>
