@@ -56,7 +56,6 @@ export const experience: Job[] = [
     location: "Vancouver, BC",
     period: "Feb 2021 to Mar 2023",
     description: [
-      "Redesigned onboarding and checkout flows.",
       "Stepped in as Associate PM to ship the Pipelines feature, earning recognition for autonomy and leadership.",
     ],
   },
