@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-08",
+    title: "Two numbers, credited where they belong",
+    tags: ["fix", "content"],
+    what: "Removed a 92% setup-completion figure from the Aplos and Keela integration case study. The 92% in my work is the fee opt-in result, not setup completion. The résumé PDF is also corrected: the 70% drop in support tickets now sits with the split-transaction work where it happened, the fee opt-in test is listed under my Aplos role, mentoring is included, and the contact address is allensmkang@gmail.com.",
+    why: "Every number on this site should be one I can defend line by line in an interview. Two of them were credited to the wrong work.",
+  },
+  {
     date: "2026-09-30",
     title: "The link preview card catches up too",
     tags: ["fix"],
