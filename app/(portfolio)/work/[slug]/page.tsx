@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getProject, getProjectSlugs, getAllProjects, extractHeadings } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
 import TableOfContents from "@/components/TableOfContents";
@@ -28,6 +28,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const { slug } = await params;
   const project = await getProject(slug);
   if (!project) notFound();
+  if (project.frontmatter.href) redirect(project.frontmatter.href);
 
   const allProjects = await getAllProjects();
   const currentIndex = allProjects.findIndex((p) => p.slug === slug);

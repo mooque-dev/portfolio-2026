@@ -30,6 +30,8 @@ export interface ProjectFrontmatter {
   company?: string;
   // A 30-second summary for skimming reviewers: [label, text] pairs.
   tldr?: [string, string][];
+  // A case study that lives on its own standalone page instead of /work/[slug].
+  href?: string;
 }
 
 export interface Heading {

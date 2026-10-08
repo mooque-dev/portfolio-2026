@@ -20,6 +20,7 @@ export default async function Home() {
     featuredStat: p.frontmatter.featuredStat,
     featuredStatLabel: p.frontmatter.featuredStatLabel,
     company: p.frontmatter.company,
+    href: p.frontmatter.href,
   }));
 
   const writing = recentWriting.map((w) => ({

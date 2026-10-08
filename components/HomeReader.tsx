@@ -20,7 +20,25 @@ const SELECTED = [
   "automation-nonprofits",
   "fee-opt-in-experimentation",
 ];
+const DATAVIZ = ["care-pathway-dashboards", "keela-contacts"];
 const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
+
+// Each pair is backed by real work, linked, so the theme reads as evidence.
+const WORLDS = [
+  { a: "Fine art", b: "Product design", text: "I trained in pencil, watercolour and oil before I opened Figma. It's why I sweat the visual craft in dense, data-heavy screens.", href: "/illustration", link: "Where it started" },
+  { a: "Korean", b: "English", text: "I built a Korean and English script reader that a thirty-person musical company rehearsed with every day through a ten-month production.", href: "/work/torontoyuwol", link: "Toronto Yuwol" },
+  { a: "Design", b: "Engineering", text: "I prototype in code, and I sat on the bridge between our design system and Keela's frontend, reviewing pull requests with engineers.", href: "/work/orchid-design-system", link: "Orchid" },
+  { a: "Software", b: "The people it forgets", text: "Most of my users never asked for software: nonprofit accountants, clinicians, donors, an amateur musical company. I design so they don't need a manual.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
+];
+
+// Exact excerpts from LinkedIn recommendations.
+const QUOTES = [
+  { q: "Allen has this rare ability to zoom from the tiniest UI detail all the way out to cross-product systems thinking without missing a beat.", who: "Natalie Freckleton", role: "Director of Product Management, Velora" },
+  { q: "He treats the design system as a shared product, not someone else's problem.", who: "Max Galchenko", role: "Senior React developer, Velora, on a different product team" },
+  { q: "I learned a great deal from him during our time working together… his ability to distill complex problems into simple, elegant solutions set a high standard for design excellence.", who: "Dick De Leon", role: "Senior to Allen at Aplos" },
+  { q: "Even while supporting multiple teams, he is always responsive, reliable, and easy to work with.", who: "Randy Douglas", role: "Software engineer, same team" },
+  { q: "Allen's forward-thinking, North Star-guided approach and user-centric designs were also instrumental in crafting/communicating a motivational product vision for our teams.", who: "Eric Hua", role: "Product manager and founder, Forkestrate" },
+];
 
 const IMPACT = [
   { value: "13%", label: "ARR increase from Automation, adopted by 30% of 355 organizations" },
@@ -31,11 +49,13 @@ const IMPACT = [
 const pick = (all: ProjectSummary[], slugs: string[]) =>
   slugs.map((s) => all.find((p) => p.slug === s)).filter((p): p is ProjectSummary => !!p);
 
+const hrefOf = (p: ProjectSummary) => p.href ?? `/work/${p.slug}`;
+
 function CaseRow({ project }: { project: ProjectSummary }) {
   return (
     <li>
       <Link
-        href={`/work/${project.slug}`}
+        href={hrefOf(project)}
         className="group grid gap-5 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-center py-7 border-b border-border"
       >
         <div
@@ -83,7 +103,7 @@ function CaseRow({ project }: { project: ProjectSummary }) {
 
 function BuiltCard({ project }: { project: ProjectSummary }) {
   return (
-    <Link href={`/work/${project.slug}`} className="group block min-w-0">
+    <Link href={hrefOf(project)} className="group block min-w-0">
       <div
         className="relative aspect-[3/2] overflow-hidden rounded-md ring-1 ring-inset ring-black/[0.07] dark:ring-white/10"
         style={{ backgroundColor: project.coverColor }}
@@ -110,6 +130,7 @@ function BuiltCard({ project }: { project: ProjectSummary }) {
 export default function HomeReader({ allProjects, recentWriting }: Props) {
   const selected = pick(allProjects, SELECTED);
   const built = pick(allProjects, BUILT);
+  const dataviz = pick(allProjects, DATAVIZ);
 
   return (
     <section className="pt-28 md:pt-36 pb-24 md:pb-32">
@@ -180,6 +201,68 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
                 <CaseRow key={p.slug} project={p} />
               ))}
             </ol>
+          </div>
+        </FadeIn>
+
+        {dataviz.length > 0 && (
+          <FadeIn delay={0.15}>
+            <div className="mt-20">
+              <h2 className="microlabel text-muted">Data visualization, interactive</h2>
+              <p className="mt-2 text-[14.5px] text-muted max-w-2xl">
+                Dashboards I designed, rebuilt with what I know now. Each one is a working version you can filter and explore.
+              </p>
+              <ol className="mt-2">
+                {dataviz.map((p) => (
+                  <CaseRow key={p.slug} project={p} />
+                ))}
+              </ol>
+            </div>
+          </FadeIn>
+        )}
+
+        <FadeIn delay={0.16}>
+          <div className="mt-20">
+            <h2 className="microlabel text-muted">Between two worlds</h2>
+            <p className="mt-3 font-serif text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+              I&rsquo;m a builder and a translator. Most of my work happens where two sides don&rsquo;t share a language yet.
+            </p>
+            <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+              {WORLDS.map((w) => (
+                <div key={w.a} className="border-t border-border pt-5 min-w-0">
+                  <p className="text-[15px] font-semibold">
+                    {w.a} <span className="text-muted font-normal" aria-hidden>&harr;</span>
+                    <span className="sr-only"> and </span> {w.b}
+                  </p>
+                  <p className="mt-2 text-[14.5px] leading-relaxed text-muted">{w.text}</p>
+                  <Link href={w.href} className="mt-2 inline-block text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity">
+                    {w.link} &rarr;
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+
+        <FadeIn delay={0.17}>
+          <div className="mt-20">
+            <div className="flex items-baseline justify-between">
+              <h2 className="microlabel text-muted">What people I&rsquo;ve worked with say</h2>
+              <a href="https://www.linkedin.com/in/mooque/details/recommendations/" target="_blank" rel="noopener noreferrer" className="text-xs text-muted hover:text-foreground transition-colors">
+                All on LinkedIn &rarr;<span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </div>
+            <div className="mt-6 grid gap-6 md:grid-cols-2">
+              {QUOTES.map((t, i) => (
+                <figure key={t.who} className={`m-0 rounded-lg border border-border p-6 ${i === 0 ? "md:col-span-2" : ""}`}>
+                  <blockquote className={`m-0 font-serif leading-snug ${i === 0 ? "text-xl md:text-2xl" : "text-[17px]"}`}>
+                    &ldquo;{t.q}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-4 text-[13px] text-muted">
+                    <span className="text-foreground font-medium">{t.who}</span> &middot; {t.role}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </div>
         </FadeIn>
 

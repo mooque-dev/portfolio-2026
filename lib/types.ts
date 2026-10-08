@@ -13,6 +13,7 @@ export interface ProjectSummary {
   featuredStat?: string;
   featuredStatLabel?: string;
   company?: string;
+  href?: string;
 }
 
 export interface WritingSummary {
