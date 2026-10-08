@@ -33,11 +33,12 @@ const WORLDS = [
 
 // Life outside the work, from the About page, with the site's own stickers.
 const OFF_CLOCK = [
-  { img: "/stickers/shoe.png", text: "Ran a half-marathon on my birthday, fundraising for SickKids Hospital." },
-  { img: "/stickers/piano.png", text: "Took the stage in a 40-person amateur musical, well outside my comfort zone." },
-  { img: "/stickers/korea.png", text: "Write a small zine about daily life in Toronto, in Korean, with hand-lettered titles." },
-  { img: "/stickers/canada.png", text: "Practising French every day since December 2020. A third language, slowly." },
-  { img: "/stickers/palette.png", text: "Grew up among cooks, musicians and artists, and still pick up a brush when I can." },
+  { img: "/stickers/piano.png", text: "Performed in a 40-person amateur musical this August, with 350 tickets sold. I built its scheduling, bill-splitting and script-reader apps, and I'm back for season two." },
+  { img: "/stickers/palette.png", text: "The kid who wanted to make art now builds for the arts scene: Toronto Yuwol, ARND, and volunteering as design lead at ArtsGaze." },
+  { img: "/stickers/guitar.png", text: "Grew up around cooks, and many of my friends are musicians. That world is where most of my ideas come from." },
+  { img: "/stickers/shoe.png", text: "Ran a half-marathon on my own." },
+  { img: "/stickers/seal.png", text: "Raised $1,000 for SickKids Hospital." },
+  { img: "/stickers/capybara.png", text: "Kept a daily streak for years, first French, now chess. Streak apps are a good on-ramp to a language, not a way to learn one." },
 ];
 
 // Exact excerpts from LinkedIn recommendations.
@@ -307,7 +308,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
             <p className="mt-3 font-serif text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m an optimist. Optimism is a design tool: it&rsquo;s how you get people to believe a better version is possible, then go build it.
             </p>
-            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            <ul className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
               {OFF_CLOCK.map((o) => (
                 <li key={o.img} className="flex flex-col gap-3 min-w-0">
                   <Image src={o.img} alt="" width={64} height={48} className="h-12 w-auto object-contain object-left [image-rendering:pixelated]" />
