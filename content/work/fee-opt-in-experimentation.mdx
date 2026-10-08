@@ -11,6 +11,7 @@ tools:
   - Cursor
   - MagicPatterns
   - A/B Testing
+  - Pendo
 coverColor: "#e8e0cf"
 coverImage: "/case-studies/fee-opt-in/cover.jpg"
 featured: true
@@ -19,7 +20,7 @@ order: 1
 featuredStat: "75% → 92%"
 featuredStatLabel: "Donation fee opt-in, A/B tested"
 company: "Aplos · Raisely"
-tldr: [["Problem","A redesigned fee box looked like a win, 75% to 82%, but hid a leak in the fallback flow donors landed in."],["Decision","I argued to pause the rollout and redesigned the moment a donor edits their fee, testing three production-ready variants."],["Outcome","Fee opt-in reached 92%, with conversion and average gift size held steady."],["Principle","Design the decision, not the default."]]
+tldr: [["Problem","A redesigned fee box looked like a win, 75% to 82%, but hid a leak in the fallback flow donors landed in."],["Decision","I argued to pause the rollout, redesigned the moment a donor edits their fee, and tested four variations in Pendo to find the highest-return option."],["Outcome","Fee opt-in reached 92%, with conversion and average gift size held steady."],["Principle","Design the decision, not the default."]]
 ---
 
 ## The Deceptive Win
@@ -43,7 +44,7 @@ So I reframed the brief from "raise opt-in" to a sharper question: *how do we de
 
 ## Designing the Decision, Not the Default
 
-The experiment centered on the fallback control itself. I designed three variants grounded in established behavioral patterns (defaults, anchoring, and soft-decline) rather than guessing:
+The experiment centered on the fallback control itself. I designed three new variants grounded in established behavioral patterns (defaults, anchoring, and soft-decline) rather than guessing, and tested them against the existing control, four variations in total, measuring donation rates in Pendo:
 
 - **Slider:** a continuous control anchored at a sensible default, making "a little less" feel like a small nudge rather than a cliff to zero.
 - **Toggle buttons:** discrete, pre-framed choices that removed the blank-slate problem of a free-entry field.

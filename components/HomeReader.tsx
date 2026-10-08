@@ -123,7 +123,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           <p className="mt-5 text-[17px] md:text-lg leading-relaxed text-muted max-w-3xl">
             Eight years across nonprofit software and healthcare, most recently on a
             three-product suite merging into one. I use research to cut friction in
-            dense, high-stakes flows, and I ship end to end.
+            dense, high-stakes flows, ship end to end, and have mentored three designers.
           </p>
         </FadeIn>
 
@@ -136,7 +136,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
               Résumé (PDF)
             </a>
             <a
-              href="mailto:allen@allenkang.com"
+              href="mailto:allensmkang@gmail.com"
               className="inline-flex items-center h-10 px-5 rounded-full border border-border text-sm font-medium hover:border-foreground/40 transition-colors"
             >
               Email

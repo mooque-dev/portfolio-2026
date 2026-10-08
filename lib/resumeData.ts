@@ -33,7 +33,9 @@ export const experience: Job[] = [
       "Designed unified experiences across a three-product nonprofit software suite (Aplos, Keela, Raisely) as separate platforms merged into one.",
       "Led integration design across all three products: data import and export, schema translation, and cross-platform data fidelity for accurate, auditable financial records.",
       "Consolidated roughly 340 components into a single Figma library serving three products with different existing conventions, owning deprecation decisions, naming governance, and adoption across three engineering teams.",
-      "Designed a split-transaction feature for multi-category donation logging, keeping financial data compliant across Canadian, US, and Australian tax rules.",
+      "Designed a split-transaction feature so one payment can be logged as a donation, an in-kind gift, and the value of goods received, keeping financial data compliant across Canadian, US, and Australian tax rules and cutting related support tickets by 70%.",
+      "Ran a four-variation A/B test on Raisely's donation fee flow, measured in Pendo, raising fee opt-in from 75% to 92% while conversion held steady.",
+      "Mentored two designers.",
     ],
   },
   {
@@ -45,6 +47,7 @@ export const experience: Job[] = [
       "Led design of core fundraising tools (Automation, Pipelines, Reports & Dashboards) for donor management, donation tracking, and revenue reporting.",
       "Contributed to a 13% ARR increase through the Automation feature, which reached 30% adoption across 355 organizations.",
       "Established the design system and launch process that improved cross-team collaboration and shipping consistency.",
+      "Mentored one designer.",
     ],
   },
   {
@@ -53,7 +56,7 @@ export const experience: Job[] = [
     location: "Vancouver, BC",
     period: "Feb 2021 to Mar 2023",
     description: [
-      "Redesigned onboarding and checkout flows, cutting support volume by roughly 70% from a baseline of 500 tickets per quarter and bringing self-serve setup completion to 92%.",
+      "Redesigned onboarding and checkout flows.",
       "Stepped in as Associate PM to ship the Pipelines feature, earning recognition for autonomy and leadership.",
     ],
   },

@@ -9,6 +9,15 @@ export interface NowSnapshot {
 
 export const nowSnapshots: NowSnapshot[] = [
   {
+    date: "2026-10-08",
+    items: [
+      { text: "Building two products with my musical company" },
+      { text: "Building ARND, live music around you", href: "/work/arnd" },
+      { text: "Joining hackathons" },
+      { text: "Designing a stealth product for care facilities" },
+    ],
+  },
+  {
     date: "2026-07-03",
     items: [
       { text: "Leading design at Velora" },

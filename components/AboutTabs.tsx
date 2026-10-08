@@ -93,12 +93,12 @@ export default function AboutTabs() {
                   a contraction I&apos;ve worn long enough that it&apos;s mine now.
                   Something between a handle and a brand. Easy to remember, hard
                   to place, which felt right for someone who doesn&apos;t fit
-                  neatly into a single box. It&apos;s also where to reach me:{" "}
+                  neatly into a single box. You can reach me at{" "}
                   <a
-                    href="mailto:allen@allenkang.com"
+                    href="mailto:allensmkang@gmail.com"
                     className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                   >
-                    allen@allenkang.com
+                    allensmkang@gmail.com
                   </a>.
                 </p>
                 <p>
@@ -198,7 +198,7 @@ export default function AboutTabs() {
                 0→1 platform work is at the center. If you&apos;re
                 building something interesting,{" "}
                 <a
-                  href="mailto:allen@allenkang.com"
+                  href="mailto:allensmkang@gmail.com"
                   className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity"
                 >
                   I&apos;d love to talk
@@ -325,10 +325,10 @@ export default function AboutTabs() {
               </h2>
               <div className="flex flex-wrap gap-6 text-sm">
                 <a
-                  href="mailto:allen@allenkang.com"
+                  href="mailto:allensmkang@gmail.com"
                   className="underline underline-offset-4 decoration-1 hover:opacity-70 transition-opacity"
                 >
-                  allen@allenkang.com
+                  allensmkang@gmail.com
                 </a>
                 <a
                   href="https://www.linkedin.com/in/mooque/"

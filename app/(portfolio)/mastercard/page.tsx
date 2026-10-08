@@ -30,10 +30,10 @@ const stats = [
     slug: "aplos-keela-integration",
   },
   {
-    value: "92%",
-    label: "completed self-serve setup unaided",
-    note: "Aplos × Keela",
-    slug: "aplos-keela-integration",
+    value: "$1.8M",
+    label: "ARR in connected accounts supported",
+    note: "Transaction Workflows",
+    slug: "transaction-workflows",
   },
   {
     value: "75→92%",
