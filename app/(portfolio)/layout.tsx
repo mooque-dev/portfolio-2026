@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DeferredGuide from "@/components/DeferredGuide";
+import InspectMode from "@/components/InspectMode";
 import { ReactNode } from "react";
 
 export default function PortfolioLayout({ children }: { children: ReactNode }) {
@@ -12,6 +13,7 @@ export default function PortfolioLayout({ children }: { children: ReactNode }) {
       </main>
       <Footer />
       <DeferredGuide />
+      <InspectMode />
     </>
   );
 }

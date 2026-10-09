@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
@@ -10,6 +10,8 @@ import CaseLightbox from "@/components/CaseLightbox";
 import CaseDemos from "@/components/CaseDemos";
 import PenMarks from "@/components/PenMarks";
 import Arrow from "@/components/Arrow";
+import GlanceValue from "@/components/GlanceValue";
+import CaseSeal from "@/components/CaseSeal";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -58,6 +60,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const minutes = Math.max(1, Math.round(words / 230));
   // Image-led archives with no chapters read better as a grid.
   const gallery = chapters.length === 0 && (project.content.match(/<img/g) ?? []).length >= 6;
+  const sealed = chapters.length > 0 && !gallery;
   const blur = frontmatter.wip
     ? "[&_img]:blur-md [&_img]:brightness-75 [&_img.clear]:blur-none [&_img.clear]:brightness-100"
     : "";
@@ -140,10 +143,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {frontmatter.glance && frontmatter.glance.length > 0 && (
           <FadeIn delay={0.15}>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {frontmatter.glance.map(([value, label]) => (
-                <div key={label} className="border-t-2 border-foreground pt-3">
+              {frontmatter.glance.map(([value, label], i) => (
+                <div key={label} className="glance pt-3" style={{ "--rule-delay": `${0.3 + i * 0.12}s` } as CSSProperties}>
                   <b className="block text-[34px] md:text-[40px] leading-[1.05] font-bold tracking-[-0.02em] tabular-nums">
-                    {value}
+                    <GlanceValue value={value} index={i} />
                   </b>
                   <span className="block mt-1.5 text-[15px] leading-snug text-muted">{label}</span>
                 </div>
@@ -238,8 +241,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </section>
         ))}
 
+        {sealed && <CaseSeal />}
+
         {frontmatter.credits && frontmatter.credits.length > 0 && (
-          <section aria-labelledby="credits" className="mt-24 pt-10 border-t border-border">
+          <section aria-labelledby="credits" className={`${sealed ? "mt-14" : "mt-24"} pt-10 border-t border-border`}>
             <h2 id="credits" className="text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">
               Built with
             </h2>
@@ -270,7 +275,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </section>
         )}
 
-        <nav aria-label="More projects" className={`${frontmatter.credits?.length ? "mt-12" : "mt-24"} pt-10 border-t border-border`}>
+        <nav aria-label="More projects" className={`${frontmatter.credits?.length ? "mt-12" : sealed ? "mt-14" : "mt-24"} pt-10 border-t border-border`}>
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <p className="text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">More {shelfName}</p>
             <div className="flex gap-5 text-[14px]">

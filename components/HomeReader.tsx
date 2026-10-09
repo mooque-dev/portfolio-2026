@@ -8,6 +8,8 @@ import type { ProjectSummary } from "@/lib/types";
 import { WORLDS, OFF_CLOCK, RESULTS, RESULTS_TOTAL } from "@/lib/identity";
 import ResultsReceipt from "@/components/ResultsReceipt";
 import Arrow from "@/components/Arrow";
+import OffClock from "@/components/OffClock";
+import CurtainCall from "@/components/CurtainCall";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -115,7 +117,7 @@ export default function HomeReader({ allProjects }: Props) {
   const dataviz = pick(allProjects, DATAVIZ);
 
   return (
-    <section className="pt-28 md:pt-36 pb-24 md:pb-32">
+    <section className="pt-28 md:pt-36 pb-4">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="flex items-center gap-3">
@@ -297,20 +299,14 @@ export default function HomeReader({ allProjects }: Props) {
             <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m an optimist. Optimism is a design tool: it&rsquo;s how you get people to believe a better version is possible, then go build it.
             </p>
-            <ul className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
-              {OFF_CLOCK.map((o) => (
-                <li key={o.img} className="flex flex-col gap-3 min-w-0">
-                  <Image src={o.img} alt="" width={64} height={48} className="h-12 w-auto object-contain object-left [image-rendering:pixelated]" />
-                  <p className="text-[14px] leading-relaxed text-muted">{o.text}</p>
-                </li>
-              ))}
-            </ul>
+            <OffClock items={OFF_CLOCK} />
             <Link href="/about" className="mt-6 inline-block text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity">
               More about me <Arrow />
             </Link>
           </div>
         </FadeIn>
 
+        <CurtainCall />
       </div>
     </section>
   );

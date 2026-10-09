@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-09",
+    title: "A little character, played once",
+    tags: ["design", "engineering"],
+    what: "Five small things from the character studies. The headline numbers on each case study count up once as the page opens, with the rule above them drawing in, and Fee Opt-In slides from 75% to 92% instead of counting from zero. Each case ends with my seal, stamped when you reach it. The red pen got a second mark on each lead case, and one on Forkable. Press I anywhere (or Inspect in the footer) to see the type, sizes and radii the page is actually built from, read live from the browser. On the home page, the stickers lift when you hover them, the stage mic turns the house lights down for a spotlight, and the page ends with a curtain call. The footer links to ARND.",
+    why: "The work should come first, so nothing moves before it and each moment plays once. Reduced motion turns all of it off. Each piece is something I actually do: I mark up screens in red, I build design systems, I got on stage this summer, and I build things that run.",
+  },
+  {
+    date: "2026-10-09",
     title: "Where mooque comes from",
     tags: ["content"],
     what: "A quiet line under my name on the home page: \"Online as mooque.\" The story behind the name stays on the About page.",

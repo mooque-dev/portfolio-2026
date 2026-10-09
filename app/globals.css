@@ -857,3 +857,331 @@ select {
 select::-ms-expand {
   display: none;
 }
+
+/* ---- Character: numbers that move (GlanceValue) ----
+   One grammar for every headline number: the rule above it draws in while
+   the number counts up, once, as the page opens. */
+@property --n {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+.glance {
+  position: relative;
+}
+.glance::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: var(--foreground);
+  transform-origin: left;
+  animation: glance-rule 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--rule-delay, 0.3s) both;
+}
+.glance-count {
+  display: inline-block;
+  text-align: left;
+  counter-reset: n var(--n);
+  animation: glance-count 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) var(--count-delay, 0.3s) both;
+}
+.glance-count::after {
+  content: counter(n);
+}
+@keyframes glance-count {
+  from { --n: var(--from); }
+  to { --n: var(--to); }
+}
+@keyframes glance-rule {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glance::before,
+  .glance-count {
+    animation-duration: 0s;
+    animation-delay: 0s;
+  }
+}
+
+/* ---- Character: the seal at the end of a case (CaseSeal) ---- */
+.case-seal .seal-mark {
+  transform: rotate(-6deg);
+}
+.case-seal.seal-wait:not(.seal-on) .seal-mark,
+.case-seal.seal-wait:not(.seal-on) p {
+  opacity: 0;
+}
+.case-seal.seal-on .seal-mark {
+  animation: seal-press 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+.case-seal.seal-on p {
+  animation: fi-in 0.4s ease 0.35s both;
+  --fi-from: translateX(-6px);
+}
+@keyframes seal-press {
+  0% { opacity: 0; transform: scale(1.7) rotate(-14deg); }
+  60% { opacity: 1; transform: scale(0.94) rotate(-6deg); }
+  100% { opacity: 1; transform: scale(1) rotate(-6deg); }
+}
+
+/* ---- Character: stickers and the stage mic (OffClock) ---- */
+.offclock .sticker {
+  display: block;
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1), filter 0.25s;
+}
+.offclock li:hover .sticker,
+.offclock .sticker:focus-visible {
+  transform: translateY(-6px) rotate(-6deg);
+  filter: drop-shadow(0 8px 6px rgb(0 0 0 / 0.25));
+}
+.offclock button.sticker:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 4px;
+}
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+  background: radial-gradient(circle 240px at var(--spot-x, 50%) var(--spot-y, 50%), transparent 0 50%, rgb(8 7 6 / 0.88) 100%);
+}
+.spotlight.is-on {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .offclock .sticker,
+  .spotlight {
+    transition: none;
+  }
+}
+
+/* ---- Character: curtain call, the last screen of home (CurtainCall) ---- */
+.curtain-call {
+  position: relative;
+  height: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0b0a09;
+  isolation: isolate;
+}
+.cc-stage {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 40% 70% at 50% 0%, rgb(255 236 200 / 0.18), transparent 70%),
+    linear-gradient(to top, #2a1d14 0 22%, #0b0a09 22%);
+}
+.cc-drape {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 51%;
+  z-index: 1;
+  background:
+    linear-gradient(to top, rgb(0 0 0 / 0.35), transparent 18%),
+    repeating-linear-gradient(90deg, rgb(0 0 0 / 0.38) 0, rgb(0 0 0 / 0) 10px, rgb(255 255 255 / 0.07) 22px, rgb(0 0 0 / 0) 34px, rgb(0 0 0 / 0.32) 44px),
+    linear-gradient(#a5202f, #861a26);
+  transition: transform 1.1s cubic-bezier(0.6, 0, 0.2, 1);
+}
+.cc-left {
+  left: 0;
+  transform: translateX(-100%);
+  box-shadow: inset -10px 0 18px -10px rgb(0 0 0 / 0.6);
+}
+.cc-right {
+  right: 0;
+  transform: translateX(100%);
+  box-shadow: inset 10px 0 18px -10px rgb(0 0 0 / 0.6);
+}
+.curtain-call.is-closed .cc-drape {
+  transform: none;
+}
+.cc-valance {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 30px;
+  z-index: 2;
+  background:
+    radial-gradient(circle at 50% 0, #7a1622 0 18px, transparent 19px) 0 6px / 40px 24px repeat-x,
+    linear-gradient(#7a1622 0 8px, transparent 8px);
+  filter: drop-shadow(0 4px 4px rgb(0 0 0 / 0.35));
+}
+.cc-bow {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 6px;
+  padding: 24px;
+  text-align: center;
+  color: #f6f1e6;
+  text-shadow: 0 1px 12px rgb(0 0 0 / 0.45);
+  transition: opacity 0.45s ease 0.9s, visibility 0s linear 0.9s;
+}
+.curtain-call:not(.is-closed) .cc-bow {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0s linear 0.2s;
+}
+.cc-title {
+  margin: 0;
+  font-size: clamp(32px, 5vw, 48px);
+  line-height: 1.1;
+  font-weight: 600;
+}
+.cc-sub {
+  margin: 0;
+  font-size: 15px;
+  opacity: 0.85;
+}
+.cc-actions {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.cc-actions a,
+.cc-actions button {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 99px;
+  border: 1px solid rgb(246 241 230 / 0.45);
+  background: rgb(0 0 0 / 0.18);
+  color: inherit;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-shadow: none;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.cc-actions a:hover,
+.cc-actions button:hover {
+  background: rgb(0 0 0 / 0.32);
+  border-color: rgb(246 241 230 / 0.8);
+}
+.cc-actions a:focus-visible,
+.cc-actions button:focus-visible {
+  outline: 2px solid #f6f1e6;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .cc-drape,
+  .cc-bow {
+    transition: none;
+  }
+}
+
+/* ---- Character: inspect mode (InspectMode) ----
+   Its own layer above the page that never takes a click. */
+.inspect-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+}
+.inspect-box {
+  position: fixed;
+  outline: 1px dashed color-mix(in srgb, var(--seal) 70%, transparent);
+  outline-offset: 2px;
+}
+.inspect-box.is-hover {
+  outline: 1.5px solid var(--seal);
+  background: color-mix(in srgb, var(--seal) 6%, transparent);
+}
+.inspect-box i {
+  position: absolute;
+  left: -2px;
+  top: -5px;
+  transform: translateY(-100%);
+  max-width: min(520px, 90vw);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  font-variant-numeric: tabular-nums;
+  color: #fff;
+  background: var(--seal);
+  padding: 0 6px;
+  border-radius: 3px;
+}
+.inspect-box:not(.is-hover) i {
+  opacity: 0.88;
+}
+.inspect-box i.in {
+  top: 4px;
+  left: 4px;
+  transform: none;
+}
+.inspect-box.is-hover i {
+  z-index: 1;
+}
+.inspect-hint {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100vw - 32px);
+  padding: 8px 8px 8px 16px;
+  border-radius: 99px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 13px;
+  box-shadow: 0 10px 30px -12px rgb(0 0 0 / 0.5);
+}
+.inspect-hint button {
+  pointer-events: auto;
+  border: 0;
+  border-radius: 99px;
+  padding: 5px 12px;
+  background: var(--background);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ---- Character: live from ARND (ArndLive), in ARND's own blue ---- */
+.arnd-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #504bf1;
+  flex: none;
+}
+.dark .arnd-dot { background: #847ff7; }
+.dark .arnd-dot.is-live::after { color: #847ff7; }
+.arnd-dot.is-live::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  color: #504bf1;
+  animation: arnd-ring 2s ease-out infinite;
+}
+@keyframes arnd-ring {
+  from { opacity: 0.8; transform: scale(0.4); }
+  to { opacity: 0; transform: scale(1.3); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arnd-dot.is-live::after { animation: none; opacity: 0; }
+}

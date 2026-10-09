@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Arrow from "@/components/Arrow";
+import ArndLive from "@/components/ArndLive";
+import InspectToggle from "@/components/InspectToggle";
 
 export default function Footer() {
   return (
@@ -67,17 +69,21 @@ export default function Footer() {
             </a>
           </div>
         </div>
+        <ArndLive />
       </div>
       <div className="max-w-6xl mx-auto px-6 pb-8 flex items-center justify-between">
         <p className="text-xs text-muted">
           &copy; {new Date().getFullYear()} Allen Kang
         </p>
+        <div className="flex items-center gap-5">
+        <InspectToggle />
         <Link
           href="/gateway"
           className="text-xs text-muted hover:text-muted transition-colors tracking-wide"
         >
           Elsewhere <Arrow dir="up-right" />
         </Link>
+        </div>
       </div>
     </footer>
   );
