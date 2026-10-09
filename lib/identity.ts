@@ -11,12 +11,12 @@ export const WORLDS = [
 
 // Life outside the work, from the About page, with the site's own stickers.
 export const OFF_CLOCK = [
-  { img: "/stickers/piano.png", text: "Performed in a 40-person amateur musical this August, with 350 tickets sold. I built its scheduling, bill-splitting and script-reader apps, and I'm back for season two." },
+  { img: "/stickers/stage-mic.png", text: "Performed in a 40-person amateur musical this August, with 350 tickets sold. I built its scheduling, bill-splitting and script-reader apps, and I'm back for season two." },
   { img: "/stickers/palette.png", text: "The kid who wanted to make art now builds for the arts scene: Toronto Yuwol, ARND, and volunteering as design lead at ArtsGaze." },
-  { img: "/stickers/guitar.png", text: "Grew up around cooks, and many of my friends are musicians. That world is where most of my ideas come from." },
-  { img: "/stickers/shoe.png", text: "Ran a half-marathon on my own." },
-  { img: "/stickers/seal.png", text: "Raised $1,000 for SickKids Hospital." },
-  { img: "/stickers/capybara.png", text: "Kept a daily streak for years, first French, now chess. Streak apps are a good on-ramp to a language, not a way to learn one." },
+  { img: "/stickers/rainbow-flower.png", text: "Grew up around cooks, and many of my friends are musicians. That world is where most of my ideas come from." },
+  { img: "/stickers/running-shoe.png", text: "Ran a half-marathon on my own." },
+  { img: "/stickers/bear-heart.png", text: "Raised $1,000 for SickKids Hospital." },
+  { img: "/stickers/invader.png", text: "Kept a daily streak for years, first French, now chess. Streak apps are a good on-ramp to a language, not a way to learn one." },
 ];
 
 // Exact excerpts from LinkedIn recommendations.

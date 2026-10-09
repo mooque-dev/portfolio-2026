@@ -9,7 +9,7 @@ type Offset = { x: number; y: number };
 // Scrapbook layout: scattered down the right margin of the About column.
 // left is a percentage of the page container; top is px from its top.
 const STICKERS = [
-  { id: "shoe", w: 96, h: 70, left: 74, top: 150, rot: -8 },
+  { id: "running-shoe", w: 96, h: 65, left: 74, top: 150, rot: -8 },
   { id: "korea", w: 112, h: 82, left: 84, top: 360, rot: 6 },
   { id: "canada", w: 112, h: 82, left: 72, top: 560, rot: -5 },
   { id: "jacob", w: 104, h: 104, left: 87, top: 780, rot: 8 },
