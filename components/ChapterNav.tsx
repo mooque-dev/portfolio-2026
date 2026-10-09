@@ -42,7 +42,7 @@ export default function ChapterNav({
       aria-label="Chapters"
       className="sticky top-16 z-40 mt-16 border-b border-border bg-background/95 backdrop-blur-sm"
     >
-      <div className="max-w-[1120px] mx-auto px-6 flex items-center gap-3">
+      <div className="max-w-6xl mx-auto px-6 flex items-center gap-3">
         <div
           ref={rowRef}
           className="min-w-0 flex-1 flex gap-1.5 overflow-x-auto py-2.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"

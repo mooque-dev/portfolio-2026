@@ -92,7 +92,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       <header
         id="overview"
-        className={`max-w-[1120px] mx-auto px-6 scroll-mt-32 ${chapters.length > 1 ? "pt-12 md:pt-16" : "pt-32 md:pt-40"}`}
+        className={`max-w-6xl mx-auto px-6 scroll-mt-32 ${chapters.length > 1 ? "pt-12 md:pt-16" : "pt-32 md:pt-40"}`}
       >
         <FadeIn>
           <Link href="/work" className="text-sm text-muted hover:text-foreground transition-colors">
@@ -185,7 +185,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {frontmatter.coverImage && (
           <FadeIn delay={0.25}>
             <div
-              className="mt-12 aspect-[16/9] rounded-lg overflow-hidden relative border border-border"
+              className="mt-12 aspect-[3/2] rounded-lg overflow-hidden relative border border-border"
               style={{ backgroundColor: frontmatter.coverColor }}
             >
               <Image
@@ -193,7 +193,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 alt={frontmatter.title}
                 fill
                 sizes="(min-width: 1120px) 1072px, 100vw"
-                className={`object-cover object-center ${frontmatter.wip ? "blur-md brightness-75" : ""}`}
+                className={`object-contain object-center ${frontmatter.wip ? "blur-md brightness-75" : ""}`}
                 priority
               />
             </div>
@@ -209,7 +209,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         )}
       </header>
 
-      <div className="max-w-[1120px] mx-auto px-6" data-case-body>
+      <div className="max-w-6xl mx-auto px-6" data-case-body>
         {intro.trim() && (
           <div
             className={`case-body mt-16 ${gallery ? "case-gallery" : ""} ${blur}`}

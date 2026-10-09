@@ -498,14 +498,15 @@ html {
 .case-body > * {
   max-width: 720px;
 }
+/* One grid: text keeps a readable measure on the left edge; every visual
+   (screens, shot rows, tables, demos, dividers) spans the full column, so
+   both edges line up with the header and each other. */
 .case-body > figure,
 .case-body > .shots,
 .case-body > .phase,
 .case-body > .tablewrap,
+.case-body > .try,
 .case-body > [data-demo] {
-  max-width: 980px;
-}
-.case-body > figure.wide {
   max-width: none;
 }
 .case-body > p,
@@ -840,4 +841,20 @@ html {
   .case-body .pen-svg path {
     transition: none;
   }
+}
+
+/* Dropdowns everywhere: the browser's own chevron sits almost against the
+   right edge. Draw our own, inset 12px, and reserve room so text never runs
+   under it. Longhands only, so a component's background colour still wins. */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' fill='none' stroke='%23777672' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 4.5 6 8l3.5-3.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px 12px;
+  padding-right: 36px;
+}
+select::-ms-expand {
+  display: none;
 }

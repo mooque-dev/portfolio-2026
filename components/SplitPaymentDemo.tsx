@@ -58,27 +58,32 @@ export default function SplitPaymentDemo() {
           : `${money(-left)} more than the payment. Lower a line before saving.`;
 
   return (
-    <div className="rounded-lg border border-border bg-[#fcfcfb] text-[#0b0b0b] p-5 md:p-7 shadow-sm">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <div>
-          <p className="text-[15px] font-semibold leading-tight">New transaction: one {money(TOTAL)} gala payment</p>
-          <p className="text-[12.5px] text-[#52514e] mt-0.5">Illustrative data, from the case&apos;s own example</p>
-        </div>
-        <div className="inline-flex rounded-full border border-[#e6e5e0] bg-white p-0.5" role="group" aria-label="Compare before and after">
+    <div>
+      {/* A presentation control for the reader, not part of the product, so it
+          sits outside the product card. */}
+      <div className="mb-3 flex flex-wrap items-center gap-3" role="group" aria-label="Compare the product before and after the redesign">
+        <span className="text-[13px] text-muted">Compare</span>
+        <div className="inline-flex rounded-full border border-border p-0.5">
           {(["before", "after"] as const).map((m) => (
             <button
               key={m}
               type="button"
               aria-pressed={mode === m}
               onClick={() => setMode(m)}
-              className={`rounded-full px-3 py-1 text-[12.5px] font-medium transition-colors ${
-                mode === m ? "bg-[#0b0b0b] text-white" : "text-[#52514e] hover:text-[#0b0b0b]"
+              className={`rounded-full px-3.5 py-1 text-[13px] font-medium transition-colors ${
+                mode === m ? "bg-foreground text-background" : "text-muted hover:text-foreground"
               }`}
             >
-              {m === "before" ? "Before: one type" : "After: split by purpose"}
+              {m === "before" ? "Before the redesign" : "After the redesign"}
             </button>
           ))}
         </div>
+      </div>
+
+    <div className="rounded-lg border border-border bg-[#fcfcfb] text-[#0b0b0b] p-5 md:p-7 shadow-sm">
+      <div>
+        <p className="text-[15px] font-semibold leading-tight">New transaction: one {money(TOTAL)} gala payment</p>
+        <p className="text-[12.5px] text-[#52514e] mt-0.5">Illustrative data, from the case&apos;s own example</p>
       </div>
 
       {/* The payment as a bar: each line's share of the $200, plus anything unallocated */}
@@ -234,6 +239,7 @@ export default function SplitPaymentDemo() {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 }

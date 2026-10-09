@@ -42,7 +42,7 @@ function CaseRow({ project }: { project: ProjectSummary }) {
         className="group grid gap-5 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-center py-7 border-b border-border"
       >
         <div
-          className="relative aspect-[16/10] overflow-hidden rounded-md ring-1 ring-inset ring-black/[0.07] dark:ring-white/10"
+          className="relative aspect-[3/2] overflow-hidden rounded-md ring-1 ring-inset ring-black/[0.07] dark:ring-white/10"
           style={{ backgroundColor: project.coverColor }}
         >
           {project.coverImage && (
@@ -51,7 +51,7 @@ function CaseRow({ project }: { project: ProjectSummary }) {
               alt=""
               fill
               sizes="(max-width: 768px) 100vw, 420px"
-              className={`object-cover object-center transition-transform duration-500 ${
+              className={`object-contain object-center transition-transform duration-500 ${
                 project.wip ? "blur-lg brightness-75" : "group-hover:scale-[1.03]"
               }`}
             />
@@ -117,7 +117,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
 
   return (
     <section className="pt-28 md:pt-36 pb-24 md:pb-32">
-      <div className="max-w-5xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="flex items-center gap-3">
             <Image
