@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import { getAllProjects } from "@/lib/content";
-import WorkFilter from "@/components/WorkFilter";
+import Link from "next/link";
+import { ProjectGrid } from "@/components/WorkFilter";
+import Arrow from "@/components/Arrow";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected projects spanning integrations, design systems, feature design, and automation for nonprofit technology.",
+    "Professional case studies: transaction workflows, integrations, design systems, experimentation and data visualization.",
 };
 
 export default async function WorkPage() {
   const allProjects = await getAllProjects();
 
-  const projects = allProjects.map((p) => ({
+  const projects = allProjects.filter((p) => (p.frontmatter.type ?? "work") === "work").map((p) => ({
     slug: p.slug,
     title: p.frontmatter.title,
     subtitle: p.frontmatter.subtitle,
@@ -37,13 +39,17 @@ export default async function WorkPage() {
               Work
             </h1>
             <p className="text-lg text-muted max-w-sm leading-relaxed md:text-right">
-              Selected projects: design systems, product strategy, integrations,
-              and a couple of things I built for fun.
+              Professional case studies. Side projects live in the{" "}
+              <Link href="/playground" className="underline underline-offset-4 hover:text-foreground">
+                Playground <Arrow />
+              </Link>
             </p>
           </div>
         </FadeIn>
 
-        <WorkFilter projects={projects} />
+        <div className="mt-12">
+          <ProjectGrid projects={projects} />
+        </div>
       </div>
     </section>
   );

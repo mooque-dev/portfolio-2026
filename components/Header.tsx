@@ -15,8 +15,8 @@ import {
 
 const navItems = [
   { href: "/work", label: "Work" },
+  { href: "/playground", label: "Playground" },
   { href: "/about", label: "About" },
-  { href: "/writing", label: "Writing" },
   { href: "/resume", label: "Résumé" },
 ];
 

@@ -5,16 +5,15 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import ProjectCard from "./ProjectCard";
 import type { ProjectSummary } from "@/lib/types";
 
-type Filter = "all" | "work" | "personal" | "experiment";
+type Filter = "all" | "personal" | "experiment";
 
 const FILTERS: { value: Filter; label: string }[] = [
   { value: "all", label: "All" },
-  { value: "work", label: "Work" },
   { value: "experiment", label: "Experiments" },
-  { value: "personal", label: "Personal" },
+  { value: "personal", label: "Side projects & archive" },
 ];
 
-function ProjectGrid({
+export function ProjectGrid({
   projects,
   startIndex = 0,
   compact = false,
@@ -65,7 +64,6 @@ function ProjectGrid({
 export default function WorkFilter({ projects }: { projects: ProjectSummary[] }) {
   const [active, setActive] = useState<Filter>("all");
 
-  const workProjects = projects.filter((p) => p.type === "work");
   const personalProjects = projects.filter((p) => p.type === "personal");
   const experimentProjects = projects.filter((p) => p.type === "experiment");
   const filtered = active === "all" ? projects : projects.filter((p) => p.type === active);
@@ -99,24 +97,16 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
 
       {active === "all" ? (
         <div className="mt-12 space-y-16">
-          {workProjects.length > 0 && (
-            <div>
-              <p className="microlabel text-muted mb-8">
-                Professional Work
-              </p>
-              <ProjectGrid projects={workProjects} startIndex={0} />
-            </div>
-          )}
           {/* Experiments sit above the archive: the live self-built work is a
               stronger second act than the oldest material. */}
           {experimentProjects.length > 0 && (
             <div>
-              <p className="microlabel text-muted mb-8 border-t border-border pt-16">
+              <p className="microlabel text-muted mb-8">
                 Experiments &amp; Prototypes
               </p>
               <ProjectGrid
                 projects={experimentProjects}
-                startIndex={workProjects.length}
+                startIndex={0}
                 compact
               />
             </div>
@@ -128,7 +118,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
               </p>
               <ProjectGrid
                 projects={personalProjects}
-                startIndex={workProjects.length + experimentProjects.length}
+                startIndex={experimentProjects.length}
               />
             </div>
           )}

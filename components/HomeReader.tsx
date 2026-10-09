@@ -4,15 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import CarePathwayMini from "@/components/CarePathwayMini";
-import { formatDate } from "@/lib/utils";
-import type { ProjectSummary, WritingSummary } from "@/lib/types";
+import type { ProjectSummary } from "@/lib/types";
 import { WORLDS, OFF_CLOCK, RESULTS, RESULTS_TOTAL } from "@/lib/identity";
 import ResultsReceipt from "@/components/ResultsReceipt";
 import Arrow from "@/components/Arrow";
 
 interface Props {
   allProjects: ProjectSummary[];
-  recentWriting: WritingSummary[];
 }
 
 // Curated to mirror the résumé: the professional stories first, in the order
@@ -111,7 +109,7 @@ function BuiltCard({ project }: { project: ProjectSummary }) {
   );
 }
 
-export default function HomeReader({ allProjects, recentWriting }: Props) {
+export default function HomeReader({ allProjects }: Props) {
   const selected = pick(allProjects, SELECTED);
   const built = pick(allProjects, BUILT);
   const dataviz = pick(allProjects, DATAVIZ);
@@ -270,7 +268,12 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
         {built.length > 0 && (
           <FadeIn delay={0.18}>
             <div className="mt-20">
-              <h2 className="microlabel text-muted">Built end to end</h2>
+              <div className="flex items-baseline justify-between">
+                <h2 className="microlabel text-muted">Built end to end</h2>
+                <Link href="/playground" className="text-xs text-muted hover:text-foreground transition-colors">
+                  Playground <Arrow />
+                </Link>
+              </div>
               <p className="mt-2 text-[14.5px] text-muted max-w-2xl">
                 Products I designed and shipped myself, from research to release.
               </p>
@@ -303,32 +306,6 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           </div>
         </FadeIn>
 
-        {recentWriting.length > 0 && (
-          <FadeIn delay={0.22}>
-            <div className="mt-20 max-w-3xl">
-              <div className="flex items-baseline justify-between mb-4">
-                <h2 className="microlabel text-muted">Writing</h2>
-                <Link href="/writing" className="text-xs text-muted hover:text-foreground transition-colors">
-                  All <Arrow />
-                </Link>
-              </div>
-              {recentWriting.map((post) => (
-                <Link
-                  key={post.slug}
-                  href={`/writing/${post.slug}`}
-                  className="group flex items-baseline justify-between py-4 border-b border-border"
-                >
-                  <span className="font-light text-[15px] md:text-base leading-snug group-hover:opacity-60 transition-opacity truncate min-w-0">
-                    {post.title}
-                  </span>
-                  <time dateTime={post.date} className="text-xs text-muted shrink-0 ml-4 hidden sm:block">
-                    {formatDate(post.date)}
-                  </time>
-                </Link>
-              ))}
-            </div>
-          </FadeIn>
-        )}
       </div>
     </section>
   );

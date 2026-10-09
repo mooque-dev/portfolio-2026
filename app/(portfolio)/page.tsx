@@ -1,9 +1,8 @@
-import { getAllProjects, getAllWritingPosts } from "@/lib/content";
+import { getAllProjects } from "@/lib/content";
 import HomeReader from "@/components/HomeReader";
 
 export default async function Home() {
   const allProjects = await getAllProjects();
-  const recentWriting = (await getAllWritingPosts()).slice(0, 3);
 
   const projects = allProjects.map((p) => ({
     slug: p.slug,
@@ -23,12 +22,6 @@ export default async function Home() {
     href: p.frontmatter.href,
   }));
 
-  const writing = recentWriting.map((w) => ({
-    slug: w.slug,
-    title: w.frontmatter.title,
-    date: w.frontmatter.date,
-    excerpt: w.frontmatter.excerpt,
-  }));
 
-  return <HomeReader allProjects={projects} recentWriting={writing} />;
+  return <HomeReader allProjects={projects} />;
 }

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getProjectSlugs, getAllWritingPosts } from "@/lib/content";
+import { getProjectSlugs } from "@/lib/content";
 
 const base = "https://allenkang.com";
 
@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPaths: { path: string; priority: number }[] = [
     { path: "", priority: 1 },
     { path: "/work", priority: 0.9 },
-    { path: "/writing", priority: 0.8 },
+    { path: "/playground", priority: 0.8 },
     { path: "/about", priority: 0.8 },
     { path: "/resume", priority: 0.6 },
     { path: "/vault", priority: 0.7 },
@@ -23,13 +23,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  const posts = await getAllWritingPosts();
-  const writing = posts.map((post) => ({
-    url: `${base}/writing/${post.slug}`,
-    lastModified: new Date(post.frontmatter.date),
-    changeFrequency: "yearly" as const,
-    priority: 0.6,
-  }));
 
   return [
     ...staticPaths.map((p) => ({
@@ -38,6 +31,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: p.priority,
     })),
     ...projects,
-    ...writing,
   ];
 }

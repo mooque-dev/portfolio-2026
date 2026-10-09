@@ -33,10 +33,10 @@ export default async function IllustrationPage() {
           <div className="flex-1 min-w-0 max-w-3xl">
             <FadeIn>
               <Link
-                href="/work"
+                href="/playground"
                 className="text-sm text-muted hover:text-foreground transition-colors"
               >
-                <Arrow dir="left" /> All work
+                <Arrow dir="left" /> Playground
               </Link>
             </FadeIn>
 

@@ -4,6 +4,8 @@ import WritingCard from "@/components/WritingCard";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
+  // Hidden for now: reachable by link, kept out of search and navigation.
+  robots: { index: false, follow: false },
   title: "Writing",
   description:
     "Thoughts on design leadership, systems thinking, and building products that matter.",

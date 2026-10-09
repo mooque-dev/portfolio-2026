@@ -19,8 +19,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/writing" className="hover:opacity-70 transition-opacity min-h-[44px] inline-flex items-center">
-                  Writing
+                <Link href="/playground" className="hover:opacity-70 transition-opacity min-h-[44px] inline-flex items-center">
+                  Playground
                 </Link>
               </li>
               <li>

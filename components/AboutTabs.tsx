@@ -227,14 +227,7 @@ export default function AboutTabs() {
                 <div>
                   <h3 className="font-semibold mb-2">A daily streak</h3>
                   <p className="text-muted leading-relaxed">
-                    Years of daily streaks, first French, now chess. I also{" "}
-                    <Link
-                      href="/writing"
-                      className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
-                    >
-                      write
-                    </Link>{" "}
-                    about what I&apos;m working through.
+                    Years of daily streaks, first French, now chess.
                   </p>
                 </div>
                 <div>

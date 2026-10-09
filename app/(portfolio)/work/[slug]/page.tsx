@@ -46,6 +46,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
     prevProject && { dir: "Previous", p: prevProject },
     nextProject && nextProject.slug !== prevProject?.slug && { dir: "Next", p: nextProject },
   ].filter(Boolean) as { dir: string; p: typeof shelf[number] }[];
+  const isWork = (project.frontmatter.type ?? "work") === "work";
+  const back = isWork ? { href: "/work", label: "All work" } : { href: "/playground", label: "Playground" };
   const shelfName = { work: "professional work", experiment: "experiments", personal: "side projects" }[
     project.frontmatter.type ?? "work"
   ];
@@ -96,8 +98,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
         className={`max-w-6xl mx-auto px-6 scroll-mt-32 ${chapters.length > 1 ? "pt-12 md:pt-16" : "pt-32 md:pt-40"}`}
       >
         <FadeIn>
-          <Link href="/work" className="text-sm text-muted hover:text-foreground transition-colors">
-            <Arrow dir="left" /> All work
+          <Link href={back.href} className="text-sm text-muted hover:text-foreground transition-colors">
+            <Arrow dir="left" /> {back.label}
           </Link>
           <p className="mt-8 text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">
             {gallery ? "Archive" : "Case study"} &middot; {frontmatter.category}
@@ -273,7 +275,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <p className="text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">More {shelfName}</p>
             <div className="flex gap-5 text-[14px]">
               <a href="#overview" className="text-muted hover:text-foreground transition-colors">Back to top <Arrow dir="up" /></a>
-              <Link href="/work" className="text-muted hover:text-foreground transition-colors">All work</Link>
+              <Link href={back.href} className="text-muted hover:text-foreground transition-colors">{back.label}</Link>
             </div>
           </div>
           {neighbours.length > 0 && (

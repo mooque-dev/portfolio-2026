@@ -23,6 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = await getWritingPost(slug);
   if (!post) return {};
   return {
+    robots: { index: false, follow: false },
     title: post.frontmatter.title,
     description: post.frontmatter.excerpt,
   };
