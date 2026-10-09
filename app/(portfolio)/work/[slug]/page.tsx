@@ -69,10 +69,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
       frontmatter.company ? (
         <>
           {frontmatter.company}
-          <span className="block text-muted">{frontmatter.timeline}</span>
+          <span className="block text-muted">
+            {[frontmatter.timeline, frontmatter.duration].filter(Boolean).join(" · ")}
+          </span>
         </>
       ) : (
-        frontmatter.timeline
+        [frontmatter.timeline, frontmatter.duration].filter(Boolean).join(" · ")
       ),
     ],
     ["Team", frontmatter.team],
@@ -160,6 +162,26 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </FadeIn>
         )}
 
+        {frontmatter.links && frontmatter.links.length > 0 && (
+          <FadeIn delay={0.22}>
+            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Links">
+              {frontmatter.links.map(([label, url]) => (
+                <li key={url}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-[13.5px] hover:border-foreground/40 transition-colors"
+                  >
+                    {label} <span aria-hidden>&#8599;</span>
+                    <span className="sr-only"> (opens in new tab)</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </FadeIn>
+        )}
+
         {frontmatter.coverImage && (
           <FadeIn delay={0.25}>
             <div
@@ -213,7 +235,39 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </section>
         ))}
 
-        <nav aria-label="More projects" className="mt-24 pt-10 border-t border-border">
+        {frontmatter.credits && frontmatter.credits.length > 0 && (
+          <section aria-labelledby="credits" className="mt-24 pt-10 border-t border-border">
+            <h2 id="credits" className="text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">
+              Built with
+            </h2>
+            <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3 text-[15px]">
+              {frontmatter.credits.map(([name, role, url]) => {
+                const label = name ? (
+                  <>
+                    {name}
+                    <span className="text-muted">, {role}</span>
+                  </>
+                ) : (
+                  role
+                );
+                return (
+                  <li key={name + role}>
+                    {url ? (
+                      <a href={url} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+                        {label} <span aria-hidden className="text-muted">&#8599;</span>
+                        <span className="sr-only"> (LinkedIn, opens in new tab)</span>
+                      </a>
+                    ) : (
+                      label
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
+
+        <nav aria-label="More projects" className={`${frontmatter.credits?.length ? "mt-12" : "mt-24"} pt-10 border-t border-border`}>
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <p className="text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">More {shelfName}</p>
             <div className="flex gap-5 text-[14px]">

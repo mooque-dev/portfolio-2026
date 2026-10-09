@@ -16,6 +16,7 @@ export interface SideProject {
 export interface Certification {
   title: string;
   issuer: string;
+  url?: string;
 }
 
 export interface Education {
@@ -105,18 +106,22 @@ export const certifications: Certification[] = [
   {
     title: "From Ideas to Action",
     issuer: "IDEO",
+    url: "https://drive.google.com/file/d/1qFPBho7WmKuEoqeVKRcQ-1Si5JnRIeWb/view",
   },
   {
     title: "Generative AI Fundamentals",
     issuer: "Google Cloud",
+    url: "https://www.cloudskillsboost.google/public_profiles/769c1f02-4e51-4227-a338-d07383cec62b/badges/6756185",
   },
   {
     title: "Responsible Use of Generative AI",
     issuer: "Google Cloud",
+    url: "https://www.cloudskillsboost.google/public_profiles/769c1f02-4e51-4227-a338-d07383cec62b/badges/6855202",
   },
   {
     title: "Introduction to Python & Data Structures",
     issuer: "Georgia Tech via Coursera",
+    url: "https://www.coursera.org/account/accomplishments/certificate/VCJ4U3KH75HR",
   },
 ];
 

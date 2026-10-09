@@ -34,6 +34,12 @@ export interface ProjectFrontmatter {
   href?: string;
   // Up to three headline numbers for the case hero: [value, label] pairs.
   glance?: [string, string][];
+  // How long the work took, shown beside the timeline (e.g. "about 3 months").
+  duration?: string;
+  // Outside links worth opening: [label, url] pairs.
+  links?: [string, string][];
+  // People who built it with Allen: [name, role, url?]. Name may be empty.
+  credits?: [string, string, string?][];
 }
 
 export interface Heading {

@@ -20,6 +20,7 @@ featuredStat: "340+"
 featuredStatLabel: "components brought into one shared library"
 tldr: [["Problem","Three merged products, 340+ scattered components, and three teams who did not choose to work together."],["Decision","I treated it as an adoption problem: earned dedicated engineering time with cross-department survey data, then replaced heavy governance with 48-hour async reviews."],["Outcome","One shared library, adopted across all three products."],["Principle","Governance should reduce friction, not create it."]]
 glance: [["340+", "components brought into one shared library"], ["3", "products and engineering teams building on one system"], ["48 hours", "for a contribution review, down from days"]]
+credits: [["Natalie", "Lead PM"], ["Marco", "Lead Developer"], ["Keiner", "Senior Developer"], ["Badal", "Lead QA"], ["Ronnie", "QA Engineer"], ["Binay", "QA Engineer"]]
 ---
 
 ## Stakes | The Situation
@@ -53,6 +54,16 @@ Before the pitch, I ran internal surveys across five departments: Engineering, C
 
 </div>
 
+<figure>
+  <img src="/case-studies/orchid-design-system/survey-marketing.jpg" alt="Marketing survey answers: how well the product fits its audience, its strengths and gaps against competitors, and the customer requests behind them" />
+  <figcaption>Marketing: where the product fit its audience, where competitors were ahead, and the customer requests behind it</figcaption>
+</figure>
+
+<figure class="wide">
+  <img src="/case-studies/orchid-design-system/survey-product.jpg" alt="Product survey answers across ten questions, from what sets Keela apart to the features customers rarely use" />
+  <figcaption>Product: what set Keela apart, what was missing, and which features customers rarely used</figcaption>
+</figure>
+
 The survey data let me tie the design system investment to three concrete numbers: faster feature delivery, less QA rework, and a coherent experience that would smooth the product merger. We got two dedicated frontend engineers, the first time a design system had earned that.
 
 ## Before and after | How We Built It
@@ -85,7 +96,7 @@ Orchid is built on a token foundation. Colors, spacing, typography, elevation, a
 
 ### Storybook as Source of Truth
 
-We adopted Storybook integrated with Chromatic to give the design team a workflow linked to GitHub. Components live in Storybook as the canonical reference for both design and engineering. Chromatic runs visual regression tests on every PR so inconsistencies surface before release, not after.
+We adopted Storybook integrated with Chromatic to give the design team a workflow linked to GitHub. Components live in Storybook as the canonical reference for both design and engineering. Chromatic runs visual regression tests on every PR so inconsistencies surface before release, not after. Bi-weekly reviews with stakeholders kept the system tied to where the product was heading.
 
 <figure class="phone">
   <img src="/case-studies/orchid-design-system/untitled-7.png" alt="The Orchid library's page list in Figma: design principles, foundations such as colours, typography and icons, then components from alerts to empty states" />

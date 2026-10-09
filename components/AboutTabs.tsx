@@ -6,7 +6,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { Separator } from "@/components/ui/separator";
 import { experience, sideProjects, education, certifications } from "@/lib/resumeData";
-import { QUOTES, HOW_I_WORK } from "@/lib/identity";
+import { QUOTES, HOW_I_WORK, READING } from "@/lib/identity";
 
 type Tab = "bio" | "resume";
 
@@ -145,7 +145,8 @@ export default function AboutTabs() {
               </h2>
               <div className="space-y-7 text-base text-muted leading-relaxed max-w-2xl">
                 <p>
-                  My Korean name is Sung Mook. Over time it became{" "}
+                  Seoul, 1994. Hamilton, 2007. Toronto since 2012. My Korean
+                  name is Sung Mook. Over time it became{" "}
                   <span className="text-foreground font-medium">mooque</span>,
                   a contraction I&apos;ve worn long enough that it&apos;s mine now.
                   Something between a handle and a brand. Easy to remember, hard
@@ -221,7 +222,16 @@ export default function AboutTabs() {
                 <div>
                   <h3 className="font-semibold mb-2">Running, giving &amp; a stage</h3>
                   <p className="text-muted leading-relaxed">
-                    I started running just before COVID and ran a half-marathon
+                    I started running just before COVID and ran a{" "}
+                    <a
+                      href="https://www.strava.com/athletes/68085439"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
+                    >
+                      half-marathon
+                      <span className="sr-only"> (Strava, opens in new tab)</span>
+                    </a>{" "}
                     on my own. Separately, I raised $1,000 for SickKids
                     Hospital. In August 2026 I went on stage in a 40-person
                     amateur musical, well outside my comfort zone: 350 tickets
@@ -244,6 +254,17 @@ export default function AboutTabs() {
                     </Link>{" "}
                     about what I&apos;m working through: systems, adoption
                     without authority, design after an acquisition.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold mb-2">On my shelf</h3>
+                  <p className="text-muted leading-relaxed">
+                    <span className="text-foreground">Reading now:</span>{" "}
+                    {READING.now.join("; ")}.
+                  </p>
+                  <p className="mt-2 text-muted leading-relaxed">
+                    <span className="text-foreground">Kept close:</span>{" "}
+                    {READING.shelf.join("; ")}.
                   </p>
                 </div>
               </div>
@@ -370,7 +391,16 @@ export default function AboutTabs() {
               <div className="space-y-4">
                 {certifications.map((cert, i) => (
                   <div key={i} className="flex items-baseline justify-between">
-                    <h3 className="text-sm font-semibold">{cert.title}</h3>
+                    <h3 className="text-sm font-semibold">
+                      {cert.url ? (
+                        <a href={cert.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+                          {cert.title} <span aria-hidden className="text-muted">&#8599;</span>
+                          <span className="sr-only"> (certificate, opens in new tab)</span>
+                        </a>
+                      ) : (
+                        cert.title
+                      )}
+                    </h3>
                     <span className="text-sm text-muted">{cert.issuer}</span>
                   </div>
                 ))}

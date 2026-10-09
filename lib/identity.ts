@@ -21,6 +21,12 @@ export const RESULTS = [
 ];
 export const RESULTS_TOTAL = { label: "Designers mentored", value: "3", href: "/resume" };
 
+// From the reading list on Allen's Notion.
+export const READING = {
+  now: ["Creative Selection, Ken Kocienda", "Thinking, Fast and Slow, Daniel Kahneman", "Nudge, Richard H. Thaler and Cass R. Sunstein", "1Q84, Haruki Murakami"],
+  shelf: ["The Psychology of Everyday Things, Don Norman", "The Creative Act, Rick Rubin", "Steal Like an Artist, Austin Kleon", "The War of Art, Steven Pressfield", "The Psychology of Money, Morgan Housel", "Meditations, Marcus Aurelius", "Lost Connections, Johann Hari", "What Men Live By, Leo Tolstoy"],
+};
+
 // How I work: three habits, each linked to the case that shows it in practice.
 export const HOW_I_WORK = [
   { title: "Agree on the constraints before designing", text: "Before Transaction Workflows had a screen, the PM, the engineering lead and I agreed what we couldn't do: no backend refactor, no breaking reporting. Then we shipped in phases.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
