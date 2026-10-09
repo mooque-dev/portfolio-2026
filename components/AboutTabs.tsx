@@ -6,7 +6,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { Separator } from "@/components/ui/separator";
 import { experience, sideProjects, education, certifications } from "@/lib/resumeData";
-import { WORLDS, QUOTES } from "@/lib/identity";
+import { QUOTES, HOW_I_WORK } from "@/lib/identity";
 
 type Tab = "bio" | "resume";
 
@@ -57,8 +57,8 @@ export default function AboutTabs() {
                 ago and still here.
               </p>
               <p>
-                I&apos;ve spent those years on products in education,
-                healthcare, and nonprofits, building for the people most
+                I&apos;ve spent those years on nonprofit software, healthcare,
+                and a few early-stage startups, building for the people most
                 software forgets. Somewhere in there I realized the work
                 was never really about screens. It&apos;s about how people feel:
                 the person using the thing, and the team in the room making it.
@@ -75,8 +75,9 @@ export default function AboutTabs() {
           <FadeIn delay={0.12}>
             <p className="mt-10 text-base text-muted leading-relaxed max-w-2xl">
               Most recently, at Aplos, that meant designing across Aplos,
-              Keela, and Raisely as three products merged into one, including
-              the shared component library they now build on. Systems that
+              Keela, and Raisely as three products merged into one (they now
+              operate together as Velora), including the shared component
+              library they build on. Systems that
               have to reconcile with each other are my favorite kind of problem.
             </p>
           </FadeIn>
@@ -84,35 +85,31 @@ export default function AboutTabs() {
           <FadeIn delay={0.13}>
             <div className="mt-20">
               <Separator className="mb-12" />
-              <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-3">
-                Between two worlds
+              <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-8">
+                How I work
               </h2>
-              <p className="text-muted leading-relaxed mb-10 max-w-2xl">
-                I&apos;m a builder and a translator. Most of my work happens where
-                two sides don&apos;t share a language yet.
-              </p>
-              <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 max-w-3xl">
-                {WORLDS.map((w) => (
-                  <div key={w.a} className="border-t border-border pt-5 min-w-0">
-                    <h3 className="font-semibold">
-                      {w.a} <span className="text-muted font-normal" aria-hidden>&harr;</span>
-                      <span className="sr-only"> and </span> {w.b}
-                    </h3>
-                    <p className="mt-2 text-muted leading-relaxed">{w.text}</p>
+              <ol className="grid gap-x-10 gap-y-8 sm:grid-cols-3 max-w-4xl">
+                {HOW_I_WORK.map((h, i) => (
+                  <li key={h.title} className="border-t border-border pt-5 min-w-0">
+                    <span className="font-serif text-2xl font-bold text-[var(--seal)]" aria-hidden>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="mt-2 font-semibold">{h.title}</h3>
+                    <p className="mt-2 text-muted leading-relaxed">{h.text}</p>
                     <Link
-                      href={w.href}
+                      href={h.href}
                       className="mt-2 inline-block text-sm underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
-                      {w.link} &rarr;
+                      {h.link} &rarr;
                     </Link>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.14}>
-            <div className="mt-20">
+            <div className="mt-20 scroll-mt-28" id="colleagues">
               <Separator className="mb-12" />
               <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-8">
                 What people I&apos;ve worked with say
@@ -166,11 +163,8 @@ export default function AboutTabs() {
                   ncsstyco, a handle I&apos;ve carried for years, is short for{" "}
                   <span className="text-foreground font-medium">Necessity Company</span>.
                   The idea is straightforward: good work should create genuine
-                  necessity, not manufactured urgency. I&apos;ve spent eight years
-                  building for nonprofits, schools, and healthcare. Places where
-                  software failing isn&apos;t just an inconvenience. That shapes
-                  how I think about what&apos;s worth making. Purpose over profit,
-                  not the other way around.
+                  necessity, not manufactured urgency. Purpose over profit, not
+                  the other way around.
                 </p>
               </div>
             </div>
@@ -225,7 +219,7 @@ export default function AboutTabs() {
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Running &amp; a stage</h3>
+                  <h3 className="font-semibold mb-2">Running, giving &amp; a stage</h3>
                   <p className="text-muted leading-relaxed">
                     I started running just before COVID and ran a half-marathon
                     on my own. Separately, I raised $1,000 for SickKids

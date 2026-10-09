@@ -25,17 +25,16 @@ export interface Education {
 
 export const experience: Job[] = [
   {
-    company: "Aplos",
+    company: "Aplos (now Velora)",
     role: "Senior Product Designer",
     location: "Toronto, ON",
     period: "Feb 2025 to Jun 2026",
     description: [
-      "Designed unified experiences across a three-product nonprofit software suite (Aplos, Keela, Raisely) as separate platforms merged into one.",
-      "Led integration design across all three products: data import and export, schema translation, and cross-platform data fidelity for accurate, auditable financial records.",
-      "Consolidated roughly 340 components into a single Figma library serving three products with different existing conventions, owning deprecation decisions, naming governance, and adoption across three engineering teams.",
-      "Designed a split-transaction feature so one payment can be logged as a donation, an in-kind gift, and the value of goods received, keeping financial data compliant across Canadian, US, and Australian tax rules and cutting related support tickets by 70%.",
-      "Ran a four-variation A/B test on Raisely's donation fee flow, measured in Pendo, raising fee opt-in from 75% to 92% while conversion held steady.",
-      "Mentored two designers.",
+      "Designed split transactions so one payment can be logged as a donation, an in-kind gift, and the value of goods received, compliant across Canadian, US, and Australian tax rules. Categorization support tickets fell 70% in the first month.",
+      "Ran a four-variation A/B test on Raisely's donation fee flow, measured in Pendo. Fee opt-in rose from 75% to 92% while conversion and average gift size held steady.",
+      "Led integration design across Aplos, Keela, and Raisely after the acquisition: data import and export, schema translation, and visible, editable data mapping for accurate, auditable financial records.",
+      "Consolidated 340+ components from three products into one Figma and Storybook library, owning deprecation, naming governance, and adoption across three engineering teams.",
+      "Ran the first joint design reviews between the merged engineering teams; the format became the default for cross-product work. Mentored two designers.",
     ],
   },
   {
@@ -44,10 +43,9 @@ export const experience: Job[] = [
     location: "Toronto, ON",
     period: "Mar 2023 to Feb 2025",
     description: [
-      "Led design of core fundraising tools (Automation, Pipelines, Reports & Dashboards) for donor management, donation tracking, and revenue reporting.",
-      "Contributed to a 13% ARR increase through the Automation feature, which reached 30% adoption across 355 organizations.",
-      "Established the design system and launch process that improved cross-team collaboration and shipping consistency.",
-      "Mentored one designer.",
+      "Led design of Automation, a no-code workflow builder: 30% adoption across 355 organizations, contributing to a 13% ARR increase. Its preview mode came straight from research with 15 operations managers.",
+      "Redesigned the contact record fundraisers open before every call to lead with recent change instead of lifetime totals.",
+      "Led design for Pipelines and Reports & Dashboards, and established the design system and launch process. Mentored one designer.",
     ],
   },
   {
@@ -61,43 +59,44 @@ export const experience: Job[] = [
   },
   {
     company: "Forkable",
-    role: "UX/UI Designer",
+    role: "UX/UI Designer (Contract)",
     location: "San Francisco, CA",
     period: "Jan 2020 to Sep 2022",
     description: [
-      "Migrated the product design practice from Sketch to Figma over a two-and-a-half-year engagement, building and maintaining the component library and design system that came out of it.",
+      "Moved the product design practice from Sketch to Figma and built the component library and design system that came out of it.",
     ],
   },
   {
     company: "MyJourney",
-    role: "Product Designer",
+    role: "UX/UI Designer",
     location: "Toronto, ON",
     period: "Aug 2019 to Jul 2022",
     description: [
-      "Ran user research and usability testing with patients and clinicians to shape accessible, patient-centered flows for a cancer-care web and mobile app.",
+      "Ran user research and usability testing with patients and clinicians for a cancer-care web and mobile app.",
+      "Designed clinician dashboards that track patients across treatment stages, and tools for the teams running cancer conferences.",
     ],
   },
 ];
 
 export const sideProjects: SideProject[] = [
   {
-    title: "ARND, founding designer",
+    title: "ARND, founding designer and developer",
     year: "2025 to present",
     description:
-      "A native iOS app for independent musicians, built solo with agentic AI tooling and taken through App Store readiness: Sign in with Apple, in-app account deletion, a privacy manifest, and accessibility (VoiceOver, Dynamic Type).",
+      "A live-music discovery app for Toronto's small shows, designed and built solo with agentic AI tooling on live curated listings. In public beta at arnd.app, with the App Store release next.",
     url: "https://arnd.app",
   },
   {
     title: "Yuwol Productions, designer and developer",
     year: "Oct 2025 to present",
     description:
-      "Internal tooling for a Toronto musical company: a ticketing platform that sold seats for a ten-month production, plus a scheduling tool and a bilingual (Korean and English) script reader used daily by a thirty-person company.",
+      "Internal tools for a Toronto musical company: scheduling and attendance, a bilingual (Korean and English) script reader, and a bill splitter, used daily by a forty-person company.",
     url: "https://torontoyuwol.vercel.app",
   },
   {
     title: "Forkestrate, founding designer",
-    year: "2024 to present",
-    description: "A consumer recipe app that adapts recipes conversationally.",
+    year: "2025 to present",
+    description: "With a PM and two engineers, took a conversational recipe app from zero to MVP in under three months.",
     url: "https://app.forkestrate.com/",
   },
 ];

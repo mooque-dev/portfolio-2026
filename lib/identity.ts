@@ -4,9 +4,16 @@
 // Each pair is backed by real work, linked, so the theme reads as evidence.
 export const WORLDS = [
   { a: "Fine art", b: "Product design", text: "I trained in pencil, watercolour and oil before I opened Figma. It's why I sweat the visual craft in dense, data-heavy screens.", href: "/illustration", link: "Where it started" },
-  { a: "Korean", b: "English", text: "I built a Korean and English script reader that a thirty-person musical company rehearsed with every day through a ten-month production.", href: "/work/torontoyuwol", link: "Toronto Yuwol" },
+  { a: "Korean", b: "English", text: "I built a Korean and English script reader that a forty-person musical company rehearsed with every day through a ten-month production.", href: "/work/torontoyuwol", link: "Toronto Yuwol" },
   { a: "Design", b: "Engineering", text: "I prototype in code, and I sat on the bridge between our design system and Keela's frontend, reviewing pull requests with engineers.", href: "/work/orchid-design-system", link: "Orchid" },
   { a: "Software", b: "The people it forgets", text: "Most of my users never asked for software: nonprofit accountants, clinicians, donors, an amateur musical company. I design so they don't need a manual.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
+];
+
+// How I work: three habits, each linked to the case that shows it in practice.
+export const HOW_I_WORK = [
+  { title: "Agree on the constraints before designing", text: "Before Transaction Workflows had a screen, the PM, the engineering lead and I agreed what we couldn't do: no backend refactor, no breaking reporting. Then we shipped in phases.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
+  { title: "Make the system visible", text: "Finance teams had been burned by data that moved silently. Instead of hiding the mapping behind defaults, I showed every field and where it lands.", href: "/work/aplos-keela-integration", link: "Aplos × Keela" },
+  { title: "Measure after launch", text: "A 75% to 82% win hid a leak in the fallback flow. I argued to pause, tested four variations, and shipped the one that reached 92%.", href: "/work/fee-opt-in-experimentation", link: "Fee Opt-In" },
 ];
 
 // Life outside the work, from the About page, with the site's own stickers.

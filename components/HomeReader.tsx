@@ -6,7 +6,7 @@ import FadeIn from "@/components/FadeIn";
 import CarePathwayMini from "@/components/CarePathwayMini";
 import { formatDate } from "@/lib/utils";
 import type { ProjectSummary, WritingSummary } from "@/lib/types";
-import { WORLDS, QUOTES, OFF_CLOCK } from "@/lib/identity";
+import { WORLDS, OFF_CLOCK } from "@/lib/identity";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -26,9 +26,9 @@ const DATAVIZ = ["care-pathway-dashboards", "keela-contacts"];
 const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
 
 const IMPACT = [
-  { value: "13%", label: "ARR increase from Automation, adopted by 30% of 355 organizations" },
-  { value: "340+ → 86", label: "components consolidated into one library across three merged products" },
+  { value: "70%", label: "fewer categorization support tickets after the split-transaction redesign" },
   { value: "75% → 92%", label: "donation fee opt-in in an A/B test, with conversion held steady" },
+  { value: "13%", label: "ARR increase from Automation, adopted by 30% of 355 organizations" },
 ];
 
 const pick = (all: ProjectSummary[], slugs: string[]) =>
@@ -191,10 +191,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
               <p className="microlabel text-muted">Where I&rsquo;ve worked</p>
               <p className="mt-2 text-[15px] md:text-base font-medium">Aplos · Keela · Raisely · Forkable · MyJourney</p>
               <p className="mt-3 text-[13.5px] text-muted leading-relaxed">
-                MyJourney&rsquo;s clinical navigation tool, from the cancer-care platform I designed for, scored 81.3 for usability in a{" "}
-                <a href="https://doi.org/10.2196/87973" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground">
-                  peer-reviewed study<span className="sr-only"> (opens in new tab)</span>
-                </a>.
+                Aplos acquired Keela and Raisely, and the three now operate as Velora.
               </p>
             </div>
             <figure className="m-0 min-w-0">
@@ -203,6 +200,9 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
               </blockquote>
               <figcaption className="mt-2 text-[13px] text-muted">
                 <span className="text-foreground font-medium">Natalie Freckleton</span> · Director of Product Management, Velora
+                <Link href="/about#colleagues" className="ml-2 underline underline-offset-4 hover:text-foreground">
+                  Four more colleagues &rarr;
+                </Link>
               </figcaption>
             </figure>
           </div>
@@ -287,28 +287,6 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           </div>
         </FadeIn>
 
-        <FadeIn delay={0.17}>
-          <div className="mt-20">
-            <div className="flex items-baseline justify-between">
-              <h2 className="microlabel text-muted">What people I&rsquo;ve worked with say</h2>
-              <a href="https://www.linkedin.com/in/mooque/details/recommendations/" target="_blank" rel="noopener noreferrer" className="text-xs text-muted hover:text-foreground transition-colors">
-                All on LinkedIn &rarr;<span className="sr-only"> (opens in new tab)</span>
-              </a>
-            </div>
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {QUOTES.slice(1).map((t, i) => (
-                <figure key={t.who} className={`m-0 rounded-lg border border-border p-6 ${i === 0 ? "md:col-span-2" : ""}`}>
-                  <blockquote className={`m-0 font-serif leading-snug ${i === 0 ? "text-xl md:text-2xl" : "text-[17px]"}`}>
-                    &ldquo;{t.q}&rdquo;
-                  </blockquote>
-                  <figcaption className="mt-4 text-[13px] text-muted">
-                    <span className="text-foreground font-medium">{t.who}</span> &middot; {t.role}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
 
         {built.length > 0 && (
           <FadeIn delay={0.18}>

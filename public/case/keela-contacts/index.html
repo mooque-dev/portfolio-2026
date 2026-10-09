@@ -378,7 +378,7 @@ details.notes-draft{margin-top:64px;border:1px dashed var(--result-br);border-ra
 details.notes-draft summary{cursor:pointer;font-weight:600}
 @media(max-width:860px){.shots.n2,.shots.n3,.glance{grid-template-columns:1fr}.chead h2{font-size:30px}.chead .num{font-size:42px}.changes td:nth-child(2){width:auto}}
 </style>
-<div class="banner"><div class="wrap"><b>DRAFT</b><span>Demo data is illustrative. The four original screens drop into the dashed slots.</span></div></div>
+<div class="banner"><div class="wrap"><span>Demo data is illustrative. Every screen below is a working version of the design.</span></div></div>
 <nav class="cnav" aria-label="Chapters"><div class="wrap"><a href="#overview" aria-current="false">Overview</a><a href="#profile" aria-current="false">01 Contact record</a><a href="#list" aria-current="false">02 Contact list</a><a href="#refine" aria-current="false">03 Next iteration</a><a href="#proof" aria-current="false">04 Proof</a></div></nav>
 <div class="wrap">
 <header class="hero" id="overview" data-spy>
@@ -386,9 +386,9 @@ details.notes-draft summary{cursor:pointer;font-weight:600}
   <h1>Keela Contacts: A Record That Says What to Do Next</h1>
   <p class="sub">For a small nonprofit, the contact record is the CRM. The old page showed everything we knew about a donor. I redesigned it to show what changed, and what to do about it.</p>
   <dl class="meta">
-    <div><dt>Role</dt><dd>Product Designer</dd></div>
+    <div><dt>Role</dt><dd>Product Design Lead</dd></div>
     <div><dt>Company</dt><dd>Keela</dd></div>
-    <div><dt>Team</dt><dd><mark class="need">[confirm team]</mark></dd></div>
+    <div><dt>Year</dt><dd>2024</dd></div>
     <div><dt>Tools</dt><dd>Figma, Untitled UI</dd></div>
   </dl>
   <div class="glance">
@@ -401,15 +401,12 @@ details.notes-draft summary{cursor:pointer;font-weight:600}
     <dt>Tension</dt><dd>Fundraisers wanted the full history. They also had seconds between calls to decide what to do.</dd>
     <dt>Easy path</dt><dd>Keep adding panels: lifetime totals, an insights box, a recommendations box. The old page had all three, with the same paragraph in two of them.</dd>
     <dt>The call</dt><dd>I decided to organize the record around the person, not the database: tabs that belong to the contact, recent change before lifetime totals, and two clear actions.</dd>
-    <dt>Result</dt><dd><mark class="need">[a real number if one exists, for example from Amplitude; otherwise say it shipped untested]</mark></dd>
   </dl>
 </header>
 <section class="chapter" id="profile" data-spy>
   <div class="chead"><span class="num">01</span><span class="ck">Contact record</span><h2>Change before totals</h2></div>
   <p class="csum">The page a fundraiser opens before every call.</p>
-  <div class="phase">Before</div>
-  <div class="shots n2"><figure class="shot"><div class="slot"><b>Original contact record</b>Drop in the old profile screenshot</div></figure><figure class="shot"><div class="slot"><b>My design in Figma</b>Drop in your profile design</div></figure></div>
-  <div class="phase after">After</div>
+  
   <p class="try"><b>Try it</b>Switch tabs, hover the sparklines, add a to-do, or edit the contact and save.</p>
   <div class="stage"><div class="kapp" id="kapp">
   <nav class="knav" aria-label="Demo navigation"><div class="brand"><i></i>Keela</div>
@@ -438,9 +435,7 @@ details.notes-draft summary{cursor:pointer;font-weight:600}
 </section><section class="chapter" id="list" data-spy>
   <div class="chead"><span class="num">02</span><span class="ck">Contact list</span><h2>A list you can act on</h2></div>
   <p class="csum">Where fundraisers find who to contact next.</p>
-  <div class="phase">Before</div>
-  <div class="shots n2"><figure class="shot"><div class="slot"><b>Original contact list</b>Drop in the old list screenshot</div></figure><figure class="shot"><div class="slot"><b>My design in Figma</b>Drop in your interactions design</div></figure></div>
-  <div class="phase after">After</div>
+  
   <p class="try"><b>Try it</b>Filter by type or assignee, show only hard-bounced emails, or search. Hover "+2" to see hidden tags.</p>
   <div class="stage"><div class="klist" id="list2"></div></div>
   <table class="changes"><thead><tr><th></th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td><b>A count that disagrees with itself.</b> "129 Contacts" above pagination that reads "0 of 1."</td><td><b>A count that follows the filters.</b> The heading updates as you narrow the list.</td></tr><tr><td><span class="n">2</span></td><td><b>One click from deleting a tag.</b> Every row carries removable "Tag Name ×" chips.</td><td><b>Read-only tags with overflow.</b> One tag shown, the rest behind "+2." Editing lives on the record.</td></tr><tr><td><span class="n">3</span></td><td><b>Nothing to scan by.</b> No status, no filters, empty assignee avatars; every row looks the same.</td><td><b>Filters in plain words and a deliverability status.</b> "Hard bounced" warns you before you write the email.</td></tr></tbody></table>
@@ -455,7 +450,7 @@ details.notes-draft summary{cursor:pointer;font-weight:600}
   </tbody></table>
 </section><section class="chapter" id="proof" data-spy>
   <div class="chead"><span class="num">04</span><span class="ck">Proof</span><h2>How I would measure it</h2></div>
-  <p class="csum">These are targets, not results. <mark class="need">[replace with real numbers if Keela's analytics have them]</mark></p>
+  <p class="csum">These are targets, not results.</p>
   <div class="tablewrap"><table class="measures">
     <thead><tr><th>Measure</th><th>How</th><th>Target</th></tr></thead>
     <tbody>
@@ -463,9 +458,9 @@ details.notes-draft summary{cursor:pointer;font-weight:600}
       <tr><td>Record visits that end in an action</td><td>Share of visits with a call, email or to-do logged</td><td>Up from the old page's baseline</td></tr>
       <tr><td>Emails sent to hard-bounced addresses</td><td>Bounce reports before and after launch</td><td>Down</td></tr>
     </tbody></table></div>
-  <details class="notes-draft"><summary>Draft notes</summary><ol class="open"><li><b>Re-send the four screenshots</b> as files so they can replace the dashed slots.</li><li><b>Confirm your team</b> on this project.</li></ol></details>
+  
 </section>
-<footer>Draft for review. All redesign data is illustrative.</footer>
+<footer>All demo data is illustrative.</footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
