@@ -1,6 +1,6 @@
 ---
 title: "Transaction Workflows: The Feature That Was Causing Churn"
-subtitle: "Nonprofit accountants were spending weeks on tax reconciliation because the product treated every transaction the same way. A redesign that turned our #1 churn driver into a growth lever."
+subtitle: "One payment can be a donation, a gift and a ticket at once. The product couldn't record that, and it was our top churn driver."
 category: "Feature Redesign"
 type: "work"
 role: "Senior Product Designer"
@@ -24,85 +24,57 @@ duration: "about 3 months"
 
 ## Stakes | Why This Mattered
 
-As Keela pushed upmarket after its acquisition, this feature stood between the roadmap and the larger nonprofits the growth plan depended on. Keela's transaction model handled simple one-time donations well. It broke down for larger nonprofits who needed to record one payment split across multiple purposes: ticket plus donation plus campaign attribution in a single transaction. The workaround forced staff to log multiple records, creating inaccurate receipts, messy accounting, and more support tickets.
+Keela's transaction model handled one-time donations well and broke for larger nonprofits, where one payment is often a ticket, a donation and a campaign gift at once. Staff logged several records instead, which meant wrong receipts, messy books and support tickets. As the team pushed upmarket after the acquisition, it had become a growth blocker.
 
-Signal we used to prioritize this:
-
-- **56%** of newly onboarded orgs (40 of 72) upvoted transaction flexibility in roadmap voting
-- **~500 support tickets per quarter** tied to splitting, incorrect receipts, and reporting mismatches
+- **56%** of newly onboarded orgs (40 of 72) voted for transaction flexibility
+- **~500 support tickets a quarter** tied to splitting, receipts and reporting
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-4.png" alt="Dashboard showing roadmap voting signal, 56% of new orgs upvoting transaction flexibility" />
-  <figcaption>Roadmap voting data that made the prioritization case</figcaption>
+  <figcaption>The roadmap vote that made the case</figcaption>
 </figure>
-
-This wasn't a nice-to-have redesign. As the team pushed upmarket after acquisition, transaction rigidity had become a growth blocker.
 
 ## Research | What I Learned From Watching People Work
 
-I spent time with 8 nonprofit accountants during their actual tax preparation process, not usability tests with tasks I'd written, but genuine contextual inquiry. I sat next to them while they reconciled.
+I sat with 8 nonprofit accountants while they reconciled. Every one kept a parallel spreadsheet, one called batch editing "death by checkbox," and none could see a miscategorized transaction until the final report.
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-1.png" alt="User problem statement: as a nonprofit admin I need to split a single payment into multiple items" />
-  <figcaption>The user problem statement that framed the project</figcaption>
+  <figcaption>The problem statement that framed the work</figcaption>
 </figure>
-
-Three things stood out:
-
-- Every single accountant maintained a parallel spreadsheet. The product couldn't handle their categorization needs, so they worked around it.
-- The batch editing interface required too many clicks. One person described it as "death by checkbox."
-- Error states were invisible. Users couldn't tell if a transaction was miscategorized until the final report. By that point they'd have to start over.
 
 ## Approach | Design for What Breaks Next
 
-The easy path was a narrow fix: ship a one-off split-transaction screen scoped to the loudest complaint, then move to the next fire. I pushed back, because a narrow fix would leave the same fragile data model waiting to break again at the next growth motion. I decided to design for extensibility instead, so future capabilities could layer on without rework, not just clear the ticket backlog. Before designing anything, I got alignment with the PM and engineering lead on what we couldn't do: no full backend refactor, no breaking a legacy data model tied to reporting. We agreed to ship in phases.
+The easy path was a one-off split screen for the loudest complaint. I pushed for extensibility instead, so the next capability wouldn't need a rewrite. Before designing, the PM, the engineering lead and I agreed on what we couldn't do: no backend refactor, no breaking the data model behind reporting. We shipped in phases.
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-5.jpg" alt="Phased delivery plan, stakeholder alignment on constraints" />
-  <figcaption>Phased approach: deliver value without a full backend refactor</figcaption>
+  <figcaption>Phased delivery, without a backend refactor</figcaption>
 </figure>
 
 ## Before and after | The Design
 
-### Smart Defaults, Human Override
+Four changes, each answering something the accountants showed us. Suggested categories became a platform rule I later wrote into Orchid's guidelines, and the new design <mark class="pen" data-note="the year-end surprise, gone">validates continuously</mark> instead of at report time.
 
-By analyzing historical transaction data, I designed a system that pre-categorized incoming transactions based on patterns: donor history, amount ranges, fund designations. Users could accept the suggestion with one click or override it. The categorization task went from manual labor to verification.
+<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Before"><b>One type per payment.</b> A gala ticket that was part donation, part value received had to be logged as several records.</td><td data-label="After"><b>One payment, split by purpose.</b> Donation, in-kind gift and value received live in a single transaction.</td></tr><tr><td><span class="n">2</span></td><td data-label="Before"><b>Categorizing by hand.</b> Every transaction started blank, and accountants kept a parallel spreadsheet.</td><td data-label="After"><b>Smart defaults, human override.</b> A suggested category from donor history, amount and fund, accepted in one click.</td></tr><tr><td><span class="n">3</span></td><td data-label="Before"><b>"Death by checkbox."</b> A flat table where batch edits meant ticking rows one at a time.</td><td data-label="After"><b>Batch by context.</b> Scope by date range, donor, fund or category, then act on the group.</td></tr><tr><td><span class="n">4</span></td><td data-label="Before"><b>Errors at report time.</b> A miscategorized transaction stayed invisible until the final report.</td><td data-label="After"><b>Continuous validation.</b> Each reporting period shows its health as you go.</td></tr></tbody></table></div>
 
-This pattern became a platform-wide design principle I later codified in Orchid's interaction guidelines.
-
-### Batch Operations That Match How People Think
-
-Instead of a flat table with checkboxes, I redesigned batch editing around natural contexts: by date range, by donor, by fund, by category. Users scope to the transactions they care about first, then act on them as a group. The interface matches the mental model instead of fighting it.
-
-### Continuous Validation
-
-The old design accumulated errors silently and surfaced them all at report time. The new design <mark class="pen" data-note="the year-end surprise, gone">validates continuously</mark>, showing the health of each reporting period as an ambient signal. Issues surface as they happen, not as a year-end surprise.
-
-<p class="try"><b>Try it</b>Change an amount, type or fund and watch the receipt follow. Then switch to Before to see what one type per payment did to it.</p>
+<p class="try"><b>Try it</b>Change an amount, type or fund and watch the receipt follow. Then switch to Before.</p>
 
 <div data-demo="split-payment"></div>
 
 <figure class="wide">
   <img src="/case-studies/transaction-workflows/image-11.png" alt="Final transaction workflow design" />
-  <figcaption>The final design: split workflow with continuous validation</figcaption>
+  <figcaption>The final split workflow, with continuous validation</figcaption>
 </figure>
-
-<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Before"><b>One type per payment.</b> A gala ticket that was part donation, part value received had to be logged as several records.</td><td data-label="After"><b>One payment, split by purpose.</b> Donation, in-kind gift and value received live in a single transaction.</td></tr><tr><td><span class="n">2</span></td><td data-label="Before"><b>Categorizing by hand.</b> Every transaction started blank, and accountants kept a parallel spreadsheet.</td><td data-label="After"><b>Smart defaults, human override.</b> A suggested category from donor history, amount and fund, accepted in one click.</td></tr><tr><td><span class="n">3</span></td><td data-label="Before"><b>"Death by checkbox."</b> A flat table where batch edits meant ticking rows one at a time.</td><td data-label="After"><b>Batch by context.</b> Scope by date range, donor, fund or category, then act on the group.</td></tr><tr><td><span class="n">4</span></td><td data-label="Before"><b>Errors at report time.</b> A miscategorized transaction stayed invisible until the final report.</td><td data-label="After"><b>Continuous validation.</b> Each reporting period shows its health as you go.</td></tr></tbody></table></div>
 
 ## Testing | Iteration Was the Work
 
-Moving from a modal flow to a full-screen split workflow was the single biggest change to the creation experience, and it did not land in one pass. Each round went in front of the accountants and the engineering team before it went any further.
+Moving from a modal to a full-screen split workflow took several rounds with the accountants and engineering. The transaction details view took three: V1 changed little, V2 borrowed patterns from across the suite, and V3 put the items first and the associations second.
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-6.jpg" alt="Design review over video call: walking the product and engineering team through the split-transaction flow, with the redesign mockups around it" />
-  <figcaption>Design review: walking the team through the split-transaction flow, round by round</figcaption>
+  <figcaption>Walking the team through the split flow</figcaption>
 </figure>
-
-The transaction details view took three full rounds, each reviewed with the people who would use it:
-
-- **V1:** minimal change, fast and low risk
-- **V2:** borrowed ecosystem patterns and introduced design system components
-- **V3:** associations secondary, items primary
 
 <div class="shots n2">
 
@@ -113,17 +85,13 @@ The transaction details view took three full rounds, each reviewed with the peop
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-9.png" alt="V3 transaction detail layout, associations secondary, items primary" />
-  <figcaption>V3: associations secondary, items primary</figcaption>
+  <figcaption>V3: items first, associations second</figcaption>
 </figure>
 
 </div>
 
-V3 won because it matched how accountants actually think: what they're recording first, who it belongs to second. The organizational hierarchy wasn't wrong in V1 and V2. It was just answered in the wrong order.
-
-Feature flags enabled safe rollout. Usage data helped us simplify the UI by removing low-value sections and prioritizing split clarity.
+V3 won because it matched how accountants think: what they're recording first, who it belongs to second. Feature flags made the rollout safe.
 
 ## Result | What Happened
 
-In the first month after launch, categorization support tickets fell **70%**. Accountants could record one payment the way it actually happened, as a donation, an in-kind gift and the value of goods received, and the receipt followed. The feature kept financial data compliant across Canadian, US and Australian tax rules.
-
-The system map I drew in week one (arrows and question marks on a whiteboard) was the most important artifact of the project. More important than any Figma file.
+Categorization support tickets fell **70%** in the first month, and one payment could finally be recorded the way it happened, compliant across Canadian, US and Australian tax rules. The most important artifact was the system map I drew in week one, not any Figma file.

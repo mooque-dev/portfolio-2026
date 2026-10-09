@@ -69,7 +69,7 @@ function CaseRow({ project }: { project: ProjectSummary }) {
           <h3 className="mt-2 font-serif text-xl md:text-[22px] leading-snug group-hover:opacity-70 transition-opacity text-balance">
             {project.title}
           </h3>
-          <p className="mt-2 text-[14.5px] leading-relaxed text-muted line-clamp-3">
+          <p className="mt-2 text-[14.5px] leading-relaxed text-muted line-clamp-2">
             {project.subtitle}
           </p>
           {project.featuredStat && (
@@ -215,8 +215,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
                 Designing for money that moves correctly.
               </p>
               <p className="mt-3 text-[15px] text-muted leading-relaxed max-w-xl">
-                Split payments, fee decisions and tax receipts across three
-                countries. Every line on the receipt opens the case behind it.
+                Every line opens the case behind it.
               </p>
             </div>
           </div>
@@ -226,7 +225,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           <div className="mt-16">
             <h2 className="microlabel text-muted">Try a redesign</h2>
             <p className="mt-2 mb-5 text-[14.5px] text-muted max-w-2xl">
-              A live slice of my cancer care dashboard redesign. Focus a stage to see who is waiting.
+              A live slice of my cancer care redesign. Pick a stage.
             </p>
             <CarePathwayMini />
           </div>
@@ -253,7 +252,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
             <div className="mt-20">
               <h2 className="microlabel text-muted">Data visualization, interactive</h2>
               <p className="mt-2 text-[14.5px] text-muted max-w-2xl">
-                Dashboards I designed, rebuilt with what I know now. Each one is a working version you can filter and explore.
+                Dashboards I designed, rebuilt as working versions.
               </p>
               <ol className="mt-2">
                 {dataviz.map((p) => (

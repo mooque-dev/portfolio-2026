@@ -3,10 +3,10 @@
 
 // Each pair is backed by real work, linked, so the theme reads as evidence.
 export const WORLDS = [
-  { a: "Fine art", b: "Product design", text: "I trained in pencil, watercolour and oil before I opened Figma. It's why I sweat the visual craft in dense, data-heavy screens.", href: "/illustration", link: "Where it started" },
-  { a: "Korean", b: "English", text: "I built a Korean and English script reader that a forty-person musical company rehearsed with every day through a ten-month production.", href: "/work/torontoyuwol", link: "Toronto Yuwol" },
-  { a: "Design", b: "Engineering", text: "I prototype in code, and I sat on the bridge between our design system and Keela's frontend, reviewing pull requests with engineers.", href: "/work/orchid-design-system", link: "Orchid" },
-  { a: "Software", b: "The people it forgets", text: "Most of my users never asked for software: nonprofit accountants, clinicians, donors, an amateur musical company. I design so they don't need a manual.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
+  { a: "Fine art", b: "Product design", text: "Trained in pencil, watercolour and oil before Figma.", href: "/illustration", link: "Where it started" },
+  { a: "Korean", b: "English", text: "Built the bilingual script reader a forty-person musical rehearsed with.", href: "/work/torontoyuwol", link: "Toronto Yuwol" },
+  { a: "Design", b: "Engineering", text: "Prototype in code, and review pull requests with engineers.", href: "/work/orchid-design-system", link: "Orchid" },
+  { a: "Software", b: "The people it forgets", text: "Design for accountants, clinicians and donors who never asked for software.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
 ];
 
 // Results, as printed on the receipt (home and Mastercard). Only numbers on
@@ -23,9 +23,9 @@ export const RESULTS_TOTAL = { label: "Designers mentored", value: "3", href: "/
 
 // From the reading list on Allen's Notion.
 export const READING = {
-  now: ["Creative Selection, Ken Kocienda", "Thinking, Fast and Slow, Daniel Kahneman", "Nudge, Richard H. Thaler and Cass R. Sunstein", "1Q84, Haruki Murakami"],
-  shelf: ["The Psychology of Everyday Things, Don Norman", "The Creative Act, Rick Rubin", "Steal Like an Artist, Austin Kleon", "The War of Art, Steven Pressfield", "The Psychology of Money, Morgan Housel", "Meditations, Marcus Aurelius", "Lost Connections, Johann Hari", "What Men Live By, Leo Tolstoy"],
-};
+  now: ["Creative Selection, Ken Kocienda", "Nudge, Richard H. Thaler and Cass R. Sunstein"],
+  shelf: ["The Psychology of Everyday Things, Don Norman", "The Creative Act, Rick Rubin"],
+}
 
 // How I work: three habits, each linked to the case that shows it in practice.
 export const HOW_I_WORK = [
@@ -36,12 +36,12 @@ export const HOW_I_WORK = [
 
 // Life outside the work, from the About page, with the site's own stickers.
 export const OFF_CLOCK = [
-  { img: "/stickers/stage-mic.png", text: "Performed in a 40-person amateur musical this August, with 350 tickets sold. I built its scheduling, bill-splitting and script-reader apps, and I'm back for season two." },
-  { img: "/stickers/palette.png", text: "The kid who wanted to make art now builds for the arts scene: Toronto Yuwol, ARND, and volunteering as design lead at ArtsGaze." },
-  { img: "/stickers/rainbow-flower.png", text: "Grew up around cooks, and many of my friends are musicians. That world is where most of my ideas come from." },
+  { img: "/stickers/stage-mic.png", text: "On stage in a 40-person musical this August, 350 tickets sold, running on apps I built." },
+  { img: "/stickers/palette.png", text: "Building for the arts scene: Toronto Yuwol, ARND and ArtsGaze." },
+  { img: "/stickers/rainbow-flower.png", text: "Grew up around cooks and musicians. Most of my ideas start there." },
   { img: "/stickers/running-shoe.png", text: "Ran a half-marathon on my own." },
   { img: "/stickers/bear-heart.png", text: "Raised $1,000 for SickKids Hospital." },
-  { img: "/stickers/invader.png", text: "Kept a daily streak for years, first French, now chess. Streak apps are a good on-ramp to a language, not a way to learn one." },
+  { img: "/stickers/invader.png", text: "A daily streak for years: French, now chess." },
 ];
 
 // Exact excerpts from LinkedIn recommendations.

@@ -148,24 +148,17 @@ export default function AboutTabs() {
                   Seoul, 1994. Hamilton, 2007. Toronto since 2012. My Korean
                   name is Sung Mook. Over time it became{" "}
                   <span className="text-foreground font-medium">mooque</span>,
-                  a contraction I&apos;ve worn long enough that it&apos;s mine now.
-                  Something between a handle and a brand. Easy to remember, hard
-                  to place, which felt right for someone who doesn&apos;t fit
-                  neatly into a single box. The red seal on this site&apos;s browser
-                  tab is 묵, the Mook in Sung Mook. You can reach me at{" "}
+                  a handle I&apos;ve worn long enough that it&apos;s mine. The red
+                  seal on this site&apos;s browser tab is 묵, the Mook in Sung
+                  Mook. Another handle, ncsstyco, is short for Necessity Company:
+                  good work should create real necessity, not manufactured
+                  urgency. You can reach me at{" "}
                   <a
                     href="mailto:allensmkang@gmail.com"
                     className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                   >
                     allensmkang@gmail.com
                   </a>.
-                </p>
-                <p>
-                  ncsstyco, a handle I&apos;ve carried for years, is short for{" "}
-                  <span className="text-foreground font-medium">Necessity Company</span>.
-                  The idea is straightforward: good work should create genuine
-                  necessity, not manufactured urgency. Purpose over profit, not
-                  the other way around.
                 </p>
               </div>
             </div>
@@ -186,37 +179,29 @@ export default function AboutTabs() {
                   <h3 className="font-semibold mb-2">Food &amp; people</h3>
                   <p className="text-muted leading-relaxed">
                     My family are the cooks, and many of my friends are
-                    musicians. I grew up around chefs and home cooks, musicians
-                    and artists. That world is where most of my
-                    real inspiration comes from: the improvisation, the care
-                    about detail, the way something has to earn its place. That
-                    curiosity about food and technology eventually led me to
-                    collaborate on{" "}
+                    musicians. Most of my ideas start there, including{" "}
                     <Link
                       href="/work/forkestrate"
                       className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
                       an AI-powered recipe app
-                    </Link>{" "}
-                    built around conversational design.
+                    </Link>
+                    .
                   </p>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">Paint &amp; a camera</h3>
                   <p className="text-muted leading-relaxed">
-                    I trained in illustration, watercolour, and oil painting,
-                    and shot weddings on the side before design took over. The
-                    kid who wanted to make art now builds for the arts scene:
-                    tools for Toronto Yuwol, ARND for live music, and
-                    volunteering as design lead at{" "}
+                    I trained in watercolour and oil and shot weddings before
+                    design took over. Now I build for the arts scene: Toronto
+                    Yuwol, ARND, and volunteering as design lead at{" "}
                     <Link
                       href="/work/artist-merchandise"
                       className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
                       ArtsGaze
                     </Link>
-                    , helping emerging artists build visual identities of their
-                    own.
+                    .
                   </p>
                 </div>
                 <div>
@@ -232,28 +217,23 @@ export default function AboutTabs() {
                       half-marathon
                       <span className="sr-only"> (Strava, opens in new tab)</span>
                     </a>{" "}
-                    on my own. Separately, I raised $1,000 for SickKids
-                    Hospital. In August 2026 I went on stage in a 40-person
-                    amateur musical, well outside my comfort zone: 350 tickets
-                    sold, running on the scheduling, bill-splitting and
-                    script-reader apps I built for the company. Season two is
-                    underway. Optimism in practice, I suppose.
+                    on my own, and separately raised $1,000 for SickKids. In
+                    August 2026 I went on stage in a 40-person musical: 350
+                    tickets sold, running on apps I built. Season two is
+                    underway.
                   </p>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">A daily streak</h3>
                   <p className="text-muted leading-relaxed">
-                    I kept a daily streak for years, first French on Duolingo,
-                    now chess. My verdict: streak apps are a good on-ramp to a
-                    language, not a way to learn one. I also{" "}
+                    Years of daily streaks, first French, now chess. I also{" "}
                     <Link
                       href="/writing"
                       className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
                       write
                     </Link>{" "}
-                    about what I&apos;m working through: systems, adoption
-                    without authority, design after an acquisition.
+                    about what I&apos;m working through.
                   </p>
                 </div>
                 <div>

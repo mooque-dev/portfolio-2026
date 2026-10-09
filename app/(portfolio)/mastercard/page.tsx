@@ -21,25 +21,25 @@ const RULE =
 const principles = [
   {
     title: "Show the work, not just the answer.",
-    body: "Finance teams had been burned by systems that moved their data silently. On Aplos × Keela I refused the usual smart defaults and designed a mapping view and a sync status you could read at a glance: what moved, when, and what needs a human. Trust was the product.",
+    body: "On Aplos × Keela I showed every data mapping and the sync status instead of hiding them behind defaults, because finance teams had been burned by silent syncs.",
     slug: "aplos-keela-integration",
     link: "Aplos × Keela",
   },
   {
     title: "Surface errors while they are cheap.",
-    body: "Accountants only learned a transaction was miscategorized at the final report, then started over. On Transaction Workflows I replaced the year-end surprise with validation that shows the health of each reporting period as an ambient signal.",
+    body: "On Transaction Workflows, validation runs continuously, so a miscategorized transaction shows up now instead of at the final report.",
     slug: "transaction-workflows",
     link: "Transaction Workflows",
   },
   {
     title: "Design the decision, not the default.",
-    body: "A redesigned fee box had a headline win of 75% to 82%, and a hidden leak behind it. I argued we pause, read what donors did after clicking Edit, and designed the moment around a fair choice. The winner reached 92% without trading away conversion.",
+    body: "A 75% to 82% win hid a leak after donors clicked Edit. I argued to pause, redesigned that moment, and the winner reached 92% with conversion steady.",
     slug: "fee-opt-in-experimentation",
     link: "Fee Opt-In",
   },
   {
     title: "Build confidence before capability.",
-    body: "The number one fear about automation was emailing all 5,000 donors by accident. A preview of exactly which contacts a workflow would touch, shown before anything goes live, is what let people turn it on.",
+    body: "The top fear was emailing all 5,000 donors by accident, so a preview of exactly who a workflow will touch comes before anything goes live.",
     slug: "automation-nonprofits",
     link: "Automation",
   },
