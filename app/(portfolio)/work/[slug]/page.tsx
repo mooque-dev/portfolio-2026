@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
-import { getProject, getProjectSlugs, getAllProjects, extractHeadings } from "@/lib/content";
+import { getProject, getProjectSlugs, getAllProjects, chapterize } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
-import TableOfContents from "@/components/TableOfContents";
+import ChapterNav from "@/components/ChapterNav";
+import CaseLightbox from "@/components/CaseLightbox";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -35,31 +37,51 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const nextProject = allProjects[currentIndex + 1] ?? allProjects[0];
 
   const { frontmatter } = project;
-  const { html: content, headings } = extractHeadings(project.content);
+  const { intro, chapters } = chapterize(project.content);
+  const blur = frontmatter.wip
+    ? "[&_img]:blur-md [&_img]:brightness-75 [&_img.clear]:blur-none [&_img.clear]:brightness-100"
+    : "";
+  const navItems = [
+    { id: "overview", label: "Overview" },
+    ...chapters.map((c) => ({ id: c.id, label: `${c.num} ${c.kicker ?? c.title.replace(/<[^>]+>/g, "")}` })),
+  ];
+  const meta: [string, ReactNode][] = [
+    ["Role", frontmatter.role],
+    [
+      frontmatter.company ? "Company" : "Timeline",
+      frontmatter.company ? (
+        <>
+          {frontmatter.company}
+          <span className="block text-muted">{frontmatter.timeline}</span>
+        </>
+      ) : (
+        frontmatter.timeline
+      ),
+    ],
+    ["Team", frontmatter.team],
+    ["Tools", frontmatter.tools?.join(", ")],
+  ];
 
   return (
-    <article className="pt-32 pb-24 md:pt-40 md:pb-32">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex gap-16 items-start">
-        <div className="flex-1 min-w-0 max-w-3xl">
-        {/* Header */}
+    <article className="pb-24 md:pb-32">
+      {chapters.length > 1 && <ChapterNav items={navItems} />}
+
+      <header
+        id="overview"
+        className={`max-w-[1120px] mx-auto px-6 scroll-mt-32 ${chapters.length > 1 ? "pt-12 md:pt-16" : "pt-32 md:pt-40"}`}
+      >
         <FadeIn>
-          <Link
-            href="/work"
-            className="text-sm text-muted hover:text-foreground transition-colors"
-          >
+          <Link href="/work" className="text-sm text-muted hover:text-foreground transition-colors">
             &larr; All work
           </Link>
-        </FadeIn>
-
-        <FadeIn delay={0.1}>
-          <span className="inline-block mt-8 text-xs tracking-widest uppercase text-muted">
-            {frontmatter.category}
-          </span>
-          <h1 className="font-serif text-3xl md:text-5xl font-bold tracking-tight mt-3 leading-[1.1]">
+          <p className="mt-8 text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">
+            Case study &middot; {frontmatter.category}
+            {frontmatter.company && <> &middot; {frontmatter.company}</>}
+          </p>
+          <h1 className="font-serif text-[34px] md:text-[48px] font-bold tracking-[-0.01em] mt-3.5 leading-[1.1] max-w-[880px] text-balance">
             {frontmatter.title}
           </h1>
-          <p className="mt-4 text-lg text-muted leading-relaxed">
+          <p className="mt-5 text-lg md:text-xl text-muted leading-relaxed max-w-[760px]">
             {frontmatter.subtitle}
           </p>
           {frontmatter.liveUrl && (
@@ -76,73 +98,56 @@ export default async function CaseStudyPage({ params }: PageProps) {
           )}
         </FadeIn>
 
-        {/* Metadata */}
-        <FadeIn delay={0.2}>
-          <dl className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-t border-b border-border">
-            <div>
-              <dt className="text-xs tracking-widest uppercase text-muted mb-1">
-                Role
-              </dt>
-              <dd className="text-sm">
-                {frontmatter.role}
-                {frontmatter.company && (
-                  <span className="block text-muted">{frontmatter.company}</span>
-                )}
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs tracking-widest uppercase text-muted mb-1">
-                Timeline
-              </dt>
-              <dd className="text-sm">{frontmatter.timeline}</dd>
-            </div>
-            <div>
-              <dt className="text-xs tracking-widest uppercase text-muted mb-1">
-                Team
-              </dt>
-              <dd className="text-sm">{frontmatter.team}</dd>
-            </div>
-            <div>
-              <dt className="text-xs tracking-widest uppercase text-muted mb-1">
-                Tools
-              </dt>
-              <dd className="text-sm">{frontmatter.tools?.join(", ")}</dd>
-            </div>
+        <FadeIn delay={0.1}>
+          <dl className="mt-9 pt-6 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-5">
+            {meta.map(([label, value]) => (
+              <div key={label}>
+                <dt className="text-[12.5px] tracking-[0.1em] uppercase font-semibold text-muted mb-1">{label}</dt>
+                <dd className="text-[15px] leading-snug">{value}</dd>
+              </div>
+            ))}
           </dl>
         </FadeIn>
 
-        {frontmatter.tldr && frontmatter.tldr.length > 0 && (
-          <FadeIn delay={0.25}>
-            <section
-              aria-labelledby="tldr-heading"
-              className="mt-10 rounded-lg border border-border bg-surface/60 p-6 md:p-7"
-            >
-              <h2 id="tldr-heading" className="microlabel text-muted">
-                In 30 seconds
-              </h2>
-              <dl className="mt-4 grid gap-x-6 gap-y-4 md:grid-cols-[110px_1fr]">
-                {frontmatter.tldr.map(([label, text]) => (
-                  <div key={label} className="contents">
-                    <dt className="text-xs tracking-widest uppercase text-muted pt-0.5">
-                      {label}
-                    </dt>
-                    <dd className="text-[15px] leading-relaxed">{text}</dd>
-                  </div>
-                ))}
-              </dl>
-            </section>
+        {frontmatter.glance && frontmatter.glance.length > 0 && (
+          <FadeIn delay={0.15}>
+            <div className="mt-8 grid gap-4 md:grid-cols-3">
+              {frontmatter.glance.map(([value, label]) => (
+                <div key={label} className="border-t-2 border-foreground pt-3">
+                  <b className="block text-[34px] md:text-[40px] leading-[1.05] font-bold tracking-[-0.02em] tabular-nums">
+                    {value}
+                  </b>
+                  <span className="block mt-1.5 text-[15px] leading-snug text-muted">{label}</span>
+                </div>
+              ))}
+            </div>
           </FadeIn>
         )}
 
-        {/* Cover */}
+        {frontmatter.tldr && frontmatter.tldr.length > 0 && (
+          <FadeIn delay={0.2}>
+            <dl className="mt-11 grid gap-x-6 md:grid-cols-[130px_1fr] max-w-[900px]">
+              {frontmatter.tldr.map(([label, text]) => (
+                <div key={label} className="contents">
+                  <dt className="text-[12.5px] tracking-[0.1em] uppercase font-bold text-muted pt-1">{label}</dt>
+                  <dd className="mb-3 md:mb-2.5 text-[17px] leading-relaxed">{text}</dd>
+                </div>
+              ))}
+            </dl>
+          </FadeIn>
+        )}
+
         {frontmatter.coverImage && (
-          <FadeIn delay={0.3}>
-            <div className="mt-12 aspect-[16/9] rounded-sm overflow-hidden relative"
-              style={{ backgroundColor: frontmatter.coverColor }}>
+          <FadeIn delay={0.25}>
+            <div
+              className="mt-12 aspect-[16/9] rounded-lg overflow-hidden relative border border-border"
+              style={{ backgroundColor: frontmatter.coverColor }}
+            >
               <Image
                 src={frontmatter.coverImage}
                 alt={frontmatter.title}
                 fill
+                sizes="(min-width: 1120px) 1072px, 100vw"
                 className={`object-cover object-center ${frontmatter.wip ? "blur-md brightness-75" : ""}`}
                 priority
               />
@@ -150,45 +155,51 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </FadeIn>
         )}
 
-        {/* Confidentiality note (redacted visuals) */}
         {frontmatter.wip && (
-          <FadeIn delay={0.32}>
-            <p className="mt-8 border-l-2 border-border pl-4 text-sm text-muted leading-relaxed">
-              The product visuals here are intentionally blurred. This work is
-              confidential. The aggregate results are shown as reported, and
-              I&apos;m glad to walk through the real screens in conversation.
-            </p>
-          </FadeIn>
+          <p className="mt-8 border-l-2 border-border pl-4 text-sm text-muted leading-relaxed max-w-[720px]">
+            The product visuals here are intentionally blurred. This work is
+            confidential. The aggregate results are shown as reported, and
+            I&apos;m glad to walk through the real screens in conversation.
+          </p>
+        )}
+      </header>
+
+      <div className="max-w-[1120px] mx-auto px-6" data-case-body>
+        {intro.trim() && (
+          <div className={`case-body mt-16 ${blur}`} dangerouslySetInnerHTML={{ __html: intro }} />
         )}
 
-        {/* Content */}
-        <FadeIn delay={0.35}>
-          <div
-            className={`prose mt-16 ${frontmatter.wip ? "[&_img]:blur-md [&_img]:brightness-75 [&_img.clear]:blur-none [&_img.clear]:brightness-100" : ""}`}
-            dangerouslySetInnerHTML={{ __html: content }}
-          />
-        </FadeIn>
-
-        {/* Next project */}
-        {nextProject && nextProject.slug !== slug && (
-          <FadeIn>
-            <div className="mt-24 pt-12 border-t border-border">
-              <p className="text-xs tracking-widest uppercase text-muted mb-3">
-                Next project
-              </p>
-              <Link
-                href={`/work/${nextProject.slug}`}
-                className="font-serif text-xl md:text-2xl font-semibold hover:opacity-70 transition-opacity"
-              >
-                {nextProject.frontmatter.title} &rarr;
-              </Link>
+        {chapters.map((c) => (
+          <section key={c.id} id={c.id} className="pt-20 md:pt-24 scroll-mt-32">
+            <div className="grid grid-cols-[auto_1fr] items-baseline gap-x-4 md:gap-x-6 gap-y-1 max-w-[980px]">
+              <span aria-hidden className="row-span-2 font-serif text-[42px] md:text-[56px] leading-none font-bold text-[var(--seal)]">
+                {c.num}
+              </span>
+              {c.kicker && (
+                <span className="text-[13px] tracking-[0.12em] uppercase font-bold text-muted">{c.kicker}</span>
+              )}
+              <h2
+                className="font-serif text-[28px] md:text-[38px] leading-[1.15] font-semibold text-balance"
+                dangerouslySetInnerHTML={{ __html: c.title }}
+              />
             </div>
-          </FadeIn>
+            <div className={`case-body mt-6 ${blur}`} dangerouslySetInnerHTML={{ __html: c.html }} />
+          </section>
+        ))}
+
+        {nextProject && nextProject.slug !== slug && (
+          <div className="mt-24 pt-12 border-t border-border">
+            <p className="text-xs tracking-widest uppercase text-muted mb-3">Next project</p>
+            <Link
+              href={nextProject.frontmatter.href ?? `/work/${nextProject.slug}`}
+              className="font-serif text-xl md:text-2xl font-semibold hover:opacity-70 transition-opacity"
+            >
+              {nextProject.frontmatter.title} &rarr;
+            </Link>
+          </div>
         )}
-        </div>
-        <TableOfContents headings={headings} />
-        </div>
       </div>
+      <CaseLightbox skipBlurred={!!frontmatter.wip} />
     </article>
   );
 }

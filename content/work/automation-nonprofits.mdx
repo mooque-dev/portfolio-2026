@@ -19,9 +19,10 @@ company: "Keela"
 featuredStat: "13%"
 featuredStatLabel: "ARR increase, 30% adoption across 355 orgs"
 tldr: [["Problem","Automation was the most requested feature, and the top fear was emailing all 5,000 donors by accident."],["Decision","I made confidence the design goal: a preview of exactly which contacts a workflow would touch, before anything goes live."],["Outcome","30% adoption across 355 organizations, contributing to a 13% ARR increase."],["Principle","Build for confidence before capability."]]
+glance: [["30%", "adoption across 355 organizations"], ["13%", "ARR increase for the product"], ["15", "operations managers interviewed"]]
 ---
 
-## Context
+## Stakes | Context
 
 Automation was the #1 requested feature on the roadmap and a growing gap competitors were starting to win deals on. Nonprofit staff wear too many hats, and repetitive tasks (thank-you emails, donor record updates, follow-up triggers) eat hours that should go toward the actual work. I partnered with the Product Manager and CTO to frame this as more than a feature: a platform capability that would open up future surface area for integrations, AI-assisted workflows, and custom donor journeys.
 
@@ -29,7 +30,7 @@ Automation was the #1 requested feature on the roadmap and a growing gap competi
   <img src="/case-studies/automation-nonprofits/1.jpg" alt="Automation and Workflow feature overview" />
 </figure>
 
-## The Research Surprise
+## Research | The Research Surprise
 
 I talked to 15 nonprofit operations managers and expected to hear about complexity concerns. Instead, the #1 fear was much simpler:
 
@@ -44,7 +45,7 @@ I also studied the competitive landscape by testing Hubspot and Mailchimp direct
   <figcaption>Required user stories developed with the PM. Some moved to the V2 backlog to hit the MVP timeline</figcaption>
 </figure>
 
-## The Design
+## Decisions | The Design
 
 The easy version of this feature ships the workflow builder alone and calls it done, since that's the part everyone asked for on the roadmap. I decided the builder wasn't the hard problem. The hard problem was getting someone who had never trusted software with donor data to press activate. Every decision below answers to that, not to feature completeness.
 
@@ -69,9 +70,13 @@ Rather than a blank canvas, users start from pre-built journey types: New Donor 
 
 New users see a curated template library. As they build confidence, the interface reveals more: custom triggers, conditional logic, multiple branches. The system grows with the user.
 
-## Testing
+<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>The fear</th><th>The design answer</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="The fear"><b>"What if I accidentally email all 5,000 of our donors?"</b></td><td data-label="The design answer"><b>Preview mode.</b> See exactly which contacts a workflow will touch before it goes live.</td></tr><tr><td><span class="n">2</span></td><td data-label="The fear"><b>A blank canvas.</b> Not knowing where a donor journey should start.</td><td data-label="The design answer"><b>Templated journeys.</b> New, recurring and disengaged donor scaffolding to start from.</td></tr><tr><td><span class="n">3</span></td><td data-label="The fear"><b>Logic hidden in forms.</b> Hard to picture what a rule will actually do.</td><td data-label="The design answer"><b>A visual builder.</b> Trigger, conditions and actions laid out as a flow.</td></tr><tr><td><span class="n">4</span></td><td data-label="The fear"><b>Too much at once.</b> Every option shown on day one.</td><td data-label="The design answer"><b>Progressive complexity.</b> Custom triggers and branches appear as confidence grows.</td></tr></tbody></table></div>
+
+## Testing | Three Rounds, Three Questions
 
 I ran three rounds of prototype testing, each focused on a different part of the experience. The PM and Lead Designer joined sessions to record notes. Each round fed back into Linear as prioritized action items.
+
+<div class="shots n3">
 
 <figure>
   <img src="/case-studies/automation-nonprofits/untitled-3.png" alt="Prototype 1: Creating and activating a workflow" />
@@ -88,7 +93,9 @@ I ran three rounds of prototype testing, each focused on a different part of the
   <figcaption>Round 3: Pausing and reactivating contacts</figcaption>
 </figure>
 
-## What Happened
+</div>
+
+## Result | What Happened
 
 Automation launched as a premium paid add-on:
 

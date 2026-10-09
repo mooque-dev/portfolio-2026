@@ -19,19 +19,22 @@ company: "Aplos"
 featuredStat: "340+ → 86"
 featuredStatLabel: "components consolidated, 96% reuse"
 tldr: [["Problem","Three merged products, 340+ scattered components, and three teams who did not choose to work together."],["Decision","I treated it as an adoption problem: earned dedicated engineering time with cross-department survey data, then replaced heavy governance with 48-hour async reviews."],["Outcome","86 shared primitives, 96% reuse in new work, adopted across all three products within six months."],["Principle","Governance should reduce friction, not create it."]]
+glance: [["340+ → 86", "components consolidated into shared primitives"], ["96%", "component reuse in new feature work"], ["6 months", "to adoption across all three products"]]
 ---
 
-## The Situation
+## Stakes | The Situation
 
 After Keela's acquisition by Aplos, three products needed to become one, and the first thing a shared customer would notice wasn't a missing feature, it was three different visual languages answering the same question. Each product had its own component libraries, color palettes, spacing scales, and interaction patterns. The inconsistency was visible to users and frustrating for the teams building across products.
 
 But here's what I recognized early: this wasn't a design system problem. It was a culture problem. The real challenge was getting three teams with different histories and priorities to build on shared foundations. You can't mandate that.
 
-## Making the Case
+## The pitch | Making the Case
 
 Previous design system efforts had died because they couldn't secure dedicated engineering time. I pitched Orchid differently.
 
 Before the pitch, I ran internal surveys across five departments: Engineering, Customer Care, Sales, Marketing, and Product. The goal was to surface recurring problems that leadership could see in their own teams' words, not just hear from design.
+
+<div class="shots n3">
 
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-1.jpg" alt="Development and Engineering survey results inconsistencies causing rework" />
@@ -48,18 +51,33 @@ Before the pitch, I ran internal surveys across five departments: Engineering, C
   <figcaption>Sales: upmarket prospects noticing UI inconsistencies in demos</figcaption>
 </figure>
 
+</div>
+
 The survey data let me tie the design system investment to three concrete numbers: faster feature delivery, less QA rework, and a coherent experience that would smooth the product merger. We got two dedicated frontend engineers. First time a design system had earned that at Keela.
 
-## How We Built It
+## Before and after | How We Built It
 
 ### The Audit
 
 I ran a full inventory across all three products: 340+ unique components. Through workshops with each team (not presentations to them), we distilled those down to 86 foundational primitives covering 95% of interface needs.
 
+<div class="phase">Before</div>
+
+<div class="shots n2">
+
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-6.png" alt="Old Keela designs showing inconsistent components, decimal values, and messy layering" />
   <figcaption>Pre-Orchid: inconsistent components, decimal measurements, non-reusable elements</figcaption>
 </figure>
+
+<figure>
+  <img src="/case-studies/orchid-design-system/untitled-11.png" alt="Audit of existing production UI showing inconsistencies" />
+  <figcaption>Production audit cataloguing inconsistencies across the live product</figcaption>
+</figure>
+
+</div>
+
+<div class="phase after">After</div>
 
 ### Tokens First
 
@@ -74,6 +92,8 @@ We adopted Storybook integrated with Chromatic to give the design team a workflo
   <figcaption>Rebuilt pagination clean token-based component ready for release</figcaption>
 </figure>
 
+<div class="shots n2">
+
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-8.png" alt="Chromatic showing release-ready components with visual regression testing" />
   <figcaption>Chromatic visual regression testing integrated with the PR workflow</figcaption>
@@ -84,21 +104,20 @@ We adopted Storybook integrated with Chromatic to give the design team a workflo
   <figcaption>Storybook as the shared source of truth for design and engineering</figcaption>
 </figure>
 
+</div>
+
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-10.jpg" alt="Figma documentation with developer annotations and usage notes" />
   <figcaption>Figma documentation annotated for developers, not just designers</figcaption>
-</figure>
-
-<figure>
-  <img src="/case-studies/orchid-design-system/untitled-11.png" alt="Audit of existing production UI showing inconsistencies" />
-  <figcaption>Production audit cataloguing inconsistencies across the live product</figcaption>
 </figure>
 
 ### A Contribution Model That Actually Works
 
 The easy path for a system this size is tight governance, the kind that protects quality by slowing everyone down. I built exactly that first, and contribution proposals dropped to near zero. I decided the formality itself was the problem, not the people ignoring it, and rebuilt around async reviews, a 48-hour turnaround, and lightweight templates. Proposals doubled overnight. Governance should reduce friction, not create it. That was a hard lesson.
 
-## Getting Adoption Without Authority
+<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Before Orchid</th><th>With Orchid</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Before Orchid"><b>340+ unique components</b> across three products, each with its own colors, spacing and patterns.</td><td data-label="With Orchid"><b>86 shared primitives</b> covering 95% of interface needs, distilled in workshops with each team.</td></tr><tr><td><span class="n">2</span></td><td data-label="Before Orchid"><b>Values set by hand,</b> down to decimal measurements that never matched between design and code.</td><td data-label="With Orchid"><b>Tokens first.</b> Color, spacing, type, elevation and motion flow from Figma variables to code.</td></tr><tr><td><span class="n">3</span></td><td data-label="Before Orchid"><b>Inconsistencies found after release,</b> often by customers.</td><td data-label="With Orchid"><b>Caught on every pull request</b> by Chromatic visual regression tests.</td></tr><tr><td><span class="n">4</span></td><td data-label="Before Orchid"><b>Formal governance,</b> and contribution proposals that dropped to near zero.</td><td data-label="With Orchid"><b>48-hour async reviews</b> with lightweight templates. Proposals doubled.</td></tr></tbody></table></div>
+
+## Adoption | Getting Adoption Without Authority
 
 I had no direct authority over most of the people who needed to adopt Orchid. What worked:
 
@@ -106,7 +125,7 @@ I had no direct authority over most of the people who needed to adopt Orchid. Wh
 - **Paired adoption sprints:** I sat with engineers during migration, pair-designing and debugging together. Teams adopted because Orchid was genuinely faster, not because it was required.
 - **Migration guides per product:** meeting each team where they were, not where I wanted them to be. Each guide looked different because each codebase was different.
 
-## What Happened
+## Result | What Happened
 
 - **40% faster** component development for new features
 - Adopted across all three products within 6 months

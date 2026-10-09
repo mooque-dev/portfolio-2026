@@ -32,6 +32,8 @@ export interface ProjectFrontmatter {
   tldr?: [string, string][];
   // A case study that lives on its own standalone page instead of /work/[slug].
   href?: string;
+  // Up to three headline numbers for the case hero: [value, label] pairs.
+  glance?: [string, string][];
 }
 
 export interface Heading {
@@ -50,6 +52,40 @@ export function extractHeadings(html: string): { html: string; headings: Heading
     return `<h${lvl} id="${id}">${inner}</h${lvl}>`;
   });
   return { html: processed, headings };
+}
+
+export interface Chapter {
+  id: string;
+  num: string;
+  kicker?: string;
+  title: string;
+  html: string;
+}
+
+// Splits a case study into numbered chapters at each h2. An h2 written as
+// "Kicker | Title" gets a short kicker, which also labels the chapter nav.
+export function chapterize(html: string): { intro: string; chapters: Chapter[] } {
+  let intro = "";
+  const chapters: Chapter[] = [];
+  for (const part of html.split(/(?=<h2>)/)) {
+    const m = part.match(/^<h2>([\s\S]*?)<\/h2>/);
+    if (!m) {
+      intro += part;
+      continue;
+    }
+    const [kicker, title] = m[1].includes(" | ")
+      ? (m[1].split(" | ", 2) as [string, string])
+      : [undefined, m[1]];
+    const text = title.replace(/<[^>]+>/g, "").replace(/&[^;]+;/g, "").trim();
+    chapters.push({
+      id: text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
+      num: String(chapters.length + 1).padStart(2, "0"),
+      kicker: kicker?.trim(),
+      title: title.trim(),
+      html: part.slice(m[0].length),
+    });
+  }
+  return { intro, chapters };
 }
 
 export interface WritingFrontmatter {

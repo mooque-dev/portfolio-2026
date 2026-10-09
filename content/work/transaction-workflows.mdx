@@ -18,9 +18,10 @@ company: "Aplos"
 featuredStat: "$1.8M"
 featuredStatLabel: "ARR in connected accounts supported"
 tldr: [["Problem","Nonprofits could log only one type per payment, but one payment is often part donation, part in-kind gift, and part value received, like a gala ticket. That gap drove about 500 support tickets a quarter."],["Decision","I designed for extensibility inside a no-refactor constraint: smart defaults with human override, batch editing by context, and continuous validation."],["Outcome","70% fewer categorization tickets in the first month and $1.8M ARR in connected accounts supported."],["Principle","Smart defaults, human override. It became a platform-wide interaction rule."]]
+glance: [["70%", "fewer categorization support tickets in the first month"], ["60%", "fewer manual adjustments"], ["$1.8M", "ARR in connected accounts supported"]]
 ---
 
-## Why This Mattered
+## Stakes | Why This Mattered
 
 As Keela pushed upmarket after its acquisition, this feature stood between the roadmap and the larger nonprofits the growth plan depended on. Keela's transaction model handled simple one-time donations well. It broke down for larger nonprofits who needed to record one payment split across multiple purposes: ticket plus donation plus campaign attribution in a single transaction. The workaround forced staff to log multiple records, creating inaccurate receipts, messy accounting, and more support tickets.
 
@@ -36,7 +37,7 @@ Signal we used to prioritize this:
 
 This wasn't a nice-to-have redesign. As the team pushed upmarket after acquisition, transaction rigidity had become a growth blocker.
 
-## What I Learned From Watching People Work
+## Research | What I Learned From Watching People Work
 
 I spent time with 8 nonprofit accountants during their actual tax preparation process, not usability tests with tasks I'd written, but genuine contextual inquiry. I sat next to them while they reconciled.
 
@@ -51,7 +52,7 @@ Three things stood out:
 - The batch editing interface required too many clicks. One person described it as "death by checkbox."
 - Error states were invisible. Users couldn't tell if a transaction was miscategorized until the final report. By that point they'd have to start over.
 
-## Approach
+## Approach | Design for What Breaks Next
 
 The easy path was a narrow fix: ship a one-off split-transaction screen scoped to the loudest complaint, then move to the next fire. I pushed back, because a narrow fix would leave the same fragile data model waiting to break again at the next growth motion. I decided to design for extensibility instead, so future capabilities could layer on without rework, not just clear the ticket backlog. Before designing anything, I got alignment with the PM and engineering lead on what we couldn't do: no full backend refactor, no breaking a legacy data model tied to reporting. We agreed to ship in phases.
 
@@ -60,7 +61,7 @@ The easy path was a narrow fix: ship a one-off split-transaction screen scoped t
   <figcaption>Phased approach: deliver value without a full backend refactor</figcaption>
 </figure>
 
-## The Design
+## Before and after | The Design
 
 ### Smart Defaults, Human Override
 
@@ -81,7 +82,9 @@ The old design accumulated errors silently and surfaced them all at report time.
   <figcaption>The final design: split workflow with continuous validation</figcaption>
 </figure>
 
-## Iteration Was the Work
+<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Before"><b>One type per payment.</b> A gala ticket that was part donation, part value received had to be logged as several records.</td><td data-label="After"><b>One payment, split by purpose.</b> Donation, in-kind gift and value received live in a single transaction.</td></tr><tr><td><span class="n">2</span></td><td data-label="Before"><b>Categorizing by hand.</b> Every transaction started blank, and accountants kept a parallel spreadsheet.</td><td data-label="After"><b>Smart defaults, human override.</b> A suggested category from donor history, amount and fund, accepted in one click.</td></tr><tr><td><span class="n">3</span></td><td data-label="Before"><b>"Death by checkbox."</b> A flat table where batch edits meant ticking rows one at a time.</td><td data-label="After"><b>Batch by context.</b> Scope by date range, donor, fund or category, then act on the group.</td></tr><tr><td><span class="n">4</span></td><td data-label="Before"><b>Errors at report time.</b> A miscategorized transaction stayed invisible until the final report.</td><td data-label="After"><b>Continuous validation.</b> Each reporting period shows its health as you go.</td></tr></tbody></table></div>
+
+## Testing | Iteration Was the Work
 
 Moving from a modal flow to a full-screen split workflow was the single biggest change to the creation experience, and it did not land in one pass. Each round went in front of the accountants and the engineering team before it went any further.
 
@@ -96,6 +99,8 @@ The transaction details view required three full rounds, each scored by the peop
 - **V2** (borrowed ecosystem patterns, introduced DS components): 7.5/10
 - **V3** (associations secondary, items primary): 9.5/10
 
+<div class="shots n2">
+
 <figure>
   <img src="/case-studies/transaction-workflows/image-7.png" alt="V1 transaction detail layout, minimal change" />
   <figcaption>V1: minimal change, 6/10</figcaption>
@@ -106,11 +111,13 @@ The transaction details view required three full rounds, each scored by the peop
   <figcaption>V3: associations secondary, items primary, 9.5/10</figcaption>
 </figure>
 
+</div>
+
 V3 won because it matched how accountants actually think: what they're recording first, who it belongs to second. The organizational hierarchy wasn't wrong in V1 and V2. It was just answered in the wrong order.
 
 Feature flags enabled safe rollout. Usage data helped us simplify the UI by removing low-value sections and prioritizing split clarity.
 
-## What Happened
+## Result | What Happened
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-12.png" alt="Impact dashboard showing 70% drop in tickets, 60% reduction in manual adjustments, $1.8M ARR supported" />

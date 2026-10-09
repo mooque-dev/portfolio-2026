@@ -484,3 +484,235 @@ html {
   font-size: 10px;
   letter-spacing: 0.18em;
 }
+
+/* Case study chapters. Same reading rhythm as the standalone Care Pathway and
+   Keela Contacts pages: text in a readable column, visuals allowed wider,
+   Before and After dividers, side-by-side shots, and a numbered changes table.
+   MDX opts in with raw HTML: <div class="phase">, <div class="shots n2">,
+   <table class="changes">. */
+.case-body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--foreground);
+}
+.case-body > * {
+  max-width: 720px;
+}
+.case-body > figure,
+.case-body > .shots,
+.case-body > .phase,
+.case-body > .tablewrap {
+  max-width: 980px;
+}
+.case-body > figure.wide {
+  max-width: none;
+}
+.case-body p {
+  margin: 0 0 1.25rem;
+}
+.case-body h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 2.25rem 0 0.5rem;
+}
+.case-body ul,
+.case-body ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+}
+.case-body ul li {
+  list-style-type: disc;
+}
+.case-body ol li {
+  list-style-type: decimal;
+}
+.case-body li {
+  margin-bottom: 0.4rem;
+}
+.case-body strong {
+  font-weight: 600;
+}
+.case-body a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.case-body blockquote {
+  margin: 2rem 0;
+  padding-left: 1.25rem;
+  border-left: 3px solid var(--seal);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
+  line-height: 1.4;
+}
+.case-body blockquote p {
+  margin: 0;
+}
+.case-body figure {
+  margin: 2rem 0;
+}
+.case-body figure img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+}
+.case-body img[data-zoom] {
+  cursor: zoom-in;
+}
+.case-body img[data-zoom]:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 3px;
+}
+.case-body figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.case-body figure.phone img {
+  width: min(300px, 78%);
+  margin-inline: auto;
+  border-radius: 1.25rem;
+  box-shadow: 0 14px 34px -18px rgba(15, 12, 40, 0.28);
+}
+.case-body figure.phone figcaption {
+  text-align: center;
+}
+.case-body figure.phones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+.case-body figure.phones img {
+  width: min(224px, 46%);
+  border-radius: 1rem;
+}
+.case-body figure.phones figcaption {
+  width: 100%;
+  text-align: center;
+}
+.case-body .shots {
+  display: grid;
+  gap: 18px;
+  margin: 2rem 0;
+}
+.case-body .shots.n2 {
+  grid-template-columns: 1fr 1fr;
+}
+.case-body .shots.n3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.case-body .shots figure {
+  margin: 0;
+  min-width: 0;
+}
+.case-body .phase {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 2.5rem 0 1rem;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.case-body .phase.after {
+  color: var(--seal);
+}
+.case-body .phase::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.case-body .tablewrap {
+  overflow-x: auto;
+  margin: 2rem 0 1.25rem;
+}
+.case-body table.changes {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.55;
+}
+.case-body table.changes th {
+  padding: 8px 18px 8px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.case-body table.changes td {
+  padding: 14px 18px 14px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.case-body table.changes td:first-child {
+  width: 40px;
+  padding-right: 8px;
+}
+.case-body table.changes td:nth-child(2) {
+  width: 44%;
+  color: var(--muted);
+}
+.case-body table.changes b {
+  font-weight: 600;
+  color: var(--foreground);
+}
+.case-body table.changes .n {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--seal);
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+@media (max-width: 860px) {
+  .case-body .shots.n2,
+  .case-body .shots.n3 {
+    grid-template-columns: 1fr;
+  }
+  .case-body table.changes td:nth-child(2) {
+    width: auto;
+  }
+}
+@media (max-width: 640px) {
+  .case-body table.changes thead {
+    display: none;
+  }
+  .case-body table.changes tr {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 6px 4px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .case-body table.changes td {
+    padding: 0;
+    border: 0;
+    width: auto;
+  }
+  .case-body table.changes td:first-child {
+    grid-row: span 2;
+  }
+  .case-body table.changes td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+}

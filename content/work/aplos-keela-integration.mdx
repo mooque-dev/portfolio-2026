@@ -19,9 +19,10 @@ company: "Aplos"
 featuredStat: "85%"
 featuredStatLabel: "less manual reconciliation time"
 tldr: [["Problem","The first integration between two newly merged products, briefed as a simple data sync."],["Decision","I reframed it as a trust problem and made every data mapping visible instead of hiding it behind defaults."],["Outcome","85% less manual reconciliation time. The review format and integration framework became the template for later cross-product work."],["Principle","When trust is the constraint, transparency beats automation."]]
+glance: [["85%", "less manual reconciliation time"], ["12", "nonprofit finance managers interviewed"], ["1st", "feature the two merged companies shipped together"]]
 ---
 
-## The Real Problem
+## Stakes | The Real Problem
 
 This was the first thing the two newly merged companies would ship together, and leadership was watching it as a signal of whether the acquisition would actually work. The project was supposed to be a data sync. The brief said: make Keela's CRM talk to Aplos's accounting system. Simple enough on paper.
 
@@ -29,7 +30,7 @@ But after talking to 12 nonprofit finance managers, I realized the problem wasn'
 
 That insight reframed the entire project. Instead of building a backend sync, we needed to design an experience where users could see exactly what was happening to their data at every step.
 
-## What Made This Hard
+## Constraints | What Made This Hard
 
 This was the first time the two companies had shipped anything together. Beyond the product challenge, I was navigating:
 
@@ -39,7 +40,7 @@ This was the first time the two companies had shipped anything together. Beyond 
 
 I spent the first two weeks not designing at all: just sitting in on both teams' standups, mapping how each side thought about the same data differently, and building the relationships that would make the actual work possible.
 
-## Key Design Decisions
+## Decisions | Key Design Decisions
 
 ### Visible Data Mapping
 
@@ -53,7 +54,9 @@ The setup flow started simple: default mappings that covered 80% of use cases. P
 
 A persistent sync status view showed the last sync time, records processed, and any exceptions needing attention. This was the feature that eliminated the "did my data actually sync?" anxiety that had plagued the manual process.
 
-## The Organizational Work
+<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>The manual workaround</th><th>The integration</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="The manual workaround"><b>Spreadsheets, CSV exports and duplicate entry,</b> because teams didn't trust what they couldn't see.</td><td data-label="The integration"><b>Visible data mapping.</b> Every Keela field shown against the Aplos account it lands in, and editable.</td></tr><tr><td><span class="n">2</span></td><td data-label="The manual workaround"><b>All or nothing.</b> Either map everything by hand or trust a black box.</td><td data-label="The integration"><b>Progressive configuration.</b> Defaults that cover 80% of cases, with one click to go deeper.</td></tr><tr><td><span class="n">3</span></td><td data-label="The manual workaround"><b>"Did my data actually sync?"</b> No way to tell without checking by hand.</td><td data-label="The integration"><b>A sync status view.</b> Last sync time, records processed, and the exceptions that need attention.</td></tr></tbody></table></div>
+
+## Leadership | The Organizational Work
 
 The design work was maybe 40% of this project. The rest was organizational:
 
@@ -61,7 +64,7 @@ The design work was maybe 40% of this project. The rest was organizational:
 - I created the first shared component library for integration UI, which later became the seed for Orchid's cross-product adoption.
 - I presented the integration framework to the executive team, and it became the template for every subsequent cross-product initiative.
 
-## What Happened
+## Result | What Happened
 
 - **85% reduction** in manual data reconciliation time
 - Became the blueprint for all subsequent cross-product integrations
@@ -70,7 +73,7 @@ The design work was maybe 40% of this project. The rest was organizational:
 
 The lesson that outlived the project: when trust, not data transfer, is the actual constraint, transparency beats automation, even when automation would ship faster. Two teams who didn't choose each other found a way to build something together. Everything above, the reviews, the shared library, the executive template, was just how that actually happened.
 
-## What Came Next: ARK
+## What came next | ARK
 
 The integration work laid the groundwork for something bigger. ARK is the connected nonprofit suite: Keela, Raisely, and Aplos unified under a single system. The integration I led became one of the first building blocks.
 
@@ -78,6 +81,8 @@ The integration work laid the groundwork for something bigger. ARK is the connec
   <img src="/case-studies/aplos-keela-integration/image.png" alt="Marketing banner for the official ARK Partnership announcement" />
   <figcaption>ARK Partnership announcement: the public launch of the connected nonprofit suite</figcaption>
 </figure>
+
+<div class="shots n2">
 
 <figure>
   <img src="/case-studies/aplos-keela-integration/image-1.png" alt="Keela x Aplos integration in product" />
@@ -88,6 +93,8 @@ The integration work laid the groundwork for something bigger. ARK is the connec
   <img src="/case-studies/aplos-keela-integration/image-2.png" alt="Working with PMs and Design Lead at Aplos to ensure ARK Design System consistency" />
   <figcaption>Cross-company design reviews: aligning the ARK Design System with each product's context</figcaption>
 </figure>
+
+</div>
 
 <figure>
   <img src="/case-studies/aplos-keela-integration/image-3.jpg" alt="PLG banners for Raisely x Keela partnership" />
