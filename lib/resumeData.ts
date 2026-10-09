@@ -44,9 +44,9 @@ export const experience: Job[] = [
     location: "Toronto, ON",
     period: "Mar 2023 to Feb 2025",
     description: [
-      "Led design of Automation, a no-code workflow builder: 30% adoption across 355 organizations, contributing to a 13% ARR increase. Its preview mode came straight from research with 15 operations managers.",
+      "Led the design system refresh that became Orchid, pitched to leadership with surveys from five departments.",
       "Redesigned the contact record fundraisers open before every call to lead with recent change instead of lifetime totals.",
-      "Led design for Pipelines and Reports & Dashboards, and established the design system and launch process. Mentored one designer.",
+      "Led design for Pipelines and Reports & Dashboards, and set up the launch process. Mentored one designer.",
     ],
   },
   {
@@ -55,6 +55,7 @@ export const experience: Job[] = [
     location: "Vancouver, BC",
     period: "Feb 2021 to Mar 2023",
     description: [
+      "Designed Automation, a no-code workflow builder, a month into the role: 30% adoption across 355 organizations, contributing to a 13% ARR increase.",
       "Stepped in as Associate PM to ship the Pipelines feature, earning recognition for autonomy and leadership.",
     ],
   },
