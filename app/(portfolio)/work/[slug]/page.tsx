@@ -33,12 +33,27 @@ export default async function CaseStudyPage({ params }: PageProps) {
   if (!project) notFound();
   if (project.frontmatter.href) redirect(project.frontmatter.href);
 
+  // Previous and next stay within the same shelf (work, experiments, or
+  // personal), in the order the Work page shows them.
   const allProjects = await getAllProjects();
-  const currentIndex = allProjects.findIndex((p) => p.slug === slug);
-  const nextProject = allProjects[currentIndex + 1] ?? allProjects[0];
+  const shelf = allProjects.filter((p) => (p.frontmatter.type ?? "work") === (project.frontmatter.type ?? "work"));
+  const at = shelf.findIndex((p) => p.slug === slug);
+  const prevProject = shelf.length > 1 ? shelf[(at - 1 + shelf.length) % shelf.length] : null;
+  const nextProject = shelf.length > 1 ? shelf[(at + 1) % shelf.length] : null;
+  const neighbours = [
+    prevProject && { dir: "Previous", p: prevProject },
+    nextProject && nextProject.slug !== prevProject?.slug && { dir: "Next", p: nextProject },
+  ].filter(Boolean) as { dir: string; p: typeof shelf[number] }[];
+  const shelfName = { work: "professional work", experiment: "experiments", personal: "side projects" }[
+    project.frontmatter.type ?? "work"
+  ];
 
   const { frontmatter } = project;
   const { intro, chapters } = chapterize(project.content);
+  const words = project.content.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.round(words / 230));
+  // Image-led archives with no chapters read better as a grid.
+  const gallery = chapters.length === 0 && (project.content.match(/<img/g) ?? []).length >= 6;
   const blur = frontmatter.wip
     ? "[&_img]:blur-md [&_img]:brightness-75 [&_img.clear]:blur-none [&_img.clear]:brightness-100"
     : "";
@@ -65,7 +80,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
   return (
     <article className="pb-24 md:pb-32">
-      {chapters.length > 1 && <ChapterNav items={navItems} />}
+      {chapters.length > 1 && (
+        <ChapterNav
+          items={navItems}
+          cta={frontmatter.liveUrl ? { href: frontmatter.liveUrl, label: "Open the live app" } : undefined}
+        />
+      )}
 
       <header
         id="overview"
@@ -76,8 +96,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
             &larr; All work
           </Link>
           <p className="mt-8 text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">
-            Case study &middot; {frontmatter.category}
+            {gallery ? "Archive" : "Case study"} &middot; {frontmatter.category}
             {frontmatter.company && <> &middot; {frontmatter.company}</>}
+            {!gallery && <> &middot; {minutes} min read</>}
           </p>
           <h1 className="font-serif text-[34px] md:text-[48px] font-bold tracking-[-0.01em] mt-3.5 leading-[1.1] max-w-[880px] text-balance">
             {frontmatter.title}
@@ -167,7 +188,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
       <div className="max-w-[1120px] mx-auto px-6" data-case-body>
         {intro.trim() && (
-          <div className={`case-body mt-16 ${blur}`} dangerouslySetInnerHTML={{ __html: intro }} />
+          <div
+            className={`case-body mt-16 ${gallery ? "case-gallery" : ""} ${blur}`}
+            dangerouslySetInnerHTML={{ __html: intro }}
+          />
         )}
 
         {chapters.map((c) => (
@@ -188,17 +212,51 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </section>
         ))}
 
-        {nextProject && nextProject.slug !== slug && (
-          <div className="mt-24 pt-12 border-t border-border">
-            <p className="text-xs tracking-widest uppercase text-muted mb-3">Next project</p>
-            <Link
-              href={nextProject.frontmatter.href ?? `/work/${nextProject.slug}`}
-              className="font-serif text-xl md:text-2xl font-semibold hover:opacity-70 transition-opacity"
-            >
-              {nextProject.frontmatter.title} &rarr;
-            </Link>
+        <nav aria-label="More projects" className="mt-24 pt-10 border-t border-border">
+          <div className="flex flex-wrap items-baseline justify-between gap-3">
+            <p className="text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">More {shelfName}</p>
+            <div className="flex gap-5 text-[14px]">
+              <a href="#overview" className="text-muted hover:text-foreground transition-colors">Back to top &uarr;</a>
+              <Link href="/work" className="text-muted hover:text-foreground transition-colors">All work</Link>
+            </div>
           </div>
-        )}
+          {neighbours.length > 0 && (
+            <div className="mt-5 grid gap-4 md:grid-cols-2">
+              {neighbours.map(({ dir, p }) => (
+                <Link
+                  key={dir}
+                  href={p.frontmatter.href ?? `/work/${p.slug}`}
+                  className={`group flex gap-4 rounded-lg border border-border p-3 hover:border-foreground/40 transition-colors ${
+                    dir === "Next" ? "md:flex-row-reverse md:text-right" : ""
+                  }`}
+                >
+                  {p.frontmatter.coverImage && (
+                    <span
+                      className="relative block h-20 w-28 shrink-0 overflow-hidden rounded-md"
+                      style={{ backgroundColor: p.frontmatter.coverColor }}
+                    >
+                      <Image
+                        src={p.frontmatter.coverImage}
+                        alt=""
+                        fill
+                        sizes="112px"
+                        className={`object-cover ${p.frontmatter.wip ? "blur-sm brightness-75" : ""}`}
+                      />
+                    </span>
+                  )}
+                  <span className="min-w-0 self-center">
+                    <span className="block text-[12px] tracking-[0.1em] uppercase text-muted">
+                      {dir === "Previous" ? <>&larr; Previous</> : <>Next &rarr;</>}
+                    </span>
+                    <span className="mt-1 block font-serif text-[18px] leading-snug font-semibold group-hover:opacity-70 transition-opacity">
+                      {p.frontmatter.title}
+                    </span>
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </nav>
       </div>
       <CaseLightbox skipBlurred={!!frontmatter.wip} />
       <CaseDemos />
