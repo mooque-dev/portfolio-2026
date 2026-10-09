@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-09",
+    title: "The cancer dashboard cover catches up",
+    tags: ["design", "fix"],
+    what: "The Cancer Care Dashboards cover still showed the old row of boxed numbers. It's a fresh capture of the redesign now: the counts as tabs, with survivorship and palliative care set apart.",
+    why: "A cover is a promise about what's inside. It should show the version you'll actually find.",
+  },
+  {
+    date: "2026-10-09",
     title: "A little character, played once",
     tags: ["design", "engineering"],
     what: "Five small things from the character studies. The headline numbers on each case study count up once as the page opens, with the rule above them drawing in, and Fee Opt-In slides from 75% to 92% instead of counting from zero. Each case ends with my seal, stamped when you reach it. The red pen got a second mark on each lead case, and one on Forkable. Press I anywhere (or Inspect in the footer) to see the type, sizes and radii the page is actually built from, read live from the browser. On the home page, the stickers lift when you hover them, the stage mic turns the house lights down for a spotlight, and the page ends with a curtain call. The footer links to ARND.",
