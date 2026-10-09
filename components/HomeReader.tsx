@@ -26,8 +26,11 @@ const SELECTED = [
 const DATAVIZ = ["care-pathway-dashboards", "keela-contacts"];
 const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
 
+// Lists on home follow the same order as the Work page: by shelf (work,
+// experiments, side projects), then by each project's order number.
+const SHELF = { work: 0, experiment: 1, personal: 2 };
 const pick = (all: ProjectSummary[], slugs: string[]) =>
-  slugs.map((s) => all.find((p) => p.slug === s)).filter((p): p is ProjectSummary => !!p);
+  all.filter((p) => slugs.includes(p.slug)).sort((a, b) => SHELF[a.type] - SHELF[b.type]);
 
 const hrefOf = (p: ProjectSummary) => p.href ?? `/work/${p.slug}`;
 
