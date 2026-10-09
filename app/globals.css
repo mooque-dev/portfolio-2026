@@ -501,13 +501,15 @@ html {
 .case-body > figure,
 .case-body > .shots,
 .case-body > .phase,
-.case-body > .tablewrap {
+.case-body > .tablewrap,
+.case-body > [data-demo] {
   max-width: 980px;
 }
 .case-body > figure.wide {
   max-width: none;
 }
-.case-body p {
+.case-body > p,
+.case-body li > p {
   margin: 0 0 1.25rem;
 }
 .case-body h3 {
@@ -608,6 +610,29 @@ html {
 .case-body .shots figure {
   margin: 0;
   min-width: 0;
+}
+.case-body .try {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  margin: 2rem 0 0.875rem;
+  font-size: 15.5px;
+  color: var(--muted);
+}
+.case-body .try b {
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.case-body > [data-demo] {
+  margin: 0 0 2rem;
+  min-height: 420px;
 }
 .case-body .phase {
   display: flex;

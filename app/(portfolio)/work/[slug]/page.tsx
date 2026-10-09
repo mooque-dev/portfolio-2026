@@ -7,6 +7,7 @@ import { getProject, getProjectSlugs, getAllProjects, chapterize } from "@/lib/c
 import FadeIn from "@/components/FadeIn";
 import ChapterNav from "@/components/ChapterNav";
 import CaseLightbox from "@/components/CaseLightbox";
+import CaseDemos from "@/components/CaseDemos";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -200,6 +201,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         )}
       </div>
       <CaseLightbox skipBlurred={!!frontmatter.wip} />
+      <CaseDemos />
     </article>
   );
 }
