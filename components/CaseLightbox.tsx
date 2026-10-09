@@ -49,6 +49,8 @@ export default function CaseLightbox({ skipBlurred }: { skipBlurred: boolean }) 
         img.removeEventListener("keydown", onKey);
       });
     });
+    // The images are server-rendered HTML, found only after mount.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setShots(list);
     return () => cleanups.forEach((c) => c());
   }, [skipBlurred]);
@@ -60,10 +62,14 @@ export default function CaseLightbox({ skipBlurred }: { skipBlurred: boolean }) 
   useEffect(() => {
     if (!open) return;
     closeRef.current?.focus();
+    const n = shots.length;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-      if (e.key === "ArrowRight") step(1);
-      if (e.key === "ArrowLeft") step(-1);
+      if (e.key === "Escape") {
+        setIndex(null);
+        openerRef.current?.focus();
+      }
+      if (n && e.key === "ArrowRight") setIndex((i) => (i === null ? i : (i + 1) % n));
+      if (n && e.key === "ArrowLeft") setIndex((i) => (i === null ? i : (i - 1 + n) % n));
     };
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
@@ -97,6 +103,8 @@ export default function CaseLightbox({ skipBlurred }: { skipBlurred: boolean }) 
         </button>
       </div>
       <figure className="m-0 flex max-h-full flex-col items-center">
+        {/* Shows images already on the page at full size, so next/image adds nothing here. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={shown.src} alt={shown.alt} className="max-h-[80vh] max-w-[94vw] rounded-lg bg-white object-contain" />
         {shown.cap && <figcaption className="mt-3 max-w-2xl text-center text-[15px] text-white/90">{shown.cap}</figcaption>}
         {many && (

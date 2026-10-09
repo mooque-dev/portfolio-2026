@@ -5,8 +5,8 @@
 #   scripts/build-mirror.sh [branch] [out-dir]
 #
 # Works on a throwaway copy, so the repo itself is never changed. The copy
-# drops what needs a server (the API routes and the question gateway, whose
-# footer link then points to allenkang.com), switches Next to a static export,
+# drops what needs a server (the API routes, the question gateway and the
+# password-protected changelog, whose links then point to allenkang.com), switches Next to a static export,
 # and adds plain HTML redirects for the two standalone case studies. Copy the
 # result into a clone of mooque-dev.github.io, commit, and push.
 set -euo pipefail
@@ -33,8 +33,10 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 EOF
-rm -rf app/api app/gateway
+# The changelog is password protected, which needs the server.
+rm -rf app/api app/gateway "app/(portfolio)/changelog" lib/changelogGate.ts components/ChangelogGate.tsx
 sed -i '' 's#href="/gateway"#href="https://allenkang.com/gateway"#' components/Footer.tsx
+sed -i '' 's#href="/changelog"#href="https://allenkang.com/changelog"#' components/Footer.tsx "app/(portfolio)/vault/page.tsx"
 sed -i '' '/path: "\/gateway"/d' app/sitemap.ts
 for f in app/robots.ts app/sitemap.ts; do
   grep -q force-static "$f" || sed -i '' '1a\

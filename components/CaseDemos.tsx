@@ -13,7 +13,9 @@ const DEMOS: Record<string, ComponentType> = {
 export default function CaseDemos() {
   const [slots, setSlots] = useState<{ el: Element; name: string }[]>([]);
 
+  // The markers are in server-rendered HTML, so they can only be found after mount.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSlots(
       [...document.querySelectorAll("[data-case-body] [data-demo]")].map((el) => ({
         el,

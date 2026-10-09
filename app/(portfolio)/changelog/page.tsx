@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 import { changelog, type ChangelogTag } from "@/lib/changelog";
 import { formatDate } from "@/lib/utils";
+import { cookies } from "next/headers";
+import ChangelogGate from "@/components/ChangelogGate";
+import { CHANGELOG_COOKIE, isChangelogKey } from "@/lib/changelogGate";
 
 export const metadata: Metadata = {
   title: "Changelog",
   description:
-    "Every meaningful update to this site, with the reasoning. Built in the open.",
+    "Every meaningful update to this site, with the reasoning.",
+  robots: { index: false, follow: false },
 };
 
 const TAG_LABEL: Record<ChangelogTag, string> = {
@@ -16,7 +20,22 @@ const TAG_LABEL: Record<ChangelogTag, string> = {
   fix: "Fix",
 };
 
-export default function ChangelogPage() {
+export default async function ChangelogPage() {
+  const unlocked = isChangelogKey((await cookies()).get(CHANGELOG_COOKIE)?.value);
+  if (!unlocked) {
+    return (
+      <section className="pt-32 pb-24 md:pt-40 md:pb-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">Changelog</h1>
+          <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
+            The release notes for this site are private for now. Enter the password to read them.
+          </p>
+          <ChangelogGate />
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="max-w-6xl mx-auto px-6">
@@ -27,8 +46,8 @@ export default function ChangelogPage() {
             </h1>
             <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
               This site is a working product, so it keeps release notes: every
-              meaningful push, what changed, and why. I build it in the open
-              with an AI pair; the taste and the final calls are mine.
+              meaningful push, what changed, and why. I build it with an AI
+              pair; the taste and the final calls are mine.
             </p>
           </FadeIn>
 
