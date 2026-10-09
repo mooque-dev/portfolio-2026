@@ -185,40 +185,19 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
         </FadeIn>
 
         <FadeIn delay={0.08}>
-          <div className="mt-10 grid gap-6 border-y border-border py-6 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-center">
-            <div className="min-w-0">
-              <p className="microlabel text-muted">Where I&rsquo;ve worked</p>
-              <p className="mt-2 text-[15px] md:text-base font-medium">Aplos · Keela · Raisely · Forkable · MyJourney</p>
-              <p className="mt-3 text-[13.5px] text-muted leading-relaxed">
-                Aplos acquired Keela and Raisely, and the three now operate as Velora.
-              </p>
-            </div>
+          <div className="mt-12 grid gap-8 border-t border-border pt-10 md:grid-cols-[300px_minmax(0,1fr)] md:items-center md:gap-14">
+            <ResultsReceipt lines={RESULTS} total={RESULTS_TOTAL} />
             <figure className="m-0 min-w-0">
-              <blockquote className="m-0 text-lg md:text-xl leading-snug">
+              <blockquote className="m-0 text-xl md:text-2xl leading-snug font-medium tracking-[-0.01em] text-balance">
                 &ldquo;Allen has this rare ability to zoom from the tiniest UI detail all the way out to cross-product systems thinking without missing a beat.&rdquo;
               </blockquote>
-              <figcaption className="mt-2 text-[13px] text-muted">
-                <span className="text-foreground font-medium">Natalie Freckleton</span> · Director of Product Management, Velora
-                <Link href="/about#colleagues" className="ml-2 underline underline-offset-4 hover:text-foreground">
+              <figcaption className="mt-3 text-[13.5px] text-muted">
+                <span className="text-foreground font-medium">Natalie Freckleton</span> · Director of Product Management
+                <Link href="/about#colleagues" className="mt-2 block w-fit underline underline-offset-4 hover:text-foreground">
                   Four more colleagues <Arrow />
                 </Link>
               </figcaption>
             </figure>
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.1}>
-          <div className="mt-12 grid gap-8 md:grid-cols-[300px_minmax(0,1fr)] md:items-start">
-            <ResultsReceipt lines={RESULTS} total={RESULTS_TOTAL} />
-            <div className="md:pt-8">
-              <h2 className="microlabel text-muted">Results</h2>
-              <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-[28px] leading-snug max-w-xl text-balance">
-                Designing for money that moves correctly.
-              </p>
-              <p className="mt-3 text-[15px] text-muted leading-relaxed max-w-xl">
-                Every line opens the case behind it.
-              </p>
-            </div>
           </div>
         </FadeIn>
 
