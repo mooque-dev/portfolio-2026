@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-09",
+    title: "A page for a product management role",
+    tags: ["content"],
+    what: "An unlisted page at /aircanada for a Product Manager role on flight shopping, trip servicing and payments. It maps the role, line by line, to the closest real evidence in my work, then walks through the case studies in the order I'd present them. Like the Mastercard page, it's kept out of search and the nav.",
+    why: "A hiring manager for a PM role reads a design portfolio looking for different things: shipping, requirements, metrics, influence. This puts those first, using only what I can back up.",
+  },
+  {
+    date: "2026-10-09",
     title: "The cancer dashboard cover catches up",
     tags: ["design", "fix"],
     what: "The Cancer Care Dashboards cover still showed the old row of boxed numbers. It's a fresh capture of the redesign now: the counts as tabs, with survivorship and palliative care set apart.",
