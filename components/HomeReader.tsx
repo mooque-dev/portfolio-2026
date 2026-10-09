@@ -130,10 +130,7 @@ export default function HomeReader({ allProjects }: Props) {
             <div>
               <p className="microlabel text-muted">Allen Kang · Senior Product Designer · Toronto</p>
               <p className="mt-1 text-[13px] text-muted">
-                Online as mooque, from Sung Mook (성묵).{" "}
-                <Link href="/about#name" className="underline underline-offset-4 decoration-border hover:text-foreground transition-colors">
-                  On the name
-                </Link>
+                Online as mooque
               </p>
             </div>
           </div>

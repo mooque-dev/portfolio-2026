@@ -16,7 +16,7 @@ export const changelog: ChangelogEntry[] = [
     date: "2026-10-09",
     title: "Where mooque comes from",
     tags: ["content"],
-    what: "A quiet line under my name on the home page: I'm mooque online, from my Korean name Sung Mook (성묵), with a link to the longer story on the About page.",
+    what: "A quiet line under my name on the home page: \"Online as mooque.\" The story behind the name stays on the About page.",
     why: "The site now also lives at mooque-dev.github.io. Anyone who arrives there should know they're in the right place, without the name taking over the page.",
   },
   {
