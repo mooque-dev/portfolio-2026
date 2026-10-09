@@ -3,8 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
+import CarePathwayMini from "@/components/CarePathwayMini";
 import { formatDate } from "@/lib/utils";
 import type { ProjectSummary, WritingSummary } from "@/lib/types";
+import { WORLDS, QUOTES, OFF_CLOCK } from "@/lib/identity";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -22,33 +24,6 @@ const SELECTED = [
 ];
 const DATAVIZ = ["care-pathway-dashboards", "keela-contacts"];
 const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
-
-// Each pair is backed by real work, linked, so the theme reads as evidence.
-const WORLDS = [
-  { a: "Fine art", b: "Product design", text: "I trained in pencil, watercolour and oil before I opened Figma. It's why I sweat the visual craft in dense, data-heavy screens.", href: "/illustration", link: "Where it started" },
-  { a: "Korean", b: "English", text: "I built a Korean and English script reader that a thirty-person musical company rehearsed with every day through a ten-month production.", href: "/work/torontoyuwol", link: "Toronto Yuwol" },
-  { a: "Design", b: "Engineering", text: "I prototype in code, and I sat on the bridge between our design system and Keela's frontend, reviewing pull requests with engineers.", href: "/work/orchid-design-system", link: "Orchid" },
-  { a: "Software", b: "The people it forgets", text: "Most of my users never asked for software: nonprofit accountants, clinicians, donors, an amateur musical company. I design so they don't need a manual.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
-];
-
-// Life outside the work, from the About page, with the site's own stickers.
-const OFF_CLOCK = [
-  { img: "/stickers/piano.png", text: "Performed in a 40-person amateur musical this August, with 350 tickets sold. I built its scheduling, bill-splitting and script-reader apps, and I'm back for season two." },
-  { img: "/stickers/palette.png", text: "The kid who wanted to make art now builds for the arts scene: Toronto Yuwol, ARND, and volunteering as design lead at ArtsGaze." },
-  { img: "/stickers/guitar.png", text: "Grew up around cooks, and many of my friends are musicians. That world is where most of my ideas come from." },
-  { img: "/stickers/shoe.png", text: "Ran a half-marathon on my own." },
-  { img: "/stickers/seal.png", text: "Raised $1,000 for SickKids Hospital." },
-  { img: "/stickers/capybara.png", text: "Kept a daily streak for years, first French, now chess. Streak apps are a good on-ramp to a language, not a way to learn one." },
-];
-
-// Exact excerpts from LinkedIn recommendations.
-const QUOTES = [
-  { q: "Allen has this rare ability to zoom from the tiniest UI detail all the way out to cross-product systems thinking without missing a beat.", who: "Natalie Freckleton", role: "Director of Product Management, Velora" },
-  { q: "He treats the design system as a shared product, not someone else's problem.", who: "Max Galchenko", role: "Senior React developer, Velora, on a different product team" },
-  { q: "I learned a great deal from him during our time working together… his ability to distill complex problems into simple, elegant solutions set a high standard for design excellence.", who: "Dick De Leon", role: "Senior to Allen at Aplos" },
-  { q: "Even while supporting multiple teams, he is always responsive, reliable, and easy to work with.", who: "Randy Douglas", role: "Software engineer, same team" },
-  { q: "Allen's forward-thinking, North Star-guided approach and user-centric designs were also instrumental in crafting/communicating a motivational product vision for our teams.", who: "Eric Hua", role: "Product manager and founder, Forkestrate" },
-];
 
 const IMPACT = [
   { value: "13%", label: "ARR increase from Automation, adopted by 30% of 355 organizations" },
@@ -157,11 +132,27 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
             />
             <p className="microlabel text-muted">Allen Kang · Senior Product Designer · Toronto</p>
           </div>
-          <h1 className="mt-4 text-[26px] md:text-[44px] leading-[1.15] font-light tracking-[-0.015em] text-balance max-w-4xl">
-            I design transaction-heavy products: donation and payment flows,
-            multi-entity financial data, and the systems that keep them consistent.
+          <h1 className="mt-6 font-serif text-[40px] md:text-[64px] leading-[1.05] font-semibold tracking-[-0.02em] text-balance">
+            I build between two worlds.
           </h1>
-          <p className="mt-5 text-[17px] md:text-lg leading-relaxed text-muted max-w-3xl">
+          <p className="mt-5 text-[21px] md:text-[28px] leading-[1.3] font-light tracking-[-0.01em] text-balance max-w-4xl">
+            Senior product designer for transaction-heavy products: donation and payment
+            flows, multi-entity financial data, and the systems that keep them consistent.
+          </p>
+          <ul className="mt-6 flex flex-wrap gap-2" aria-label="The two worlds I work between">
+            {WORLDS.map((w) => (
+              <li key={w.a}>
+                <a
+                  href="#two-worlds"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-[13px] hover:border-foreground/40 transition-colors"
+                >
+                  {w.a} <span aria-hidden className="text-muted">&harr;</span>
+                  <span className="sr-only"> and </span> {w.b}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-[16px] md:text-[17px] leading-relaxed text-muted max-w-3xl">
             Eight years across nonprofit software and healthcare, most recently on a
             three-product suite merging into one. I use research to cut friction in
             dense, high-stakes flows, ship end to end, and have mentored three designers.
@@ -194,8 +185,31 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
           </div>
         </FadeIn>
 
+        <FadeIn delay={0.08}>
+          <div className="mt-10 grid gap-6 border-y border-border py-6 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-center">
+            <div className="min-w-0">
+              <p className="microlabel text-muted">Where I&rsquo;ve worked</p>
+              <p className="mt-2 text-[15px] md:text-base font-medium">Aplos · Keela · Raisely · Forkable · MyJourney</p>
+              <p className="mt-3 text-[13.5px] text-muted leading-relaxed">
+                MyJourney&rsquo;s clinical navigation tool, from the cancer-care platform I designed for, scored 81.3 for usability in a{" "}
+                <a href="https://doi.org/10.2196/87973" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground">
+                  peer-reviewed study<span className="sr-only"> (opens in new tab)</span>
+                </a>.
+              </p>
+            </div>
+            <figure className="m-0 min-w-0">
+              <blockquote className="m-0 font-serif text-lg md:text-xl leading-snug">
+                &ldquo;Allen has this rare ability to zoom from the tiniest UI detail all the way out to cross-product systems thinking without missing a beat.&rdquo;
+              </blockquote>
+              <figcaption className="mt-2 text-[13px] text-muted">
+                <span className="text-foreground font-medium">Natalie Freckleton</span> · Director of Product Management, Velora
+              </figcaption>
+            </figure>
+          </div>
+        </FadeIn>
+
         <FadeIn delay={0.1}>
-          <dl className="mt-14 grid gap-6 sm:grid-cols-3">
+          <dl className="mt-12 grid gap-6 sm:grid-cols-3">
             {IMPACT.map((s) => (
               <div key={s.value} className="border-t-2 border-foreground pt-4">
                 <dt className="sr-only">{s.label}</dt>
@@ -206,6 +220,16 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
               </div>
             ))}
           </dl>
+        </FadeIn>
+
+        <FadeIn delay={0.12}>
+          <div className="mt-16">
+            <h2 className="microlabel text-muted">Try a redesign</h2>
+            <p className="mt-2 mb-5 text-[14.5px] text-muted max-w-2xl">
+              A live slice of my cancer care dashboard redesign. Focus a stage to see who is waiting.
+            </p>
+            <CarePathwayMini />
+          </div>
         </FadeIn>
 
         <FadeIn delay={0.14}>
@@ -242,7 +266,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
 
         <FadeIn delay={0.16}>
           <div className="mt-20">
-            <h2 className="microlabel text-muted">Between two worlds</h2>
+            <h2 id="two-worlds" className="microlabel text-muted scroll-mt-28">Between two worlds</h2>
             <p className="mt-3 font-serif text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m a builder and a translator. Most of my work happens where two sides don&rsquo;t share a language yet.
             </p>
@@ -272,7 +296,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
               </a>
             </div>
             <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {QUOTES.map((t, i) => (
+              {QUOTES.slice(1).map((t, i) => (
                 <figure key={t.who} className={`m-0 rounded-lg border border-border p-6 ${i === 0 ? "md:col-span-2" : ""}`}>
                   <blockquote className={`m-0 font-serif leading-snug ${i === 0 ? "text-xl md:text-2xl" : "text-[17px]"}`}>
                     &ldquo;{t.q}&rdquo;

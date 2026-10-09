@@ -6,6 +6,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { Separator } from "@/components/ui/separator";
 import { experience, sideProjects, education, certifications } from "@/lib/resumeData";
+import { WORLDS, QUOTES } from "@/lib/identity";
 
 type Tab = "bio" | "resume";
 
@@ -80,6 +81,65 @@ export default function AboutTabs() {
             </p>
           </FadeIn>
 
+          <FadeIn delay={0.13}>
+            <div className="mt-20">
+              <Separator className="mb-12" />
+              <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-3">
+                Between two worlds
+              </h2>
+              <p className="text-muted leading-relaxed mb-10 max-w-2xl">
+                I&apos;m a builder and a translator. Most of my work happens where
+                two sides don&apos;t share a language yet.
+              </p>
+              <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 max-w-3xl">
+                {WORLDS.map((w) => (
+                  <div key={w.a} className="border-t border-border pt-5 min-w-0">
+                    <h3 className="font-semibold">
+                      {w.a} <span className="text-muted font-normal" aria-hidden>&harr;</span>
+                      <span className="sr-only"> and </span> {w.b}
+                    </h3>
+                    <p className="mt-2 text-muted leading-relaxed">{w.text}</p>
+                    <Link
+                      href={w.href}
+                      className="mt-2 inline-block text-sm underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
+                    >
+                      {w.link} &rarr;
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeIn>
+
+          <FadeIn delay={0.14}>
+            <div className="mt-20">
+              <Separator className="mb-12" />
+              <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-8">
+                What people I&apos;ve worked with say
+              </h2>
+              <div className="space-y-6 max-w-3xl">
+                {QUOTES.map((t) => (
+                  <figure key={t.who} className="m-0 border-l-2 border-border pl-6">
+                    <blockquote className="m-0 font-serif text-lg md:text-xl leading-snug">
+                      &ldquo;{t.q}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-2 text-sm text-muted">
+                      <span className="text-foreground font-medium">{t.who}</span> · {t.role}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <a
+                href="https://www.linkedin.com/in/mooque/details/recommendations/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-block text-sm underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity"
+              >
+                Read them in full on LinkedIn<span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </div>
+          </FadeIn>
+
           <FadeIn delay={0.15}>
             <div className="mt-20">
               <Separator className="mb-12" />
@@ -93,7 +153,8 @@ export default function AboutTabs() {
                   a contraction I&apos;ve worn long enough that it&apos;s mine now.
                   Something between a handle and a brand. Easy to remember, hard
                   to place, which felt right for someone who doesn&apos;t fit
-                  neatly into a single box. You can reach me at{" "}
+                  neatly into a single box. The red seal at the top of every page
+                  is 묵, the Mook in Sung Mook. You can reach me at{" "}
                   <a
                     href="mailto:allensmkang@gmail.com"
                     className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
@@ -129,8 +190,9 @@ export default function AboutTabs() {
                 <div>
                   <h3 className="font-semibold mb-2">Food &amp; people</h3>
                   <p className="text-muted leading-relaxed">
-                    My family are the cooks. I grew up around chefs and home
-                    cooks, musicians and artists. That world is where most of my
+                    My family are the cooks, and many of my friends are
+                    musicians. I grew up around chefs and home cooks, musicians
+                    and artists. That world is where most of my
                     real inspiration comes from: the improvisation, the care
                     about detail, the way something has to earn its place. That
                     curiosity about food and technology eventually led me to
@@ -148,33 +210,38 @@ export default function AboutTabs() {
                   <h3 className="font-semibold mb-2">Paint &amp; a camera</h3>
                   <p className="text-muted leading-relaxed">
                     I trained in illustration, watercolour, and oil painting,
-                    and shot weddings on the side before design took over. I
-                    still pick up a brush when I can, and I&apos;ve{" "}
+                    and shot weddings on the side before design took over. The
+                    kid who wanted to make art now builds for the arts scene:
+                    tools for Toronto Yuwol, ARND for live music, and
+                    volunteering as design lead at{" "}
                     <Link
                       href="/work/artist-merchandise"
                       className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
-                      helped emerging artists
-                    </Link>{" "}
-                    build visual identities of their own.
+                      ArtsGaze
+                    </Link>
+                    , helping emerging artists build visual identities of their
+                    own.
                   </p>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">Running &amp; a stage</h3>
                   <p className="text-muted leading-relaxed">
                     I started running just before COVID and ran a half-marathon
-                    on my birthday, fundraising for SickKids Hospital. And in
-                    August 2026 I&apos;ll be on stage. I joined a 40-person
-                    amateur musical, somewhere well outside my comfort zone.
-                    Optimism in practice, I suppose.
+                    on my own. Separately, I raised $1,000 for SickKids
+                    Hospital. In August 2026 I went on stage in a 40-person
+                    amateur musical, well outside my comfort zone: 350 tickets
+                    sold, running on the scheduling, bill-splitting and
+                    script-reader apps I built for the company. Season two is
+                    underway. Optimism in practice, I suppose.
                   </p>
                 </div>
                 <div>
                   <h3 className="font-semibold mb-2">A daily streak</h3>
                   <p className="text-muted leading-relaxed">
-                    I&apos;ve done French on Duolingo every day since December
-                    2020. In 2026 I&apos;m finally trading the streak for real
-                    language school. I also{" "}
+                    I kept a daily streak for years, first French on Duolingo,
+                    now chess. My verdict: streak apps are a good on-ramp to a
+                    language, not a way to learn one. I also{" "}
                     <Link
                       href="/writing"
                       className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"

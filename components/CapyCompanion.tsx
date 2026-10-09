@@ -41,8 +41,8 @@ export default function CapyCompanion() {
   const [open, setOpen] = useState(() => {
     if (typeof window === "undefined") return false;
     const pref = sessionStorage.getItem("guide-open");
-    // Auto-open on wide screens only: on a phone it would cover the first case study.
-    return pref === null ? window.location.pathname === "/" && window.innerWidth >= 1280 : pref === "1";
+    // Closed until asked for: opened on its own, it covered the hero's proof strip.
+    return pref === "1";
   });
   const [index, setIndex] = useState(0);
 
