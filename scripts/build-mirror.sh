@@ -53,5 +53,16 @@ done
 # GitHub Pages runs Jekyll by default, which hides the _next folder.
 touch out/.nojekyll
 
+# Other repos publish project sites under mooque-dev.github.io/<repo>/.
+# A top-level folder with the same name here would shadow one, so stop.
+if command -v gh >/dev/null; then
+  for r in $(gh api "users/mooque-dev/repos?per_page=100" -q '.[] | select(.has_pages) | .name'); do
+    if [ "$r" != "mooque-dev.github.io" ] && [ -e "out/$r" ]; then
+      echo "Stopped: out/$r would clash with the $r project site." >&2
+      exit 1
+    fi
+  done
+fi
+
 rm -rf "$OUT" && mkdir -p "$OUT" && cp -R out/. "$OUT/"
 echo "Mirror built from $BRANCH into $OUT"
