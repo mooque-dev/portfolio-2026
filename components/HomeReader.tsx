@@ -8,6 +8,7 @@ import { formatDate } from "@/lib/utils";
 import type { ProjectSummary, WritingSummary } from "@/lib/types";
 import { WORLDS, OFF_CLOCK, RESULTS, RESULTS_TOTAL } from "@/lib/identity";
 import ResultsReceipt from "@/components/ResultsReceipt";
+import Arrow from "@/components/Arrow";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -66,7 +67,7 @@ function CaseRow({ project }: { project: ProjectSummary }) {
           <p className="microlabel text-muted">
             {[project.company, project.role, project.timeline].filter(Boolean).join(" · ")}
           </p>
-          <h3 className="mt-2 font-serif text-xl md:text-[22px] leading-snug group-hover:opacity-70 transition-opacity text-balance">
+          <h3 className="mt-2 font-semibold text-xl md:text-[22px] leading-snug group-hover:opacity-70 transition-opacity text-balance">
             {project.title}
           </h3>
           <p className="mt-2 text-[14.5px] leading-relaxed text-muted line-clamp-2">
@@ -102,7 +103,7 @@ function BuiltCard({ project }: { project: ProjectSummary }) {
         )}
       </div>
       <p className="mt-3 microlabel text-muted">{project.category}</p>
-      <h3 className="mt-1 font-serif text-[17px] leading-snug group-hover:opacity-70 transition-opacity">
+      <h3 className="mt-1 font-semibold text-[17px] leading-snug group-hover:opacity-70 transition-opacity">
         {project.title.split(":")[0]}
       </h3>
       <p className="mt-1 text-[13.5px] leading-relaxed text-muted line-clamp-2">{project.subtitle}</p>
@@ -193,13 +194,13 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
               </p>
             </div>
             <figure className="m-0 min-w-0">
-              <blockquote className="m-0 font-serif text-lg md:text-xl leading-snug">
+              <blockquote className="m-0 text-lg md:text-xl leading-snug">
                 &ldquo;Allen has this rare ability to zoom from the tiniest UI detail all the way out to cross-product systems thinking without missing a beat.&rdquo;
               </blockquote>
               <figcaption className="mt-2 text-[13px] text-muted">
                 <span className="text-foreground font-medium">Natalie Freckleton</span> · Director of Product Management, Velora
                 <Link href="/about#colleagues" className="ml-2 underline underline-offset-4 hover:text-foreground">
-                  Four more colleagues &rarr;
+                  Four more colleagues <Arrow />
                 </Link>
               </figcaption>
             </figure>
@@ -211,7 +212,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
             <ResultsReceipt lines={RESULTS} total={RESULTS_TOTAL} />
             <div className="md:pt-8">
               <h2 className="microlabel text-muted">Results</h2>
-              <p className="mt-3 font-serif text-2xl md:text-[28px] leading-snug max-w-xl text-balance">
+              <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-[28px] leading-snug max-w-xl text-balance">
                 Designing for money that moves correctly.
               </p>
               <p className="mt-3 text-[15px] text-muted leading-relaxed max-w-xl">
@@ -236,7 +237,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
             <div className="flex items-baseline justify-between">
               <h2 className="microlabel text-muted">Selected work</h2>
               <Link href="/work" className="text-xs text-muted hover:text-foreground transition-colors">
-                All work &rarr;
+                All work <Arrow />
               </Link>
             </div>
             <ol className="mt-2">
@@ -266,7 +267,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
         <FadeIn delay={0.16}>
           <div className="mt-20">
             <h2 id="two-worlds" className="microlabel text-muted scroll-mt-28">Between two worlds</h2>
-            <p className="mt-3 font-serif text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+            <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m a builder and a translator. Most of my work happens where two sides don&rsquo;t share a language yet.
             </p>
             <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
@@ -278,7 +279,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
                   </p>
                   <p className="mt-2 text-[14.5px] leading-relaxed text-muted">{w.text}</p>
                   <Link href={w.href} className="mt-2 inline-block text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity">
-                    {w.link} &rarr;
+                    {w.link} <Arrow />
                   </Link>
                 </div>
               ))}
@@ -306,7 +307,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
         <FadeIn delay={0.2}>
           <div className="mt-20">
             <h2 className="microlabel text-muted">Off the clock</h2>
-            <p className="mt-3 font-serif text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+            <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m an optimist. Optimism is a design tool: it&rsquo;s how you get people to believe a better version is possible, then go build it.
             </p>
             <ul className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -318,7 +319,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
               ))}
             </ul>
             <Link href="/about" className="mt-6 inline-block text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity">
-              More about me &rarr;
+              More about me <Arrow />
             </Link>
           </div>
         </FadeIn>
@@ -329,7 +330,7 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
               <div className="flex items-baseline justify-between mb-4">
                 <h2 className="microlabel text-muted">Writing</h2>
                 <Link href="/writing" className="text-xs text-muted hover:text-foreground transition-colors">
-                  All &rarr;
+                  All <Arrow />
                 </Link>
               </div>
               {recentWriting.map((post) => (

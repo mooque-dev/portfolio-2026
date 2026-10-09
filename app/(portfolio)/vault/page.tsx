@@ -3,6 +3,7 @@ import Link from "next/link";
 import FadeIn from "@/components/FadeIn";
 import { getVaultFeed, type VaultType } from "@/lib/vault";
 import { formatDate } from "@/lib/utils";
+import Arrow from "@/components/Arrow";
 
 export const metadata: Metadata = {
   title: "Vault",
@@ -84,7 +85,7 @@ export default async function VaultPage() {
                     (entry.href ? (
                       <Link
                         href={entry.href}
-                        className="font-serif text-xl md:text-2xl font-semibold mt-3 leading-snug block hover:opacity-70 transition-opacity"
+                        className="text-xl md:text-2xl font-semibold mt-3 leading-snug block hover:opacity-70 transition-opacity"
                       >
                         {entry.title}
                       </Link>
@@ -116,7 +117,7 @@ export default async function VaultPage() {
                       href={entry.href}
                       className="mt-2 inline-block text-[12px] text-muted hover:text-foreground transition-colors underline underline-offset-4 decoration-border"
                     >
-                      More &rarr;
+                      More <Arrow />
                     </Link>
                   )}
                 </article>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Arrow from "@/components/Arrow";
 
 interface Shot {
   img: HTMLImageElement;
@@ -101,10 +102,10 @@ export default function CaseLightbox({ skipBlurred }: { skipBlurred: boolean }) 
         {many && (
           <div className="mt-3 flex gap-2">
             <button type="button" onClick={() => step(-1)} className={btn} aria-label="Previous image">
-              &larr; Previous
+              <Arrow dir="left" /> Previous
             </button>
             <button type="button" onClick={() => step(1)} className={btn} aria-label="Next image">
-              Next &rarr;
+              Next <Arrow />
             </button>
           </div>
         )}

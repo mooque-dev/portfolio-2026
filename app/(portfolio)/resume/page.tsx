@@ -49,7 +49,7 @@ export default function ResumePage() {
                   className="py-8 border-t border-border first:border-t-0 first:pt-0"
                 >
                   <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
-                    <h3 className="font-serif text-lg font-semibold">
+                    <h3 className="text-lg font-semibold">
                       {job.company}
                     </h3>
                     <span className="text-sm text-muted">{job.period}</span>

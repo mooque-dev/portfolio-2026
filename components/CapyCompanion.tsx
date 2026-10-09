@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useMounted } from "@/lib/useMounted";
+import Arrow from "@/components/Arrow";
 
 type Note = { text: string; cta?: { label: string; href: string } };
 
@@ -105,7 +106,7 @@ export default function CapyCompanion() {
                   href={note.cta.href}
                   className="text-[12px] underline underline-offset-4 decoration-border hover:decoration-foreground transition-colors"
                 >
-                  {note.cta.label} <span aria-hidden>&rarr;</span>
+                  {note.cta.label} <Arrow />
                 </Link>
               ) : (
                 <span />
@@ -114,7 +115,7 @@ export default function CapyCompanion() {
                 onClick={() => setIndex((i) => i + 1)}
                 className="inline-flex items-center min-h-[36px] text-[11px] tracking-wide text-muted hover:text-foreground transition-colors"
               >
-                Next &rarr;
+                Next <Arrow />
               </button>
             </div>
           </motion.div>

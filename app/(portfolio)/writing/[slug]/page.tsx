@@ -8,6 +8,7 @@ import {
 } from "@/lib/content";
 import { formatDate } from "@/lib/utils";
 import FadeIn from "@/components/FadeIn";
+import Arrow from "@/components/Arrow";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -47,7 +48,7 @@ export default async function WritingPostPage({ params }: PageProps) {
             href="/writing"
             className="text-sm text-muted hover:text-foreground transition-colors"
           >
-            &larr; All writing
+            <Arrow dir="left" /> All writing
           </Link>
         </FadeIn>
 
@@ -79,9 +80,9 @@ export default async function WritingPostPage({ params }: PageProps) {
               </p>
               <Link
                 href={`/writing/${nextPost.slug}`}
-                className="font-serif text-xl md:text-2xl font-semibold hover:opacity-70 transition-opacity"
+                className="text-xl md:text-2xl font-semibold hover:opacity-70 transition-opacity"
               >
-                {nextPost.frontmatter.title} &rarr;
+                {nextPost.frontmatter.title} <Arrow />
               </Link>
             </div>
           </FadeIn>

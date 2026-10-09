@@ -291,7 +291,7 @@ h1.font-serif, h2.font-serif, h3.font-serif {
 }
 
 .prose h3 {
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 1.35;
@@ -544,9 +544,9 @@ html {
   margin: 2rem 0;
   padding-left: 1.25rem;
   border-left: 3px solid var(--seal);
-  font-family: var(--font-serif), Georgia, serif;
-  font-size: clamp(1.25rem, 2.4vw, 1.5rem);
-  line-height: 1.4;
+  font-size: clamp(1.125rem, 2vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.5;
 }
 .case-body blockquote p {
   margin: 0;

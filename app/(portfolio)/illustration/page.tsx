@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getSimplePage, extractHeadings } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
 import TableOfContents from "@/components/TableOfContents";
+import Arrow from "@/components/Arrow";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getSimplePage("illustration");
@@ -35,7 +36,7 @@ export default async function IllustrationPage() {
                 href="/work"
                 className="text-sm text-muted hover:text-foreground transition-colors"
               >
-                &larr; All work
+                <Arrow dir="left" /> All work
               </Link>
             </FadeIn>
 

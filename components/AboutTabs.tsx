@@ -7,6 +7,7 @@ import FadeIn from "@/components/FadeIn";
 import { Separator } from "@/components/ui/separator";
 import { experience, sideProjects, education, certifications } from "@/lib/resumeData";
 import { QUOTES, HOW_I_WORK, READING } from "@/lib/identity";
+import Arrow from "@/components/Arrow";
 
 type Tab = "bio" | "resume";
 
@@ -91,7 +92,7 @@ export default function AboutTabs() {
               <ol className="grid gap-x-10 gap-y-8 sm:grid-cols-3 max-w-4xl">
                 {HOW_I_WORK.map((h, i) => (
                   <li key={h.title} className="border-t border-border pt-5 min-w-0">
-                    <span className="font-serif text-2xl font-bold text-[var(--seal)]" aria-hidden>
+                    <span className="text-2xl font-bold text-[var(--seal)]" aria-hidden>
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <h3 className="mt-2 font-semibold">{h.title}</h3>
@@ -100,7 +101,7 @@ export default function AboutTabs() {
                       href={h.href}
                       className="mt-2 inline-block text-sm underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"
                     >
-                      {h.link} &rarr;
+                      {h.link} <Arrow />
                     </Link>
                   </li>
                 ))}
@@ -117,7 +118,7 @@ export default function AboutTabs() {
               <div className="flex flex-col gap-8 max-w-3xl">
                 {QUOTES.map((t) => (
                   <figure key={t.who} className="m-0 border-l-2 border-border pl-6">
-                    <blockquote className="m-0 font-serif text-lg md:text-xl leading-snug">
+                    <blockquote className="m-0 text-lg md:text-xl leading-snug">
                       &ldquo;{t.q}&rdquo;
                     </blockquote>
                     <figcaption className="mt-2 text-sm text-muted">
@@ -286,7 +287,7 @@ export default function AboutTabs() {
                     className="py-8 border-t border-border first:border-t-0 first:pt-0"
                   >
                     <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
-                      <h3 className="font-serif text-lg font-semibold">
+                      <h3 className="text-lg font-semibold">
                         {job.company}
                       </h3>
                       <span className="text-sm text-muted">{job.period}</span>
@@ -374,7 +375,7 @@ export default function AboutTabs() {
                     <h3 className="text-sm font-semibold">
                       {cert.url ? (
                         <a href={cert.url} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
-                          {cert.title} <span aria-hidden className="text-muted">&#8599;</span>
+                          {cert.title} <Arrow dir="up-right" className="text-muted" />
                           <span className="sr-only"> (certificate, opens in new tab)</span>
                         </a>
                       ) : (

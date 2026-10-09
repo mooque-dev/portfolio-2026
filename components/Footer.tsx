@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Arrow from "@/components/Arrow";
 
 export default function Footer() {
   return (
@@ -75,7 +76,7 @@ export default function Footer() {
           href="/gateway"
           className="text-xs text-muted hover:text-muted transition-colors tracking-wide"
         >
-          Elsewhere ↗
+          Elsewhere <Arrow dir="up-right" />
         </Link>
       </div>
     </footer>

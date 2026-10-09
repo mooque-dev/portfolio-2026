@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { questions, getDailyIndex } from "@/lib/questions";
 import Magnetic from "@/components/Magnetic";
+import Arrow from "@/components/Arrow";
 
 type Phase = "browse" | "submitting" | "responses" | "entering";
 
@@ -211,7 +212,7 @@ export default function GatewayPage() {
                                      border border-emerald-200/70 dark:border-emerald-800/40
                                      shadow-[0_1px_4px_rgba(0,0,0,0.05)]
                                      text-[10px] text-emerald-700 dark:text-emerald-400 select-none">
-                      <span aria-hidden="true">↑</span>
+                      <Arrow dir="up" />
                       {responseCount}
                     </span>
                   )}
@@ -243,7 +244,7 @@ export default function GatewayPage() {
                                  hover:opacity-75
                                  transition-all duration-200"
                     >
-                      portfolio →
+                      portfolio <Arrow />
                     </button>
                   </Magnetic>
                 </div>
@@ -371,7 +372,7 @@ export default function GatewayPage() {
                     <p className="text-[9px] tracking-[0.2em] uppercase text-muted/55 mb-5">
                       Allen
                     </p>
-                    <p className="font-serif font-normal italic text-[1.2rem] leading-[1.65]
+                    <p className="font-normal italic text-[1.2rem] leading-[1.65]
                                   text-foreground/90">
                       &ldquo;{currentQ.allenAnswer}&rdquo;
                     </p>
@@ -539,7 +540,7 @@ export default function GatewayPage() {
                   <Magnetic strength={0.45} radius={100}>
                     <button
                       onClick={handleEnter}
-                      className="font-serif font-normal text-[1.2rem] leading-none
+                      className="font-semibold text-[1.2rem] leading-none
                                  hover:opacity-50 transition-opacity"
                     >
                       Enter

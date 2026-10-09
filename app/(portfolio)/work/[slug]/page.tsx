@@ -9,6 +9,7 @@ import ChapterNav from "@/components/ChapterNav";
 import CaseLightbox from "@/components/CaseLightbox";
 import CaseDemos from "@/components/CaseDemos";
 import PenMarks from "@/components/PenMarks";
+import Arrow from "@/components/Arrow";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -96,7 +97,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       >
         <FadeIn>
           <Link href="/work" className="text-sm text-muted hover:text-foreground transition-colors">
-            &larr; All work
+            <Arrow dir="left" /> All work
           </Link>
           <p className="mt-8 text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">
             {gallery ? "Archive" : "Case study"} &middot; {frontmatter.category}
@@ -117,7 +118,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
               className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-[13px] font-medium text-background hover:bg-foreground/90 transition-colors"
             >
               Visit the live app
-              <span aria-hidden>&#8599;</span>
+              <Arrow dir="up-right" />
               <span className="sr-only"> (opens in new tab)</span>
             </a>
           )}
@@ -173,7 +174,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-[13.5px] hover:border-foreground/40 transition-colors"
                   >
-                    {label} <span aria-hidden>&#8599;</span>
+                    {label} <Arrow dir="up-right" />
                     <span className="sr-only"> (opens in new tab)</span>
                   </a>
                 </li>
@@ -220,7 +221,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {chapters.map((c) => (
           <section key={c.id} id={c.id} className="pt-20 md:pt-24 scroll-mt-32">
             <div className="grid grid-cols-[auto_1fr] items-baseline gap-x-4 md:gap-x-6 gap-y-1 max-w-[980px]">
-              <span aria-hidden className="row-span-2 font-serif text-[42px] md:text-[56px] leading-none font-bold text-[var(--seal)]">
+              <span aria-hidden className="row-span-2 text-[42px] md:text-[56px] leading-none font-bold text-[var(--seal)]">
                 {c.num}
               </span>
               {c.kicker && (
@@ -254,7 +255,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   <li key={name + role}>
                     {url ? (
                       <a href={url} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
-                        {label} <span aria-hidden className="text-muted">&#8599;</span>
+                        {label} <Arrow dir="up-right" className="text-muted" />
                         <span className="sr-only"> (LinkedIn, opens in new tab)</span>
                       </a>
                     ) : (
@@ -271,7 +272,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <p className="text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">More {shelfName}</p>
             <div className="flex gap-5 text-[14px]">
-              <a href="#overview" className="text-muted hover:text-foreground transition-colors">Back to top &uarr;</a>
+              <a href="#overview" className="text-muted hover:text-foreground transition-colors">Back to top <Arrow dir="up" /></a>
               <Link href="/work" className="text-muted hover:text-foreground transition-colors">All work</Link>
             </div>
           </div>
@@ -301,9 +302,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   )}
                   <span className="min-w-0 self-center">
                     <span className="block text-[12px] tracking-[0.1em] uppercase text-muted">
-                      {dir === "Previous" ? <>&larr; Previous</> : <>Next &rarr;</>}
+                      {dir === "Previous" ? <><Arrow dir="left" /> Previous</> : <>Next <Arrow /></>}
                     </span>
-                    <span className="mt-1 block font-serif text-[18px] leading-snug font-semibold group-hover:opacity-70 transition-opacity">
+                    <span className="mt-1 block text-[18px] leading-snug font-semibold group-hover:opacity-70 transition-opacity">
                       {p.frontmatter.title}
                     </span>
                   </span>

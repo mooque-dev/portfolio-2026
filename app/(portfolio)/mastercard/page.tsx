@@ -5,6 +5,7 @@ import { RESULTS, RESULTS_TOTAL } from "@/lib/identity";
 import { getProject } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
 import ProjectCard from "@/components/ProjectCard";
+import Arrow from "@/components/Arrow";
 
 // A tailored, unlisted view of the portfolio for one reviewer. Not in the
 // sitemap, not in the nav, and kept out of search results on purpose.
@@ -137,7 +138,7 @@ export default async function MastercardPage() {
             <div className="mt-8 grid gap-10 md:grid-cols-[300px_minmax(0,1fr)] md:items-start">
               <ResultsReceipt lines={RESULTS} total={RESULTS_TOTAL} />
               <div className="md:pt-8 max-w-xl">
-                <p className="font-serif text-2xl md:text-3xl leading-snug text-balance">
+                <p className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug text-balance">
                   Printed the way a payment prints, because most of this work is
                   about money moving correctly.
                 </p>
@@ -161,7 +162,7 @@ export default async function MastercardPage() {
                   <span className="microlabel text-muted tabular-nums">
                     0{i + 1}
                   </span>
-                  <h3 className="font-serif text-2xl mt-2 leading-snug">
+                  <h3 className="font-semibold text-2xl mt-2 leading-snug">
                     {p.title}
                   </h3>
                   <p className="mt-3 text-[15px] text-muted leading-relaxed">
@@ -171,7 +172,7 @@ export default async function MastercardPage() {
                     href={`/work/${p.slug}`}
                     className="mt-4 inline-flex text-sm underline underline-offset-4 hover:opacity-70 transition-opacity"
                   >
-                    Read the case study: {p.link} &rarr;
+                    Read the case study: {p.link} <Arrow />
                   </Link>
                 </li>
               ))}

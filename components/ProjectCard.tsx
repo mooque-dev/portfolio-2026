@@ -76,7 +76,7 @@ export default function ProjectCard({
             )}
             {!coverImage && (
               <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">
-                <span className="font-serif text-foreground/15 text-center text-2xl md:text-3xl font-semibold leading-tight select-none">
+                <span className="text-foreground/15 text-center text-2xl md:text-3xl font-semibold leading-tight select-none">
                   {title}
                 </span>
               </div>
@@ -93,7 +93,7 @@ export default function ProjectCard({
             {category}
           </p>
           <h3
-            className={`font-serif font-normal leading-snug group-hover:opacity-60 transition-opacity ${
+            className={`font-semibold leading-snug group-hover:opacity-60 transition-opacity ${
               compact ? "text-[15px] md:text-base mt-1.5" : "text-lg md:text-xl mt-2"
             }`}
           >

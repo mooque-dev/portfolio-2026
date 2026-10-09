@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Arrow from "@/components/Arrow";
 
 // A small, live slice of the care pathway redesign, so a visitor can try the
 // data-visualization work before opening the case study. Illustrative data,
@@ -107,7 +108,7 @@ export default function CarePathwayMini() {
           On track
         </span>
         <Link href="/case/care-pathway/index.html" className="ml-auto text-[#0b0b0b] underline underline-offset-4">
-          See the full redesign &rarr;
+          See the full redesign <Arrow />
         </Link>
       </div>
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Arrow from "@/components/Arrow";
 
 // Sticky chapter pills for a case study, under the site header. The pill for
 // the chapter in view is filled, and the row scrolls sideways to keep it shown.
@@ -71,7 +72,7 @@ export default function ChapterNav({
           >
             <span className="hidden sm:inline">{cta.label} </span>
             <span className="sm:hidden">Open </span>
-            <span aria-hidden>&#8599;</span>
+            <Arrow dir="up-right" />
             <span className="sr-only"> (opens in new tab)</span>
           </a>
         )}

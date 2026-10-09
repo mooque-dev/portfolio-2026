@@ -66,7 +66,7 @@ export default function ResultsReceipt({ lines, total }: { lines: ReceiptLine[];
       <div className="h-3 rounded-full bg-foreground/85" aria-hidden />
       <div
         ref={paper}
-        className="receipt mx-[15px] -mt-1 overflow-hidden bg-[#fffdf7] px-4 font-mono text-[12.5px] leading-[1.55] text-[#1d1c19] shadow-[0_10px_24px_-14px_rgba(0,0,0,0.45)]"
+        className="receipt mx-[15px] -mt-1 overflow-hidden bg-[#fffdf7] px-4 tabular-nums text-[12.5px] leading-[1.55] text-[#1d1c19] shadow-[0_10px_24px_-14px_rgba(0,0,0,0.45)]"
         aria-label="Results, as a receipt"
       >
         <div className="pt-4 pb-6">
