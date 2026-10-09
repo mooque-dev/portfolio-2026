@@ -34,11 +34,11 @@ export default async function PlaygroundPage() {
     <section className="pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
+          <div className="flex flex-col gap-4">
             <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
               Playground
             </h1>
-            <p className="text-lg text-muted max-w-sm leading-relaxed md:text-right">
+            <p className="text-lg text-muted max-w-xl leading-relaxed">
               Things I build on my own time, and where it all started.
             </p>
           </div>

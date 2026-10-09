@@ -34,11 +34,11 @@ export default async function WorkPage() {
     <section className="pt-32 pb-24 md:pt-40 md:pb-32">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between md:gap-10">
+          <div className="flex flex-col gap-4">
             <h1 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
               Work
             </h1>
-            <p className="text-lg text-muted max-w-sm leading-relaxed md:text-right">
+            <p className="text-lg text-muted max-w-xl leading-relaxed">
               Professional case studies. Side projects live in the{" "}
               <Link href="/playground" className="underline underline-offset-4 hover:text-foreground">
                 Playground <Arrow />
