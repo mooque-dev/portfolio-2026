@@ -31,17 +31,17 @@ export const experience: Job[] = [
     location: "Toronto, ON",
     period: "Feb 2025 to Jun 2026",
     description: [
-      "Designed split transactions so one payment can be logged as a donation, an in-kind gift, and the value of goods received, compliant across Canadian, US, and Australian tax rules. Categorization support tickets fell 70% in the first month.",
+      "Designed split transactions so one payment can be logged as a donation, an in-kind gift, and the value of goods received, compliant across Canadian, US, and Australian tax rules. In the first month, categorization support tickets fell 70% and manual adjustments 60%, supporting $1.8M ARR in connected accounts.",
       "Ran a four-variation A/B test on Raisely's donation fee flow, measured in Pendo. Fee opt-in rose from 75% to 92% while conversion and average gift size held steady.",
       "Led integration design across Aplos, Keela, and Raisely after the acquisition: data import and export, schema translation, and visible, editable data mapping for accurate, auditable financial records.",
-      "Consolidated 340+ components from three products into one Figma and Storybook library, owning deprecation, naming governance, and adoption across three engineering teams.",
+      "Grew Orchid, the system I pitched at Keela, into one Figma and Storybook library of 340+ components from three products, owning deprecation, naming governance, and adoption across three engineering teams.",
       "Ran the first joint design reviews between the merged engineering teams; the format became the default for cross-product work. Mentored two designers.",
     ],
   },
   {
     company: "Keela",
-    role: "Product Design Lead",
-    location: "Toronto, ON",
+    role: "Lead Product Designer",
+    location: "Toronto, ON (remote)",
     period: "Mar 2023 to Feb 2025",
     description: [
       "Led the design system refresh that became Orchid, pitched to leadership with surveys from five departments.",
@@ -52,7 +52,7 @@ export const experience: Job[] = [
   {
     company: "Keela",
     role: "Product Designer & Associate PM",
-    location: "Vancouver, BC",
+    location: "Toronto, ON (remote)",
     period: "Feb 2021 to Mar 2023",
     description: [
       "Designed Automation, a no-code workflow builder, a month into the role: 30% adoption across 355 organizations, contributing to a 13% ARR increase.",
@@ -61,7 +61,7 @@ export const experience: Job[] = [
   },
   {
     company: "Forkable",
-    role: "UX/UI Designer (Contract)",
+    role: "UX/UI Designer (Contract, part-time)",
     location: "San Francisco, CA",
     period: "Jan 2020 to Sep 2022",
     description: [
@@ -70,7 +70,7 @@ export const experience: Job[] = [
   },
   {
     company: "MyJourney",
-    role: "UX/UI Designer",
+    role: "UX/UI Designer (Part-time)",
     location: "Toronto, ON",
     period: "Aug 2019 to Jul 2022",
     description: [

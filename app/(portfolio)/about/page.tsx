@@ -7,7 +7,7 @@ import WorldClock from "@/components/WorldClock";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Allen Kang, senior product designer. Eight years on transaction-heavy products, design systems, and healthcare. Fine Arts background, systems thinker.",
+    "Allen Kang, senior product designer. Seven years on transaction-heavy products, design systems, and healthcare. Fine Arts background, systems thinker.",
 };
 
 export default function AboutPage() {

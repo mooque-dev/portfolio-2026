@@ -6,7 +6,7 @@ import { experience, sideProjects, education } from "@/lib/resumeData";
 export const metadata: Metadata = {
   title: "Résumé",
   description:
-    "Allen Kang, senior product designer. Eight years on transaction-heavy products and design systems.",
+    "Allen Kang, senior product designer. Seven years on transaction-heavy products and design systems.",
 };
 
 export default function ResumePage() {
@@ -21,7 +21,7 @@ export default function ResumePage() {
                 Résumé
               </h1>
               <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
-                Eight years on transaction-heavy products: donation and payment
+                Seven years on transaction-heavy products: donation and payment
                 flows, multi-entity financial data, and design systems spanning a
                 merged product suite.
               </p>

@@ -54,7 +54,7 @@ export default function AboutTabs() {
                 Fine Arts pulled me sideways, photography pulled me further, and
                 I spent a few years shooting weddings until someone stole my
                 camera gear. I took it as a reason to stop chasing tools and
-                start chasing problems. Design is where I landed, eight years
+                start chasing problems. Design is where I landed, seven years
                 ago and still here.
               </p>
               <p>

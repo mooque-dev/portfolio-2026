@@ -150,7 +150,7 @@ export default function HomeReader({ allProjects }: Props) {
             ))}
           </ul>
           <p className="mt-6 text-[16px] md:text-[17px] leading-relaxed text-muted max-w-3xl">
-            Eight years across nonprofit software and healthcare, most recently on a
+            Seven years across nonprofit software and healthcare, most recently on a
             three-product suite merging into one. I use research to cut friction in
             dense, high-stakes flows, ship end to end, and have mentored three designers.
           </p>

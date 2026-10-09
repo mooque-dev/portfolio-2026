@@ -72,7 +72,7 @@ export default function ResultsReceipt({ lines, total }: { lines: ReceiptLine[];
         <div className="pt-4 pb-6">
           <p className="m-0 text-center font-semibold">ALLEN KANG</p>
           <p className="m-0 text-center">Senior Product Designer</p>
-          <p className="m-0 text-center">Toronto · 8 years</p>
+          <p className="m-0 text-center">Toronto · 7 years</p>
           <hr className="my-2 border-0 border-t border-dashed border-[#9a978d]" />
           <ul className="m-0 list-none p-0">{lines.map((l) => row(l))}</ul>
           {total && (

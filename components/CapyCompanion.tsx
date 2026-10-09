@@ -20,7 +20,7 @@ const NOTES: Note[] = [
     cta: { label: "See the work", href: "/work" },
   },
   {
-    text: "His view: design is really about how people feel. Eight years of it, across education, healthcare, and nonprofits.",
+    text: "His view: design is really about how people feel. Seven years of it, across education, healthcare, and nonprofits.",
     cta: { label: "His story", href: "/about" },
   },
   {

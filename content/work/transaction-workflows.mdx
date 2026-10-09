@@ -18,7 +18,7 @@ company: "Aplos (now Velora)"
 featuredStat: "70%"
 featuredStatLabel: "fewer categorization support tickets in the first month"
 tldr: [["Problem","Nonprofits could log only one type per payment, but one payment is often part donation, part in-kind gift, and part value received, like a gala ticket. That gap drove about 500 support tickets a quarter."],["Decision","I designed for extensibility inside a no-refactor constraint: smart defaults with human override, batch editing by context, and continuous validation."],["Outcome","70% fewer categorization support tickets in the first month."],["Principle","Smart defaults, human override. It became a platform-wide interaction rule."]]
-glance: [["70%", "fewer categorization support tickets in the first month"], ["3", "tax jurisdictions kept compliant: Canada, the US and Australia"], ["8", "nonprofit accountants observed during real tax preparation"]]
+glance: [["70%", "fewer categorization support tickets in the first month"], ["3", "tax jurisdictions kept compliant: Canada, the US and Australia"], ["$1.8M", "ARR in connected accounts the work supported"]]
 duration: "about 3 months"
 ---
 
@@ -69,7 +69,7 @@ Four changes, each answering something the accountants showed us. Suggested cate
 
 ## Testing | Iteration Was the Work
 
-Moving from a modal to a full-screen split workflow took several rounds with the accountants and engineering. The transaction details view took three: V1 changed little, V2 borrowed patterns from across the suite, and V3 put the items first and the associations second.
+I tested early prototypes with 8 organizations. Moving from a modal to a full-screen split workflow lifted satisfaction from **5.5 to 8.8 out of 10**. The transaction details view took three rounds: V1 changed little (**6/10**), V2 borrowed patterns from across the suite (**7.5/10**), and V3 put the items first and the associations second (**9.5/10**).
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-6.jpg" alt="Design review over video call: walking the product and engineering team through the split-transaction flow, with the redesign mockups around it" />
@@ -80,12 +80,12 @@ Moving from a modal to a full-screen split workflow took several rounds with the
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-7.png" alt="V1 transaction detail layout, minimal change" />
-  <figcaption>V1: minimal change</figcaption>
+  <figcaption>V1: minimal change, 6/10</figcaption>
 </figure>
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-9.png" alt="V3 transaction detail layout, associations secondary, items primary" />
-  <figcaption>V3: items first, associations second</figcaption>
+  <figcaption>V3: items first, associations second, 9.5/10</figcaption>
 </figure>
 
 </div>
@@ -94,4 +94,4 @@ V3 won because it matched how accountants think: what they're recording first, w
 
 ## Result | What Happened
 
-Categorization support tickets fell **70%** in the first month, and one payment could finally be recorded the way it happened, compliant across Canadian, US and Australian tax rules. The most important artifact was the system map I drew in week one, not any Figma file.
+In the first month, categorization support tickets fell **70%** and manual adjustments **60%**. The work supported **$1.8M ARR** in connected accounts, and one payment could finally be recorded the way it happened, compliant across Canadian, US and Australian tax rules. The most important artifact was the system map I drew in week one, not any Figma file.
