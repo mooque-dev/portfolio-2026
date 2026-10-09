@@ -127,7 +127,15 @@ export default function HomeReader({ allProjects }: Props) {
               className="h-11 w-11 rounded-full object-cover object-[center_20%] ring-1 ring-border"
               priority
             />
-            <p className="microlabel text-muted">Allen Kang · Senior Product Designer · Toronto</p>
+            <div>
+              <p className="microlabel text-muted">Allen Kang · Senior Product Designer · Toronto</p>
+              <p className="mt-1 text-[13px] text-muted">
+                Online as mooque, from Sung Mook (성묵).{" "}
+                <Link href="/about#name" className="underline underline-offset-4 decoration-border hover:text-foreground transition-colors">
+                  On the name
+                </Link>
+              </p>
+            </div>
           </div>
           <h1 className="mt-6 font-serif text-[40px] md:text-[64px] leading-[1.05] font-semibold tracking-[-0.02em] text-balance">
             I build between two worlds.

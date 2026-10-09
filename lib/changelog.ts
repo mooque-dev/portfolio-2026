@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-09",
+    title: "Where mooque comes from",
+    tags: ["content"],
+    what: "A quiet line under my name on the home page: I'm mooque online, from my Korean name Sung Mook (성묵), with a link to the longer story on the About page.",
+    why: "The site now also lives at mooque-dev.github.io. Anyone who arrives there should know they're in the right place, without the name taking over the page.",
+  },
+  {
+    date: "2026-10-09",
     title: "The changelog gets a password",
     tags: ["engineering"],
     what: "This page now asks for a password before it shows anything. The check happens on the server, the password itself is never stored in the code, and once you're in, the browser remembers it for a month. The page is also out of the sitemap and hidden from search engines.",

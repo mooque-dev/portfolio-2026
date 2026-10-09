@@ -139,7 +139,7 @@ export default function AboutTabs() {
           </FadeIn>
 
           <FadeIn delay={0.15}>
-            <div className="mt-20">
+            <div className="mt-20 scroll-mt-28" id="name">
               <Separator className="mb-12" />
               <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-8">
                 On the name
