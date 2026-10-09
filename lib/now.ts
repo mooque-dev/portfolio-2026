@@ -20,7 +20,6 @@ export const nowSnapshots: NowSnapshot[] = [
   {
     date: "2026-07-03",
     items: [
-      { text: "Leading design at Velora" },
       { text: "Rehearsing a 40-person musical for an August debut" },
       { text: "Latest writing: Earned Black", href: "/writing/earned-black" },
     ],
@@ -28,7 +27,6 @@ export const nowSnapshots: NowSnapshot[] = [
   {
     date: "2026-06-27",
     items: [
-      { text: "Leading design at Velora" },
       { text: "Rehearsing a 40-person musical for an August debut" },
       { text: "Rebuilding this portfolio in the open with an AI pair" },
     ],
