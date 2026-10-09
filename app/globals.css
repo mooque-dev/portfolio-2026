@@ -809,12 +809,12 @@ html {
   left: calc(100% + 40px);
   top: var(--pen-top, 0px);
   width: 260px;
-  font-family: var(--font-script), Caveat, cursive;
-  font-size: 25px;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
   font-style: normal;
-  line-height: 1.1;
+  line-height: 1.4;
   color: var(--seal);
-  transform: rotate(-3deg);
   transform-origin: left center;
   transition: opacity 0.4s ease 0.8s;
 }
@@ -833,7 +833,6 @@ html {
     display: block;
     width: auto;
     margin-top: 8px;
-    transform: rotate(-1.5deg);
   }
 }
 @media (prefers-reduced-motion: reduce) {
