@@ -766,3 +766,78 @@ html {
     grid-template-columns: 1fr;
   }
 }
+
+/* The results receipt: a torn bottom edge, like paper off a till. */
+.receipt {
+  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 8px) no-repeat,
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 12px 8px repeat-x;
+  mask: linear-gradient(#000 0 0) top / 100% calc(100% - 8px) no-repeat,
+    conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 12px 8px repeat-x;
+}
+
+/* Red pen: one hand-drawn mark per case study, with a note in the margin.
+   Marked up in MDX as <mark class="pen" data-note="...">; PenMarks draws it. */
+.case-body mark.pen {
+  position: relative;
+  background: none;
+  color: inherit;
+  white-space: nowrap;
+}
+.case-body .pen-svg {
+  position: absolute;
+  left: -8px;
+  top: -6px;
+  width: calc(100% + 16px);
+  height: calc(100% + 12px);
+  overflow: visible;
+  pointer-events: none;
+}
+.case-body .pen-svg path {
+  fill: none;
+  stroke: var(--seal);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.case-body .has-pen-note {
+  position: relative;
+}
+.case-body .pen-note {
+  position: absolute;
+  left: calc(100% + 40px);
+  top: var(--pen-top, 0px);
+  width: 260px;
+  font-family: var(--font-script), Caveat, cursive;
+  font-size: 25px;
+  font-style: normal;
+  line-height: 1.1;
+  color: var(--seal);
+  transform: rotate(-3deg);
+  transform-origin: left center;
+  transition: opacity 0.4s ease 0.8s;
+}
+.case-body .pen-wait:not(.pen-drawn) .pen-svg path {
+  stroke-dashoffset: 1;
+}
+.case-body .pen-wait.pen-drawn .pen-svg path {
+  transition: stroke-dashoffset 0.9s ease;
+}
+.case-body .pen-wait:not(.pen-drawn) .pen-note {
+  opacity: 0;
+}
+@media (max-width: 1180px) {
+  .case-body .pen-note {
+    position: static;
+    display: block;
+    width: auto;
+    margin-top: 8px;
+    transform: rotate(-1.5deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .case-body .pen-note,
+  .case-body .pen-svg path {
+    transition: none;
+  }
+}

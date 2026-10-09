@@ -6,7 +6,8 @@ import FadeIn from "@/components/FadeIn";
 import CarePathwayMini from "@/components/CarePathwayMini";
 import { formatDate } from "@/lib/utils";
 import type { ProjectSummary, WritingSummary } from "@/lib/types";
-import { WORLDS, OFF_CLOCK } from "@/lib/identity";
+import { WORLDS, OFF_CLOCK, RESULTS, RESULTS_TOTAL } from "@/lib/identity";
+import ResultsReceipt from "@/components/ResultsReceipt";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -24,12 +25,6 @@ const SELECTED = [
 ];
 const DATAVIZ = ["care-pathway-dashboards", "keela-contacts"];
 const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
-
-const IMPACT = [
-  { value: "70%", label: "fewer categorization support tickets after the split-transaction redesign" },
-  { value: "75% → 92%", label: "donation fee opt-in in an A/B test, with conversion held steady" },
-  { value: "13%", label: "ARR increase from Automation, adopted by 30% of 355 organizations" },
-];
 
 const pick = (all: ProjectSummary[], slugs: string[]) =>
   slugs.map((s) => all.find((p) => p.slug === s)).filter((p): p is ProjectSummary => !!p);
@@ -209,17 +204,19 @@ export default function HomeReader({ allProjects, recentWriting }: Props) {
         </FadeIn>
 
         <FadeIn delay={0.1}>
-          <dl className="mt-12 grid gap-6 sm:grid-cols-3">
-            {IMPACT.map((s) => (
-              <div key={s.value} className="border-t-2 border-foreground pt-4">
-                <dt className="sr-only">{s.label}</dt>
-                <dd>
-                  <span className="block text-3xl md:text-4xl font-semibold tracking-tight">{s.value}</span>
-                  <span className="mt-2 block text-[13.5px] leading-snug text-muted">{s.label}</span>
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <div className="mt-12 grid gap-8 md:grid-cols-[300px_minmax(0,1fr)] md:items-start">
+            <ResultsReceipt lines={RESULTS} total={RESULTS_TOTAL} />
+            <div className="md:pt-8">
+              <h2 className="microlabel text-muted">Results</h2>
+              <p className="mt-3 font-serif text-2xl md:text-[28px] leading-snug max-w-xl text-balance">
+                Designing for money that moves correctly.
+              </p>
+              <p className="mt-3 text-[15px] text-muted leading-relaxed max-w-xl">
+                Split payments, fee decisions and tax receipts across three
+                countries. Every line on the receipt opens the case behind it.
+              </p>
+            </div>
+          </div>
         </FadeIn>
 
         <FadeIn delay={0.12}>

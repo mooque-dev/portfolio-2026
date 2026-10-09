@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ResultsReceipt from "@/components/ResultsReceipt";
+import { RESULTS, RESULTS_TOTAL } from "@/lib/identity";
 import { getProject } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
 import ProjectCard from "@/components/ProjectCard";
@@ -15,45 +17,6 @@ export const metadata: Metadata = {
 
 const RULE =
   "linear-gradient(90deg, #EB001B 0%, #FF5F00 50%, #F79E1B 100%)";
-
-const stats = [
-  {
-    value: "70%",
-    label: "drop in categorization support tickets",
-    note: "Transaction Workflows",
-    slug: "transaction-workflows",
-  },
-  {
-    value: "75→92%",
-    label: "fee opt-in, with conversion held steady",
-    note: "Fee Opt-In, A/B tested",
-    slug: "fee-opt-in-experimentation",
-  },
-  {
-    value: "13%",
-    label: "ARR increase from a 0 to 1 platform",
-    note: "Automation",
-    slug: "automation-nonprofits",
-  },
-  {
-    value: "30%",
-    label: "adoption across 355 organizations",
-    note: "Automation",
-    slug: "automation-nonprofits",
-  },
-  {
-    value: "3",
-    label: "tax jurisdictions kept compliant in one payment flow",
-    note: "Transaction Workflows",
-    slug: "transaction-workflows",
-  },
-  {
-    value: "340+",
-    label: "components brought into one shared library",
-    note: "Orchid design system",
-    slug: "orchid-design-system",
-  },
-];
 
 const principles = [
   {
@@ -171,29 +134,19 @@ export default async function MastercardPage() {
             <h2 id="mc-numbers" className="microlabel text-muted">
               Numbers I can stand behind
             </h2>
-            <dl className="mt-8 grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-              {stats.map((s) => (
-                <div key={s.label + s.note}>
-                  <dt className="sr-only">{s.label}</dt>
-                  <dd>
-                    <Link href={`/work/${s.slug}`} className="group block">
-                      <span
-                        className="block font-serif text-5xl md:text-6xl font-semibold lining-nums tabular-nums leading-none"
-                        style={{ color: "#FF5F00" }}
-                      >
-                        {s.value}
-                      </span>
-                      <span className="block mt-3 text-[15px] leading-snug">
-                        {s.label}
-                      </span>
-                      <span className="block mt-1 microlabel text-muted group-hover:text-foreground transition-colors">
-                        {s.note}
-                      </span>
-                    </Link>
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <div className="mt-8 grid gap-10 md:grid-cols-[300px_minmax(0,1fr)] md:items-start">
+              <ResultsReceipt lines={RESULTS} total={RESULTS_TOTAL} />
+              <div className="md:pt-8 max-w-xl">
+                <p className="font-serif text-2xl md:text-3xl leading-snug text-balance">
+                  Printed the way a payment prints, because most of this work is
+                  about money moving correctly.
+                </p>
+                <p className="mt-4 text-[15px] text-muted leading-relaxed">
+                  Every number is on my résumé, and every line opens the case
+                  behind it.
+                </p>
+              </div>
+            </div>
           </section>
         </FadeIn>
 

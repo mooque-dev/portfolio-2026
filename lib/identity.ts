@@ -9,6 +9,18 @@ export const WORLDS = [
   { a: "Software", b: "The people it forgets", text: "Most of my users never asked for software: nonprofit accountants, clinicians, donors, an amateur musical company. I design so they don't need a manual.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
 ];
 
+// Results, as printed on the receipt (home and Mastercard). Only numbers on
+// the resume belong here.
+export const RESULTS = [
+  { label: "Split transactions", value: "-70% tickets", href: "/work/transaction-workflows" },
+  { label: "Fee opt-in, A/B", value: "75→92%", href: "/work/fee-opt-in-experimentation" },
+  { label: "Automation ARR", value: "+13%", href: "/work/automation-nonprofits" },
+  { label: "Adoption, 355 orgs", value: "30%", href: "/work/automation-nonprofits" },
+  { label: "Components → 1 library", value: "340+", href: "/work/orchid-design-system" },
+  { label: "Tax rules kept", value: "CA US AU", href: "/work/transaction-workflows" },
+];
+export const RESULTS_TOTAL = { label: "Designers mentored", value: "3", href: "/resume" };
+
 // How I work: three habits, each linked to the case that shows it in practice.
 export const HOW_I_WORK = [
   { title: "Agree on the constraints before designing", text: "Before Transaction Workflows had a screen, the PM, the engineering lead and I agreed what we couldn't do: no backend refactor, no breaking reporting. Then we shipped in phases.", href: "/work/transaction-workflows", link: "Transaction Workflows" },

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useCallback } from "react";
 import ThemeToggle from "./ThemeToggle";
@@ -44,17 +43,9 @@ export default function Header() {
         <div className="flex-1">
           <Link
             href="/"
-            className="group inline-flex items-center gap-2.5 leading-none hover:opacity-70 transition-opacity"
+            className="group inline-flex items-center leading-none hover:opacity-70 transition-opacity"
             aria-label="Allen Kang (mooque), go to home"
           >
-            {/* The 묵 seal, from Sung Mook: the site's mark. */}
-            <Image
-              src="/stickers/seal.png"
-              alt=""
-              width={28}
-              height={28}
-              className="h-7 w-7 [image-rendering:pixelated]"
-            />
             <span
               className="text-[26px] leading-[0.9] text-foreground"
               style={{ fontFamily: "var(--font-script)" }}

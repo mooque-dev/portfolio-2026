@@ -150,8 +150,8 @@ export default function AboutTabs() {
                   a contraction I&apos;ve worn long enough that it&apos;s mine now.
                   Something between a handle and a brand. Easy to remember, hard
                   to place, which felt right for someone who doesn&apos;t fit
-                  neatly into a single box. The red seal at the top of every page
-                  is 묵, the Mook in Sung Mook. You can reach me at{" "}
+                  neatly into a single box. The red seal on this site&apos;s browser
+                  tab is 묵, the Mook in Sung Mook. You can reach me at{" "}
                   <a
                     href="mailto:allensmkang@gmail.com"
                     className="underline underline-offset-3 decoration-1 hover:opacity-70 transition-opacity text-foreground"

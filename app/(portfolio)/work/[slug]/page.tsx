@@ -8,6 +8,7 @@ import FadeIn from "@/components/FadeIn";
 import ChapterNav from "@/components/ChapterNav";
 import CaseLightbox from "@/components/CaseLightbox";
 import CaseDemos from "@/components/CaseDemos";
+import PenMarks from "@/components/PenMarks";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -260,6 +261,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
       </div>
       <CaseLightbox skipBlurred={!!frontmatter.wip} />
       <CaseDemos />
+      <PenMarks />
     </article>
   );
 }
