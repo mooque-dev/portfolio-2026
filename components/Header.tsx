@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import Magnetic from "./Magnetic";
 import {
@@ -12,6 +12,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+
+// Tailored pages for one application. A visitor who arrives on one keeps it as
+// "home" for the rest of the visit, so the logo brings them back to it.
+const ENTRY_PAGES = ["/aircanada", "/mastercard"];
+const ENTRY_KEY = "entryHome";
 
 const navItems = [
   { href: "/work", label: "Work" },
@@ -25,6 +30,18 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  const [home, setHome] = useState("/");
+  useEffect(() => {
+    const path = pathname.replace(/\/$/, "") || "/";
+    try {
+      if (ENTRY_PAGES.includes(path)) sessionStorage.setItem(ENTRY_KEY, path);
+      const saved = sessionStorage.getItem(ENTRY_KEY);
+      // sessionStorage only exists in the browser, so this lands after mount.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      if (saved && ENTRY_PAGES.includes(saved)) setHome(saved);
+    } catch {}
+  }, [pathname]);
 
   // Close the mobile menu when the route changes: state adjusted during
   // render (the pattern React docs recommend over a setState effect).
@@ -42,7 +59,7 @@ export default function Header() {
       >
         <div className="flex-1">
           <Link
-            href="/"
+            href={home}
             className="group inline-flex items-center leading-none hover:opacity-70 transition-opacity"
             aria-label="Allen Kang (mooque), go to home"
           >

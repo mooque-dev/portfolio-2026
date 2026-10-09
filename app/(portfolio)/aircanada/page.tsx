@@ -30,14 +30,14 @@ const fit: { need: string; evidence: string; href: string; link: string }[] = [
   {
     need: "Define, prioritize and ship end to end",
     evidence:
-      "Stepped in as Associate PM at Keela to ship Pipelines, then set up the launch process the team used after it. Shipped split transactions in phases inside a no-refactor constraint.",
+      "Stepped in as product manager at Keela to ship Pipelines, owning scope, requirements and release, then set up the launch process the team used after it. Shipped split transactions in phases inside a no-refactor constraint.",
     href: "/resume",
     link: "Résumé",
   },
   {
     need: "API requirements and robust schemas",
     evidence:
-      "Defined data import and export, schema translation and editable data mapping between two merged products' data models. On my own app, I designed the database, its access rules and the server functions the frontend calls.",
+      "Defined integration requirements alongside engineers: data import and export, schema translation and editable data mapping between two merged products' data models. On my own app, I designed the database, its access rules and the server functions the frontend calls.",
     href: "/work/aplos-keela-integration",
     link: "Aplos × Keela",
   },
@@ -70,17 +70,60 @@ const fit: { need: string; evidence: string; href: string; link: string }[] = [
     link: "Orchid",
   },
   {
-    need: "Mentoring",
-    evidence: "Mentored three designers across Keela and Aplos.",
+    need: "Agile delivery across teams",
+    evidence:
+      "Worked inside Scrum teams through sprint planning, refinement and reviews, in both Jira and Linear. Automation's three rounds of testing each became prioritized work in Linear.",
+    href: "/work/automation-nonprofits",
+    link: "Automation",
+  },
+  {
+    need: "Lead product owners and analysts",
+    evidence:
+      "Directed product owners and business analysts on requirements at Forkable, MyJourney and Keela. Mentored three designers across Keela and Aplos.",
     href: "/resume",
     link: "Résumé",
   },
   {
-    need: "Coding and production support (a plus)",
+    need: "Production operations and incidents",
     evidence:
-      "Build and run my own products: ARND, a live-music app in public beta with its own crash reporting, and the tools a 40-person musical company runs on every day.",
+      "I run my own products in production, with health checks and crash reporting. Three real incidents, and what changed after each, are below.",
+    href: "#incidents",
+    link: "Incidents",
+  },
+  {
+    need: "Coding (a plus)",
+    evidence:
+      "Build and ship my own products: ARND, a live-music app in public beta, and the tools a 40-person musical company runs on every day.",
     href: "/work/arnd",
     link: "ARND",
+  },
+  {
+    need: "Bilingual (a preference)",
+    evidence: "English and Korean. Some French, informal for now, and I'm working on it.",
+    href: "/about",
+    link: "About",
+  },
+];
+
+// Real incidents on ARND, my own app, from its commit history and runbooks.
+const incidents = [
+  {
+    when: "September 2026",
+    title: "The catalog went down after a green health check",
+    what: "The database behind ARND paused for inactivity within a day of a passing keep-alive check, so the app had no shows. Worse, the feed told people to check their wifi.",
+    fix: "Restored the database, then made the check daily across three surfaces (reads, sign-in and server functions), added a second independent pinger and a public health check, and made the app say plainly when an outage is on our side.",
+  },
+  {
+    when: "August 2026",
+    title: "A new front page that never appeared",
+    what: "I shipped a routing rule to put a new landing page at the root of arnd.app, and the old app page kept loading. The host serves files on disk before it checks routing rules, and the app's own entry file sat exactly at the root.",
+    fix: "Renamed the app's entry file so nothing sits at the root, pointed every other route at it, and made the build fail loudly if the rename ever breaks. Then wrote the rule down so nobody simplifies it away.",
+  },
+  {
+    when: "June 2026",
+    title: "Every deploy failed after a testing upgrade",
+    what: "Adding the test framework introduced a dependency conflict that the clean install on the host refused, so no new version could ship.",
+    fix: "Pinned how the host resolves those dependencies in the repo itself, so local and production installs behave the same, and documented it for the next person.",
   },
 ];
 
@@ -146,14 +189,14 @@ export default async function AirCanadaPage() {
           <p className="mt-6 text-lg text-muted max-w-2xl leading-relaxed">
             I&rsquo;m Allen. For seven years I&rsquo;ve worked between product,
             design and engineering on payment-heavy software: checkout, split
-            payments, and data synced between merged products. I stepped in as an
-            Associate PM to ship a feature, ran experiments measured in
-            analytics, and build and run products of my own. This page maps that
-            to your role, line by line.
+            payments, and data synced between merged products. I stepped in as
+            product manager to ship a feature at Keela, ran experiments measured
+            in analytics, and build and run products of my own. This page maps
+            that to your role, line by line.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="/allen-kang-resume.pdf"
+              href="/allen-kang-resume-pm.pdf"
               download
               className="inline-flex items-center h-10 px-5 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-80 transition-opacity"
             >
@@ -242,6 +285,31 @@ export default async function AirCanadaPage() {
                   >
                     Read the case study: {p.link} <Arrow />
                   </Link>
+                </li>
+              ))}
+            </ol>
+          </section>
+        </FadeIn>
+
+        <FadeIn delay={0.18}>
+          <section id="incidents" className="mt-24 scroll-mt-28" aria-labelledby="ac-incidents">
+            <h2 id="ac-incidents" className="microlabel text-muted">
+              Incidents I&rsquo;ve run, on my own product
+            </h2>
+            <p className="mt-4 text-[15px] text-muted max-w-2xl leading-relaxed">
+              Each one, written the way I&rsquo;d write the post-incident note:
+              what broke, why, and what changed so it can&rsquo;t happen quietly again.
+            </p>
+            <ol className="mt-8 grid gap-8 md:grid-cols-3">
+              {incidents.map((x) => (
+                <li key={x.title} className="border-t border-border pt-5">
+                  <p className="microlabel text-muted">{x.when}</p>
+                  <h3 className="mt-2 text-lg font-semibold leading-snug">{x.title}</h3>
+                  <p className="mt-3 text-[14.5px] leading-relaxed text-muted">{x.what}</p>
+                  <p className="mt-3 text-[14.5px] leading-relaxed">
+                    <span className="font-semibold">What changed: </span>
+                    {x.fix}
+                  </p>
                 </li>
               ))}
             </ol>

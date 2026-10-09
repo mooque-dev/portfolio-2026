@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-09",
+    title: "The product manager page grows up",
+    tags: ["content", "engineering"],
+    what: "The /aircanada page now covers agile delivery in Jira and Linear, directing product owners and analysts, API requirements written alongside engineers, languages, and three real production incidents from ARND, each told as a post-incident note. It offers a product manager version of my résumé. And anyone who arrives on a tailored page keeps it as home: the logo brings them back to it for the rest of the visit.",
+    why: "A tailored page is someone's front door. Sending them to a different home page halfway through loses the thread.",
+  },
+  {
+    date: "2026-10-09",
     title: "A page for a product management role",
     tags: ["content"],
     what: "An unlisted page at /aircanada for a Product Manager role on flight shopping, trip servicing and payments. It maps the role, line by line, to the closest real evidence in my work, then walks through the case studies in the order I'd present them. Like the Mastercard page, it's kept out of search and the nav.",
