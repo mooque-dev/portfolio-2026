@@ -117,7 +117,7 @@ export default function AboutTabs() {
               <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-8">
                 What people I&apos;ve worked with say
               </h2>
-              <div className="space-y-6 max-w-3xl">
+              <div className="flex flex-col gap-8 max-w-3xl">
                 {QUOTES.map((t) => (
                   <figure key={t.who} className="m-0 border-l-2 border-border pl-6">
                     <blockquote className="m-0 font-serif text-lg md:text-xl leading-snug">
