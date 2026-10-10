@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-09",
+    title: "Honest titles on the product manager résumé",
+    tags: ["content", "fix"],
+    what: "The product manager résumé now uses my titles exactly as they were: Product Designer & Associate PM at Keela. Its headline reads Product Designer & Product Manager, and the summary opens by saying I'm a senior product designer with product management experience. The /aircanada page adds why a designer helps on a team whose job is designing digital experiences.",
+    why: "Titles are the one line recruiters verify. The evidence makes the product management case; the titles should never have to.",
+  },
+  {
+    date: "2026-10-09",
     title: "The product manager page grows up",
     tags: ["content", "engineering"],
     what: "The /aircanada page now covers agile delivery in Jira and Linear, directing product owners and analysts, API requirements written alongside engineers, languages, and three real production incidents from ARND, each told as a post-incident note. It offers a product manager version of my résumé. And anyone who arrives on a tailored page keeps it as home: the logo brings them back to it for the rest of the visit.",

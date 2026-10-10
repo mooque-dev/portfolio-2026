@@ -191,8 +191,10 @@ export default async function AirCanadaPage() {
             design and engineering on payment-heavy software: checkout, split
             payments, and data synced between merged products. I stepped in as
             product manager to ship a feature at Keela, ran experiments measured
-            in analytics, and build and run products of my own. This page maps
-            that to your role, line by line.
+            in analytics, and build and run products of my own. Your team exists
+            to design best-in-class experiences, and I&rsquo;d bring a designer&rsquo;s
+            eye to the room: I can catch a broken flow before it ships, not after.
+            This page maps all of it to your role, line by line.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
