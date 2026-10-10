@@ -65,10 +65,15 @@ async function getNativeEntries(): Promise<VaultEntry[]> {
   );
 }
 
+// Writing is hidden for now (out of the nav, home and sitemap), so its essays
+// stay out of the vault too. Flip this when writing comes back.
+export const SHOW_WRITING = false;
+
 export async function getVaultFeed(): Promise<VaultEntry[]> {
   const native = await getNativeEntries();
 
-  const essays: VaultEntry[] = (await getAllWritingPosts()).map((p) => ({
+  const posts = SHOW_WRITING ? await getAllWritingPosts() : [];
+  const essays: VaultEntry[] = posts.map((p) => ({
     type: "essay",
     date: p.frontmatter.date,
     slug: `essay-${p.slug}`,

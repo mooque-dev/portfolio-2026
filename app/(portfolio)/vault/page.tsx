@@ -90,7 +90,7 @@ export default async function VaultPage() {
                         {entry.title}
                       </Link>
                     ) : (
-                      <h2 className="font-serif text-xl md:text-2xl font-semibold mt-3 leading-snug">
+                      <h2 className="text-xl md:text-2xl font-semibold mt-3 leading-snug">
                         {entry.title}
                       </h2>
                     ))}
@@ -127,8 +127,13 @@ export default async function VaultPage() {
 
           <FadeIn delay={0.2}>
             <p className="mt-16 text-sm text-muted leading-relaxed max-w-xl">
-              The red mark means signed: finished thinking I stand behind.
-              Everything else is allowed to be in progress. The present tense
+              {feed.some((e) => e.signed) && (
+                <>
+                  The red mark means signed: finished thinking I stand behind.
+                  Everything else is allowed to be in progress.{" "}
+                </>
+              )}
+              The present tense
               lives at{" "}
               <Link href="/now" className="underline underline-offset-4 decoration-border hover:text-foreground transition-colors">
                 now

@@ -48,7 +48,7 @@ export const OFF_CLOCK = [
 export const QUOTES = [
   { q: "Allen has this rare ability to zoom from the tiniest UI detail all the way out to cross-product systems thinking without missing a beat.", who: "Natalie Freckleton", role: "Director of Product Management, Velora" },
   { q: "He treats the design system as a shared product, not someone else's problem.", who: "Max Galchenko", role: "Senior React developer, Velora, on a different product team" },
-  { q: "I learned a great deal from him during our time working together… his ability to distill complex problems into simple, elegant solutions set a high standard for design excellence.", who: "Dick De Leon", role: "Senior to Allen at Aplos" },
+  { q: "I learned a great deal from him during our time working together… his ability to distill complex problems into simple, elegant solutions set a high standard for design excellence.", who: "Dick De Leon", role: "Senior colleague at Aplos" },
   { q: "Even while supporting multiple teams, he is always responsive, reliable, and easy to work with.", who: "Randy Douglas", role: "Software engineer, same team" },
   { q: "Allen's forward-thinking, North Star-guided approach and user-centric designs were also instrumental in crafting/communicating a motivational product vision for our teams.", who: "Eric Hua", role: "Product manager and founder, Forkestrate" },
 ];

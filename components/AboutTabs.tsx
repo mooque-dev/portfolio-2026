@@ -169,7 +169,7 @@ export default function AboutTabs() {
             <div className="mt-20">
               <Separator className="mb-12" />
               <h2 className="font-serif text-2xl md:text-3xl font-semibold mb-4">
-                Outside of Work
+                Outside of work
               </h2>
               <p className="text-muted leading-relaxed mb-10">
                 The best ideas I&apos;ve had at work came from somewhere else

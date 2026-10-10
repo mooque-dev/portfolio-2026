@@ -32,15 +32,15 @@ export default function WorldClock() {
   return (
     <div
       aria-hidden="true"
-      className="flex items-center gap-2.5 text-[10px] tracking-wide text-muted/40 select-none tabular-nums pointer-events-none"
+      className="flex items-center gap-2.5 text-[12px] tracking-wide text-muted select-none tabular-nums pointer-events-none"
     >
       <span>
-        <span className="text-muted/30 mr-1.5">YYZ</span>
+        <span className="text-muted/70 mr-1.5 font-medium">YYZ</span>
         {fmt(now, "America/Toronto")}
       </span>
-      <span className="text-muted/20">·</span>
+      <span className="text-muted/50">·</span>
       <span>
-        <span className="text-muted/30 mr-1.5">ICN</span>
+        <span className="text-muted/70 mr-1.5 font-medium">ICN</span>
         {fmt(now, "Asia/Seoul")}
       </span>
     </div>

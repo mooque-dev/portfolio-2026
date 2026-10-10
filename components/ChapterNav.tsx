@@ -29,7 +29,17 @@ export default function ChapterNav({
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-    return () => observer.disconnect();
+    // A jump straight back to the top (Home key, "Back to top") can skip the
+    // observer, so the top of the page always means the first pill.
+    const first = items[1] && document.getElementById(items[1].id);
+    const onScroll = () => {
+      if (first && first.getBoundingClientRect().top > innerHeight * 0.45) setActive(items[0].id);
+    };
+    addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      observer.disconnect();
+      removeEventListener("scroll", onScroll);
+    };
   }, [items]);
 
   useEffect(() => {

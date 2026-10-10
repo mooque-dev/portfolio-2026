@@ -14,9 +14,12 @@ interface ProjectCardProps {
   wip?: boolean;
   featuredStat?: string;
   featuredStatLabel?: string;
-  // Compact: the denser experiments shelf. Cover + category + title only,
-  // shorter titles, no subtitle. The full card stays for professional work.
+  // Compact: the denser experiments shelf. Cover + category + title,
+  // shorter titles. The full card stays for professional work.
   compact?: boolean;
+  // A one-line description under a compact card. Off where the page writes
+  // its own line beneath the card.
+  blurb?: boolean;
 }
 
 export default function ProjectCard({
@@ -30,6 +33,7 @@ export default function ProjectCard({
   featuredStat,
   featuredStatLabel,
   compact = false,
+  blurb = false,
 }: ProjectCardProps) {
   return (
     <Magnetic strength={0.04} radius={260}>
@@ -99,8 +103,8 @@ export default function ProjectCard({
           >
             {compact ? title.split(":")[0] : title}
           </h3>
-          {!compact && (
-            <p className="text-[13px] text-muted leading-[1.65] mt-1.5 line-clamp-2">
+          {(!compact || blurb) && (
+            <p className="text-[13px] text-muted leading-[1.65] mt-1.5 line-clamp-3">
               {subtitle}
             </p>
           )}

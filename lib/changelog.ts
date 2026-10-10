@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-10",
+    title: "A polish pass across the whole site",
+    tags: ["design", "fix"],
+    what: "Checked every page on desktop and phone, in light and dark. Four dark, edge-to-edge covers (Toronto Yuwol, Schematic, Mooze, Personal Color Analysis) are now framed on soft color like every other project, so they stop reading as black boxes. Experiment cards in the Playground got their one-line descriptions. Card descriptions no longer cut off mid-sentence, Orchid's label fits on one line, and captions under side-by-side screenshots line up. The vault stops listing essays while writing is hidden, and its titles share one typeface. On About, the time zones are readable and the headings agree on capitalization. The chapter bar now marks Overview whenever you're back at the top.",
+    why: "None of these is big on its own. Together they're the difference between a site that was built and one that was finished.",
+  },
+  {
     date: "2026-10-09",
     title: "Honest titles on the product manager résumé",
     tags: ["content", "fix"],

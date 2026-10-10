@@ -70,7 +70,7 @@ function CaseRow({ project }: { project: ProjectSummary }) {
           <h3 className="mt-2 font-semibold text-xl md:text-[22px] leading-snug group-hover:opacity-70 transition-opacity text-balance">
             {project.title}
           </h3>
-          <p className="mt-2 text-[14.5px] leading-relaxed text-muted line-clamp-2">
+          <p className="mt-2 text-[14.5px] leading-relaxed text-muted">
             {project.subtitle}
           </p>
           {project.featuredStat && (
@@ -106,7 +106,7 @@ function BuiltCard({ project }: { project: ProjectSummary }) {
       <h3 className="mt-1 font-semibold text-[17px] leading-snug group-hover:opacity-70 transition-opacity">
         {project.title.split(":")[0]}
       </h3>
-      <p className="mt-1 text-[13.5px] leading-relaxed text-muted line-clamp-2">{project.subtitle}</p>
+      <p className="mt-1 text-[13.5px] leading-relaxed text-muted line-clamp-3">{project.subtitle}</p>
     </Link>
   );
 }

@@ -612,6 +612,22 @@ html {
   margin: 0;
   min-width: 0;
 }
+/* Side-by-side shots of different heights: each figure spans two rows of
+   the shared grid (image, caption), so captions line up across the row. */
+@media (min-width: 861px) {
+  .case-body .shots.n2,
+  .case-body .shots.n3 {
+    row-gap: 0;
+  }
+  .case-body .shots.n2 figure,
+  .case-body .shots.n3 figure {
+    display: grid;
+    grid-row: span 2;
+    grid-template-rows: subgrid;
+    align-items: start;
+    margin-bottom: 18px;
+  }
+}
 .case-body .try {
   display: flex;
   flex-wrap: wrap;
