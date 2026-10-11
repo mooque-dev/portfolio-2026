@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-10",
+    title: "The cancer care case, retold from one patient out",
+    tags: ["design", "content"],
+    what: "The Cancer Care case now opens on one patient's timeline before showing the whole clinic. The clinic view shows every patient as a dot, placed by how far past target they are, instead of stacked bars that hid individuals; click any dot and that patient's timeline opens above. The same patients appear across the page, so the numbers connect. A new Part two explains what a multidisciplinary cancer conference is before the conference tool. Smaller fixes: one back link, a label the timeline no longer cuts through, and proof labels that don't collide.",
+    why: "A dashboard about people shouldn't turn them into rectangles. And a reader should meet the problem at a size they can hold before seeing all 175 at once.",
+  },
+  {
+    date: "2026-10-10",
     title: "A polish pass across the whole site",
     tags: ["design", "fix"],
     what: "Checked every page on desktop and phone, in light and dark. Four dark, edge-to-edge covers (Toronto Yuwol, Schematic, Mooze, Personal Color Analysis) are now framed on soft color like every other project, so they stop reading as black boxes. Experiment cards in the Playground got their one-line descriptions. Card descriptions no longer cut off mid-sentence, Orchid's label fits on one line, and captions under side-by-side screenshots line up. The vault stops listing essays while writing is hidden, and its titles share one typeface. On About, the time zones are readable and the headings agree on capitalization. The chapter bar now marks Overview whenever you're back at the top.",
