@@ -225,8 +225,9 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
         {chapters.map((c) => (
           <section key={c.id} id={c.id} className="pt-20 md:pt-24 scroll-mt-32">
-            <div className="grid grid-cols-[auto_1fr] items-baseline gap-x-4 md:gap-x-6 gap-y-1 max-w-[980px]">
-              <span aria-hidden className="row-span-2 text-[42px] md:text-[56px] leading-none font-bold text-[var(--seal)]">
+            {/* Numeral on its own line, so number, kicker, title and body share one left edge. */}
+            <div className="flex flex-col items-start gap-2 max-w-[980px]">
+              <span aria-hidden className="mb-1 text-[42px] md:text-[56px] leading-none font-bold text-[var(--seal)]">
                 {c.num}
               </span>
               {c.kicker && (
