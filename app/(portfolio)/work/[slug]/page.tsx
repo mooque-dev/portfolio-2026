@@ -12,7 +12,6 @@ import PenMarks from "@/components/PenMarks";
 import Arrow from "@/components/Arrow";
 import GlanceValue from "@/components/GlanceValue";
 import CaseSeal from "@/components/CaseSeal";
-import CaseLock from "@/components/CaseLock";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -88,7 +87,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
     ["Tools", frontmatter.tools?.join(", ")],
   ];
 
-  const body = (
+  return (
     <article className="pb-24 md:pb-32">
       {chapters.length > 1 && (
         <ChapterNav
@@ -329,5 +328,4 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <PenMarks />
     </article>
   );
-  return frontmatter.locked ? <CaseLock title={frontmatter.title}>{body}</CaseLock> : body;
 }

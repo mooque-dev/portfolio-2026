@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "Fee Opt-In is open again",
+    tags: ["content"],
+    what: "The Fee Opt-In case no longer asks for a password, and the lock labels on links to it are gone. The screens are white-labelled recreations and the numbers were already on my résumé, so the password was guarding nothing new.",
+    why: "It's my most payments-relevant case, and a password screen is where most reviewers stop. Anyone who opens it should be able to read it.",
+  },
+  {
+    date: "2026-10-13",
     title: "The Mastercard page, down to three parts",
     tags: ["design", "content"],
     what: "The Mastercard page now opens with one line about me and the card beside it, then the two circles, then a statement of five cases, one line each, tagged by what they show (0 to 1, ambiguity, trust, quality) with the number and a way in. Everything else lives on the case pages it points to.",

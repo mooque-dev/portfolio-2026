@@ -43,8 +43,6 @@ export interface ProjectFrontmatter {
   // An interactive demo further down the page: [band text, anchor]. Shows a
   // band under the header that links to it from anywhere on the page.
   demo?: [string, string];
-  // Behind a password (see CaseLock).
-  locked?: boolean;
 }
 
 export interface Heading {

@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import LockedNote from "@/components/LockedNote";
 
 // The Mastercard page's money metaphor: a card that says who I am, and a
 // statement of the work, one line per case, each opening its page. The mark
@@ -81,7 +80,6 @@ export function Statement({ lines, footer }: { lines: StatementLine[]; footer?: 
               <span className="min-w-0">
                 <span className="flex flex-wrap items-center gap-x-2 text-[16px] font-semibold">
                   {l.title}
-                  <LockedNote href={l.href} className="font-normal" />
                 </span>
                 <span className="mt-0.5 block text-[14px] leading-snug text-muted">{l.line}</span>
               </span>
