@@ -93,8 +93,14 @@ export default function MastercardPage() {
                 screens where money moves and the records have to be right.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="/allen-kang-resume-mastercard.pdf" download className={`${pill} bg-foreground text-background hover:opacity-80`}>
-                  Download résumé
+                <a
+                  href="/allen-kang-resume-mastercard.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${pill} gap-1.5 border border-border hover:border-foreground/40`}
+                >
+                  Résumé (PDF) <Arrow dir="up-right" />
+                  <span className="sr-only"> (opens in new tab)</span>
                 </a>
                 <a href="#mc-work" className={`${pill} border border-border hover:border-foreground/40`}>
                   See the work
