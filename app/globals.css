@@ -522,9 +522,27 @@ html {
 .case-body strong {
   font-weight: 600;
 }
-.case-body a {
+/* Links in the running text: a heavier underline in the seal red so they
+   read as links at a glance, and a small arrow on links that leave the site.
+   Scoped to text, so demos and figures keep their own styles. */
+.case-body :is(p, li, td, dd, figcaption) a {
+  color: var(--foreground);
+  font-weight: 500;
   text-decoration: underline;
+  text-decoration-thickness: 1.5px;
   text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, var(--seal) 75%, transparent);
+  transition: text-decoration-color 0.15s;
+}
+.case-body :is(p, li, td, dd, figcaption) a:hover {
+  text-decoration-color: currentColor;
+}
+.case-body :is(p, li, td, dd, figcaption) a[href^="http"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.15em;
+  font-size: 0.8em;
+  text-decoration: none;
 }
 .case-body blockquote {
   margin: 2rem 0;

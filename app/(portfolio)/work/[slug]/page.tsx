@@ -64,6 +64,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
   const blur = frontmatter.wip
     ? "[&_img]:blur-md [&_img]:brightness-75 [&_img.clear]:blur-none [&_img.clear]:brightness-100"
     : "";
+  // The ways in, strongest first: a demo on this page, the live product, then
+  // outside links such as prototypes.
+  const actions: { label: string; href: string; external: boolean }[] = [
+    ...(frontmatter.demo ? [{ label: "Try the interactive version", href: frontmatter.demo[1], external: false }] : []),
+    ...(frontmatter.liveUrl ? [{ label: "Visit the live app", href: frontmatter.liveUrl, external: true }] : []),
+    ...(frontmatter.links ?? []).map(([label, href]) => ({ label, href, external: true })),
+  ];
   const navItems = [
     { id: "overview", label: "Overview" },
     ...chapters.map((c) => ({ id: c.id, label: `${c.num} ${c.kicker ?? c.title.replace(/<[^>]+>/g, "")}` })),
@@ -116,17 +123,28 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <p className="mt-5 text-lg md:text-xl text-muted leading-relaxed max-w-[760px]">
             {frontmatter.subtitle}
           </p>
-          {frontmatter.liveUrl && (
-            <a
-              href={frontmatter.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-[13px] font-medium text-background hover:bg-foreground/90 transition-colors"
-            >
-              Visit the live app
-              <Arrow dir="up-right" />
-              <span className="sr-only"> (opens in new tab)</span>
-            </a>
+          {actions.length > 0 && (
+            // One row of actions for every case: the thing you can try first,
+            // filled; anything else outlined. Same size and order everywhere.
+            <ul className="mt-7 flex flex-wrap gap-2.5" aria-label="Try it">
+              {actions.map((a, i) => (
+                <li key={a.href}>
+                  <a
+                    href={a.href}
+                    {...(a.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className={`inline-flex h-10 items-center gap-1.5 rounded-full px-4.5 text-[14px] font-medium transition-colors ${
+                      i === 0
+                        ? "bg-foreground text-background hover:bg-foreground/85"
+                        : "border border-foreground/25 hover:border-foreground/60"
+                    }`}
+                  >
+                    {a.label}
+                    <Arrow dir={a.external ? "up-right" : "down"} />
+                    {a.external && <span className="sr-only"> (opens in new tab)</span>}
+                  </a>
+                </li>
+              ))}
+            </ul>
           )}
         </FadeIn>
 
@@ -169,25 +187,6 @@ export default async function CaseStudyPage({ params }: PageProps) {
           </FadeIn>
         )}
 
-        {frontmatter.links && frontmatter.links.length > 0 && (
-          <FadeIn delay={0.22}>
-            <ul className="mt-8 flex flex-wrap gap-2" aria-label="Links">
-              {frontmatter.links.map(([label, url]) => (
-                <li key={url}>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-border px-3.5 py-1.5 text-[13.5px] hover:border-foreground/40 transition-colors"
-                  >
-                    {label} <Arrow dir="up-right" />
-                    <span className="sr-only"> (opens in new tab)</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </FadeIn>
-        )}
 
         {frontmatter.coverImage && (
           <FadeIn delay={0.25}>

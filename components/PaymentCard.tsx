@@ -30,11 +30,11 @@ export default function PaymentCard() {
       className="relative aspect-[1.586] w-full max-w-[400px] overflow-hidden rounded-[18px] p-[6%] text-white shadow-[0_28px_48px_-24px_rgba(0,0,0,0.55)] ring-1 ring-white/10 transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)] hover:-rotate-1 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none"
       style={{ background: "radial-gradient(120% 140% at 0% 0%, #3a3734 0%, #1b1a19 55%, #0f0e0d 100%)" }}
       role="img"
-      aria-label="A payment card: Allen Kang, member since 2018, open to senior and staff roles."
+      aria-label="A payment card: Allen Kang, product designer in payments, member since 2018."
     >
       <div className="flex items-start justify-between">
         <span className="text-[15px] font-semibold tracking-[-0.01em]">mooque</span>
-        <span className="text-[10.5px] uppercase tracking-[0.14em] text-white/60">Open to senior &amp; staff</span>
+        <span className="text-[10.5px] uppercase tracking-[0.14em] text-white/60">Product Design · Payments</span>
       </div>
       <div className="mt-[7%] flex items-center gap-3">
         <Chip />

@@ -5,6 +5,7 @@ import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import CarePathwayMini from "@/components/CarePathwayMini";
 import type { ProjectSummary } from "@/lib/types";
+import TryTag from "@/components/TryTag";
 import { WORLDS, OFF_CLOCK, RESULTS, RESULTS_TOTAL } from "@/lib/identity";
 import ResultsReceipt from "@/components/ResultsReceipt";
 import Arrow from "@/components/Arrow";
@@ -64,6 +65,7 @@ function CaseRow({ project }: { project: ProjectSummary }) {
               Confidential visuals
             </span>
           )}
+          {project.tryTag && <TryTag kind={project.tryTag} className="absolute left-2.5 top-2.5 z-10" />}
         </div>
         <div className="min-w-0">
           <p className="microlabel text-muted">
@@ -103,6 +105,7 @@ function BuiltCard({ project }: { project: ProjectSummary }) {
             className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
           />
         )}
+        {project.tryTag && <TryTag kind={project.tryTag} className="absolute left-2.5 top-2.5 z-10" />}
       </div>
       <p className="mt-3 microlabel text-muted">{project.category}</p>
       <h3 className="mt-1 font-semibold text-[17px] leading-snug group-hover:opacity-70 transition-opacity">

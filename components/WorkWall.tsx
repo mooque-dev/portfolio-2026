@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ProjectSummary } from "@/lib/types";
+import TryTag from "@/components/TryTag";
 
 // Edge to edge, no cards: the work itself is the page. Each tile is a cover
 // at its own colour; the title shows on hover or focus, and always on touch.
@@ -25,6 +26,7 @@ export default function WorkWall({ projects }: { projects: ProjectSummary[] }) {
                 }`}
               />
             )}
+            {p.tryTag && <TryTag kind={p.tryTag} className="absolute left-3 top-3 z-10" />}
             <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 pt-10 text-[14px] md:text-[15px] font-medium text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 md:group-focus-visible:opacity-100 transition-opacity">
               {p.title.split(":")[0]}
             </span>

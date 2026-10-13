@@ -1,4 +1,4 @@
-import { getAllProjects } from "@/lib/content";
+import { getAllProjects, tryTagFor } from "@/lib/content";
 import HomeReader from "@/components/HomeReader";
 
 export default async function Home() {
@@ -20,6 +20,7 @@ export default async function Home() {
     featuredStatLabel: p.frontmatter.featuredStatLabel,
     company: p.frontmatter.company,
     href: p.frontmatter.href,
+    tryTag: tryTagFor(p.frontmatter),
   }));
 
 

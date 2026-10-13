@@ -14,6 +14,7 @@ export interface ProjectSummary {
   featuredStatLabel?: string;
   company?: string;
   href?: string;
+  tryTag?: "Interactive" | "Live app";
 }
 
 export interface WritingSummary {

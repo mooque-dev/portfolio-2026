@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ResultsReceipt from "@/components/ResultsReceipt";
 import { RESULTS, RESULTS_TOTAL } from "@/lib/identity";
-import { getProject } from "@/lib/content";
+import { getProject, tryTagFor } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
 import ProjectCard from "@/components/ProjectCard";
 import Arrow from "@/components/Arrow";
@@ -328,6 +328,7 @@ export default async function AirCanadaPage() {
                 <ProjectCard
                   key={p.slug}
                   slug={p.slug}
+                  tryTag={tryTagFor(p.frontmatter)}
                   title={p.frontmatter.title}
                   subtitle={p.frontmatter.subtitle}
                   category={p.frontmatter.category}
@@ -357,6 +358,7 @@ export default async function AirCanadaPage() {
                 <div key={p.slug}>
                   <ProjectCard
                     slug={p.slug}
+                    tryTag={tryTagFor(p.frontmatter)}
                     title={p.frontmatter.title}
                     subtitle={p.frontmatter.subtitle}
                     category={p.frontmatter.category}

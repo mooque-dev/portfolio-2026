@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
+import TryTag, { type TryTagKind } from "@/components/TryTag";
 
 interface ProjectCardProps {
   slug: string;
@@ -20,6 +21,8 @@ interface ProjectCardProps {
   // A one-line description under a compact card. Off where the page writes
   // its own line beneath the card.
   blurb?: boolean;
+  // Something to try inside: shows a small pill on the cover.
+  tryTag?: TryTagKind;
 }
 
 export default function ProjectCard({
@@ -34,6 +37,7 @@ export default function ProjectCard({
   featuredStatLabel,
   compact = false,
   blurb = false,
+  tryTag,
 }: ProjectCardProps) {
   return (
     <Magnetic strength={0.04} radius={260}>
@@ -78,6 +82,7 @@ export default function ProjectCard({
                 )}
               </>
             )}
+            {tryTag && <TryTag kind={tryTag} className="absolute left-3 top-3 z-10" />}
             {!coverImage && (
               <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">
                 <span className="text-foreground/15 text-center text-2xl md:text-3xl font-semibold leading-tight select-none">

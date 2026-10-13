@@ -20,6 +20,7 @@ featuredStatLabel: "fewer categorization support tickets in the first month"
 tldr: [["Problem","Nonprofits could log only one type per payment, but one payment is often part donation, part in-kind gift, and part value received, like a gala ticket. That gap drove about 500 support tickets a quarter."],["Decision","I designed for extensibility inside a no-refactor constraint: smart defaults with human override, batch editing by context, and continuous validation."],["Outcome","70% fewer categorization support tickets in the first month."],["Principle","Smart defaults, human override. It became a platform-wide interaction rule."]]
 glance: [["70%", "fewer categorization support tickets in the first month"], ["3", "tax jurisdictions kept compliant: Canada, the US and Australia"], ["$1.8M", "ARR in connected accounts the work supported"]]
 duration: "about 3 months"
+demo: ["I rebuilt the split payment as a working demo you can play with.", "#try"]
 ---
 
 ## Stakes | Why This Mattered
@@ -58,7 +59,7 @@ Four changes, each answering something the accountants showed us. Suggested cate
 
 <div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Before"><b>One type per payment.</b> A gala ticket that was part donation, part value received had to be logged as several records.</td><td data-label="After"><b>One payment, split by purpose.</b> Donation, in-kind gift and value received live in a single transaction.</td></tr><tr><td><span class="n">2</span></td><td data-label="Before"><b>Categorizing by hand.</b> Every transaction started blank, and accountants kept a parallel spreadsheet.</td><td data-label="After"><b>Smart defaults, human override.</b> A suggested category from donor history, amount and fund, accepted in one click.</td></tr><tr><td><span class="n">3</span></td><td data-label="Before"><b>"Death by checkbox."</b> A flat table where batch edits meant ticking rows one at a time.</td><td data-label="After"><b>Batch by context.</b> Scope by date range, donor, fund or category, then act on the group.</td></tr><tr><td><span class="n">4</span></td><td data-label="Before"><b>Errors at report time.</b> A miscategorized transaction stayed invisible until the final report.</td><td data-label="After"><b>Continuous validation.</b> Each reporting period shows its health as you go.</td></tr></tbody></table></div>
 
-<p class="try"><b>Try it</b>Change an amount, type or fund and watch the receipt follow. Then compare it with the product before the redesign.</p>
+<p class="try" id="try"><b>Try it</b>Change an amount, type or fund and watch the receipt follow. Then compare it with the product before the redesign.</p>
 
 <div data-demo="split-payment"></div>
 

@@ -137,6 +137,14 @@ export async function getProject(
   };
 }
 
+// Whether a card should say there's something to try inside: a demo on the
+// case page or a standalone interactive case, else the live product.
+export function tryTagFor(fm: ProjectFrontmatter): "Interactive" | "Live app" | undefined {
+  if (fm.demo || fm.href?.startsWith("/case/")) return "Interactive";
+  if (fm.liveUrl) return "Live app";
+  return undefined;
+}
+
 export async function getAllProjects(): Promise<
   ContentItem<ProjectFrontmatter>[]
 > {

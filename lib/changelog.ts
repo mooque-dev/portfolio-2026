@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "Demos and links you can actually see",
+    tags: ["design"],
+    what: "Every case now opens with one row of buttons: the interactive version first, then the live app or prototypes. Links in the text get a stronger red underline and an arrow when they leave the site. Cards with something to try carry a small Interactive or Live app tag. Transaction Workflows and Keela Contacts get the same Try the interactive version bar as the others. The Mastercard card now reads Product Design · Payments.",
+    why: "The prototypes and demos are the best proof on the site, and they were easy to miss.",
+  },
+  {
+    date: "2026-10-13",
     title: "Fee Opt-In is open again",
     tags: ["content"],
     what: "The Fee Opt-In case no longer asks for a password, and the lock labels on links to it are gone. The screens are white-labelled recreations and the numbers were already on my résumé, so the password was guarding nothing new.",

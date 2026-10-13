@@ -54,6 +54,7 @@ export function ProjectGrid({
               featuredStatLabel={project.featuredStatLabel}
               compact={compact}
               blurb={compact}
+              tryTag={project.tryTag}
             />
           </motion.div>
         ))}

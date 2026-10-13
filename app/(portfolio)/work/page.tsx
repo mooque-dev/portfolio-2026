@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllProjects } from "@/lib/content";
+import { getAllProjects, tryTagFor } from "@/lib/content";
 import Link from "next/link";
 import { ProjectGrid } from "@/components/WorkFilter";
 import Arrow from "@/components/Arrow";
@@ -28,6 +28,7 @@ export default async function WorkPage() {
     wip: p.frontmatter.wip,
     featuredStat: p.frontmatter.featuredStat,
     featuredStatLabel: p.frontmatter.featuredStatLabel,
+    tryTag: tryTagFor(p.frontmatter),
   }));
 
   return (
