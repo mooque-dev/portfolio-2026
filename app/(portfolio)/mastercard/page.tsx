@@ -85,8 +85,7 @@ export default function MastercardPage() {
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-16">
             <div className="min-w-0">
-              <p className="microlabel text-muted">Prepared for Mastercard</p>
-              <h1 className="mt-5 text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
+              <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
                 Making high-stakes numbers easy to trust.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">

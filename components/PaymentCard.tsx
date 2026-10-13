@@ -34,7 +34,7 @@ export default function PaymentCard() {
     >
       <div className="flex items-start justify-between">
         <span className="text-[15px] font-semibold tracking-[-0.01em]">mooque</span>
-        <span className="text-[10.5px] uppercase tracking-[0.14em] text-white/60">Product Design · Payments</span>
+        <span className="text-[10.5px] uppercase tracking-[0.14em] text-white/60">Prepared for Mastercard</span>
       </div>
       <div className="mt-[7%] flex items-center gap-3">
         <Chip />
