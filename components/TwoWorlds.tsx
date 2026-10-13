@@ -48,6 +48,8 @@ const size = (a: string, b: string) => (Math.max(a.length, b.length) > 9 ? 17 : 
 export default function TwoWorlds() {
   const [i, setI] = useState(0);
   const [apart, setApart] = useState(false);
+  // A small hand-written nudge until the first pick.
+  const [touched, setTouched] = useState(false);
   const timer = useRef<number | undefined>(undefined);
   const pair = PAIRS[i];
   const fs = size(pair.a, pair.b);
@@ -56,6 +58,7 @@ export default function TwoWorlds() {
 
   const pick = (n: number) => {
     if (n === i) return;
+    setTouched(true);
     setI(n);
     // The circles step apart and meet again, so the change is felt, not just read.
     setApart(true);
@@ -92,6 +95,16 @@ export default function TwoWorlds() {
       </div>
 
       <div className="min-w-0">
+        <p
+          aria-hidden
+          className={`mb-2 flex items-center gap-1 text-[14px] font-semibold text-[var(--seal)] transition-opacity duration-300 ${touched ? "opacity-0" : "opacity-100"}`}
+        >
+          <span className="inline-block -rotate-3 motion-safe:animate-bounce [animation-duration:1.6s]">click me!</span>
+          <svg viewBox="0 0 24 24" className="h-4 w-4 rotate-[100deg]" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4 12c4-6 10-7 16-4" />
+            <path d="m16 4 4 4-5 2" />
+          </svg>
+        </p>
         <div className="flex flex-wrap gap-2" role="group" aria-label="Which two worlds">
           {PAIRS.map((p, n) => (
             <button
