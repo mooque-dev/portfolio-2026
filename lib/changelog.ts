@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "The Mastercard page, reorganized",
+    tags: ["design", "content"],
+    what: "The Mastercard page now reads as one document: six numbered sections that each open the same way, with the same spacing and rules. Results show as a card and its statement instead of a receipt. Three shipped pieces of work stand for trust, safety and quality. The fee story is told once, next to the checkout you can try, instead of in four places. Every link to the password-protected Fee Opt-In case says so before you click.",
+    why: "The page had grown section by section and started to feel busy. For a team whose brand is trust, the page itself should be calm, consistent and never surprise you.",
+  },
+  {
+    date: "2026-10-13",
     title: "The receipt reads as paper again",
     tags: ["design"],
     what: "On a white page the results receipt had lost its edges: the torn bottom and the shadow were being cut off along with the paper. It now has a hairline edge and a soft shadow in both themes.",

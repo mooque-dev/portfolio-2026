@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Arrow from "@/components/Arrow";
+import LockedNote from "@/components/LockedNote";
 
 // Two overlapping circles, a nod to the Mastercard mark: each pair of worlds
 // I work between, with me in the overlap. Our own warm red and amber, drawn
@@ -113,9 +114,12 @@ export default function TwoWorlds() {
             {pair.a} and {pair.b}
           </p>
           <p className="mt-3 text-[16px] leading-relaxed text-muted max-w-[46ch]">{pair.text}</p>
-          <Link href={pair.href} className="mt-4 inline-flex text-sm underline underline-offset-4 hover:opacity-70 transition-opacity">
-            {pair.link} <Arrow />
-          </Link>
+          <p className="mt-4 flex flex-wrap items-center gap-x-2.5 text-sm">
+            <Link href={pair.href} className="inline-flex underline underline-offset-4 hover:opacity-70 transition-opacity">
+              {pair.link} <Arrow />
+            </Link>
+            <LockedNote href={pair.href} />
+          </p>
         </div>
       </div>
     </div>
