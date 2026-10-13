@@ -83,19 +83,29 @@ const highlights = [
   },
 ];
 
+// Things I made outside a job, each with people actually using it.
 const built = [
   {
+    slug: "forkestrate",
+    line: "Co-founded with a PM and two engineers. Paste a recipe link or a cooking video and get steps you can follow at the stove. Zero to MVP in under three months.",
+  },
+  {
     slug: "arnd",
-    line: "A live map of real shows, served from a database I designed and secured. The hard part was deciding what the map should leave out.",
+    line: "A map of Toronto's small live shows, designed and built on my own, from the database to App Store prep. In public beta. The hard part was deciding what to leave out.",
   },
   {
-    slug: "schematic",
-    line: "Eighteen psychological schemas turned into a poster system and a private, browser-only profile. Information design where the data is someone's inner life.",
+    slug: "torontoyuwol",
+    line: "Scheduling, a Korean-English script reader and a bill splitter that a 40-person musical company used every day for ten months. Then I went on stage in the show.",
   },
-  {
-    slug: "color-analysis",
-    line: "Live camera data graded against your skin tone, run entirely on-device so nothing leaves the browser.",
-  },
+];
+
+// What the job actually looked like, in plain terms.
+const week = [
+  "Sitting with accountants while they reconciled, until their words made sense to me.",
+  "Drawing how data really moves between systems, so engineers and I argued about the same picture.",
+  "Agreeing with the PM and engineers on what we would not touch yet.",
+  "Prototyping in code when a static mock couldn't answer the question.",
+  "Rewriting my own design-system rules when the first version made people stop contributing.",
 ];
 
 export default async function MastercardPage() {
@@ -126,12 +136,12 @@ export default async function MastercardPage() {
             Making high-stakes numbers easy to trust.
           </h1>
           <p className="mt-6 text-lg text-muted max-w-2xl leading-relaxed">
-            I&rsquo;m Allen, a senior product designer with seven years of design
-            experience. I design the screens where people reconcile, approve, and
-            decide with money and data on the line: accountants closing out tax
-            season, finance teams trusting a sync, donors changing their minds at
-            checkout. This is a shorter path through my work, ordered for a team
-            that designs around money, data, and trust.
+            I&rsquo;m Allen. I like the unglamorous parts of software: the screen
+            where an accountant decides how to file a payment, the moment a donor
+            changes their mind about a fee, the sync that has to be right or
+            someone&rsquo;s books are wrong. I&rsquo;ve spent seven years making
+            those moments work in nonprofit and healthcare software. This page is
+            the short version, picked for a team that works on money and trust.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -186,10 +196,42 @@ export default async function MastercardPage() {
           </section>
         </FadeIn>
 
+        <FadeIn delay={0.13}>
+          <section className="mt-24 grid gap-12 md:grid-cols-2" aria-labelledby="mc-week">
+            <div>
+              <h2 id="mc-week" className="microlabel text-muted">
+                What a normal week looked like
+              </h2>
+              <ul className="mt-6 space-y-4">
+                {week.map((w) => (
+                  <li key={w} className="border-t border-border pt-4 text-[16px] leading-relaxed">
+                    {w}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <figure className="m-0 self-start rounded-lg bg-[var(--foreground)] text-[var(--background)] p-8 md:p-10">
+              <p className="microlabel opacity-70">A call I&rsquo;d make again</p>
+              <blockquote className="m-0 mt-4 font-serif text-2xl md:text-3xl leading-snug">
+                A new fee box had lifted opt-in to 82%, and everyone wanted to ship it.
+                I asked the team to pause.
+              </blockquote>
+              <p className="mt-4 text-[15px] leading-relaxed opacity-80">
+                Donors who clicked Edit were being nudged to the minimum. We tested
+                three fixes against the control, and the slider reached 92% with
+                conversion steady.
+              </p>
+              <Link href="/work/fee-opt-in-experimentation" className="mt-5 inline-flex text-sm underline underline-offset-4 hover:opacity-70 transition-opacity">
+                Try the fee decision yourself <Arrow />
+              </Link>
+            </figure>
+          </section>
+        </FadeIn>
+
         <FadeIn delay={0.15}>
           <section className="mt-24" aria-labelledby="mc-principles">
             <h2 id="mc-principles" className="microlabel text-muted">
-              How I design for data
+              Four rules I keep coming back to
             </h2>
             <ol className="mt-8 grid gap-10 md:grid-cols-2">
               {principles.map((p, i) => (
@@ -292,11 +334,11 @@ export default async function MastercardPage() {
         <FadeIn delay={0.25}>
           <section className="mt-24" aria-labelledby="mc-built">
             <h2 id="mc-built" className="microlabel text-muted">
-              Data you can open and use, built end to end
+              Things I built outside work
             </h2>
             <p className="mt-4 text-[15px] text-muted max-w-2xl leading-relaxed">
-              Three things I designed and built myself, so I know what latency,
-              empty states, and bad data feel like outside a Figma frame.
+              Each one has real people using it, which teaches you things a Figma
+              file never will.
             </p>
             <div className="mt-8 grid gap-x-8 gap-y-12 md:grid-cols-3">
               {builtProjects.map((p) => {

@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "The Mastercard page, in my own voice",
+    tags: ["content", "design"],
+    what: "The Mastercard page now opens with what I actually like about this work, adds what a normal week looked like, and gives one decision its own moment: pausing a fee change that already looked like a win. The built-it-myself section is now Forkestrate (which I co-founded), ARND and the Yuwol tools, each with real people using it. The home page intro drops the jargon too.",
+    why: "Everyone's résumé says they owned end-to-end design. What I can offer that nobody else can is the specific work and the calls I made, told plainly.",
+  },
+  {
+    date: "2026-10-13",
     title: "A shorter, plainer résumé",
     tags: ["content"],
     what: "Rewrote the résumé so each role opens with the scope I owned, and each bullet makes one point with one number. It still fits one page, now with room to breathe. The longer detail lives in the case studies.",

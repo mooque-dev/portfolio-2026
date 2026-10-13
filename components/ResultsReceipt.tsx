@@ -88,7 +88,7 @@ export default function ResultsReceipt({ lines, total }: { lines: ReceiptLine[];
               <i key={i} className="block bg-[#1d1c19]" style={{ width: w }} />
             ))}
           </div>
-          <p className="m-0 mt-1 text-center text-[11px]">allenkang.com</p>
+          <p className="m-0 mt-1 text-center text-[11px]">mooque</p>
         </div>
       </div>
     </div>

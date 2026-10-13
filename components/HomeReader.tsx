@@ -140,8 +140,8 @@ export default function HomeReader({ allProjects }: Props) {
             I build between two worlds.
           </h1>
           <p className="mt-5 text-[21px] md:text-[28px] leading-[1.3] font-light tracking-[-0.01em] text-balance max-w-4xl">
-            Senior product designer for transaction-heavy products: donation and payment
-            flows, multi-entity financial data, and the systems that keep them consistent.
+            I design the parts of software where money and records have to be right:
+            split payments, donation checkout, and data moving between merged products.
           </p>
           <ul className="mt-6 flex flex-wrap gap-2" aria-label="The two worlds I work between">
             {WORLDS.map((w) => (
@@ -157,9 +157,9 @@ export default function HomeReader({ allProjects }: Props) {
             ))}
           </ul>
           <p className="mt-6 text-[16px] md:text-[17px] leading-relaxed text-muted max-w-3xl">
-            Seven years across nonprofit software and healthcare, most recently on a
-            three-product suite merging into one. I use research to cut friction in
-            dense, high-stakes flows, ship end to end, and have mentored three designers.
+            Seven years in nonprofit and healthcare software, most recently at Aplos as
+            three products merged into one. I learn a field from the people who live in
+            it, write enough code to build my own apps, and have mentored three designers.
           </p>
         </FadeIn>
 
