@@ -27,8 +27,9 @@ export default function AboutPage() {
               <WorldClock />
             </div>
             {/* Four years that explain most of me. The same four digits are
-                the card number on the Mastercard page. */}
-            <ol className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6 sm:grid-cols-4" aria-label="Four years">
+                the card number on the Mastercard and Float pages, which link
+                here. */}
+            <ol id="four-years" className="scroll-mt-28 mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6 sm:grid-cols-4" aria-label="Four years">
               {[
                 ["1994", "Born in Seoul"],
                 ["2007", "Moved to Canada"],

@@ -109,6 +109,12 @@ export default function MastercardPage() {
             </div>
             <div className="min-w-0 max-w-[400px]">
               <PaymentCard />
+              <p className="mt-5 text-[14px] text-muted">
+                The card number is four years of my life.{" "}
+                <Link href="/about#four-years" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  What they are
+                </Link>
+              </p>
             </div>
           </div>
         </FadeIn>

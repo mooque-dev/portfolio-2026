@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "The card number explains itself",
+    tags: ["content"],
+    what: "Under the card on the Float and Mastercard pages, one line says the card number is four years of my life and links to them on the About page: born in Seoul, moved to Canada, started designing, today in Toronto.",
+    why: "1994 2007 2018 2026 is a nice detail only if people know it means something.",
+  },
+  {
+    date: "2026-10-13",
     title: "One A on the Float card",
     tags: ["design"],
     what: "The small mark beside the wordmark and the large panels across the Float card are now the same A at two sizes, and the card number (1994 2007 2018 2026) is back under the chip.",
