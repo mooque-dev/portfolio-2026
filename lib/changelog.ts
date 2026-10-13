@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "A Float card, and numbers that explain themselves",
+    tags: ["design", "content"],
+    what: "The Float page's card is now matte black with a silver chip and large faint panels that draw an A, with my name where a card network would sit. Each number in the work list has a few words under it saying what it measures, and the list opens with \"Five projects, and what changed after each one shipped.\"",
+    why: "A bare \"+13% ARR\" asks the reader to guess. The card should feel at home on a page about a card company without borrowing their marks.",
+  },
+  {
+    date: "2026-10-13",
     title: "The Float page says what I do",
     tags: ["content", "design"],
     what: "The Float page now opens with \"I make complicated workflows feel simple for people who never asked for software,\" and its card floats: tilted, gently hovering over its own shadow, and still for anyone who turns motion off.",

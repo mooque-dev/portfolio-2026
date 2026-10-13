@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import PaymentCard, { Statement, type StatementLine } from "@/components/PaymentCard";
+import { Statement, type StatementLine } from "@/components/PaymentCard";
+import FloatCard from "@/components/FloatCard";
 import FadeIn from "@/components/FadeIn";
 import Arrow from "@/components/Arrow";
 
@@ -15,20 +16,23 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// One line per case, each opening its page. Every number is on the résumé.
+// One line per case, each opening its page. Every number is on the résumé,
+// with a few words under it saying what it measures.
 const STATEMENT: StatementLine[] = [
   {
     tag: "Money movement",
     title: "Transaction Workflows",
     line: "One payment that's a donation, a gift and a ticket at once, recorded right under Canadian, US and Australian rules.",
     value: "-70% tickets",
+    note: "fewer categorization support tickets, first month",
     href: "/work/transaction-workflows",
   },
   {
     tag: "0 to 1",
     title: "Automation for Nonprofits",
-    line: "A product area that didn't exist, to a paid add-on in five months, used by 30% of 355 organizations.",
+    line: "A product area that didn't exist, from fifteen interviews to a paid add-on in five months.",
     value: "+13% ARR",
+    note: "for the product, with 30% of 355 organizations using it",
     href: "/work/automation-nonprofits",
   },
   {
@@ -36,13 +40,15 @@ const STATEMENT: StatementLine[] = [
     title: "Fee Opt-In",
     line: "I paused a win to fix a leak, then tested three fixes. Has a checkout you can play with.",
     value: "75→92%",
+    note: "donors who chose to cover the fee, A/B tested",
     href: "/work/fee-opt-in-experimentation",
   },
   {
     tag: "Trust",
     title: "Aplos × Keela",
-    line: "The first thing two merged companies shipped: a sync between finance products that shows every mapping.",
+    line: "A sync between two finance products that shows every mapping, because finance teams had been burned by silent ones.",
     value: "1st joint launch",
+    note: "the first feature the merged companies shipped together",
     href: "/work/aplos-keela-integration",
   },
   {
@@ -50,6 +56,7 @@ const STATEMENT: StatementLine[] = [
     title: "Orchid design system",
     line: "Three teams onto one system, and the quality rules that kept it consistent.",
     value: "340+ components",
+    note: "merged into one library three teams use",
     href: "/work/orchid-design-system",
   },
 ];
@@ -132,7 +139,7 @@ export default function FloatPage() {
               {/* The card floats: tilted, hovering over its own shadow. */}
               <div className="float-card">
                 <div className="float-card-tilt">
-                  <PaymentCard preparedFor="Float" circles={false} />
+                  <FloatCard />
                 </div>
                 <span className="float-card-shadow" aria-hidden />
               </div>
@@ -140,7 +147,7 @@ export default function FloatPage() {
           </div>
         </FadeIn>
 
-        <Block id="fl-work" label="The work" title="Five cases, one line each. Open the one you care about.">
+        <Block id="fl-work" label="The work" title="Five projects, and what changed after each one shipped.">
           <Statement lines={STATEMENT} />
           <p className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-muted">
             <span>Built on my own:</span>
