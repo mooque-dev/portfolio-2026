@@ -622,16 +622,13 @@ html {
   margin: 2rem 0 0.875rem;
   font-size: 15.5px;
   color: var(--muted);
+  /* Clears the site header, chapter pills and demo band when linked to. */
+  scroll-margin-top: 180px;
 }
+/* A plain label, not a pill: a pill reads as a button that does nothing. */
 .case-body .try b {
-  padding: 2px 8px;
-  border-radius: 4px;
-  background: var(--foreground);
-  color: var(--background);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: var(--foreground);
+  font-weight: 600;
 }
 .case-body > [data-demo] {
   margin: 0 0 2rem;

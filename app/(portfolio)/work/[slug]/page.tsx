@@ -12,6 +12,7 @@ import PenMarks from "@/components/PenMarks";
 import Arrow from "@/components/Arrow";
 import GlanceValue from "@/components/GlanceValue";
 import CaseSeal from "@/components/CaseSeal";
+import CaseLock from "@/components/CaseLock";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -87,12 +88,13 @@ export default async function CaseStudyPage({ params }: PageProps) {
     ["Tools", frontmatter.tools?.join(", ")],
   ];
 
-  return (
+  const body = (
     <article className="pb-24 md:pb-32">
       {chapters.length > 1 && (
         <ChapterNav
           items={navItems}
           cta={frontmatter.liveUrl ? { href: frontmatter.liveUrl, label: "Open the live app" } : undefined}
+          demo={frontmatter.demo ? { text: frontmatter.demo[0], href: frontmatter.demo[1] } : undefined}
         />
       )}
 
@@ -327,4 +329,5 @@ export default async function CaseStudyPage({ params }: PageProps) {
       <PenMarks />
     </article>
   );
+  return frontmatter.locked ? <CaseLock title={frontmatter.title}>{body}</CaseLock> : body;
 }

@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "Fee Opt-In unblurred, behind a password",
+    tags: ["design", "content"],
+    what: "The Fee Opt-In screens are no longer blurred. They were always white-labelled recreations, so I cleaned them up instead: removed two placeholder percentages for the losing variants, made-up prototype readouts and a personal email, fixed overlapping labels, and rebuilt the cover. The case now asks for a password, with an email link for anyone who needs it. The Fee Opt-In and MyJourney pages each have a slim bar under the header that jumps straight to the interactive version, and the checkout demo now sits on the Mastercard page too.",
+    why: "Blurred images made the case hard to read. The password keeps a confidential product's story for the teams I'm talking to, and the bar means nobody has to hunt for the part they can actually try.",
+  },
+  {
+    date: "2026-10-13",
     title: "The whole fee experiment, playable",
     tags: ["design", "engineering"],
     what: "The Fee Opt-In demo is now a full white-labelled checkout for a fictional charity: pick a gift, click Edit on the fee, and switch between the legacy fallback and all three variants that were tested (slider, toggle buttons, segmented dropdown). Each one shows what the charity actually receives, and Donate ends on a receipt.",

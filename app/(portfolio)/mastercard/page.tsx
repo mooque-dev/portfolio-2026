@@ -6,6 +6,7 @@ import { getProject } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
 import ProjectCard from "@/components/ProjectCard";
 import Arrow from "@/components/Arrow";
+import FeeSliderDemo from "@/components/FeeSliderDemo";
 
 // A tailored, unlisted view of the portfolio for one reviewer. Not in the
 // sitemap, not in the nav, and kept out of search results on purpose.
@@ -221,12 +222,28 @@ export default async function MastercardPage() {
                 three fixes against the control, and the slider reached 92% with
                 conversion steady.
               </p>
-              <Link href="/work/fee-opt-in-experimentation" className="mt-5 inline-flex text-sm underline underline-offset-4 hover:opacity-70 transition-opacity">
+              <a href="#mc-try" className="mt-5 inline-flex text-sm underline underline-offset-4 hover:opacity-70 transition-opacity">
                 Try the fee decision yourself <Arrow />
-              </Link>
+              </a>
             </figure>
           </section>
         </FadeIn>
+
+        <section className="mt-24 scroll-mt-24" aria-labelledby="mc-try-label" id="mc-try">
+          <h2 id="mc-try-label" className="microlabel text-muted">
+            Try the fee decision
+          </h2>
+          <p className="mt-3 max-w-[60ch] text-[16px] leading-relaxed">
+            A white-labelled rebuild of the checkout. Pick a gift, click Edit on the
+            fee, and switch between the legacy fallback and the three variants we tested.
+          </p>
+          <div className="mt-8">
+            <FeeSliderDemo />
+          </div>
+          <Link href="/work/fee-opt-in-experimentation" className="mt-6 inline-flex text-sm underline underline-offset-4 hover:opacity-70 transition-opacity">
+            Read the full case <Arrow />
+          </Link>
+        </section>
 
         <FadeIn delay={0.15}>
           <section className="mt-24" aria-labelledby="mc-principles">

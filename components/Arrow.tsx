@@ -1,8 +1,8 @@
-import { ArrowLeft, ArrowRight, ArrowUp, ArrowUpRight } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp, ArrowUpRight } from "lucide-react";
 
 // The site's one arrow: a drawn icon with a real arrowhead, sized to the
-// text around it, instead of the thin text glyphs (← → ↑ ↗).
-const ICONS = { left: ArrowLeft, right: ArrowRight, up: ArrowUp, "up-right": ArrowUpRight };
+// text around it, instead of the thin text glyphs (← → ↑ ↓ ↗).
+const ICONS = { left: ArrowLeft, right: ArrowRight, up: ArrowUp, down: ArrowDown, "up-right": ArrowUpRight };
 
 export default function Arrow({
   dir = "right",

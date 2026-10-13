@@ -40,6 +40,11 @@ export interface ProjectFrontmatter {
   links?: [string, string][];
   // People who built it with Allen: [name, role, url?]. Name may be empty.
   credits?: [string, string, string?][];
+  // An interactive demo further down the page: [band text, anchor]. Shows a
+  // band under the header that links to it from anywhere on the page.
+  demo?: [string, string];
+  // Behind a password (see CaseLock).
+  locked?: boolean;
 }
 
 export interface Heading {
