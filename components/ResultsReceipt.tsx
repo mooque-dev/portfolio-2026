@@ -13,9 +13,18 @@ export interface ReceiptLine {
   href: string;
 }
 
-const BARS = [2, 1, 3, 1, 1, 2, 1, 3, 2, 1, 1, 2, 3, 1, 2, 1, 1, 3, 1, 2, 2, 1, 3, 1, 1, 2, 1, 2, 3, 1, 1, 2];
+const BARS = [
+  2, 1, 3, 1, 1, 2, 1, 3, 2, 1, 1, 2, 3, 1, 2, 1, 1, 3, 1, 2, 2, 1, 3, 1, 1, 2,
+  1, 2, 3, 1, 1, 2,
+];
 
-export default function ResultsReceipt({ lines, total }: { lines: ReceiptLine[]; total?: ReceiptLine }) {
+export default function ResultsReceipt({
+  lines,
+  total,
+}: {
+  lines: ReceiptLine[];
+  total?: ReceiptLine;
+}) {
   const paper = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,7 +48,7 @@ export default function ResultsReceipt({ lines, total }: { lines: ReceiptLine[];
         };
         step();
       },
-      { threshold: 0, rootMargin: "0px 0px -20% 0px" }
+      { threshold: 0, rootMargin: "0px 0px -20% 0px" },
     );
     // Watch the slot, since the paper itself has no height until it prints.
     io.observe(el.parentElement ?? el);
@@ -64,31 +73,40 @@ export default function ResultsReceipt({ lines, total }: { lines: ReceiptLine[];
   return (
     <div className="w-full max-w-[300px]">
       <div className="h-3 rounded-full bg-foreground/85" aria-hidden />
-      <div
-        ref={paper}
-        className="receipt mx-[15px] -mt-1 overflow-hidden bg-[#fffdf7] px-4 tabular-nums text-[12.5px] leading-[1.55] text-[#1d1c19] shadow-[0_10px_24px_-14px_rgba(0,0,0,0.45)]"
-        aria-label="Results, as a receipt"
-      >
-        <div className="pt-4 pb-6">
-          <p className="m-0 text-center font-semibold">ALLEN KANG</p>
-          <p className="m-0 text-center">Senior Product Designer</p>
-          <p className="m-0 text-center">Toronto · 8 years</p>
-          <hr className="my-2 border-0 border-t border-dashed border-[#9a978d]" />
-          <ul className="m-0 list-none p-0">{lines.map((l) => row(l))}</ul>
-          {total && (
-            <>
-              <hr className="my-2 border-0 border-t border-dashed border-[#9a978d]" />
-              <ul className="m-0 list-none p-0">{row(total, true)}</ul>
-            </>
-          )}
-          <hr className="my-2 border-0 border-t border-dashed border-[#9a978d]" />
-          <p className="m-0 text-center">Thank you for reviewing</p>
-          <div className="mt-2.5 flex h-7 justify-center gap-px" aria-hidden>
-            {BARS.map((w, i) => (
-              <i key={i} className="block bg-[#1d1c19]" style={{ width: w }} />
-            ))}
+      {/* The torn-edge mask clips a box-shadow, so the outline and shadow come
+          from a drop-shadow on this wrapper instead. On a white page the paper
+          needs that edge to read as paper at all. */}
+      <div className="receipt-edge mx-[15px] -mt-1">
+        <div
+          ref={paper}
+          className="receipt overflow-hidden bg-[#fffdf7] px-4 tabular-nums text-[12.5px] leading-[1.55] text-[#1d1c19]"
+          aria-label="Results, as a receipt"
+        >
+          <div className="pt-4 pb-6">
+            <p className="m-0 text-center font-semibold">ALLEN KANG</p>
+            <p className="m-0 text-center">Senior Product Designer</p>
+            <p className="m-0 text-center">Toronto · 8 years</p>
+            <hr className="my-2 border-0 border-t border-dashed border-[#9a978d]" />
+            <ul className="m-0 list-none p-0">{lines.map((l) => row(l))}</ul>
+            {total && (
+              <>
+                <hr className="my-2 border-0 border-t border-dashed border-[#9a978d]" />
+                <ul className="m-0 list-none p-0">{row(total, true)}</ul>
+              </>
+            )}
+            <hr className="my-2 border-0 border-t border-dashed border-[#9a978d]" />
+            <p className="m-0 text-center">Thank you for reviewing</p>
+            <div className="mt-2.5 flex h-7 justify-center gap-px" aria-hidden>
+              {BARS.map((w, i) => (
+                <i
+                  key={i}
+                  className="block bg-[#1d1c19]"
+                  style={{ width: w }}
+                />
+              ))}
+            </div>
+            <p className="m-0 mt-1 text-center text-[11px]">mooque</p>
           </div>
-          <p className="m-0 mt-1 text-center text-[11px]">mooque</p>
         </div>
       </div>
     </div>

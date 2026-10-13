@@ -775,6 +775,10 @@ html {
     conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 12px 8px repeat-x;
 }
 
+.receipt-edge {
+  filter: drop-shadow(0 0 0.75px rgb(0 0 0 / 0.32)) drop-shadow(0 12px 14px rgb(0 0 0 / 0.1));
+}
+
 /* Red pen: one hand-drawn mark per case study, with a note in the margin.
    Marked up in MDX as <mark class="pen" data-note="...">; PenMarks draws it. */
 .case-body mark.pen {

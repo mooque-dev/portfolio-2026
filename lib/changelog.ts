@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "The receipt reads as paper again",
+    tags: ["design"],
+    what: "On a white page the results receipt had lost its edges: the torn bottom and the shadow were being cut off along with the paper. It now has a hairline edge and a soft shadow in both themes.",
+    why: "A receipt that blends into the page just looks broken.",
+  },
+  {
+    date: "2026-10-13",
     title: "Two circles, one overlap",
     tags: ["design"],
     what: "The Mastercard page opens its story with two overlapping circles: pick a pair of worlds I work between (design and product, design and engineering, software and finance teams, Korean and English) and the circles step apart and meet again, with me in the overlap and a link to the case behind each pair.",
