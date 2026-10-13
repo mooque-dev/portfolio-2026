@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "The Float page says what I do",
+    tags: ["content", "design"],
+    what: "The Float page now opens with \"I make complicated workflows feel simple for people who never asked for software,\" and its card floats: tilted, gently hovering over its own shadow, and still for anyone who turns motion off.",
+    why: "The old headline read like a product tagline. The first line should say what I'm good at.",
+  },
+  {
+    date: "2026-10-13",
     title: "One Float page for everyone",
     tags: ["content"],
     what: "The Float page drops its two-way switch for a single list of five cases: money movement, 0 to 1, an experiment, trust and craft. The wording is general, so the page reads the same to anyone on the team.",

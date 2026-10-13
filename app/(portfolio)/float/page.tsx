@@ -107,7 +107,7 @@ export default function FloatPage() {
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                Making business money simple to move and easy to trust.
+                I make complicated workflows feel simple for people who never asked for software.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on
@@ -129,7 +129,13 @@ export default function FloatPage() {
               </div>
             </div>
             <div className="min-w-0 max-w-[400px]">
-              <PaymentCard preparedFor="Float" circles={false} />
+              {/* The card floats: tilted, hovering over its own shadow. */}
+              <div className="float-card">
+                <div className="float-card-tilt">
+                  <PaymentCard preparedFor="Float" circles={false} />
+                </div>
+                <span className="float-card-shadow" aria-hidden />
+              </div>
             </div>
           </div>
         </FadeIn>
