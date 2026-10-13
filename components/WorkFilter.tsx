@@ -78,7 +78,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
             <button
               key={value}
               onClick={() => setActive(value)}
-              className={`relative inline-flex items-center justify-center min-h-[44px] px-4 py-1.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-colors ${
+              className={`relative inline-flex items-center justify-center min-h-[44px] px-4 py-1.5 rounded-full text-[13.5px] font-medium transition-colors ${
                 active === value
                   ? "text-background"
                   : "text-muted border border-border hover:border-foreground/40 hover:text-foreground"
@@ -104,7 +104,7 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
           {experimentProjects.length > 0 && (
             <div>
               <p className="microlabel text-muted mb-8">
-                Experiments &amp; Prototypes
+                Experiments &amp; prototypes
               </p>
               <ProjectGrid
                 projects={experimentProjects}

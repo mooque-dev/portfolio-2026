@@ -26,7 +26,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteUrl,
     siteName: "Allen Kang Portfolio",
     title: "Allen Kang, Senior Product Designer",
     description:

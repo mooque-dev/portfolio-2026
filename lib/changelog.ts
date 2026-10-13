@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "Audit fixes: link previews, labels, loose ends",
+    tags: ["design", "engineering"],
+    what: "Links shared from mooque-dev.github.io now preview as that page on that address, instead of every page claiming to be the allenkang.com home page. The last all-caps labels (About tabs, Playground filters, résumé headings, the phone menu) are in sentence case like the rest of the site. The Mastercard and Air Canada tabs no longer repeat my name. A dead link to ArtsGaze is now plain text, and three unused files are gone.",
+    why: "A link pasted into LinkedIn should open the page it names, on a domain the reader's network allows.",
+  },
+  {
+    date: "2026-10-13",
     title: "Four years that explain me",
     tags: ["content"],
     what: "The Mastercard card's number is now 1994 2007 2018 2026: born, moved to Canada, started designing, today. It reads Designing since 2018 instead of Member since. The same four years now open the About page.",

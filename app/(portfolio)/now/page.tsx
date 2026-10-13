@@ -30,7 +30,7 @@ export default function NowPage() {
             {nowSnapshots.map((snap, i) => (
               <FadeIn key={snap.date} delay={Math.min(i * 0.06, 0.24)}>
                 <div className={i === 0 ? "" : "opacity-70"}>
-                  <p className="text-xs tracking-[0.14em] uppercase text-muted mb-4">
+                  <p className="microlabel text-muted mb-4">
                     {i === 0 ? "Currently" : formatDate(snap.date)}
                     {i === 0 && (
                       <span className="ml-2 normal-case tracking-normal">

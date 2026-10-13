@@ -29,7 +29,7 @@ export default function ResumePage() {
             <a
               href="/allen-kang-resume.pdf"
               download
-              className="shrink-0 mt-2 px-4 py-2 text-xs tracking-[0.1em] uppercase border border-border rounded-full hover:border-foreground/40 hover:text-foreground text-muted transition-colors"
+              className="shrink-0 mt-2 px-4 py-2 text-[13.5px] font-medium border border-border rounded-full hover:border-foreground/40 hover:text-foreground text-muted transition-colors"
             >
               Download PDF
             </a>
@@ -39,7 +39,7 @@ export default function ResumePage() {
         {/* Experience */}
         <FadeIn delay={0.15}>
           <div className="mt-16">
-            <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
+            <h2 className="microlabel text-muted mb-8">
               Experience
             </h2>
             <div className="space-y-0">
@@ -77,7 +77,7 @@ export default function ResumePage() {
         <FadeIn delay={0.18}>
           <div className="mt-16">
             <Separator className="mb-8" />
-            <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
+            <h2 className="microlabel text-muted mb-8">
               Independent Projects
             </h2>
             <div className="space-y-6">
@@ -98,7 +98,7 @@ export default function ResumePage() {
         <FadeIn delay={0.2}>
           <div className="mt-16">
             <Separator className="mb-8" />
-            <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
+            <h2 className="microlabel text-muted mb-8">
               Education
             </h2>
             <div className="space-y-6">
@@ -116,7 +116,7 @@ export default function ResumePage() {
         <FadeIn delay={0.25}>
           <div className="mt-16">
             <Separator className="mb-8" />
-            <h2 className="text-xs tracking-widest uppercase text-muted mb-6">
+            <h2 className="microlabel text-muted mb-6">
               Get in touch
             </h2>
             <div className="flex flex-wrap gap-6 text-sm">

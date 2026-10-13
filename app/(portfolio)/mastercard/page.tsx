@@ -9,7 +9,7 @@ import TwoWorlds from "@/components/TwoWorlds";
 // A tailored, unlisted view of the portfolio for one reviewer. Not in the
 // sitemap, not in the nav, and kept out of search results on purpose.
 export const metadata: Metadata = {
-  title: "Allen Kang for Mastercard",
+  title: { absolute: "Allen Kang for Mastercard" },
   description:
     "A shorter path through Allen Kang's work, ordered for a team that designs around money, data, and trust.",
   robots: { index: false, follow: false },

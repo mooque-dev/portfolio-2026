@@ -12,7 +12,7 @@ import Arrow from "@/components/Arrow";
 // sitemap or the nav, and kept out of search results on purpose. Every claim
 // here is on the résumé or in a case study; gaps are left out, not invented.
 export const metadata: Metadata = {
-  title: "Allen Kang for Air Canada",
+  title: { absolute: "Allen Kang for Air Canada" },
   description:
     "Allen Kang's work, mapped to a Product Manager role on flight shopping, trip servicing and payments.",
   robots: { index: false, follow: false },

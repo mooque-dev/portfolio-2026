@@ -76,7 +76,7 @@ export default async function WritingPostPage({ params }: PageProps) {
         {nextPost && (
           <FadeIn>
             <div className="mt-24 pt-12 border-t border-border">
-              <p className="text-xs tracking-widest uppercase text-muted mb-3">
+              <p className="microlabel text-muted mb-3">
                 Next article
               </p>
               <Link

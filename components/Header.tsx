@@ -139,7 +139,7 @@ export default function Header() {
                         <Link
                           href={href}
                           onClick={closeMenu}
-                          className={`text-sm tracking-wide uppercase block py-3 px-2 min-h-[44px] flex items-center transition-colors rounded-md ${
+                          className={`text-[17px] block py-3 px-2 min-h-[44px] flex items-center transition-colors rounded-md ${
                             isActive
                               ? "text-foreground font-medium"
                               : "text-muted hover:text-foreground hover:bg-surface"

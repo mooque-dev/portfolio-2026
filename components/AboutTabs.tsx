@@ -21,13 +21,13 @@ export default function AboutTabs() {
           <button
             key={tab}
             onClick={() => setActive(tab)}
-            className={`px-4 py-1.5 rounded-full text-[11px] tracking-[0.1em] uppercase transition-colors ${
+            className={`px-4 py-1.5 rounded-full text-[13.5px] font-medium transition-colors ${
               active === tab
                 ? "bg-foreground text-background"
                 : "text-muted border border-border hover:border-foreground/40 hover:text-foreground"
             }`}
           >
-            {tab === "bio" ? "Bio" : "Resume"}
+            {tab === "bio" ? "Bio" : "Résumé"}
           </button>
         ))}
       </div>
@@ -270,7 +270,7 @@ export default function AboutTabs() {
         <div>
           <FadeIn delay={0.05}>
             <div className="mt-10">
-              <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
+              <h2 className="microlabel text-muted mb-8">
                 Experience
               </h2>
               <div className="space-y-0">
@@ -307,7 +307,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.1}>
             <div className="mt-16">
               <Separator className="mb-8" />
-              <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
+              <h2 className="microlabel text-muted mb-8">
                 Side Projects
               </h2>
               <div className="space-y-6">
@@ -342,7 +342,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.15}>
             <div className="mt-16">
               <Separator className="mb-8" />
-              <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
+              <h2 className="microlabel text-muted mb-8">
                 Education
               </h2>
               <div className="space-y-6">
@@ -359,7 +359,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.18}>
             <div className="mt-16">
               <Separator className="mb-8" />
-              <h2 className="text-xs tracking-widest uppercase text-muted mb-8">
+              <h2 className="microlabel text-muted mb-8">
                 Certifications
               </h2>
               <div className="space-y-4">
@@ -385,7 +385,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.2}>
             <div className="mt-16">
               <Separator className="mb-8" />
-              <h2 className="text-xs tracking-widest uppercase text-muted mb-6">
+              <h2 className="microlabel text-muted mb-6">
                 Get in touch
               </h2>
               <div className="flex flex-wrap gap-6 text-sm">

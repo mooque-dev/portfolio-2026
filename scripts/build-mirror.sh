@@ -38,6 +38,9 @@ rm -rf app/api app/gateway app/figures "app/(portfolio)/changelog" lib/changelog
 sed -i '' 's#href="/gateway"#href="https://allenkang.com/gateway"#' components/Footer.tsx
 sed -i '' 's#href="/changelog"#href="https://allenkang.com/changelog"#' components/Footer.tsx "app/(portfolio)/vault/page.tsx"
 sed -i '' '/path: "\/gateway"/d' app/sitemap.ts
+# Link previews, the sitemap and robots.txt should name this copy, not the
+# domain the networks we're working around block.
+sed -i '' 's#https://allenkang.com#https://mooque-dev.github.io#g' app/layout.tsx app/sitemap.ts app/robots.ts
 for f in app/robots.ts app/sitemap.ts; do
   grep -q force-static "$f" || sed -i '' '1a\
 export const dynamic = "force-static";
