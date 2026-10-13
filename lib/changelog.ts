@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "The Mastercard page, down to three parts",
+    tags: ["design", "content"],
+    what: "The Mastercard page now opens with one line about me and the card beside it, then the two circles, then a statement of five cases, one line each, tagged by what they show (0 to 1, ambiguity, trust, quality) with the number and a way in. Everything else lives on the case pages it points to.",
+    why: "A recruiter should get the point on load and find the right case in one click, not scroll past everything at once.",
+  },
+  {
+    date: "2026-10-13",
     title: "A shorter Mastercard page, with a section list",
     tags: ["design", "content"],
     what: "The Mastercard page drops the full fee demo section and the week-in-the-life list. Fee Opt-In now sits with the other cases under Selected work, and the demo still lives on its own case page. The card's activity list keeps four headline numbers instead of six, without the repeated case names. On wide screens a section list runs down the left side and marks where you are.",
