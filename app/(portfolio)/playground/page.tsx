@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllProjects } from "@/lib/content";
+import { getAllProjects, tryTagFor } from "@/lib/content";
 import WorkFilter from "@/components/WorkFilter";
 import FadeIn from "@/components/FadeIn";
 
@@ -28,6 +28,7 @@ export default async function PlaygroundPage() {
       wip: p.frontmatter.wip,
       featuredStat: p.frontmatter.featuredStat,
       featuredStatLabel: p.frontmatter.featuredStatLabel,
+      tryTag: tryTagFor(p.frontmatter),
     }));
 
   return (
