@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "Two circles, one overlap",
+    tags: ["design"],
+    what: "The Mastercard page opens its story with two overlapping circles: pick a pair of worlds I work between (design and product, design and engineering, software and finance teams, Korean and English) and the circles step apart and meet again, with me in the overlap and a link to the case behind each pair.",
+    why: "A playful nod to the mark the team knows best, in my own colours, to say the thing that's hard to put on a résumé: most of my work happens between two sides.",
+  },
+  {
+    date: "2026-10-13",
     title: "Fee Opt-In unblurred, behind a password",
     tags: ["design", "content"],
     what: "The Fee Opt-In screens are no longer blurred. They were always white-labelled recreations, so I cleaned them up instead: removed two placeholder percentages for the losing variants, made-up prototype readouts and a personal email, fixed overlapping labels, and rebuilt the cover. The case now asks for a password, with an email link for anyone who needs it. The Fee Opt-In and MyJourney pages each have a slim bar under the header that jumps straight to the interactive version, and the checkout demo now sits on the Mastercard page too.",

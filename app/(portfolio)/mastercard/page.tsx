@@ -7,6 +7,7 @@ import FadeIn from "@/components/FadeIn";
 import ProjectCard from "@/components/ProjectCard";
 import Arrow from "@/components/Arrow";
 import FeeSliderDemo from "@/components/FeeSliderDemo";
+import TwoWorlds from "@/components/TwoWorlds";
 
 // A tailored, unlisted view of the portfolio for one reviewer. Not in the
 // sitemap, not in the nav, and kept out of search results on purpose.
@@ -170,11 +171,19 @@ export default async function MastercardPage() {
           </div>
         </FadeIn>
 
-        <div
-          className="mt-16 h-[3px] w-full rounded-full"
-          style={{ background: RULE }}
-          aria-hidden="true"
-        />
+        <FadeIn delay={0.05}>
+          <section className="mt-20 border-t border-border pt-12" aria-labelledby="mc-worlds">
+            <h2 id="mc-worlds" className="microlabel text-muted">
+              Between two worlds
+            </h2>
+            <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+              You know two circles that overlap. Most of my work happens in the overlap.
+            </p>
+            <div className="mt-10">
+              <TwoWorlds />
+            </div>
+          </section>
+        </FadeIn>
 
         <FadeIn delay={0.1}>
           <section className="mt-16" aria-labelledby="mc-numbers">
