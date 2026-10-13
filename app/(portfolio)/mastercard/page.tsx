@@ -145,7 +145,7 @@ export default async function MastercardPage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="/allen-kang-resume.pdf"
+              href="/allen-kang-resume-mastercard.pdf"
               download
               className="inline-flex items-center h-10 px-5 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-80 transition-opacity"
             >
