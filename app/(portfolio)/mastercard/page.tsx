@@ -53,18 +53,26 @@ const dataviz = [
   { slug: "keela-contacts", status: "Shipped at Keela in 2024. Rebuilt as a working version." },
 ];
 
-// Two deep dives and three highlights, each with the reason it is here.
+// Two deep dives and three highlights, each with the reason it is here. The
+// deep dives answer what this team asks about: work from zero to one, and
+// finding a way through an unfamiliar, technical domain.
 const deepDives = [
   {
-    slug: "transaction-workflows",
-    why: "How I work in a complex money domain: from watching accountants reconcile to a 70% drop in support tickets.",
+    slug: "automation-nonprofits",
+    label: "Deep dive · 0 to 1",
+    why: "A product area that didn't exist, handed to me a month into the job: from fifteen interviews to a paid add-on in five months, 30% adoption and a 13% ARR lift.",
   },
   {
-    slug: "fee-opt-in-experimentation",
-    why: "How I run an experiment at checkout: a hypothesis, three variants against control, and opt-in from 75% to 92%.",
+    slug: "transaction-workflows",
+    label: "Deep dive · Ambiguity",
+    why: "Learning accounting rules in three countries and a backend nobody had mapped, then cutting categorization tickets by 70%.",
   },
 ];
 const highlights = [
+  {
+    slug: "fee-opt-in-experimentation",
+    why: "A checkout experiment: opt-in from 75% to 92%, with conversion steady.",
+  },
   {
     slug: "aplos-keela-integration",
     why: "Making a data sync trustworthy by showing the mapping.",
@@ -72,10 +80,6 @@ const highlights = [
   {
     slug: "orchid-design-system",
     why: "Getting three teams onto one system without authority.",
-  },
-  {
-    slug: "automation-nonprofits",
-    why: "Designing confidence into a risky, irreversible action.",
   },
 ];
 
@@ -246,9 +250,9 @@ export default async function MastercardPage() {
               If we had thirty minutes: two deep dives and three highlights
             </h2>
             <div className="mt-8 grid gap-x-8 gap-y-12 md:grid-cols-2">
-              {deepProjects.map(({ p, why }) => (
+              {deepProjects.map(({ p, why, label }) => (
                 <div key={p.slug}>
-                  <p className="microlabel text-[var(--seal)] mb-3">Deep dive</p>
+                  <p className="microlabel text-[var(--seal)] mb-3">{label}</p>
                   <ProjectCard
                     slug={p.slug}
                     title={p.frontmatter.title}

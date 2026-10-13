@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "Keela Contacts shows what shipped",
+    tags: ["content", "design"],
+    what: "Keela Contacts has a new chapter with four screens from the shipped product: the contact list, a contact's interactions and to-dos, and the transactions list, with the placeholder data swapped for realistic examples. The Mastercard page now leads with a 0 to 1 deep dive (Automation) and an ambiguity deep dive (Transaction Workflows). The red-pen notes read more like my own margin notes.",
+    why: "A shipped project should show what shipped. And the deep dives should answer what this team asks about: building from nothing, and finding a way through an unfamiliar domain.",
+  },
+  {
+    date: "2026-10-13",
     title: "Outcomes that aren't percentages",
     tags: ["content"],
     what: "Orchid's headline numbers now include the two dedicated front-end engineers the pitch earned, and its result says contribution proposals doubled once reviews went async. Aplos × Keela's result now says it was the first feature the merged companies shipped together.",
