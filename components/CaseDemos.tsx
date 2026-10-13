@@ -3,11 +3,13 @@
 import { useEffect, useState, type ComponentType } from "react";
 import { createPortal } from "react-dom";
 import SplitPaymentDemo from "@/components/SplitPaymentDemo";
+import FeeSliderDemo from "@/components/FeeSliderDemo";
 
 // Case studies are MDX rendered to HTML, so a live demo is placed with a
 // marker, <div data-demo="name"></div>, and mounted here into that spot.
 const DEMOS: Record<string, ComponentType> = {
   "split-payment": SplitPaymentDemo,
+  "fee-slider": FeeSliderDemo,
 };
 
 export default function CaseDemos() {

@@ -1201,3 +1201,44 @@ select::-ms-expand {
 @media (prefers-reduced-motion: reduce) {
   .arnd-dot.is-live::after { animation: none; opacity: 0; }
 }
+
+/* Fee Opt-In demo slider: a filled track up to the thumb. */
+.fee-range {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 22px;
+  background: transparent;
+  cursor: pointer;
+}
+.fee-range::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #256abf var(--fill), #dcdbd5 var(--fill));
+}
+.fee-range::-moz-range-track {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, #256abf var(--fill), #dcdbd5 var(--fill));
+}
+.fee-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: -7px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #0d366b;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+}
+.fee-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #0d366b;
+}
+.fee-range:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 4px;
+  border-radius: 4px;
+}

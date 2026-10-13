@@ -16,8 +16,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const RULE =
-  "linear-gradient(90deg, #EB001B 0%, #FF5F00 50%, #F79E1B 100%)";
+// Section rule in the seal red: the page is prepared for Mastercard, not in
+// their brand.
+const RULE = "var(--seal)";
 
 const principles = [
   {
@@ -46,14 +47,36 @@ const principles = [
   },
 ];
 
-const dataviz = ["care-pathway-dashboards", "keela-contacts"];
+// Whether each dashboard shipped, said up front so nobody has to dig for it.
+const dataviz = [
+  { slug: "care-pathway-dashboards", status: "Redesign, not shipped. Rebuilt as a working version." },
+  { slug: "keela-contacts", status: "Shipped at Keela in 2024. Rebuilt as a working version." },
+];
 
-const spine = [
-  "transaction-workflows",
-  "aplos-keela-integration",
-  "fee-opt-in-experimentation",
-  "orchid-design-system",
-  "automation-nonprofits",
+// Two deep dives and three highlights, each with the reason it is here.
+const deepDives = [
+  {
+    slug: "transaction-workflows",
+    why: "How I work in a complex money domain: from watching accountants reconcile to a 70% drop in support tickets.",
+  },
+  {
+    slug: "fee-opt-in-experimentation",
+    why: "How I run an experiment at checkout: a hypothesis, three variants against control, and opt-in from 75% to 92%.",
+  },
+];
+const highlights = [
+  {
+    slug: "aplos-keela-integration",
+    why: "Making a data sync trustworthy by showing the mapping.",
+  },
+  {
+    slug: "orchid-design-system",
+    why: "Getting three teams onto one system without authority.",
+  },
+  {
+    slug: "automation-nonprofits",
+    why: "Designing confidence into a risky, irreversible action.",
+  },
 ];
 
 const built = [
@@ -72,12 +95,20 @@ const built = [
 ];
 
 export default async function MastercardPage() {
-  const spineProjects = (
-    await Promise.all(spine.map((s) => getProject(s)))
-  ).filter((p) => p !== null);
-  const datavizProjects = (
-    await Promise.all(dataviz.map((s) => getProject(s)))
-  ).filter((p) => p !== null);
+  type Project = NonNullable<Awaited<ReturnType<typeof getProject>>>;
+  const load = async <T extends { slug: string }>(items: T[]): Promise<(T & { p: Project })[]> => {
+    const out: (T & { p: Project })[] = [];
+    for (const i of items) {
+      const p = await getProject(i.slug);
+      if (p) out.push({ ...i, p });
+    }
+    return out;
+  };
+  const [datavizProjects, deepProjects, highlightProjects] = await Promise.all([
+    load(dataviz),
+    load(deepDives),
+    load(highlights),
+  ]);
   const builtProjects = (
     await Promise.all(built.map((b) => getProject(b.slug)))
   ).filter((p) => p !== null);
@@ -190,18 +221,20 @@ export default async function MastercardPage() {
               them, hover them, and see the decisions behind every chart.
             </p>
             <div className="mt-8 grid gap-x-8 gap-y-12 md:grid-cols-2">
-              {datavizProjects.map((p) => (
-                <ProjectCard
-                  key={p.slug}
-                  slug={p.slug}
-                  title={p.frontmatter.title}
-                  subtitle={p.frontmatter.subtitle}
-                  category={p.frontmatter.category}
-                  coverColor={p.frontmatter.coverColor}
-                  coverImage={p.frontmatter.coverImage}
-                  featuredStat={p.frontmatter.featuredStat}
-                  featuredStatLabel={p.frontmatter.featuredStatLabel}
-                />
+              {datavizProjects.map(({ p, status }) => (
+                <div key={p.slug}>
+                  <ProjectCard
+                    slug={p.slug}
+                    title={p.frontmatter.title}
+                    subtitle={p.frontmatter.subtitle}
+                    category={p.frontmatter.category}
+                    coverColor={p.frontmatter.coverColor}
+                    coverImage={p.frontmatter.coverImage}
+                    featuredStat={p.frontmatter.featuredStat}
+                    featuredStatLabel={p.frontmatter.featuredStatLabel}
+                  />
+                  <p className="mt-2 text-[13px] font-medium">{status}</p>
+                </div>
               ))}
             </div>
           </section>
@@ -210,22 +243,43 @@ export default async function MastercardPage() {
         <FadeIn delay={0.2}>
           <section className="mt-24" aria-labelledby="mc-work">
             <h2 id="mc-work" className="microlabel text-muted">
-              The case studies, in the order I&rsquo;d walk you through them
+              If we had thirty minutes: two deep dives and three highlights
             </h2>
             <div className="mt-8 grid gap-x-8 gap-y-12 md:grid-cols-2">
-              {spineProjects.map((p) => (
-                <ProjectCard
-                  key={p.slug}
-                  slug={p.slug}
-                  title={p.frontmatter.title}
-                  subtitle={p.frontmatter.subtitle}
-                  category={p.frontmatter.category}
-                  coverColor={p.frontmatter.coverColor}
-                  coverImage={p.frontmatter.coverImage}
-                  wip={p.frontmatter.wip}
-                  featuredStat={p.frontmatter.featuredStat}
-                  featuredStatLabel={p.frontmatter.featuredStatLabel}
-                />
+              {deepProjects.map(({ p, why }) => (
+                <div key={p.slug}>
+                  <p className="microlabel text-[var(--seal)] mb-3">Deep dive</p>
+                  <ProjectCard
+                    slug={p.slug}
+                    title={p.frontmatter.title}
+                    subtitle={p.frontmatter.subtitle}
+                    category={p.frontmatter.category}
+                    coverColor={p.frontmatter.coverColor}
+                    coverImage={p.frontmatter.coverImage}
+                    wip={p.frontmatter.wip}
+                    featuredStat={p.frontmatter.featuredStat}
+                    featuredStatLabel={p.frontmatter.featuredStatLabel}
+                  />
+                  <p className="mt-3 text-[14.5px] leading-relaxed">{why}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-14 grid gap-x-8 gap-y-12 md:grid-cols-3">
+              {highlightProjects.map(({ p, why }) => (
+                <div key={p.slug}>
+                  <p className="microlabel text-muted mb-3">Highlight</p>
+                  <ProjectCard
+                    slug={p.slug}
+                    title={p.frontmatter.title}
+                    subtitle={p.frontmatter.subtitle}
+                    category={p.frontmatter.category}
+                    coverColor={p.frontmatter.coverColor}
+                    coverImage={p.frontmatter.coverImage}
+                    wip={p.frontmatter.wip}
+                    compact
+                  />
+                  <p className="mt-2 text-[13.5px] leading-relaxed text-muted">{why}</p>
+                </div>
               ))}
             </div>
           </section>
@@ -277,9 +331,12 @@ export default async function MastercardPage() {
                 I&rsquo;d like to talk about the numbers behind your numbers.
               </h2>
               <p className="mt-3 text-[15px] text-muted leading-relaxed">
-                The full portfolio is at{" "}
                 <Link href="/work" className="underline underline-offset-4">
-                  allenkang.com/work
+                  See all the work
+                </Link>
+                , or the side projects in the{" "}
+                <Link href="/playground" className="underline underline-offset-4">
+                  Playground
                 </Link>
                 .
               </p>

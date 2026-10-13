@@ -10,21 +10,14 @@ type Offset = { x: number; y: number };
 // left is a percentage of the page container; top is px from its top.
 const STICKERS = [
   { id: "running-shoe", w: 96, h: 65, left: 74, top: 150, rot: -8 },
-  { id: "korea", w: 112, h: 82, left: 84, top: 360, rot: 6 },
-  { id: "canada", w: 112, h: 82, left: 72, top: 560, rot: -5 },
-  { id: "jacob", w: 104, h: 104, left: 87, top: 780, rot: 8 },
-  { id: "hiromi", w: 104, h: 104, left: 74, top: 1000, rot: -7 },
-  { id: "piano", w: 112, h: 72, left: 84, top: 1230, rot: 4 },
-  { id: "trumpet", w: 112, h: 73, left: 71, top: 1480, rot: -10 },
-  { id: "clarinet", w: 66, h: 81, left: 88, top: 1580, rot: 9 },
-  { id: "guitar", w: 80, h: 114, left: 78, top: 1800, rot: -6 },
-  { id: "palette", w: 88, h: 75, left: 71, top: 620, rot: 7 },
-  { id: "seal", w: 80, h: 80, left: 86, top: 1990, rot: -4 },
-  { id: "capybara", w: 112, h: 72, left: 83, top: 2320, rot: 5 },
-  { id: "camera", w: 104, h: 76, left: 73, top: 2600, rot: -7 },
+  { id: "korea", w: 112, h: 82, left: 84, top: 430, rot: 6 },
+  { id: "palette", w: 88, h: 75, left: 72, top: 780, rot: 7 },
+  { id: "canada", w: 112, h: 82, left: 83, top: 1130, rot: -5 },
+  { id: "seal", w: 80, h: 80, left: 74, top: 1560, rot: -4 },
+  { id: "camera", w: 104, h: 76, left: 84, top: 1980, rot: -7 },
 ] as const;
 
-const STORAGE_KEY = "about-stickers-v1";
+const STORAGE_KEY = "about-stickers-v2";
 
 // Decorative, draggable pixel stickers. Desktop only; arrangement persists
 // locally so a visitor's scrapbook stays the way they left it.

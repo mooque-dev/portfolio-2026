@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-12",
+    title: "Try the fee decision yourself",
+    tags: ["design", "content"],
+    what: "Fee Opt-In now has a working rebuild of the moment it was about: click Edit on the fee and compare the legacy fallback with the slider that won. It's a generic checkout, not the confidential screens. The Mastercard page is now two deep dives and three highlights, each with a line on why it's there, and the dashboards say plainly whether they shipped. Keela Contacts is marked as shipped in 2024. Smaller things: a fresh Cancer Care cover, a portrait that loads in a fraction of the time, a quieter About page, and a footer without dead ends.",
+    why: "My strongest number lived in a case where every screen is blurred. Now a reviewer can try the decision instead of reading about it.",
+  },
+  {
     date: "2026-10-10",
     title: "The cancer care case, retold from one patient out",
     tags: ["design", "content"],

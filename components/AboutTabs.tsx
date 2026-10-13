@@ -37,7 +37,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.05}>
             <div className="mt-10 relative aspect-[3/4] max-w-xs overflow-hidden rounded-sm">
               <Image
-                src="/allen-kang-portrait.png"
+                src="/allen-kang-portrait.jpg"
                 alt="Portrait of Allen Kang"
                 fill
                 className="object-cover object-[center_20%]"

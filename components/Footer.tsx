@@ -7,9 +7,9 @@ export default function Footer() {
   return (
     <footer className="border-t border-border mt-32" role="contentinfo">
       <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-start gap-8">
-        <div className="flex flex-col sm:flex-row gap-8 text-sm">
+        <div className="flex flex-col gap-1 text-sm">
           <nav aria-label="Footer">
-            <ul className="flex flex-col gap-2" role="list">
+            <ul className="flex flex-wrap gap-x-6" role="list">
               <li>
                 <Link href="/work" className="hover:opacity-70 transition-opacity min-h-[44px] inline-flex items-center">
                   Work
@@ -30,19 +30,9 @@ export default function Footer() {
                   R&eacute;sum&eacute;
                 </Link>
               </li>
-              <li>
-                <Link href="/vault" className="hover:opacity-70 transition-opacity min-h-[44px] inline-flex items-center">
-                  Vault
-                </Link>
-              </li>
-              <li>
-                <Link href="/changelog" className="hover:opacity-70 transition-opacity min-h-[44px] inline-flex items-center">
-                  Changelog
-                </Link>
-              </li>
             </ul>
           </nav>
-          <div className="flex flex-col gap-2 text-muted">
+          <div className="flex flex-wrap gap-x-6 text-muted">
             <a
               href="https://www.linkedin.com/in/mooque/"
               target="_blank"

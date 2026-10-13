@@ -122,7 +122,7 @@ export default function HomeReader({ allProjects }: Props) {
         <FadeIn>
           <div className="flex items-center gap-3">
             <Image
-              src="/allen-kang-portrait.png"
+              src="/allen-kang-portrait.jpg"
               alt="Allen Kang"
               width={44}
               height={44}
