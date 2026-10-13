@@ -1,21 +1,58 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
-import PaymentCard from "@/components/PaymentCard";
+import PaymentCard, { Statement, type StatementLine } from "@/components/PaymentCard";
 import FadeIn from "@/components/FadeIn";
 import Arrow from "@/components/Arrow";
-import FloatRoles from "@/components/FloatRoles";
 
-// A tailored, unlisted view of the portfolio for Float's Senior Product
-// Designer roles (Banking and Growth). Not in the sitemap, not in the nav,
-// and kept out of search results on purpose. Same shape as /mastercard:
-// a card, the work, a way to reach me. Float designs in code rather than in
-// Figma, so the middle block points at things that run.
+// A tailored, unlisted view of the portfolio for Float. Not in the sitemap,
+// not in the nav, and kept out of search results on purpose. Same shape as
+// /mastercard: a card, the work, a way to reach me, plus a short block of
+// things that already run.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Float" },
-  description: "A short path through Allen Kang's work, ordered for Float's Banking and Growth design roles.",
+  description: "A short path through Allen Kang's work on moving money, growing products and building in code.",
   robots: { index: false, follow: false },
 };
+
+// One line per case, each opening its page. Every number is on the résumé.
+const STATEMENT: StatementLine[] = [
+  {
+    tag: "Money movement",
+    title: "Transaction Workflows",
+    line: "One payment that's a donation, a gift and a ticket at once, recorded right under Canadian, US and Australian rules.",
+    value: "-70% tickets",
+    href: "/work/transaction-workflows",
+  },
+  {
+    tag: "0 to 1",
+    title: "Automation for Nonprofits",
+    line: "A product area that didn't exist, to a paid add-on in five months, used by 30% of 355 organizations.",
+    value: "+13% ARR",
+    href: "/work/automation-nonprofits",
+  },
+  {
+    tag: "Experiment",
+    title: "Fee Opt-In",
+    line: "I paused a win to fix a leak, then tested three fixes. Has a checkout you can play with.",
+    value: "75→92%",
+    href: "/work/fee-opt-in-experimentation",
+  },
+  {
+    tag: "Trust",
+    title: "Aplos × Keela",
+    line: "The first thing two merged companies shipped: a sync between finance products that shows every mapping.",
+    value: "1st joint launch",
+    href: "/work/aplos-keela-integration",
+  },
+  {
+    tag: "Craft",
+    title: "Orchid design system",
+    line: "Three teams onto one system, and the quality rules that kept it consistent.",
+    value: "340+ components",
+    href: "/work/orchid-design-system",
+  },
+];
 
 const BUILT: { label: string; text: string; links: { href: string; name: string; external?: boolean }[] }[] = [
   {
@@ -97,8 +134,8 @@ export default function FloatPage() {
           </div>
         </FadeIn>
 
-        <Block id="fl-work" label="The work" title="Two teams are hiring. Here's the work for each.">
-          <FloatRoles />
+        <Block id="fl-work" label="The work" title="Five cases, one line each. Open the one you care about.">
+          <Statement lines={STATEMENT} />
           <p className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-muted">
             <span>Built on my own:</span>
             {OWN.map((o, i) => (
@@ -116,7 +153,7 @@ export default function FloatPage() {
           </p>
         </Block>
 
-        <Block id="fl-code" label="Designing in code" title="You design on the real codebase. Most of what I'd show you already runs.">
+        <Block id="fl-code" label="Built, not just drawn" title="Most of what I'd show you already runs.">
           <ul className="m-0 grid list-none gap-10 p-0 md:grid-cols-3 md:gap-8">
             {BUILT.map((b) => (
               <li key={b.label} className="flex flex-col border-t border-foreground/80 pt-5">
