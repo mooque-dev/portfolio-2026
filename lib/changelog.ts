@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "The fee checkout, rebuilt from the MagicPatterns prototype",
+    tags: ["design", "engineering"],
+    what: "The Fee Opt-In demo now follows my MagicPatterns prototype: a checkout with the fee in a sticky footer, where Edit opens the fallback being tested. A three-step guide and a pulsing pointer lead you to Edit, a Mobile, Tablet and Desktop switch shows the same checkout at each size, and a panel beside it shows what your choice means for the charity next to what donors did in the test (75%, 82%, 92%). The six case images are now rendered from that same checkout at high resolution, so they're sharp, evenly spaced and nothing overlaps.",
+    why: "The old images were hand-drawn and blurry, with labels colliding, and the demo didn't tell anyone what to do. Now the pictures and the playable version are the same thing, and the numbers sit right where the choice is made.",
+  },
+  {
+    date: "2026-10-13",
     title: "The Mastercard page, reorganized",
     tags: ["design", "content"],
     what: "The Mastercard page now reads as one document: six numbered sections that each open the same way, with the same spacing and rules. Results show as a card and its statement instead of a receipt. Three shipped pieces of work stand for trust, safety and quality. The fee story is told once, next to the checkout you can try, instead of in four places. Every link to the password-protected Fee Opt-In case says so before you click.",

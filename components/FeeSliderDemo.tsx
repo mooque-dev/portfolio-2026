@@ -1,283 +1,287 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
+import Checkout, { FRAME, FULL_FEE, feeFor, money, received, type Layout, type Variant } from "@/components/fee/Checkout";
 
-// A white-labelled rebuild of the Fee Opt-In experiment: a donation checkout
-// for a fictional charity, with the legacy fallback and the three variants
-// that were tested when a donor clicks Edit on the fee. The production
-// screens are confidential; this shows the decisions, not the product.
-type Variant = "legacy" | "slider" | "toggle" | "dropdown";
+// The playable Fee Opt-In checkout: pick a fallback, click Edit, change the
+// fee, and read what donors actually did beside it. Only reported numbers
+// appear; the two variants that lost show no rate because none was reported.
 
 const VARIANTS: { key: Variant; label: string; note: string }[] = [
   {
     key: "legacy",
-    label: "Legacy fallback",
-    note: "Edit opens a blank field in an older style. Typing nothing means no fee, so the easiest path is opting out. Most donors who clicked Edit lowered the fee or removed it.",
+    label: "Old fallback",
+    note: "Edit drops you into an older box that starts empty. Leave it blank and the fee is $0, so the easiest path is opting out.",
   },
   {
     key: "slider",
-    label: "Slider (won)",
-    note: "A continuous control that starts at the full fee and marks it. Sliding down still feels like giving a little less, not quitting. This one shipped: opt-in went from 75% to 92% with conversion steady.",
+    label: "Slider",
+    note: "Starts at the full fee. Sliding down feels like giving a little less, not quitting. This is the one that shipped.",
   },
   {
-    key: "toggle",
-    label: "Toggle buttons",
-    note: "Pre-framed choices with the full fee selected, so there's no blank slate. Four options asked donors to make one more decision.",
+    key: "buttons",
+    label: "Buttons",
+    note: "Four set amounts with the full fee chosen. No blank box, but one more decision to make.",
   },
   {
     key: "dropdown",
-    label: "Segmented dropdown",
-    note: "Compact and familiar, quick for donors who already know what they want, but the choices stay hidden until you open it.",
+    label: "Dropdown",
+    note: "Compact and familiar. Quick if you know what you want, but the choices stay hidden until you open it.",
   },
 ];
 
-const AMOUNTS = [25, 50, 100, 250];
-const RATE = 0.02;
-const ACCENT = "#0f766e";
+// Inline, so the case study's prose list styles can't reach in.
+const BARE = { margin: 0, padding: 0, listStyle: "none" } as const;
 
-const money = (n: number) =>
-  n.toLocaleString("en-CA", { style: "currency", currency: "CAD", minimumFractionDigits: 2, maximumFractionDigits: 2 });
-const round = (n: number) => Math.round(n * 100) / 100;
+const LAYOUTS: { key: Layout; label: string }[] = [
+  { key: "mobile", label: "Mobile" },
+  { key: "tablet", label: "Tablet" },
+  { key: "desktop", label: "Desktop" },
+];
 
 export default function FeeSliderDemo() {
   const [variant, setVariant] = useState<Variant>("slider");
-  const [amount, setAmount] = useState(100);
-  const fullFee = round(amount * RATE);
-  const maxFee = round(fullFee * 1.5);
-  const [fee, setFee] = useState(fullFee);
+  const [layout, setLayout] = useState<Layout>("mobile");
+  const [fee, setFee] = useState(FULL_FEE);
   const [legacyText, setLegacyText] = useState("");
   const [editing, setEditing] = useState(false);
   const [done, setDone] = useState(false);
+  const [opened, setOpened] = useState(false);
+  const [changed, setChanged] = useState(false);
+  const [tried, setTried] = useState<Set<Variant>>(new Set());
 
-  const reset = (v: Variant, a = amount) => {
+  const pick = (v: Variant) => {
     setVariant(v);
-    setAmount(a);
-    setFee(round(a * RATE));
+    setFee(FULL_FEE);
     setLegacyText("");
     setEditing(false);
     setDone(false);
+    setOpened(false);
+    setChanged(false);
   };
+  const current = feeFor(variant, editing, fee, legacyText);
+  const note = VARIANTS.find((v) => v.key === variant)!;
+  const wide = layout !== "mobile";
 
-  // Legacy: once Edit is open the field starts empty, and an empty field is $0.
-  const legacyFee = Math.min(fullFee, Math.max(0, Number(legacyText) || 0));
-  const currentFee = variant === "legacy" && editing ? legacyFee : fee;
-  const total = round(amount + currentFee);
-  const received = round(amount - Math.max(0, fullFee - currentFee));
-  const current = VARIANTS.find((v) => v.key === variant)!;
-
-  const outcome =
-    currentFee <= 0
-      ? `No fee. Hope Foundation receives ${money(received)} after processing.`
-      : currentFee < fullFee
-        ? `Covers part of the fees. Hope Foundation receives ${money(received)}.`
-        : currentFee === fullFee
-          ? `Covers the fees. Hope Foundation receives your full ${money(amount)}.`
-          : `Covers the fees, plus ${money(currentFee - fullFee)} extra.`;
-
-  const choices = [
-    { v: 0, label: "No fee" },
-    { v: round(fullFee / 2), label: "Half" },
-    { v: fullFee, label: "Full fee" },
-    { v: maxFee, label: "A little extra" },
+  const steps = [
+    { label: "Click Edit on the fee", done: opened },
+    { label: "Change the fee", done: changed || done },
+    { label: "Switch fallbacks and compare", done: tried.size > 1 },
   ];
-  const selected = (on: boolean) =>
-    on ? { borderColor: ACCENT, background: "#f0fdfa", color: ACCENT } : { borderColor: "#d6d3d1", background: "#ffffff" };
+  const active = steps.findIndex((s) => !s.done);
+
+  const checkout = (
+    <Checkout
+      variant={variant}
+      layout={layout}
+      fee={fee}
+      legacyText={legacyText}
+      editing={editing}
+      done={done}
+      coach={!opened}
+      onEdit={() => {
+        setEditing(true);
+        setOpened(true);
+        setTried((t) => new Set(t).add(variant));
+      }}
+      onClose={() => setEditing(false)}
+      onFee={(n) => {
+        setFee(n);
+        setChanged(true);
+      }}
+      onLegacy={(s) => {
+        setLegacyText(s);
+        setChanged(true);
+      }}
+      onDonate={() => setDone(true)}
+      onReset={() => pick(variant)}
+    />
+  );
 
   return (
     <div>
-      {/* Presentation control for the reader, outside the product. */}
-      <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2" role="group" aria-label="Which fallback to show">
-        <span className="text-[13px] text-muted">Fallback</span>
-        <div className="inline-flex flex-wrap rounded-full border border-border p-0.5">
-          {VARIANTS.map((v) => (
-            <button
-              key={v.key}
-              type="button"
-              aria-pressed={variant === v.key}
-              onClick={() => reset(v.key)}
-              className={`rounded-full px-3 py-1 text-[13px] font-medium transition-colors ${
-                variant === v.key ? "bg-foreground text-background" : "text-muted hover:text-foreground"
+      <ol className="flex flex-wrap gap-x-6 gap-y-2 text-[14px]" style={BARE} aria-label="How to try it">
+        {steps.map((s, i) => (
+          <li key={s.label} style={BARE} className={`flex items-center gap-2 ${i === active ? "text-foreground font-medium" : "text-muted"}`}>
+            <span
+              className={`grid h-6 w-6 place-items-center rounded-full text-[12px] font-semibold tabular-nums ${
+                s.done ? "bg-[#1d6b52] text-white" : i === active ? "bg-foreground text-background" : "border border-border"
               }`}
+              aria-hidden
             >
-              {v.label}
-            </button>
-          ))}
-        </div>
+              {s.done ? "✓" : i + 1}
+            </span>
+            {s.label}
+            <span className="sr-only">{s.done ? " (done)" : ""}</span>
+          </li>
+        ))}
+      </ol>
+
+      <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <Segmented label="Fallback" items={VARIANTS} value={variant} onChange={(v) => { pick(v); setTried((t) => new Set(t).add(v)); }} />
+        <Segmented label="Screen" items={LAYOUTS} value={layout} onChange={setLayout} />
       </div>
 
-      <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-10">
-        {/* The product: a fictional charity's checkout, in its own colours. */}
-        <div className="w-full max-w-[440px] shrink-0 overflow-hidden rounded-xl border border-[#e7e5e4] bg-white text-[#1c1917] shadow-sm">
-          <div className="flex items-center gap-2 border-b border-[#f0eeec] px-5 py-3.5">
-            <span className="grid h-7 w-7 place-items-center rounded-full text-[13px] font-semibold text-white" style={{ background: ACCENT }}>
-              H
-            </span>
-            <span className="text-[14px] font-semibold">Hope Foundation</span>
-            <span className="ml-auto text-[12px] text-[#78716c]">Step 2 of 2</span>
-          </div>
-
-          {done ? (
-            <div className="px-5 py-8 text-center">
-              <p className="text-[13px] text-[#78716c]">Thank you</p>
-              <p className="mt-1 text-[22px] font-semibold tabular-nums">{money(total)} donated</p>
-              <p className="mt-3 text-[14px] leading-relaxed text-[#57534e]">{outcome}</p>
-              <button type="button" onClick={() => reset(variant)} className="mt-6 text-[13px] font-medium underline underline-offset-4" style={{ color: ACCENT }}>
-                Try again
-              </button>
-            </div>
-          ) : (
-            <div className="px-5 py-5">
-              <p className="text-[12px] font-medium text-[#78716c]">Your gift</p>
-              <div className="mt-2 grid grid-cols-4 gap-2">
-                {AMOUNTS.map((a) => (
-                  <button
-                    key={a}
-                    type="button"
-                    aria-pressed={amount === a}
-                    onClick={() => reset(variant, a)}
-                    className="h-10 rounded-lg border text-[14px] font-medium tabular-nums transition-colors"
-                    style={selected(amount === a)}
-                  >
-                    ${a}
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-5 rounded-lg bg-[#f5f5f4] p-4">
-                <div className="flex items-start justify-between gap-3">
-                  <p className="text-[13.5px] leading-snug">
-                    <span className="font-semibold">Help cover our fees</span> so Hope Foundation receives your full gift.
-                  </p>
-                  <span className="shrink-0 text-[14px] font-semibold tabular-nums">+{money(currentFee)}</span>
-                </div>
-
-                {!editing && (
-                  <button type="button" onClick={() => setEditing(true)} className="mt-2 text-[13px] font-medium underline underline-offset-4">
-                    Edit
-                  </button>
-                )}
-
-                {editing && variant === "legacy" && (
-                  <div className="mt-3 border border-[#a8a29e] bg-[#fafaf9] p-2.5 font-[Arial,sans-serif]">
-                    <label htmlFor="fee-legacy" className="block text-[11.5px] text-[#57534e]">
-                      Edit amount
-                    </label>
-                    <div className="mt-1 flex items-center gap-1">
-                      <span className="text-[13px]">$</span>
-                      <input
-                        id="fee-legacy"
-                        inputMode="decimal"
-                        value={legacyText}
-                        placeholder="0"
-                        onChange={(e) => setLegacyText(e.target.value.replace(/[^0-9.]/g, ""))}
-                        className="h-7 w-24 rounded-none border border-[#a8a29e] bg-white px-1.5 text-[13px]"
-                      />
-                    </div>
-                    <p className="mt-1 text-[11px] text-[#78716c]">Min $0.00 · Max {money(fullFee)}</p>
-                  </div>
-                )}
-
-                {editing && variant === "slider" && (
-                  <div className="mt-3">
-                    <label htmlFor="fee-slider" className="sr-only">
-                      Fee contribution
-                    </label>
-                    <div className="relative pt-5">
-                      <span
-                        aria-hidden
-                        className="absolute top-0 -translate-x-1/2 whitespace-nowrap text-[11.5px] font-medium text-[#57534e]"
-                        style={{ left: `${(fullFee / maxFee) * 100}%` }}
-                      >
-                        Covers fees
-                      </span>
-                      <input
-                        id="fee-slider"
-                        type="range"
-                        min={0}
-                        max={maxFee}
-                        step={0.05}
-                        value={fee}
-                        onChange={(e) => setFee(round(Number(e.target.value)))}
-                        aria-valuetext={`${money(fee)}. ${outcome}`}
-                        className="fee-range w-full"
-                        style={{ ["--fill" as string]: `${(fee / maxFee) * 100}%` }}
-                      />
-                      <div className="flex justify-between text-[11.5px] tabular-nums text-[#78716c]" aria-hidden>
-                        <span>$0.00</span>
-                        <span>{money(maxFee)}</span>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {editing && variant === "toggle" && (
-                  <div className="mt-3 grid grid-cols-4 gap-1.5" role="radiogroup" aria-label="Fee contribution">
-                    {[
-                      { v: 0, l: "$0" },
-                      { v: round(fullFee / 2), l: money(fullFee / 2) },
-                      { v: fullFee, l: money(fullFee) },
-                      { v: maxFee, l: money(maxFee) },
-                    ].map((c) => (
-                      <button
-                        key={c.l}
-                        type="button"
-                        role="radio"
-                        aria-checked={fee === c.v}
-                        onClick={() => setFee(c.v)}
-                        className="h-9 rounded-md border text-[12.5px] font-medium tabular-nums"
-                        style={selected(fee === c.v)}
-                      >
-                        {c.l}
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                {editing && variant === "dropdown" && (
-                  <div className="mt-3">
-                    <label htmlFor="fee-dropdown" className="sr-only">
-                      Fee contribution
-                    </label>
-                    <select
-                      id="fee-dropdown"
-                      value={fee}
-                      onChange={(e) => setFee(Number(e.target.value))}
-                      className="h-9 w-full rounded-md border border-[#d6d3d1] bg-white pl-3 text-[13.5px]"
-                    >
-                      {choices.map((c) => (
-                        <option key={c.label} value={c.v}>
-                          {money(c.v)} · {c.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-
-                {editing && (
-                  <p className="mt-3 text-[12.5px] leading-snug text-[#57534e]" aria-live="polite">
-                    {outcome}
-                  </p>
-                )}
-              </div>
-
-              <div className="mt-5 flex items-baseline justify-between text-[14px]">
-                <span>Total today</span>
-                <span className="text-[18px] font-semibold tabular-nums">{money(total)}</span>
-              </div>
-              <button type="button" onClick={() => setDone(true)} className="mt-4 h-11 w-full rounded-lg text-[15px] font-semibold text-white" style={{ background: ACCENT }}>
-                Donate {money(total)}
-              </button>
-              <p className="mt-3 text-center text-[11.5px] text-[#a8a29e]">Fictional charity · illustrative amounts</p>
-            </div>
-          )}
-        </div>
-
-        <div className="max-w-[46ch] md:pt-2">
-          <p className="text-[15px] font-semibold">{current.label}</p>
-          <p className="mt-2 text-[14.5px] leading-relaxed text-muted">{current.note}</p>
-          <p className="mt-4 text-[13px] text-muted">Click Edit on the fee, then switch fallbacks to compare.</p>
-        </div>
+      <div className={`mt-5 grid gap-5 ${wide ? "" : "lg:grid-cols-[minmax(0,1fr)_340px]"}`}>
+        <Stage layout={layout}>{checkout}</Stage>
+        <Results variant={variant} note={note} current={current} wide={wide} tried={tried} />
       </div>
     </div>
+  );
+}
+
+function Segmented<T extends string>({
+  label,
+  items,
+  value,
+  onChange,
+}: {
+  label: string;
+  items: { key: T; label: string }[];
+  value: T;
+  onChange: (v: T) => void;
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-2" role="group" aria-label={label}>
+      <span className="text-[13px] text-muted">{label}</span>
+      <div className="inline-flex flex-wrap rounded-full border border-border p-0.5">
+        {items.map((it) => (
+          <button
+            key={it.key}
+            type="button"
+            aria-pressed={value === it.key}
+            onClick={() => onChange(it.key)}
+            className={`rounded-full px-3 py-1 text-[13px] font-medium transition-colors ${
+              value === it.key ? "bg-foreground text-background" : "text-muted hover:text-foreground"
+            }`}
+          >
+            {it.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Scales a fixed-size device down to fit the column, so every screen size
+// shows whole.
+function Stage({ layout, children }: { layout: Layout; children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [width, setWidth] = useState(0);
+  const [room, setRoom] = useState(900);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const ro = new ResizeObserver(([e]) => setWidth(e.contentRect.width));
+    ro.observe(el);
+    // Fit the height too, so the fee footer and its Edit link are on screen.
+    const fit = () => setRoom(Math.max(460, innerHeight - 230));
+    fit();
+    addEventListener("resize", fit);
+    return () => {
+      ro.disconnect();
+      removeEventListener("resize", fit);
+    };
+  }, []);
+  const { w, h } = FRAME[layout];
+  const scale = width ? Math.min(1, width / w, room / h) : 0;
+  return (
+    <div className="min-w-0 rounded-2xl border border-border bg-[color-mix(in_oklab,var(--foreground)_4%,var(--background))] p-4 md:p-8">
+      <div ref={ref} className="relative w-full" style={{ height: h * scale }}>
+        {scale > 0 && (
+          <div className="absolute top-0" style={{ width: w, height: h, left: (width - w * scale) / 2, transform: `scale(${scale})`, transformOrigin: "top left" }}>
+            {children}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+const ROWS: { key: Variant | "before"; label: string; sub: string; value: number | null }[] = [
+  { key: "before", label: "Original fee box", sub: "Before the redesign", value: 75 },
+  { key: "legacy", label: "New box, old fallback", sub: "The control in the test", value: 82 },
+  { key: "slider", label: "Slider", sub: "Shipped to every checkout", value: 92 },
+  { key: "buttons", label: "Buttons", sub: "Tested, lost to the slider", value: null },
+  { key: "dropdown", label: "Dropdown", sub: "Tested, lost to the slider", value: null },
+];
+
+function Results({
+  variant,
+  note,
+  current,
+  wide,
+  tried,
+}: {
+  variant: Variant;
+  note: { label: string; note: string };
+  current: number;
+  wide: boolean;
+  tried: Set<Variant>;
+}) {
+  const share = current / FULL_FEE;
+  return (
+    <aside className={`grid content-start gap-5 ${wide ? "md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]" : ""}`} aria-label="Results">
+      <div className="grid content-start gap-5">
+        <div>
+          <p className="text-[15px] font-semibold">{note.label}</p>
+          <p className="mt-1.5 text-[14.5px] leading-relaxed text-muted">{note.note}</p>
+        </div>
+        <div className="rounded-xl border border-border p-4" aria-live="polite">
+          <p className="text-[13px] text-muted">Your checkout right now</p>
+          <div className="mt-2 flex items-baseline justify-between gap-3">
+            <span className="text-[14px]">Fee you&rsquo;re covering</span>
+            <span className="text-[15px] font-semibold tabular-nums">
+              {money(current)} <span className="font-normal text-muted">of {money(FULL_FEE)}</span>
+            </span>
+          </div>
+          <div className="mt-2 h-2 overflow-hidden rounded-full bg-border" aria-hidden>
+            <div className="h-full rounded-full bg-[#1d6b52] transition-[width] duration-300" style={{ width: `${share * 100}%` }} />
+          </div>
+          <div className="mt-3 flex items-baseline justify-between gap-3 border-t border-border pt-3">
+            <span className="text-[14px]">Hope Foundation receives</span>
+            <span className="text-[15px] font-semibold tabular-nums">{money(received(current))}</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="rounded-xl border border-border p-4">
+        <p className="text-[15px] font-semibold">What donors did</p>
+        <p className="mt-0.5 text-[13px] text-muted">Share who covered the fee, from the A/B test</p>
+        <ul className="mt-4 grid gap-3.5" style={BARE}>
+          {ROWS.map((r) => {
+            const on = r.key === variant;
+            return (
+              <li key={r.key} style={BARE} className={`rounded-lg ${on ? "bg-[color-mix(in_oklab,#1d6b52_10%,transparent)] -mx-2 px-2 py-1.5" : ""}`}>
+                <div className="flex items-baseline justify-between gap-3 text-[13.5px]">
+                  <span className="min-w-0">
+                    <span className="font-medium">{r.label}</span>
+                    {on && <span className="ml-2 text-[12px] font-medium text-[#1d6b52]">Trying now</span>}
+                    {!on && r.key !== "before" && tried.has(r.key as Variant) && <span className="ml-2 text-[12px] text-muted">Tried</span>}
+                  </span>
+                  <span className="flex-none font-semibold tabular-nums">{r.value === null ? "" : `${r.value}%`}</span>
+                </div>
+                <div className="relative mt-1.5 h-2.5 rounded-full bg-border/60">
+                  {r.value !== null ? (
+                    <div
+                      className="h-full rounded-full"
+                      style={{ width: `${r.value}%`, background: r.key === "slider" ? "#1d6b52" : "color-mix(in oklab, var(--foreground) 35%, transparent)" }}
+                    />
+                  ) : (
+                    <div className="h-full rounded-full border border-dashed border-muted/60" />
+                  )}
+                  <span className="absolute -bottom-1 -top-1 w-px bg-[#b08a30]" style={{ left: "90%" }} aria-hidden />
+                </div>
+                <p className="mt-1 text-[12.5px] text-muted">{r.sub}</p>
+              </li>
+            );
+          })}
+        </ul>
+        <p className="mt-4 flex items-center gap-2 text-[12.5px] text-muted">
+          <span className="inline-block h-3 w-px bg-[#b08a30]" aria-hidden />
+          90% benchmark. 12 to 20% of donors click Edit. With the slider, conversion and average gift held steady.
+        </p>
+      </div>
+    </aside>
   );
 }

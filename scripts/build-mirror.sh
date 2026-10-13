@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 EOF
 # The changelog is password protected, which needs the server.
-rm -rf app/api app/gateway "app/(portfolio)/changelog" lib/changelogGate.ts components/ChangelogGate.tsx
+rm -rf app/api app/gateway app/figures "app/(portfolio)/changelog" lib/changelogGate.ts components/ChangelogGate.tsx
 sed -i '' 's#href="/gateway"#href="https://allenkang.com/gateway"#' components/Footer.tsx
 sed -i '' 's#href="/changelog"#href="https://allenkang.com/changelog"#' components/Footer.tsx "app/(portfolio)/vault/page.tsx"
 sed -i '' '/path: "\/gateway"/d' app/sitemap.ts

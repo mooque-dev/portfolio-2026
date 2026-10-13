@@ -1189,43 +1189,43 @@ select::-ms-expand {
   .arnd-dot.is-live::after { animation: none; opacity: 0; }
 }
 
-/* Fee Opt-In demo slider: a filled track up to the thumb. */
-.fee-range {
+/* The Hope Foundation checkout's slider (components/fee/Checkout.tsx). */
+.hope-range {
   appearance: none;
   -webkit-appearance: none;
-  height: 22px;
+  height: 26px;
   background: transparent;
   cursor: pointer;
 }
-.fee-range::-webkit-slider-runnable-track {
-  height: 6px;
-  border-radius: 3px;
-  background: linear-gradient(to right, #256abf var(--fill), #dcdbd5 var(--fill));
+.hope-range::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #1d6b52 var(--fill), #e2e8f0 var(--fill));
 }
-.fee-range::-moz-range-track {
-  height: 6px;
-  border-radius: 3px;
-  background: linear-gradient(to right, #256abf var(--fill), #dcdbd5 var(--fill));
+.hope-range::-moz-range-track {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #1d6b52 var(--fill), #e2e8f0 var(--fill));
 }
-.fee-range::-webkit-slider-thumb {
+.hope-range::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   margin-top: -7px;
   border-radius: 50%;
   background: #fff;
-  border: 2px solid #0d366b;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  border: 3px solid #1d6b52;
+  box-shadow: 0 1px 4px rgb(15 23 42 / 0.3);
 }
-.fee-range::-moz-range-thumb {
+.hope-range::-moz-range-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
   background: #fff;
-  border: 2px solid #0d366b;
+  border: 3px solid #1d6b52;
 }
-.fee-range:focus-visible {
-  outline: 2px solid var(--seal);
+.hope-range:focus-visible {
+  outline: 2px solid #1d6b52;
   outline-offset: 4px;
   border-radius: 4px;
 }
