@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "Four years that explain me",
+    tags: ["content"],
+    what: "The Mastercard card's number is now 1994 2007 2018 2026: born, moved to Canada, started designing, today. It reads Designing since 2018 instead of Member since. The same four years now open the About page.",
+    why: "Member since 2018 could be read as a claim about Mastercard. These four numbers are mine.",
+  },
+  {
+    date: "2026-10-13",
     title: "Demos and links you can actually see",
     tags: ["design"],
     what: "Every case now opens with one row of buttons: the interactive version first, then the live app or prototypes. Links in the text get a stronger red underline and an arrow when they leave the site. Cards with something to try carry a small Interactive or Live app tag. Transaction Workflows and Keela Contacts get the same Try the interactive version bar as the others. The Mastercard card now reads Product Design · Payments.",

@@ -26,6 +26,21 @@ export default function AboutPage() {
             <div className="mt-3">
               <WorldClock />
             </div>
+            {/* Four years that explain most of me. The same four digits are
+                the card number on the Mastercard page. */}
+            <ol className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6 sm:grid-cols-4" aria-label="Four years">
+              {[
+                ["1994", "Born in Seoul"],
+                ["2007", "Moved to Canada"],
+                ["2018", "Started designing"],
+                ["2026", "Today, in Toronto"],
+              ].map(([year, what]) => (
+                <li key={year}>
+                  <p className="text-2xl font-semibold tabular-nums tracking-tight">{year}</p>
+                  <p className="mt-1 text-[14px] text-muted">{what}</p>
+                </li>
+              ))}
+            </ol>
           </FadeIn>
 
           <AboutTabs />
