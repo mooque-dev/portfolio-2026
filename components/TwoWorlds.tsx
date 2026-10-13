@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { Silkscreen } from "next/font/google";
 import Arrow from "@/components/Arrow";
 
 // Two overlapping circles, a nod to the Mastercard mark: each pair of worlds
@@ -37,6 +38,9 @@ const PAIRS = [
     link: "Toronto Yuwol",
   },
 ];
+
+// The pixel face of the About page stickers, for the "click me!" nudge.
+const pixel = Silkscreen({ weight: "400", subsets: ["latin"] });
 
 const RED = "#E8412C";
 const AMBER = "#F5A623";
@@ -95,7 +99,7 @@ export default function TwoWorlds() {
       </div>
 
       <div className="min-w-0">
-        <div className="relative pt-9">
+        <div className="relative pt-11">
         <div className="flex flex-wrap gap-2" role="group" aria-label="Which two worlds">
           {PAIRS.map((p, n) => (
             <button
@@ -113,12 +117,15 @@ export default function TwoWorlds() {
               {n === 1 && (
                 <span
                   aria-hidden
-                  className={`pointer-events-none absolute -top-8 left-2 z-10 inline-flex -rotate-6 items-center gap-1 rounded-full bg-[#F5A623] px-3 py-1 text-[13px] font-bold text-[#1a1205] shadow-[0_3px_0_#c97f0c] transition-all duration-300 motion-safe:animate-[wiggle_2.4s_ease-in-out_infinite] ${
-                    touched ? "scale-75 opacity-0" : "opacity-100"
+                  className={`${pixel.className} pointer-events-none absolute -top-9 left-3 z-10 inline-block -rotate-3 bg-[#F5A623] px-2 py-1 text-[12px] leading-none text-[#1a1205] [image-rendering:pixelated] shadow-[0_-3px_0_#1a1205,0_3px_0_#1a1205,-3px_0_0_#1a1205,3px_0_0_#1a1205,3px_6px_0_#1a1205] transition-opacity duration-300 motion-safe:animate-[wiggle_2.4s_steps(4)_infinite] ${
+                    touched ? "opacity-0" : "opacity-100"
                   }`}
                 >
-                  click me! <span className="text-[11px]">✦</span>
-                  <span className="absolute -bottom-[5px] left-5 h-2.5 w-2.5 rotate-45 bg-[#F5A623] shadow-[2px_2px_0_#c97f0c]" />
+                  CLICK ME!
+                  {/* A stepped pixel tail. */}
+                  <span className="absolute left-3 top-full mt-[3px] block h-[3px] w-[9px] bg-[#1a1205]" />
+                  <span className="absolute left-3 top-full block h-[3px] w-[6px] bg-[#F5A623]" />
+                  <span className="absolute left-[15px] top-full mt-[6px] block h-[3px] w-[3px] bg-[#1a1205]" />
                 </span>
               )}
             </button>
