@@ -95,16 +95,7 @@ export default function TwoWorlds() {
       </div>
 
       <div className="min-w-0">
-        <p
-          aria-hidden
-          className={`mb-2 flex items-center gap-1 text-[14px] font-semibold text-[var(--seal)] transition-opacity duration-300 ${touched ? "opacity-0" : "opacity-100"}`}
-        >
-          <span className="inline-block -rotate-3 motion-safe:animate-bounce [animation-duration:1.6s]">click me!</span>
-          <svg viewBox="0 0 24 24" className="h-4 w-4 rotate-[100deg]" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M4 12c4-6 10-7 16-4" />
-            <path d="m16 4 4 4-5 2" />
-          </svg>
-        </p>
+        <div className="relative pt-9">
         <div className="flex flex-wrap gap-2" role="group" aria-label="Which two worlds">
           {PAIRS.map((p, n) => (
             <button
@@ -112,14 +103,27 @@ export default function TwoWorlds() {
               type="button"
               aria-pressed={i === n}
               onClick={() => pick(n)}
-              className={`rounded-full border px-3.5 py-1.5 text-[14px] font-medium transition-colors ${
+              className={`relative rounded-full border px-3.5 py-1.5 text-[14px] font-medium transition-colors ${
                 i === n ? "border-foreground bg-foreground text-background" : "border-border text-muted hover:text-foreground"
               }`}
             >
               {p.a} <span aria-hidden>&times;</span>
               <span className="sr-only"> and </span> {p.b}
+              {/* A sticker-style nudge on the next pill until the first pick. */}
+              {n === 1 && (
+                <span
+                  aria-hidden
+                  className={`pointer-events-none absolute -top-8 left-2 z-10 inline-flex -rotate-6 items-center gap-1 rounded-full bg-[#F5A623] px-3 py-1 text-[13px] font-bold text-[#1a1205] shadow-[0_3px_0_#c97f0c] transition-all duration-300 motion-safe:animate-[wiggle_2.4s_ease-in-out_infinite] ${
+                    touched ? "scale-75 opacity-0" : "opacity-100"
+                  }`}
+                >
+                  click me! <span className="text-[11px]">✦</span>
+                  <span className="absolute -bottom-[5px] left-5 h-2.5 w-2.5 rotate-45 bg-[#F5A623] shadow-[2px_2px_0_#c97f0c]" />
+                </span>
+              )}
             </button>
           ))}
+        </div>
         </div>
         <div aria-live="polite" className="mt-6">
           <p className="text-[22px] md:text-[26px] font-semibold tracking-[-0.02em] leading-snug">
