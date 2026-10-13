@@ -16,7 +16,7 @@ export default function Arrow({
     <Icon
       aria-hidden
       strokeWidth={2.25}
-      className={`inline-block h-[0.95em] w-[0.95em] shrink-0 align-[-0.13em] ${className}`}
+      className={`inline-block h-[0.95em] w-[0.95em] shrink-0 self-center align-[-0.13em] ${className}`}
     />
   );
 }

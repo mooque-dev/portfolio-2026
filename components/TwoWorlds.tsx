@@ -131,7 +131,7 @@ export default function TwoWorlds() {
           </p>
           <p className="mt-3 text-[16px] leading-relaxed text-muted max-w-[46ch]">{pair.text}</p>
           <p className="mt-4 flex flex-wrap items-center gap-x-2.5 text-sm">
-            <Link href={pair.href} className="inline-flex underline underline-offset-4 hover:opacity-70 transition-opacity">
+            <Link href={pair.href} className="inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity">
               {pair.link} <Arrow />
             </Link>
           </p>
