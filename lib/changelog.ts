@@ -16,7 +16,7 @@ export const changelog: ChangelogEntry[] = [
     date: "2026-10-13",
     title: "Audit fixes: link previews, labels, loose ends",
     tags: ["design", "engineering"],
-    what: "Links shared from mooque-dev.github.io now preview as that page on that address, instead of every page claiming to be the allenkang.com home page. The last all-caps labels (About tabs, Playground filters, résumé headings, the phone menu) are in sentence case like the rest of the site. The Mastercard and Air Canada tabs no longer repeat my name. A dead link to ArtsGaze is now plain text, and three unused files are gone.",
+    what: "Links shared from mooque-dev.github.io now preview as that page on that address, instead of every page claiming to be the allenkang.com home page. The last all-caps labels (About tabs, Playground filters, résumé headings, the phone menu) are in sentence case like the rest of the site. The Mastercard and Air Canada tabs no longer repeat my name. The link preview image is redrawn in the current look, with the github.io address instead of allenkang.com. A dead link to ArtsGaze is now plain text, and three unused files are gone.",
     why: "A link pasted into LinkedIn should open the page it names, on a domain the reader's network allows.",
   },
   {
