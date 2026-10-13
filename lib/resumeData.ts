@@ -97,7 +97,7 @@ export const sideProjects: SideProject[] = [
     url: "https://torontoyuwol.vercel.app",
   },
   {
-    title: "Forkestrate, founding designer",
+    title: "Forkestrate, co-founder and founding designer",
     year: "2025 to present",
     description: "With a PM and two engineers, took a conversational recipe app from zero to MVP in under three months.",
     url: "https://app.forkestrate.com/",
