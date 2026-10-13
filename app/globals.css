@@ -804,23 +804,28 @@ html {
   background: none;
   color: inherit;
   white-space: nowrap;
+  /* Keeps the swipe behind the words but above the page. */
+  isolation: isolate;
 }
+/* PenMarks sets the swipe's size and offset to fit each phrase. */
 .case-body .pen-svg {
   position: absolute;
-  left: -8px;
-  top: -6px;
-  width: calc(100% + 16px);
-  height: calc(100% + 12px);
+  z-index: -1;
   overflow: visible;
   pointer-events: none;
+  /* A slight tilt, as a hand would draw it. */
+  transform: rotate(-0.6deg);
 }
 .case-body .pen-svg path {
   fill: none;
   stroke: var(--seal);
-  stroke-width: 2.2;
-  stroke-linecap: round;
+  stroke-opacity: 0.24;
+  stroke-linecap: butt;
   stroke-dasharray: 1;
   stroke-dashoffset: 0;
+}
+.dark .case-body .pen-svg path {
+  stroke-opacity: 0.34;
 }
 .case-body .has-pen-note {
   position: relative;

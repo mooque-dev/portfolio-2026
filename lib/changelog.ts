@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "Marker, not circles",
+    tags: ["design"],
+    what: "The red pen on the case studies now highlights a phrase with a see-through marker swipe instead of drawing a circle round it. It still draws itself in when you reach it, sits behind the words, fits any phrase length, and keeps the handwritten note beside it.",
+    why: "A circle in the middle of a sentence always ran into the words around it and looked broken. A marker says the same thing without touching anything else.",
+  },
+  {
+    date: "2026-10-13",
     title: "A page for Float",
     tags: ["content", "design"],
     what: "A new unlisted page at /float, shaped like the Mastercard one: the card, the work, a way to reach me. Float is hiring for Banking and Growth, so a switch orders the three most relevant cases for whichever team is reading, and a link ending in #banking or #growth opens that one. A short block points at things that already run, since Float designs on its real codebase instead of in Figma.",
