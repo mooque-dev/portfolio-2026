@@ -6,19 +6,19 @@
 
 :root {
   /* ── Brand palette (editorial warm neutrals) ── */
-  --background: #f7f4ec;      /* warm paper ivory, not cool white */
-  --foreground: #1a1a1a;
-  --muted: #636360;           /* used by text-muted across the site */
-  --muted-foreground: #636360; /* shadcn components use this for secondary text */
-  --border: #e5e5e0;
-  --surface: #f0f0ec;
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --muted: #6e6e6e;
+  --muted-foreground: #6e6e6e;
+  --border: #ececec;
+  --surface: #f5f5f5;
   /* Seal: the one signature accent, taken from the 묵 stamp on About.
      Used for focus rings and text selection only, so it stays a signature
      rather than wallpaper. */
   --seal: #cd2e3a;
   --focus: var(--seal);
   /* ── shadcn semantic tokens mapped to brand palette ── */
-  --card: #fafaf8;
+  --card: #ffffff;
   --card-foreground: #1a1a1a;
   --popover: #fafaf8;
   --popover-foreground: #1a1a1a;
@@ -49,16 +49,16 @@
 
 .dark {
   /* ── Brand palette (dark) ── */
-  --background: #141210;      /* warm ink, matches the paper ivory in light */
-  --foreground: #ededeb;
-  --muted: #9a9a97;           /* used by text-muted across the site */
-  --muted-foreground: #9a9a97; /* shadcn components use this for secondary text */
-  --border: #2a2a28;
-  --surface: #1c1a16;
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  --muted: #8f8f8f;
+  --muted-foreground: #8f8f8f;
+  --border: #222222;
+  --surface: #141414;
   --seal: #ef5350;
   --focus: var(--seal);
   /* ── shadcn semantic tokens ── */
-  --card: #1c1c1a;
+  --card: #111111;
   --card-foreground: #ededeb;
   --popover: #1c1c1a;
   --popover-foreground: #ededeb;
@@ -93,9 +93,9 @@
   --color-border: var(--border);
   --color-surface: var(--surface);
   --color-focus: var(--focus);
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
-  --font-script: var(--font-caveat);
+  --font-sans: var(--font-geist);
+  --font-serif: var(--font-geist);
+  --font-script: var(--font-geist);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -140,26 +140,13 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Paper grain: fine grayscale fractal noise sitting BEHIND all content
-   (z-index -1), so it textures the paper without ever blending over text.
-   One texture works in both modes: dark speckles read on ivory, light on ink. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.06;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size: 160px 160px;
-}
-.dark body::before { opacity: 0.09; }
+/* No paper grain: a flat, neutral page. */
 
-/* Refined serif rendering, critical for editorial feel */
+/* Display type: the same face as the body, set tighter. */
 .font-serif,
 h1.font-serif, h2.font-serif, h3.font-serif {
-  font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "onum" 1;
-  text-rendering: optimizeLegibility;
+  letter-spacing: -0.025em;
+  font-weight: 500;
 }
 
 /* --- FadeIn: CSS-first reveal --- */
@@ -480,9 +467,8 @@ html {
    text-xs tracking-widest section tier. The header nav and the gateway's
    theatrical type keep their own voices. */
 .microlabel {
-  text-transform: uppercase;
-  font-size: 10px;
-  letter-spacing: 0.18em;
+  font-size: 14px;
+  letter-spacing: 0;
 }
 
 /* Case study chapters. Same reading rhythm as the standalone Care Pathway and

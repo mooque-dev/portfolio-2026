@@ -10,6 +10,8 @@ import ResultsReceipt from "@/components/ResultsReceipt";
 import Arrow from "@/components/Arrow";
 import OffClock from "@/components/OffClock";
 import CurtainCall from "@/components/CurtainCall";
+import AudienceIntro from "@/components/AudienceIntro";
+import WorkWall from "@/components/WorkWall";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -117,78 +119,39 @@ export default function HomeReader({ allProjects }: Props) {
   const dataviz = pick(allProjects, DATAVIZ);
 
   return (
-    <section className="pt-28 md:pt-36 pb-4">
+    <section className="pt-32 md:pt-48 pb-4">
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="flex items-center gap-3">
-            <Image
-              src="/allen-kang-portrait.jpg"
-              alt="Allen Kang"
-              width={44}
-              height={44}
-              className="h-11 w-11 rounded-full object-cover object-[center_20%] ring-1 ring-border"
-              priority
-            />
-            <div>
-              <p className="microlabel text-muted">Allen Kang · Senior Product Designer · Toronto</p>
-              <p className="mt-1 text-[13px] text-muted">
-                Online as mooque
-              </p>
-            </div>
-          </div>
-          <h1 className="mt-6 font-serif text-[40px] md:text-[64px] leading-[1.05] font-semibold tracking-[-0.02em] text-balance">
-            I build between two worlds.
-          </h1>
-          <p className="mt-5 text-[21px] md:text-[28px] leading-[1.3] font-light tracking-[-0.01em] text-balance max-w-4xl">
-            I design the parts of software where money and records have to be right:
-            split payments, donation checkout, and data moving between merged products.
-          </p>
-          <ul className="mt-6 flex flex-wrap gap-2" aria-label="The two worlds I work between">
-            {WORLDS.map((w) => (
-              <li key={w.a}>
-                <a
-                  href="#two-worlds"
-                  className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 text-[13px] hover:border-foreground/40 transition-colors"
-                >
-                  {w.a} <span aria-hidden className="text-muted">&harr;</span>
-                  <span className="sr-only"> and </span> {w.b}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-[16px] md:text-[17px] leading-relaxed text-muted max-w-3xl">
-            Seven years in nonprofit and healthcare software, most recently at Aplos as
-            three products merged into one. I learn a field from the people who live in
-            it, write enough code to build my own apps, and have mentored three designers.
-          </p>
-        </FadeIn>
-
-        <FadeIn delay={0.06}>
-          <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a
-              href="/allen-kang-resume.pdf"
-              className="inline-flex items-center h-10 px-5 rounded-full bg-foreground text-background text-sm font-medium hover:opacity-85 transition-opacity"
-            >
-              Résumé (PDF)
+          <AudienceIntro />
+          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[16px]">
+            <a href="/allen-kang-resume.pdf" className="underline underline-offset-4 decoration-1 hover:opacity-60 transition-opacity">
+              Résumé
             </a>
-            <a
-              href="mailto:allensmkang@gmail.com"
-              className="inline-flex items-center h-10 px-5 rounded-full border border-border text-sm font-medium hover:border-foreground/40 transition-colors"
-            >
-              Email
+            <a href="mailto:allensmkang@gmail.com" className="underline underline-offset-4 decoration-1 hover:opacity-60 transition-opacity">
+              allensmkang@gmail.com
             </a>
             <a
               href="https://www.linkedin.com/in/mooque/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center h-10 px-5 rounded-full border border-border text-sm font-medium hover:border-foreground/40 transition-colors"
+              className="underline underline-offset-4 decoration-1 hover:opacity-60 transition-opacity"
             >
               LinkedIn<span className="sr-only"> (opens in new tab)</span>
             </a>
-            <span className="text-sm text-muted">Open to senior and staff product design roles.</span>
+            <span className="inline-flex items-center gap-2 text-muted">
+              <span className="h-2 w-2 rounded-full bg-[#2fa84f]" aria-hidden />
+              Open to senior and staff roles
+            </span>
           </div>
         </FadeIn>
+      </div>
 
+      {/* Full bleed, outside the text column: the work as one wall. */}
+      <div className="mt-20 md:mt-28">
+        <WorkWall projects={[...selected, ...dataviz, ...built]} />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6">
         <FadeIn delay={0.08}>
           <div className="mt-12 grid gap-8 border-t border-border pt-10 md:grid-cols-[300px_minmax(0,1fr)] md:items-center md:gap-14">
             <ResultsReceipt lines={RESULTS} total={RESULTS_TOTAL} />

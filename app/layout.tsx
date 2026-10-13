@@ -1,26 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display, Caveat } from "next/font/google";
+import { Geist } from "next/font/google";
 import ReadingProgress from "@/components/ReadingProgress";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { MotionConfig } from "framer-motion";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// One typeface, used at every size. The three variables stay so existing
+// classes (font-sans, font-serif, font-script) all resolve to it.
+const geist = Geist({
+  variable: "--font-geist",
   subsets: ["latin"],
-  display: "swap",
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const caveat = Caveat({
-  variable: "--font-caveat",
-  subsets: ["latin"],
-  weight: ["700"],
   display: "swap",
 });
 
@@ -94,7 +83,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${playfair.variable} ${caveat.variable}`}
+      className={`${geist.variable}`}
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

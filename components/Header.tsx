@@ -64,8 +64,7 @@ export default function Header() {
             aria-label="Allen Kang (mooque), go to home"
           >
             <span
-              className="text-[26px] leading-[0.9] text-foreground"
-              style={{ fontFamily: "var(--font-script)" }}
+              className="text-[17px] font-medium tracking-[-0.01em] text-foreground"
             >
               Allen Kang
             </span>
@@ -82,7 +81,7 @@ export default function Header() {
                   <Magnetic strength={0.28} radius={65} className="inline-flex">
                     <Link
                       href={href}
-                      className={`nav-link text-[11px] tracking-[0.14em] uppercase transition-colors min-h-[44px] inline-flex items-center ${
+                      className={`nav-link text-[15px] transition-colors min-h-[44px] inline-flex items-center ${
                         isActive
                           ? "text-foreground"
                           : "text-muted hover:text-foreground"
