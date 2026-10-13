@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-13",
+    title: "Outcomes that aren't percentages",
+    tags: ["content"],
+    what: "Orchid's headline numbers now include the two dedicated front-end engineers the pitch earned, and its result says contribution proposals doubled once reviews went async. Aplos × Keela's result now says it was the first feature the merged companies shipped together.",
+    why: "Not every result is a conversion rate. Earning engineering time and shipping the first joint feature are outcomes too, and they're ones I can stand behind.",
+  },
+  {
     date: "2026-10-12",
     title: "Try the fee decision yourself",
     tags: ["design", "content"],
