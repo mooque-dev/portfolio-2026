@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "A shorter, plainer résumé",
+    tags: ["content"],
+    what: "Rewrote the résumé so each role opens with the scope I owned, and each bullet makes one point with one number. It still fits one page, now with room to breathe. The longer detail lives in the case studies.",
+    why: "A recruiter reads a résumé in seconds. Long bullets packed with numbers read as noise, and some read as generated.",
+  },
+  {
+    date: "2026-10-13",
     title: "Keela Contacts shows what shipped",
     tags: ["content", "design"],
     what: "Keela Contacts has a new chapter with four screens from the shipped product: the contact list, a contact's interactions and to-dos, and the transactions list, with the placeholder data swapped for realistic examples. The Mastercard page now leads with a 0 to 1 deep dive (Automation) and an ambiguity deep dive (Transaction Workflows). The red-pen notes read more like my own margin notes.",

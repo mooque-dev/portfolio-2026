@@ -31,11 +31,12 @@ export const experience: Job[] = [
     location: "Toronto, ON",
     period: "Feb 2025 to Jun 2026",
     description: [
-      "Designed split transactions so one payment can be logged as a donation, an in-kind gift, and the value of goods received, compliant across Canadian, US, and Australian tax rules. In the first month, categorization support tickets fell 70% and manual adjustments 60%, supporting $1.8M ARR in connected accounts.",
-      "Ran a four-variation A/B test on Raisely's donation fee flow, measured in Pendo. Fee opt-in rose from 75% to 92% while conversion and average gift size held steady.",
-      "Led integration design across Aplos, Keela, and Raisely after the acquisition: data import and export, schema translation, and visible, editable data mapping for accurate, auditable financial records.",
-      "Grew Orchid, the system I pitched at Keela, into one Figma and Storybook library of 340+ components from three products, owning deprecation, naming governance, and adoption across three engineering teams.",
-      "Ran the first joint design reviews between the merged engineering teams; the format became the default for cross-product work. Mentored two designers.",
+      "Owned end-to-end design for payments and transactions across Aplos, Keela and Raisely as the three products merged into one suite.",
+      "Redesigned split transactions so one payment can be a donation, a gift and a ticket at once, cutting categorization tickets by 70% in the first month.",
+      "Ran an A/B test on the donation fee flow that raised fee opt-in from 75% to 92%, with conversion steady.",
+      "Led integration design between the merged products, making data mapping visible and auditable.",
+      "Grew Orchid into a shared library of 340+ components used by three engineering teams.",
+      "Partnered with Product, Engineering and leadership on roadmap, experiments and delivery. Mentored two designers.",
     ],
   },
   {
@@ -44,9 +45,9 @@ export const experience: Job[] = [
     location: "Toronto, ON (remote)",
     period: "Mar 2023 to Feb 2025",
     description: [
-      "Led the design system refresh that became Orchid, pitched to leadership with surveys from five departments.",
-      "Redesigned the contact record fundraisers open before every call to lead with recent change instead of lifetime totals.",
-      "Led design for Pipelines and Reports & Dashboards, and set up the launch process. Mentored one designer.",
+      "Led product design for the CRM's core: the contact record, Pipelines, and Reports & Dashboards.",
+      "Pitched the Orchid design system to leadership and earned two dedicated front-end engineers.",
+      "Set up the design-to-launch process. Mentored one designer.",
     ],
   },
   {
@@ -55,8 +56,9 @@ export const experience: Job[] = [
     location: "Toronto, ON (remote)",
     period: "Feb 2021 to Mar 2023",
     description: [
-      "Designed Automation, a no-code workflow builder, a month into the role: 30% adoption across 355 organizations, contributing to a 13% ARR increase.",
-      "Stepped in as Associate PM to ship the Pipelines feature, earning recognition for autonomy and leadership.",
+      "Designed Automation, a no-code workflow builder, from first interview to release (0 to 1).",
+      "Reached 30% adoption across 355 organizations, contributing to a 13% ARR increase.",
+      "Stepped in as Associate PM to ship Pipelines.",
     ],
   },
   {
@@ -65,7 +67,7 @@ export const experience: Job[] = [
     location: "San Francisco, CA",
     period: "Jan 2020 to Sep 2022",
     description: [
-      "Moved the product design practice from Sketch to Figma and built the component library and design system that came out of it.",
+      "Moved design from Sketch to Figma and built the component library and design system.",
     ],
   },
   {
@@ -74,8 +76,7 @@ export const experience: Job[] = [
     location: "Toronto, ON",
     period: "Aug 2019 to Jul 2022",
     description: [
-      "Ran user research and usability testing with patients and clinicians for a cancer-care web and mobile app.",
-      "Designed clinician dashboards that track patients across treatment stages, and tools for the teams running cancer conferences.",
+      "Ran research and usability testing with patients and clinicians, and designed dashboards for tracking patients through treatment.",
     ],
   },
 ];
