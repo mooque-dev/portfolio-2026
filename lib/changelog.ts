@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "The whole fee experiment, playable",
+    tags: ["design", "engineering"],
+    what: "The Fee Opt-In demo is now a full white-labelled checkout for a fictional charity: pick a gift, click Edit on the fee, and switch between the legacy fallback and all three variants that were tested (slider, toggle buttons, segmented dropdown). Each one shows what the charity actually receives, and Donate ends on a receipt.",
+    why: "The real screens are confidential, but the decisions aren't. Now a reviewer can feel why the blank legacy field leaked and why the slider won.",
+  },
+  {
+    date: "2026-10-13",
     title: "A new look, and eight years counted honestly",
     tags: ["design", "content"],
     what: "The site drops the cream paper, the serif and the handwritten name for one typeface on plain black and white. Home opens with a statement you can read for your role (recruiters, design leads, product managers, engineers), then an edge-to-edge wall of the work. Labels are in sentence case. Experience now reads eight years in product design, the last five in payments, with my 2018 and 2019 roles listed on the résumé so the count adds up.",
