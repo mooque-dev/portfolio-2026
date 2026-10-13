@@ -187,7 +187,7 @@ export default async function AirCanadaPage() {
             I ship the flows where money moves and plans change.
           </h1>
           <p className="mt-6 text-lg text-muted max-w-2xl leading-relaxed">
-            I&rsquo;m Allen. For seven years I&rsquo;ve worked between product,
+            I&rsquo;m Allen. For eight years I&rsquo;ve worked between product,
             design and engineering on payment-heavy software: checkout, split
             payments, and data synced between merged products. I stepped in as
             product manager to ship a feature at Keela, ran experiments measured

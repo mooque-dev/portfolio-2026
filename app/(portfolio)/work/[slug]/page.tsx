@@ -104,7 +104,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <Link href={back.href} className="text-sm text-muted hover:text-foreground transition-colors">
             <Arrow dir="left" /> {back.label}
           </Link>
-          <p className="mt-8 text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">
+          <p className="mt-8 text-[13px] font-semibold text-muted">
             {gallery ? "Archive" : "Case study"} &middot; {frontmatter.category}
             {frontmatter.company && <> &middot; {frontmatter.company}</>}
             {!gallery && <> &middot; {minutes} min read</>}
@@ -133,7 +133,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <dl className="mt-9 pt-6 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-5">
             {meta.map(([label, value]) => (
               <div key={label}>
-                <dt className="text-[12.5px] tracking-[0.1em] uppercase font-semibold text-muted mb-1">{label}</dt>
+                <dt className="text-[12.5px] font-semibold text-muted mb-1">{label}</dt>
                 <dd className="text-[15px] leading-snug">{value}</dd>
               </div>
             ))}
@@ -160,7 +160,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
             <dl className="mt-11 grid gap-x-6 md:grid-cols-[130px_1fr] max-w-[900px]">
               {frontmatter.tldr.map(([label, text]) => (
                 <div key={label} className="contents">
-                  <dt className="text-[12.5px] tracking-[0.1em] uppercase font-bold text-muted pt-1">{label}</dt>
+                  <dt className="text-[12.5px] font-bold text-muted pt-1">{label}</dt>
                   <dd className="mb-3 md:mb-2.5 text-[17px] leading-relaxed">{text}</dd>
                 </div>
               ))}
@@ -231,7 +231,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 {c.num}
               </span>
               {c.kicker && (
-                <span className="text-[13px] tracking-[0.12em] uppercase font-bold text-muted">{c.kicker}</span>
+                <span className="text-[13px] font-bold text-muted">{c.kicker}</span>
               )}
               <h2
                 className="font-serif text-[28px] md:text-[38px] leading-[1.15] font-semibold text-balance"
@@ -246,7 +246,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
         {frontmatter.credits && frontmatter.credits.length > 0 && (
           <section aria-labelledby="credits" className={`${sealed ? "mt-14" : "mt-24"} pt-10 border-t border-border`}>
-            <h2 id="credits" className="text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">
+            <h2 id="credits" className="text-[13px] font-semibold text-muted">
               Built with
             </h2>
             <ul className="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3 text-[15px]">
@@ -278,7 +278,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
         <nav aria-label="More projects" className={`${frontmatter.credits?.length ? "mt-12" : sealed ? "mt-14" : "mt-24"} pt-10 border-t border-border`}>
           <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <p className="text-[13px] tracking-[0.1em] uppercase font-semibold text-muted">More {shelfName}</p>
+            <p className="text-[13px] font-semibold text-muted">More {shelfName}</p>
             <div className="flex gap-5 text-[14px]">
               <a href="#overview" className="text-muted hover:text-foreground transition-colors">Back to top <Arrow dir="up" /></a>
               <Link href={back.href} className="text-muted hover:text-foreground transition-colors">{back.label}</Link>
@@ -309,7 +309,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                     </span>
                   )}
                   <span className="min-w-0 self-center">
-                    <span className="block text-[12px] tracking-[0.1em] uppercase text-muted">
+                    <span className="block text-[12px] text-muted">
                       {dir === "Previous" ? <><Arrow dir="left" /> Previous</> : <>Next <Arrow /></>}
                     </span>
                     <span className="mt-1 block text-[18px] leading-snug font-semibold group-hover:opacity-70 transition-opacity">

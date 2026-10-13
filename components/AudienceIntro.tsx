@@ -13,7 +13,7 @@ const AUDIENCES = [
   {
     key: "recruiters",
     label: "Recruiters",
-    text: "Senior product designer, seven years in. Most recently payments and transactions at Aplos, now Velora. Open to senior and staff roles.",
+    text: "Senior product designer, eight years in, five on payments. Most recently at Aplos, now Velora. Open to senior and staff roles.",
   },
   {
     key: "design",

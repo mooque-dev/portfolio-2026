@@ -139,7 +139,7 @@ export default async function MastercardPage() {
             I&rsquo;m Allen. I like the unglamorous parts of software: the screen
             where an accountant decides how to file a payment, the moment a donor
             changes their mind about a fee, the sync that has to be right or
-            someone&rsquo;s books are wrong. I&rsquo;ve spent seven years making
+            someone&rsquo;s books are wrong. I&rsquo;ve spent eight years designing, the last five on payments, making
             those moments work in nonprofit and healthcare software. This page is
             the short version, picked for a team that works on money and trust.
           </p>

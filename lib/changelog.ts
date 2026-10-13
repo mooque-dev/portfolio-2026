@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "A new look, and eight years counted honestly",
+    tags: ["design", "content"],
+    what: "The site drops the cream paper, the serif and the handwritten name for one typeface on plain black and white. Home opens with a statement you can read for your role (recruiters, design leads, product managers, engineers), then an edge-to-edge wall of the work. Labels are in sentence case. Experience now reads eight years in product design, the last five in payments, with my 2018 and 2019 roles listed on the résumé so the count adds up.",
+    why: "The old look was one many generated sites share. The work should carry the page, and the years on the page should match the dates on the résumé.",
+  },
+  {
+    date: "2026-10-13",
     title: "A résumé for the Mastercard role",
     tags: ["content"],
     what: "The Mastercard page now offers its own résumé: payments and checkout up front, zero-to-one and learning unfamiliar domains in the summary, the fee decision told as a judgment call, and side projects grouped as Built from Zero. Same roles, dates and numbers as the main résumé.",
