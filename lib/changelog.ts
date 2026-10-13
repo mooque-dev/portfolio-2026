@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "A page for Float",
+    tags: ["content", "design"],
+    what: "A new unlisted page at /float, shaped like the Mastercard one: the card, the work, a way to reach me. Float is hiring for Banking and Growth, so a switch orders the three most relevant cases for whichever team is reading, and a link ending in #banking or #growth opens that one. A short block points at things that already run, since Float designs on its real codebase instead of in Figma.",
+    why: "Each team should see its own best evidence first, and a team that designs in code should be able to click something that works.",
+  },
+  {
+    date: "2026-10-13",
     title: "Audit fixes: link previews, labels, loose ends",
     tags: ["design", "engineering"],
     what: "Links shared from mooque-dev.github.io now preview as that page on that address, instead of every page claiming to be the allenkang.com home page. The last all-caps labels (About tabs, Playground filters, résumé headings, the phone menu) are in sentence case like the rest of the site. The Mastercard and Air Canada tabs no longer repeat my name. The link preview image is redrawn in the current look, with the github.io address instead of allenkang.com. A dead link to ArtsGaze is now plain text, and three unused files are gone.",

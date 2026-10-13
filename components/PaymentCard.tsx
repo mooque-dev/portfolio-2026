@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
-// The Mastercard page's money metaphor: a card that says who I am, and a
-// statement of the work, one line per case, each opening its page. The mark
-// is our own two circles in red and amber, a nod to the Mastercard logo
-// rather than a copy of it.
+// The tailored pages' money metaphor: a card that says who I am, and a
+// statement of the work, one line per case, each opening its page. On the
+// Mastercard page the mark is our own two circles in red and amber, a nod to
+// the Mastercard logo rather than a copy of it; elsewhere the card carries no
+// network mark at all.
 function Mark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 52 32" className={className} aria-hidden>
@@ -24,7 +25,14 @@ function Chip() {
   );
 }
 
-export default function PaymentCard() {
+export default function PaymentCard({
+  preparedFor = "Mastercard",
+  circles = true,
+}: {
+  preparedFor?: string;
+  // The two-circle mark belongs to the Mastercard page only.
+  circles?: boolean;
+}) {
   return (
     <div
       className="relative aspect-[1.586] w-full max-w-[400px] overflow-hidden rounded-[18px] p-[6%] text-white shadow-[0_28px_48px_-24px_rgba(0,0,0,0.55)] ring-1 ring-white/10 transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)] hover:-rotate-1 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none"
@@ -34,7 +42,7 @@ export default function PaymentCard() {
     >
       <div className="flex items-start justify-between">
         <span className="text-[15px] font-semibold tracking-[-0.01em]">mooque</span>
-        <span className="text-[10.5px] uppercase tracking-[0.14em] text-white/60">Prepared for Mastercard</span>
+        <span className="text-[10.5px] uppercase tracking-[0.14em] text-white/60">Prepared for {preparedFor}</span>
       </div>
       <div className="mt-[7%] flex items-center gap-3">
         <Chip />
@@ -50,7 +58,11 @@ export default function PaymentCard() {
           <p className="text-[10px] uppercase tracking-[0.14em] text-white/55">Designing since 2018</p>
           <p className="mt-1 truncate text-[14px] font-medium uppercase tracking-[0.08em]">Allen Kang</p>
         </div>
-        <Mark className="h-8 w-auto flex-none" />
+        {circles ? (
+          <Mark className="h-8 w-auto flex-none" />
+        ) : (
+          <span className="flex-none text-[10px] uppercase tracking-[0.14em] text-white/55">Toronto</span>
+        )}
       </div>
     </div>
   );
