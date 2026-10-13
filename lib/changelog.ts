@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-13",
+    title: "A shorter Mastercard page, with a section list",
+    tags: ["design", "content"],
+    what: "The Mastercard page drops the full fee demo section and the week-in-the-life list. Fee Opt-In now sits with the other cases under Selected work, and the demo still lives on its own case page. The card's activity list keeps four headline numbers instead of six, without the repeated case names. On wide screens a section list runs down the left side and marks where you are.",
+    why: "The page was doing too much. Selected work already covers each case in depth, so the top only needs the numbers, and a reviewer should be able to jump straight to the part they care about.",
+  },
+  {
+    date: "2026-10-13",
     title: "The fee checkout, rebuilt from the MagicPatterns prototype",
     tags: ["design", "engineering"],
     what: "The Fee Opt-In demo now follows my MagicPatterns prototype: a checkout with the fee in a sticky footer, where Edit opens the fallback being tested. A three-step guide and a pulsing pointer lead you to Edit, a Mobile, Tablet and Desktop switch shows the same checkout at each size, and a panel beside it shows what your choice means for the charity next to what donors did in the test (75%, 82%, 92%). The six case images are now rendered from that same checkout at high resolution, so they're sharp, evenly spaced and nothing overlaps.",

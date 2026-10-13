@@ -3,16 +3,8 @@ import type { ReceiptLine } from "@/components/ResultsReceipt";
 import LockedNote from "@/components/LockedNote";
 
 // The results as a card and its statement, the way a banking app shows them:
-// a card on top, recent activity below. The mark is our own two circles in
+// a card on top, a short statement beside it. The mark is our own two circles in
 // red and amber, a nod to the Mastercard logo rather than a copy of it.
-const CASE_NAMES: Record<string, string> = {
-  "/work/transaction-workflows": "Transaction Workflows",
-  "/work/fee-opt-in-experimentation": "Fee Opt-In",
-  "/work/automation-nonprofits": "Automation for Nonprofits",
-  "/work/orchid-design-system": "Orchid design system",
-  "/resume": "Résumé",
-};
-
 function Mark({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 52 32" className={className} aria-hidden>
@@ -69,29 +61,17 @@ export default function PaymentCard({ lines, total }: { lines: ReceiptLine[]; to
       </div>
 
       <div className="min-w-0 rounded-2xl border border-border">
-        <div className="flex items-baseline justify-between gap-4 border-b border-border px-5 py-4">
-          <p className="text-[15px] font-semibold">Recent activity</p>
-          <p className="text-[13px] text-muted">Tap a line to open the case</p>
-        </div>
+        <p className="border-b border-border px-5 py-3.5 text-[15px] font-semibold">Recent activity</p>
         <ul className="m-0 list-none p-0">
           {lines.map((l) => (
             <li key={l.label} className="border-b border-border last:border-0">
               <Link
                 href={l.href}
-                className="flex items-center gap-4 px-5 py-3.5 transition-colors hover:bg-foreground/[0.04] focus-visible:bg-foreground/[0.04]"
+                className="flex items-center gap-3 px-5 py-3 transition-colors hover:bg-foreground/[0.04] focus-visible:bg-foreground/[0.04]"
               >
-                <span
-                  aria-hidden
-                  className="grid h-9 w-9 flex-none place-items-center rounded-full bg-foreground/[0.06] text-[13px] font-semibold"
-                >
-                  {l.label.charAt(0)}
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block truncate text-[15px] font-medium">{l.label}</span>
-                  <span className="flex items-center gap-2 truncate text-[13px] text-muted">
-                    {CASE_NAMES[l.href] ?? ""}
-                    <LockedNote href={l.href} />
-                  </span>
+                <span className="flex min-w-0 flex-1 items-center gap-2">
+                  <span className="truncate text-[15px]">{l.label}</span>
+                  <LockedNote href={l.href} />
                 </span>
                 <span className="flex-none text-[15px] font-semibold tabular-nums">{l.value}</span>
               </Link>
@@ -101,7 +81,7 @@ export default function PaymentCard({ lines, total }: { lines: ReceiptLine[]; to
         {total && (
           <Link
             href={total.href}
-            className="flex items-center justify-between gap-4 rounded-b-2xl border-t border-border bg-foreground/[0.03] px-5 py-4 transition-colors hover:bg-foreground/[0.06]"
+            className="flex items-center justify-between gap-4 rounded-b-2xl border-t border-border bg-foreground/[0.03] px-5 py-3 transition-colors hover:bg-foreground/[0.06]"
           >
             <span className="text-[15px] font-semibold">{total.label}</span>
             <span className="text-[15px] font-semibold tabular-nums">{total.value}</span>

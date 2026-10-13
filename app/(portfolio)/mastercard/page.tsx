@@ -7,9 +7,9 @@ import { getProject } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
 import ProjectCard from "@/components/ProjectCard";
 import Arrow from "@/components/Arrow";
-import FeeSliderDemo from "@/components/FeeSliderDemo";
 import TwoWorlds from "@/components/TwoWorlds";
 import LockedNote from "@/components/LockedNote";
+import SectionRail from "@/components/SectionRail";
 
 // A tailored, unlisted view of the portfolio for one reviewer. Not in the
 // sitemap, not in the nav, and kept out of search results on purpose.
@@ -64,10 +64,24 @@ const deepDives = [
 // Everything else worth a look, each with why it's here. Whether a dashboard
 // shipped is said up front so nobody has to dig for it.
 const more = [
+  { slug: "fee-opt-in-experimentation", why: "Pausing a win to fix a leak: 75% to 92% fee opt-in. Has a playable checkout." },
   { slug: "aplos-keela-integration", why: "Making a data sync trustworthy by showing the mapping." },
   { slug: "orchid-design-system", why: "Getting three teams onto one system without authority." },
   { slug: "keela-contacts", why: "Shipped at Keela in 2024. Rebuilt as a working version." },
-  { slug: "care-pathway-dashboards", why: "A redesign that never shipped. Rebuilt as a working version." },
+];
+
+// The card's statement keeps the four headline numbers; the cases below carry
+// the detail.
+const HEADLINE = ["/work/transaction-workflows", "/work/fee-opt-in-experimentation", "/work/automation-nonprofits", "/work/orchid-design-system"];
+const headline = HEADLINE.map((h) => RESULTS.find((r) => r.href === h)!).filter(Boolean);
+
+const sections = [
+  { id: "mc-numbers", num: "01", label: "Results" },
+  { id: "mc-pillars", num: "02", label: "Trust, safety, quality" },
+  { id: "mc-worlds", num: "03", label: "How I work" },
+  { id: "mc-work", num: "04", label: "Selected work" },
+  { id: "mc-built", num: "05", label: "Outside work" },
+  { id: "mc-contact-section", num: "06", label: "Contact" },
 ];
 
 // Things I made outside a job, each with people actually using it.
@@ -84,15 +98,6 @@ const built = [
     slug: "torontoyuwol",
     line: "Scheduling, a Korean-English script reader and a bill splitter that a 40-person musical company used every day for ten months. Then I went on stage in the show.",
   },
-];
-
-// What the job actually looked like, in plain terms.
-const week = [
-  "Sitting with accountants while they reconciled, until their words made sense to me.",
-  "Drawing how data really moves between systems, so engineers and I argued about the same picture.",
-  "Agreeing with the PM and engineers on what we would not touch yet.",
-  "Prototyping in code when a static mock couldn't answer the question.",
-  "Rewriting my own design-system rules when the first version made people stop contributing.",
 ];
 
 const linkClass = "inline-flex items-center gap-1 text-sm underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -183,171 +188,149 @@ export default async function MastercardPage() {
           </div>
         </FadeIn>
 
-        <Section
-          id="mc-numbers"
-          num="01"
-          label="Results"
-          title="Numbers I can stand behind."
-          lede="Every figure is on my résumé, and each line opens the case behind it."
-        >
-          <PaymentCard lines={RESULTS} total={RESULTS_TOTAL} />
-        </Section>
-
-        <Section
-          id="mc-pillars"
-          num="02"
-          label="Trust, safety and quality"
-          title="What a payments team protects, shown in work that shipped."
-        >
-          <ol className="m-0 grid list-none gap-10 p-0 md:grid-cols-3 md:gap-8">
-            {pillars.map((p) => (
-              <li key={p.label} className="flex flex-col border-t border-foreground/80 pt-5">
-                <p className="microlabel text-muted">{p.label}</p>
-                <h3 className="mt-2 text-xl font-semibold leading-snug">{p.title}</h3>
-                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{p.body}</p>
-                <Link href={`/work/${p.slug}`} className={`mt-5 self-start ${linkClass}`}>
-                  {p.link} <Arrow />
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </Section>
-
-        <Section
-          id="mc-try"
-          num="03"
-          label="One decision, up close"
-          title="Design the decision, not the default."
-          lede="A new fee box had lifted opt-in to 82%, and everyone wanted to ship it. I asked the team to pause: donors who clicked Edit were being nudged to the minimum. We tested three fixes against the control, and the slider reached 92% with conversion steady."
-        >
-          <p className="max-w-[60ch] text-[15px] leading-relaxed">
-            A white-labelled rebuild of the checkout, after my MagicPatterns prototype. Pick a fallback, click Edit
-            on the fee, and compare what you chose with what donors did.
-          </p>
-          <div className="mt-8">
-            <FeeSliderDemo />
+        <div className="lg:grid lg:grid-cols-[168px_minmax(0,1fr)] lg:gap-14">
+          <div className="hidden lg:block">
+            <div className="h-full pt-20 md:pt-24">
+              <SectionRail items={sections} />
+            </div>
           </div>
-          <p className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-            <Link href="/work/fee-opt-in-experimentation" className={linkClass}>
-              Read the full case <Arrow />
-            </Link>
-            <LockedNote href="/work/fee-opt-in-experimentation" />
-            <span className="text-muted">The product is confidential, so the case asks for a password. Ask me for it.</span>
-          </p>
-        </Section>
+          <div className="min-w-0">
+            <Section
+              id="mc-numbers"
+              num="01"
+              label="Results"
+              title="Numbers I can stand behind."
+              lede="Every figure is on my résumé. Each line opens the case behind it."
+            >
+              <PaymentCard lines={headline} total={RESULTS_TOTAL} />
+            </Section>
 
-        <Section
-          id="mc-worlds"
-          num="04"
-          label="How I work"
-          title="You know two circles that overlap. Most of my work happens in the overlap."
-        >
-          <TwoWorlds />
-          <div className="mt-16 grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] md:gap-8">
-            <h3 className="text-[15px] font-semibold">What a normal week looked like</h3>
-            <ul className="m-0 list-none p-0">
-              {week.map((w) => (
-                <li key={w} className="border-t border-border py-3.5 text-[16px] leading-relaxed first:border-t-0 first:pt-0">
-                  {w}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Section>
+            <Section
+              id="mc-pillars"
+              num="02"
+              label="Trust, safety and quality"
+              title="What a payments team protects, shown in work that shipped."
+            >
+              <ol className="m-0 grid list-none gap-10 p-0 md:grid-cols-3 md:gap-8">
+                {pillars.map((p) => (
+                  <li key={p.label} className="flex flex-col border-t border-foreground/80 pt-5">
+                    <p className="microlabel text-muted">{p.label}</p>
+                    <h3 className="mt-2 text-xl font-semibold leading-snug">{p.title}</h3>
+                    <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{p.body}</p>
+                    <Link href={`/work/${p.slug}`} className={`mt-5 self-start ${linkClass}`}>
+                      {p.link} <Arrow />
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </Section>
 
-        <Section
-          id="mc-work"
-          num="05"
-          label="Selected work"
-          title="If we had thirty minutes, I'd walk you through these two."
-        >
-          <div className="grid gap-x-8 gap-y-12 md:grid-cols-2">
-            {deepProjects.map(({ p, why, label }) => (
-              <div key={p.slug} className="min-w-0">
-                <p className="microlabel mb-3 text-muted">Deep dive · {label}</p>
-                <ProjectCard
-                  slug={p.slug}
-                  title={p.frontmatter.title}
-                  subtitle={p.frontmatter.subtitle}
-                  category={p.frontmatter.category}
-                  coverColor={p.frontmatter.coverColor}
-                  coverImage={p.frontmatter.coverImage}
-                  featuredStat={p.frontmatter.featuredStat}
-                  featuredStatLabel={p.frontmatter.featuredStatLabel}
-                />
-                <p className="mt-3 text-[15px] leading-relaxed">{why}</p>
+            <Section
+              id="mc-worlds"
+              num="03"
+              label="How I work"
+              title="You know two circles that overlap. Most of my work happens in the overlap."
+            >
+              <TwoWorlds />
+            </Section>
+
+            <Section
+              id="mc-work"
+              num="04"
+              label="Selected work"
+              title="If we had thirty minutes, I'd walk you through these two."
+            >
+              <div className="grid gap-x-8 gap-y-12 md:grid-cols-2">
+                {deepProjects.map(({ p, why, label }) => (
+                  <div key={p.slug} className="min-w-0">
+                    <p className="microlabel mb-3 text-muted">Deep dive · {label}</p>
+                    <ProjectCard
+                      slug={p.slug}
+                      title={p.frontmatter.title}
+                      subtitle={p.frontmatter.subtitle}
+                      category={p.frontmatter.category}
+                      coverColor={p.frontmatter.coverColor}
+                      coverImage={p.frontmatter.coverImage}
+                      featuredStat={p.frontmatter.featuredStat}
+                      featuredStatLabel={p.frontmatter.featuredStatLabel}
+                    />
+                    <p className="mt-3 text-[15px] leading-relaxed">{why}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-          <h3 className="mt-16 text-[15px] font-semibold">Also worth a look</h3>
-          <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
-            {moreProjects.map(({ p, why }) => (
-              <div key={p.slug} className="min-w-0">
-                <ProjectCard
-                  slug={p.slug}
-                  title={p.frontmatter.title}
-                  subtitle={p.frontmatter.subtitle}
-                  category={p.frontmatter.category}
-                  coverColor={p.frontmatter.coverColor}
-                  coverImage={p.frontmatter.coverImage}
-                  compact
-                />
-                <p className="mt-2 text-[13.5px] leading-relaxed text-muted">{why}</p>
+              <h3 className="mt-16 text-[15px] font-semibold">Also worth a look</h3>
+              <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
+                {moreProjects.map(({ p, why }) => (
+                  <div key={p.slug} className="min-w-0">
+                    <ProjectCard
+                      slug={p.slug}
+                      title={p.frontmatter.title}
+                      subtitle={p.frontmatter.subtitle}
+                      category={p.frontmatter.category}
+                      coverColor={p.frontmatter.coverColor}
+                      coverImage={p.frontmatter.coverImage}
+                      compact
+                    />
+                    <p className="mt-2 text-[13.5px] leading-relaxed text-muted">{why}</p>
+                    <LockedNote href={`/work/${p.slug}`} />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </Section>
+            </Section>
 
-        <Section
-          id="mc-built"
-          num="06"
-          label="Outside work"
-          title="Things I built that real people use."
-          lede="Shipping my own products teaches me things a Figma file never will."
-        >
-          <ul className="m-0 grid list-none gap-10 p-0 md:grid-cols-3 md:gap-8">
-            {builtProjects.map(({ p, line }) => (
-              <li key={p.slug} className="flex flex-col border-t border-foreground/80 pt-5">
-                <h3 className="text-xl font-semibold leading-snug">{p.frontmatter.title.split(":")[0]}</h3>
-                <p className="mt-1 text-[13px] text-muted">{p.frontmatter.role}</p>
-                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{line}</p>
-                <Link href={`/work/${p.slug}`} className={`mt-5 self-start ${linkClass}`}>
-                  Read the case <Arrow />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Section>
+            <Section
+              id="mc-built"
+              num="05"
+              label="Outside work"
+              title="Things I built that real people use."
+              lede="Shipping my own products teaches me things a Figma file never will."
+            >
+              <ul className="m-0 grid list-none gap-10 p-0 md:grid-cols-3 md:gap-8">
+                {builtProjects.map(({ p, line }) => (
+                  <li key={p.slug} className="flex flex-col border-t border-foreground/80 pt-5">
+                    <h3 className="text-xl font-semibold leading-snug">{p.frontmatter.title.split(":")[0]}</h3>
+                    <p className="mt-1 text-[13px] text-muted">{p.frontmatter.role}</p>
+                    <p className="mt-3 flex-1 text-[15px] leading-relaxed text-muted">{line}</p>
+                    <Link href={`/work/${p.slug}`} className={`mt-5 self-start ${linkClass}`}>
+                      Read the case <Arrow />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </Section>
 
-        <section
-          aria-labelledby="mc-contact"
-          className="mt-20 md:mt-24 border-t border-border pt-10 md:pt-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
-        >
-          <div className="max-w-xl">
-            <h2 id="mc-contact" className="text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
-              I&rsquo;d like to talk about the numbers behind your numbers.
-            </h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-muted">
-              <Link href="/work" className="underline underline-offset-4 hover:text-foreground transition-colors">
-                See all the work
-              </Link>
-              , or the side projects in the{" "}
-              <Link href="/playground" className="underline underline-offset-4 hover:text-foreground transition-colors">
-                Playground
-              </Link>
-              .
+            <section
+              id="mc-contact-section"
+              aria-labelledby="mc-contact"
+              className="scroll-mt-24 mt-20 md:mt-24 border-t border-border pt-10 md:pt-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+            >
+              <div className="max-w-xl">
+                <h2 id="mc-contact" className="text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
+                  I&rsquo;d like to talk about the numbers behind your numbers.
+                </h2>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted">
+                  <Link href="/work" className="underline underline-offset-4 hover:text-foreground transition-colors">
+                    See all the work
+                  </Link>
+                  , or the side projects in the{" "}
+                  <Link href="/playground" className="underline underline-offset-4 hover:text-foreground transition-colors">
+                    Playground
+                  </Link>
+                  .
+                </p>
+              </div>
+              <a
+                href="mailto:allensmkang@gmail.com"
+                className="inline-flex h-10 items-center self-start rounded-full bg-foreground px-5 text-sm font-medium text-background hover:opacity-80 transition-opacity md:self-auto"
+              >
+                allensmkang@gmail.com
+              </a>
+            </section>
+            <p className="mt-10 text-xs text-muted">
+              An independent portfolio page. Not affiliated with or endorsed by Mastercard.
             </p>
           </div>
-          <a
-            href="mailto:allensmkang@gmail.com"
-            className="inline-flex h-10 items-center self-start rounded-full bg-foreground px-5 text-sm font-medium text-background hover:opacity-80 transition-opacity md:self-auto"
-          >
-            allensmkang@gmail.com
-          </a>
-        </section>
-        <p className="mt-10 text-xs text-muted">
-          An independent portfolio page. Not affiliated with or endorsed by Mastercard.
-        </p>
+        </div>
       </div>
     </article>
   );
