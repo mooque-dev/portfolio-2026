@@ -1360,3 +1360,61 @@ select::-ms-expand {
 @media (prefers-reduced-motion: reduce) {
   .ask-caret { animation: none; }
 }
+
+/* The Jeppesen ForeFlight page: an enroute-style chart and a horizon glow. */
+:root {
+  --jf-paper: #f7f5ef;
+  --jf-ink: #1b2a44;
+  --jf-route: #b3287a;
+}
+.dark {
+  --jf-paper: #0f1b30;
+  --jf-ink: #d6dff0;
+  --jf-route: #e463ad;
+}
+.jf-sky {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 760px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, color-mix(in oklab, #1d3a6b 12%, transparent), transparent 55%),
+    radial-gradient(55% 35% at 72% 78%, color-mix(in oklab, #f08a4b 22%, transparent), transparent 70%);
+}
+.dark .jf-sky {
+  background:
+    linear-gradient(180deg, color-mix(in oklab, #1d3a6b 45%, transparent), transparent 60%),
+    radial-gradient(55% 35% at 72% 78%, color-mix(in oklab, #f08a4b 26%, transparent), transparent 70%);
+}
+.jf-chart {
+  background: var(--jf-paper);
+  border: 1px solid color-mix(in oklab, var(--jf-ink) 18%, transparent);
+  box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.35);
+}
+.jf-grid { stroke: color-mix(in oklab, var(--jf-ink) 8%, transparent); stroke-width: 1; }
+.jf-airway { fill: none; stroke: color-mix(in oklab, var(--jf-ink) 26%, transparent); stroke-width: 1.2; }
+.jf-small {
+  font: 600 9px ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.06em;
+  fill: color-mix(in oklab, var(--jf-ink) 55%, transparent);
+}
+.jf-rose { fill: none; stroke: color-mix(in oklab, var(--jf-ink) 35%, transparent); }
+.jf-rose-tick { stroke: color-mix(in oklab, var(--jf-ink) 35%, transparent); }
+.jf-box { fill: var(--jf-paper); stroke: var(--jf-ink); stroke-width: 1; }
+.jf-box-on { fill: var(--jf-route); stroke: var(--jf-route); }
+.jf-ident {
+  font: 700 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.06em;
+  fill: var(--jf-ink);
+}
+.jf-ident-on { fill: #fff; }
+.jf-route { fill: none; stroke: var(--jf-route); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.jf-next { stroke-dasharray: 6 6; }
+.jf-tri { fill: var(--jf-paper); stroke: var(--jf-ink); stroke-width: 1.6; }
+.jf-on { fill: var(--jf-route); stroke: var(--jf-route); }
+.jf-fix:hover .jf-box:not(.jf-box-on), .jf-fix:focus-visible .jf-box { stroke: var(--jf-route); stroke-width: 2; }
+.jf-strip {
+  background: color-mix(in oklab, var(--foreground) 4%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent);
+}

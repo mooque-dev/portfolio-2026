@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-20",
+    title: "A page and a résumé for Jeppesen ForeFlight",
+    tags: ["content", "design"],
+    what: "A new unlisted page at /jeppesen with its own one-page résumé. It opens with my career drawn as a flight plan on an enroute-style chart: each job is a fix with a five-letter ident you can select, Toronto sits under a compass rose, and the last leg is dashed. Six projects follow, ordered for tools experts use to review and approve data, then a block on shipping code, including ARND's 160+ merged pull requests.",
+    why: "They build the data the world flies on and want a designer who works in code, so the page draws like a chart and shows the pull requests.",
+  },
+  {
+    date: "2026-10-20",
     title: "Ask the Blue J page a question",
     tags: ["design"],
     what: "The Blue J page now opens with a card you can ask about me: whether I've designed for accountants, built a design system, written front-end code, or am fun to work with. Each answer types itself out with numbered citations, and the sources are the case studies. A soft blue-to-crimson glow sits behind the intro, and the results receipt moved to the end, where it signs off with \"Thank you for reviewing.\"",
