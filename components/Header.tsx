@@ -15,7 +15,7 @@ import {
 
 // Tailored pages for one application. A visitor who arrives on one keeps it as
 // "home" for the rest of the visit, so the logo brings them back to it.
-const ENTRY_PAGES = ["/aircanada", "/mastercard", "/float", "/bluej", "/jeppesen-foreflight", "/bridgit", "/7shifts", "/ecobee", "/harvey", "/openloop"];
+const ENTRY_PAGES = ["/aircanada", "/mastercard", "/float", "/bluej", "/jeppesen-foreflight", "/bridgit", "/7shifts", "/ecobee", "/harvey", "/openloop", "/apply-digital"];
 const ENTRY_KEY = "entryHome";
 
 const navItems = [

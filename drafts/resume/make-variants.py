@@ -122,7 +122,7 @@ ROLES = {
         projects=["arnd_system", "yuwol", "fork"],
         skills="Design systems (tokens, theming, documentation) &middot; Prototyping in code (React, TypeScript) &middot; AI coding tools (Claude Code, Cursor) &middot; Research and usability testing &middot; Figma, Storybook"),
     "apply-digital-lead": dict(
-        url="mooque-dev.github.io",
+        url="mooque-dev.github.io/apply-digital",
         domain="B2B SaaS", clause="mentor designers",
         aplos=["orchid", "partner", "own", "fee_code", "integ", "split"],
         lead=["pitch", "process", "core"], pd=["auto", "adopt", "pm"],

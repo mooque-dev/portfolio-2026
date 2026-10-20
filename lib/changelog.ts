@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-20",
+    title: "A page for APPLY",
+    tags: ["content", "design"],
+    what: "A new unlisted page at /apply-digital with its own one-page résumé. It opens with the token card from the OpenLoop page, this time holding a product card in three made-up retail brands: switch the brand and only the global tier changes.",
+    why: "They build systems for many brands at once, so the opening object shows one component wearing three of them.",
+  },
+  {
+    date: "2026-10-20",
     title: "A thermostat, a statement on pleading paper and a token card",
     tags: ["content", "design"],
     what: "Three new unlisted pages, each with its own one-page résumé. /ecobee opens with a thermostat: each setting is a way I work, and the big number is the proof. /harvey opens with a short statement on pleading paper, numbered lines down the margin and an exhibit sticker on the corner, where every claim cites the case behind it. /openloop opens with one component in three made-up brands, and switching the brand changes only the last tier of tokens.",
