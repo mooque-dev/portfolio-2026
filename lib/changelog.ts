@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-20",
+    title: "A thermostat, a statement on pleading paper and a token card",
+    tags: ["content", "design"],
+    what: "Three new unlisted pages, each with its own one-page résumé. /ecobee opens with a thermostat: each setting is a way I work, and the big number is the proof. /harvey opens with a short statement on pleading paper, numbered lines down the margin and an exhibit sticker on the corner, where every claim cites the case behind it. /openloop opens with one component in three made-up brands, and switching the brand changes only the last tier of tokens.",
+    why: "Each page should open with something from that company's world, and the object should still be about the work.",
+  },
+  {
+    date: "2026-10-20",
     title: "Quieter pages, and a résumé for each role",
     tags: ["content"],
     what: "The Jeppesen ForeFlight, Bridgit and 7shifts pages now share one set of plain project tags and differ mostly in which work comes first, plus a line or two of wording. Every role I'm applying to also has its own one-page résumé, built from one base: the bullets, projects and skills are reordered and one clause of the summary changes, so the facts stay the same everywhere.",

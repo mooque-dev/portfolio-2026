@@ -1476,3 +1476,132 @@ select::-ms-expand {
     linear-gradient(color-mix(in oklab, #6f95ff 14%, transparent) 1px, transparent 1px),
     linear-gradient(90deg, color-mix(in oklab, #6f95ff 14%, transparent) 1px, transparent 1px);
 }
+
+/* The ecobee page: warm and cool air behind the intro, very faint. */
+.eb-air {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 760px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(45% 40% at 18% 30%, color-mix(in oklab, #f08a4b 12%, transparent), transparent 70%),
+    radial-gradient(45% 45% at 85% 45%, color-mix(in oklab, #3d8bfd 13%, transparent), transparent 70%);
+}
+.dark .eb-air {
+  background:
+    radial-gradient(45% 40% at 18% 30%, color-mix(in oklab, #f08a4b 16%, transparent), transparent 70%),
+    radial-gradient(45% 45% at 85% 45%, color-mix(in oklab, #3d8bfd 20%, transparent), transparent 70%);
+}
+
+/* The ecobee page's thermostat: dark glass in a brushed frame, the same in
+   both themes. Container units, so it scales with its column. */
+.th-wrap { container-type: inline-size; width: 100%; max-width: 400px; }
+.th {
+  aspect-ratio: 1;
+  border-radius: 22%;
+  padding: 2.2cqw;
+  background: linear-gradient(145deg, #e4e5e7, #9a9da2 48%, #d3d5d8);
+  box-shadow: 0 34px 50px -30px rgb(0 0 0 / 0.55), inset 0 1px 0 rgb(255 255 255 / 0.6);
+}
+.th-face {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  border-radius: 20.5%;
+  padding: 8cqw 7.5cqw 7cqw;
+  color: #f4f4f2;
+  background: radial-gradient(120% 80% at 25% 0%, rgb(255 255 255 / 0.09), transparent 55%), #0b0c0e;
+}
+.th-top { display: flex; justify-content: space-between; font-size: 3.1cqw; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgb(244 244 242 / 0.5); }
+.th-read { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.th-num { font-size: 24cqw; font-weight: 300; line-height: 1; letter-spacing: -0.045em; animation: th-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.th-unit { margin-top: 2cqw; font-size: 3.9cqw; color: rgb(244 244 242 / 0.6); }
+.th-modes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.8cqw; }
+.th-modes button { font: inherit; font-size: 3.05cqw; font-weight: 600; padding: 2.2cqw 0; border-radius: 99px; border: 0.3cqw solid rgb(244 244 242 / 0.22); background: transparent; color: rgb(244 244 242 / 0.82); cursor: pointer; transition: background-color 0.2s, color 0.2s, border-color 0.2s; }
+.th-modes button:hover { border-color: rgb(244 244 242 / 0.55); }
+.th-modes button[aria-pressed="true"] { background: #f4f4f2; border-color: #f4f4f2; color: #0b0c0e; }
+.th-modes button:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
+@keyframes th-in { from { opacity: 0; transform: translateY(1.5cqw); } }
+@media (prefers-reduced-motion: reduce) { .th-num { animation: none; } .th-modes button { transition: none; } }
+
+/* The Harvey page's statement on pleading paper. Lines are numbered down a
+   double-ruled margin; every line of text sits on the same grid, so the
+   numbers line up. Container units, paper stays light in both themes. */
+.br-wrap { container-type: inline-size; width: 100%; max-width: 460px; }
+.br { --l: 5.5cqw; position: relative; transform: rotate(1.4deg); transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.br:hover { transform: rotate(0.6deg) translateY(-4px); }
+@media (prefers-reduced-motion: reduce) { .br, .br:hover { transition: none; transform: rotate(1.4deg); } }
+.br-sheet {
+  position: relative;
+  padding: 7cqw 7cqw 3.6cqw 15cqw;
+  background: #fdfcf7;
+  color: #1d1b17;
+  border-radius: 0.8cqw;
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.04), 0 26px 40px -26px rgb(29 27 23 / 0.45);
+  font-family: "Times New Roman", Times, Georgia, serif;
+}
+.br-sheet::before { content: ""; position: absolute; top: 0; bottom: 0; left: 11.6cqw; width: 0.8cqw; border-left: 0.22cqw solid #d6a3a0; border-right: 0.22cqw solid #d6a3a0; }
+.br-sheet::after { content: ""; position: absolute; top: 0; bottom: 0; right: 4cqw; border-left: 0.22cqw solid #d6a3a0; }
+.br-body { position: relative; font-size: 3.45cqw; line-height: var(--l); }
+.br-nums { position: absolute; top: 0; bottom: 0; left: -15cqw; width: 9.6cqw; margin: 0; padding: 0; list-style: none; overflow: hidden; text-align: right; font-size: 2.5cqw; line-height: var(--l); color: #a29b8e; font-variant-numeric: tabular-nums; }
+.br-title { margin: 0 0 var(--l); text-align: center; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; font-size: 3.1cqw; }
+.br-claims { margin: 0; padding: 0; list-style: none; display: grid; gap: 0; }
+.br-claims li { padding-left: 4.4cqw; text-indent: -4.4cqw; }
+.br-n { display: inline-block; width: 4.4cqw; text-indent: 0; font-weight: 700; }
+.br-claims a { color: inherit; text-decoration: underline; text-decoration-thickness: 0.18cqw; text-underline-offset: 0.6cqw; }
+.br-claims a:hover { color: #6b1f1a; }
+.br-claims a:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
+.br-foot { margin: 3cqw 0 0; padding-top: 2cqw; border-top: 0.22cqw solid #e2ddd2; text-align: center; font-size: 2.3cqw; letter-spacing: 0.14em; text-transform: uppercase; color: #8d867a; }
+.br-sticker { position: absolute; z-index: 1; top: -5.5cqw; right: -2.5cqw; display: grid; justify-items: center; padding: 1.6cqw 3.4cqw 1.2cqw; border-radius: 1.4cqw; background: #f4df6b; color: #3a3216; transform: rotate(-7deg); box-shadow: 0 6px 10px -6px rgb(0 0 0 / 0.35); font-family: var(--font-sans), system-ui, sans-serif; }
+.br-sticker span { font-size: 2.1cqw; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+.br-sticker b { font-size: 6cqw; line-height: 1; font-weight: 800; }
+
+/* The OpenLoop page: a faint dot grid behind the intro, like a canvas. */
+.ol-dots {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 760px;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(color-mix(in oklab, var(--foreground) 14%, transparent) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, #000 25%, transparent);
+}
+
+/* The OpenLoop page's token card: one component on a light canvas, over the
+   three tiers of tokens behind it. The frame follows the site's theme; the
+   canvas stays light. Container units, so it scales with its column. */
+.tc-wrap { container-type: inline-size; width: 100%; max-width: 460px; }
+.tc { overflow: hidden; border: 1px solid var(--border); border-radius: 16px; background: var(--background); box-shadow: 0 24px 40px -28px rgb(0 0 0 / 0.35); }
+.tc-head { display: flex; align-items: center; justify-content: space-between; gap: 3cqw; padding: 3cqw 3.6cqw; border-bottom: 1px solid var(--border); }
+.tc-label { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 3cqw; color: var(--muted); }
+.tc-brands { display: inline-flex; padding: 0.7cqw; border-radius: 99px; background: color-mix(in oklab, var(--foreground) 6%, transparent); }
+.tc-brands button { font: inherit; font-size: 3cqw; font-weight: 600; padding: 1.3cqw 3.2cqw; border: 0; border-radius: 99px; background: transparent; color: var(--muted); cursor: pointer; }
+.tc-brands button[aria-pressed="true"] { background: var(--background); color: var(--foreground); box-shadow: 0 1px 2px rgb(0 0 0 / 0.14); }
+.tc-brands button:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
+.tc-canvas { padding: 7cqw 6.5cqw; background-color: #f5f5f2; background-image: radial-gradient(#d8d7d1 0.32cqw, transparent 0.38cqw); background-size: 4cqw 4cqw; }
+.tc-visit { padding: 4.4cqw; border: 1px solid #e4e3de; border-radius: var(--tc-radius); background: #fff; color: #17181a; box-shadow: 0 12px 24px -16px rgb(0 0 0 / 0.3); transition: border-radius 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.tc-visit-top { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 3cqw; align-items: center; }
+.tc-icon { display: grid; place-items: center; width: 10cqw; height: 10cqw; border-radius: calc(var(--tc-radius) * 0.7); background: var(--tc-tint); transition: background-color 0.35s, border-radius 0.35s; }
+.tc-icon svg { width: 5.4cqw; height: 5.4cqw; fill: none; stroke: var(--tc-primary); stroke-width: 1.8; stroke-linejoin: round; transition: stroke 0.35s; }
+.tc-what { display: grid; min-width: 0; }
+.tc-what b { font-size: 4.1cqw; font-weight: 650; }
+.tc-what span { margin-top: 0.4cqw; font-size: 3.2cqw; color: #6b6a66; }
+.tc-badge { padding: 1cqw 2.4cqw; border-radius: 99px; background: var(--tc-tint); color: var(--tc-primary); font-size: 2.8cqw; font-weight: 650; white-space: nowrap; transition: background-color 0.35s, color 0.35s; }
+.tc-actions { display: flex; gap: 2.4cqw; margin-top: 4.4cqw; }
+.tc-btn, .tc-btn2 { flex: 1; padding: 2.6cqw 0; border-radius: calc(var(--tc-radius) * 0.6); text-align: center; font-size: 3.4cqw; font-weight: 650; transition: background-color 0.35s, border-radius 0.35s; }
+.tc-btn { background: var(--tc-primary); color: #fff; }
+.tc-btn2 { border: 1px solid #e4e3de; color: #17181a; }
+.tc-table { width: 100%; border-collapse: collapse; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 2.9cqw; }
+.tc-table th { padding: 2.6cqw 3.6cqw 1.6cqw; text-align: left; font-family: var(--font-sans), system-ui, sans-serif; font-size: 2.4cqw; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.tc-table td { padding: 1.8cqw 3.6cqw; border-top: 1px solid var(--border); vertical-align: top; }
+.tc-table th:last-child, .tc-table td:last-child { background: color-mix(in oklab, var(--foreground) 4%, transparent); }
+.tc-table tbody td:last-child { animation: tc-flash 0.7s ease-out; }
+.tc-swatch { display: inline-block; width: 2.4cqw; height: 2.4cqw; margin-right: 1.4cqw; border-radius: 0.6cqw; vertical-align: -0.25cqw; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.14); }
+.tc-val { display: block; margin-top: 0.4cqw; font-size: 2.5cqw; color: var(--muted); }
+@keyframes tc-flash { from { background-color: color-mix(in oklab, var(--seal) 16%, transparent); } }
+@media (prefers-reduced-motion: reduce) {
+  .tc-visit, .tc-icon, .tc-icon svg, .tc-badge, .tc-btn, .tc-btn2 { transition: none; }
+  .tc-table tbody td:last-child { animation: none; }
+}

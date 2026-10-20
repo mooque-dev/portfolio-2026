@@ -47,6 +47,10 @@ PROJECTS = {
               "Built scheduling, a bilingual script reader and a bill splitter, used daily by a forty-person company."),
     "fork": ("Forkestrate", "Co-founder and founding designer, AI recipe app", "2025 – Present",
              "Co-founded and designed a recipe app, taking it from zero to MVP in under three months with a PM and two engineers."),
+    "arnd_mobile": ("ARND", "Founder, live-music discovery app", "2025 – Present",
+                    "Designed and built a map-first app for iOS, Android and web with AI tools; 160+ merged pull requests."),
+    "arnd_system": ("ARND", "Founder, live-music discovery app", "2025 – Present",
+                    "Designed and built a map-first app with AI coding tools: five themes, one system, 160+ merged pull requests."),
     "demello": ("De Mello Coffee", "Brand designer and consultant", "2020",
                 "Helped a Toronto specialty coffee roaster build the brand system to run its own brand."),
     "artsgaze": ("ArtsGaze", "Design lead, volunteer", "2025",
@@ -96,6 +100,34 @@ ROLES = {
         lead=["pitch", "core", "process"], pd=["auto", "adopt", "pm"],
         projects=["arnd_code", "fork", "yuwol"],
         skills="Design systems &middot; Front-end code (React, TypeScript) with Claude Code and Cursor &middot; Prototyping &middot; Research and usability testing &middot; A/B testing &middot; Figma, Storybook"),
+    "ecobee": dict(
+        url="mooque-dev.github.io/ecobee",
+        domain="B2B SaaS", clause="design for mobile and web",
+        aplos=["orchid", "own", "split", "fee_code", "integ", "partner"],
+        lead=["pitch", "core", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_mobile", "fork", "yuwol"],
+        skills="Design systems &middot; Mobile (iOS, Android) and web &middot; Research and usability testing &middot; Prototyping with AI tools (Claude Code, Cursor) &middot; A/B testing &middot; Figma, Storybook"),
+    "harvey": dict(
+        url="mooque-dev.github.io/harvey",
+        domain="complex financial and data-heavy tools", clause="prototype in code",
+        aplos=["split_tax", "own", "orchid", "fee_code", "integ", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
+        projects=["arnd_code", "fork", "yuwol"],
+        skills="Research with domain experts &middot; Interaction and visual design &middot; Design systems &middot; Prototyping in code (React, TypeScript) with AI tools &middot; A/B testing &middot; Figma, Storybook"),
+    "openloop": dict(
+        url="mooque-dev.github.io/openloop",
+        domain="B2B SaaS", clause="prototype in code",
+        aplos=["orchid", "integ", "own", "fee_code", "split", "partner"],
+        lead=["pitch", "process", "core"], pd=["auto", "adopt", "pm"],
+        projects=["arnd_system", "yuwol", "fork"],
+        skills="Design systems (tokens, theming, documentation) &middot; Prototyping in code (React, TypeScript) &middot; AI coding tools (Claude Code, Cursor) &middot; Research and usability testing &middot; Figma, Storybook"),
+    "apply-digital-lead": dict(
+        url="mooque-dev.github.io",
+        domain="B2B SaaS", clause="mentor designers",
+        aplos=["orchid", "partner", "own", "fee_code", "integ", "split"],
+        lead=["pitch", "process", "core"], pd=["auto", "adopt", "pm"],
+        projects=["arnd_code", "demello", "artsgaze"],
+        skills="Design systems and tokens &middot; UI and visual design &middot; Brand and typography &middot; AI tools (Claude Code, Cursor, MagicPatterns) &middot; Prototyping in code &middot; Figma, Storybook"),
 }
 
 
