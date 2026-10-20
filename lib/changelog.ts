@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-20",
+    title: "The Jeppesen ForeFlight page uses the full name",
+    tags: ["content"],
+    what: "The page now lives at /jeppesen-foreflight, and its résumé is allen-kang-resume-jeppesen-foreflight.pdf. The old /jeppesen link forwards there.",
+    why: "The address should name the company properly, and any link already shared should still work.",
+  },
+  {
+    date: "2026-10-20",
     title: "A page and a résumé for Jeppesen ForeFlight",
     tags: ["content", "design"],
     what: "A new unlisted page at /jeppesen with its own one-page résumé. It opens with my career drawn as a flight plan on an enroute-style chart: each job is a fix with a five-letter ident you can select, Toronto sits under a compass rose, and the last leg is dashed. Six projects follow, ordered for tools experts use to review and approve data, then a block on shipping code, including ARND's 160+ merged pull requests.",
