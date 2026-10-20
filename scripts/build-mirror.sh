@@ -55,6 +55,12 @@ for pair in "care-pathway-dashboards:/case/care-pathway/index.html" "keela-conta
   page="out/work/${pair%%:*}/index.html"
   [ -f "$page" ] && sed -i '' "s#<head>#<head><meta http-equiv=\"refresh\" content=\"0; url=${pair#*:}\"/>#" "$page"
 done
+# Pages that moved forward with JavaScript in an export; give them a plain
+# HTML redirect too.
+for pair in "jeppesen:/jeppesen-foreflight/"; do
+  page="out/${pair%%:*}/index.html"
+  [ -f "$page" ] && sed -i '' "s#<head>#<head><meta http-equiv=\"refresh\" content=\"0; url=${pair#*:}\"/>#" "$page"
+done
 # GitHub Pages runs Jekyll by default, which hides the _next folder.
 touch out/.nojekyll
 
