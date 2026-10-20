@@ -1295,3 +1295,68 @@ select::-ms-expand {
     animation: none;
   }
 }
+
+/* The Blue J page: a blue-to-crimson glow behind the intro, and the ask card. */
+:root {
+  --bj-blue: #2f63f5;
+  --bj-red: #d9345a;
+}
+.bj-glow {
+  position: absolute;
+  inset: -10% -10% auto;
+  height: 720px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(40% 55% at 12% 30%, color-mix(in oklab, var(--bj-blue) 30%, transparent), transparent 70%),
+    radial-gradient(40% 55% at 88% 40%, color-mix(in oklab, var(--bj-red) 26%, transparent), transparent 70%);
+  filter: blur(10px);
+}
+.dark .bj-glow {
+  background:
+    radial-gradient(40% 55% at 12% 30%, color-mix(in oklab, var(--bj-blue) 42%, transparent), transparent 70%),
+    radial-gradient(40% 55% at 88% 40%, color-mix(in oklab, var(--bj-red) 38%, transparent), transparent 70%);
+}
+.ask-card {
+  background: color-mix(in oklab, var(--background) 82%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 14%, transparent);
+  box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.35);
+  backdrop-filter: blur(12px);
+}
+.ask-field {
+  background: color-mix(in oklab, var(--foreground) 5%, transparent);
+  border: 1px solid color-mix(in oklab, var(--foreground) 16%, transparent);
+}
+.ask-send {
+  color: #fff;
+  background: linear-gradient(135deg, var(--bj-blue), var(--bj-red));
+}
+.ask-cite {
+  color: var(--bj-blue);
+  background: color-mix(in oklab, var(--bj-blue) 14%, transparent);
+}
+.dark .ask-cite {
+  color: #9db6ff;
+  background: color-mix(in oklab, var(--bj-blue) 30%, transparent);
+}
+.ask-cite:hover {
+  background: color-mix(in oklab, var(--bj-blue) 26%, transparent);
+}
+.ask-caret {
+  background: var(--bj-red);
+  animation: ask-blink 1s steps(2) infinite;
+}
+@keyframes ask-blink {
+  50% { opacity: 0; }
+}
+.ask-rule {
+  border-color: color-mix(in oklab, var(--foreground) 12%, transparent);
+}
+.ask-chip-on {
+  color: var(--foreground);
+  border-color: color-mix(in oklab, var(--bj-blue) 60%, transparent);
+  background: color-mix(in oklab, var(--bj-blue) 12%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ask-caret { animation: none; }
+}

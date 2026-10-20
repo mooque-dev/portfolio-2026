@@ -3,14 +3,16 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import ResultsReceipt, { type ReceiptLine } from "@/components/ResultsReceipt";
+import AskCard from "@/components/AskCard";
 import FadeIn from "@/components/FadeIn";
 import Arrow from "@/components/Arrow";
 
 // A tailored, unlisted view of the portfolio for Blue J. Not in the sitemap,
 // not in the nav, and kept out of search results on purpose. Same shape as
-// /float: a picture of the results, the work, a way to reach me, plus a
-// short block of things that already run. Blue J's users are accountants, so
-// the results come as a receipt.
+// /float: an opening picture, the work, a way to reach me, plus a short block
+// of things that already run. The opening is a question answered with
+// sources, a nod to how Blue J works; the page ends on the results as a
+// receipt, because its readers' users are accountants.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Blue J" },
   description: "A short path through Allen Kang's work designing for accountants, building design systems and prototyping in code.",
@@ -119,10 +121,11 @@ function Block({ id, label, title, children }: { id: string; label: string; titl
 
 export default function BlueJPage() {
   return (
-    <article className="pt-32 pb-24 md:pt-40 md:pb-32">
+    <article className="relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="bj-glow" aria-hidden />
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
-          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
                 I design software accountants trust, and the systems that keep it simple.
@@ -146,8 +149,8 @@ export default function BlueJPage() {
                 </a>
               </div>
             </div>
-            <div className="flex min-w-0 justify-center lg:justify-end">
-              <ResultsReceipt lines={RECEIPT} total={RECEIPT_TOTAL} />
+            <div className="min-w-0">
+              <AskCard />
             </div>
           </div>
         </FadeIn>
@@ -198,24 +201,30 @@ export default function BlueJPage() {
 
         <section
           aria-labelledby="bj-contact"
-          className="mt-24 md:mt-32 flex flex-col gap-6 border-t border-border pt-10 md:flex-row md:items-end md:justify-between"
+          className="mt-24 md:mt-32 grid items-end gap-10 border-t border-border pt-10 md:grid-cols-[minmax(0,1fr)_300px]"
         >
-          <h2 id="bj-contact" className="max-w-xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
-            I&rsquo;d like to help tax professionals get to the right answer faster.
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            <a href="mailto:allensmkang@gmail.com" className={`${pill} bg-foreground text-background hover:opacity-80`}>
-              allensmkang@gmail.com
-            </a>
-            <a
-              href="https://www.linkedin.com/in/mooque/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${pill} border border-border hover:border-foreground/40`}
-            >
-              LinkedIn
-              <span className="sr-only"> (opens in new tab)</span>
-            </a>
+          <div>
+            <h2 id="bj-contact" className="max-w-xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
+              I&rsquo;d like to help tax professionals get to the right answer faster.
+            </h2>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <a href="mailto:allensmkang@gmail.com" className={`${pill} bg-foreground text-background hover:opacity-80`}>
+                allensmkang@gmail.com
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mooque/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${pill} border border-border hover:border-foreground/40`}
+              >
+                LinkedIn
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </div>
+          </div>
+          {/* The page's results, printed: it ends with "Thank you for reviewing". */}
+          <div className="flex justify-center md:justify-end">
+            <ResultsReceipt lines={RECEIPT} total={RECEIPT_TOTAL} />
           </div>
         </section>
         <p className="mt-10 text-xs text-muted">An independent portfolio page. Not affiliated with or endorsed by Blue J.</p>
