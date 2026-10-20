@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-20",
+    title: "A page and a résumé for Blue J",
+    tags: ["content"],
+    what: "A new unlisted page at /bluej with its own one-page résumé. It opens with the results as a printed receipt, then five projects led by the Orchid design system and the accounting work, and the block of things that already run. The résumé leads with design systems, tax rules learned from accountants, research and prototyping in code.",
+    why: "Their users are accountants, which is who I've designed for the last five years, so the page should say that first.",
+  },
+  {
     date: "2026-10-13",
     title: "The card number explains itself",
     tags: ["content"],
