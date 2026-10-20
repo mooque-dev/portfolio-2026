@@ -1361,17 +1361,7 @@ select::-ms-expand {
   .ask-caret { animation: none; }
 }
 
-/* The Jeppesen ForeFlight page: an enroute-style chart and a horizon glow. */
-:root {
-  --jf-paper: #f7f5ef;
-  --jf-ink: #1b2a44;
-  --jf-route: #b3287a;
-}
-.dark {
-  --jf-paper: #0f1b30;
-  --jf-ink: #d6dff0;
-  --jf-route: #e463ad;
-}
+/* The Jeppesen ForeFlight page: a navy-to-sunset horizon glow behind the intro. */
 .jf-sky {
   position: absolute;
   inset: 0 0 auto;
@@ -1387,34 +1377,102 @@ select::-ms-expand {
     linear-gradient(180deg, color-mix(in oklab, #1d3a6b 45%, transparent), transparent 60%),
     radial-gradient(55% 35% at 72% 78%, color-mix(in oklab, #f08a4b 26%, transparent), transparent 70%);
 }
-.jf-chart {
-  background: var(--jf-paper);
-  border: 1px solid color-mix(in oklab, var(--jf-ink) 18%, transparent);
-  box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.35);
+
+/* The Jeppesen ForeFlight page's boarding pass. Sized in container units so
+   the whole pass scales with its column; paper stays white in both themes. */
+.bp-wrap { container-type: inline-size; width: 100%; max-width: 480px; }
+.bp {
+  display: flex;
+  aspect-ratio: 2.35;
+  color: #0f1b30;
+  transform: rotate(-3deg);
+  filter: drop-shadow(0 18px 22px rgb(15 27 48 / 0.22));
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.jf-grid { stroke: color-mix(in oklab, var(--jf-ink) 8%, transparent); stroke-width: 1; }
-.jf-airway { fill: none; stroke: color-mix(in oklab, var(--jf-ink) 26%, transparent); stroke-width: 1.2; }
-.jf-small {
-  font: 600 9px ui-monospace, SFMono-Regular, Menlo, monospace;
-  letter-spacing: 0.06em;
-  fill: color-mix(in oklab, var(--jf-ink) 55%, transparent);
+.bp:hover { transform: rotate(-1.5deg) translateY(-4px); }
+@media (prefers-reduced-motion: reduce) { .bp, .bp:hover { transition: none; transform: rotate(-3deg); } }
+.bp-main, .bp-stub { background: #fff; display: flex; flex-direction: column; }
+.bp-main { flex: 1; min-width: 0; border-radius: 3cqw 0 0 3cqw; padding: 4cqw 4.4cqw; }
+.bp-stub { position: relative; width: 31cqw; border-radius: 0 3cqw 3cqw 0; border-left: 0.45cqw dashed #d5d1c7; padding: 4cqw 3cqw; }
+.bp-stub::before, .bp-stub::after {
+  content: ""; position: absolute; left: -2.2cqw; width: 4cqw; height: 4cqw; border-radius: 50%; background: var(--background);
 }
-.jf-rose { fill: none; stroke: color-mix(in oklab, var(--jf-ink) 35%, transparent); }
-.jf-rose-tick { stroke: color-mix(in oklab, var(--jf-ink) 35%, transparent); }
-.jf-box { fill: var(--jf-paper); stroke: var(--jf-ink); stroke-width: 1; }
-.jf-box-on { fill: var(--jf-route); stroke: var(--jf-route); }
-.jf-ident {
-  font: 700 11px ui-monospace, SFMono-Regular, Menlo, monospace;
-  letter-spacing: 0.06em;
-  fill: var(--jf-ink);
+.bp-stub::before { top: -2cqw; }
+.bp-stub::after { bottom: -2cqw; }
+.bp-head { display: flex; justify-content: space-between; gap: 2cqw; font-size: 2.15cqw; letter-spacing: 0.14em; text-transform: uppercase; color: #8a8578; font-weight: 600; white-space: nowrap; }
+.bp-band { height: 1.1cqw; border-radius: 1cqw; background: linear-gradient(90deg, #1d3a6b, #b3287a 65%, #f08a4b); margin: 2.4cqw 0 3.2cqw; }
+.bp-route { display: flex; align-items: center; gap: 3cqw; }
+.bp-code { font-size: 9.4cqw; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+.bp-city { font-size: 2.4cqw; color: #8a8578; margin-top: 0.8cqw; }
+.bp-plane { width: 11cqw; height: auto; fill: none; stroke: #b3287a; stroke-width: 2.2; stroke-linecap: round; }
+.bp-plane .bp-plane-fill { fill: #b3287a; stroke: none; }
+.bp-grid { display: grid; grid-template-columns: 1.7fr 1fr 0.7fr 1.1fr; gap: 2.6cqw; margin-top: auto; }
+.bp-grid span, .bp-stub-meta { display: block; font-size: 1.95cqw; letter-spacing: 0.12em; text-transform: uppercase; color: #8a8578; font-weight: 600; }
+.bp-grid b { display: block; font-size: 3.2cqw; margin-top: 0.7cqw; white-space: nowrap; }
+.bp-stub-route { font-size: 4.4cqw; font-weight: 800; line-height: 1.1; margin-top: 2.6cqw; white-space: nowrap; }
+.bp-stub-meta { margin-top: 1.2cqw; white-space: nowrap; }
+.bp-bars { display: flex; gap: 0.35cqw; height: 7cqw; margin-top: auto; }
+.bp-bars i { display: block; background: #0f1b30; }
+
+/* The Bridgit page's site sign. Container units, so it scales with its column. */
+.ss-wrap { container-type: inline-size; width: 100%; max-width: 440px; }
+.ss { transform: rotate(-1.5deg); }
+.ss-board { background: #fbfaf6; border: 1.2cqw solid #1f1d1a; border-radius: 1.6cqw; overflow: hidden; box-shadow: 0 24px 36px -22px rgb(0 0 0 / 0.5); }
+.ss-head { background: #f5b700; color: #1f1d1a; font-weight: 900; font-size: 8.4cqw; letter-spacing: -0.01em; text-transform: uppercase; line-height: 1; padding: 2.6cqw 4.4cqw 2.2cqw; }
+.ss-rows { margin: 0; padding: 3.4cqw 4.4cqw 4cqw; display: grid; gap: 2.4cqw; }
+.ss-rows div { display: grid; grid-template-columns: 25cqw minmax(0, 1fr); gap: 2cqw; align-items: baseline; }
+.ss-rows dt { font-size: 2.3cqw; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: #6b665c; }
+.ss-rows dd { margin: 0; font-size: 3.7cqw; font-weight: 600; color: #1f1d1a; line-height: 1.25; }
+.ss-hazard { height: 4.6cqw; background: repeating-linear-gradient(-45deg, #1f1d1a 0 3cqw, #f5b700 3cqw 6cqw); }
+.ss-posts { display: flex; justify-content: space-between; padding: 0 17cqw; }
+.ss-posts i { display: block; width: 3.6cqw; height: 15cqw; background: linear-gradient(90deg, #5a4a38, #8a7458 50%, #5a4a38); }
+
+/* The 7shifts page's week of shifts, in the site's own colours. */
+.sw { border: 1px solid var(--border); border-radius: 16px; background: var(--background); padding: 18px 18px 16px; box-shadow: 0 24px 40px -28px rgb(0 0 0 / 0.35); }
+.sw-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.sw-name { margin: 0; font-size: 17px; font-weight: 650; }
+.sw-sub { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+.sw-hours { margin: 0; font-size: 13px; color: var(--muted); white-space: nowrap; }
+.sw-hours b { font-size: 17px; color: var(--foreground); font-variant-numeric: tabular-nums; }
+.sw-scale { position: relative; height: 16px; margin: 16px 0 4px 44px; font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sw-scale span { position: absolute; transform: translateX(-50%); }
+.sw-scale span:first-child { transform: none; }
+.sw-scale span:last-child { transform: translateX(-100%); }
+.sw-days { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.sw-days li { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 8px; align-items: center; }
+.sw-day { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.sw-track { position: relative; height: 34px; border-radius: 8px; background: color-mix(in oklab, var(--foreground) 4%, transparent); background-image: repeating-linear-gradient(90deg, transparent 0 calc(20% - 1px), color-mix(in oklab, var(--foreground) 8%, transparent) calc(20% - 1px) 20%); }
+.sw-shift { position: absolute; top: 3px; bottom: 3px; border: 0; border-radius: 6px; padding: 0 8px; font: inherit; font-size: 12px; font-weight: 600; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; color: #fff; transition: box-shadow 0.15s, transform 0.15s; }
+.sw-shift[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--foreground); }
+.sw-shift:hover { transform: translateY(-1px); }
+.sw-shift:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
+.sw-teal { background: #13867b; }
+.sw-violet { background: #6b4fd8; }
+.sw-amber { background: #c77a0a; }
+.sw-blue { background: #2f63d4; }
+.sw-green { background: #2f8a4f; }
+.sw-detail { margin-top: 14px; padding: 12px 14px; border-radius: 10px; background: color-mix(in oklab, var(--foreground) 4%, transparent); }
+.sw-when { margin: 0; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sw-what { margin: 2px 0 0; font-size: 15px; font-weight: 650; }
+.sw-proof { margin: 4px 0 0; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.sw-proof a { color: var(--foreground); }
+@media (prefers-reduced-motion: reduce) { .sw-shift { transition: none; } .sw-shift:hover { transform: none; } }
+
+/* The Bridgit page: a faint blueprint grid behind the intro, fading out. */
+.bg-blueprint {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 760px;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(color-mix(in oklab, #2f63d4 10%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, #2f63d4 10%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, #000 30%, transparent);
 }
-.jf-ident-on { fill: #fff; }
-.jf-route { fill: none; stroke: var(--jf-route); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
-.jf-next { stroke-dasharray: 6 6; }
-.jf-tri { fill: var(--jf-paper); stroke: var(--jf-ink); stroke-width: 1.6; }
-.jf-on { fill: var(--jf-route); stroke: var(--jf-route); }
-.jf-fix:hover .jf-box:not(.jf-box-on), .jf-fix:focus-visible .jf-box { stroke: var(--jf-route); stroke-width: 2; }
-.jf-strip {
-  background: color-mix(in oklab, var(--foreground) 4%, transparent);
-  border: 1px solid color-mix(in oklab, var(--foreground) 12%, transparent);
+.dark .bg-blueprint {
+  background-image:
+    linear-gradient(color-mix(in oklab, #6f95ff 14%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, #6f95ff 14%, transparent) 1px, transparent 1px);
 }

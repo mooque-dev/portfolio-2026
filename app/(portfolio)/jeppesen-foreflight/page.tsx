@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
-import FlightPlan from "@/components/FlightPlan";
+import BoardingPass from "@/components/BoardingPass";
 import FadeIn from "@/components/FadeIn";
 import Arrow from "@/components/Arrow";
 
 // A tailored, unlisted view of the portfolio for Jeppesen ForeFlight. Not in
 // the sitemap, not in the nav, and kept out of search results on purpose.
 // Same shape as /bluej: an opening picture, the work, a way to reach me, and
-// a block of things that already run. The picture is the career drawn as a
-// flight plan on an enroute-style chart, under a navy-to-sunset sky.
+// a block of things that already run. The opening object is a boarding pass,
+// the way the Mastercard and Float pages open with a card, under a
+// navy-to-sunset sky.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Jeppesen ForeFlight" },
   description:
@@ -143,7 +144,14 @@ export default function JeppesenPage() {
               </div>
             </div>
             <div className="min-w-0">
-              <FlightPlan />
+              <BoardingPass />
+              <p className="mt-6 text-[14px] text-muted">
+                Seat 8Y for eight years designing. Gate PR #162 is my next pull request on{" "}
+                <Link href="/work/arnd" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  ARND
+                </Link>
+                .
+              </p>
             </div>
           </div>
         </FadeIn>

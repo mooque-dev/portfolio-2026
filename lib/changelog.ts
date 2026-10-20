@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-20",
+    title: "A boarding pass, a site sign and a week of shifts",
+    tags: ["content", "design"],
+    what: "The Jeppesen ForeFlight page now opens with a boarding pass: Toronto to the next role, seat 8Y for eight years, and the gate is my next pull request. Two new unlisted pages, each with its own one-page résumé: /bridgit opens with a construction site sign over a faint blueprint grid, and /7shifts with a week of shifts, where each shift is a way I work and links to the case that shows it.",
+    why: "Each page should open with something from that company's world, the way the card did for Mastercard and Float.",
+  },
+  {
+    date: "2026-10-20",
     title: "The Jeppesen ForeFlight page uses the full name",
     tags: ["content"],
     what: "The page now lives at /jeppesen-foreflight, and its résumé is allen-kang-resume-jeppesen-foreflight.pdf. The old /jeppesen link forwards there.",
