@@ -15,38 +15,30 @@ import Arrow from "@/components/Arrow";
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Jeppesen ForeFlight" },
   description:
-    "A short path through Allen Kang's work on expert tools: review and approval surfaces, auditable data, data-dense dashboards, and shipping in code.",
+    "A short path through Allen Kang's work on accounting, healthcare and data tools, design systems, and building in code.",
   robots: { index: false, follow: false },
 };
 
 // One line per case, each opening its page. Every number is on the résumé.
 const STATEMENT: StatementLine[] = [
   {
-    tag: "Expert review",
+    tag: "Accounting",
     title: "Transaction Workflows",
-    line: "The screens where accountants categorize and correct transactions, under tax rules in Canada, the US and Australia, now checked as they work instead of at year end.",
+    line: "One payment can be a donation, a gift and a ticket at once. I sat with accountants until that made sense, then redesigned how it's recorded under three countries' tax rules.",
     value: "-70% tickets",
     note: "fewer categorization support tickets, first month",
     href: "/work/transaction-workflows",
   },
   {
-    tag: "Auditability",
+    tag: "Data sync",
     title: "Aplos × Keela",
-    line: "Twelve interviews turned a data sync into a trust problem, so every field mapping became visible and checkable before anything moved.",
+    line: "Twelve interviews with finance managers turned a data sync into a trust problem, so every field mapping became visible before anything moved.",
     value: "1st joint launch",
     note: "the first feature the merged companies shipped together",
     href: "/work/aplos-keela-integration",
   },
   {
-    tag: "Automation",
-    title: "Automation for Nonprofits",
-    line: "A workflow builder where the fear was automation going wrong, so a preview shows exactly who it will touch before it runs.",
-    value: "30% adoption",
-    note: "across 355 organizations, and +13% ARR",
-    href: "/work/automation-nonprofits",
-  },
-  {
-    tag: "Data-dense",
+    tag: "Healthcare",
     title: "MyJourney dashboards",
     line: "Dashboards clinicians used to track cancer patients through treatment, rebuilt as working redesigns you can filter and click.",
     value: "4 screens",
@@ -54,17 +46,25 @@ const STATEMENT: StatementLine[] = [
     href: "/case/care-pathway/index.html",
   },
   {
-    tag: "Across teams",
+    tag: "0 to 1",
+    title: "Automation for Nonprofits",
+    line: "Fifteen interviews and three rounds of prototype testing, from a product area that didn't exist to a paid add-on in five months.",
+    value: "+13% ARR",
+    note: "for the product, with 30% of 355 organizations using it",
+    href: "/work/automation-nonprofits",
+  },
+  {
+    tag: "Design system",
     title: "Orchid design system",
-    line: "Three engineering teams onto one system without the authority to make them, while mentoring two designers.",
+    line: "I pitched it with surveys from five departments, earned two dedicated front-end engineers, and got three teams onto one system.",
     value: "340+ components",
     note: "merged into one library three teams use",
     href: "/work/orchid-design-system",
   },
   {
-    tag: "Data, then decide",
+    tag: "Experiment",
     title: "Fee Opt-In",
-    line: "I paused a launch that looked like a win, then A/B tested three fixes. Has a checkout you can play with.",
+    line: "I paused a launch that looked like a win, prototyped three fixes in code, then A/B tested them. Has a checkout you can play with.",
     value: "75→92%",
     note: "donors who chose to cover the fee",
     href: "/work/fee-opt-in-experimentation",
@@ -73,7 +73,7 @@ const STATEMENT: StatementLine[] = [
 
 const BUILT: { label: string; text: string; links: { href: string; name: string; external?: boolean }[] }[] = [
   {
-    label: "Shipping code",
+    label: "On my own",
     text: "ARND, a map-first React Native app for Toronto's small live shows, designed and built with AI coding tools. 160+ merged pull requests since April, in public beta.",
     links: [
       { href: "https://arnd.app", name: "arnd.app", external: true },
@@ -122,11 +122,11 @@ export default function JeppesenPage() {
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I design the screens where experts check the data, and I ship them in code.
+                I design the parts of software where the data has to be right, and I build them in code.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on
-                accounting, payments and healthcare tools, and these days I ship with AI coding tools, one pull request at a time.
+                accounting and payments tools, and I prototype in code when a mock can&rsquo;t answer the question.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
@@ -156,7 +156,7 @@ export default function JeppesenPage() {
           </div>
         </FadeIn>
 
-        <Block id="jf-work" label="The work" title="Six projects built for experts, and what changed after each one shipped.">
+        <Block id="jf-work" label="The work" title="Six projects, and what changed after each one shipped.">
           <Statement lines={STATEMENT} />
           <p className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-muted">
             <span>Built on my own:</span>
@@ -175,7 +175,7 @@ export default function JeppesenPage() {
           </p>
         </Block>
 
-        <Block id="jf-code" label="In code" title="I don't hand off a file and wait. Most of what I'd show you already runs.">
+        <Block id="jf-code" label="Built, not just drawn" title="Most of what I'd show you already runs.">
           <ul className="m-0 grid list-none gap-10 p-0 md:grid-cols-3 md:gap-8">
             {BUILT.map((b) => (
               <li key={b.label} className="flex flex-col border-t border-foreground/80 pt-5">
@@ -205,7 +205,7 @@ export default function JeppesenPage() {
           className="mt-24 md:mt-32 flex flex-col gap-6 border-t border-border pt-10 md:flex-row md:items-end md:justify-between"
         >
           <h2 id="jf-contact" className="max-w-xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
-            I&rsquo;d like to build better tools for the people behind every flight.
+            I&rsquo;d like to work on tools where getting it right matters.
           </h2>
           <div className="flex flex-wrap gap-3">
             <a href="mailto:allensmkang@gmail.com" className={`${pill} bg-foreground text-background hover:opacity-80`}>

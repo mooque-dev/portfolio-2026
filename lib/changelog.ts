@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-20",
+    title: "Quieter pages, and a résumé for each role",
+    tags: ["content"],
+    what: "The Jeppesen ForeFlight, Bridgit and 7shifts pages now share one set of plain project tags and differ mostly in which work comes first, plus a line or two of wording. Every role I'm applying to also has its own one-page résumé, built from one base: the bullets, projects and skills are reordered and one clause of the summary changes, so the facts stay the same everywhere.",
+    why: "Tailoring should help a reader find what they care about first, without the page feeling rewritten for them.",
+  },
+  {
+    date: "2026-10-20",
     title: "A boarding pass, a site sign and a week of shifts",
     tags: ["content", "design"],
     what: "The Jeppesen ForeFlight page now opens with a boarding pass: Toronto to the next role, seat 8Y for eight years, and the gate is my next pull request. Two new unlisted pages, each with its own one-page résumé: /bridgit opens with a construction site sign over a faint blueprint grid, and /7shifts with a week of shifts, where each shift is a way I work and links to the case that shows it.",

@@ -9,7 +9,7 @@ import Link from "next/link";
 type Shift = { day: string; start: number; end: number; short: string; label: string; tone: string; proof: string; href: string; link: string };
 
 const SHIFTS: Shift[] = [
-  { day: "Mon", start: 9, end: 12, short: "Research", label: "Talk to the people doing the work", tone: "teal", proof: "Sat with accountants until their workflow made sense, then cut categorization tickets by 70%.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
+  { day: "Mon", start: 9, end: 12, short: "Research", label: "Research with the people using it", tone: "teal", proof: "Sat with accountants until their workflow made sense, then cut categorization tickets by 70%.", href: "/work/transaction-workflows", link: "Transaction Workflows" },
   { day: "Tue", start: 10, end: 15, short: "Build with AI", label: "Explore and build with AI", tone: "violet", proof: "Builds with AI coding tools every day: ARND has 161 merged pull requests.", href: "/work/arnd", link: "ARND" },
   { day: "Wed", start: 9, end: 13, short: "Prototype", label: "Prototype in code", tone: "amber", proof: "Prototyped the Fee Opt-In checkout in code, so PMs and engineers could test the logic.", href: "/work/fee-opt-in-experimentation#try", link: "Fee Opt-In" },
   { day: "Thu", start: 11, end: 14, short: "Test", label: "Test with real users", tone: "blue", proof: "Three rounds of prototype testing took Automation from nothing to a paid add-on in five months.", href: "/work/automation-nonprofits", link: "Automation" },
