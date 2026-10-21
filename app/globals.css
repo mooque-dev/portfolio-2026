@@ -1605,3 +1605,116 @@ select::-ms-expand {
   .tc-visit, .tc-icon, .tc-icon svg, .tc-badge, .tc-btn, .tc-btn2 { transition: none; }
   .tc-table tbody td:last-child { animation: none; }
 }
+
+/* The Mercury page's brushed metal card. Container units; same in both themes. */
+.mc-wrap { container-type: inline-size; width: 100%; max-width: 420px; }
+.mc {
+  position: relative; aspect-ratio: 1.586; display: grid; grid-template-rows: auto 1fr auto auto; padding: 6.5cqw 7cqw;
+  border-radius: 4.6cqw; color: #e9e9ea; overflow: hidden;
+  background:
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 0.025) 0 1px, transparent 1px 3px),
+    linear-gradient(125deg, #3a3b3f 0%, #1c1d20 38%, #2b2c30 62%, #121315 100%);
+  box-shadow: 0 30px 50px -26px rgb(0 0 0 / 0.6), inset 0 1px 0 rgb(255 255 255 / 0.14), inset 0 0 0 1px rgb(255 255 255 / 0.05);
+  transform: rotate(-4deg); transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.mc::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgb(255 255 255 / 0.08) 48%, transparent 60%); pointer-events: none; }
+.mc:hover { transform: rotate(-1.5deg) translateY(-4px); }
+@media (prefers-reduced-motion: reduce) { .mc, .mc:hover { transition: none; transform: rotate(-4deg); } }
+.mc-top { display: flex; justify-content: space-between; align-items: baseline; }
+.mc-mark { font-size: 5cqw; font-weight: 700; letter-spacing: -0.02em; }
+.mc-kind { font-size: 2.7cqw; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(233 233 234 / 0.55); }
+.mc-chip { align-self: center; width: 11cqw; height: 8.4cqw; border-radius: 1.6cqw; background: linear-gradient(135deg, #b9b9bd, #77787d 50%, #a6a7ab); box-shadow: inset 0 0 0 0.3cqw rgb(0 0 0 / 0.18); }
+.mc-num { font-size: 5.6cqw; letter-spacing: 0.12em; font-variant-numeric: tabular-nums; color: #d8d8da; text-shadow: 0 -1px 0 rgb(0 0 0 / 0.6), 0 1px 0 rgb(255 255 255 / 0.14); }
+.mc-foot { display: flex; justify-content: space-between; margin-top: 3.4cqw; font-size: 3cqw; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(233 233 234 / 0.7); }
+
+/* The Samsara page's trip report. Follows the site's theme. */
+.tl-wrap { container-type: inline-size; width: 100%; max-width: 440px; }
+.tl { border: 1px solid var(--border); border-radius: 16px; background: var(--background); padding: 4.4cqw; box-shadow: 0 24px 40px -28px rgb(0 0 0 / 0.35); }
+.tl-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 3cqw; }
+.tl-k { margin: 0; font-size: 2.7cqw; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.tl-t { margin: 0.6cqw 0 0; font-size: 4.2cqw; font-weight: 650; }
+.tl-live { display: inline-flex; align-items: center; gap: 1.6cqw; font-size: 2.9cqw; font-weight: 600; padding: 1cqw 2.6cqw; border-radius: 99px; color: #13804a; background: color-mix(in oklab, #13804a 12%, transparent); }
+.tl-live::before { content: ""; width: 1.7cqw; height: 1.7cqw; border-radius: 50%; background: currentColor; }
+.dark .tl-live { color: #57c98b; }
+.tl-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2cqw; margin: 4cqw 0; padding: 3cqw 0; border-block: 1px solid var(--border); }
+.tl-stats div { display: grid; }
+.tl-stats b { font-size: 6cqw; font-weight: 650; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.tl-stats span { font-size: 2.8cqw; color: var(--muted); }
+.tl-route { list-style: none; margin: 0; padding: 0; display: grid; }
+.tl-route li { position: relative; display: grid; grid-template-columns: 10cqw 5cqw minmax(0, 1fr); align-items: start; padding-bottom: 2.6cqw; }
+.tl-route li::before { content: ""; position: absolute; left: calc(10cqw + 2.5cqw - 1px); top: 3cqw; bottom: -0.4cqw; width: 2px; background: var(--border); }
+.tl-route li:last-child { padding-bottom: 0; }
+.tl-route li:last-child::before { display: none; }
+.tl-year { font-size: 3cqw; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 0.2cqw; }
+.tl-dot { position: relative; z-index: 1; justify-self: center; margin-top: 1cqw; width: 2.6cqw; height: 2.6cqw; border-radius: 50%; background: var(--foreground); }
+.tl-stop { display: grid; min-width: 0; }
+.tl-stop b { font-size: 3.6cqw; font-weight: 650; }
+.tl-stop span { font-size: 3.1cqw; color: var(--muted); line-height: 1.35; }
+.tl-next .tl-dot { background: var(--background); box-shadow: inset 0 0 0 0.5cqw #13804a; }
+.tl-next .tl-dot::after { content: ""; position: absolute; inset: -1.2cqw; border-radius: 50%; border: 0.3cqw solid #13804a; opacity: 0; animation: tl-ping 2s ease-out infinite; }
+@keyframes tl-ping { 0% { transform: scale(0.6); opacity: 0.7; } 100% { transform: scale(1.4); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .tl-next .tl-dot::after { animation: none; } }
+
+/* The Clio pages' matter file: a manila folder holding a record. Paper stays light. */
+.mf-wrap { container-type: inline-size; width: 100%; max-width: 440px; }
+.mf { position: relative; padding-top: 7cqw; transform: rotate(-1deg); filter: drop-shadow(0 22px 26px rgb(40 30 10 / 0.22)); }
+.mf-tab { position: absolute; top: 0; left: 5cqw; padding: 1.6cqw 4cqw 3cqw; border-radius: 2.4cqw 2.4cqw 0 0; background: #e8d6a6; color: #5c4a1c; font-size: 2.8cqw; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.mf-body { position: relative; padding: 5cqw; border-radius: 0 2.4cqw 2.4cqw 2.4cqw; background: #e8d6a6; }
+.mf-body::before { content: ""; position: absolute; inset: 3cqw 3cqw 3cqw 3cqw; border-radius: 1.2cqw; background: #fffdf7; box-shadow: 0 1px 2px rgb(0 0 0 / 0.08); }
+.mf-body > * { position: relative; }
+.mf-title { margin: 0; padding: 2cqw 2cqw 0; font-size: 5cqw; font-weight: 700; letter-spacing: -0.01em; color: #1e1b14; }
+.mf-rec { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw 4cqw; margin: 3.6cqw 0 0; padding: 0 2cqw 3.6cqw; border-bottom: 1px solid #ece4cf; }
+.mf-rec dt { font-size: 2.5cqw; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8b8170; }
+.mf-rec dd { margin: 0.4cqw 0 0; font-size: 3.5cqw; font-weight: 600; color: #1e1b14; }
+.mf-open { display: inline-block; padding: 0.4cqw 2cqw; border-radius: 99px; background: #e2f2e8; color: #17804a; font-size: 3cqw; }
+.mf-sec { margin: 3.6cqw 0 0; padding: 0 2cqw; font-size: 2.5cqw; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8b8170; }
+.mf-log { list-style: none; margin: 2cqw 0 0; padding: 0 2cqw 2cqw; display: grid; gap: 2.4cqw; }
+.mf-log li { display: grid; grid-template-columns: 9cqw minmax(0, 1fr); gap: 2cqw; font-size: 3.3cqw; line-height: 1.4; color: #1e1b14; }
+.mf-date { color: #8b8170; font-variant-numeric: tabular-nums; }
+.mf-log a, .mf-bl { color: inherit; text-decoration: underline; text-decoration-color: #d9cdb0; text-underline-offset: 0.6cqw; }
+.mf-log a:hover, .mf-bl:hover { text-decoration-color: #1e1b14; }
+.mf-bars { list-style: none; margin: 2.4cqw 0 0; padding: 0 2cqw 2cqw; display: grid; gap: 3cqw; }
+.mf-bl { display: flex; justify-content: space-between; gap: 3cqw; font-size: 3.2cqw; color: #1e1b14; }
+.mf-bl b { font-variant-numeric: tabular-nums; }
+.mf-track { position: relative; display: block; height: 2.4cqw; margin-top: 1.2cqw; border-radius: 99px; background: #f1ebdc; overflow: hidden; }
+.mf-track i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 99px; }
+.mf-from { background: #d9cdb0; }
+.mf-to { background: #2f5fd0; height: 50%; top: 25% !important; }
+.mf-bars li:nth-child(2) .mf-to { background: #17804a; }
+
+/* The Matcha page's candidate card. Follows the site's theme, matcha green accent. */
+.mt-wrap { container-type: inline-size; width: 100%; max-width: 420px; }
+.mt { border: 1px solid var(--border); border-radius: 22px; background: var(--background); padding: 6cqw; box-shadow: 0 30px 50px -30px rgb(40 60 20 / 0.4); transform: rotate(2deg); }
+.mt-who { display: flex; align-items: center; gap: 4cqw; }
+.mt-av { display: grid; place-items: center; width: 15cqw; height: 15cqw; border-radius: 50%; background: #7a9a45; color: #fff; font-size: 5cqw; font-weight: 700; }
+.mt-name { margin: 0; font-size: 5.6cqw; font-weight: 700; letter-spacing: -0.015em; }
+.mt-role { margin: 0.6cqw 0 0; font-size: 3.4cqw; color: var(--muted); }
+.mt-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 2cqw; margin: 5cqw 0 0; padding: 0; }
+.mt-tags li { padding: 1.2cqw 3cqw; border-radius: 99px; font-size: 3.1cqw; font-weight: 600; background: color-mix(in oklab, #7a9a45 14%, transparent); color: #4d6a20; }
+.dark .mt-tags li { color: #b5d67e; }
+.mt-k { margin: 5cqw 0 0; font-size: 2.7cqw; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.mt-why { list-style: disc; margin: 2cqw 0 0; padding-left: 4.4cqw; display: grid; gap: 1.6cqw; font-size: 3.6cqw; line-height: 1.4; }
+.mt-why li::marker { color: #7a9a45; }
+.mt-why a { color: inherit; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 0.7cqw; }
+.mt-why a:hover { text-decoration-color: currentColor; }
+.mt-acts { display: grid; grid-template-columns: 1fr 1.6fr; gap: 2.4cqw; margin-top: 5.4cqw; }
+.mt-acts span { text-align: center; padding: 3cqw 0; border-radius: 99px; font-size: 3.6cqw; font-weight: 650; border: 1px solid var(--border); }
+.mt-acts .mt-yes { background: #7a9a45; border-color: #7a9a45; color: #fff; }
+.matcha-glow { position: absolute; inset: 0 0 auto; height: 760px; z-index: -1; pointer-events: none; background: radial-gradient(50% 45% at 78% 40%, color-mix(in oklab, #7a9a45 16%, transparent), transparent 70%); }
+
+/* The Stripe page's command palette. Follows the site's theme. */
+.ck { width: 100%; max-width: 460px; border: 1px solid var(--border); border-radius: 14px; background: var(--background); box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.4); overflow: hidden; }
+.ck-bar { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+.ck-bar svg { width: 16px; height: 16px; flex: none; fill: none; stroke: var(--muted); stroke-width: 1.6; stroke-linecap: round; }
+.ck-bar input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--foreground); font: inherit; font-size: 15px; }
+.ck kbd { font: inherit; font-size: 11.5px; color: var(--muted); border: 1px solid var(--border); border-radius: 5px; padding: 1px 5px; }
+.ck-list { list-style: none; margin: 0; padding: 6px; max-height: 312px; overflow-y: auto; }
+.ck-list li { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "t m" "g m"; gap: 0 12px; padding: 8px 10px; border-radius: 8px; cursor: pointer; }
+.ck-list li.on { background: color-mix(in oklab, var(--foreground) 6%, transparent); }
+.ck-t { grid-area: t; font-size: 14px; font-weight: 600; }
+.ck-tag { grid-area: g; font-size: 12.5px; color: var(--muted); }
+.ck-m { grid-area: m; align-self: center; font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ck-list li.ck-none { display: block; cursor: default; color: var(--muted); font-size: 13.5px; }
+.ck-foot { display: flex; gap: 16px; margin: 0; padding: 9px 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
+.ck-foot kbd { margin-right: 3px; }
+.stripe-glow { position: absolute; inset: 0 0 auto; height: 760px; z-index: -1; pointer-events: none; background: radial-gradient(45% 40% at 80% 35%, color-mix(in oklab, #635bff 14%, transparent), transparent 70%); }

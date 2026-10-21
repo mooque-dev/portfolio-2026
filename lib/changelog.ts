@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-20",
+    title: "Six more pages: a matter file, a metal card, a trip report, a command palette and a match",
+    tags: ["content", "design"],
+    what: "New unlisted pages, each with its own one-page résumé. /clio and /clio-insights open with a matter file: one lists how three products became one, the other holds a short before-and-after report. /mercury opens with a brushed metal card whose number is four years of my life. /samsara opens with a trip report where every stop is a job. /stripe opens with a command palette you can type into to search the work. /matcha opens with a candidate card and the reasons it fits.",
+    why: "Each page should open with something from that company's world, and the object should still be about the work.",
+  },
+  {
+    date: "2026-10-20",
     title: "A page for APPLY",
     tags: ["content", "design"],
     what: "A new unlisted page at /apply-digital with its own one-page résumé. It opens with the token card from the OpenLoop page, this time holding a product card in three made-up retail brands: switch the brand and only the global tier changes.",

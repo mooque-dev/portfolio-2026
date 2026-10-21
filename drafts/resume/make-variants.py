@@ -128,6 +128,55 @@ ROLES = {
         lead=["pitch", "process", "core"], pd=["auto", "adopt", "pm"],
         projects=["arnd_code", "demello", "artsgaze"],
         skills="Design systems and tokens &middot; UI and visual design &middot; Brand and typography &middot; AI tools (Claude Code, Cursor, MagicPatterns) &middot; Prototyping in code &middot; Figma, Storybook"),
+    "clio": dict(
+        url="mooque-dev.github.io/clio",
+        domain="B2B SaaS", clause="bring separate products together into one",
+        aplos=["own", "integ", "orchid", "split", "fee_code", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_code", "fork", "yuwol"],
+        skills="Research and usability testing &middot; Information architecture &middot; Design systems &middot; Prototyping with AI tools (Claude Code, Cursor) &middot; A/B testing &middot; Figma, Storybook, Pendo"),
+    "clio-insights": dict(
+        url="mooque-dev.github.io/clio-insights",
+        domain="complex financial and data-heavy tools", clause="design for data-heavy workflows",
+        aplos=["integ", "split_tax", "own", "orchid", "fee", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
+        projects=["arnd_code", "fork", "yuwol"],
+        skills="Data visualization &middot; Dashboards and reporting &middot; Research and usability testing &middot; Prototyping with AI tools (Claude, Cursor) &middot; Design systems &middot; Figma, Storybook, Amplitude"),
+    "mercury": dict(
+        url="mooque-dev.github.io/mercury",
+        domain="payments and transaction-heavy products", clause="prototype in code",
+        aplos=["split", "fee_code", "own", "orchid", "integ", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
+        projects=["arnd_code", "yuwol", "fork"],
+        skills="Interaction and visual design &middot; Prototyping in code (React, TypeScript) &middot; Design systems &middot; Research and usability testing &middot; A/B testing &middot; Figma, Storybook"),
+    "neo": dict(
+        url="mooque-dev.github.io",
+        domain="payments and transaction-heavy products", clause="mentor designers",
+        aplos=["orchid", "partner", "own", "split", "fee", "integ"],
+        lead=["pitch", "process", "core"], pd=["auto", "adopt", "pm"],
+        projects=["arnd_code", "fork", "yuwol"],
+        skills="Design systems &middot; Mentoring and design process &middot; Research and usability testing &middot; A/B testing &middot; Prototyping with AI tools &middot; Figma, Storybook"),
+    "samsara": dict(
+        url="mooque-dev.github.io/samsara",
+        domain="B2B SaaS", clause="ship in code with AI tools",
+        aplos=["fee_code", "own", "orchid", "integ", "split", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_mobile", "yuwol", "fork"],
+        skills="Web and mobile (iOS, Android) &middot; Shipping code with AI tools (Claude Code, Cursor) &middot; Research with customers &middot; Design systems &middot; Mentoring &middot; Figma, Storybook"),
+    "stripe": dict(
+        url="mooque-dev.github.io/stripe",
+        domain="complex financial and data-heavy tools", clause="prototype in code",
+        aplos=["integ", "split", "orchid", "own", "fee", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
+        projects=["yuwol", "arnd_code", "fork"],
+        skills="Workflow and internal tools &middot; Information architecture &middot; Design systems &middot; Research and usability testing &middot; Prototyping in code (React, TypeScript) &middot; Figma, Storybook"),
+    "matcha": dict(
+        url="mooque-dev.github.io/matcha",
+        domain="B2B SaaS", clause="take products from zero to shipped",
+        aplos=["orchid", "own", "fee", "split", "integ", "partner"],
+        lead=["pitch", "core", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_code", "fork", "yuwol"],
+        skills="0 to 1 product design &middot; Design systems and visual language &middot; Brand and typography &middot; Prototyping with AI tools (Claude Code, Cursor) &middot; Research &middot; Figma"),
 }
 
 
