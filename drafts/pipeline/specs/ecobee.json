@@ -5,7 +5,6 @@
   "lede": "I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, from first research to release, and I prototype in code when a mock can&rsquo;t answer the question.",
   "hero_import": "import Thermostat from \"@/components/Thermostat\";",
   "hero_jsx": "<Thermostat />",
-  "bg": "eb-air",
   "cases": [
     "or",
     "au",
@@ -15,17 +14,5 @@
     "yu"
   ],
   "h1": "I make complicated systems feel calm to the people living with them.",
-  "contact": "I&rsquo;d like to make the technology in people&rsquo;s homes easier to live with.",
-  "brand": {
-    "fill": "#2D2926",
-    "on": "#ffffff",
-    "ink": "#2D2926",
-    "inkDark": "#EDCD3F",
-    "heroBg": "#2D2926",
-    "heroFg": "#ffffff",
-    "heroMark": "#EDCD3F",
-    "heroCta": "#EDCD3F",
-    "heroCtaOn": "#2D2926"
-  },
-  "mark": "feel calm"
+  "contact": "I&rsquo;d like to make the technology in people&rsquo;s homes easier to live with."
 }

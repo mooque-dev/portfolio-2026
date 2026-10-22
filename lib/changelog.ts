@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-22",
+    title: "One frame for every tailored page, checked at five screen sizes",
+    tags: ["engineering", "fix"],
+    what: "The tailored pages now share one frame: each company page is a short settings file (colours, fonts, headline, opening object, which projects come first) and the layout lives in one place. A new check loads every page at phone, tablet, laptop and wide widths and flags sideways scrolling, anything past the screen edge, a headline running into its object, clipped headlines, small tap targets and squeezed text. On phones the work list now puts each result under its description, and the small labels inside the opening objects never drop below a readable size.",
+    why: "Fixing layout once instead of fifteen times, and catching phone problems before anyone else does.",
+  },
+  {
+    date: "2026-10-22",
     title: "Every tailored page now speaks its company's visual language",
     tags: ["design"],
     what: "After studying each company's own site, every tailored page takes on its typography (the closest free faces), canvas, button shapes and one signature detail: Clio's frosted glass over navy, Samsara's wide black capitals and bracketed labels on graph paper, Stripe's two-tone headline and gradient ribbon, Matcha's all-monospace prompt, Harvey's serif and grain, ecobee's serif headlines and outlined pills, OpenLoop's pink italic ending, APPLY's orange braces, Bridgit's dotted trail, 7shifts' scribbled underline and handwritten notes, and ForeFlight's letter-spaced orange buttons. No logos, photos or copy are borrowed.",

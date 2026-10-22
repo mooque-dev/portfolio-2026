@@ -112,56 +112,61 @@ For each lead:
      It must be one page: check with
      `node drafts/pipeline/cap.mjs file://$PWD/drafts/resume/resume-<slug>.html /tmp/r.png body 700`
      (height must be 958 or less) and trim the variant if not.
-   - **Page** (Apply and Consider only; Long shots get the résumé alone): write
-     `drafts/pipeline/specs/<slug>.json` (see `new-page.py` for the fields;
-     `ecobee.json` is a worked example) and run
-     `python3 drafts/pipeline/new-page.py <slug>`. The opening object should
-     come from the company's world. Reuse one of these when it fits, with
-     new content if it takes props: `PaymentCard`, `FloatCard`, `MetalCard`
-     (cards, fintech), `AskCard` (AI answers with citations), `Brief`
-     (legal), `MatterFile` (legal practice; presets platform, insights),
-     `BoardingPass` (travel), `SiteSign` (construction), `ShiftWeek`
-     (scheduling), `Thermostat` (devices, home), `TokenCard` (design
-     systems; presets visit, product), `TripLog` (fleet, logistics),
-     `CommandK` (developer and internal tools), `MatchCard` (hiring,
-     marketplaces). Or build a small new one in `components/` with its CSS
-     at the end of `app/globals.css`, sized in container units, light and
-     dark both checked, no company logos or marks.
-   - **Brand it, minimally.** The company's colour lives in two full-width
-     bands (the intro and the contact block) and the buttons; everything
-     between stays plain, like a senior designer's own portfolio. Sample the
-     colours from the company's site (button, background and accent colours,
-     e.g. with the browser and `getComputedStyle`), add an entry to
-     `drafts/pipeline/brands.json` (keys explained in `brand.py`), copy it into
-     the spec's `brand`, and pick a `mark` phrase in the headline. Also set
-     the résumé's `accent` in `make-variants.py` to the brand ink. Never use
-     their logo or wordmark.
-   - **Match their site, not ours.** Before building, study the company's
-     marketing site in the browser (or read `drafts/pipeline/brand-briefs/<slug>.md`
-     if it exists): canvas, display and text faces (use the closest Google
-     Fonts via `next/font/google`), button shapes, composition, and 3 to 5
-     signature details. For a brand with strong presence, build the page
-     bespoke the way `app/(portfolio)/mercury/page.tsx` is built (its own
-     sections, fonts and palette, the work shown in their product's visual
-     language) instead of the shared template. Never copy their logo,
-     photos or copy.
-   - **Type and signature.** Add the company to `drafts/pipeline/themes.json`
-     from its brief (Google Fonts families for display, text and any mono
-     or hand face, and one `sig` detail; see `theme.py` for the types), add
-     a `.theme-<slug>` block at the end of `app/globals.css` with the
-     brief's canvas, ink, heading weight and tracking, button shape and the
-     signature styling, and `new-page.py` applies it. Look at the result
-     next to a screenshot of their site before sending it for review.
+   - **Page** (Apply and Consider only; Long shots get the résumé alone).
+     Every page is a short settings file on one shared frame,
+     `components/tailored/TailoredPage.tsx`, which owns the layout, the
+     brand bands, the work list, the code paragraphs and the contact block.
+     Never copy layout into a page; if the layout needs a fix, fix the frame
+     and every page gets it. The steps:
+     1. **Study their site** in the browser, or read
+        `drafts/pipeline/brand-briefs/<slug>.md` if it exists (write one in
+        the same format if not): canvas, display and text faces and their
+        closest Google Fonts, button shape, colours, composition, and 3 to 5
+        signature details.
+     2. **Colours:** add an entry to `drafts/pipeline/brands.json` (keys in
+        `frame.py`: button fill and text, ink for light and dark, the hero and
+        contact band colours, band buttons). Light-canvas brands get a light
+        band. Set the résumé's `accent` in `make-variants.py` to the brand ink.
+     3. **Type and signature:** add an entry to `drafts/pipeline/themes.json`
+        (Google Fonts family names for display, text and an optional mono or
+        hand face, and one `sig`: glass, label, tone, cursor, em, brace,
+        scribble, trail or none) and a `.theme-<slug>` block at the end of
+        `app/globals.css` with the brief's canvas, ink, heading weight and
+        tracking, button radius and the signature styling. Copy the shape of
+        an existing block (`.theme-stripe`, `.theme-harvey`).
+     4. **Spec:** write `drafts/pipeline/specs/<slug>.json` (fields in
+        `new-page.py`; `ecobee.json` is the worked example) and run
+        `python3 drafts/pipeline/new-page.py <slug>`. The opening object
+        should come from the company's world. Reuse one when it fits:
+        `PaymentCard`, `FloatCard`, `MetalCard`, `EngravedCard` (cards,
+        fintech), `AskCard` (AI answers with citations), `Brief` (legal),
+        `MatterFile` (legal practice; presets platform, insights),
+        `BoardingPass` (travel), `SiteSign` (construction), `ShiftWeek`
+        (scheduling), `Thermostat` (devices, home), `TokenCard` (design
+        systems; presets visit, product), `TripLog` (fleet, logistics),
+        `CommandK` (developer and internal tools), `MatchCard` (hiring,
+        marketplaces), `AccountsPanel` (banking). Or build a small new one in
+        `components/`, sized in container units with `max(11px, …cqw)` floors
+        on small text, no company logos or marks.
+     5. Only a brand with very strong presence gets a fully bespoke page,
+        the way `app/(portfolio)/mercury/page.tsx` is built. Never copy their
+        logo, photos or copy.
    - **Avoid template tells.** No eyebrow labels over headings, no rows of
      feature cards with coloured rules, no gradient glows or dot grids, no
-     clever subheads. `brand.py` strips these from the template; don't add
-     them back.
+     clever subheads. The frame already leaves them out.
    - `npx tsc --noEmit` and `npx eslint` on the new files.
-   - **Preview:** start a dev server on a spare port
+   - **Preview and check:** start a dev server on a spare port
      (`PORT=3123 npm run dev` in the background), wait for
-     `curl localhost:3123/<slug>` to return 200, capture
+     `curl localhost:3123/<slug>` to return 200, then run
+     `node drafts/pipeline/check-pages.mjs http://localhost:3123 /tmp/check <slug>`.
+     It loads the page at 375, 768, 1024, 1280 and 1440 wide, reports
+     sideways scrolling, anything past the screen edge, the headline running
+     into the object, clipped headlines and small tap targets, and saves the
+     first screen at each width as `/tmp/check/<slug>-<width>.png`. Fix every
+     issue and look at the 375 and 1280 images yourself. Capture the review
+     image with
      `node drafts/pipeline/hero.mjs http://localhost:3123/<slug> /tmp/<slug>.png 1280 860`,
-     look at the image, fix anything broken, then stop the server.
+     then stop the server.
    - Commit on the branch and `git push -u origin draft/<slug>`.
 5. **Attach the preview to the tracker:** upload `/tmp/<slug>.png` and the
    résumé PDF with the Artifact tool (`url` = the tracker, `asset: true`,
