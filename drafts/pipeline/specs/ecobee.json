@@ -1,0 +1,12 @@
+{
+  "company": "ecobee",
+  "object": "a thermostat, each setting a way of working with its number as the proof",
+  "desc": "A short path through Allen Kang's work: design systems, research, mobile, and things that already run.",
+  "lede": "I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, from first research to release, and I prototype in code when a mock can&rsquo;t answer the question.",
+  "hero_import": "import Thermostat from \"@/components/Thermostat\";",
+  "hero_jsx": "<Thermostat />",
+  "bg": "eb-air",
+  "cases": ["or","au","ar","fe","tw","yu"],
+  "h1": "I make complicated systems feel calm to the people living with them.",
+  "contact": "I&rsquo;d like to make the technology in people&rsquo;s homes easier to live with."
+}
