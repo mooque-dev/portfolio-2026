@@ -1871,8 +1871,11 @@ body:has(.theme-7shifts) { --hdr: #f1f0ec; }
 .theme-stripe { --canvas: #fff; --ink: #061b31; --mut: #50617a; --line: #e5edf5; --h1w: 300; --h1t: -0.02em; --h1l: 1.1; --h2w: 400; --btn-r: 4px; }
 .theme-stripe .sig-tone { color: #64748d; }
 .theme-stripe .brand-hero { overflow: hidden; }
-.theme-stripe .brand-hero::before { content: ""; position: absolute; z-index: 0; top: -55%; left: 58%; right: -12%; height: 100%; transform: skewY(-12deg);
+/* The ribbon hangs behind the search box only, so it never reaches the text column. */
+.theme-stripe .sig-obj { position: relative; isolation: isolate; }
+.theme-stripe .sig-obj::before { content: ""; position: absolute; z-index: -1; top: -42%; bottom: 12%; left: 6%; right: calc(-50vw + 50%); transform: skewY(-12deg);
   background: linear-gradient(100deg, #a960ee 0%, #ff333d 45%, #ff8a3d 70%, #ffcb57 100%); opacity: 0.9; border-radius: 0 0 0 40px; }
+@media (max-width: 1023px) { .theme-stripe .sig-obj::before { top: -10%; left: 18%; bottom: 20%; } }
 .theme-stripe article > div { border-inline: 1px solid #e5edf5; }
 .theme-stripe .sig-obj .ck { box-shadow: 0 30px 60px -20px rgb(50 50 93 / 0.25), 0 18px 36px -18px rgb(0 0 0 / 0.3); border: 0; }
 
