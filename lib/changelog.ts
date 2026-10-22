@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-23",
+    title: "The same work, told as product decisions",
+    tags: ["content"],
+    what: "A new unlisted page at /product tells three projects the way a product manager would: the problem, the evidence, the call and what happened. Split payments behind a churn driver, a fee win held back because it hid a leak, and Automation's real obstacle found before building it, plus ARND as a product owned end to end. A matching one-page résumé leads with decisions and states the PM stint at its real length, about three months.",
+    why: "I'm applying to product manager roles alongside design ones, and the honest version of the story is strong enough on its own.",
+  },
+  {
     date: "2026-10-22",
     title: "One frame for every tailored page, checked at five screen sizes",
     tags: ["engineering", "fix"],
