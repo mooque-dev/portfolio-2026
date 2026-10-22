@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-22",
+    title: "Each tailored page wears the company's colours",
+    tags: ["design"],
+    what: "The tailored pages now take their colours from the company they're for: the résumé and email buttons, the section labels, the result numbers and a soft glow behind the intro, plus a marker swipe in that colour behind one phrase of each headline. Colours are sampled from each company's own site, and there are no logos.",
+    why: "A page made for someone should look like it, at a glance, before a word is read.",
+  },
+  {
     date: "2026-10-20",
     title: "Six more pages: a matter file, a metal card, a trip report, a command palette and a match",
     tags: ["content", "design"],

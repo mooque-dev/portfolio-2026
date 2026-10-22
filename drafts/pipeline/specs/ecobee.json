@@ -6,7 +6,23 @@
   "hero_import": "import Thermostat from \"@/components/Thermostat\";",
   "hero_jsx": "<Thermostat />",
   "bg": "eb-air",
-  "cases": ["or","au","ar","fe","tw","yu"],
+  "cases": [
+    "or",
+    "au",
+    "ar",
+    "fe",
+    "tw",
+    "yu"
+  ],
   "h1": "I make complicated systems feel calm to the people living with them.",
-  "contact": "I&rsquo;d like to make the technology in people&rsquo;s homes easier to live with."
+  "contact": "I&rsquo;d like to make the technology in people&rsquo;s homes easier to live with.",
+  "brand": {
+    "fill": "#2D2926",
+    "on": "#ffffff",
+    "ink": "#2D2926",
+    "inkDark": "#EDCD3F",
+    "mark": "#EDCD3F",
+    "glow": false
+  },
+  "mark": "feel calm"
 }

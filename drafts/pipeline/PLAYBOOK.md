@@ -125,6 +125,12 @@ For each lead:
      marketplaces). Or build a small new one in `components/` with its CSS
      at the end of `app/globals.css`, sized in container units, light and
      dark both checked, no company logos or marks.
+   - **Brand it.** Every page wears the company's real colours: sample them
+     from the company's site (button and accent colours, e.g. with the
+     browser and `getComputedStyle`), then put them in the spec's `brand`
+     (fill, text on the fill, ink that reads on white, ink that reads on
+     dark, optional marker colour when the fill is near black) and pick a
+     `mark` phrase in the headline. Never use their logo or wordmark.
    - `npx tsc --noEmit` and `npx eslint` on the new files.
    - **Preview:** start a dev server on a spare port
      (`PORT=3123 npm run dev` in the background), wait for

@@ -1718,3 +1718,36 @@ select::-ms-expand {
 .ck-foot { display: flex; gap: 16px; margin: 0; padding: 9px 14px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); }
 .ck-foot kbd { margin-right: 3px; }
 .stripe-glow { position: absolute; inset: 0 0 auto; height: 760px; z-index: -1; pointer-events: none; background: radial-gradient(45% 40% at 80% 35%, color-mix(in oklab, #635bff 14%, transparent), transparent 70%); }
+
+/* Tailored pages wear the company's colours: filled buttons, section labels,
+   the result numbers and a soft glow. Each page sets --brand (fill),
+   --brand-on (text on the fill), --brand-ink and --brand-ink-dark (brand text
+   that stays readable on each theme). */
+.brand-page { --brand-text: var(--brand-ink); }
+.dark .brand-page { --brand-text: var(--brand-ink-dark); }
+.brand-page .brand-cta { background: var(--brand); color: var(--brand-on); border: 1px solid var(--brand); }
+.brand-page .brand-cta:hover { filter: brightness(1.08); }
+.brand-page .brand-label { color: var(--brand-text); }
+.brand-page .st-val { color: var(--brand-text); }
+.brand-page .brand-rule { border-top-color: var(--brand); border-top-width: 2px; }
+.brand-page .underline { text-decoration-color: color-mix(in oklab, var(--brand-text) 70%, transparent); }
+.brand-page ::selection { background: color-mix(in oklab, var(--brand) 28%, transparent); }
+.brand-glow {
+  position: absolute; inset: 0 0 auto; height: 780px; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(48% 42% at 80% 32%, color-mix(in oklab, var(--brand) 16%, transparent), transparent 70%),
+    linear-gradient(180deg, color-mix(in oklab, var(--brand) 7%, transparent), transparent 45%);
+}
+.dark .brand-glow {
+  background:
+    radial-gradient(48% 42% at 80% 32%, color-mix(in oklab, var(--brand) 26%, transparent), transparent 70%),
+    linear-gradient(180deg, color-mix(in oklab, var(--brand) 12%, transparent), transparent 45%);
+}
+.dark .brand-page .brand-cta { background: var(--brand-ink-dark); border-color: var(--brand-ink-dark); color: #121212; }
+/* A marker swipe in the brand colour behind one phrase of the headline. */
+.brand-mark {
+  --m: color-mix(in oklab, var(--brand-mark, var(--brand)) 30%, transparent);
+  background: linear-gradient(176deg, transparent 56%, var(--m) 56%, var(--m) 90%, transparent 90%);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 0.05em; margin: 0 -0.05em;
+}
+.dark .brand-mark { --m: color-mix(in oklab, var(--brand-mark, var(--brand-ink-dark)) 40%, transparent); }

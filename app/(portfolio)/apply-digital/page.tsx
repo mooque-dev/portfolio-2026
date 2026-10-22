@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import TokenCard from "@/components/TokenCard";
@@ -96,13 +96,15 @@ const OWN = [
   { slug: "torontoyuwol", name: "Toronto Yuwol" },
 ];
 
+const BRAND = { "--brand": "#FF4A08", "--brand-on": "#1D1C1D", "--brand-ink": "#B83500", "--brand-ink-dark": "#FF7A45" } as CSSProperties;
+
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 
 function Block({ id, label, title, children }: { id: string; label: string; title: string; children: ReactNode }) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-24 mt-24 md:mt-32">
-      <p className="microlabel text-muted">{label}</p>
+      <p className="microlabel text-muted brand-label">{label}</p>
       <h2 id={`${id}-title`} className="mt-3 max-w-3xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
         {title}
       </h2>
@@ -113,14 +115,15 @@ function Block({ id, label, title, children }: { id: string; label: string; titl
 
 export default function ApplyDigitalPage() {
   return (
-    <article className="relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="brand-glow" aria-hidden />
       <div className="ol-dots" aria-hidden />
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I set the bar for how a product looks, then build the system that keeps it there.
+                I set the bar for how a product looks, then build the system that <span className="brand-mark">keeps it there</span>.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a product designer in Toronto with a graphic design degree. Eight years designing, the last five on B2B software, where I grew one design system to 340+ components across three teams and mentored three designers. These days I work with Claude from first concept to running code.
@@ -130,7 +133,7 @@ export default function ApplyDigitalPage() {
                   href="/allen-kang-resume-apply-digital-lead.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${pill} gap-1.5 border border-border hover:border-foreground/40`}
+                  className={`${pill} brand-cta gap-1.5`}
                 >
                   Résumé (PDF) <Arrow dir="up-right" />
                   <span className="sr-only"> (opens in new tab)</span>
@@ -169,8 +172,8 @@ export default function ApplyDigitalPage() {
         <Block id="ad-code" label="Built, not just drawn" title="Most of what I'd show you already runs.">
           <ul className="m-0 grid list-none gap-10 p-0 md:grid-cols-3 md:gap-8">
             {BUILT.map((b) => (
-              <li key={b.label} className="flex flex-col border-t border-foreground/80 pt-5">
-                <p className="microlabel text-muted">{b.label}</p>
+              <li key={b.label} className="flex flex-col brand-rule border-t pt-5">
+                <p className="microlabel text-muted brand-label">{b.label}</p>
                 <p className="mt-3 flex-1 text-[15.5px] leading-relaxed">{b.text}</p>
                 <p className="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-sm">
                   {b.links.map((l) =>
@@ -199,7 +202,7 @@ export default function ApplyDigitalPage() {
             I&rsquo;d like to help brands ship work that looks as good live as it did in the deck.
           </h2>
           <div className="flex flex-wrap gap-3">
-            <a href="mailto:allensmkang@gmail.com" className={`${pill} bg-foreground text-background hover:opacity-80`}>
+            <a href="mailto:allensmkang@gmail.com" className={`${pill} brand-cta`}>
               allensmkang@gmail.com
             </a>
             <a

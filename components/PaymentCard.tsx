@@ -87,7 +87,7 @@ export function Statement({ lines, footer }: { lines: StatementLine[]; footer?: 
               </span>
               <span className="flex items-center gap-2 text-right">
                 <span>
-                  <span className="block text-[15px] font-semibold tabular-nums">{l.value}</span>
+                  <span className="st-val block text-[15px] font-semibold tabular-nums">{l.value}</span>
                   {l.note && <span className="mt-0.5 block max-w-[170px] text-[12.5px] leading-snug text-muted">{l.note}</span>}
                 </span>
                 <span aria-hidden className="text-muted transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none">
