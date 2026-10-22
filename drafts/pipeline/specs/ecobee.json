@@ -21,8 +21,11 @@
     "on": "#ffffff",
     "ink": "#2D2926",
     "inkDark": "#EDCD3F",
-    "mark": "#EDCD3F",
-    "glow": false
+    "heroBg": "#2D2926",
+    "heroFg": "#ffffff",
+    "heroMark": "#EDCD3F",
+    "heroCta": "#EDCD3F",
+    "heroCtaOn": "#2D2926"
   },
   "mark": "feel calm"
 }

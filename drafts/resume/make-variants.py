@@ -3,7 +3,8 @@
 
 Every variant is the same résumé: same facts, same jobs, same dates. Only
 one clause of the summary, the order of bullets and projects, a few
-wordings and the site link change, so the tailoring stays quiet.
+wordings, the site link and an optional accent colour (the company's,
+for the title, the page link and the section rules) change.
 
     python3 drafts/resume/make-variants.py    # writes resume-<slug>.html here
 """
@@ -59,6 +60,7 @@ PROJECTS = {
 
 ROLES = {
     "jeppesen-foreflight": dict(
+        accent="#1D3A6B",
         url="mooque-dev.github.io/jeppesen-foreflight",
         domain="complex financial and data-heavy tools", clause="prototype in code",
         aplos=["split_tax", "integ", "orchid", "fee_code", "own", "partner"],
@@ -66,6 +68,7 @@ ROLES = {
         projects=["arnd_code", "fork", "yuwol"],
         skills="Data visualization &middot; Research and usability testing &middot; Prototyping in code (React, TypeScript) with AI tools &middot; Design systems &middot; A/B testing &middot; Figma, Storybook, Pendo, Amplitude"),
     "bridgit": dict(
+        accent="#0A6E70",
         url="mooque-dev.github.io/bridgit",
         domain="payments and transaction-heavy products", clause="prototype with AI tools",
         aplos=["split_tax", "fee_code", "orchid", "own", "integ", "partner"],
@@ -73,6 +76,7 @@ ROLES = {
         projects=["arnd_code", "yuwol", "fork"],
         skills="Research and usability testing &middot; Prototyping with AI tools (Claude Code, Cursor) and React &middot; Design systems &middot; Data visualization &middot; A/B testing &middot; Figma, Storybook, Pendo"),
     "7shifts": dict(
+        accent="#B84800",
         url="mooque-dev.github.io/7shifts",
         domain="B2B SaaS", clause="test early with real users",
         aplos=["split", "fee", "own", "orchid", "integ", "partner"],
@@ -101,6 +105,7 @@ ROLES = {
         projects=["arnd_code", "fork", "yuwol"],
         skills="Design systems &middot; Front-end code (React, TypeScript) with Claude Code and Cursor &middot; Prototyping &middot; Research and usability testing &middot; A/B testing &middot; Figma, Storybook"),
     "ecobee": dict(
+        accent="#2D2926",
         url="mooque-dev.github.io/ecobee",
         domain="B2B SaaS", clause="design for mobile and web",
         aplos=["orchid", "own", "split", "fee_code", "integ", "partner"],
@@ -108,6 +113,7 @@ ROLES = {
         projects=["arnd_mobile", "fork", "yuwol"],
         skills="Design systems &middot; Mobile (iOS, Android) and web &middot; Research and usability testing &middot; Prototyping with AI tools (Claude Code, Cursor) &middot; A/B testing &middot; Figma, Storybook"),
     "harvey": dict(
+        accent="#1F1D1A",
         url="mooque-dev.github.io/harvey",
         domain="complex financial and data-heavy tools", clause="prototype in code",
         aplos=["split_tax", "own", "orchid", "fee_code", "integ", "partner"],
@@ -115,6 +121,7 @@ ROLES = {
         projects=["arnd_code", "fork", "yuwol"],
         skills="Research with domain experts &middot; Interaction and visual design &middot; Design systems &middot; Prototyping in code (React, TypeScript) with AI tools &middot; A/B testing &middot; Figma, Storybook"),
     "openloop": dict(
+        accent="#C4003F",
         url="mooque-dev.github.io/openloop",
         domain="B2B SaaS", clause="prototype in code",
         aplos=["orchid", "integ", "own", "fee_code", "split", "partner"],
@@ -122,6 +129,7 @@ ROLES = {
         projects=["arnd_system", "yuwol", "fork"],
         skills="Design systems (tokens, theming, documentation) &middot; Prototyping in code (React, TypeScript) &middot; AI coding tools (Claude Code, Cursor) &middot; Research and usability testing &middot; Figma, Storybook"),
     "apply-digital-lead": dict(
+        accent="#B83500",
         url="mooque-dev.github.io/apply-digital",
         domain="B2B SaaS", clause="mentor designers",
         aplos=["orchid", "partner", "own", "fee_code", "integ", "split"],
@@ -129,6 +137,7 @@ ROLES = {
         projects=["arnd_code", "demello", "artsgaze"],
         skills="Design systems and tokens &middot; UI and visual design &middot; Brand and typography &middot; AI tools (Claude Code, Cursor, MagicPatterns) &middot; Prototyping in code &middot; Figma, Storybook"),
     "clio": dict(
+        accent="#0057AE",
         url="mooque-dev.github.io/clio",
         domain="B2B SaaS", clause="bring separate products together into one",
         aplos=["own", "integ", "orchid", "split", "fee_code", "partner"],
@@ -136,6 +145,7 @@ ROLES = {
         projects=["arnd_code", "fork", "yuwol"],
         skills="Research and usability testing &middot; Information architecture &middot; Design systems &middot; Prototyping with AI tools (Claude Code, Cursor) &middot; A/B testing &middot; Figma, Storybook, Pendo"),
     "clio-insights": dict(
+        accent="#0057AE",
         url="mooque-dev.github.io/clio-insights",
         domain="complex financial and data-heavy tools", clause="design for data-heavy workflows",
         aplos=["integ", "split_tax", "own", "orchid", "fee", "partner"],
@@ -143,6 +153,7 @@ ROLES = {
         projects=["arnd_code", "fork", "yuwol"],
         skills="Data visualization &middot; Dashboards and reporting &middot; Research and usability testing &middot; Prototyping with AI tools (Claude, Cursor) &middot; Design systems &middot; Figma, Storybook, Amplitude"),
     "mercury": dict(
+        accent="#3F51D6",
         url="mooque-dev.github.io/mercury",
         domain="payments and transaction-heavy products", clause="prototype in code",
         aplos=["split", "fee_code", "own", "orchid", "integ", "partner"],
@@ -157,6 +168,7 @@ ROLES = {
         projects=["arnd_code", "fork", "yuwol"],
         skills="Design systems &middot; Mentoring and design process &middot; Research and usability testing &middot; A/B testing &middot; Prototyping with AI tools &middot; Figma, Storybook"),
     "samsara": dict(
+        accent="#8F5A00",
         url="mooque-dev.github.io/samsara",
         domain="B2B SaaS", clause="ship in code with AI tools",
         aplos=["fee_code", "own", "orchid", "integ", "split", "partner"],
@@ -164,6 +176,7 @@ ROLES = {
         projects=["arnd_mobile", "yuwol", "fork"],
         skills="Web and mobile (iOS, Android) &middot; Shipping code with AI tools (Claude Code, Cursor) &middot; Research with customers &middot; Design systems &middot; Mentoring &middot; Figma, Storybook"),
     "stripe": dict(
+        accent="#5148E5",
         url="mooque-dev.github.io/stripe",
         domain="complex financial and data-heavy tools", clause="prototype in code",
         aplos=["integ", "split", "orchid", "own", "fee", "partner"],
@@ -171,6 +184,7 @@ ROLES = {
         projects=["yuwol", "arnd_code", "fork"],
         skills="Workflow and internal tools &middot; Information architecture &middot; Design systems &middot; Research and usability testing &middot; Prototyping in code (React, TypeScript) &middot; Figma, Storybook"),
     "matcha": dict(
+        accent="#4A6E22",
         url="mooque-dev.github.io/matcha",
         domain="B2B SaaS", clause="take products from zero to shipped",
         aplos=["orchid", "own", "fee", "split", "integ", "partner"],
@@ -210,6 +224,10 @@ def build(slug, r):
         for name, what, when, line in (PROJECTS[k] for k in r["projects"])) + "\n\n"
     html = html[:a] + projects + html[b:]
     html = re.sub(r'(<h2>Skills</h2>\n<div class="small">).*?(</div>)', lambda m: m.group(1) + r["skills"] + m.group(2), html, count=1, flags=re.S)
+    if r.get("accent"):
+        a = r["accent"]
+        html = html.replace("</head>", f"<style>.title{{color:{a}}} h2{{color:{a};border-bottom-color:{a}}} "
+                            f".contact a[href*=github]{{color:{a};font-weight:600}}</style></head>", 1)
     assert "—" not in html, slug
     (HERE / f"resume-{slug}.html").write_text(html)
 

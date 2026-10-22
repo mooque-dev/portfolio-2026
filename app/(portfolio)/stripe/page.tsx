@@ -90,25 +90,19 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
   },
 ];
 
-const OWN = [
-  { slug: "forkestrate", name: "Forkestrate" },
-  { slug: "arnd", name: "ARND" },
-  { slug: "torontoyuwol", name: "Toronto Yuwol" },
-];
 
-const BRAND = { "--brand": "#635BFF", "--brand-on": "#ffffff", "--brand-ink": "#5148E5", "--brand-ink-dark": "#A9A3FF" } as CSSProperties;
+const BRAND = { "--brand": "#635BFF", "--brand-on": "#ffffff", "--brand-ink": "#5148E5", "--brand-ink-dark": "#A9A3FF", "--hb": "linear-gradient(115deg, #635BFF 0%, #A960EE 38%, #FF6B7D 72%, #FFCB57 100%)", "--hf": "#ffffff", "--hm": "#0A2540", "--hc": "#0A2540", "--hco": "#ffffff" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 
-function Block({ id, label, title, children }: { id: string; label: string; title: string; children: ReactNode }) {
+function Block({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
-    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-24 mt-24 md:mt-32">
-      <p className="microlabel text-muted brand-label">{label}</p>
-      <h2 id={`${id}-title`} className="mt-3 max-w-3xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
+    <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-24 mt-20 md:mt-28">
+      <h2 id={`${id}-title`} className="text-lg md:text-xl font-medium tracking-[-0.01em]">
         {title}
       </h2>
-      <div className="mt-10">{children}</div>
+      <div className="mt-6">{children}</div>
     </section>
   );
 }
@@ -116,8 +110,8 @@ function Block({ id, label, title, children }: { id: string; label: string; titl
 export default function StripePage() {
   return (
     <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
-      <div className="stripe-glow" aria-hidden />
       <div className="max-w-6xl mx-auto px-6">
+        <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
@@ -148,54 +142,43 @@ export default function StripePage() {
             </div>
           </div>
         </FadeIn>
+        </div>
 
-        <Block id="sx-work" label="The work" title="Six projects, and what changed after each one shipped.">
+        <Block id="sx-work" title="Selected work">
           <Statement lines={STATEMENT} />
-          <p className="mt-5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[14px] text-muted">
-            <span>Built on my own:</span>
-            {OWN.map((o, i) => (
-              <span key={o.slug}>
-                <Link href={`/work/${o.slug}`} className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
-                  {o.name}
-                </Link>
-                {i < OWN.length - 1 ? "," : ""}
-              </span>
-            ))}
-            <span aria-hidden>·</span>
-            <Link href="/work" className={`text-foreground ${link}`}>
+          <p className="mt-4 text-[14px]">
+            <Link href="/work" className={`text-muted ${link}`}>
               All work <Arrow />
             </Link>
           </p>
         </Block>
 
-        <Block id="sx-code" label="Built, not just drawn" title="Most of what I'd show you already runs.">
-          <ul className="m-0 grid list-none gap-10 p-0 md:grid-cols-3 md:gap-8">
-            {BUILT.map((b) => (
-              <li key={b.label} className="flex flex-col brand-rule border-t pt-5">
-                <p className="microlabel text-muted brand-label">{b.label}</p>
-                <p className="mt-3 flex-1 text-[15.5px] leading-relaxed">{b.text}</p>
-                <p className="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-sm">
-                  {b.links.map((l) =>
-                    l.external ? (
-                      <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className={link}>
-                        {l.name} <Arrow dir="up-right" />
-                        <span className="sr-only"> (opens in new tab)</span>
-                      </a>
-                    ) : (
-                      <Link key={l.href} href={l.href} className={link}>
-                        {l.name} <Arrow />
-                      </Link>
-                    )
+        <section aria-label="Built in code" className="mt-20 md:mt-28 grid max-w-2xl gap-5">
+          {BUILT.slice(0, 2).map((b) => (
+            <p key={b.label} className="text-[16px] leading-relaxed text-muted">
+              {b.text}{" "}
+              {b.links.map((l, i) => (
+                <span key={l.href}>
+                  {i ? " \u00b7 " : ""}
+                  {l.external ? (
+                    <a href={l.href} target="_blank" rel="noopener noreferrer" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
+                      {l.name}
+                      <span className="sr-only"> (opens in new tab)</span>
+                    </a>
+                  ) : (
+                    <Link href={l.href} className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
+                      {l.name}
+                    </Link>
                   )}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </Block>
+                </span>
+              ))}
+            </p>
+          ))}
+        </section>
 
         <section
           aria-labelledby="sx-contact"
-          className="mt-24 md:mt-32 flex flex-col gap-6 border-t border-border pt-10 md:flex-row md:items-end md:justify-between"
+          className="brand-foot mt-24 md:mt-32 flex flex-col gap-6 border-t border-border pt-10 md:flex-row md:items-end md:justify-between"
         >
           <h2 id="sx-contact" className="max-w-xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
             I&rsquo;d like to give internal users the care customers get.

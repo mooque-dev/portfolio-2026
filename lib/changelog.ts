@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-22",
+    title: "Plainer tailored pages, with the company's colour in two bands",
+    tags: ["design"],
+    what: "The tailored pages are simpler now. The intro and the contact block sit on full-width bands in the company's colour, and everything between is a plain list of the work and two short lines about what I build in code. The labels over every heading, the row of three cards and the background glows are gone. Each matching résumé carries the same colour on its title, page link and section rules.",
+    why: "The best design portfolios are quiet. The colour says who the page is for; the work should do the rest.",
+  },
+  {
+    date: "2026-10-22",
     title: "Each tailored page wears the company's colours",
     tags: ["design"],
     what: "The tailored pages now take their colours from the company they're for: the résumé and email buttons, the section labels, the result numbers and a soft glow behind the intro, plus a marker swipe in that colour behind one phrase of each headline. Colours are sampled from each company's own site, and there are no logos.",

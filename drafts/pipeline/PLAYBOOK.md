@@ -107,6 +107,8 @@ For each lead:
      (reorder bullets and projects, pick one summary clause; never invent a
      bullet), run it, and print with
      `node drafts/pipeline/pdf.mjs drafts/resume/resume-<slug>.html public/allen-kang-resume-<slug>.pdf`.
+     Give the entry `accent=` the company's brand ink (a colour that reads
+     on white) when the role gets a page.
      It must be one page: check with
      `node drafts/pipeline/cap.mjs file://$PWD/drafts/resume/resume-<slug>.html /tmp/r.png body 700`
      (height must be 958 or less) and trim the variant if not.
@@ -125,12 +127,19 @@ For each lead:
      marketplaces). Or build a small new one in `components/` with its CSS
      at the end of `app/globals.css`, sized in container units, light and
      dark both checked, no company logos or marks.
-   - **Brand it.** Every page wears the company's real colours: sample them
-     from the company's site (button and accent colours, e.g. with the
-     browser and `getComputedStyle`), then put them in the spec's `brand`
-     (fill, text on the fill, ink that reads on white, ink that reads on
-     dark, optional marker colour when the fill is near black) and pick a
-     `mark` phrase in the headline. Never use their logo or wordmark.
+   - **Brand it, minimally.** The company's colour lives in two full-width
+     bands (the intro and the contact block) and the buttons; everything
+     between stays plain, like a senior designer's own portfolio. Sample the
+     colours from the company's site (button, background and accent colours,
+     e.g. with the browser and `getComputedStyle`), add an entry to
+     `drafts/pipeline/brands.json` (keys explained in `brand.py`), copy it into
+     the spec's `brand`, and pick a `mark` phrase in the headline. Also set
+     the résumé's `accent` in `make-variants.py` to the brand ink. Never use
+     their logo or wordmark.
+   - **Avoid template tells.** No eyebrow labels over headings, no rows of
+     feature cards with coloured rules, no gradient glows or dot grids, no
+     clever subheads. `brand.py` strips these from the template; don't add
+     them back.
    - `npx tsc --noEmit` and `npx eslint` on the new files.
    - **Preview:** start a dev server on a spare port
      (`PORT=3123 npm run dev` in the background), wait for

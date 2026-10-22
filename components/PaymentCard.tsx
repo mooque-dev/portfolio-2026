@@ -70,7 +70,7 @@ export interface StatementLine {
 // and the way in. The rows are the page's directory, not a second copy of it.
 export function Statement({ lines, footer }: { lines: StatementLine[]; footer?: ReactNode }) {
   return (
-    <div className="rounded-2xl border border-border">
+    <div className="stmt rounded-2xl border border-border">
       <ul className="m-0 list-none p-0">
         {lines.map((l) => (
           <li key={l.href} className="border-b border-border last:border-0">
