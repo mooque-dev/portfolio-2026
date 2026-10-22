@@ -18,6 +18,7 @@ sys.path.insert(0, HERE)
 from cases import apply  # noqa: E402
 from brand import brand_text  # noqa: E402
 from minimal import minimal  # noqa: E402
+from theme import theme_text  # noqa: E402
 
 slug = sys.argv[1]
 spec = json.load(open(os.path.join(HERE, "specs", slug + ".json")))
@@ -46,6 +47,9 @@ b = spec.get("brand")
 pp = os.path.join(REPO, "app", "(portfolio)", slug, "page.tsx")
 t2 = open(pp).read()
 t2 = brand_text(t2, dict(b, mark=spec.get("mark") or b.get("mark"))) if b else minimal(t2)
+THEMES = json.load(open(os.path.join(HERE, "themes.json")))
+if b and slug in THEMES:
+    t2 = theme_text(t2, slug, THEMES[slug])
 open(pp, "w").write(t2)
 hp = os.path.join(REPO, "components", "Header.tsx")
 h = open(hp).read()

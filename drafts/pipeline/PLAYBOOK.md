@@ -145,6 +145,13 @@ For each lead:
      sections, fonts and palette, the work shown in their product's visual
      language) instead of the shared template. Never copy their logo,
      photos or copy.
+   - **Type and signature.** Add the company to `drafts/pipeline/themes.json`
+     from its brief (Google Fonts families for display, text and any mono
+     or hand face, and one `sig` detail; see `theme.py` for the types), add
+     a `.theme-<slug>` block at the end of `app/globals.css` with the
+     brief's canvas, ink, heading weight and tracking, button shape and the
+     signature styling, and `new-page.py` applies it. Look at the result
+     next to a screenshot of their site before sending it for review.
    - **Avoid template tells.** No eyebrow labels over headings, no rows of
      feature cards with coloured rules, no gradient glows or dot grids, no
      clever subheads. `brand.py` strips these from the template; don't add

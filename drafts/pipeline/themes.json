@@ -1,0 +1,239 @@
+{
+  "clio": {
+    "fonts": {
+      "display": [
+        "Poppins",
+        {
+          "weight": [
+            "400",
+            "500"
+          ]
+        }
+      ],
+      "text": [
+        "Source_Sans_3",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "glass"
+    },
+    "darkHeader": "#04304C"
+  },
+  "clio-insights": {
+    "fonts": {
+      "display": [
+        "Poppins",
+        {
+          "weight": [
+            "400",
+            "500"
+          ]
+        }
+      ],
+      "text": [
+        "Source_Sans_3",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "glass"
+    },
+    "darkHeader": "#04304C"
+  },
+  "samsara": {
+    "fonts": {
+      "display": [
+        "Archivo",
+        {
+          "axes": [
+            "wdth"
+          ]
+        }
+      ],
+      "text": [
+        "Schibsted_Grotesk",
+        {}
+      ],
+      "mono": [
+        "DM_Mono",
+        {
+          "weight": [
+            "400",
+            "500"
+          ]
+        }
+      ]
+    },
+    "sig": {
+      "type": "label",
+      "text": "[ Product design · Toronto ]"
+    },
+    "darkHeader": "#1C1917"
+  },
+  "stripe": {
+    "fonts": {
+      "display": [
+        "Inter_Tight",
+        {}
+      ],
+      "text": [
+        "Inter_Tight",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "tone",
+      "lead": "I design the tools"
+    }
+  },
+  "matcha": {
+    "fonts": {
+      "display": [
+        "JetBrains_Mono",
+        {}
+      ],
+      "text": [
+        "JetBrains_Mono",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "cursor"
+    }
+  },
+  "harvey": {
+    "fonts": {
+      "display": [
+        "Newsreader",
+        {}
+      ],
+      "text": [
+        "Inter",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "none"
+    }
+  },
+  "ecobee": {
+    "fonts": {
+      "display": [
+        "Source_Serif_4",
+        {}
+      ],
+      "text": [
+        "Figtree",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "none"
+    }
+  },
+  "openloop": {
+    "fonts": {
+      "display": [
+        "Archivo",
+        {
+          "style": [
+            "normal",
+            "italic"
+          ]
+        }
+      ],
+      "text": [
+        "Inter",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "em",
+      "phrase": "don&rsquo;t have to think about"
+    },
+    "darkHeader": "#0E0008"
+  },
+  "apply-digital": {
+    "fonts": {
+      "display": [
+        "Archivo",
+        {}
+      ],
+      "text": [
+        "Wix_Madefor_Text",
+        {}
+      ],
+      "mono": [
+        "Kode_Mono",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "brace",
+      "phrase": "keeps it there"
+    }
+  },
+  "bridgit": {
+    "fonts": {
+      "display": [
+        "DM_Sans",
+        {}
+      ],
+      "text": [
+        "DM_Sans",
+        {}
+      ],
+      "mono": [
+        "DM_Mono",
+        {
+          "weight": [
+            "400",
+            "500"
+          ]
+        }
+      ]
+    },
+    "sig": {
+      "type": "trail"
+    }
+  },
+  "7shifts": {
+    "fonts": {
+      "display": [
+        "Inter_Tight",
+        {}
+      ],
+      "text": [
+        "Inter_Tight",
+        {}
+      ],
+      "hand": [
+        "Nanum_Pen_Script",
+        {
+          "weight": "400"
+        }
+      ]
+    },
+    "sig": {
+      "type": "scribble",
+      "phrase": "design around it"
+    }
+  },
+  "jeppesen-foreflight": {
+    "fonts": {
+      "display": [
+        "Figtree",
+        {}
+      ],
+      "text": [
+        "Figtree",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "none"
+    },
+    "darkHeader": "#0F1F3D"
+  }
+}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { DM_Sans, DM_Mono } from "next/font/google";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import SiteSign from "@/components/SiteSign";
 import FadeIn from "@/components/FadeIn";
@@ -91,7 +92,10 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
 ];
 
 
-const BRAND = { "--brand": "#0F8B8D", "--brand-on": "#ffffff", "--brand-ink": "#0A6E70", "--brand-ink-dark": "#3CC6C8", "--hb": "#08333A", "--hf": "#ffffff", "--hm": "#3CC6C8", "--hc": "#3CC6C8", "--hco": "#08333A" } as CSSProperties;
+const fdisplay = DM_Sans({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
+const ftext = DM_Sans({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const fmono = DM_Mono({ subsets: ["latin"], display: "swap", variable: "--bd-mono", weight: ["400", "500"] });
+const BRAND = { "--brand": "#09333A", "--brand-on": "#ffffff", "--brand-ink": "#0A6E70", "--brand-ink-dark": "#3CC6C8", "--hb": "#09333A", "--hf": "#ffffff", "--hm": "#3CC6C8", "--hc": "#F7F7F6", "--hco": "#09333A" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -109,14 +113,14 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 export default function BridgitPage() {
   return (
-    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className={`brand-page themed theme-bridgit ${fdisplay.variable} ${ftext.variable} ${fmono.variable} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I make complicated, data-heavy work <span className="brand-mark">feel manageable</span>, and I build my own prototypes.
+                I make complicated, data-heavy work feel manageable, and I build my own prototypes.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a senior product designer in Toronto. Eight years in B2B software, the last five on accounting and payments tools, and I prototype in code when a mock can&rsquo;t answer the question.
@@ -136,7 +140,7 @@ export default function BridgitPage() {
                 </a>
               </div>
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 sig-obj">
               <SiteSign />
               <p className="mt-2 text-[14px] text-muted">Every number on the sign is on my résumé.</p>
             </div>

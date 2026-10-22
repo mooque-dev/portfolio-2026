@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { Inter_Tight } from "next/font/google";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import CommandK from "@/components/CommandK";
 import FadeIn from "@/components/FadeIn";
@@ -91,7 +92,9 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
 ];
 
 
-const BRAND = { "--brand": "#635BFF", "--brand-on": "#ffffff", "--brand-ink": "#5148E5", "--brand-ink-dark": "#A9A3FF", "--hb": "linear-gradient(115deg, #635BFF 0%, #A960EE 38%, #FF6B7D 72%, #FFCB57 100%)", "--hf": "#ffffff", "--hm": "#0A2540", "--hc": "#0A2540", "--hco": "#ffffff" } as CSSProperties;
+const fdisplay = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
+const ftext = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const BRAND = { "--brand": "#533AFD", "--brand-on": "#ffffff", "--brand-ink": "#533AFD", "--brand-ink-dark": "#A9A3FF", "--hb": "#FFFFFF", "--hf": "#061B31", "--hb-d": "#FFFFFF", "--hf-d": "#061B31", "--hm": "#0A2540", "--hc": "#533AFD", "--hco": "#ffffff" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -109,14 +112,14 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 export default function StripePage() {
   return (
-    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className={`brand-page themed theme-stripe ${fdisplay.variable} ${ftext.variable} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I design the tools the people behind the product <span className="brand-mark">use every day</span>.
+                I design the tools<span className="sig-tone"> the people behind the product use every day.</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, including workflow automation, data syncs and the internal tools a forty-person company ran on. I prototype in code when a mock can&rsquo;t answer the question.
@@ -136,7 +139,7 @@ export default function StripePage() {
                 </a>
               </div>
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 sig-obj">
               <CommandK />
               <p className="mt-3 text-[14px] text-muted">Type to search the work. Arrow keys and Enter work too.</p>
             </div>

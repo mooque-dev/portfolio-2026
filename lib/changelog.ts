@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-22",
+    title: "Every tailored page now speaks its company's visual language",
+    tags: ["design"],
+    what: "After studying each company's own site, every tailored page takes on its typography (the closest free faces), canvas, button shapes and one signature detail: Clio's frosted glass over navy, Samsara's wide black capitals and bracketed labels on graph paper, Stripe's two-tone headline and gradient ribbon, Matcha's all-monospace prompt, Harvey's serif and grain, ecobee's serif headlines and outlined pills, OpenLoop's pink italic ending, APPLY's orange braces, Bridgit's dotted trail, 7shifts' scribbled underline and handwritten notes, and ForeFlight's letter-spaced orange buttons. No logos, photos or copy are borrowed.",
+    why: "A page should feel like it already belongs on their site, so the person reading it can picture the work there.",
+  },
+  {
+    date: "2026-10-22",
     title: "The Mercury page, rebuilt to sit beside Mercury's own site",
     tags: ["design"],
     what: "The Mercury page now borrows the language of their site rather than mine: a dark plum intro that fades to pale lavender, a geometric sans with a serif italic accent, glassy pill buttons with an indigo action, a plum metal card engraved with fine wave lines, and the work laid out as an accounts panel, with each result set like a balance and its unit raised beside the number. No Mercury logo, photos or copy.",

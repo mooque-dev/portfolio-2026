@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { Archivo, Wix_Madefor_Text, Kode_Mono } from "next/font/google";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import TokenCard from "@/components/TokenCard";
 import FadeIn from "@/components/FadeIn";
@@ -91,7 +92,10 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
 ];
 
 
-const BRAND = { "--brand": "#FF4A08", "--brand-on": "#1D1C1D", "--brand-ink": "#B83500", "--brand-ink-dark": "#FF7A45", "--hb": "#090A0B", "--hf": "#ffffff", "--hm": "#FF4A08", "--hc": "#FF4A08", "--hco": "#090A0B" } as CSSProperties;
+const fdisplay = Archivo({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
+const ftext = Wix_Madefor_Text({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const fmono = Kode_Mono({ subsets: ["latin"], display: "swap", variable: "--bd-mono" });
+const BRAND = { "--brand": "#282A33", "--brand-on": "#ffffff", "--brand-ink": "#B83500", "--brand-ink-dark": "#FF7A45", "--hb": "#FCFCFA", "--hf": "#1A1B1C", "--hb-d": "#FCFCFA", "--hf-d": "#1A1B1C", "--hm": "#FF4A08", "--hc": "#282A33", "--hco": "#ffffff" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -109,14 +113,14 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 export default function ApplyDigitalPage() {
   return (
-    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className={`brand-page themed theme-apply-digital ${fdisplay.variable} ${ftext.variable} ${fmono.variable} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I set the bar for how a product looks, then build the system that <span className="brand-mark">keeps it there</span>.
+                I set the bar for how a product looks, then build the system that <span className="sig-brace">keeps it there</span>.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a product designer in Toronto with a graphic design degree. Eight years designing, the last five on B2B software, where I grew one design system to 340+ components across three teams and mentored three designers. These days I work with Claude from first concept to running code.
@@ -136,7 +140,7 @@ export default function ApplyDigitalPage() {
                 </a>
               </div>
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 sig-obj">
               <TokenCard preset="product" />
               <p className="mt-3 text-[14px] text-muted">Switch the brand. Only the global tier changes.</p>
             </div>

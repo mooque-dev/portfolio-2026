@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { Archivo, Inter } from "next/font/google";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import TokenCard from "@/components/TokenCard";
 import FadeIn from "@/components/FadeIn";
@@ -91,7 +92,9 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
 ];
 
 
-const BRAND = { "--brand": "#E6004A", "--brand-on": "#ffffff", "--brand-ink": "#C4003F", "--brand-ink-dark": "#FF6B93", "--hb": "#FFF0F4", "--hf": "#1F1215", "--hb-d": "#26090F", "--hf-d": "#FFE9EF", "--hm": "#E6004A", "--hc": "#E6004A", "--hco": "#ffffff" } as CSSProperties;
+const fdisplay = Archivo({ subsets: ["latin"], display: "swap", variable: "--bd-display", style: ["normal", "italic"] });
+const ftext = Inter({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const BRAND = { "--brand": "#E6004A", "--brand-on": "#ffffff", "--brand-ink": "#C4003F", "--brand-ink-dark": "#FF6B93", "--hb": "linear-gradient(160deg, #0E0008 0%, #3A0122 55%, #8A0248 100%)", "--hf": "#ffffff", "--hb-d": "linear-gradient(160deg, #0E0008 0%, #3A0122 55%, #8A0248 100%)", "--hf-d": "#ffffff", "--hm": "#E6004A", "--hc": "linear-gradient(90deg, #FF4276, #D40530)", "--hco": "#ffffff" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -109,14 +112,14 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 export default function OpenLoopPage() {
   return (
-    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className={`brand-page themed theme-openloop ${fdisplay.variable} ${ftext.variable} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I build design systems people <span className="brand-mark">don&rsquo;t have to think about</span>.
+                I build design systems people <span className="sig-em">don&rsquo;t have to think about</span>.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, where I grew one design system to 340+ components across three teams. On my own app, the design rules live in a file my AI coding tools read before they build.
@@ -136,7 +139,7 @@ export default function OpenLoopPage() {
                 </a>
               </div>
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 sig-obj">
               <TokenCard />
               <p className="mt-3 text-[14px] text-muted">Switch the brand. Only the last column changes.</p>
             </div>

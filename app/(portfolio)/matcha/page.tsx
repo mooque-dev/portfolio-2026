@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { JetBrains_Mono } from "next/font/google";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import MatchCard from "@/components/MatchCard";
 import FadeIn from "@/components/FadeIn";
@@ -91,7 +92,9 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
 ];
 
 
-const BRAND = { "--brand": "#5E8A2E", "--brand-on": "#ffffff", "--brand-ink": "#4A6E22", "--brand-ink-dark": "#A9D46E", "--hb": "#EEF5E2", "--hf": "#1A2410", "--hb-d": "#16200E", "--hf-d": "#EEF5E2", "--hm": "#7FB23E", "--hc": "#5E8A2E", "--hco": "#ffffff" } as CSSProperties;
+const fdisplay = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
+const ftext = JetBrains_Mono({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const BRAND = { "--brand": "#22C55E", "--brand-on": "#052E16", "--brand-ink": "#4A6E22", "--brand-ink-dark": "#A9D46E", "--hb": "#FFFFFF", "--hf": "#0A0A0A", "--hb-d": "#FFFFFF", "--hf-d": "#0A0A0A", "--hm": "#7FB23E", "--hc": "#22C55E", "--hco": "#052E16" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -109,14 +112,14 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 export default function MatchaPage() {
   return (
-    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className={`brand-page themed theme-matcha ${fdisplay.variable} ${ftext.variable} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I&rsquo;ve started products from nothing twice, and I&rsquo;d like <span className="brand-mark">a third</span>.
+                I&rsquo;ve started products from nothing twice, and I&rsquo;d like a third.<span className="sig-cursor" aria-hidden />
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a product designer in Toronto. Eight years designing. I founded ARND, co-founded Forkestrate, and grew one design system to 340+ components across three teams.
@@ -136,7 +139,7 @@ export default function MatchaPage() {
                 </a>
               </div>
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 sig-obj">
               <MatchCard />
               <p className="mt-3 text-[14px] text-muted">Every reason links to the work behind it.</p>
             </div>

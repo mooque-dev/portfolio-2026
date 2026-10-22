@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { Inter_Tight, Nanum_Pen_Script } from "next/font/google";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import ShiftWeek from "@/components/ShiftWeek";
 import FadeIn from "@/components/FadeIn";
@@ -91,7 +92,10 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
 ];
 
 
-const BRAND = { "--brand": "#FF6808", "--brand-on": "#141515", "--brand-ink": "#B84800", "--brand-ink-dark": "#FF8A3D", "--hb": "#F1F0EC", "--hf": "#141515", "--hb-d": "#1C1A16", "--hf-d": "#F1F0EC", "--hm": "#FF6808", "--hc": "#FF6808", "--hco": "#141515" } as CSSProperties;
+const fdisplay = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
+const ftext = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const fhand = Nanum_Pen_Script({ subsets: ["latin"], display: "swap", variable: "--bd-hand", weight: "400" });
+const BRAND = { "--brand": "#4570FF", "--brand-on": "#ffffff", "--brand-ink": "#B84800", "--brand-ink-dark": "#FF8A3D", "--hb": "#F1F0EC", "--hf": "#000000", "--hb-d": "#F1F0EC", "--hf-d": "#000000", "--hm": "#FF6808", "--hc": "#4570FF", "--hco": "#ffffff" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -109,14 +113,14 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 export default function SevenShiftsPage() {
   return (
-    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className={`brand-page themed theme-7shifts ${fdisplay.variable} ${ftext.variable} ${fhand.variable} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I learn how a team actually works, then <span className="brand-mark">design around it</span>.
+                I learn how a team actually works, then <span className="sig-scribble">design around it</span>.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a product designer in Toronto who grew up around cooks. Eight years designing, the last five on B2B software, and I prototype with Claude and ship in code.
@@ -136,7 +140,7 @@ export default function SevenShiftsPage() {
                 </a>
               </div>
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 sig-obj">
               <ShiftWeek />
               <p className="mt-3 text-[14px] text-muted">The times are made up. Every shift links to real work.</p>
             </div>

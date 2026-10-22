@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { Source_Serif_4, Figtree } from "next/font/google";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import Thermostat from "@/components/Thermostat";
 import FadeIn from "@/components/FadeIn";
@@ -91,7 +92,9 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
 ];
 
 
-const BRAND = { "--brand": "#2D2926", "--brand-on": "#ffffff", "--brand-ink": "#2D2926", "--brand-ink-dark": "#EDCD3F", "--hb": "#2D2926", "--hf": "#ffffff", "--hm": "#EDCD3F", "--hc": "#EDCD3F", "--hco": "#2D2926" } as CSSProperties;
+const fdisplay = Source_Serif_4({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
+const ftext = Figtree({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const BRAND = { "--brand": "#2D2926", "--brand-on": "#ffffff", "--brand-ink": "#2D2926", "--brand-ink-dark": "#EDCD3F", "--hb": "#FFFFFF", "--hf": "#2D2926", "--hb-d": "#FFFFFF", "--hf-d": "#2D2926", "--hm": "#EDCD3F", "--hc": "#FFFFFF", "--hco": "#2D2926" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -109,14 +112,14 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 export default function EcobeePage() {
   return (
-    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className={`brand-page themed theme-ecobee ${fdisplay.variable} ${ftext.variable} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I make complicated systems <span className="brand-mark">feel calm</span> to the people living with them.
+                I make complicated systems feel calm to the people living with them.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, from first research to release, and I prototype in code when a mock can&rsquo;t answer the question.
@@ -136,7 +139,7 @@ export default function EcobeePage() {
                 </a>
               </div>
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 sig-obj">
               <Thermostat />
             </div>
           </div>

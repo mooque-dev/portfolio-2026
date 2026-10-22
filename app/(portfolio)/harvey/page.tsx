@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { Newsreader, Inter } from "next/font/google";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import Brief from "@/components/Brief";
 import FadeIn from "@/components/FadeIn";
@@ -91,7 +92,9 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
 ];
 
 
-const BRAND = { "--brand": "#1F1D1A", "--brand-on": "#F5F1EA", "--brand-ink": "#1F1D1A", "--brand-ink-dark": "#E9E3D8", "--hb": "#1F1D1A", "--hf": "#F5F1EA", "--hm": "#B89B6E", "--hc": "#F5F1EA", "--hco": "#1F1D1A" } as CSSProperties;
+const fdisplay = Newsreader({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
+const ftext = Inter({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const BRAND = { "--brand": "#0F0E0D", "--brand-on": "#FAFAF9", "--brand-ink": "#1F1D1A", "--brand-ink-dark": "#E9E3D8", "--hb": "#FAFAF9", "--hf": "#0F0E0D", "--hb-d": "#FAFAF9", "--hf-d": "#0F0E0D", "--hm": "#B89B6E", "--hc": "#0F0E0D", "--hco": "#FAFAF9" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -109,14 +112,14 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 export default function HarveyPage() {
   return (
-    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className={`brand-page themed theme-harvey ${fdisplay.variable} ${ftext.variable} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I design for people who <span className="brand-mark">check everything twice</span>.
+                I design for people who check everything twice.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on payments and finance tools built with the accountants who use them, and I prototype in code when a mock can&rsquo;t answer the question.
@@ -136,7 +139,7 @@ export default function HarveyPage() {
                 </a>
               </div>
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 sig-obj">
               <Brief />
               <p className="mt-6 text-[14px] text-muted">Every claim cites the work behind it.</p>
             </div>

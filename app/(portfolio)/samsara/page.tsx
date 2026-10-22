@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import { Archivo, Schibsted_Grotesk, DM_Mono } from "next/font/google";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
 import TripLog from "@/components/TripLog";
 import FadeIn from "@/components/FadeIn";
@@ -91,7 +92,10 @@ const BUILT: { label: string; text: string; links: { href: string; name: string;
 ];
 
 
-const BRAND = { "--brand": "#FEAE0F", "--brand-on": "#1C1917", "--brand-ink": "#8F5A00", "--brand-ink-dark": "#FEAE0F", "--hb": "#1C1917", "--hf": "#ffffff", "--hm": "#FEAE0F", "--hc": "#FEAE0F", "--hco": "#1C1917" } as CSSProperties;
+const fdisplay = Archivo({ subsets: ["latin"], display: "swap", variable: "--bd-display", axes: ["wdth"] });
+const ftext = Schibsted_Grotesk({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const fmono = DM_Mono({ subsets: ["latin"], display: "swap", variable: "--bd-mono", weight: ["400", "500"] });
+const BRAND = { "--brand": "#FEAE0F", "--brand-on": "#1C1917", "--brand-ink": "#8F5A00", "--brand-ink-dark": "#FEAE0F", "--hb": "#1C1917", "--hf": "#F5F4F1", "--hm": "#FEAE0F", "--hc": "#FEAE0F", "--hco": "#1C1917" } as CSSProperties;
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
@@ -109,14 +113,15 @@ function Block({ id, title, children }: { id: string; title: string; children: R
 
 export default function SamsaraPage() {
   return (
-    <article style={BRAND} className="brand-page relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32">
+    <article style={BRAND} className={`brand-page themed theme-samsara ${fdisplay.variable} ${ftext.variable} ${fmono.variable} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
         <FadeIn>
           <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_440px] lg:gap-16">
             <div className="min-w-0">
+              <p className="sig-label">[ Product design · Toronto ]</p>
               <h1 className="text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">
-                I design with the people doing the work, then <span className="brand-mark">ship it myself</span>.
+                I design with the people doing the work, then ship it myself.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software. I run research with customers and ship to web and mobile with AI coding tools: 161 merged pull requests on my own app.
@@ -136,7 +141,7 @@ export default function SamsaraPage() {
                 </a>
               </div>
             </div>
-            <div className="min-w-0">
+            <div className="min-w-0 sig-obj">
               <TripLog />
               <p className="mt-3 text-[14px] text-muted">Every stop is a job, with what shipped there.</p>
             </div>
