@@ -136,6 +136,15 @@ For each lead:
      the spec's `brand`, and pick a `mark` phrase in the headline. Also set
      the résumé's `accent` in `make-variants.py` to the brand ink. Never use
      their logo or wordmark.
+   - **Match their site, not ours.** Before building, study the company's
+     marketing site in the browser (or read `drafts/pipeline/brand-briefs/<slug>.md`
+     if it exists): canvas, display and text faces (use the closest Google
+     Fonts via `next/font/google`), button shapes, composition, and 3 to 5
+     signature details. For a brand with strong presence, build the page
+     bespoke the way `app/(portfolio)/mercury/page.tsx` is built (its own
+     sections, fonts and palette, the work shown in their product's visual
+     language) instead of the shared template. Never copy their logo,
+     photos or copy.
    - **Avoid template tells.** No eyebrow labels over headings, no rows of
      feature cards with coloured rules, no gradient glows or dot grids, no
      clever subheads. `brand.py` strips these from the template; don't add

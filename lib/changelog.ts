@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-22",
+    title: "The Mercury page, rebuilt to sit beside Mercury's own site",
+    tags: ["design"],
+    what: "The Mercury page now borrows the language of their site rather than mine: a dark plum intro that fades to pale lavender, a geometric sans with a serif italic accent, glassy pill buttons with an indigo action, a plum metal card engraved with fine wave lines, and the work laid out as an accounts panel, with each result set like a balance and its unit raised beside the number. No Mercury logo, photos or copy.",
+    why: "Their brand is strong enough that a page in my own colours felt out of place. A page that feels native to their world is easier to picture inside it.",
+  },
+  {
+    date: "2026-10-22",
     title: "Plainer tailored pages, with the company's colour in two bands",
     tags: ["design"],
     what: "The tailored pages are simpler now. The intro and the contact block sit on full-width bands in the company's colour, and everything between is a plain list of the work and two short lines about what I build in code. The labels over every heading, the row of three cards and the background glows are gone. Each matching résumé carries the same colour on its title, page link and section rules.",

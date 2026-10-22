@@ -1753,3 +1753,77 @@ select::-ms-expand {
 
 /* Objects that follow the site theme keep the site's text colour on a band. */
 .brand-hero :is(.ck, .tl, .mt, .tc, .sw) { color: var(--foreground); }
+
+/* The Mercury page: built to sit beside Mercury's own site. Fixed palette in
+   both themes: slate-plum night above, pale lavender below, indigo actions. */
+body:has(.mx) header { --background: #171721; --foreground: #ededf3; --muted: #9e9ead; --border: rgb(175 178 206 / 0.16); }
+.mx { --mx-ink: #ededf3; --mx-mut: #c3c3cc; --mx-dim: #9e9ead; --mx-indigo: #5266eb; --mx-light: #f4f5f9; --mx-dark: #272735;
+  font-family: var(--mx-sans), system-ui, sans-serif; overflow-x: clip; }
+.mx-in { max-width: 1040px; margin: 0 auto; }
+.mx-hero {
+  padding: 168px 24px 0; text-align: center; color: var(--mx-ink);
+  background:
+    radial-gradient(60% 24% at 50% 68%, rgb(205 221 255 / 0.26), transparent 72%),
+    radial-gradient(40% 24% at 22% 66%, rgb(240 170 150 / 0.16), transparent 70%),
+    linear-gradient(180deg, #171721 0%, #1c1a2b 30%, #2a2139 47%, #4a3a58 60%, #8f84a3 70%, #cfc9da 77%, #e7e3ee 83%, #e7e3ee 100%);
+}
+.mx-h1 { margin: 0 auto; max-width: 15ch; font-size: clamp(40px, 6.2vw, 66px); font-weight: 480; line-height: 1.08; letter-spacing: -0.01em; text-wrap: balance; }
+.mx em { font-family: var(--mx-serif), Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: 0; }
+.mx-lede { margin: 22px auto 0; max-width: 560px; font-size: 18px; line-height: 1.55; color: var(--mx-mut); }
+.mx-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 30px; }
+.mx-field { display: inline-flex; align-items: center; gap: 12px; padding: 4px 4px 4px 18px; border-radius: 40px; background: rgb(175 178 206 / 0.2); box-shadow: inset 0 0 0 1px rgb(175 178 206 / 0.36); backdrop-filter: blur(10px); }
+.mx-email { font-size: 15px; color: var(--mx-mut); text-decoration: none; }
+.mx-email:hover { color: var(--mx-ink); }
+.mx-btn { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 32px; background: var(--mx-indigo); color: #fff; font-size: 15px; font-weight: 450; text-decoration: none; transition: background-color 0.2s; }
+.mx-btn:hover { background: #4356da; }
+.mx-ghost { display: inline-flex; align-items: center; height: 46px; padding: 0 22px; border-radius: 40px; background: rgb(156 180 232 / 0.2); color: var(--mx-ink); font-size: 15px; text-decoration: none; }
+.mx-ghost:hover { background: rgb(156 180 232 / 0.3); }
+.mx :focus-visible { outline: 2px solid #cdddff; outline-offset: 3px; }
+.mx-card { position: relative; z-index: 1; max-width: 540px; margin: 72px auto -150px; }
+.mx-light { padding: 220px 24px 104px; background: linear-gradient(180deg, #e7e3ee 0, var(--mx-light) 220px); color: var(--mx-dark); text-align: center; }
+.mx-h2 { margin: 0 auto; max-width: 22ch; font-size: clamp(28px, 3.6vw, 42px); font-weight: 480; line-height: 1.16; letter-spacing: -0.005em; text-wrap: balance; }
+.mx-h2 span { display: block; color: #8a8a99; }
+.mx-light .mx-h2 { margin-top: 64px; }
+.mx-note, .mx-all { margin: 0; font-size: 14px; color: #6e6e7d; }
+.mx-all { margin-top: 22px; }
+.mx-light a { color: var(--mx-dark); text-decoration: underline; text-decoration-color: rgb(39 39 53 / 0.3); text-underline-offset: 3px; }
+.mx-light a:hover { text-decoration-color: var(--mx-dark); }
+.mx-built { display: grid; gap: 14px; max-width: 620px; margin: 72px auto 0; text-align: left; font-size: 16px; line-height: 1.65; color: #55556a; }
+.mx-built p { margin: 0; }
+.mx-end { padding: 112px 24px 72px; background: #171721; color: var(--mx-ink); text-align: center; }
+.mx-end .mx-h2 { max-width: 20ch; }
+.mx-legal { margin: 64px 0 0; font-size: 12.5px; color: #8a8a99; }
+
+/* Accounts panel (the Mercury page's work list). */
+.ap { max-width: 780px; margin: 48px auto 0; padding: 26px 24px 10px; border-radius: 18px; background: #1e1e2a; color: var(--mx-ink); text-align: left;
+  box-shadow: 0 0 0 1px rgb(112 115 147 / 0.22), 0 50px 90px -46px rgb(39 39 53 / 0.55); }
+.ap a { text-decoration: none !important; color: inherit !important; }
+.ap-totals { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 0 8px 22px; }
+.ap-totals dt { font-size: 13px; color: var(--mx-dim); }
+.ap-totals dd { margin: 4px 0 0; font-size: clamp(22px, 3vw, 30px); font-weight: 480; font-variant-numeric: tabular-nums; }
+.ap sup { margin-left: 3px; font-size: 0.62em; vertical-align: 0.7em; color: var(--mx-mut); font-weight: 420; }
+.ap-head { display: flex; justify-content: space-between; padding: 0 8px 8px; border-bottom: 1px solid rgb(175 178 206 / 0.14); font-size: 12.5px; color: var(--mx-dim); }
+.ap-rows { list-style: none; margin: 0; padding: 0; }
+.ap-rows li { border-bottom: 1px solid rgb(175 178 206 / 0.08); }
+.ap-rows li:last-child { border-bottom: 0; }
+.ap-row { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 14px; align-items: center; margin: 4px 0; padding: 10px 8px; border-radius: 10px; transition: background-color 0.15s; }
+.ap-row:hover, .ap-row:focus-visible { background: rgb(175 178 206 / 0.09); }
+.ap-mono { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: radial-gradient(circle at 32% 28%, #3c3a54, #23233a); box-shadow: inset 0 0 0 1px rgb(205 221 255 / 0.22); font-family: var(--mx-serif), Georgia, serif; font-style: italic; font-size: 15px; }
+.ap-what { min-width: 0; }
+.ap-name { display: block; font-size: 15.5px; }
+.ap-meta { display: block; margin-top: 2px; font-size: 13px; color: var(--mx-dim); }
+.ap-val { font-size: 18px; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+@media (max-width: 560px) { .ap { padding: 20px 14px 8px; } .ap-meta { display: none; } .ap-val sup { display: block; margin: 0; vertical-align: 0; font-size: 11px; } }
+
+/* The engraved metal card. Container units; same in both themes. */
+.ec-wrap { container-type: inline-size; width: 100%; }
+.ec { position: relative; aspect-ratio: 1.586; overflow: hidden; border-radius: 4.4cqw; color: #f1ecf4;
+  background: linear-gradient(135deg, #3d2a4a 0%, #2b1f39 38%, #20192f 68%, #382945 100%);
+  box-shadow: 0 50px 80px -40px rgb(10 8 20 / 0.7), inset 0 1px 0 rgb(255 255 255 / 0.12), inset 0 0 0 1px rgb(255 255 255 / 0.06); }
+.ec::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgb(255 255 255 / 0.07) 46%, transparent 60%); pointer-events: none; }
+.ec-lines { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ec-mono { position: absolute; top: 6.4cqw; right: 7cqw; font-family: var(--mx-serif), Georgia, serif; font-size: 7.4cqw; letter-spacing: 0.04em; color: #efe9f3; }
+.ec-chip { position: absolute; left: 7cqw; top: 34%; width: 11.5cqw; height: 9cqw; border-radius: 1.7cqw; background: linear-gradient(135deg, #d9d9de, #8c8d94 48%, #c4c5ca); box-shadow: inset 0 0 0 0.3cqw rgb(0 0 0 / 0.16); }
+.ec-tap { position: absolute; left: 21.5cqw; top: 35.5%; width: 6cqw; height: 6cqw; fill: none; stroke: rgb(255 255 255 / 0.7); stroke-width: 1.6; stroke-linecap: round; }
+.ec-num { position: absolute; left: 7cqw; bottom: 17cqw; font-size: 5.4cqw; letter-spacing: 0.12em; font-variant-numeric: tabular-nums; color: #e6e0ea; text-shadow: 0 -1px 0 rgb(0 0 0 / 0.5), 0 1px 0 rgb(255 255 255 / 0.12); }
+.ec-foot { position: absolute; left: 7cqw; right: 7cqw; bottom: 7cqw; display: flex; justify-content: space-between; font-size: 2.9cqw; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(241 236 244 / 0.72); }
