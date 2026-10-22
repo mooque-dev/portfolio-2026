@@ -235,5 +235,69 @@
       "type": "none"
     },
     "darkHeader": "#0F1F3D"
+  },
+  "autodesk": {
+    "fonts": {
+      "display": [
+        "Inter",
+        {}
+      ],
+      "text": [
+        "Inter",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "accent",
+      "phrase": "feel short"
+    },
+    "darkHeader": "#000000"
+  },
+  "scribd": {
+    "fonts": {
+      "display": [
+        "Newsreader",
+        {}
+      ],
+      "text": [
+        "Work_Sans",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "none"
+    }
+  },
+  "signal1": {
+    "fonts": {
+      "display": [
+        "Manrope",
+        {}
+      ],
+      "text": [
+        "Manrope",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "chevron"
+    },
+    "darkHeader": "#141A47"
+  },
+  "stilta": {
+    "fonts": {
+      "display": [
+        "Inter_Tight",
+        {}
+      ],
+      "text": [
+        "Inter_Tight",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "none"
+    },
+    "darkHeader": "#0B0F10"
   }
 }

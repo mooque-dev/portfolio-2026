@@ -1,0 +1,19 @@
+{
+  "company": "Scribd",
+  "object": "a shelf of book covers, one per case study, including the tests that lost",
+  "desc": "A short path through Allen Kang's work: experiments that moved numbers, ones that didn't, and things that already run.",
+  "lede": "I&rsquo;m Allen, a product designer in Toronto. Eight years designing, most recently on payments and paid add-ons. I run experiments, including the ones that lose, and design what comes next.",
+  "hero_import": "import BookShelf from \"@/components/BookShelf\";",
+  "hero_jsx": "<BookShelf />",
+  "caption": "Every cover opens a case study. One is the tests that lost.",
+  "cases": [
+    "fe",
+    "au",
+    "ar",
+    "tw",
+    "or",
+    "yu"
+  ],
+  "h1": "I design the moment a reader decides to stay.",
+  "contact": "I&rsquo;d like to help more readers find the book they can&rsquo;t put down."
+}

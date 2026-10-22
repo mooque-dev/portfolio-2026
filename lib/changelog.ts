@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-22",
+    title: "Four more pages on the shared frame: Autodesk, Scribd, Signal 1 and Stilta",
+    tags: ["content", "design"],
+    what: "Four new unlisted pages, each with its own one-page résumé and each matched to the company's own site. Autodesk opens on black with a store card that walks a buyer's journey. Scribd opens on cream with the case studies as a shelf of book covers, including the tests that lost. Signal 1 opens on navy with the work as a registry. Stilta opens on a dark microscope grey with a claim chart that matches each claim to its evidence.",
+    why: "With the shared frame, a new page is now a settings file and one opening object.",
+  },
+  {
     date: "2026-10-23",
     title: "The same work, told as product decisions",
     tags: ["content"],

@@ -191,6 +191,34 @@ ROLES = {
         lead=["pitch", "core", "process"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_code", "fork", "yuwol"],
         skills="0 to 1 product design &middot; Design systems and visual language &middot; Brand and typography &middot; Prototyping with AI tools (Claude Code, Cursor) &middot; Research &middot; Figma"),
+    "autodesk": dict(
+        url="mooque-dev.github.io/autodesk", accent="#111111",
+        domain="payments and transaction-heavy products", clause="run experiments on checkout flows",
+        aplos=["fee_code", "split", "own", "orchid", "integ", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_code", "fork", "yuwol"],
+        skills="A/B testing and experimentation &middot; Research and usability testing &middot; Prototyping with AI tools (Claude Code, Cursor) &middot; Design systems &middot; Data visualization &middot; Figma, Storybook, Amplitude"),
+    "scribd": dict(
+        url="mooque-dev.github.io/scribd", accent="#5B4A1E",
+        domain="payments and transaction-heavy products", clause="run experiments and learn from the ones that lose",
+        aplos=["fee_code", "split", "own", "orchid", "integ", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_code", "fork", "yuwol"],
+        skills="A/B testing and growth experiments &middot; Interaction and visual design &middot; Prototyping in code with AI tools &middot; Research and usability testing &middot; Mobile and web &middot; Figma, Amplitude"),
+    "signal1": dict(
+        url="mooque-dev.github.io/signal1", accent="#132661",
+        domain="B2B SaaS", clause="prototype in code",
+        aplos=["integ", "orchid", "own", "split", "fee_code", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_code", "yuwol", "fork"],
+        skills="B2B and enterprise workflows &middot; Design systems &middot; Research and usability testing &middot; Prototyping with AI tools (Claude Code, Cursor) &middot; Data visualization &middot; Figma, Storybook"),
+    "stilta": dict(
+        url="mooque-dev.github.io/stilta", accent="#111111",
+        domain="complex financial and data-heavy tools", clause="build what I design with AI tools",
+        aplos=["split_tax", "integ", "orchid", "fee_code", "own", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
+        projects=["arnd_code", "fork", "yuwol"],
+        skills="0 to 1 product design &middot; Research with domain experts &middot; Prototyping in code (React, TypeScript) with Claude Code &middot; Design systems &middot; A/B testing &middot; Figma"),
 }
 
 

@@ -144,5 +144,51 @@
     "heroMark": "#F08A4B",
     "heroCta": "#FF791A",
     "heroCtaOn": "#001629"
+  },
+  "autodesk": {
+    "fill": "#000000",
+    "on": "#ffffff",
+    "ink": "#000000",
+    "inkDark": "#FFFF00",
+    "heroBg": "#000000",
+    "heroFg": "#ffffff",
+    "heroMark": "#FFFF00",
+    "heroCta": "#ffffff",
+    "heroCtaOn": "#000000"
+  },
+  "scribd": {
+    "fill": "#16171B",
+    "on": "#ffffff",
+    "ink": "#201C14",
+    "inkDark": "#F9E04B",
+    "heroBg": "#FBF8F1",
+    "heroFg": "#201C14",
+    "heroBgDark": "#FBF8F1",
+    "heroFgDark": "#201C14",
+    "heroMark": "#F9E04B",
+    "heroCta": "#F9E04B",
+    "heroCtaOn": "#16171B"
+  },
+  "signal1": {
+    "fill": "#132661",
+    "on": "#ffffff",
+    "ink": "#132661",
+    "inkDark": "#9DB0FF",
+    "heroBg": "linear-gradient(160deg, #141A47 0%, #1F2766 100%)",
+    "heroFg": "#ffffff",
+    "heroMark": "#FF5A2C",
+    "heroCta": "#ffffff",
+    "heroCtaOn": "#132661"
+  },
+  "stilta": {
+    "fill": "#000000",
+    "on": "#ffffff",
+    "ink": "#000000",
+    "inkDark": "#ffffff",
+    "heroBg": "radial-gradient(70% 80% at 30% 20%, #2B3A3F 0%, #121819 60%, #0B0F10 100%)",
+    "heroFg": "#ffffff",
+    "heroMark": "#9FB8BC",
+    "heroCta": "#ffffff",
+    "heroCtaOn": "#000000"
   }
 }

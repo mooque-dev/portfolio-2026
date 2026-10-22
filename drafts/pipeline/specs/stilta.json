@@ -1,0 +1,20 @@
+{
+  "company": "Stilta",
+  "object": "a claim chart matching each claim element to its evidence",
+  "desc": "A short path through Allen Kang's work: tools for experts, experiments, building from zero, and things that already run.",
+  "lede": "I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on accounting and payments tools built with the experts who use them, and I build from zero with Claude Code.",
+  "hero_import": "import ClaimChart from \"@/components/ClaimChart\";",
+  "hero_jsx": "<ClaimChart />",
+  "caption": "Each element cites the work that proves it.",
+  "cases": [
+    "tw",
+    "fe",
+    "ar",
+    "ak",
+    "or",
+    "au"
+  ],
+  "built": "rules",
+  "h1": "I design tools for work that has to hold up.",
+  "contact": "I&rsquo;d like to help build AI that experts will sign their name under."
+}

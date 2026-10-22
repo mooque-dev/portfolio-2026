@@ -9,12 +9,14 @@ VARS = [("fill", "--brand"), ("on", "--brand-on"), ("ink", "--brand-ink"), ("ink
 
 def headline(h1, sig):
     t = sig.get("type", "none")
-    if t in ("em", "brace", "scribble"):
+    if t in ("em", "brace", "scribble", "accent"):
         assert sig["phrase"] in h1, "sig phrase must be in h1"
         return h1.replace(sig["phrase"], f'<span className="sig-{t}">{sig["phrase"]}</span>', 1)
     if t == "tone":
         k = h1.index(sig["lead"]) + len(sig["lead"])
         return h1[:k] + f'<span className="sig-tone">{h1[k:]}</span>'
+    if t == "chevron":
+        return '<span className="sig-chevron" aria-hidden />' + h1
     if t == "cursor":
         return h1 + '<span className="sig-cursor" aria-hidden />'
     return h1

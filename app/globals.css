@@ -1945,3 +1945,68 @@ body:has(.theme-7shifts) { --hdr: #f1f0ec; }
   .stmt li > a > span:last-child { justify-content: space-between; margin-top: 8px; text-align: left; }
   .stmt li > a > span:last-child > span > span { max-width: none !important; }
 }
+
+/* Signature details shared by themes. */
+.sig-accent { color: var(--hm); }
+.sig-chevron { display: inline-block; width: 0.42em; height: 0.42em; margin: 0 0.32em 0.1em 0; border-top: 0.11em solid var(--hm); border-right: 0.11em solid var(--hm); transform: rotate(45deg); vertical-align: middle; }
+
+body:has(.theme-autodesk) header { --background: #000; --foreground: #fff; --muted: rgb(255 255 255 / 0.7); --border: rgb(255 255 255 / 0.14); }
+body:has(.theme-signal1) header { --background: #141a47; --foreground: #fff; --muted: rgb(255 255 255 / 0.7); --border: rgb(255 255 255 / 0.14); }
+body:has(.theme-stilta) header { --background: #0b0f10; --foreground: #fff; --muted: rgb(255 255 255 / 0.7); --border: rgb(255 255 255 / 0.12); }
+body:has(.theme-scribd) header { --background: #fbf8f1; --foreground: #201c14; --muted: #6b655a; --border: #ebe5d8; }
+
+/* Autodesk: black and white, bold sans, a phrase in yellow, square white buttons. */
+.theme-autodesk { --canvas: #fff; --ink: #000; --mut: #555; --line: #e5e5e5; --h1w: 700; --h1t: -0.015em; --h1l: 1.08; --h2w: 700; --btn-r: 2px; }
+.jc { border-radius: 4px; background: #fff; color: #000; padding: 22px; box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.6); }
+.jc-name { margin: 0; font-size: 18px; font-weight: 700; }
+.jc-sub { margin: 2px 0 0; font-size: 14px; color: #555; }
+.jc-tabs { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 18px; border-bottom: 1px solid #e5e5e5; }
+.jc-tabs button { padding: 8px 0; border: 0; border-bottom: 3px solid transparent; margin-bottom: -1px; background: none; font: inherit; font-size: 14px; color: #555; cursor: pointer; }
+.jc-tabs button[aria-pressed="true"] { border-bottom-color: #000; color: #000; font-weight: 700; }
+.jc-tabs button:focus-visible, .jc-cta:focus-visible { outline: 2px solid #0696d7; outline-offset: 2px; }
+.jc-body { min-height: 132px; padding-top: 18px; }
+.jc-val { margin: 0; font-size: 44px; font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+.jc-val span { font-size: 15px; font-weight: 400; letter-spacing: 0; color: #555; }
+.jc-line { margin: 12px 0 0; font-size: 15px; line-height: 1.5; color: #333; }
+.jc-cta { display: flex; justify-content: center; margin-top: 18px; padding: 12px; border-radius: 2px; background: #000; color: #fff !important; font-size: 15px; font-weight: 600; text-decoration: none !important; }
+.jc-cta:hover { background: #222; }
+
+/* Scribd (Everand and Fable): light serif on cream, a yellow pill, book covers. */
+.theme-scribd { --canvas: #fff; --ink: #16171b; --mut: #5c5a55; --line: #ebe5d8; --h1w: 300; --h1t: -0.01em; --h1l: 1.1; --h2w: 400; }
+.theme-scribd .brand-foot { --hero-bg: #201c14; --hero-fg: #fbf8f1; --hc: #f9e04b; --hco: #16171b; }
+.bk { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.bk-cover { position: relative; display: flex; flex-direction: column; aspect-ratio: 2 / 3; padding: 12px 11px; border-radius: 3px 6px 6px 3px; color: #fff; text-decoration: none !important;
+  box-shadow: inset 6px 0 0 rgb(0 0 0 / 0.14), 0 14px 22px -14px rgb(32 28 20 / 0.6); transition: transform 0.2s; }
+.bk-cover:hover { transform: translateY(-4px) rotate(-1deg); }
+.bk-cover:focus-visible { outline: 2px solid #201c14; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .bk-cover, .bk-cover:hover { transition: none; transform: none; } }
+.bk-title { font-family: var(--bd-display), Georgia, serif; font-size: clamp(14px, 1.6vw, 18px); line-height: 1.1; }
+.bk-by { margin-top: 6px; font-size: 11.5px; opacity: 0.85; }
+.bk-au { margin-top: auto; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.75; }
+.bk-cover.b1 { background: #c8452f; } .bk-cover.b2 { background: #2b2d42; } .bk-cover.b3 { background: #f2c14e; color: #201c14; }
+.bk-cover.b4 { background: #3d6b5a; } .bk-cover.b5 { background: #e8a4b8; color: #201c14; } .bk-cover.b6 { background: #4a5bd4; }
+
+/* Signal 1: Manrope on deep navy, an orange chevron, white buttons. */
+.theme-signal1 { --canvas: #fff; --ink: #292929; --mut: #5a5a66; --line: #e6e7ef; --h1w: 500; --h1t: -0.015em; --h1l: 1.15; --h2w: 400; --btn-r: 6px; }
+.rg { border-radius: 14px; background: #fff; color: #0b0925; padding: 18px; box-shadow: 0 30px 60px -30px rgb(10 12 40 / 0.6); }
+.rg-head { display: flex; justify-content: space-between; align-items: baseline; padding: 0 4px 12px; border-bottom: 1px solid #e6e7ef; }
+.rg-title { margin: 0; font-size: 16px; font-weight: 700; color: #132661; }
+.rg-count { margin: 0; font-size: 13px; color: #6b6f86; }
+.rg-rows { list-style: none; margin: 0; padding: 0; }
+.rg-rows li + li { border-top: 1px solid #f0f1f6; }
+.rg-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "n s" "n m"; gap: 2px 12px; padding: 11px 4px; color: inherit !important; text-decoration: none !important; border-radius: 8px; }
+.rg-row:hover { background: #f5f6fb; }
+.rg-name { grid-area: n; font-size: 14.5px; font-weight: 600; }
+.rg-name span { display: block; margin-top: 2px; font-size: 12.5px; font-weight: 400; color: #6b6f86; }
+.rg-status { grid-area: s; justify-self: end; padding: 2px 9px; border-radius: 99px; background: #e8f6ee; color: #13804a; font-size: 12px; font-weight: 600; }
+.rg-metric { grid-area: m; justify-self: end; font-size: 12.5px; color: #132661; }
+
+/* Stilta: warm off-white, tight grotesk, a dark microscope-grey intro, white pills. */
+.theme-stilta { --canvas: #faf9f8; --ink: #000; --mut: #55585a; --line: #e7e5e2; --h1w: 500; --h1t: -0.025em; --h1l: 1.0; --h2w: 500; --h2t: -0.02em; }
+.cc { border-radius: 14px; background: #faf9f8; color: #000; padding: 18px; box-shadow: 0 30px 60px -30px rgb(0 0 0 / 0.7); }
+.cc-head { margin: 0 0 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #6c6e70; }
+.cc table { width: 100%; border-collapse: collapse; font-size: 13.5px; line-height: 1.45; }
+.cc th { text-align: left; font-size: 12px; font-weight: 600; color: #6c6e70; padding: 6px 8px; border-bottom: 1px solid #000; }
+.cc td { vertical-align: top; padding: 10px 8px; border-bottom: 1px solid #e7e5e2; }
+.cc td:first-child { width: 42%; font-weight: 550; }
+.cc a { color: inherit; text-decoration: underline; text-underline-offset: 3px; font-style: italic; }
