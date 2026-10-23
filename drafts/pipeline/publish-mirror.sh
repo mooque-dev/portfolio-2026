@@ -9,7 +9,13 @@ WORK="${TMPDIR:-/tmp}/mooque-mirror"
 OUT="$WORK/out"; SITE="$WORK/site"
 mkdir -p "$WORK"
 rm -rf "$OUT"
-bash "$REPO/scripts/build-mirror.sh" v2 "$OUT" | tail -1
+# The build downloads every Google font; the font server sometimes drops a
+# request, so try up to three times before giving up.
+for try in 1 2 3; do
+  if bash "$REPO/scripts/build-mirror.sh" v2 "$OUT" > "$WORK/build.log" 2>&1; then tail -1 "$WORK/build.log"; break; fi
+  [ "$try" = 3 ] && { tail -30 "$WORK/build.log"; echo "build failed three times"; exit 1; }
+  echo "build attempt $try failed (usually a font download); retrying"; sleep 20
+done
 [ -d "$SITE/.git" ] || gh repo clone mooque-dev/mooque-dev.github.io "$SITE" -- -q
 cd "$SITE"
 git fetch -q && git reset -q --hard origin/main
