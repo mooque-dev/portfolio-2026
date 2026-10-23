@@ -209,10 +209,8 @@
         {}
       ],
       "hand": [
-        "Nanum_Pen_Script",
-        {
-          "weight": "400"
-        }
+        "Caveat",
+        {}
       ]
     },
     "sig": {

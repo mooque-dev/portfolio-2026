@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { Inter_Tight, Nanum_Pen_Script } from "next/font/google";
+import { Inter_Tight, Caveat } from "next/font/google";
 import ShiftWeek from "@/components/ShiftWeek";
 import TailoredPage from "@/components/tailored/TailoredPage";
 
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const fdisplay = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
 const ftext = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
-const fhand = Nanum_Pen_Script({ subsets: ["latin"], display: "swap", variable: "--bd-hand", weight: "400" });
+const fhand = Caveat({ subsets: ["latin"], display: "swap", variable: "--bd-hand" });
 const BRAND = { "--brand": "#4570FF", "--brand-on": "#ffffff", "--brand-ink": "#B84800", "--brand-ink-dark": "#FF8A3D", "--hb": "#F1F0EC", "--hf": "#000000", "--hb-d": "#F1F0EC", "--hf-d": "#000000", "--hm": "#FF6808", "--hc": "#4570FF", "--hco": "#ffffff" } as CSSProperties;
 
 export default function SevenShiftsPage() {
