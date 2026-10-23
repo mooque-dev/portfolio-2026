@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { Inter } from "next/font/google";
 import JourneyCard from "@/components/JourneyCard";
+import DraftingCursor from "@/components/DraftingCursor";
+import TitleBlock from "@/components/TitleBlock";
 import TailoredPage from "@/components/tailored/TailoredPage";
 
 // A tailored, unlisted view of the portfolio for Autodesk, built on the
@@ -30,6 +32,7 @@ export default function AutodeskPage() {
       hero={<><JourneyCard /></>}
       caption={<>Pick a step. Each one opens the work that moved it.</>}
       cases={["fe", "au", "tw", "or", "ak", "ar"]}
+      heroExtras={<><DraftingCursor /><TitleBlock /></>}
       contact={<>I&rsquo;d like to help makers find, buy and keep the right tool.</>}
     />
   );

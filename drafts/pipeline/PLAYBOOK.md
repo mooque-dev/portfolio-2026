@@ -147,7 +147,9 @@ For each lead:
         `CommandK` (developer and internal tools), `MatchCard` (hiring,
         marketplaces), `AccountsPanel` (banking). Or build a small new one in
         `components/`, sized in container units with `max(11px, …cqw)` floors
-        on small text, no company logos or marks.
+        on small text, no company logos or marks. For extra character over
+        the intro band (a grid, a cursor, a title block), pass `heroExtras`
+        to the frame, as the Autodesk page does.
      5. Only a brand with very strong presence gets a fully bespoke page,
         the way `app/(portfolio)/mercury/page.tsx` is built. Never copy their
         logo, photos or copy.
@@ -160,7 +162,7 @@ For each lead:
      `curl localhost:3123/<slug>` to return 200, then run
      `node drafts/pipeline/check-pages.mjs http://localhost:3123 /tmp/check <slug>`.
      It loads the page at 375, 768, 1024, 1280 and 1440 wide, reports
-     sideways scrolling, anything past the screen edge, the headline running
+     (and once more in dark mode, for button colours) sideways scrolling, anything past the screen edge, the headline running
      into the object, clipped headlines and small tap targets, and saves the
      first screen at each width as `/tmp/check/<slug>-<width>.png`. Fix every
      issue and look at the 375 and 1280 images yourself. Capture the review

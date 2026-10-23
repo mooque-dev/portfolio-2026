@@ -10,6 +10,7 @@ import { join } from "node:path";
 
 const [base, outDir, ...slugs] = process.argv.slice(2);
 const WIDTHS = [375, 768, 1024, 1280, 1440];
+const DARK_WIDTH = 1280; // one extra pass in dark mode, for colours
 mkdirSync(outDir, { recursive: true });
 const PORT = 9700 + Math.floor(Math.random() * 90);
 const chrome = spawn("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", ["--headless=new", "--disable-gpu", "--hide-scrollbars", `--remote-debugging-port=${PORT}`, `--user-data-dir=${mkdtempSync(join(tmpdir(), "cdp-"))}`, "about:blank"], { stdio: "ignore" });
@@ -50,6 +51,23 @@ const PROBE = `(() => {
   return out;
 })()`;
 
+const DARK_PROBE = `(() => {
+  const rgb = (c) => (c.match(/[\\d.]+/g) || []).slice(0, 4).map(Number);
+  const lum = ([r, g, b]) => { const f = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }; return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b); };
+  const ratio = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05); };
+  // The nearest solid background behind an element; null when a gradient or pattern sits there (can't judge).
+  const behind = (el) => { for (let p = el.parentElement; p; p = p.parentElement) { const cs = getComputedStyle(p); if (cs.backgroundImage !== "none") return null; const v = rgb(cs.backgroundColor); if (v.length && (v[3] === undefined || v[3] > 0.5)) return v; } return null; };
+  const out = [];
+  for (const el of document.querySelectorAll("article .brand-cta, article .mx-btn")) {
+    const s = getComputedStyle(el); const bg = rgb(s.backgroundColor); if (!bg.length || bg[3] === 0) continue;
+    const name = el.textContent.trim().slice(0, 18);
+    if (ratio(bg, rgb(s.color)) < 3) { out.push("dark mode: button text hard to read (" + name + ")"); continue; }
+    const back = behind(el); if (!back) continue;
+    const outlined = parseFloat(s.borderTopWidth) >= 1 && ratio(rgb(s.borderTopColor), back) >= 1.5;
+    if (!outlined && ratio(bg, back) < 1.15) out.push("dark mode: button blends into its background (" + name + ")");
+  }
+  return [...new Set(out)];
+})()`;
 const report = {};
 for (const slug of slugs) {
   report[slug] = {};
@@ -63,6 +81,14 @@ for (const slug of slugs) {
     const { result } = await send("Page.captureScreenshot", { format: "png", clip: { x: 0, y: 0, width: w, height: 900, scale: 0.5 } });
     shots.push({ w, data: result.data });
   }
+  // Dark mode: every button must stand out from what is behind it and its own text.
+  await send("Emulation.setDeviceMetricsOverride", { width: DARK_WIDTH, height: 900, deviceScaleFactor: 1, mobile: false });
+  await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-color-scheme", value: "dark" }] });
+  await send("Page.navigate", { url: `${base}/${slug}/` }); await sleep(2600);
+  await ev(`localStorage.setItem("theme","dark"); document.documentElement.classList.add("dark")`); await sleep(400);
+  report[slug].dark = await ev(DARK_PROBE);
+  await send("Emulation.setEmulatedMedia", { features: [] });
+  await ev(`localStorage.removeItem("theme")`);
   writeFileSync(join(outDir, `${slug}.json`), JSON.stringify(shots.map((s) => s.w)));
   shots.forEach((s) => writeFileSync(join(outDir, `${slug}-${s.w}.png`), Buffer.from(s.data, "base64")));
   const bad = Object.entries(report[slug]).filter(([, v]) => v.length);

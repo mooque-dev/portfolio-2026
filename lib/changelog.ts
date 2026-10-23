@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-22",
+    title: "The Autodesk page is drawn like a drafting sheet",
+    tags: ["design", "fix"],
+    what: "The Autodesk intro now sits on a drafting grid with a crosshair that follows the pointer and reads out its coordinates, a title block in the corner (drawn by A. Kang, checked by you, scale 1 : 1), and dimension lines under each result on the store card. Separately, buttons on the coloured bands of every tailored page keep their band colours in dark mode, and the page check now has a dark-mode pass that catches buttons that disappear.",
+    why: "The page needed the feel of the tools Autodesk makes, and a button that vanishes in dark mode is a bug nobody should find before me.",
+  },
+  {
+    date: "2026-10-22",
     title: "Four more pages on the shared frame: Autodesk, Scribd, Signal 1 and Stilta",
     tags: ["content", "design"],
     what: "Four new unlisted pages, each with its own one-page résumé and each matched to the company's own site. Autodesk opens on black with a store card that walks a buyer's journey. Scribd opens on cream with the case studies as a shelf of book covers, including the tests that lost. Signal 1 opens on navy with the work as a registry. Stilta opens on a dark microscope grey with a claim chart that matches each claim to its evidence.",

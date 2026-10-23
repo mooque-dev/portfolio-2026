@@ -23,18 +23,21 @@ export type TailoredPageProps = {
   cases: CaseKey[];
   built?: keyof typeof BUILT;
   contact: ReactNode;
+  /** Optional decoration drawn over the intro band (a grid, a cursor, a title block). */
+  heroExtras?: ReactNode;
 };
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 const inline = "text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity";
 
-export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact }: TailoredPageProps) {
+export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras }: TailoredPageProps) {
   const id = slug.replace(/[^a-z0-9]/g, "");
   return (
     <article style={style} className={`brand-page tp ${className} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
+          {heroExtras}
           <FadeIn>
             <div className="tp-grid grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-16">
               <div className="min-w-0">
