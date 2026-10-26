@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-26",
+    title: "Play Goldito's delights inside the case",
+    tags: ["design", "content"],
+    what: "The Goldito case has a new Delights chapter with the design site running live inside it: the Tamagotchi concept, the pet maker, the paw drawer, the little delights library, the prototype and the brand, one tab each. Every tab says whether it's in the app, shipped, or still an idea, and opens full size in one click.",
+    why: "The delight work only makes sense when you can tap it. A screenshot of a paw pulling a drawer isn't the same as watching it happen.",
+  },
+  {
+    date: "2026-10-26",
     title: "Goldito on the home page, as the hackathon it is",
     tags: ["content"],
     what: "The home page has a small Hackathon section near the end: Goldito, the Nebius × NVIDIA hackathon app I'm designing on a team of three, marked Submitting Oct 30, with a link to the case. It stays out of the main work wall and Selected work.",
