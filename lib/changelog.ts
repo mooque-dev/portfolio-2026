@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-26",
+    title: "A new case study: Goldito, pet sitting where owners never have to ask",
+    tags: ["content"],
+    what: "Goldito joins the Playground: a pet-sitting app I designed in five weeks for the Nebius × NVIDIA hackathon, as the only designer on a team of three. It covers rebuilding the first minute (before and after, built and merged the same day), getting a remote team to settle 12 design calls in one evening, a Figma plugin that keeps the prototypes and Figma in sync, and how I worked with an AI coding agent.",
+    why: "It's the clearest recent example of how I run design on a small team: playable trials instead of specs, decisions written down with their reasons, and a handoff that works after I leave.",
+  },
+  {
     date: "2026-10-22",
     title: "The Autodesk page is drawn like a drafting sheet",
     tags: ["design", "fix"],
