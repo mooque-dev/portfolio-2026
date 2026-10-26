@@ -29,6 +29,9 @@ const SELECTED = [
 ];
 const DATAVIZ = ["care-pathway-dashboards", "keela-contacts"];
 const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
+// A team hackathon project, shown on its own so it isn't read as main work.
+// Flip submitted to true once it goes in on Oct 30.
+const HACKATHON = { slug: "goldito", event: "Nebius × NVIDIA Global AI Hackathon", submitted: false };
 
 // Lists on home follow the same order as the Work page: by shelf (work,
 // experiments, side projects), then by each project's order number.
@@ -120,6 +123,8 @@ export default function HomeReader({ allProjects }: Props) {
   const selected = pick(allProjects, SELECTED);
   const built = pick(allProjects, BUILT);
   const dataviz = pick(allProjects, DATAVIZ);
+  const hackathon = allProjects.find((p) => p.slug === HACKATHON.slug);
+  const { submitted } = HACKATHON;
 
   return (
     <section className="pt-32 md:pt-48 pb-4">
@@ -255,6 +260,51 @@ export default function HomeReader({ allProjects }: Props) {
                   <BuiltCard key={p.slug} project={p} />
                 ))}
               </div>
+            </div>
+          </FadeIn>
+        )}
+
+        {hackathon && (
+          <FadeIn delay={0.19}>
+            <div className="mt-20">
+              <h2 className="microlabel text-muted">Hackathon</h2>
+              <Link
+                href={`/work/${hackathon.slug}`}
+                className="group mt-4 grid gap-5 border-t border-border pt-6 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-center"
+              >
+                <div
+                  className="relative aspect-[3/2] overflow-hidden rounded-md ring-1 ring-inset ring-black/[0.07] dark:ring-white/10"
+                  style={{ backgroundColor: hackathon.coverColor }}
+                >
+                  {hackathon.coverImage && (
+                    <Image
+                      src={hackathon.coverImage}
+                      alt=""
+                      fill
+                      sizes="(max-width: 768px) 100vw, 420px"
+                      className="object-contain object-center transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  )}
+                </div>
+                <div className="min-w-0">
+                  <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13.5px] text-muted">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-2.5 py-0.5 text-foreground">
+                      <span aria-hidden className={`h-1.5 w-1.5 rounded-full ${submitted ? "bg-[#2fa84f]" : "bg-[var(--seal)]"}`} />
+                      {submitted ? "Submitted Oct 30" : "Submitting Oct 30"}
+                    </span>
+                    {HACKATHON.event} · team of three
+                  </p>
+                  <h3 className="mt-3 font-semibold text-xl md:text-[22px] leading-snug group-hover:opacity-70 transition-opacity text-balance">
+                    {hackathon.title}
+                  </h3>
+                  <p className="mt-2 text-[14.5px] leading-relaxed text-muted">
+                    I&rsquo;m the only designer on a team of three: the whole stay for owners and sitters, the design system, and playable trials the team decides from.
+                  </p>
+                  <span className="mt-4 inline-flex items-center gap-1 text-[13.5px]">
+                    <span className="underline underline-offset-4">Read the case</span> <Arrow />
+                  </span>
+                </div>
+              </Link>
             </div>
           </FadeIn>
         )}

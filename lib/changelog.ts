@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-26",
+    title: "Goldito on the home page, as the hackathon it is",
+    tags: ["content"],
+    what: "The home page has a small Hackathon section near the end: Goldito, the Nebius × NVIDIA hackathon app I'm designing on a team of three, marked Submitting Oct 30, with a link to the case. It stays out of the main work wall and Selected work.",
+    why: "It's my most recent design work and worth seeing, but it's a five-week team project for a hackathon, not a job, and the page should say so.",
+  },
+  {
+    date: "2026-10-26",
     title: "A new case study: Goldito, pet sitting where owners never have to ask",
     tags: ["content"],
     what: "Goldito joins the Playground: a pet-sitting app I designed in five weeks for the Nebius × NVIDIA hackathon, as the only designer on a team of three. It covers rebuilding the first minute (before and after, built and merged the same day), getting a remote team to settle 12 design calls in one evening, a Figma plugin that keeps the prototypes and Figma in sync, and how I worked with an AI coding agent.",
