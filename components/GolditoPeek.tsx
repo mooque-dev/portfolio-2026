@@ -3,9 +3,10 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
-// Goldito's golden pup peeks up from the bottom-left corner once you start
-// reading, and says what it is only when asked (hover, focus or tap). It never
-// opens on its own and never covers the page. Hiding it is remembered.
+// Goldito's golden pup peeks up from the bottom-left corner a few seconds
+// after a page loads, says a short hello once, and opens its note only when
+// asked (hover, keyboard or tap). It ducks while the page scrolls. Hiding it
+// is remembered.
 // Bottom-left, because the home guide lives bottom-right.
 const KEY = "peek-goldito-hidden";
 const CASE = "/work/goldito";
@@ -32,21 +33,22 @@ export default function GolditoPeek() {
     setHidden(stored);
   }, []);
 
-  // Rise only once the visitor is reading: after some scrolling, or after a
-  // while on a short page. Never on first paint.
+  // Rise a few seconds after the page settles, never on first paint. A small
+  // "New" tag says hello beside it once, then tucks away.
+  const [hello, setHello] = useState(false);
   useEffect(() => {
     if (hidden || shown) return;
-    const rise = () => setShown(true);
-    const onScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.5) rise();
-    };
-    const t = window.setTimeout(rise, 12000);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.clearTimeout(t);
-      window.removeEventListener("scroll", onScroll);
-    };
+    const t = window.setTimeout(() => {
+      setShown(true);
+      setHello(true);
+    }, 3000);
+    return () => window.clearTimeout(t);
   }, [hidden, shown]);
+  useEffect(() => {
+    if (!hello) return;
+    const t = window.setTimeout(() => setHello(false), 6500);
+    return () => window.clearTimeout(t);
+  }, [hello]);
 
   useEffect(() => {
     if (!shown) return;
@@ -122,13 +124,25 @@ export default function GolditoPeek() {
 
       <button
         type="button"
+        tabIndex={-1}
+        aria-hidden
+        onClick={() => setOpen(true)}
+        className={`absolute bottom-3 left-[calc(100%+6px)] whitespace-nowrap rounded-full border border-border bg-background px-3 py-1.5 text-[13px] font-medium shadow-sm transition-opacity duration-500 motion-reduce:transition-none ${
+          hello && !open && !scrolling ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        New: Goldito
+      </button>
+
+      <button
+        type="button"
         aria-expanded={open}
         aria-controls={bubbleId}
         aria-label="Goldito, new this month. Show the note."
         // A mouse already opened it on hover, so its click only opens; taps and keys toggle.
         onClick={(e) => setOpen((o) => ((e.nativeEvent as PointerEvent).pointerType === "mouse" ? true : !o))}
-        className={`peek-pup block h-14 w-14 rounded-t-[18px] transition-transform duration-700 ease-[cubic-bezier(.2,.8,.2,1)] motion-reduce:transition-none ${
-          open ? "translate-y-0" : !shown || scrolling ? "translate-y-full" : "translate-y-[30%] hover:translate-y-0"
+        className={`peek-pup block h-16 w-16 rounded-t-[20px] transition-transform duration-700 ease-[cubic-bezier(.2,.8,.2,1)] motion-reduce:transition-none ${
+          open ? "translate-y-0" : !shown || scrolling ? "translate-y-full" : "translate-y-[10%] hover:translate-y-0"
         }`}
       />
     </div>
