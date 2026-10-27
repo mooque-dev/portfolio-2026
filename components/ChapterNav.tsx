@@ -45,6 +45,21 @@ export default function ChapterNav({
     };
   }, [items]);
 
+  // A link straight to a chapter (#id) can land short when images above it
+  // finish loading after the jump; settle on it once the page has loaded.
+  useEffect(() => {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if (!id) return;
+    const go = () => document.getElementById(id)?.scrollIntoView({ block: "start" });
+    const t = window.setTimeout(go, 600);
+    if (document.readyState === "complete") go();
+    else window.addEventListener("load", go, { once: true });
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("load", go);
+    };
+  }, []);
+
   useEffect(() => {
     const row = rowRef.current;
     const pill = row?.querySelector<HTMLAnchorElement>(`a[href="#${active}"]`);

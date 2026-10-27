@@ -16,6 +16,9 @@ export default function GolditoPeek() {
   const [hidden, setHidden] = useState(true);
   const [shown, setShown] = useState(false);
   const [open, setOpen] = useState(false);
+  // Ducks while the page is scrolling, peeks again once the reader pauses,
+  // so it never sits over text that's moving past.
+  const [scrolling, setScrolling] = useState(false);
   const bubbleId = useId();
   const wrap = useRef<HTMLDivElement>(null);
 
@@ -44,6 +47,21 @@ export default function GolditoPeek() {
       window.removeEventListener("scroll", onScroll);
     };
   }, [hidden, shown]);
+
+  useEffect(() => {
+    if (!shown) return;
+    let t = 0;
+    const onScroll = () => {
+      setScrolling(true);
+      window.clearTimeout(t);
+      t = window.setTimeout(() => setScrolling(false), 900);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [shown]);
 
   // Escape or a click elsewhere closes the note.
   useEffect(() => {
@@ -110,7 +128,7 @@ export default function GolditoPeek() {
         // A mouse already opened it on hover, so its click only opens; taps and keys toggle.
         onClick={(e) => setOpen((o) => ((e.nativeEvent as PointerEvent).pointerType === "mouse" ? true : !o))}
         className={`peek-pup block h-14 w-14 rounded-t-[18px] transition-transform duration-700 ease-[cubic-bezier(.2,.8,.2,1)] motion-reduce:transition-none ${
-          !shown ? "translate-y-full" : open ? "translate-y-0" : "translate-y-[30%] hover:translate-y-0"
+          open ? "translate-y-0" : !shown || scrolling ? "translate-y-full" : "translate-y-[30%] hover:translate-y-0"
         }`}
       />
     </div>
