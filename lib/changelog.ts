@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-26",
+    title: "A golden pup peeks from the corner",
+    tags: ["design", "content"],
+    what: "Once you start reading, Goldito's pixel pup peeks up from the bottom-left corner. It ducks while the page scrolls and comes back when you pause, opens a short note only when you hover or tap it, and links to a new section on the Goldito case: the five-step loop I worked in and five things I'd bring to the next team. Hide the pup and it stays hidden. It keeps still for anyone who turns motion off.",
+    why: "Goldito is the newest and most interesting way I've worked, and I wanted people to find it without a pop-up getting in the way of what they came to read.",
+  },
+  {
+    date: "2026-10-26",
     title: "Play Goldito's delights inside the case",
     tags: ["design", "content"],
     what: "The Goldito case has a new Delights chapter with the design site running live inside it: the Tamagotchi concept, the pet maker, the paw drawer, the little delights library, the prototype and the brand, one tab each. Every tab says whether it's in the app, shipped, or still an idea, and opens full size in one click.",
