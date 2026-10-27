@@ -16,7 +16,7 @@ export const changelog: ChangelogEntry[] = [
     date: "2026-10-26",
     title: "A golden pup peeks from the corner",
     tags: ["design", "content"],
-    what: "Once you start reading, Goldito's pixel pup peeks up from the bottom-left corner. It ducks while the page scrolls and comes back when you pause, opens a short note only when you hover or tap it, and links to a new section on the Goldito case: the five-step loop I worked in and five things I'd bring to the next team. Hide the pup and it stays hidden. It keeps still for anyone who turns motion off.",
+    what: "A few seconds after a page loads, Goldito's pixel pup peeks up from the bottom-left corner with a small New: Goldito tag that tucks away after a moment. It ducks while the page scrolls and comes back when you pause, opens a short note only when you hover or tap it, and links to a new section on the Goldito case: the five-step loop I worked in and five things I'd bring to the next team. Hide the pup and it stays hidden. It keeps still for anyone who turns motion off.",
     why: "Goldito is the newest and most interesting way I've worked, and I wanted people to find it without a pop-up getting in the way of what they came to read.",
   },
   {
