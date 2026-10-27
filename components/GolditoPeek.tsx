@@ -3,10 +3,9 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 
-// Goldito's golden pup peeks up from the bottom-left corner a few seconds
-// after a page loads, says a short hello once, and opens its note only when
-// asked (hover, keyboard or tap). It ducks while the page scrolls. Hiding it
-// is remembered.
+// Goldito's golden pup peeks up from the bottom-left corner as a page loads,
+// says a short hello once, then stays put. Its note opens only when asked
+// (hover, keyboard or tap). Hiding it is remembered.
 // Bottom-left, because the home guide lives bottom-right.
 const KEY = "peek-goldito-hidden";
 const CASE = "/work/goldito";
@@ -17,9 +16,6 @@ export default function GolditoPeek() {
   const [hidden, setHidden] = useState(true);
   const [shown, setShown] = useState(false);
   const [open, setOpen] = useState(false);
-  // Ducks while the page is scrolling, peeks again once the reader pauses,
-  // so it never sits over text that's moving past.
-  const [scrolling, setScrolling] = useState(false);
   const bubbleId = useId();
   const wrap = useRef<HTMLDivElement>(null);
 
@@ -38,10 +34,11 @@ export default function GolditoPeek() {
   const [hello, setHello] = useState(false);
   useEffect(() => {
     if (hidden || shown) return;
+    // A beat after load, so the peek reads as a hello rather than a flash.
     const t = window.setTimeout(() => {
       setShown(true);
       setHello(true);
-    }, 3000);
+    }, 600);
     return () => window.clearTimeout(t);
   }, [hidden, shown]);
   useEffect(() => {
@@ -49,21 +46,6 @@ export default function GolditoPeek() {
     const t = window.setTimeout(() => setHello(false), 6500);
     return () => window.clearTimeout(t);
   }, [hello]);
-
-  useEffect(() => {
-    if (!shown) return;
-    let t = 0;
-    const onScroll = () => {
-      setScrolling(true);
-      window.clearTimeout(t);
-      t = window.setTimeout(() => setScrolling(false), 900);
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.clearTimeout(t);
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, [shown]);
 
   // Escape or a click elsewhere closes the note.
   useEffect(() => {
@@ -128,7 +110,7 @@ export default function GolditoPeek() {
         aria-hidden
         onClick={() => setOpen(true)}
         className={`absolute bottom-3 left-[calc(100%+6px)] whitespace-nowrap rounded-full border border-border bg-background px-3 py-1.5 text-[13px] font-medium shadow-sm transition-opacity duration-500 motion-reduce:transition-none ${
-          hello && !open && !scrolling ? "opacity-100" : "pointer-events-none opacity-0"
+          hello && !open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
         New: Goldito
@@ -142,7 +124,7 @@ export default function GolditoPeek() {
         // A mouse already opened it on hover, so its click only opens; taps and keys toggle.
         onClick={(e) => setOpen((o) => ((e.nativeEvent as PointerEvent).pointerType === "mouse" ? true : !o))}
         className={`peek-pup block h-16 w-16 rounded-t-[20px] transition-transform duration-700 ease-[cubic-bezier(.2,.8,.2,1)] motion-reduce:transition-none ${
-          open ? "translate-y-0" : !shown || scrolling ? "translate-y-full" : "translate-y-[10%] hover:translate-y-0"
+          open ? "translate-y-0" : !shown ? "translate-y-full" : "translate-y-[10%] hover:translate-y-0"
         }`}
       />
     </div>
