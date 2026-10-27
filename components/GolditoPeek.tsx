@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // Goldito's golden pup peeks up from the bottom-left corner once you start
@@ -92,10 +91,11 @@ export default function GolditoPeek() {
           hackathon, submitting Oct 30. A new way of working, written up.
         </p>
         <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-          <Link href={LEARNED} className="inline-flex items-center gap-1 font-medium underline underline-offset-4">
+          {/* A plain link, so the browser lands on the section after the page loads. */}
+          <a href={LEARNED} className="inline-flex items-center gap-1 font-medium underline underline-offset-4">
             What I learned
             <span aria-hidden>&rarr;</span>
-          </Link>
+          </a>
           <button type="button" onClick={hide} className="min-h-[36px] text-[13px] text-muted hover:text-foreground">
             Hide the pup
           </button>
@@ -107,7 +107,8 @@ export default function GolditoPeek() {
         aria-expanded={open}
         aria-controls={bubbleId}
         aria-label="Goldito, new this month. Show the note."
-        onClick={() => setOpen((o) => !o)}
+        // A mouse already opened it on hover, so its click only opens; taps and keys toggle.
+        onClick={(e) => setOpen((o) => ((e.nativeEvent as PointerEvent).pointerType === "mouse" ? true : !o))}
         className={`peek-pup block h-14 w-14 rounded-t-[18px] transition-transform duration-700 ease-[cubic-bezier(.2,.8,.2,1)] motion-reduce:transition-none ${
           !shown ? "translate-y-full" : open ? "translate-y-0" : "translate-y-[30%] hover:translate-y-0"
         }`}
