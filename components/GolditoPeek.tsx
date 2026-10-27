@@ -1,0 +1,117 @@
+"use client";
+
+import { useEffect, useId, useRef, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+// Goldito's golden pup peeks up from the bottom-left corner once you start
+// reading, and says what it is only when asked (hover, focus or tap). It never
+// opens on its own and never covers the page. Hiding it is remembered.
+// Bottom-left, because the home guide lives bottom-right.
+const KEY = "peek-goldito-hidden";
+const CASE = "/work/goldito";
+const LEARNED = `${CASE}#five-things-i-d-bring-to-the-next-team`;
+
+export default function GolditoPeek() {
+  const pathname = usePathname();
+  const [hidden, setHidden] = useState(true);
+  const [shown, setShown] = useState(false);
+  const [open, setOpen] = useState(false);
+  const bubbleId = useId();
+  const wrap = useRef<HTMLDivElement>(null);
+
+  // Read the remembered choice after mount (storage can be blocked).
+  useEffect(() => {
+    let stored = false;
+    try {
+      stored = localStorage.getItem(KEY) === "1";
+    } catch {}
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setHidden(stored);
+  }, []);
+
+  // Rise only once the visitor is reading: after some scrolling, or after a
+  // while on a short page. Never on first paint.
+  useEffect(() => {
+    if (hidden || shown) return;
+    const rise = () => setShown(true);
+    const onScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.5) rise();
+    };
+    const t = window.setTimeout(rise, 12000);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.clearTimeout(t);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [hidden, shown]);
+
+  // Escape or a click elsewhere closes the note.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onDown = (e: PointerEvent) => {
+      if (wrap.current && !wrap.current.contains(e.target as Node)) setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("pointerdown", onDown);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("pointerdown", onDown);
+    };
+  }, [open]);
+
+  const hide = () => {
+    try {
+      localStorage.setItem(KEY, "1");
+    } catch {}
+    setOpen(false);
+    setHidden(true);
+  };
+
+  if (hidden || pathname.startsWith(CASE) || pathname.startsWith("/changelog")) return null;
+
+  return (
+    <div
+      ref={wrap}
+      className="fixed z-[55] print:hidden"
+      style={{ left: "max(12px, env(safe-area-inset-left, 0px))", bottom: "env(safe-area-inset-bottom, 0px)" }}
+      onPointerEnter={(e) => e.pointerType === "mouse" && setOpen(true)}
+      onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(false)}
+    >
+      <div
+        id={bubbleId}
+        role="dialog"
+        aria-label="New: Goldito"
+        hidden={!open}
+        className="absolute bottom-[calc(100%+6px)] left-0 w-[min(18rem,calc(100vw-24px))] rounded-xl border border-border bg-background p-4 text-[14px] leading-relaxed shadow-[0_12px_32px_-12px_rgba(0,0,0,0.35)]"
+      >
+        <p className="m-0 text-[12.5px] font-medium text-muted">New this month</p>
+        <p className="m-0 mt-1">
+          <b className="font-semibold">Goldito</b>, a pet-sitting app I&rsquo;m designing for the Nebius × NVIDIA
+          hackathon, submitting Oct 30. A new way of working, written up.
+        </p>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+          <Link href={LEARNED} className="inline-flex items-center gap-1 font-medium underline underline-offset-4">
+            What I learned
+            <span aria-hidden>&rarr;</span>
+          </Link>
+          <button type="button" onClick={hide} className="min-h-[36px] text-[13px] text-muted hover:text-foreground">
+            Hide the pup
+          </button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-controls={bubbleId}
+        aria-label="Goldito, new this month. Show the note."
+        onClick={() => setOpen((o) => !o)}
+        className={`peek-pup block h-14 w-14 rounded-t-[18px] transition-transform duration-700 ease-[cubic-bezier(.2,.8,.2,1)] motion-reduce:transition-none ${
+          !shown ? "translate-y-full" : open ? "translate-y-0" : "translate-y-[30%] hover:translate-y-0"
+        }`}
+      />
+    </div>
+  );
+}

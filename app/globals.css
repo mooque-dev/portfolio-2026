@@ -2044,3 +2044,23 @@ body:has(.theme-scribd) header { --background: #fbf8f1; --foreground: #201c14; -
 /* Band buttons keep their band colours in dark mode too. */
 .dark .themed :is(.brand-hero, .brand-foot) .brand-cta { background: var(--hc); border-color: var(--hc); color: var(--hco); }
 .dark .themed.theme-ecobee :is(.brand-hero, .brand-foot) .brand-cta { border-color: #2d2926; }
+
+/* Goldito's pup peeking from the corner (components/GolditoPeek.tsx): two
+   frames from the app's pixel art, a slow blink, still under Reduce motion. */
+.peek-pup {
+  background: url("/peek/golden-pup.png") 0 0 / 200% 100% no-repeat;
+  image-rendering: pixelated;
+  animation: peek-blink 4.8s steps(1) infinite;
+  filter: drop-shadow(0 2px 3px rgb(0 0 0 / 0.18));
+}
+.peek-pup:focus-visible {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+@keyframes peek-blink {
+  0%, 88% { background-position: 0 0; }
+  89%, 100% { background-position: 100% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .peek-pup { animation: none; }
+}
