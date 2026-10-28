@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
@@ -10,7 +10,6 @@ import CaseLightbox from "@/components/CaseLightbox";
 import CaseDemos from "@/components/CaseDemos";
 import PenMarks from "@/components/PenMarks";
 import Arrow from "@/components/Arrow";
-import GlanceValue from "@/components/GlanceValue";
 import CaseSeal from "@/components/CaseSeal";
 
 interface PageProps {
@@ -160,17 +159,18 @@ export default async function CaseStudyPage({ params }: PageProps) {
         </FadeIn>
 
         {frontmatter.glance && frontmatter.glance.length > 0 && (
+          // Results sit on the same grid as Role, Company, Team and Tools: a
+          // spec line, not a row of big counters.
           <FadeIn delay={0.15}>
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {frontmatter.glance.map(([value, label], i) => (
-                <div key={label} className="glance pt-3" style={{ "--rule-delay": `${0.3 + i * 0.12}s` } as CSSProperties}>
-                  <b className="block text-[34px] md:text-[40px] leading-[1.05] font-bold tracking-[-0.02em] tabular-nums">
-                    <GlanceValue value={value} index={i} />
-                  </b>
-                  <span className="block mt-1.5 text-[15px] leading-snug text-muted">{label}</span>
-                </div>
+            <dl className="mt-7 grid grid-cols-1 gap-x-5 gap-y-3 md:grid-cols-4">
+              <dt className="text-[12.5px] font-semibold text-muted md:pt-[3px]">Results</dt>
+              {frontmatter.glance.slice(0, 3).map(([value, label]) => (
+                <dd key={label} className="m-0 text-[15px] leading-snug">
+                  <span className="font-semibold tabular-nums">{value}</span>{" "}
+                  <span className="text-muted">{label}</span>
+                </dd>
               ))}
-            </div>
+            </dl>
           </FadeIn>
         )}
 
