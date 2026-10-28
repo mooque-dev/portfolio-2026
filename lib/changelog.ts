@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-28",
+    title: "Results read like a spec line",
+    tags: ["design"],
+    what: "At the top of every case, the three big numbers under thick rules, which counted up as the page opened, are gone. The results now sit on the same grid as Role, Company, Team and Tools, in plain text with the number in bold. The two standalone cases, Cancer Care and Keela Contacts, match.",
+    why: "Big counters under rules are what a lot of generated sites look like. The numbers are real; they don't need a show to be believed.",
+  },
+  {
+    date: "2026-10-28",
     title: "Make your own pet in pixels",
     tags: ["design"],
     what: "The pup's note now invites you to turn your own pet into a pixel pet with Goldito's pet maker; your photo stays on your device. The note also stays open while you move the mouse up from the pup, where before it could close on the way.",
