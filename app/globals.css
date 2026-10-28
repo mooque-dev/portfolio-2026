@@ -2057,6 +2057,10 @@ body:has(.theme-scribd) header { --background: #fbf8f1; --foreground: #201c14; -
   outline: 2px solid var(--seal);
   outline-offset: 2px;
 }
+.peek-pup-still {
+  background: url("/peek/golden-pup.png") 0 0 / 200% 100% no-repeat;
+  image-rendering: pixelated;
+}
 @keyframes peek-blink {
   0%, 88% { background-position: 0 0; }
   89%, 100% { background-position: 100% 0; }

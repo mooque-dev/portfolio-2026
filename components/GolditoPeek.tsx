@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 const KEY = "peek-goldito-hidden";
 const CASE = "/work/goldito";
 const LEARNED = `${CASE}#five-things-i-d-bring-to-the-next-team`;
+const PET_MAKER = "https://mooque-dev.github.io/goldito-design/pet-maker.html";
 
 export default function GolditoPeek() {
   const pathname = usePathname();
@@ -18,6 +19,18 @@ export default function GolditoPeek() {
   const [open, setOpen] = useState(false);
   const bubbleId = useId();
   const wrap = useRef<HTMLDivElement>(null);
+  // A short grace period before a mouse-out closes the note, so a wobbly path
+  // between the pup and the note doesn't snap it shut.
+  const closer = useRef(0);
+  const hoverOpen = () => {
+    window.clearTimeout(closer.current);
+    setOpen(true);
+  };
+  const hoverClose = () => {
+    window.clearTimeout(closer.current);
+    closer.current = window.setTimeout(() => setOpen(false), 280);
+  };
+  useEffect(() => () => window.clearTimeout(closer.current), []);
 
   // Read the remembered choice after mount (storage can be blocked).
   useEffect(() => {
@@ -77,30 +90,41 @@ export default function GolditoPeek() {
       ref={wrap}
       className="fixed z-[55] print:hidden"
       style={{ left: "max(12px, env(safe-area-inset-left, 0px))", bottom: "env(safe-area-inset-bottom, 0px)" }}
-      onPointerEnter={(e) => e.pointerType === "mouse" && setOpen(true)}
-      onPointerLeave={(e) => e.pointerType === "mouse" && setOpen(false)}
+      onPointerEnter={(e) => e.pointerType === "mouse" && hoverOpen()}
+      onPointerLeave={(e) => e.pointerType === "mouse" && hoverClose()}
     >
-      <div
-        id={bubbleId}
-        role="dialog"
-        aria-label="New: Goldito"
-        hidden={!open}
-        className="absolute bottom-[calc(100%+6px)] left-0 w-[min(18rem,calc(100vw-24px))] rounded-xl border border-border bg-background p-4 text-[14px] leading-relaxed shadow-[0_12px_32px_-12px_rgba(0,0,0,0.35)]"
-      >
-        <p className="m-0 text-[12.5px] font-medium text-muted">New this month</p>
-        <p className="m-0 mt-1">
-          <b className="font-semibold">Goldito</b>, a pet-sitting app I&rsquo;m designing for the Nebius × NVIDIA
-          hackathon, submitting Oct 30. A new way of working, written up.
-        </p>
-        <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+      {/* The padding under the note bridges the gap to the pup, so the mouse
+          never leaves the hover area on its way up. */}
+      <div id={bubbleId} role="dialog" aria-label="New: Goldito" hidden={!open} className="absolute bottom-full left-0 pb-2">
+        <div className="w-[min(19rem,calc(100vw-24px))] rounded-xl border border-border bg-background p-4 text-[14px] leading-relaxed shadow-[0_12px_32px_-12px_rgba(0,0,0,0.35)]">
+          <p className="m-0 text-[12.5px] font-medium text-muted">New this month</p>
+          <p className="m-0 mt-1">
+            <b className="font-semibold">Goldito</b>, a pet-sitting app I&rsquo;m designing for the Nebius × NVIDIA
+            hackathon, submitting Oct 30.
+          </p>
           {/* A plain link, so the browser lands on the section after the page loads. */}
-          <a href={LEARNED} className="inline-flex items-center gap-1 font-medium underline underline-offset-4">
+          <a href={LEARNED} className="mt-2 inline-flex items-center gap-1 font-medium underline underline-offset-4">
             What I learned
             <span aria-hidden>&rarr;</span>
           </a>
-          <button type="button" onClick={hide} className="min-h-[36px] text-[13px] text-muted hover:text-foreground">
-            Hide the pup
-          </button>
+          <a
+            href={PET_MAKER}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 flex items-center gap-3 rounded-lg bg-foreground/[0.05] p-2.5 no-underline transition-colors hover:bg-foreground/[0.09]"
+          >
+            <span aria-hidden className="peek-pup-still h-10 w-10 flex-none rounded-md" />
+            <span className="min-w-0">
+              <span className="block font-medium">Have a pet? Make it in pixels &#8599;</span>
+              <span className="block text-[12.5px] text-muted">Your photo stays on your device.</span>
+            </span>
+            <span className="sr-only"> (opens in new tab)</span>
+          </a>
+          <div className="mt-2 flex justify-end">
+            <button type="button" onClick={hide} className="min-h-[36px] text-[13px] text-muted hover:text-foreground">
+              Hide the pup
+            </button>
+          </div>
         </div>
       </div>
 
