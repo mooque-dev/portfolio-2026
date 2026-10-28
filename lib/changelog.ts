@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-28",
+    title: "The pup leaves its ears behind",
+    tags: ["design"],
+    what: "Hide the pup and the tips of its ears stay in the bottom-left corner, faded. Hover or tap them and the pup comes back, and stays back.",
+    why: "Hiding something shouldn't mean losing it for good.",
+  },
+  {
+    date: "2026-10-28",
     title: "Results read like a spec line",
     tags: ["design"],
     what: "At the top of every case, the three big numbers under thick rules, which counted up as the page opened, are gone. The results now sit on the same grid as Role, Company, Team and Tools, in plain text with the number in bold. The two standalone cases, Cancer Care and Keela Contacts, match.",
