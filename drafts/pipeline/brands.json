@@ -190,5 +190,18 @@
     "heroMark": "#9FB8BC",
     "heroCta": "#ffffff",
     "heroCtaOn": "#000000"
+  },
+  "gumloop": {
+    "fill": "#18181B",
+    "on": "#ffffff",
+    "ink": "#18181B",
+    "inkDark": "#FAFAFA",
+    "heroBg": "#F4F4F5",
+    "heroFg": "#18181B",
+    "heroBgDark": "#F4F4F5",
+    "heroFgDark": "#18181B",
+    "heroMark": "#7B3FE4",
+    "heroCta": "#18181B",
+    "heroCtaOn": "#ffffff"
   }
 }

@@ -297,5 +297,24 @@
       "type": "none"
     },
     "darkHeader": "#0B0F10"
+  },
+  "gumloop": {
+    "fonts": {
+      "display": [
+        "Figtree",
+        {}
+      ],
+      "text": [
+        "Geist",
+        {}
+      ],
+      "mono": [
+        "Geist_Mono",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "none"
+    }
   }
 }

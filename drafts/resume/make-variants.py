@@ -219,6 +219,13 @@ ROLES = {
         lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
         projects=["arnd_code", "fork", "yuwol"],
         skills="0 to 1 product design &middot; Research with domain experts &middot; Prototyping in code (React, TypeScript) with Claude Code &middot; Design systems &middot; A/B testing &middot; Figma"),
+    "gumloop": dict(
+        url="mooque-dev.github.io/gumloop", accent="#18181B",
+        domain="CRM, workflow and finance tools", clause="build what I design with AI tools",
+        aplos=["orchid", "own", "integ", "split", "fee_code", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_system", "fork", "yuwol"],
+        skills="No-code and workflow tools &middot; Prototyping in code with Claude Code and Cursor &middot; Design systems &middot; Interaction and motion design &middot; User research &middot; Figma"),
 }
 
 
