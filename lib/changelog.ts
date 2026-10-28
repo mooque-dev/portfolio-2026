@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-10-28",
+    title: "Make your own pet in pixels",
+    tags: ["design"],
+    what: "The pup's note now invites you to turn your own pet into a pixel pet with Goldito's pet maker; your photo stays on your device. The note also stays open while you move the mouse up from the pup, where before it could close on the way.",
+    why: "Anyone with a dog or a cat should get to play with the pet maker, and a note that closes as you reach for it isn't much of a note.",
+  },
+  {
+    date: "2026-10-28",
     title: "A Gumloop page with an agent you can run",
     tags: ["content", "design"],
     what: "A new unlisted page for Gumloop, with its own one-page résumé, on Gumloop's white canvas and medium-weight type. It opens on a small agent card: press Run and four steps light up in turn, from interviewing the people doing the work to shipping, each one opening the case behind it.",

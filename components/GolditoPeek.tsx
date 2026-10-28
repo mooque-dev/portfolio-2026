@@ -115,7 +115,7 @@ export default function GolditoPeek() {
           >
             <span aria-hidden className="peek-pup-still h-10 w-10 flex-none rounded-md" />
             <span className="min-w-0">
-              <span className="block font-medium">Have a pet? Make it in pixels &#8599;</span>
+              <span className="block font-medium">Have a pet? Make it in&nbsp;pixels&nbsp;&#8599;</span>
               <span className="block text-[12.5px] text-muted">Your photo stays on your device.</span>
             </span>
             <span className="sr-only"> (opens in new tab)</span>
