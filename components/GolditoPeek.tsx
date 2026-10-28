@@ -15,6 +15,9 @@ const PET_MAKER = "https://mooque-dev.github.io/goldito-design/pet-maker.html";
 export default function GolditoPeek() {
   const pathname = usePathname();
   const [hidden, setHidden] = useState(true);
+  // Storage is read after mount; nothing shows until then, so neither the pup
+  // nor its ear tips flash on load.
+  const [ready, setReady] = useState(false);
   const [shown, setShown] = useState(false);
   const [open, setOpen] = useState(false);
   const bubbleId = useId();
@@ -40,6 +43,7 @@ export default function GolditoPeek() {
     } catch {}
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setHidden(stored);
+    setReady(true);
   }, []);
 
   // Rise a few seconds after the page settles, never on first paint. A small
@@ -83,7 +87,35 @@ export default function GolditoPeek() {
     setHidden(true);
   };
 
-  if (hidden || pathname.startsWith(CASE) || pathname.startsWith("/changelog")) return null;
+  const bringBack = () => {
+    try {
+      localStorage.removeItem(KEY);
+    } catch {}
+    setHello(false);
+    setShown(true);
+    setHidden(false);
+  };
+
+  if (!ready || pathname.startsWith(CASE) || pathname.startsWith("/changelog")) return null;
+
+  // Hidden: only the ear tips show, faded, in the same corner. Hover or tap
+  // brings the pup back.
+  if (hidden)
+    return (
+      <button
+        type="button"
+        onClick={bringBack}
+        title="Bring the pup back"
+        aria-label="Bring the Goldito pup back"
+        className="group fixed z-[55] h-6 w-12 overflow-hidden print:hidden"
+        style={{ left: "max(16px, env(safe-area-inset-left, 0px))", bottom: "env(safe-area-inset-bottom, 0px)" }}
+      >
+        <span
+          aria-hidden
+          className="peek-pup-still absolute left-1 top-1 h-10 w-10 opacity-50 transition-[transform,opacity] duration-300 group-hover:-translate-y-1 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
+        />
+      </button>
+    );
 
   return (
     <div
