@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-28",
+    title: "A Gumloop page with an agent you can run",
+    tags: ["content", "design"],
+    what: "A new unlisted page for Gumloop, with its own one-page résumé, on Gumloop's white canvas and medium-weight type. It opens on a small agent card: press Run and four steps light up in turn, from interviewing the people doing the work to shipping, each one opening the case behind it.",
+    why: "Gumloop builds tools for running agents, so the clearest way to show how I work was as a flow you can run.",
+  },
+  {
     date: "2026-10-26",
     title: "A golden pup peeks from the corner",
     tags: ["design", "content"],
