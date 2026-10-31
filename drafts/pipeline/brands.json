@@ -203,5 +203,18 @@
     "heroMark": "#7B3FE4",
     "heroCta": "#18181B",
     "heroCtaOn": "#ffffff"
+  },
+  "hatch": {
+    "fill": "#0A1A34",
+    "on": "#ffffff",
+    "ink": "#0A1A34",
+    "inkDark": "#F3EFE7",
+    "heroBg": "#0A1A34",
+    "heroFg": "#F7F4EE",
+    "heroBgDark": "#0A1A34",
+    "heroFgDark": "#F7F4EE",
+    "heroMark": "#F2B36B",
+    "heroCta": "#FFFFFF",
+    "heroCtaOn": "#0A1A34"
   }
 }

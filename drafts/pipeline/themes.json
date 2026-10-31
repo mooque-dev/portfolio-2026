@@ -316,5 +316,20 @@
     "sig": {
       "type": "none"
     }
+  },
+  "hatch": {
+    "fonts": {
+      "display": [
+        "Albert_Sans",
+        {}
+      ],
+      "text": [
+        "Albert_Sans",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "none"
+    }
   }
 }
