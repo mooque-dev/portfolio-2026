@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const TOTALS: [string, string, string?][] = [
   ["Years designing", "8"],
   ["Components shipped", "340", "+"],
-  ["Pull requests merged", "161"],
+  ["Pull requests merged", "160+"],
 ];
 
 const ROWS: Account[] = [
@@ -31,7 +31,7 @@ const ROWS: Account[] = [
   { mono: "Ak", name: "Aplos × Keela", meta: "Every field mapping visible before data moved", value: "1st", unit: "joint launch", href: "/work/aplos-keela-integration" },
   { mono: "Or", name: "Orchid design system", meta: "One library, three engineering teams", value: "340", unit: "+ components", href: "/work/orchid-design-system" },
   { mono: "Au", name: "Automation for Nonprofits", meta: "From no product area to a paid add-on", value: "+13", unit: "% ARR", href: "/work/automation-nonprofits" },
-  { mono: "Ar", name: "ARND", meta: "Designed and built with AI coding tools, in beta", value: "161", unit: "pull requests", href: "/work/arnd" },
+  { mono: "Ar", name: "ARND", meta: "Designed and built with AI coding tools, in beta", value: "160+", unit: "pull requests", href: "/work/arnd" },
 ];
 
 export default function MercuryPage() {

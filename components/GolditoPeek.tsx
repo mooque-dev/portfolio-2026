@@ -131,8 +131,8 @@ export default function GolditoPeek() {
         <div className="w-[min(19rem,calc(100vw-24px))] rounded-xl border border-border bg-background p-4 text-[14px] leading-relaxed shadow-[0_12px_32px_-12px_rgba(0,0,0,0.35)]">
           <p className="m-0 text-[12.5px] font-medium text-muted">New this month</p>
           <p className="m-0 mt-1">
-            <b className="font-semibold">Goldito</b>, a pet-sitting app I&rsquo;m designing for the Nebius × NVIDIA
-            hackathon, submitting Oct 30.
+            <b className="font-semibold">Goldito</b>, a pet-sitting app I designed for the Nebius × NVIDIA
+            hackathon, submitted Oct 30.
           </p>
           {/* A plain link, so the browser lands on the section after the page loads. */}
           <a href={LEARNED} className="mt-2 inline-flex items-center gap-1 font-medium underline underline-offset-4">

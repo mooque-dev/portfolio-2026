@@ -59,7 +59,7 @@ export const CASES: Record<CaseKey, StatementLine> = {
     tag: "Side project",
     title: "ARND",
     line: "A map-first app for Toronto's small live shows that I designed and built end to end.",
-    value: "161 pull requests",
+    value: "160+ pull requests",
     note: "merged since April, in public beta",
     href: "/work/arnd",
   },
@@ -87,14 +87,14 @@ const FEE: BuiltLine = {
 export const BUILT: Record<"default" | "rules", BuiltLine[]> = {
   default: [
     {
-      text: "ARND, a map-first React Native app for Toronto's small live shows, designed and built with AI coding tools. 161 merged pull requests since April, in public beta.",
+      text: "ARND, a map-first React Native app for Toronto's small live shows, designed and built with AI coding tools. 160+ merged pull requests since April, in public beta.",
       links: ARND_LINKS,
     },
     FEE,
   ],
   rules: [
     {
-      text: "ARND, a map-first React Native app for Toronto's small live shows, built with AI coding tools that read its design rules before they write a line. Five themes in light and dark, 161 merged pull requests, in public beta.",
+      text: "ARND, a map-first React Native app for Toronto's small live shows, built with AI coding tools that read its design rules before they write a line. Five themes in light and dark, 160+ merged pull requests, in public beta.",
       links: ARND_LINKS,
     },
     FEE,

@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-03",
+    title: "Facts brought up to date, and the tax rules named",
+    tags: ["content"],
+    what: "Goldito is submitted, so the home page and the pup now say so, in the past tense, and the case counts more than 50 of my pull requests instead of 27. ARND reads 160+ pull requests instead of 161, which it passed weeks ago. Automation reads about four months everywhere, where some pages said five. Transaction Workflows now names the receipt rule each country enforces: the advantage and eligible amount in Canada, the good-faith estimate over $75 in the US, and the minor-benefit limit in Australia.",
+    why: "A number that's out of date reads like a number that's wrong. And the tax rules are the reason a gala ticket was hard to record, so the case should say what they are.",
+  },
+  {
     date: "2026-10-28",
     title: "The pup leaves its ears behind",
     tags: ["design"],

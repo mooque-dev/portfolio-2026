@@ -160,7 +160,7 @@ export default function ProductPage() {
               </p>
             </div>
             <div className="md:pt-1">
-              <p className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] tabular-nums">161</p>
+              <p className="text-4xl md:text-5xl font-semibold tracking-[-0.03em] tabular-nums">160+</p>
               <p className="mt-2 text-[14px] leading-snug text-muted">merged pull requests, built solo</p>
             </div>
           </div>

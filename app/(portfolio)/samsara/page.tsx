@@ -30,7 +30,7 @@ export default function SamsaraPage() {
       className={`themed theme-samsara ${fdisplay.variable} ${ftext.variable} ${fmono.variable}`}
       label="[ Product design · Toronto ]"
       headline={<>I design with the people doing the work, then ship it myself.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software. I run research with customers and ship to web and mobile with AI coding tools: 161 merged pull requests on my own app.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software. I run research with customers and ship to web and mobile with AI coding tools: 160+ merged pull requests on my own app.</>}
       hero={<><TripLog /></>}
       caption={<>Every stop is a job, with what shipped there.</>}
       cases={["au", "yu", "ar", "fe", "tw", "or"]}

@@ -30,8 +30,8 @@ const SELECTED = [
 const DATAVIZ = ["care-pathway-dashboards", "keela-contacts"];
 const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
 // A team hackathon project, shown on its own so it isn't read as main work.
-// Flip submitted to true once it goes in on Oct 30.
-const HACKATHON = { slug: "goldito", event: "Nebius × NVIDIA Global AI Hackathon", submitted: false };
+// Submitted on Oct 30; add the result here once it's announced.
+const HACKATHON = { slug: "goldito", event: "Nebius × NVIDIA Global AI Hackathon", submitted: true };
 
 // Lists on home follow the same order as the Work page: by shelf (work,
 // experiments, side projects), then by each project's order number.
@@ -298,7 +298,7 @@ export default function HomeReader({ allProjects }: Props) {
                     {hackathon.title}
                   </h3>
                   <p className="mt-2 text-[14.5px] leading-relaxed text-muted">
-                    I&rsquo;m the only designer on a team of three: the whole stay for owners and sitters, the design system, and playable trials the team decides from.
+                    I was the only designer on a team of three: the whole stay for owners and sitters, the design system, and playable trials the team decided from.
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1 text-[13.5px]">
                     <span className="underline underline-offset-4">Read the case</span> <Arrow />
