@@ -16,6 +16,9 @@ for try in 1 2 3; do
   [ "$try" = 3 ] && { tail -30 "$WORK/build.log"; echo "build failed three times"; exit 1; }
   echo "build attempt $try failed (usually a font download); retrying"; sleep 20
 done
+# The cached clone lives in the temp folder, which macOS sometimes half-clears;
+# if git can't read it any more, start from a fresh clone.
+if ! git -C "$SITE" rev-parse --git-dir >/dev/null 2>&1; then rm -rf "$SITE"; fi
 [ -d "$SITE/.git" ] || gh repo clone mooque-dev/mooque-dev.github.io "$SITE" -- -q
 cd "$SITE"
 git fetch -q && git reset -q --hard origin/main
