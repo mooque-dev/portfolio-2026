@@ -30,7 +30,7 @@ const STATEMENT: StatementLine[] = [
   {
     tag: "0 to 1",
     title: "Automation for Nonprofits",
-    line: "A product area that didn't exist, from fifteen interviews to a paid add-on in five months.",
+    line: "A product area that didn't exist, from fifteen interviews to a paid add-on in about four months.",
     value: "+13% ARR",
     note: "for the product, with 30% of 355 organizations using it",
     href: "/work/automation-nonprofits",
