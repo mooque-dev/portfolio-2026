@@ -1,6 +1,6 @@
 // A metal card with fine engraved wave lines, a serif monogram, a chip and a
 // contactless mark. Our own card: no bank or network marks. The number is
-// four years of Allen's life, as on the Float and Mastercard cards. Sized in
+// three years of Allen's life, as on the Float and Mastercard cards. Sized in
 // container units, so it scales with its column.
 const WAVES = Array.from({ length: 34 }, (_, i) => i);
 
@@ -10,7 +10,7 @@ export default function EngravedCard() {
       <div
         className="ec"
         role="img"
-        aria-label="A plum metal card engraved with fine wave lines: monogram AK, Allen Kang, designer since 2018. Card number: 1994, 2007, 2018, 2026."
+        aria-label="A plum metal card engraved with fine wave lines: monogram AK, Allen Kang, designer since 2018. Card number ending 2007, 2018, 2026."
       >
         <svg className="ec-lines" viewBox="0 0 400 252" preserveAspectRatio="none" aria-hidden>
           {WAVES.map((i) => {
@@ -39,7 +39,7 @@ export default function EngravedCard() {
         <svg className="ec-tap" viewBox="0 0 24 24" aria-hidden>
           <path d="M8 7.5c2.2 2.6 2.2 6.4 0 9M11.5 5c3.6 4.1 3.6 9.9 0 14M15 2.6c5 5.6 5 13.2 0 18.8" />
         </svg>
-        <div className="ec-num">1994 2007 2018 2026</div>
+        <div className="ec-num">•••• 2007 2018 2026</div>
         <div className="ec-foot">
           <span>Allen Kang</span>
           <span>Designer since 2018</span>

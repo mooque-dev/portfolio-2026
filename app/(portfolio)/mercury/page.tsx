@@ -69,7 +69,7 @@ export default function MercuryPage() {
       <section id="mx-work" aria-labelledby="mx-work-title" className="mx-light">
         <div className="mx-in">
           <p className="mx-note">
-            The card number is four years of my life. <Link href="/about#four-years">What they are</Link>
+            The card number is three years of my life. <Link href="/about#three-years">What they are</Link>
           </p>
           <h2 id="mx-work-title" className="mx-h2">
             Six projects. <span>What changed after each one shipped.</span>

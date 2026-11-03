@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-03",
+    title: "Three years, not four",
+    tags: ["content"],
+    what: "My birth year is off the site. The About page keeps three years (2007, moved to Canada; 2018, started designing; 2026, today), my bio keeps Seoul without the year, and the card numbers on the tailored pages mask the first group: •••• 2007 2018 2026.",
+    why: "A birth year doesn't help anyone judge my work, and it doesn't need to be public.",
+  },
+  {
+    date: "2026-11-03",
     title: "Facts brought up to date, and the tax rules named",
     tags: ["content"],
     what: "Goldito is submitted, so the home page and the pup now say so, in the past tense, and the case counts more than 50 of my pull requests instead of 27. ARND reads 160+ pull requests instead of 161, which it passed weeks ago. Automation reads about four months everywhere, where some pages said five. Transaction Workflows now names the receipt rule each country enforces: the advantage and eligible amount in Canada, the good-faith estimate over $75 in the US, and the minor-benefit limit in Australia.",

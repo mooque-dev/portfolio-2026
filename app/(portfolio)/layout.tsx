@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import DeferredGuide from "@/components/DeferredGuide";
 import InspectMode from "@/components/InspectMode";
 import GolditoPeek from "@/components/GolditoPeek";
+import VisitCounter from "@/components/VisitCounter";
 import { ReactNode } from "react";
 
 export default function PortfolioLayout({ children }: { children: ReactNode }) {
@@ -16,6 +17,7 @@ export default function PortfolioLayout({ children }: { children: ReactNode }) {
       <DeferredGuide />
       <InspectMode />
       <GolditoPeek />
+      <VisitCounter />
     </>
   );
 }

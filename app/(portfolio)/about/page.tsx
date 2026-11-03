@@ -26,12 +26,11 @@ export default function AboutPage() {
             <div className="mt-3">
               <WorldClock />
             </div>
-            {/* Four years that explain most of me. The same four digits are
-                the card number on the Mastercard and Float pages, which link
-                here. */}
-            <ol id="four-years" className="scroll-mt-28 mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-border pt-6 sm:grid-cols-4" aria-label="Four years">
+            {/* Three years that explain most of me. They're also the card
+                number on the tailored pages (after a masked first group),
+                which link here. */}
+            <ol id="three-years" className="scroll-mt-28 mt-8 grid grid-cols-3 gap-x-6 gap-y-5 border-t border-border pt-6" aria-label="Three years">
               {[
-                ["1994", "Born in Seoul"],
                 ["2007", "Moved to Canada"],
                 ["2018", "Started designing"],
                 ["2026", "Today, in Toronto"],

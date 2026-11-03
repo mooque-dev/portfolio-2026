@@ -21,7 +21,7 @@ export default function FloatCard() {
       className="relative aspect-[1.586] w-full max-w-[400px] overflow-hidden rounded-[16px] text-white shadow-[0_28px_48px_-24px_rgba(0,0,0,0.55)] ring-1 ring-white/10"
       style={{ background: "linear-gradient(135deg, #1d1d1f 0%, #0d0d0e 55%, #151517 100%)" }}
       role="img"
-      aria-label="A matte black card prepared for Float: mooque, Allen Kang, product design. Card number: 1994, 2007, 2018, 2026."
+      aria-label="A matte black card prepared for Float: mooque, Allen Kang, product design. Card number ending 2007, 2018, 2026."
     >
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 400 252" preserveAspectRatio="none" aria-hidden>
         <defs>
@@ -61,7 +61,7 @@ export default function FloatCard() {
       </svg>
 
       <p className="absolute left-[7%] top-[55%] m-0 font-mono text-[clamp(13px,4.2vw,18px)] tracking-[0.12em] text-white/90 tabular-nums">
-        1994 2007 2018 2026
+        •••• 2007 2018 2026
       </p>
 
       <svg viewBox="0 0 24 24" className="absolute right-[6%] top-[38%] h-5 w-5 text-white/80" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>

@@ -144,8 +144,8 @@ export default function FloatPage() {
                 <span className="float-card-shadow" aria-hidden />
               </div>
               <p className="mt-1 text-[14px] text-muted">
-                The card number is four years of my life.{" "}
-                <Link href="/about#four-years" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
+                The card number is three years of my life.{" "}
+                <Link href="/about#three-years" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
                   What they are
                 </Link>
               </p>

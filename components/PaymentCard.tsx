@@ -30,7 +30,7 @@ export default function PaymentCard() {
       className="relative aspect-[1.586] w-full max-w-[400px] overflow-hidden rounded-[18px] p-[6%] text-white shadow-[0_28px_48px_-24px_rgba(0,0,0,0.55)] ring-1 ring-white/10 transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)] hover:-rotate-1 hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none"
       style={{ background: "radial-gradient(120% 140% at 0% 0%, #3a3734 0%, #1b1a19 55%, #0f0e0d 100%)" }}
       role="img"
-      aria-label="A payment card: Allen Kang, product designer in payments since 2018. Card number: 1994, 2007, 2018, 2026."
+      aria-label="A payment card: Allen Kang, product designer in payments since 2018. Card number ending 2007, 2018, 2026."
     >
       <div className="flex items-start justify-between">
         <span className="text-[15px] font-semibold tracking-[-0.01em]">mooque</span>
@@ -43,7 +43,7 @@ export default function PaymentCard() {
         </svg>
       </div>
       <p className="mt-[6%] font-mono text-[clamp(14px,4.4vw,19px)] tracking-[0.12em] text-white/90 tabular-nums">
-        1994 2007 2018 2026
+        •••• 2007 2018 2026
       </p>
       <div className="absolute inset-x-[6%] bottom-[7%] flex items-end justify-between gap-3">
         <div className="min-w-0">

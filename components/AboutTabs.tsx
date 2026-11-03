@@ -146,7 +146,7 @@ export default function AboutTabs() {
               </h2>
               <div className="space-y-7 text-base text-muted leading-relaxed max-w-2xl">
                 <p>
-                  Seoul, 1994. Hamilton, 2007. Toronto since 2012. My Korean
+                  Born in Seoul. Hamilton, 2007. Toronto since 2012. My Korean
                   name is Sung Mook. Over time it became{" "}
                   <span className="text-foreground font-medium">mooque</span>,
                   a handle I&apos;ve worn long enough that it&apos;s mine. The red
