@@ -1,0 +1,603 @@
+[
+ {
+  "company": "Product manager track",
+  "variant": "General",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/product/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-product.pdf",
+  "visual": "Three projects told as product decisions: problem, evidence, the call, result",
+  "made": "Oct 23",
+  "order": 0,
+  "versions": [
+   {
+    "date": "Oct 23",
+    "note": "First version"
+   },
+   {
+    "date": "Nov 3",
+    "note": "ARND reads 160+ pull requests"
+   }
+  ],
+  "slug": "product"
+ },
+ {
+  "company": "Mastercard",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/mastercard/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-mastercard.pdf",
+  "visual": "A payment card with our own two overlapping circles, then five cases",
+  "made": "Oct 2026",
+  "order": 1,
+  "versions": [
+   {
+    "date": "Oct 13",
+    "note": "Shortened, with a section list down the side"
+   },
+   {
+    "date": "Oct 13",
+    "note": "Cut to three parts: card, two circles, five cases"
+   },
+   {
+    "date": "Oct 13",
+    "note": "Card number explained, linking to About"
+   },
+   {
+    "date": "Nov 3",
+    "note": "Card number masks the birth year (•••• 2007 2018 2026); Automation reads about four months"
+   }
+  ],
+  "slug": "mastercard"
+ },
+ {
+  "company": "Float",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/float/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume.pdf",
+  "visual": "A matte black card with a large A, tilted and floating",
+  "made": "Oct 13",
+  "order": 2,
+  "versions": [
+   {
+    "date": "Oct 13",
+    "note": "First version, with a Banking and Growth switch"
+   },
+   {
+    "date": "Oct 13",
+    "note": "One general list, written for their head of design"
+   },
+   {
+    "date": "Oct 13",
+    "note": "Headline about your strength, and a floating card"
+   },
+   {
+    "date": "Oct 13",
+    "note": "Matte card with an A, every number explained"
+   },
+   {
+    "date": "Oct 13",
+    "note": "Card number explained, linking to About"
+   },
+   {
+    "date": "Nov 3",
+    "note": "Card number masks the birth year; Automation reads about four months"
+   }
+  ],
+  "slug": "float"
+ },
+ {
+  "company": "Blue J",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/bluej/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-bluej.pdf",
+  "visual": "An ask card that answers questions about you with cited sources",
+  "made": "Oct 20",
+  "order": 3,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version, with a results receipt in the intro"
+   },
+   {
+    "date": "Oct 20",
+    "note": "Ask card and a blue-to-crimson glow; the receipt moved to the end"
+   },
+   {
+    "date": "Nov 3",
+    "note": "Card number masks the birth year; Automation reads about four months"
+   }
+  ],
+  "slug": "bluej"
+ },
+ {
+  "company": "Jeppesen ForeFlight",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/jeppesen-foreflight/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-jeppesen-foreflight.pdf",
+  "visual": "A boarding pass: seat 8Y, gate PR #162",
+  "made": "Oct 20",
+  "order": 4,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version at /jeppesen, with a flight-plan chart"
+   },
+   {
+    "date": "Oct 20",
+    "note": "Moved to /jeppesen-foreflight; the old link forwards"
+   },
+   {
+    "date": "Oct 20",
+    "note": "Boarding pass replaces the chart"
+   },
+   {
+    "date": "Oct 20",
+    "note": "Quieter: plain project tags, projects reordered, a résumé rebuilt from the shared base"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "jeppesen-foreflight"
+ },
+ {
+  "company": "Bridgit",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/bridgit/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-bridgit.pdf",
+  "visual": "A Now Building site sign over a faint blueprint grid",
+  "made": "Oct 20",
+  "order": 5,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 20",
+    "note": "Quieter: plain project tags, projects reordered, a résumé rebuilt from the shared base"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "bridgit"
+ },
+ {
+  "company": "7shifts",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/7shifts/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-7shifts.pdf",
+  "visual": "A week of shifts, each a way you work, linking to its proof",
+  "made": "Oct 20",
+  "order": 6,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 20",
+    "note": "Quieter: plain project tags, projects reordered, a résumé rebuilt from the shared base"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 3",
+    "note": "Automation reads about four months"
+   }
+  ],
+  "slug": "7shifts"
+ },
+ {
+  "company": "Air Canada",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/aircanada/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-pm.pdf",
+  "visual": "The portfolio framed for a product manager role",
+  "made": "Oct 2026",
+  "order": 7,
+  "versions": [],
+  "slug": "aircanada"
+ },
+ {
+  "company": "ecobee",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/ecobee/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-ecobee.pdf",
+  "visual": "A thermostat: each setting a way you work, the big number its proof",
+  "made": "Oct 20",
+  "order": 7,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "ecobee"
+ },
+ {
+  "company": "Harvey",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/harvey/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-harvey.pdf",
+  "visual": "A statement on pleading paper, every claim citing its case",
+  "made": "Oct 20",
+  "order": 8,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "harvey"
+ },
+ {
+  "company": "OpenLoop",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/openloop/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-openloop.pdf",
+  "visual": "One visit card in three brands, with the token tiers behind it",
+  "made": "Oct 20",
+  "order": 9,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "openloop"
+ },
+ {
+  "company": "APPLY",
+  "variant": "Agentic Product Design Lead",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/apply-digital/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-apply-digital-lead.pdf",
+  "visual": "One product card in three made-up retail brands, with the token tiers behind it",
+  "made": "Oct 20",
+  "order": 10,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "apply-digital"
+ },
+ {
+  "company": "Clio",
+  "variant": "Platform",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/clio/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-clio.pdf",
+  "visual": "A matter file: how three products became one",
+  "made": "Oct 20",
+  "order": 11,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "clio"
+ },
+ {
+  "company": "Clio",
+  "variant": "Insights and Reporting",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/clio-insights/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-clio-insights.pdf",
+  "visual": "A matter file holding a before-and-after report",
+  "made": "Oct 20",
+  "order": 12,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "clio-insights"
+ },
+ {
+  "company": "Mercury",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/mercury/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-mercury.pdf",
+  "visual": "Mercury's own visual language: plum night fading to lavender, an engraved metal card, the work as an accounts panel",
+  "made": "Oct 20",
+  "order": 13,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Rebuilt to match Mercury's site: fonts, palette, card and accounts panel"
+   },
+   {
+    "date": "Nov 3",
+    "note": "Card number masks the birth year; ARND reads 160+ pull requests"
+   }
+  ],
+  "slug": "mercury"
+ },
+ {
+  "company": "Samsara",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/samsara/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-samsara.pdf",
+  "visual": "A trip report: every stop is a job",
+  "made": "Oct 20",
+  "order": 14,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 3",
+    "note": "ARND reads 160+ pull requests"
+   }
+  ],
+  "slug": "samsara"
+ },
+ {
+  "company": "Stripe",
+  "variant": "Internal Tools",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/stripe/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-stripe.pdf",
+  "visual": "A command palette you can type into to search the work",
+  "made": "Oct 20",
+  "order": 15,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "stripe"
+ },
+ {
+  "company": "Matcha.fm",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/matcha/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-matcha.pdf",
+  "visual": "A candidate card with the reasons it fits",
+  "made": "Oct 20",
+  "order": 16,
+  "versions": [
+   {
+    "date": "Oct 20",
+    "note": "First version"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Company colours and a headline highlight"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Plainer layout with company-colour bands; résumé accent"
+   },
+   {
+    "date": "Oct 22",
+    "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   }
+  ],
+  "slug": "matcha"
+ },
+ {
+  "company": "Autodesk",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/autodesk/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-autodesk.pdf",
+  "visual": "A store card that walks a buyer's journey, on black with a yellow phrase",
+  "made": "Oct 22",
+  "order": 17,
+  "versions": [
+   {
+    "date": "Oct 22",
+    "note": "First version, matched to Autodesk's site"
+   }
+  ],
+  "slug": "autodesk"
+ },
+ {
+  "company": "Scribd",
+  "variant": "Everand and Fable",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/scribd/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-scribd.pdf",
+  "visual": "The case studies as book covers, including the tests that lost",
+  "made": "Oct 22",
+  "order": 18,
+  "versions": [
+   {
+    "date": "Oct 22",
+    "note": "First version, matched to Everand's site"
+   }
+  ],
+  "slug": "scribd"
+ },
+ {
+  "company": "Signal 1",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/signal1/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-signal1.pdf",
+  "visual": "The work as a registry, on navy with an orange chevron",
+  "made": "Oct 22",
+  "order": 19,
+  "versions": [
+   {
+    "date": "Oct 22",
+    "note": "First version, matched to Signal 1's site"
+   }
+  ],
+  "slug": "signal1"
+ },
+ {
+  "company": "Stilta",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/stilta/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-stilta.pdf",
+  "visual": "A claim chart matching each claim to its evidence",
+  "made": "Oct 22",
+  "order": 20,
+  "versions": [
+   {
+    "date": "Oct 22",
+    "note": "First version, matched to Stilta's site"
+   }
+  ],
+  "slug": "stilta"
+ },
+ {
+  "company": "Gumloop",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/gumloop/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-gumloop.pdf",
+  "visual": "A design agent you can run: four steps light up, each opening its case",
+  "made": "Oct 28",
+  "order": 30,
+  "versions": [
+   {
+    "date": "Oct 28",
+    "note": "First version"
+   }
+  ],
+  "slug": "gumloop"
+ }
+]
