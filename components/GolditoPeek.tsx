@@ -96,7 +96,7 @@ export default function GolditoPeek() {
     setHidden(false);
   };
 
-  if (!ready || pathname.startsWith(CASE) || pathname.startsWith("/changelog")) return null;
+  if (!ready || pathname.startsWith(CASE) || pathname.startsWith("/changelog") || pathname.startsWith("/site-versions")) return null;
 
   // Hidden: only the ear tips show, faded, in the same corner. Hover or tap
   // brings the pup back.
