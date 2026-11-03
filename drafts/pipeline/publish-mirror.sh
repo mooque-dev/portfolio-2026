@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Publish v2 to the GitHub Pages mirror and check the given paths return 200.
+# Publish v2 to the GitHub Pages mirror and to allenkang.com (main), then check
+# the given paths return 200 on the mirror.
 #   drafts/pipeline/publish-mirror.sh "<commit message>" /slug/ /allen-kang-resume-slug.pdf ...
 # Keeps the jungmin/ folder that lives only in the mirror repo.
 set -euo pipefail
@@ -33,4 +34,7 @@ for i in $(seq 1 40); do
   [ "$s" = "built $H" ] && break; sleep 12
 done
 echo "pages build: $s"
+# allenkang.com deploys from main on Vercel; keep it on the same version as
+# the mirror. A fast-forward only, so it never overwrites anything on main.
+git -C "$REPO" push -q origin v2:main && echo "allenkang.com: main updated to v2"
 for p in "$@"; do printf "%s %s\n" "$(curl -s -o /dev/null -w '%{http_code}' "https://mooque-dev.github.io$p?v=$H")" "$p"; done
