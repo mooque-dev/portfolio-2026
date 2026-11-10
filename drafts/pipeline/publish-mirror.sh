@@ -2,7 +2,8 @@
 # Publish v2 to the GitHub Pages mirror and to allenkang.com (main), then check
 # the given paths return 200 on the mirror.
 #   drafts/pipeline/publish-mirror.sh "<commit message>" /slug/ /allen-kang-resume-slug.pdf ...
-# Keeps the jungmin/ folder that lives only in the mirror repo.
+# Keeps the folders that live only in the mirror repo: jungmin/ (the lunch
+# counter) and study/ (the case study presenter and its prototype).
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")/../.." && pwd)"
 MSG="$1"; shift
@@ -23,7 +24,7 @@ if ! git -C "$SITE" rev-parse --git-dir >/dev/null 2>&1; then rm -rf "$SITE"; fi
 [ -d "$SITE/.git" ] || gh repo clone mooque-dev/mooque-dev.github.io "$SITE" -- -q
 cd "$SITE"
 git fetch -q && git reset -q --hard origin/main
-git ls-files | grep -v '^jungmin/' | xargs git rm -q
+git ls-files | grep -vE '^(jungmin|study)/' | xargs git rm -q
 rsync -a "$OUT/" ./
 git add -A
 git commit -qm "$MSG" || { echo "nothing to publish"; exit 0; }

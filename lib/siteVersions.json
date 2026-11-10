@@ -176,6 +176,10 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 10",
+    "note": "ARND count reads 160+"
    }
   ],
   "slug": "bridgit"
@@ -217,17 +221,6 @@
   "slug": "7shifts"
  },
  {
-  "company": "Air Canada",
-  "status": "Live",
-  "url": "https://mooque-dev.github.io/aircanada/",
-  "resume": "https://mooque-dev.github.io/allen-kang-resume-pm.pdf",
-  "visual": "The portfolio framed for a product manager role",
-  "made": "Oct 2026",
-  "order": 7,
-  "versions": [],
-  "slug": "aircanada"
- },
- {
   "company": "ecobee",
   "status": "Live",
   "url": "https://mooque-dev.github.io/ecobee/",
@@ -251,9 +244,29 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 10",
+    "note": "ARND count reads 160+"
    }
   ],
   "slug": "ecobee"
+ },
+ {
+  "company": "Air Canada",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/aircanada/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-pm.pdf",
+  "visual": "The portfolio framed for a product manager role",
+  "made": "Oct 2026",
+  "order": 7,
+  "versions": [
+   {
+    "date": "Nov 10",
+    "note": "Says I build with AI coding tools, not that I write the code"
+   }
+  ],
+  "slug": "aircanada"
  },
  {
   "company": "Harvey",
@@ -279,6 +292,10 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 10",
+    "note": "The brief's title and footer show again (they were white on white); résumé says prototyping with AI tools"
    }
   ],
   "slug": "harvey"
@@ -307,6 +324,10 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 10",
+    "note": "Résumé says prototyping with AI tools"
    }
   ],
   "slug": "openloop"
@@ -365,6 +386,10 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 10",
+    "note": "File labels darker and easier to read"
    }
   ],
   "slug": "clio"
@@ -394,6 +419,10 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 10",
+    "note": "File labels darker and easier to read"
    }
   ],
   "slug": "clio-insights"
@@ -426,6 +455,10 @@
    {
     "date": "Nov 3",
     "note": "Card number masks the birth year; ARND reads 160+ pull requests"
+   },
+   {
+    "date": "Nov 10",
+    "note": "Résumé says prototyping with AI tools"
    }
   ],
   "slug": "mercury"
@@ -458,6 +491,10 @@
    {
     "date": "Nov 3",
     "note": "ARND reads 160+ pull requests"
+   },
+   {
+    "date": "Nov 10",
+    "note": "The En route chip reads in dark mode; ARND count reads 160+"
    }
   ],
   "slug": "samsara"
@@ -487,6 +524,10 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 10",
+    "note": "ARND count reads 160+; résumé says prototyping with AI tools"
    }
   ],
   "slug": "stripe"
@@ -531,6 +572,10 @@
    {
     "date": "Oct 22",
     "note": "First version, matched to Autodesk's site"
+   },
+   {
+    "date": "Nov 10",
+    "note": "Small blue label darker; ARND count reads 160+"
    }
   ],
   "slug": "autodesk"
@@ -548,6 +593,10 @@
    {
     "date": "Oct 22",
     "note": "First version, matched to Everand's site"
+   },
+   {
+    "date": "Nov 10",
+    "note": "ARND count reads 160+"
    }
   ],
   "slug": "scribd"
@@ -564,6 +613,10 @@
    {
     "date": "Oct 22",
     "note": "First version, matched to Signal 1's site"
+   },
+   {
+    "date": "Nov 10",
+    "note": "ARND count reads 160+; résumé says prototyping with AI tools"
    }
   ],
   "slug": "signal1"
@@ -580,6 +633,10 @@
    {
     "date": "Oct 22",
     "note": "First version, matched to Stilta's site"
+   },
+   {
+    "date": "Nov 10",
+    "note": "ARND count reads 160+"
    }
   ],
   "slug": "stilta"
@@ -596,8 +653,28 @@
    {
     "date": "Oct 28",
     "note": "First version"
+   },
+   {
+    "date": "Nov 10",
+    "note": "ARND count reads 160+"
    }
   ],
   "slug": "gumloop"
+ },
+ {
+  "company": "Hatch",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/hatch/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-hatch.pdf",
+  "visual": "A bedside clock: four steps of a night routine, each opening its case",
+  "made": "Nov 10",
+  "order": 31,
+  "versions": [
+   {
+    "date": "Nov 10",
+    "note": "First version"
+   }
+  ],
+  "slug": "hatch"
  }
 ]

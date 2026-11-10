@@ -23,6 +23,9 @@ interface ProjectCardProps {
   blurb?: boolean;
   // Something to try inside: shows a small pill on the cover.
   tryTag?: TryTagKind;
+  // The title's heading level. A page that lists cards straight under its
+  // h1 (the work index) passes "h2" so the outline doesn't skip a level.
+  heading?: "h2" | "h3";
 }
 
 export default function ProjectCard({
@@ -38,6 +41,7 @@ export default function ProjectCard({
   compact = false,
   blurb = false,
   tryTag,
+  heading: Heading = "h3",
 }: ProjectCardProps) {
   return (
     <Magnetic strength={0.04} radius={260}>
@@ -101,13 +105,13 @@ export default function ProjectCard({
           <p className="microlabel text-muted">
             {category}
           </p>
-          <h3
+          <Heading
             className={`font-semibold leading-snug group-hover:opacity-60 transition-opacity ${
               compact ? "text-[15px] md:text-base mt-1.5" : "text-lg md:text-xl mt-2"
             }`}
           >
             {compact ? title.split(":")[0] : title}
-          </h3>
+          </Heading>
           {(!compact || blurb) && (
             <p className="text-[13px] text-muted leading-[1.65] mt-1.5 line-clamp-3">
               {subtitle}

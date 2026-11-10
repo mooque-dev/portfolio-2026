@@ -28,7 +28,7 @@ const SETTINGS: Setting[] = [
   },
   {
     key: "Build",
-    value: "161",
+    value: "160+",
     unit: "pull requests",
     proof: "ARND runs on iOS, Android and the web, designed and built with AI coding tools.",
     href: "/work/arnd",

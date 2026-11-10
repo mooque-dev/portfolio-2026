@@ -25,9 +25,9 @@ export default function WritingCard({
         </time>
         <div className="flex-1">
           <div className="flex items-baseline gap-1.5">
-            <h3 className="text-lg font-semibold leading-snug transition-opacity group-hover:opacity-70">
+            <h2 className="text-lg font-semibold leading-snug transition-opacity group-hover:opacity-70">
               {title}
-            </h3>
+            </h2>
             <span
               className="text-muted text-base opacity-0 -translate-x-1.5 transition-all duration-200 ease-out group-hover:opacity-100 group-hover:translate-x-0"
               aria-hidden="true"

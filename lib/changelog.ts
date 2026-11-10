@@ -13,6 +13,20 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-10",
+    title: "A readability pass, and numbers that agree",
+    tags: ["fix", "content"],
+    what: "I checked every page in light and dark for text too faint to read, missing descriptions and broken links. On the Harvey page the brief's title and footer were white on white; they show now. The trip card's En route chip reads in dark mode, the small labels on the Clio file, the Autodesk card and the Fee Opt-In demo are darker, and the two interactive cases, Cancer Care and Keela Contacts, now carry a description and image when the link is shared. ARND reads 160+ pull requests on every page, where twelve still said 161. The résumé and six of its versions now say I prototype in code with AI tools.",
+    why: "Small things, but each one is a reader squinting or a number that doesn't match the page before it. And the résumé should say how I build, the same way the site does.",
+  },
+  {
+    date: "2026-11-10",
+    title: "A Hatch page with a bedside routine",
+    tags: ["content", "design"],
+    what: "A new unlisted page for Hatch, with its own one-page résumé, in navy and cream. It opens on a bedside clock: step through a night, from winding down to waking up, and each step shows a way I work and opens the case behind it.",
+    why: "Hatch makes a bedside device around a nightly routine, so I showed my own process as one.",
+  },
+  {
     date: "2026-11-03",
     title: "Three years, not four",
     tags: ["content"],

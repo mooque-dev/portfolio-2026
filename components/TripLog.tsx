@@ -8,7 +8,7 @@ const STOPS: { year: string; place: string; note: string }[] = [
   { year: "2020", place: "Forkable", note: "Moved design to Figma, built the component library" },
   { year: "2021", place: "Keela", note: "Automation from zero to a paid add-on, +13% ARR" },
   { year: "2025", place: "Aplos", note: "Payments across three products merging into one" },
-  { year: "2025", place: "ARND", note: "161 pull requests shipped with AI coding tools" },
+  { year: "2025", place: "ARND", note: "160+ pull requests shipped with AI coding tools" },
 ];
 
 export default function TripLog() {

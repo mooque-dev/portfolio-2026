@@ -7,7 +7,7 @@ const ROWS = [
   { name: "Orchid design system", area: "Platform", status: "In use", metric: "340+ components", href: "/work/orchid-design-system" },
   { name: "Aplos × Keela sync", area: "Data", status: "Shipped", metric: "1st joint launch", href: "/work/aplos-keela-integration" },
   { name: "Automation", area: "Workflows", status: "In use", metric: "+13% ARR", href: "/work/automation-nonprofits" },
-  { name: "ARND", area: "Built with AI", status: "Live beta", metric: "161 pull requests", href: "/work/arnd" },
+  { name: "ARND", area: "Built with AI", status: "Live beta", metric: "160+ pull requests", href: "/work/arnd" },
 ];
 
 export default function RegistryTable() {

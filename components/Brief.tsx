@@ -20,7 +20,7 @@ const CLAIMS: { text: string; see?: { name: string; href: string } }[] = [
     see: { name: "Orchid", href: "/work/orchid-design-system" },
   },
   {
-    text: "The Designer prototypes in code: 161 merged pull requests on a live app.",
+    text: "The Designer prototypes in code: 160+ merged pull requests on a live app.",
     see: { name: "ARND", href: "/work/arnd" },
   },
 ];

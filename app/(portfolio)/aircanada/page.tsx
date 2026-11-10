@@ -349,9 +349,9 @@ export default async function AirCanadaPage() {
               Products I run myself
             </h2>
             <p className="mt-4 text-[15px] text-muted max-w-2xl leading-relaxed">
-              I write the code too, so I know what an API contract, a slow
-              endpoint and a bug report from a real user feel like from the
-              other side.
+              I build these with AI coding tools and run them myself, so I
+              know what an API contract, a slow endpoint and a bug report
+              from a real user feel like from the other side.
             </p>
             <div className="mt-8 grid gap-x-8 gap-y-12 md:grid-cols-2">
               {builtProjects.map((p) => (

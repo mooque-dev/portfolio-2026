@@ -13,7 +13,7 @@ const ITEMS = [
   { title: "Orchid design system", tag: "Design system", meta: "340+ components", href: "/work/orchid-design-system", words: "design system components library" },
   { title: "Transaction Workflows", tag: "Dense workflows", meta: "-70% tickets", href: "/work/transaction-workflows", words: "accounting transactions finance complex" },
   { title: "Fee Opt-In", tag: "Experiment", meta: "75 to 92%", href: "/work/fee-opt-in-experimentation", words: "a/b test experiment prototype code checkout" },
-  { title: "ARND", tag: "Built with AI", meta: "161 pull requests", href: "/work/arnd", words: "react native code ai developer" },
+  { title: "ARND", tag: "Built with AI", meta: "160+ pull requests", href: "/work/arnd", words: "react native code ai developer" },
 ];
 
 export default function CommandK() {

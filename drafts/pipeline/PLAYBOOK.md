@@ -13,7 +13,7 @@ leads with what he needs to do.
 - Portfolio repo: `/Users/mooque/Claude/mooque-2026`, working branch `v2`.
   Never stage `eslint.config.mjs` or `design/`; they are someone else's work.
 - Live mirror: `https://mooque-dev.github.io/<slug>/`, published with
-  `drafts/pipeline/publish-mirror.sh`. It keeps the mirror repo's `jungmin/`
+  `drafts/pipeline/publish-mirror.sh`. It keeps the mirror repo's `jungmin/` and `study/`
   folder.
 - Tracker: the Artifact `https://claude.ai/artifact/SK714oWqSkSAciJSoTFQZ7`.
   Read and write it with the ArtifactData tool, never by republishing the
@@ -100,9 +100,13 @@ For each lead:
    and show an Apply button. Note title, location, pay, and anything about
    Canada or visas.
 2. **Give an honest read.** Apply, Consider or Long shot, against the facts
-   below. Never inflate. Pay vs the CA$120K floor: `above` when the bottom
-   of the range clears it, `below` when the top doesn't, otherwise
-   `unknown` ("check pay"). Write `why` (one or two sentences), `lead` (2 to
+   below. Never inflate. Pay vs the CA$120K floor: `above` when the top
+   of the range reaches it (he can negotiate inside a range; the radar
+   uses the same rule), `below` when the top doesn't, `unknown` ("check
+   pay") only when no pay is listed. Write pay Canada first, as
+   "CA$X–YK in Canada (US$X–YK in US) + equity", and start `location`
+   with how he'd work: "Remote in Canada", "Hybrid, Toronto (...)",
+   "Office, ...", or "US (TN): ..." for US roles. Write `why` (one or two sentences), `lead` (2 to
    4 things to lead with, each tied to a real project), `watch` (real
    risks: location, level, domain, pay), `next`.
 3. **Write the role doc** with `review: "pending"`, `status: "To prep"`, a
@@ -170,7 +174,12 @@ For each lead:
      (and once more in dark mode, for button colours) sideways scrolling, anything past the screen edge, the headline running
      into the object, clipped headlines and small tap targets, and saves the
      first screen at each width as `/tmp/check/<slug>-<width>.png`. Fix every
-     issue and look at the 375 and 1280 images yourself. Capture the review
+     issue and look at the 375 and 1280 images yourself. Then run
+     `node drafts/pipeline/audit-pages.mjs http://localhost:3123 /tmp/audit <slug>`
+     for the things layout can't show: text too faint to read in light or
+     dark, images without alt text, console errors and a missing
+     description. (Text on a pseudo-element's background can be a false
+     alarm; check it by eye.) Capture the review
      image with
      `node drafts/pipeline/hero.mjs http://localhost:3123/<slug> /tmp/<slug>.png 1280 860`,
      then stop the server.
@@ -193,12 +202,16 @@ happened, say so in one line.
   finance and CRM tools (Keela, Aplos); 340+ components in Orchid used by
   three teams; two front-end engineers earned for Orchid; -70%
   categorization tickets; fee opt-in 75% to 92%; Automation +13% ARR, 30%
-  of 355 organizations, 15 interviews, three rounds of testing; 161 merged
+  of 355 organizations, 15 interviews, three rounds of testing; 160+ merged
   pull requests on ARND (React Native, iOS, Android, web, five themes);
   Forkestrate zero to MVP in under three months; Toronto Yuwol used daily
   by a forty-person company for ten months; mentored one designer at Keela
   and two at Aplos. He has not managed a team, hired designers, or worked
   at an agency.
+- Never say he writes code. He builds with AI coding tools: he directs the
+  work, reviews it and tests it. On a résumé that reads "Prototyping in code
+  with AI tools"; "I prototype in code" on a page is fine next to a line
+  that names the tools.
 - No em-dashes anywhere. Human, feature-first voice. Don't echo phrases
   from the posting; tailor by order and a few words.
 - Pages are unlisted and `noindex` (the template does this). End each page

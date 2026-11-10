@@ -89,7 +89,7 @@ ROLES = {
         aplos=["fee", "split", "own", "orchid", "integ", "partner"],
         lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
         projects=["arnd", "fork", "yuwol"],
-        skills="A/B testing &middot; Design systems &middot; Research and usability testing &middot; Data visualization &middot; Prototyping in code (React, TypeScript) &middot; Figma, Storybook, Pendo, Amplitude"),
+        skills="A/B testing &middot; Design systems &middot; Research and usability testing &middot; Data visualization &middot; Prototyping in code with AI tools (React, TypeScript) &middot; Figma, Storybook, Pendo, Amplitude"),
     "apply-digital": dict(
         url="mooque-dev.github.io",
         domain="payments and transaction-heavy products", clause="use AI tools from concept to code",
@@ -115,7 +115,7 @@ ROLES = {
     "harvey": dict(
         accent="#1F1D1A",
         url="mooque-dev.github.io/harvey",
-        domain="complex financial and data-heavy tools", clause="prototype in code",
+        domain="complex financial and data-heavy tools", clause="prototype in code with AI tools",
         aplos=["split_tax", "own", "orchid", "fee_code", "integ", "partner"],
         lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
         projects=["arnd_code", "fork", "yuwol"],
@@ -123,11 +123,11 @@ ROLES = {
     "openloop": dict(
         accent="#C4003F",
         url="mooque-dev.github.io/openloop",
-        domain="B2B SaaS", clause="prototype in code",
+        domain="B2B SaaS", clause="prototype in code with AI tools",
         aplos=["orchid", "integ", "own", "fee_code", "split", "partner"],
         lead=["pitch", "process", "core"], pd=["auto", "adopt", "pm"],
         projects=["arnd_system", "yuwol", "fork"],
-        skills="Design systems (tokens, theming, documentation) &middot; Prototyping in code (React, TypeScript) &middot; AI coding tools (Claude Code, Cursor) &middot; Research and usability testing &middot; Figma, Storybook"),
+        skills="Design systems (tokens, theming, documentation) &middot; Prototyping in code with AI tools (React, TypeScript) &middot; AI coding tools (Claude Code, Cursor) &middot; Research and usability testing &middot; Figma, Storybook"),
     "apply-digital-lead": dict(
         accent="#B83500",
         url="mooque-dev.github.io/apply-digital",
@@ -155,11 +155,11 @@ ROLES = {
     "mercury": dict(
         accent="#3F51D6",
         url="mooque-dev.github.io/mercury",
-        domain="payments and transaction-heavy products", clause="prototype in code",
+        domain="payments and transaction-heavy products", clause="prototype in code with AI tools",
         aplos=["split", "fee_code", "own", "orchid", "integ", "partner"],
         lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
         projects=["arnd_code", "yuwol", "fork"],
-        skills="Interaction and visual design &middot; Prototyping in code (React, TypeScript) &middot; Design systems &middot; Research and usability testing &middot; A/B testing &middot; Figma, Storybook"),
+        skills="Interaction and visual design &middot; Prototyping in code with AI tools (React, TypeScript) &middot; Design systems &middot; Research and usability testing &middot; A/B testing &middot; Figma, Storybook"),
     "neo": dict(
         url="mooque-dev.github.io",
         domain="payments and transaction-heavy products", clause="mentor designers",
@@ -178,11 +178,11 @@ ROLES = {
     "stripe": dict(
         accent="#5148E5",
         url="mooque-dev.github.io/stripe",
-        domain="complex financial and data-heavy tools", clause="prototype in code",
+        domain="complex financial and data-heavy tools", clause="prototype in code with AI tools",
         aplos=["integ", "split", "orchid", "own", "fee", "partner"],
         lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
         projects=["yuwol", "arnd_code", "fork"],
-        skills="Workflow and internal tools &middot; Information architecture &middot; Design systems &middot; Research and usability testing &middot; Prototyping in code (React, TypeScript) &middot; Figma, Storybook"),
+        skills="Workflow and internal tools &middot; Information architecture &middot; Design systems &middot; Research and usability testing &middot; Prototyping in code with AI tools (React, TypeScript) &middot; Figma, Storybook"),
     "matcha": dict(
         accent="#4A6E22",
         url="mooque-dev.github.io/matcha",
@@ -207,7 +207,7 @@ ROLES = {
         skills="A/B testing and growth experiments &middot; Interaction and visual design &middot; Prototyping in code with AI tools &middot; Research and usability testing &middot; Mobile and web &middot; Figma, Amplitude"),
     "signal1": dict(
         url="mooque-dev.github.io/signal1", accent="#132661",
-        domain="B2B SaaS", clause="prototype in code",
+        domain="B2B SaaS", clause="prototype in code with AI tools",
         aplos=["integ", "orchid", "own", "split", "fee_code", "partner"],
         lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_code", "yuwol", "fork"],

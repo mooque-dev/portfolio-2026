@@ -5,7 +5,7 @@ const ROWS: [string, string][] = [
   ["Project", "Clearer planning tools for construction teams"],
   ["Designer", "Allen Kang, Senior Product Designer"],
   ["Built with", "Claude, Cursor, Figma, React"],
-  ["Track record", "8 years · 161 pull requests · 340+ components"],
+  ["Track record", "8 years · 160+ pull requests · 340+ components"],
   ["Completion", "Shipping weekly"],
 ];
 

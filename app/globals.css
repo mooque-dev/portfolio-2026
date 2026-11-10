@@ -1507,7 +1507,7 @@ select::-ms-expand {
 .br-claims a { color: inherit; text-decoration: underline; text-decoration-thickness: 0.18cqw; text-underline-offset: 0.6cqw; }
 .br-claims a:hover { color: #6b1f1a; }
 .br-claims a:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
-.br-foot { margin: 3cqw 0 0; padding-top: 2cqw; border-top: 0.22cqw solid #e2ddd2; text-align: center; font-size: 2.3cqw; letter-spacing: 0.14em; text-transform: uppercase; color: #8d867a; }
+.br-foot { margin: 3cqw 0 0; padding-top: 2cqw; border-top: 0.22cqw solid #e2ddd2; text-align: center; font-size: 2.3cqw; letter-spacing: 0.14em; text-transform: uppercase; color: #6f695e; }
 .br-sticker { position: absolute; z-index: 1; top: -5.5cqw; right: -2.5cqw; display: grid; justify-items: center; padding: 1.6cqw 3.4cqw 1.2cqw; border-radius: 1.4cqw; background: #f4df6b; color: #3a3216; transform: rotate(-7deg); box-shadow: 0 6px 10px -6px rgb(0 0 0 / 0.35); font-family: var(--font-sans), system-ui, sans-serif; }
 .br-sticker span { font-size: 2.1cqw; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
 .br-sticker b { font-size: 6cqw; line-height: 1; font-weight: 800; }
@@ -1588,9 +1588,8 @@ select::-ms-expand {
 .tl-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 3cqw; }
 .tl-k { margin: 0; font-size: max(11px, 2.7cqw); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .tl-t { margin: 0.6cqw 0 0; font-size: 4.2cqw; font-weight: 650; }
-.tl-live { display: inline-flex; align-items: center; gap: 1.6cqw; font-size: max(11px, 2.9cqw); font-weight: 600; padding: 1cqw 2.6cqw; border-radius: 99px; color: #13804a; background: color-mix(in oklab, #13804a 12%, transparent); }
+.tl-live { display: inline-flex; align-items: center; gap: 1.6cqw; font-size: max(11px, 2.9cqw); font-weight: 600; padding: 1cqw 2.6cqw; border-radius: 99px; color: #0e6b3d; background: color-mix(in oklab, #13804a 12%, transparent); }
 .tl-live::before { content: ""; width: 1.7cqw; height: 1.7cqw; border-radius: 50%; background: currentColor; }
-.dark .tl-live { color: #57c98b; }
 .tl-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2cqw; margin: 4cqw 0; padding: 3cqw 0; border-block: 1px solid var(--border); }
 .tl-stats div { display: grid; }
 .tl-stats b { font-size: 6cqw; font-weight: 650; line-height: 1.1; font-variant-numeric: tabular-nums; }
@@ -1619,13 +1618,13 @@ select::-ms-expand {
 .mf-body > * { position: relative; }
 .mf-title { margin: 0; padding: 2cqw 2cqw 0; font-size: 5cqw; font-weight: 700; letter-spacing: -0.01em; color: #1e1b14; }
 .mf-rec { display: grid; grid-template-columns: 1fr 1fr; gap: 2.4cqw 4cqw; margin: 3.6cqw 0 0; padding: 0 2cqw 3.6cqw; border-bottom: 1px solid #ece4cf; }
-.mf-rec dt { font-size: max(11px, 2.5cqw); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8b8170; }
+.mf-rec dt { font-size: max(11px, 2.5cqw); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6b6252; }
 .mf-rec dd { margin: 0.4cqw 0 0; font-size: 3.5cqw; font-weight: 600; color: #1e1b14; }
-.mf-open { display: inline-block; padding: 0.4cqw 2cqw; border-radius: 99px; background: #e2f2e8; color: #17804a; font-size: max(11px, 3cqw); }
-.mf-sec { margin: 3.6cqw 0 0; padding: 0 2cqw; font-size: max(11px, 2.5cqw); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #8b8170; }
+.mf-open { display: inline-block; padding: 0.4cqw 2cqw; border-radius: 99px; background: #e2f2e8; color: #126c3e; font-size: max(11px, 3cqw); }
+.mf-sec { margin: 3.6cqw 0 0; padding: 0 2cqw; font-size: max(11px, 2.5cqw); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6b6252; }
 .mf-log { list-style: none; margin: 2cqw 0 0; padding: 0 2cqw 2cqw; display: grid; gap: 2.4cqw; }
 .mf-log li { display: grid; grid-template-columns: 9cqw minmax(0, 1fr); gap: 2cqw; font-size: max(11px, 3.3cqw); line-height: 1.4; color: #1e1b14; }
-.mf-date { color: #8b8170; font-variant-numeric: tabular-nums; }
+.mf-date { color: #6b6252; font-variant-numeric: tabular-nums; }
 .mf-log a, .mf-bl { color: inherit; text-decoration: underline; text-decoration-color: #d9cdb0; text-underline-offset: 0.6cqw; }
 .mf-log a:hover, .mf-bl:hover { text-decoration-color: #1e1b14; }
 .mf-bars { list-style: none; margin: 2.4cqw 0 0; padding: 0 2cqw 2cqw; display: grid; gap: 3cqw; }
@@ -1847,7 +1846,7 @@ body:has(.theme-7shifts) { --hdr: #f1f0ec; }
 .theme-harvey h1 { font-size: clamp(42px, 6.4vw, 76px); }
 .theme-harvey .sig-obj { padding: 34px 30px; border-radius: 8px; background-color: #576263;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.35 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>"); }
-.theme-harvey .sig-obj p { color: rgb(250 250 249 / 0.75); }
+.theme-harvey .sig-obj > p { color: rgb(250 250 249 / 0.75); }
 .theme-harvey .brand-foot { --hero-bg: #0f0e0d; --hero-fg: #fafaf9; --hc: #fafaf9; --hco: #0f0e0d; }
 
 /* ecobee: white, Source Serif headlines, Figtree, outlined charcoal pills, blue links. */
@@ -1953,7 +1952,7 @@ body:has(.theme-scribd) header { --background: #fbf8f1; --foreground: #201c14; -
 .rg-row:hover { background: #f5f6fb; }
 .rg-name { grid-area: n; font-size: 14.5px; font-weight: 600; }
 .rg-name span { display: block; margin-top: 2px; font-size: 12.5px; font-weight: 400; color: #6b6f86; }
-.rg-status { grid-area: s; justify-self: end; padding: 2px 9px; border-radius: 99px; background: #e8f6ee; color: #13804a; font-size: 12px; font-weight: 600; }
+.rg-status { grid-area: s; justify-self: end; padding: 2px 9px; border-radius: 99px; background: #e8f6ee; color: #126c3e; font-size: 12px; font-weight: 600; }
 .rg-metric { grid-area: m; justify-self: end; font-size: 12.5px; color: #132661; }
 
 /* Stilta: warm off-white, tight grotesk, a dark microscope-grey intro, white pills. */
@@ -1994,7 +1993,7 @@ body:has(.theme-scribd) header { --background: #fbf8f1; --foreground: #201c14; -
 .jc-dim { position: relative; display: flex; justify-content: center; margin: 14px 0 0; height: 18px; }
 .jc-dim::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; border-top: 1px solid #0696d7; }
 .jc-dim::after { content: ""; position: absolute; left: 0; right: 0; top: calc(50% - 6px); height: 12px; border-left: 1px solid #0696d7; border-right: 1px solid #0696d7; }
-.jc-dim span { position: relative; z-index: 1; padding: 0 8px; background: #fff; color: #0696d7; font: 11.5px/18px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.jc-dim span { position: relative; z-index: 1; padding: 0 8px; background: #fff; color: #056fa0; font: 11.5px/18px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .themed .brand-hero > :is(.dc, .tb) { position: absolute; }
 /* Band buttons keep their band colours in dark mode too. */
 .dark .themed :is(.brand-hero, .brand-foot) .brand-cta { background: var(--hc); border-color: var(--hc); color: var(--hco); }

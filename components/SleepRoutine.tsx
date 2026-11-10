@@ -13,7 +13,7 @@ const STEPS: Step[] = [
   { time: "9:30", phase: "Wind down", title: "Start with the people", detail: "15 interviews and three rounds of testing before Automation shipped", value: "30% of 355 orgs", href: "/work/automation-nonprofits", tone: "dusk" },
   { time: "10:15", phase: "Fall asleep", title: "Make the next step easy", detail: "One calm moment in checkout, tested in four versions", value: "75→92% opt-in", href: "/work/fee-opt-in-experimentation", tone: "night" },
   { time: "2:00", phase: "Stay asleep", title: "Design for people under strain", detail: "Dashboards clinicians used to follow cancer patients through treatment", value: "4 screens rebuilt", href: "/case/care-pathway/index.html", tone: "deep" },
-  { time: "6:45", phase: "Wake up", title: "Ship it on real devices", detail: "ARND, designed and built for iOS, Android and web", value: "161 pull requests", href: "/work/arnd", tone: "dawn" },
+  { time: "6:45", phase: "Wake up", title: "Ship it on real devices", detail: "ARND, designed and built for iOS, Android and web", value: "160+ pull requests", href: "/work/arnd", tone: "dawn" },
 ];
 
 export default function SleepRoutine() {

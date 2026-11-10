@@ -43,6 +43,7 @@ export function ProjectGrid({
             transition={{ duration: 0.22, delay: (startIndex + i) * 0.04 }}
           >
             <ProjectCard
+              heading="h2"
               slug={project.slug}
               title={project.title}
               subtitle={project.subtitle}

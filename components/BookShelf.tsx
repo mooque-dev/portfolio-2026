@@ -8,7 +8,7 @@ const BOOKS = [
   { title: "Automation", by: "+13% ARR", tone: "b3", href: "/work/automation-nonprofits" },
   { title: "Transaction Workflows", by: "−70% tickets", tone: "b4", href: "/work/transaction-workflows" },
   { title: "Orchid", by: "340+ components", tone: "b5", href: "/work/orchid-design-system" },
-  { title: "ARND", by: "161 pull requests", tone: "b6", href: "/work/arnd" },
+  { title: "ARND", by: "160+ pull requests", tone: "b6", href: "/work/arnd" },
 ];
 
 export default function BookShelf() {

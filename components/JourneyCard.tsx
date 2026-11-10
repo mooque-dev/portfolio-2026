@@ -7,7 +7,7 @@ import Link from "next/link";
 // journey. Each step shows the work that moved that step, with its number.
 // Our own card: no Autodesk marks. Follows the page's colours.
 const STEPS = [
-  { key: "Discover", value: "161", unit: "pull requests", dim: "April to now", line: "ARND, a map-first discovery app for small live shows, designed and built with AI coding tools.", href: "/work/arnd", link: "ARND" },
+  { key: "Discover", value: "160+", unit: "pull requests", dim: "April to now", line: "ARND, a map-first discovery app for small live shows, designed and built with AI coding tools.", href: "/work/arnd", link: "ARND" },
   { key: "Checkout", value: "92%", unit: "fee opt-in", dim: "75% to 92%", line: "Prototyped three fixes to a checkout in code and A/B tested them: up from 75%.", href: "/work/fee-opt-in-experimentation", link: "Fee Opt-In" },
   { key: "Subscribe", value: "+13%", unit: "ARR", dim: "30% of 355 organizations", line: "A no-code builder that became a paid add-on, used by 30% of 355 organizations.", href: "/work/automation-nonprofits", link: "Automation" },
   { key: "After purchase", value: "−70%", unit: "support tickets", dim: "first month", line: "Redesigned how split payments are recorded, so customers stopped writing in.", href: "/work/transaction-workflows", link: "Transaction Workflows" },

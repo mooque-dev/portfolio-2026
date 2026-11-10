@@ -256,7 +256,7 @@ function Results({
                 <div className="flex items-baseline justify-between gap-3 text-[13.5px]">
                   <span className="min-w-0">
                     <span className="font-medium">{r.label}</span>
-                    {on && <span className="ml-2 text-[12px] font-medium text-[#1d6b52]">Trying now</span>}
+                    {on && <span className="ml-2 text-[12px] font-medium text-[#1d6b52] dark:text-[#5cc5a0]">Trying now</span>}
                     {!on && r.key !== "before" && tried.has(r.key as Variant) && <span className="ml-2 text-[12px] text-muted">Tried</span>}
                   </span>
                   <span className="flex-none font-semibold tabular-nums">{r.value === null ? "" : `${r.value}%`}</span>

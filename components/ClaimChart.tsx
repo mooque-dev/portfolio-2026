@@ -5,7 +5,7 @@ import Link from "next/link";
 const ROWS = [
   { el: "[a] a designer who learns the domain from its experts,", ev: "learned three countries’ tax rules from accountants, then cut categorization tickets by 70%", cite: "Transaction Workflows", href: "/work/transaction-workflows" },
   { el: "[b] who tests before shipping,", ev: "paused a launch that looked like a win; three fixes, tested, took opt-in from 75% to 92%", cite: "Fee Opt-In", href: "/work/fee-opt-in-experimentation" },
-  { el: "[c] and builds from zero with AI,", ev: "designed and built a live app with Claude Code: 161 merged pull requests", cite: "ARND", href: "/work/arnd" },
+  { el: "[c] and builds from zero with AI,", ev: "designed and built a live app with Claude Code: 160+ merged pull requests", cite: "ARND", href: "/work/arnd" },
 ];
 
 export default function ClaimChart() {
