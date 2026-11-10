@@ -226,6 +226,13 @@ ROLES = {
         lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_system", "fork", "yuwol"],
         skills="No-code and workflow tools &middot; Prototyping in code with Claude Code and Cursor &middot; Design systems &middot; Interaction and motion design &middot; User research &middot; Figma"),
+    "hatch": dict(
+        url="mooque-dev.github.io/hatch", accent="#0A1A34",
+        domain="CRM and payments products", clause="run research and prototype tests before we build",
+        aplos=["own", "split", "fee_code", "orchid", "integ", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_mobile", "yuwol", "fork"],
+        skills="User research and usability testing &middot; Journey mapping &middot; Mobile app design (iOS, Android) &middot; Prototyping in code with Claude Code and Cursor &middot; Design systems &middot; Figma"),
 }
 
 
