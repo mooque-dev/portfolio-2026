@@ -233,6 +233,13 @@ ROLES = {
         lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_mobile", "yuwol", "fork"],
         skills="User research and usability testing &middot; Journey mapping &middot; Mobile app design (iOS, Android) &middot; Prototyping in code with Claude Code and Cursor &middot; Design systems &middot; Figma"),
+    "grafana": dict(
+        url="mooque-dev.github.io/grafana", accent="#1B55F5",
+        domain="complex financial and data-heavy tools", clause="learn hard domains from the people who know them",
+        aplos=["integ", "split_tax", "orchid", "fee_code", "own", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_code", "yuwol", "fork"],
+        skills="Data-dense interfaces and dashboards &middot; Research in complex domains &middot; Design systems &middot; Prototyping in code with AI tools (React, TypeScript) &middot; A/B testing &middot; Figma, Storybook, Amplitude"),
 }
 
 

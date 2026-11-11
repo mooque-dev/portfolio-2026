@@ -216,5 +216,18 @@
     "heroMark": "#F2B36B",
     "heroCta": "#FFFFFF",
     "heroCtaOn": "#0A1A34"
+  },
+  "grafana": {
+    "fill": "#1B55F5",
+    "on": "#ffffff",
+    "ink": "#1B55F5",
+    "inkDark": "#8AB0FF",
+    "heroBg": "#F4F4F6",
+    "heroFg": "#000000",
+    "heroBgDark": "#111217",
+    "heroFgDark": "#F4F4F6",
+    "heroMark": "#F46800",
+    "heroCta": "#1B55F5",
+    "heroCtaOn": "#ffffff"
   }
 }

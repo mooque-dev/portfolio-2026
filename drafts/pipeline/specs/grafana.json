@@ -1,0 +1,19 @@
+{
+  "company": "Grafana Labs",
+  "object": "a small entity graph in the style of an observability tool: each node is a piece of work with its type and the number that proves it",
+  "desc": "A short path through Allen Kang's work: data made visible, dashboards, a design system, and apps that already run.",
+  "lede": "I&rsquo;m Allen, a product designer in Toronto. Eight years designing B2B software, the last five on payments, finance and CRM tools, where I made the data mapping between merging products visible and designed dashboards for clinicians and fundraisers. I learn hard domains by sitting with the people who know them, and I prototype in code with AI tools.",
+  "hero_import": "import EntityGraph from \"@/components/EntityGraph\";",
+  "hero_jsx": "<EntityGraph />",
+  "caption": "Pick a node. Each one opens the case behind it.",
+  "cases": [
+    "ak",
+    "tw",
+    "mj",
+    "or",
+    "fe",
+    "ar"
+  ],
+  "h1": "I turn tangled systems into screens people can act on.",
+  "contact": "I&rsquo;d like to help engineers see how their systems fit together, without having to ask around."
+}

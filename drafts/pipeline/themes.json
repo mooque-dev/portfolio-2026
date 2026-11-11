@@ -331,5 +331,25 @@
     "sig": {
       "type": "none"
     }
+  },
+  "grafana": {
+    "fonts": {
+      "display": [
+        "Poppins",
+        {
+          "weight": [
+            "500",
+            "600"
+          ]
+        }
+      ],
+      "text": [
+        "Inter",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "none"
+    }
   }
 }
