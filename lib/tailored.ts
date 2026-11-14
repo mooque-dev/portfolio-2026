@@ -43,7 +43,7 @@ export const CASES: Record<CaseKey, StatementLine> = {
     tag: "Design system",
     title: "Orchid design system",
     line: "I pitched it with surveys from five departments, earned two dedicated front-end engineers, and got three teams onto one system.",
-    value: "340+ components",
+    value: "340+ → 70 components",
     note: "merged into one library three teams use",
     href: "/work/orchid-design-system",
   },

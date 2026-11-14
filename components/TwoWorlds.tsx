@@ -19,7 +19,7 @@ const PAIRS = [
   {
     a: "Design",
     b: "Engineering",
-    text: "I prototype in code and review pull requests with engineers. Orchid merged 340+ components into one library three teams chose to use.",
+    text: "I prototype in code and review pull requests with engineers. Orchid cut 340+ one-off components down to 70 shared ones that three teams chose to use.",
     href: "/work/orchid-design-system",
     link: "Orchid",
   },

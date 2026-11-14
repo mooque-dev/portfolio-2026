@@ -331,5 +331,20 @@
     "sig": {
       "type": "none"
     }
+  },
+  "google": {
+    "fonts": {
+      "display": [
+        "Inter_Tight",
+        {}
+      ],
+      "text": [
+        "Inter",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "none"
+    }
   }
 }

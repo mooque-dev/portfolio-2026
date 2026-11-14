@@ -25,7 +25,7 @@ export default function TripLog() {
         <div className="tl-stats" aria-label="Trip totals">
           <div><b>8</b><span>years</span></div>
           <div><b>6</b><span>stops</span></div>
-          <div><b>340+</b><span>components</span></div>
+          <div><b>70</b><span>shared components</span></div>
         </div>
         <ol className="tl-route">
           {STOPS.map((s) => (

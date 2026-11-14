@@ -30,13 +30,13 @@ const QAS: QA[] = [
     chip: "Design systems?",
     q: "Can he build and scale a design system?",
     answer: [
-      "He pitched Orchid with surveys from five departments, earned two dedicated front-end engineers, and grew it into one library of 340+ components that three teams chose to use.",
+      "He pitched Orchid with surveys from five departments, earned two dedicated front-end engineers, and cut 340+ one-off components down to 70 shared ones that three teams chose to use.",
       { cite: 1 },
       " He also wrote its guidelines, including a rule that came straight out of the accounting work.",
       { cite: 2 },
     ],
     sources: [
-      { title: "Orchid design system", detail: "340+ components, three teams", href: "/work/orchid-design-system" },
+      { title: "Orchid design system", detail: "340+ → 70 components, three teams", href: "/work/orchid-design-system" },
       { title: "Transaction Workflows", detail: "suggested categories became a platform rule", href: "/work/transaction-workflows" },
     ],
   },

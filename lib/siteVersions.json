@@ -676,5 +676,21 @@
    }
   ],
   "slug": "hatch"
+ },
+ {
+  "company": "Google",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/google/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-google.pdf",
+  "visual": "Orchid in three steps: the audit, the 70 shared components, and the rules the AI reads",
+  "made": "Nov 13",
+  "order": 32,
+  "versions": [
+   {
+    "date": "Nov 13",
+    "note": "First version"
+   }
+  ],
+  "slug": "google"
  }
 ]

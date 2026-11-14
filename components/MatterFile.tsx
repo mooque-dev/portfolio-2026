@@ -15,7 +15,7 @@ const RECORD: [string, string][] = [
 const ENTRIES = [
   { date: "2025", text: "Owned payments across Aplos, Keela and Raisely as they merged into one suite", href: "/work/transaction-workflows" },
   { date: "2025", text: "Made every field mapping visible before the first joint launch", href: "/work/aplos-keela-integration" },
-  { date: "2023", text: "Got three teams onto one design system, 340+ components", href: "/work/orchid-design-system" },
+  { date: "2023", text: "Got three teams onto one design system: 340+ components down to 70", href: "/work/orchid-design-system" },
 ];
 
 const BARS = [

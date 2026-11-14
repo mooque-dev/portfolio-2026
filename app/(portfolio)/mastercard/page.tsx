@@ -52,7 +52,7 @@ const STATEMENT: StatementLine[] = [
     tag: "Systems",
     title: "Orchid design system",
     line: "Three teams onto one system, without the authority to make them.",
-    value: "340+ components",
+    value: "340+ → 70 components",
     href: "/work/orchid-design-system",
   },
 ];

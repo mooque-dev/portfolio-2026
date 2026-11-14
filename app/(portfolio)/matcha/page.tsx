@@ -28,7 +28,7 @@ export default function MatchaPage() {
       style={BRAND}
       className={`themed theme-matcha ${fdisplay.variable} ${ftext.variable}`}
       headline={<>I&rsquo;ve started products from nothing twice, and I&rsquo;d like a third.<span className="sig-cursor" aria-hidden /></>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing. I founded ARND, co-founded Forkestrate, and grew one design system to 340+ components across three teams.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing. I founded ARND, co-founded Forkestrate, and cut 340+ one-off components down to 70 shared ones in a design system three teams use.</>}
       hero={<><MatchCard /></>}
       caption={<>Every reason links to the work behind it.</>}
       cases={["ar", "or", "au", "fe", "tw", "yu"]}

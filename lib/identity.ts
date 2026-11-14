@@ -16,7 +16,7 @@ export const RESULTS = [
   { label: "Fee opt-in, A/B", value: "75→92%", href: "/work/fee-opt-in-experimentation" },
   { label: "Automation ARR", value: "+13%", href: "/work/automation-nonprofits" },
   { label: "Adoption, 355 orgs", value: "30%", href: "/work/automation-nonprofits" },
-  { label: "Components → 1 library", value: "340+", href: "/work/orchid-design-system" },
+  { label: "Shared components, from 340+", value: "70", href: "/work/orchid-design-system" },
   { label: "Tax rules kept", value: "CA US AU", href: "/work/transaction-workflows" },
 ];
 export const RESULTS_TOTAL = { label: "Designers mentored", value: "3", href: "/resume" };

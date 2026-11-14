@@ -216,5 +216,18 @@
     "heroMark": "#F2B36B",
     "heroCta": "#FFFFFF",
     "heroCtaOn": "#0A1A34"
+  },
+  "google": {
+    "fill": "#1F1F1F",
+    "on": "#ffffff",
+    "ink": "#1F1F1F",
+    "inkDark": "#E8E8E4",
+    "heroBg": "#FBFBF9",
+    "heroFg": "#1F1F1F",
+    "heroBgDark": "#161615",
+    "heroFgDark": "#F2F2EF",
+    "heroMark": "#3D5A80",
+    "heroCta": "#1F1F1F",
+    "heroCtaOn": "#ffffff"
   }
 }

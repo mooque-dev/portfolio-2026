@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 // The receipt's lines, each opening its case. Every number is on the résumé.
 const RECEIPT: ReceiptLine[] = [
-  { label: "Components, one library", value: "340+", href: "/work/orchid-design-system" },
+  { label: "Shared components, from 340+", value: "70", href: "/work/orchid-design-system" },
   { label: "Tax regimes learned", value: "CA US AU", href: "/work/transaction-workflows" },
   { label: "Categorization tickets", value: "-70%", href: "/work/transaction-workflows" },
   { label: "Finance managers interviewed", value: "12", href: "/work/aplos-keela-integration" },
@@ -36,7 +36,7 @@ const STATEMENT: StatementLine[] = [
     tag: "Design systems",
     title: "Orchid design system",
     line: "Three teams onto one system without the authority to make them, and the guidelines that kept it consistent.",
-    value: "340+ components",
+    value: "340+ → 70 components",
     note: "merged into one library three teams use",
     href: "/work/orchid-design-system",
   },

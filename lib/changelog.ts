@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-13",
+    title: "Orchid's real number, and a page for Google",
+    tags: ["content", "design"],
+    what: "Orchid now reads the way it happened: 340+ one-off components across three merged products, cut down to 70 shared ones. Every page, card and résumé that said Orchid had 340+ components now says so. There's also a new unlisted page for the Google Payments Platform Design System role, in a neutral style, with its own résumé. It opens on Orchid in three steps you can click through: the audit, the 70 shared components, and the design rules my AI coding tools read on ARND.",
+    why: "340+ was where Orchid started, not what it shipped. A design system is judged by how much it removes, so the smaller number is the better story, and the true one.",
+  },
+  {
     date: "2026-11-10",
     title: "A readability pass, and numbers that agree",
     tags: ["fix", "content"],

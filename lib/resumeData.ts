@@ -35,7 +35,7 @@ export const experience: Job[] = [
       "Redesigned split transactions so one payment can be a donation, a gift and a ticket at once, cutting categorization tickets by 70% in the first month.",
       "Ran an A/B test on the donation fee flow that raised fee opt-in from 75% to 92%, with conversion steady.",
       "Led integration design between the merged products, making data mapping visible and auditable.",
-      "Grew Orchid into a shared library of 340+ components used by three engineering teams.",
+      "Cut 340+ one-off components to 70 shared ones in Orchid, the design system three engineering teams use.",
       "Partnered with Product, Engineering and leadership on roadmap, experiments and delivery. Mentored two designers.",
     ],
   },

@@ -10,7 +10,7 @@ const ITEMS = [
   { title: "Automation for Nonprofits", tag: "Workflow automation", meta: "+13% ARR", href: "/work/automation-nonprofits", words: "workflow automation builder no-code 0 to 1" },
   { title: "Aplos × Keela", tag: "Data sync", meta: "1st joint launch", href: "/work/aplos-keela-integration", words: "integration mapping data sync audit" },
   { title: "Toronto Yuwol", tag: "Internal tools", meta: "used daily, 10 months", href: "/work/torontoyuwol", words: "internal tools scheduling attendance ops" },
-  { title: "Orchid design system", tag: "Design system", meta: "340+ components", href: "/work/orchid-design-system", words: "design system components library" },
+  { title: "Orchid design system", tag: "Design system", meta: "340+ → 70 components", href: "/work/orchid-design-system", words: "design system components library" },
   { title: "Transaction Workflows", tag: "Dense workflows", meta: "-70% tickets", href: "/work/transaction-workflows", words: "accounting transactions finance complex" },
   { title: "Fee Opt-In", tag: "Experiment", meta: "75 to 92%", href: "/work/fee-opt-in-experimentation", words: "a/b test experiment prototype code checkout" },
   { title: "ARND", tag: "Built with AI", meta: "160+ pull requests", href: "/work/arnd", words: "react native code ai developer" },

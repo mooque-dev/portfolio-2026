@@ -25,7 +25,7 @@ APLOS = {
     "fee": "Ran an A/B test on the donation fee flow that raised fee opt-in from 75% to 92%, with conversion steady.",
     "fee_code": "Prototyped the donation fee flow in code, then A/B tested it; fee opt-in rose from 75% to 92%.",
     "integ": "Led integration design between the merged products, making data mapping visible and auditable.",
-    "orchid": "Grew Orchid into a shared library of 340+ components used by three engineering teams.",
+    "orchid": "Cut 340+ one-off components to 70 shared ones in Orchid, the design system three engineering teams use.",
     "partner": "Partnered with Product, Engineering and leadership on roadmap, experiments and delivery. Mentored two designers.",
 }
 LEAD = {
@@ -52,6 +52,8 @@ PROJECTS = {
                     "Designed and built a map-first app for iOS, Android and web with AI tools; 160+ merged pull requests."),
     "arnd_system": ("ARND", "Founder, live-music discovery app", "2025 – Present",
                     "Designed and built a map-first app with AI coding tools: five themes, one system, 160+ merged pull requests."),
+    "arnd_rules": ("ARND", "Founder, live-music discovery app", "2025 – Present",
+                   "Built with AI coding tools; the design rules live in files they read, and tests catch drift. 160+ merged PRs."),
     "demello": ("De Mello Coffee", "Brand designer and consultant", "2020",
                 "Helped a Toronto specialty coffee roaster build the brand system to run its own brand."),
     "artsgaze": ("ArtsGaze", "Design lead, volunteer", "2025",
@@ -234,11 +236,11 @@ ROLES = {
         projects=["arnd_mobile", "yuwol", "fork"],
         skills="User research and usability testing &middot; Journey mapping &middot; Mobile app design (iOS, Android) &middot; Prototyping in code with Claude Code and Cursor &middot; Design systems &middot; Figma"),
     "google": dict(
-        url="mooque-dev.github.io",
+        url="mooque-dev.github.io/google",
         domain="payments and transaction-heavy products", clause="prototype in code with AI tools",
         aplos=["orchid", "own", "split", "fee_code", "integ", "partner"],
         lead=["pitch", "process", "core"], pd=["auto_test", "adopt", "pm"],
-        projects=["arnd_system", "yuwol", "fork"],
+        projects=["arnd_rules", "yuwol", "fork"],
         skills="Design systems (tokens, Storybook, Chromatic) &middot; Cross-product UI frameworks &middot; Prototyping in code with AI tools (React, TypeScript) &middot; Payments and checkout flows &middot; A/B testing &middot; Figma"),
 }
 

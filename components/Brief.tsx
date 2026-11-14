@@ -16,7 +16,7 @@ const CLAIMS: { text: string; see?: { name: string; href: string } }[] = [
     see: { name: "Fee Opt-In", href: "/work/fee-opt-in-experimentation" },
   },
   {
-    text: "The Designer grew one design system to 340+ components used by three teams.",
+    text: "The Designer cut 340+ one-off components down to 70 shared ones, used by three teams.",
     see: { name: "Orchid", href: "/work/orchid-design-system" },
   },
   {

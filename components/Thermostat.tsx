@@ -20,9 +20,9 @@ const SETTINGS: Setting[] = [
   },
   {
     key: "Systems",
-    value: "340+",
-    unit: "components",
-    proof: "Grew Orchid into one library that three engineering teams build with.",
+    value: "70",
+    unit: "shared components",
+    proof: "Cut 340+ one-off components to 70 shared ones in Orchid, which three engineering teams build with.",
     href: "/work/orchid-design-system",
     link: "Orchid",
   },
