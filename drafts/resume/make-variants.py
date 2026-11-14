@@ -233,6 +233,13 @@ ROLES = {
         lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_mobile", "yuwol", "fork"],
         skills="User research and usability testing &middot; Journey mapping &middot; Mobile app design (iOS, Android) &middot; Prototyping in code with Claude Code and Cursor &middot; Design systems &middot; Figma"),
+    "google": dict(
+        url="mooque-dev.github.io",
+        domain="payments and transaction-heavy products", clause="prototype in code with AI tools",
+        aplos=["orchid", "own", "split", "fee_code", "integ", "partner"],
+        lead=["pitch", "process", "core"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_system", "yuwol", "fork"],
+        skills="Design systems (tokens, Storybook, Chromatic) &middot; Cross-product UI frameworks &middot; Prototyping in code with AI tools (React, TypeScript) &middot; Payments and checkout flows &middot; A/B testing &middot; Figma"),
 }
 
 
