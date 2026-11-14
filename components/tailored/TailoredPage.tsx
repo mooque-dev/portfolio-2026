@@ -25,13 +25,15 @@ export type TailoredPageProps = {
   contact: ReactNode;
   /** Optional decoration drawn over the intro band (a grid, a cursor, a title block). */
   heroExtras?: ReactNode;
+  /** Optional rows after the work list: what the role asks for, and the work that answers it. */
+  fit?: { ask: string; proof: ReactNode }[];
 };
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 const inline = "text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity";
 
-export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras }: TailoredPageProps) {
+export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras, fit }: TailoredPageProps) {
   const id = slug.replace(/[^a-z0-9]/g, "");
   return (
     <article style={style} className={`brand-page tp ${className} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
@@ -75,6 +77,22 @@ export default function TailoredPage({ slug, company, style, className = "", lab
             </p>
           </div>
         </section>
+
+        {fit ? (
+          <section aria-labelledby={`${id}-fit`} className="mt-20 md:mt-28 max-w-3xl">
+            <h2 id={`${id}-fit`} className="text-lg md:text-xl font-medium tracking-[-0.01em]">
+              What the role asks, and where I&rsquo;ve done it
+            </h2>
+            <dl className="mt-6 border-t border-border">
+              {fit.map((f) => (
+                <div key={f.ask} className="grid gap-1 border-b border-border py-4 md:grid-cols-[220px_minmax(0,1fr)] md:gap-8">
+                  <dt className="text-[15px] font-medium">{f.ask}</dt>
+                  <dd className="text-[15px] leading-relaxed text-muted">{f.proof}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        ) : null}
 
         <section aria-label="Built in code" className="mt-20 md:mt-28 grid max-w-2xl gap-5">
           {BUILT[built].map((b) => (

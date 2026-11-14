@@ -6,13 +6,13 @@ import Link from "next/link";
 // The Google page's opening object: Orchid's story in three steps. The audit
 // shows 340 one-off components as uneven marks; Orchid shows the 70 shared
 // components they became; Rules shows how ARND keeps a system honest when AI
-// writes the code: the rules live in files the tools read, and tests catch
+// writes the code: the rules live in files the tools read, and tests flag
 // drift. Neutral palette on purpose, no company colours. Sized in container
 // units. With reduced motion the marks change without moving.
 const STEPS = [
   { key: "Audit", value: "340+", unit: "one-off components", line: "Three merged products, each with its own buttons, colours and spacing.", href: "/work/orchid-design-system", link: "Orchid" },
   { key: "Orchid", value: "70", unit: "shared components", line: "Built on tokens with each team, then adopted by three engineering teams.", href: "/work/orchid-design-system", link: "Orchid" },
-  { key: "Rules", value: "160+", unit: "pull requests", line: "On ARND, the design rules live in files my AI coding tools read, and tests fail when the code drifts.", href: "/work/arnd", link: "ARND" },
+  { key: "Rules", value: "160+", unit: "pull requests", line: "On ARND, the design rules live in files my AI coding tools read, and tests flag it when the code drifts.", href: "/work/arnd", link: "ARND" },
 ] as const;
 
 const RULES = [
@@ -20,7 +20,7 @@ const RULES = [
   ["press", "one spring curve, one component"],
   ["motion", "stands down under Reduce Motion"],
   ["themes", "five, on one set of tokens"],
-  ["drift", "a test fails, the build stops"],
+  ["drift", "tests flag it on every push"],
 ];
 
 // A fixed, made-up spread of one-offs: sizes, shapes and greys that don't agree.

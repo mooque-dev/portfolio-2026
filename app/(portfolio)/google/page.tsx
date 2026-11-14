@@ -26,10 +26,18 @@ export default function GooglePage() {
       style={BRAND}
       className={`themed theme-google ${fdisplay.variable} ${ftext.variable}`}
       headline={<>I build design systems teams choose to use, and AI can follow.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto, ready to move to Mountain View. Eight years designing, the last five on payments: split transactions, checkout fees, and the design system behind three merged products, where I cut 340+ one-off components down to 70 shared ones. On my own app, the design rules live in files my AI coding tools read before they build.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto, ready to move to Mountain View. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on payments: split transactions, checkout fees, and one design system for three merged products, 340+ one-off components cut to 70. This summer I was on stage in a forty-person musical that ran its schedule and split its bills on tools I built.</>}
       hero={<><ComponentAudit /></>}
       caption={<>Step through it: the audit, the system, the rules.</>}
-      cases={["or", "fe", "tw", "ak", "ar", "au"]}
+      cases={["or", "tw", "fe", "ak", "ar", "yu"]}
+      built="rules"
+      fit={[
+        { ask: "One system across surfaces", proof: <>Orchid replaced three products&rsquo; separate components with 70 shared ones, and three engineering teams adopted it. ARND runs one set of tokens across iOS, Android and web, in five themes, light and dark.</> },
+        { ask: "Reusable frameworks", proof: <>Tokens first, Storybook as the source of truth, visual regression checks on every pull request, and contribution reviews answered within 48 hours so teams keep proposing.</> },
+        { ask: "AI that works inside the system", proof: <>On ARND the design rules are written in files my AI coding tools read before they build, and tests run on every push to flag the patterns that broke before. 160+ merged pull requests that way.</> },
+        { ask: "A case leaders can act on", proof: <>Earlier design system efforts had stalled without engineers. I surveyed five departments, put the cost in their own words in front of leadership, and came back with two dedicated front-end engineers.</> },
+        { ask: "Usable by everyone", proof: <>ARND caps how far each kind of text can grow so large type never breaks a screen, and every animation stands down when Reduce Motion is on.</> },
+      ]}
       contact={<>I&rsquo;d like to help paying feel like one product, wherever someone pays.</>}
     />
   );

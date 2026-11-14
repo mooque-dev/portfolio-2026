@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-14",
+    title: "The Google page answers the role, and sounds like me",
+    tags: ["content"],
+    what: "The Google page has a new section that takes what the role asks for, line by line, and points to where I've done it: one system across surfaces, reusable frameworks, AI working inside the system, a case leaders can act on, and accessibility. The intro now says who I design for, people who'd rather not think about software, and mentions the musical I was in this summer, which ran on tools I built. One line was too strong: ARND's tests flag drift on every push, they don't stop the build, so the page says that.",
+    why: "A reviewer with a rubric should find each answer without digging. And a page that could be anyone's is easy to forget.",
+  },
+  {
     date: "2026-11-13",
     title: "Orchid's real number, and a page for Google",
     tags: ["content", "design"],

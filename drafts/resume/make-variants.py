@@ -241,7 +241,7 @@ ROLES = {
         aplos=["orchid", "own", "split", "fee_code", "integ", "partner"],
         lead=["pitch", "process", "core"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_rules", "yuwol", "fork"],
-        skills="Design systems (tokens, Storybook, Chromatic) &middot; Cross-product UI frameworks &middot; Prototyping in code with AI tools (React, TypeScript) &middot; Payments and checkout flows &middot; A/B testing &middot; Figma"),
+        skills="Interaction design &middot; Design systems (tokens, Storybook, Chromatic) &middot; Cross-product UI frameworks &middot; Prototyping in code with AI tools (React, TypeScript) &middot; Payments and checkout flows &middot; A/B testing &middot; Figma"),
 }
 
 
