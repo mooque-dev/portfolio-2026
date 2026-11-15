@@ -29,7 +29,7 @@ export default function ScribdPage() {
       lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, most recently on payments and paid add-ons. I run experiments, including the ones that lose, and design what comes next.</>}
       hero={<><BookShelf /></>}
       caption={<>Every cover opens a case study. One is the tests that lost.</>}
-      cases={["fe", "au", "ar", "tw", "or", "yu"]}
+      cases={["fe", "au", "or", "tw", "ar", "yu"]}
       contact={<>I&rsquo;d like to help more readers find the book they can&rsquo;t put down.</>}
     />
   );

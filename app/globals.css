@@ -1907,7 +1907,7 @@ body:has(.theme-7shifts) { --hdr: #f1f0ec; }
 body:has(.theme-autodesk) header { --background: #000; --foreground: #fff; --muted: rgb(255 255 255 / 0.7); --border: rgb(255 255 255 / 0.14); }
 body:has(.theme-signal1) header { --background: #141a47; --foreground: #fff; --muted: rgb(255 255 255 / 0.7); --border: rgb(255 255 255 / 0.14); }
 body:has(.theme-stilta) header { --background: #0b0f10; --foreground: #fff; --muted: rgb(255 255 255 / 0.7); --border: rgb(255 255 255 / 0.12); }
-body:has(.theme-scribd) header { --background: #fbf8f1; --foreground: #201c14; --muted: #6b655a; --border: #ebe5d8; }
+body:has(.theme-scribd) header { --background: #fbf8f1; --foreground: #201c14; --muted: #5a5449; --border: #ebe5d8; }
 
 /* Autodesk: black and white, bold sans, a phrase in yellow, square white buttons. */
 .theme-autodesk { --canvas: #fff; --ink: #000; --mut: #555; --line: #e5e5e5; --h1w: 700; --h1t: -0.015em; --h1l: 1.08; --h2w: 700; --btn-r: 2px; }

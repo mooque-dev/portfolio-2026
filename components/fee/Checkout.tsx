@@ -228,7 +228,7 @@ export function Sheet(p: CheckoutProps) {
 
           <div className="grid grid-cols-2 gap-1 rounded-lg bg-[#f1f5f9] p-1 text-[13.5px] font-medium">
             <span className="rounded-md bg-white py-1.5 text-center shadow-sm">Card</span>
-            <span className="py-1.5 text-center text-[#64748b]">Bank account</span>
+            <span className="py-1.5 text-center text-[#526075]">Bank account</span>
           </div>
           <Field label="Name on card" value="Jordan Lee" />
           <Field label="Card number" value="4242 4242 4242 4242" />
