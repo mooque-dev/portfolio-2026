@@ -335,16 +335,17 @@
   "google": {
     "fonts": {
       "display": [
-        "Inter_Tight",
+        "Google_Sans_Flex",
         {}
       ],
       "text": [
-        "Inter",
+        "Google_Sans",
         {}
       ]
     },
     "sig": {
-      "type": "none"
+      "type": "em",
+      "phrase": "and AI can follow"
     }
   }
 }

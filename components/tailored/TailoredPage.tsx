@@ -79,7 +79,7 @@ export default function TailoredPage({ slug, company, style, className = "", lab
         </section>
 
         {fit ? (
-          <section aria-labelledby={`${id}-fit`} className="mt-20 md:mt-28 max-w-3xl">
+          <section aria-labelledby={`${id}-fit`} className="tp-fit mt-20 md:mt-28 max-w-3xl">
             <h2 id={`${id}-fit`} className="text-lg md:text-xl font-medium tracking-[-0.01em]">
               What the role asks, and where I&rsquo;ve done it
             </h2>

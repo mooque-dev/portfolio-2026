@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { Inter_Tight, Inter } from "next/font/google";
+import { Google_Sans_Flex, Google_Sans } from "next/font/google";
 import ComponentAudit from "@/components/ComponentAudit";
 import TailoredPage from "@/components/tailored/TailoredPage";
 
 // A tailored, unlisted view of the portfolio for Google, built on the
 // shared frame (components/tailored/TailoredPage.tsx). The object is
-// Orchid in three steps: 340 uneven one-offs, the 70 shared components they became, and the rules ARND's AI coding tools read.
+// Orchid in three steps with the real artefact behind each: the audit board, the Storybook library, and ARND's design system page.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Google" },
   description:
@@ -14,9 +14,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const fdisplay = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
-const ftext = Inter({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
-const BRAND = { "--brand": "#1F1F1F", "--brand-on": "#ffffff", "--brand-ink": "#1F1F1F", "--brand-ink-dark": "#E8E8E4", "--hb": "#FBFBF9", "--hf": "#1F1F1F", "--hb-d": "#161615", "--hf-d": "#F2F2EF", "--hm": "#3D5A80", "--hc": "#1F1F1F", "--hco": "#ffffff" } as CSSProperties;
+const fdisplay = Google_Sans_Flex({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
+const ftext = Google_Sans({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
+const BRAND = { "--brand": "#0B57D0", "--brand-on": "#ffffff", "--brand-ink": "#0B57D0", "--brand-ink-dark": "#A8C7FA", "--hb": "#FFFFFF", "--hf": "#1F1F1F", "--hb-d": "#131314", "--hf-d": "#E3E3E3", "--hm": "#0B57D0", "--hc": "#0B57D0", "--hco": "#ffffff" } as CSSProperties;
 
 export default function GooglePage() {
   return (
@@ -25,10 +25,10 @@ export default function GooglePage() {
       company="Google"
       style={BRAND}
       className={`themed theme-google ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I build design systems teams choose to use, and AI can follow.</>}
+      headline={<>I build design systems teams choose to use, <span className="sig-em">and AI can follow</span>.</>}
       lede={<>I&rsquo;m Allen, a senior product designer in Toronto, ready to move to Mountain View. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on payments: split transactions, checkout fees, and one design system for three merged products, 340+ one-off components cut to 70. This summer I was on stage in a forty-person musical that ran its schedule and split its bills on tools I built.</>}
       hero={<><ComponentAudit /></>}
-      caption={<>Step through it: the audit, the system, the rules.</>}
+      caption={<>Step through it. Each picture is the real thing: my audit board, the library, the rules.</>}
       cases={["or", "tw", "fe", "ak", "ar", "yu"]}
       built="rules"
       fit={[

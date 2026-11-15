@@ -1,11 +1,11 @@
 {
   "company": "Google",
-  "object": "Orchid in three steps: 340 uneven one-offs, the 70 shared components they became, and the rules ARND's AI coding tools read",
+  "object": "Orchid in three steps with the real artefact behind each: the audit board, the Storybook library, and ARND's design system page",
   "desc": "A short path through Allen Kang's work: a design system three teams adopted, payment flows, and an app built with AI coding tools.",
   "lede": "I&rsquo;m Allen, a senior product designer in Toronto, ready to move to Mountain View. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on payments: split transactions, checkout fees, and one design system for three merged products, 340+ one-off components cut to 70. This summer I was on stage in a forty-person musical that ran its schedule and split its bills on tools I built.",
   "hero_import": "import ComponentAudit from \"@/components/ComponentAudit\";",
   "hero_jsx": "<ComponentAudit />",
-  "caption": "Step through it: the audit, the system, the rules.",
+  "caption": "Step through it. Each picture is the real thing: my audit board, the library, the rules.",
   "cases": [
     "or",
     "tw",

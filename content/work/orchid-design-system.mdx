@@ -112,6 +112,34 @@ I first built tight governance, and contribution proposals dropped to near zero.
 
 <div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Before Orchid</th><th>With Orchid</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Before Orchid"><b>340+ unique components</b> across three products, each with its own colors, spacing and patterns.</td><td data-label="With Orchid"><b>70 shared components,</b> distilled in workshops with each team.</td></tr><tr><td><span class="n">2</span></td><td data-label="Before Orchid"><b>Values set by hand,</b> down to decimal measurements that never matched between design and code.</td><td data-label="With Orchid"><b>Tokens first.</b> Color, spacing, type, elevation and motion flow from Figma variables to code.</td></tr><tr><td><span class="n">3</span></td><td data-label="Before Orchid"><b>Inconsistencies found after release,</b> often by customers.</td><td data-label="With Orchid"><b>Caught on every pull request</b> by Chromatic visual regression tests.</td></tr><tr><td><span class="n">4</span></td><td data-label="Before Orchid"><b>Formal governance,</b> and contribution proposals that dropped to near zero.</td><td data-label="With Orchid"><b>48-hour async reviews</b> with lightweight templates. Proposals doubled.</td></tr></tbody></table></div>
 
+## The cut | From 340+ to 70
+
+I ran the audit myself, with engineers helping me find what was really in the code, and tracked it in Figma and Notion. Most of the 340+ turned out to be the same thing built more than once. The dropdown alone existed in nine variations.
+
+<div class="cut" role="img" aria-label="Illustration: nine dropdown variations, lettered A to I, fold into one dropdown with variants and a rule for when to use each">
+  <div class="cut-many">
+    <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span>
+  </div>
+  <div class="cut-arrow" aria-hidden="true">→</div>
+  <div class="cut-one">
+    <b>Dropdown</b>
+    <span>one component</span>
+    <span>variants for the real differences</span>
+    <span>a rule for when to use each</span>
+  </div>
+</div>
+<p class="cut-note">Illustration. The nine variations are from my audit board, above.</p>
+
+We folded duplicates into one component with variants, wrote the rules for when to use each, and cut the one-offs nobody needed. That is how 340+ became 70, and it covered the money parts too: forms and receipts.
+
+A one-off, a snowflake, could stay only if it passed two questions.
+
+<div class="flake" role="img" aria-label="Illustration: the snowflake test. Does it give users something the shared component can't? Does it save them time? Yes to both, it stays. Otherwise it is replaced by the shared component.">
+  <div class="flake-q"><b>1</b>Does it give users something the shared version can't?</div>
+  <div class="flake-q"><b>2</b>Does it save them time?</div>
+  <div class="flake-out"><span class="keep">Yes to both: it stays</span><span class="go">Otherwise: the shared one replaces it</span></div>
+</div>
+
 ## Adoption | Getting Adoption Without Authority
 
 I had no authority over most of the people who needed Orchid, so adoption had to be earned: weekly office hours, pairing with engineers during migration, a migration guide per codebase, and bi-weekly stakeholder reviews. Teams adopted it because it was faster, not because it was required.
