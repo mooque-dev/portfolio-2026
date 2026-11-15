@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type CSSProperties, type ComponentType, type ReactNode } from "react";
 import * as D from "./OrchidDemos";
+import * as N from "./OrchidDomain";
 import "./orchid-library.css";
 
 // A recreation of the Orchid library, in progress. One set of components,
@@ -14,23 +15,70 @@ import "./orchid-library.css";
 type Theme = { key: string; name: string; note: string; vars: Record<string, string> };
 
 const THEMES: Theme[] = [
+  { key: "neutral", name: "White label", note: "No brand at all. The version that shows the system underneath.",
+    vars: { "--o-primary": "#111111", "--o-on": "#ffffff", "--o-accent": "#111111", "--o-ink": "#111111", "--o-mut": "#666666", "--o-line": "#DDDDDD", "--o-soft": "#F5F5F5", "--o-bg": "#ffffff", "--o-r": "8px", "--o-rb": "8px", "--o-font": "inherit", "--o-pad": "10px 16px" } },
   { key: "keela", name: "Keela", note: "Fundraising CRM. Purple, with a yellow accent and soft corners.",
     vars: { "--o-primary": "#7745D6", "--o-on": "#ffffff", "--o-accent": "#FFD13A", "--o-ink": "#211F54", "--o-mut": "#65688A", "--o-line": "#DDDEEA", "--o-soft": "#F8F8FC", "--o-bg": "#ffffff", "--o-r": "9px", "--o-rb": "9px", "--o-font": "Inter, system-ui, sans-serif", "--o-pad": "11px 16px" } },
   { key: "raisely", name: "Raisely", note: "Fundraising pages. Violet on navy ink, fully rounded buttons.",
     vars: { "--o-primary": "#6138D8", "--o-on": "#ffffff", "--o-accent": "#262861", "--o-ink": "#262861", "--o-mut": "#62648F", "--o-line": "#DCDCF0", "--o-soft": "#F3F3FD", "--o-bg": "#FBFBFF", "--o-r": "12px", "--o-rb": "999px", "--o-font": "system-ui, sans-serif", "--o-pad": "12px 20px" } },
   { key: "aplos", name: "Aplos", note: "Fund accounting. Navy and teal, an orange call to action, tighter spacing.",
     vars: { "--o-primary": "#16587D", "--o-on": "#ffffff", "--o-accent": "#CE5D01", "--o-ink": "#0B233B", "--o-mut": "#52647A", "--o-line": "#D5DCE3", "--o-soft": "#F2F5F8", "--o-bg": "#ffffff", "--o-r": "6px", "--o-rb": "6px", "--o-font": "'Open Sans', Inter, system-ui, sans-serif", "--o-pad": "8px 14px" } },
-  { key: "neutral", name: "White label", note: "No brand at all. The version that shows the system underneath.",
-    vars: { "--o-primary": "#111111", "--o-on": "#ffffff", "--o-accent": "#111111", "--o-ink": "#111111", "--o-mut": "#666666", "--o-line": "#DDDDDD", "--o-soft": "#F5F5F5", "--o-bg": "#ffffff", "--o-r": "8px", "--o-rb": "8px", "--o-font": "inherit", "--o-pad": "10px 16px" } },
 ];
 
-const CATS = ["Actions", "Forms", "Feedback", "Overlays", "Navigation", "Data display", "Chat and AI"] as const;
+const CATS = ["CRM", "Dashboards and reports", "Tables", "Accounting", "Actions", "Forms", "Feedback", "Overlays", "Navigation", "Data display", "Chat and AI"] as const;
+const NONPROFIT: readonly string[] = ["CRM", "Dashboards and reports", "Tables", "Accounting"];
 type Cat = (typeof CATS)[number];
 type Status = "keep" | "undecided" | "cut";
 type Entry = { id: string; name: string; cat: Cat; use: string; Demo: ComponentType; wide?: boolean; start?: Status };
 
-// "start: keep" marks the ones already in the first draft of Orchid.
+// "start: keep" marks the ones already in the first draft of Orchid. The
+// first four categories are nonprofit additions beyond shadcn, proposed for
+// Allen to confirm or remove.
 const ENTRIES: Entry[] = [
+  { id: "donor-header", name: "Donor header", cat: "CRM", Demo: N.DonorHeaderDemo, wide: true, use: "The top of a donor's record: who they are, what they've given, and the two most common next actions." },
+  { id: "timeline", name: "Activity timeline", cat: "CRM", Demo: N.TimelineDemo, use: "Everything that happened with a donor, newest first: gifts, emails, calls, notes." },
+  { id: "household", name: "Household and relationships", cat: "CRM", Demo: N.HouseholdDemo, use: "People and funds that give together, with combined giving." },
+  { id: "segment-builder", name: "Segment builder", cat: "CRM", Demo: N.SegmentBuilderDemo, use: "Building a list of donors from rules, with a live count of who matches." },
+  { id: "pipeline", name: "Major gift pipeline", cat: "CRM", Demo: N.PipelineDemo, wide: true, use: "Prospects moving through stages, with the total ask in each." },
+  { id: "comms-prefs", name: "Communication preferences", cat: "CRM", Demo: N.CommsPrefsDemo, use: "How a donor agreed to be contacted, and when and how that consent was given." },
+  { id: "merge", name: "Duplicate merge", cat: "CRM", Demo: N.MergeDemo, use: "Combining two records for the same person, choosing which value wins for each field." },
+  { id: "note", name: "Note with mentions", cat: "CRM", Demo: N.NoteDemo, use: "A note on a record that can pull a teammate in by name." },
+  { id: "tasks", name: "Task list", cat: "CRM", Demo: N.TaskListDemo, use: "Follow-ups with due dates. Overdue ones stand out in words, not only colour." },
+
+  { id: "kpi", name: "Stat with change", cat: "Dashboards and reports", Demo: N.KpiDemo, wide: true, use: "The few numbers a team checks every morning, each with how it changed and against what." },
+  { id: "goal-ring", name: "Goal progress", cat: "Dashboards and reports", Demo: N.GoalRingDemo, use: "How close a campaign is to its goal, with what's left in words." },
+  { id: "spark", name: "Stat with sparkline", cat: "Dashboards and reports", Demo: N.SparkStatDemo, use: "A number and its recent shape, when the trend matters more than the exact history." },
+  { id: "trend", name: "Trend line", cat: "Dashboards and reports", Demo: N.TrendDemo, use: "Change over time, usually this year against last." },
+  { id: "donut", name: "Breakdown", cat: "Dashboards and reports", Demo: N.DonutDemo, use: "How a whole splits into a few parts, like giving by fund. Four or five parts at most." },
+  { id: "date-range", name: "Date range with presets", cat: "Dashboards and reports", Demo: N.DateRangeDemo, use: "Picking the period a report covers. Presets first, including the fiscal year." },
+  { id: "filter-bar", name: "Active filters", cat: "Dashboards and reports", Demo: N.FilterBarDemo, use: "Showing which filters are on, each removable on its own." },
+  { id: "column-picker", name: "Column picker", cat: "Dashboards and reports", Demo: N.ColumnPickerDemo, use: "Choosing and ordering the columns in a report." },
+  { id: "export", name: "Export", cat: "Dashboards and reports", Demo: N.ExportDemo, use: "Getting a report out, with each format saying what it's for." },
+  { id: "leaderboard", name: "Leaderboard", cat: "Dashboards and reports", Demo: N.LeaderboardDemo, use: "Ranking peer fundraisers or teams during a campaign." },
+  { id: "retention", name: "Retention table", cat: "Dashboards and reports", Demo: N.RetentionDemo, use: "How many of each year's new donors kept giving." },
+
+  { id: "bulk-bar", name: "Bulk action bar", cat: "Tables", Demo: N.BulkBarDemo, use: "Appears when rows are selected, with what can be done to all of them at once." },
+  { id: "inline-edit", name: "Inline edit", cat: "Tables", Demo: N.InlineEditDemo, use: "Fixing one value without opening the record." },
+  { id: "grouped-rows", name: "Grouped rows with subtotals", cat: "Tables", Demo: N.GroupedRowsDemo, use: "Rows grouped by fund or campaign, each group with its own total." },
+  { id: "totals-row", name: "Totals row", cat: "Tables", Demo: N.TotalsRowDemo, use: "The sum of each number column, pinned to the bottom." },
+  { id: "expand-row", name: "Expandable row", cat: "Tables", Demo: N.ExpandRowDemo, use: "Details for one row without leaving the table." },
+  { id: "saved-views", name: "Saved views", cat: "Tables", Demo: N.SavedViewsDemo, use: "Filters a team uses often, saved as tabs with their counts." },
+  { id: "density", name: "Row density", cat: "Tables", Demo: N.DensityDemo, use: "Compact rows for people who scan a lot of numbers, comfortable for everyone else." },
+  { id: "sticky-table", name: "Sticky header and first column", cat: "Tables", Demo: N.StickyTableDemo, wide: true, use: "Wide tables that scroll while the names and headings stay in view." },
+
+  { id: "currency-input", name: "Currency input", cat: "Accounting", Demo: N.CurrencyInputDemo, use: "Entering money, with the currency always visible." },
+  { id: "account-picker", name: "Account picker", cat: "Accounting", Demo: N.AccountPickerDemo, use: "Choosing from the chart of accounts, by code or name, with its grouping visible." },
+  { id: "split", name: "Split transaction", cat: "Accounting", Demo: N.SplitDemo, use: "One payment that was several things, like a donation and a ticket. Shows what's left to allocate until it adds up." },
+  { id: "journal", name: "Journal entry", cat: "Accounting", Demo: N.JournalDemo, use: "Debit and credit lines that must balance before saving." },
+  { id: "receipt", name: "Donation receipt", cat: "Accounting", Demo: N.ReceiptDemo, use: "The receipt a donor gets, with the eligible amount when they received something back." },
+  { id: "reconcile", name: "Reconciliation match", cat: "Accounting", Demo: N.ReconcileDemo, wide: true, use: "Pairing a bank line with what's in the books." },
+  { id: "periods", name: "Period status", cat: "Accounting", Demo: N.PeriodStatusDemo, use: "Which months are open, in review, or closed and locked." },
+  { id: "budget", name: "Budget against actual", cat: "Accounting", Demo: N.BudgetDemo, use: "Spending against budget per line, with overspending said in words." },
+  { id: "ledger", name: "Ledger with running balance", cat: "Accounting", Demo: N.LedgerDemo, use: "Transactions in order with the balance after each one." },
+  { id: "payment-method", name: "Payment method", cat: "Accounting", Demo: N.PaymentMethodDemo, use: "A saved card or account, with a warning before it expires." },
+  { id: "recurring", name: "Recurring schedule", cat: "Accounting", Demo: N.RecurringDemo, use: "How often a gift repeats, and the next dates it will run." },
+  { id: "pledge", name: "Pledge installments", cat: "Accounting", Demo: N.PledgeDemo, use: "A promised amount paid over time, with each installment's status." },
+
   { id: "button", name: "Button", cat: "Actions", start: "keep", Demo: D.ButtonDemo, use: "One primary action per view. Secondary for the alternative, quiet for everything else, danger only for destructive actions." },
   { id: "button-group", name: "Button group", cat: "Actions", Demo: D.ButtonGroupDemo, use: "A few related buttons that work as a set, like a date range." },
   { id: "toggle", name: "Toggle", cat: "Actions", Demo: D.ToggleDemo, use: "A button that stays on or off, like bold in a text editor." },
@@ -213,7 +261,7 @@ export default function OrchidLibrary() {
                   <div className="ol-meta">
                     <div className="ol-meta-h">
                       <h3 id={`h-${e.id}`}>{e.name}</h3>
-                      <span className="ol-cat">{e.cat}</span>
+                      <span className="ol-cat">{e.cat} · {NONPROFIT.includes(e.cat) ? "Nonprofit addition" : "shadcn"}</span>
                     </div>
                     <p className="ol-use">{e.use}</p>
                     <label className="ol-where"><span>Where it&rsquo;s used</span>
