@@ -109,7 +109,7 @@
 .o-alert > svg { grid-row: 1 / span 2; margin-top: 2px; color: var(--c); }
 .o-alert p { margin: 0; }
 .o-alert-t { font-size: 14px; font-weight: 600; color: color-mix(in srgb, var(--c) 55%, var(--o-ink)); }
-.o-alert-d { font-size: 14px; line-height: 1.5; color: var(--o-mut); }
+.o-alert-d { font-size: 14px; line-height: 1.5; color: color-mix(in srgb, var(--o-mut) 70%, var(--o-ink)); }
 .o-alert-success { --c: #15803d; }
 .o-alert-warning { --c: #b45309; }
 .o-alert-danger { --c: #c62828; }
