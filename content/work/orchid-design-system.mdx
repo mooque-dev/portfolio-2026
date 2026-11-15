@@ -114,17 +114,17 @@ I first built tight governance, and contribution proposals dropped to near zero.
 
 ## The cut | From 340+ to 70
 
-I ran the audit myself over about three weeks and tracked it in Figma and Notion. Engineers from all three products helped me find the one-offs and inconsistencies that were really in the code, and told me what worried them about building the shared versions. Most of the 340+ turned out to be the same thing built more than once. The dropdown alone existed in nine variations.
+I ran the audit myself over about three weeks and tracked it in Figma and Notion. Engineers from all three products helped me find the one-offs and inconsistencies that were really in the code, and told me what worried them about building the shared versions. Most of the 340+ turned out to be the same thing built more than once. The dropdown alone existed in nine variations. They became one select with four variants (single, multiple, searchable, and with icons) plus a separate date picker. Address and country lookups became the searchable variant with preset lists, and the two that only looked like dropdowns went away.
 
-<div class="cut" role="img" aria-label="Illustration: nine dropdown variations, lettered A to I, fold into one dropdown with variants and a rule for when to use each">
+<div class="cut" role="img" aria-label="Illustration: nine dropdown variations, lettered A to I, fold into one select with four variants, plus a separate date picker">
   <div class="cut-many">
     <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span>
   </div>
   <div class="cut-arrow" aria-hidden="true">→</div>
   <div class="cut-one">
-    <b>Dropdown</b>
-    <span>one component</span>
-    <span>variants for the real differences</span>
+    <b>Select</b>
+    <span>single, multiple, searchable, with icons</span>
+    <span>plus a date picker of its own</span>
     <span>a rule for when to use each</span>
   </div>
 </div>

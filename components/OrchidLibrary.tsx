@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type CSSProperties, type ReactNode } from "react";
+import { Select, DatePicker, Alert } from "./OrchidParts";
 import "./orchid-library.css";
 
 // A recreation of the Orchid library, in progress. One set of components,
@@ -28,6 +29,17 @@ const THEMES: Theme[] = [
     key: "neutral", name: "White label", note: "No brand at all. The version that shows the system underneath.",
     vars: { "--o-primary": "#111111", "--o-on": "#ffffff", "--o-accent": "#111111", "--o-ink": "#111111", "--o-mut": "#666666", "--o-line": "#DDDDDD", "--o-soft": "#F5F5F5", "--o-bg": "#ffffff", "--o-r": "8px", "--o-rb": "8px", "--o-font": "inherit", "--o-pad": "10px 16px" },
   },
+];
+
+const FUNDS = [{ value: "general", label: "General fund" }, { value: "building", label: "Building fund" }, { value: "youth", label: "Youth programs" }, { value: "missions", label: "Missions" }, { value: "scholarship", label: "Scholarship fund" }, { value: "relief", label: "Disaster relief" }];
+const TAGS = [{ value: "monthly", label: "Monthly donor" }, { value: "major", label: "Major gift" }, { value: "volunteer", label: "Volunteer" }, { value: "board", label: "Board" }, { value: "lapsed", label: "Lapsed" }];
+const COUNTRIES = ["Australia", "Canada", "France", "Germany", "Ireland", "Mexico", "New Zealand", "South Korea", "United Kingdom", "United States"].map((c) => ({ value: c, label: c }));
+const ic = (d: ReactNode) => <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">{d}</svg>;
+const METHODS = [
+  { value: "card", label: "Card", icon: ic(<><rect x="1.75" y="3.5" width="12.5" height="9" rx="1.5" /><path d="M1.75 6.5h12.5" /></>) },
+  { value: "bank", label: "Bank transfer", icon: ic(<><path d="M2 6.5L8 3l6 3.5M3.5 7v5M6.5 7v5M9.5 7v5M12.5 7v5M2 13h12" /></>) },
+  { value: "cheque", label: "Cheque", icon: ic(<><rect x="1.75" y="4" width="12.5" height="8" rx="1" /><path d="M4 9.5h4M10 9.5h2" /></>) },
+  { value: "cash", label: "Cash", icon: ic(<><rect x="1.75" y="4.5" width="12.5" height="7" rx="1" /><circle cx="8" cy="8" r="1.75" /></>) },
 ];
 
 const TODO = "To fill in";
@@ -86,10 +98,24 @@ export default function OrchidLibrary() {
           <label className="o-field"><span>Donor email</span><input type="email" placeholder="name@example.org" /><em>We send the receipt here.</em></label>
         </Spec>
 
-        <Spec name="Dropdown" use="Choosing one from a list of more than five. For five or fewer, use radio buttons.">
-          <label className="o-field"><span>Fund</span>
-            <span className="o-select"><select defaultValue="general"><option value="general">General fund</option><option value="building">Building fund</option><option value="youth">Youth programs</option></select></span>
-          </label>
+        <Spec name="Select: single" use="Choosing one from a list of more than five. For five or fewer, use radio buttons.">
+          <Select variant="single" label="Fund" placeholder="Choose a fund" initial={["general"]} options={FUNDS} />
+        </Spec>
+
+        <Spec name="Select: multiple" use="Choosing any number from a list. Selected items show as chips in the field.">
+          <Select variant="multiple" label="Tags" placeholder="Add tags" initial={["monthly", "major"]} options={TAGS} />
+        </Spec>
+
+        <Spec name="Select: searchable" use="Long lists people know the answer to, like countries or provinces. Type to narrow. Address and country lookups use this one with a preset list.">
+          <Select variant="searchable" label="Country" placeholder="Search countries" options={COUNTRIES} />
+        </Spec>
+
+        <Spec name="Select: with icons" use="When a picture helps people tell the options apart faster than the words do.">
+          <Select variant="icons" label="Payment method" placeholder="Choose a method" initial={["card"]} options={METHODS} />
+        </Spec>
+
+        <Spec name="Date picker" use="Picking a day. Its own component, not a select: the calendar is the point.">
+          <DatePicker />
         </Spec>
 
         <Spec name="Checkbox and radio" use="Checkbox for any number of choices, radio for exactly one.">
@@ -119,8 +145,13 @@ export default function OrchidLibrary() {
           </div>
         </Spec>
 
-        <Spec name="Alert" use="Something the person needs to know before they continue. One per view.">
-          <div className="o-alert" role="note"><b>Receipts are paused.</b> Turn them back on in settings to send this one.</div>
+        <Spec name="Alert" use="Something the person should know before they continue. Pick the tone by consequence: info to inform, success to confirm, warning before a risk, danger when something failed or can't be undone.">
+          <div className="ol-col">
+            <Alert tone="info" title="Receipts are paused">Turn them back on in settings to send this one.</Alert>
+            <Alert tone="success" title="Donation saved">A receipt is on its way to the donor.</Alert>
+            <Alert tone="warning" title="This fund is almost closed">It stops taking gifts on Nov 30.</Alert>
+            <Alert tone="danger" title="The card was declined">Nothing was charged. Ask the donor for another card.</Alert>
+          </div>
         </Spec>
 
         <Spec name="Card" use="One object with a title, a few facts and at most one action.">

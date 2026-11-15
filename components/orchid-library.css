@@ -59,7 +59,6 @@
 .o-tabs button { padding: 10px 14px; margin-bottom: -1.5px; border: 0; border-bottom: 2.5px solid transparent; background: transparent; color: var(--o-mut); font: inherit; font-size: 14.5px; cursor: pointer; }
 .o-tabs button.on { color: var(--o-ink); font-weight: 600; border-bottom-color: var(--o-primary); }
 
-.o-alert { padding: 12px 14px; border-radius: var(--o-r); border-left: 4px solid var(--o-accent); background: var(--o-soft); font-size: 14px; line-height: 1.5; }
 .o-card { max-width: 300px; padding: 18px; border: 1.5px solid var(--o-line); border-radius: var(--o-r); background: #fff; }
 .o-card p { margin: 0; }
 .o-card-k { font-size: 13px; color: var(--o-mut); }
@@ -74,4 +73,45 @@
 .o-table td { padding: var(--o-pad); padding-left: 10px; padding-right: 10px; border-bottom: 1px solid var(--o-line); }
 .o-table tr:last-child td { border-bottom: 0; }
 .o-table .num { text-align: right; }
+/* Select, date picker: one trigger, one popover. */
+.o-pop { position: relative; }
+.o-trigger { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; min-height: 42px; padding: var(--o-pad); border: 1.5px solid var(--o-line); border-radius: var(--o-r); background: #fff; color: var(--o-ink); font: inherit; font-size: 14.5px; font-weight: 400; text-align: left; cursor: pointer; }
+.o-trigger > svg { flex: none; color: var(--o-mut); }
+.o-trigger:focus-visible, .o-trigger-search:focus-within { outline: 2px solid var(--o-primary); outline-offset: 1px; border-color: var(--o-primary); }
+.o-trigger-search { justify-content: flex-start; cursor: text; }
+.o-trigger-search input { flex: 1; min-width: 0; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; outline: none; }
+.o-trigger-val { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-width: 0; }
+.o-ph, .o-trigger-search input::placeholder { color: var(--o-mut); }
+.o-ico { display: inline-grid; place-items: center; color: var(--o-mut); }
+.o-chip { padding: 2px 8px; border-radius: var(--o-rb); background: var(--o-soft); box-shadow: inset 0 0 0 1px var(--o-line); font-size: 12.5px; font-weight: 600; }
+.o-list, .o-cal { position: absolute; z-index: 5; top: calc(100% + 6px); left: 0; right: 0; margin: 0; padding: 4px; list-style: none; border: 1px solid var(--o-line); border-radius: var(--o-r); background: #fff; box-shadow: 0 8px 24px -8px rgb(0 0 0 / 0.18); max-height: 240px; overflow-y: auto; }
+.o-list button { display: flex; align-items: center; gap: 8px; width: 100%; padding: 8px 10px; border: 0; border-radius: calc(var(--o-r) - 2px); background: transparent; color: var(--o-ink); font: inherit; font-size: 14px; font-weight: 400; text-align: left; cursor: pointer; }
+.o-list button:hover, .o-list button:focus-visible { background: var(--o-soft); outline: none; }
+.o-list button > svg { margin-left: auto; color: var(--o-primary); }
+.o-opt { flex: 1; }
+.o-box { display: grid; place-items: center; width: 16px; height: 16px; border: 1.5px solid var(--o-line); border-radius: 4px; color: var(--o-on); }
+.o-box.on { background: var(--o-primary); border-color: var(--o-primary); }
+.o-box svg { width: 12px; height: 12px; }
+.o-empty { padding: 8px 10px; font-size: 14px; font-weight: 400; color: var(--o-mut); }
+.o-cal { right: auto; width: 272px; max-height: none; padding: 12px; }
+.o-cal-m { margin: 0 0 8px; font-size: 14px; font-weight: 600; text-align: center; }
+.o-cal-g { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.o-cal-h { padding: 4px 0; font-size: 11.5px; font-weight: 500; color: var(--o-mut); text-align: center; }
+.o-cal-g button { aspect-ratio: 1; border: 0; border-radius: calc(var(--o-r) - 2px); background: transparent; color: var(--o-ink); font: inherit; font-size: 13px; font-weight: 400; font-variant-numeric: tabular-nums; cursor: pointer; }
+.o-cal-g button:hover { background: var(--o-soft); }
+.o-cal-g button.on { background: var(--o-primary); color: var(--o-on); }
+.o-cal-g button:focus-visible { outline: 2px solid var(--o-primary); outline-offset: 1px; }
+
+/* Alert, after shadcn: a bordered box, icon, title, description. Info takes
+   the skin's own colour; success, warning and danger are shared, so a
+   warning reads as a warning in every product. No accent stroke. */
+.o-alert { --c: var(--o-primary); display: grid; grid-template-columns: 16px minmax(0, 1fr); column-gap: 12px; row-gap: 2px; padding: 12px 16px; border: 1px solid color-mix(in srgb, var(--c) 28%, transparent); border-radius: var(--o-r); background: color-mix(in srgb, var(--c) 7%, #fff); }
+.o-alert > svg { grid-row: 1 / span 2; margin-top: 2px; color: var(--c); }
+.o-alert p { margin: 0; }
+.o-alert-t { font-size: 14px; font-weight: 600; color: color-mix(in srgb, var(--c) 55%, var(--o-ink)); }
+.o-alert-d { font-size: 14px; line-height: 1.5; color: var(--o-mut); }
+.o-alert-success { --c: #15803d; }
+.o-alert-warning { --c: #b45309; }
+.o-alert-danger { --c: #c62828; }
+
 @media (prefers-reduced-motion: reduce) { .ol-skin, .o-switch i, .o-switch i::after { transition: none; } }
