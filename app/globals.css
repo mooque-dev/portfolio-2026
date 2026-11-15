@@ -2104,14 +2104,14 @@ body:has(.theme-hatch) header { --background: #0a1a34; --foreground: #f7f4ee; --
 
 /* The role-fit rows become tonal cards on this page. */
 /* Google page: tighter gap under the intro, work as picture cards, the musical aside, a blue curtain. */
-.tp-card { border-radius: 14px; overflow: hidden; background: var(--surface); color: var(--foreground); transition: background-color 0.2s, transform 0.2s; }
-.tp-card:hover { background: var(--border); }
+.tp-card { border-radius: 14px; overflow: hidden; background: color-mix(in srgb, var(--foreground) 5%, var(--background)); color: var(--foreground); transition: background-color 0.2s, transform 0.2s; }
+.tp-card:hover { background: color-mix(in srgb, var(--foreground) 9%, var(--background)); }
 .tp-card:focus-visible { outline: 2px solid var(--foreground); outline-offset: 3px; }
 .tp-card-img { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; }
 .tp-card-img img { transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1); }
 .tp-card:hover .tp-card-img img { transform: scale(1.04); }
 .tp-card-title { font-size: 20px; letter-spacing: -0.01em; }
-.tp-card-val { font-size: 18px; color: var(--foreground); }
+.tp-card-val { font-weight: 600; color: var(--foreground); }
 .tp-card-go { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--background); color: var(--foreground); transition: transform 0.2s; }
 .tp-card:hover .tp-card-go { transform: translateX(3px); }
 .tp-card .text-muted { color: var(--muted); }

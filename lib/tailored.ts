@@ -82,6 +82,8 @@ export const COVERS: Partial<Record<CaseKey, { src: string; color: string }>> = 
   ak: { src: "/case-studies/aplos-keela-integration/cover.jpg", color: "#d4dde6" },
   ar: { src: "/case-studies/arnd/cover.jpg", color: "#504BF1" },
   yu: { src: "/case-studies/torontoyuwol/cover-framed.jpg", color: "#d8dfee" },
+  au: { src: "/case-studies/automation-nonprofits/cover.jpg", color: "#d4e0e6" },
+  mj: { src: "/case-studies/care-pathway/cover-v3.jpg", color: "#eadad3" },
 };
 
 export type BuiltLine = { text: string; links: { href: string; name: string; external?: boolean }[] };
