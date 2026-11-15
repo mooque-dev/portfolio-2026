@@ -347,5 +347,21 @@
       "type": "em",
       "phrase": "and AI can follow"
     }
+  },
+  "life360": {
+    "fonts": {
+      "display": [
+        "Outfit",
+        {}
+      ],
+      "text": [
+        "DM_Sans",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "em",
+      "phrase": "let the test decide"
+    }
   }
 }
