@@ -2227,7 +2227,7 @@ body:has(.theme-life360) header { --background: #f3efe8; --foreground: #130f0c; 
 .xw-steps button[aria-pressed="true"] { background: var(--p); border-color: var(--p); color: #fff; }
 .xw button:focus-visible, .xw-link:focus-visible { outline: 2px solid var(--p); outline-offset: 2px; }
 .xw-body { margin-top: max(14px, 4cqw); min-height: max(260px, 66cqw); }
-.xw-step-name { margin: 0 0 8px; font-weight: 700; font-size: max(14px, 3.5cqw); color: var(--p); }
+.xw-step-name { margin: 0 0 8px; font-weight: 700; font-size: max(14px, 3.5cqw); color: var(--ink); }
 .xw-lead { margin: 0; font-family: var(--bd-display), sans-serif; font-weight: 700; font-size: max(19px, 5.4cqw); line-height: 1.2; letter-spacing: -0.01em; }
 .xw-text { margin: 10px 0 0; font-size: max(14px, 3.6cqw); line-height: 1.5; color: var(--mut); }
 .xw-fine { margin: 8px 0 0; font-size: max(12px, 3cqw); line-height: 1.4; color: var(--mut); font-style: italic; }

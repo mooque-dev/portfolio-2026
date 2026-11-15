@@ -26,7 +26,7 @@ export default function Life360Page() {
       style={BRAND}
       className={`themed theme-life360 ${fdisplay.variable} ${ftext.variable}`}
       headline={<>I design the decision, then <span className="sig-em">let the test decide</span>.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto, working remote. Eight years designing, the last five on payments: checkout fees, split transactions, one design system for three merged products. My favourite result came from pausing a launch that already looked like a win. I prototype in code with AI tools like Cursor and Claude Code, and I care how things move.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto, glad to work remote. Eight years designing, the last five on payments: checkout fees, split transactions, one design system for three merged products. My favourite result came from pausing a launch that already looked like a win. I prototype in code with AI tools like Cursor and Claude Code, and I care how things move.</>}
       hero={<><ExperimentWriteup /></>}
       caption={<>Step through the write-up. Every figure is from the real test; the small controls under Variants are recreations.</>}
       cases={["fe", "tw", "ar", "au", "or", "ak"]}
