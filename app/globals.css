@@ -2204,3 +2204,44 @@ body:has(.theme-google) header { --background: #fff; --foreground: #1f1f1f; --mu
 .flake-out span { padding: 6px 14px; border-radius: 99px; font-size: 14px; font-weight: 500; }
 .flake-out .keep { background: #c4eed0; color: #072711; } .flake-out .go { background: color-mix(in oklab, var(--foreground) 10%, transparent); }
 @media (max-width: 640px) { .cut { grid-template-columns: 1fr; } .cut-arrow { transform: rotate(90deg); justify-self: center; } }
+
+/* Pawlicy Advisor: their visual language, not their marks. White canvas, Nunito Sans,
+   warm charcoal ink, orange pills (deepened to #b9501c so white labels pass AA) and one
+   orange phrase in the headline. The opening object is a sample plan with made-up numbers. */
+.theme-pawlicy { --canvas: #fff; --ink: #403e3c; --mut: #666563; --line: #e0dfde; --h1w: 400; --h1t: -0.015em; --h1l: 1.1; --h2w: 600; --btn-r: 999px; }
+.theme-pawlicy .sig-accent { color: #b9501c; font-weight: 800; }
+body:has(.theme-pawlicy) header { --background: #fff; --foreground: #403e3c; --muted: #666563; --border: #e0dfde; }
+.theme-pawlicy .brand-foot { --hero-bg: #b9501c; --hero-fg: #fff; --hc: #fff; --hco: #9a4317; margin-inline: 0; padding: 40px !important; border-radius: 24px; }
+.dark .themed.theme-pawlicy .brand-foot .brand-cta { background: #fff; border-color: #fff; color: #9a4317; }
+@media (max-width: 640px) { .theme-pawlicy .brand-foot { padding: 28px 24px !important; } }
+
+.pe-wrap { container-type: inline-size; width: 100%; max-width: 440px; }
+.pe { display: grid; gap: 3.6cqw; padding: 4.5cqw; border: 1px solid #e0dfde; border-radius: 24px; background: #fff; color: #403e3c; font-family: var(--bd-text), sans-serif; box-shadow: 0 24px 48px -30px rgb(64 62 60 / 0.4); }
+.pe-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.pe-pet { font-weight: 700; font-size: max(14px, 3.8cqw); }
+.pe-sample { padding: 3px 10px; border-radius: 99px; background: #eef2f6; color: #385a7a; font-size: max(11px, 2.8cqw); font-weight: 700; }
+.pe button { font: inherit; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+.pe button:focus-visible { outline: 2px solid #3f6587; outline-offset: 2px; }
+.pe-terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2cqw; }
+.pe-terms button { min-height: 46px; padding: 6px 4px; border: 1px solid #e0dfde; border-radius: 12px; background: #fff; color: #403e3c; font-weight: 700; font-size: max(12px, 3.2cqw); }
+.pe-terms button[aria-pressed="true"] { border-color: #b9501c; box-shadow: inset 0 0 0 1px #b9501c; background: #fdf4ee; color: #9a4317; }
+.pe-read { display: grid; gap: 3cqw; padding: 3.6cqw; border-radius: 16px; background: #f6f6f6; }
+.pe-mode { display: inline-flex; justify-self: start; gap: 2px; padding: 3px; border: 1px solid #e0dfde; border-radius: 99px; background: #fff; }
+.pe-mode button { min-height: 36px; padding: 0 14px; border: 0; border-radius: 99px; background: transparent; color: #666563; font-weight: 700; font-size: max(12px, 3cqw); }
+.pe-mode button[aria-pressed="true"] { background: #403e3c; color: #fff; }
+.pe-text { margin: 0; min-height: 7.6em; font-size: max(14px, 3.7cqw); line-height: 1.5; }
+.pe-policy { font-family: Georgia, "Times New Roman", serif; font-size: max(13px, 3.4cqw); color: #595856; }
+.pe-plain { font-weight: 600; color: #403e3c; }
+.pe-calc { display: grid; gap: 2.4cqw; }
+.pe-bills { display: flex; flex-wrap: wrap; align-items: center; gap: 1.6cqw; }
+.pe-label { margin-right: auto; font-size: max(12px, 3cqw); font-weight: 700; color: #666563; }
+.pe-bills button { min-height: 36px; padding: 0 12px; border: 1px solid #e0dfde; border-radius: 99px; background: #fff; color: #403e3c; font-weight: 700; font-size: max(12px, 3cqw); font-variant-numeric: tabular-nums; }
+.pe-bills button[aria-pressed="true"] { border-color: #403e3c; background: #403e3c; color: #fff; }
+.pe-rows { margin: 0; display: grid; }
+.pe-rows > div { display: flex; justify-content: space-between; gap: 12px; padding: 1.6cqw 2cqw; border-radius: 8px; font-size: max(13px, 3.3cqw); transition: background 0.2s; }
+.pe-rows dt { color: #666563; } .pe-rows dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.pe-rows > div.on { background: #fdf4ee; } .pe-rows > div.on dt { color: #9a4317; }
+.pe-rows .pe-total { margin-top: 1cqw; border-top: 1px solid #e0dfde; border-radius: 0; padding-top: 2.4cqw; }
+.pe-rows .pe-total dt, .pe-rows .pe-you dt { color: #403e3c; font-weight: 700; }
+.pe-rows .pe-total dd { color: #9a4317; font-size: max(15px, 4cqw); }
+@media (prefers-reduced-motion: reduce) { .pe button, .pe-rows > div { transition: none; } }

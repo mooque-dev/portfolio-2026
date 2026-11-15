@@ -1,0 +1,12 @@
+{
+  "company": "Pawlicy Advisor",
+  "object": "a sample pet insurance plan: three terms that trip people up, each read as the policy wording or the plain version, with a sample vet bill that shows what the plan pays back. Made-up numbers, not Pawlicy's product",
+  "desc": "A short path through Allen Kang's work: hard rules made plain, a checkout moment tested until it moved, a design system three teams adopted, and apps that already run.",
+  "lede": "I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on payments and finance tools, where I learned tax rules from accountants and rebuilt them as steps anyone could get right. I test the moments where people decide, and I prototype in code with Claude Code and Cursor.",
+  "hero_import": "import PlanExplainer from \"@/components/PlanExplainer\";",
+  "hero_jsx": "<PlanExplainer />",
+  "caption": "A sample plan with made-up numbers, not a real quote. I did the same for tax rules in <Link href=\"/work/transaction-workflows\" className=\"underline underline-offset-4\">Transaction Workflows</Link>.",
+  "cases": ["tw", "fe", "or", "ar", "au", "ak"],
+  "h1": "I make the fine print plain enough to decide on.",
+  "contact": "I&rsquo;d like to help more people say yes at the vet."
+}

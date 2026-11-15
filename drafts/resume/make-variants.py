@@ -242,6 +242,13 @@ ROLES = {
         lead=["pitch", "process", "core"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_rules", "yuwol", "fork"],
         skills="Interaction design &middot; Design systems (tokens, Storybook, Chromatic) &middot; Cross-product UI frameworks &middot; Prototyping in code with AI tools (React, TypeScript) &middot; Payments and checkout flows &middot; A/B testing &middot; Figma"),
+    "pawlicy": dict(
+        url="mooque-dev.github.io/pawlicy", accent="#B9501C",
+        domain="payments and transaction-heavy products", clause="make hard rules plain",
+        aplos=["split_tax", "fee", "orchid", "own", "integ", "partner"],
+        lead=["pitch", "core", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_code", "fork", "yuwol"],
+        skills="Research and usability testing &middot; A/B testing and checkout flows &middot; Design systems &middot; Prototyping in code with AI tools (Claude Code, Cursor) &middot; Figma, Storybook, Pendo, Amplitude"),
 }
 
 

@@ -229,5 +229,18 @@
     "heroMark": "#0B57D0",
     "heroCta": "#0B57D0",
     "heroCtaOn": "#ffffff"
+  },
+  "pawlicy": {
+    "fill": "#B9501C",
+    "on": "#ffffff",
+    "ink": "#B9501C",
+    "inkDark": "#F28A55",
+    "heroBg": "#FFFFFF",
+    "heroFg": "#403E3C",
+    "heroBgDark": "#FFFFFF",
+    "heroFgDark": "#403E3C",
+    "heroMark": "#B9501C",
+    "heroCta": "#B9501C",
+    "heroCtaOn": "#ffffff"
   }
 }
