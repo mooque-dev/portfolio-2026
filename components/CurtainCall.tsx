@@ -1,11 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 // The last screen of home. The curtains close once when it scrolls into
 // view, and the bow is on the curtain. Server-rendered closed, so without
 // JavaScript, or with reduced motion, it is simply the end state.
-export default function CurtainCall() {
+// A tailored page can close on it too, with its own line and résumé.
+type Props = { title?: ReactNode; sub?: ReactNode; resumeHref?: string; titleClassName?: string; linkedin?: boolean };
+
+export default function CurtainCall({ title = <>That&rsquo;s the show.</>, sub = "Thanks for staying to the end. Encore?", resumeHref = "/allen-kang-resume.pdf", titleClassName = "font-serif", linkedin = false }: Props) {
   const ref = useRef<HTMLElement>(null);
   const [state, setState] = useState<"closed" | "open">("closed");
 
@@ -40,11 +43,16 @@ export default function CurtainCall() {
       <div className="cc-drape cc-right" aria-hidden />
       <div className="cc-valance" aria-hidden />
       <div className="cc-bow">
-        <p className="cc-title font-serif">That&rsquo;s the show.</p>
-        <p className="cc-sub">Thanks for staying to the end. Encore?</p>
+        <p className={`cc-title ${titleClassName}`}>{title}</p>
+        <p className="cc-sub">{sub}</p>
         <div className="cc-actions">
           <a href="mailto:allensmkang@gmail.com">allensmkang@gmail.com</a>
-          <a href="/allen-kang-resume.pdf">Résumé (PDF)</a>
+          <a href={resumeHref}>Résumé (PDF)</a>
+          {linkedin ? (
+            <a href="https://www.linkedin.com/in/mooque/" target="_blank" rel="noopener noreferrer">
+              LinkedIn<span className="sr-only"> (opens in new tab)</span>
+            </a>
+          ) : null}
           <button type="button" onClick={encore}>Play it again</button>
         </div>
       </div>

@@ -73,6 +73,17 @@ export const CASES: Record<CaseKey, StatementLine> = {
   },
 };
 
+// Cover image and its backing colour per project, for pages that show the
+// work as picture cards (work="cards") instead of the statement list.
+export const COVERS: Partial<Record<CaseKey, { src: string; color: string }>> = {
+  or: { src: "/case-studies/orchid-design-system/cover.jpg", color: "#e0d4e6" },
+  tw: { src: "/case-studies/transaction-workflows/cover.jpg", color: "#dde4d4" },
+  fe: { src: "/case-studies/fee-opt-in/cover.jpg", color: "#e8e0cf" },
+  ak: { src: "/case-studies/aplos-keela-integration/cover.jpg", color: "#d4dde6" },
+  ar: { src: "/case-studies/arnd/cover.jpg", color: "#504BF1" },
+  yu: { src: "/case-studies/torontoyuwol/cover-framed.jpg", color: "#d8dfee" },
+};
+
 export type BuiltLine = { text: string; links: { href: string; name: string; external?: boolean }[] };
 
 const ARND_LINKS = [

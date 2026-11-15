@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { Google_Sans_Flex, Google_Sans } from "next/font/google";
 import ComponentAudit from "@/components/ComponentAudit";
+import CastTab from "@/components/CastTab";
 import TailoredPage from "@/components/tailored/TailoredPage";
 
 // A tailored, unlisted view of the portfolio for Google, built on the
@@ -38,6 +39,9 @@ export default function GooglePage() {
         { ask: "A case leaders can act on", proof: <>Earlier design system efforts had stalled without engineers. I surveyed five departments, put the cost in their own words in front of leadership, and came back with two dedicated front-end engineers.</> },
         { ask: "Usable by everyone", proof: <>ARND caps how far each kind of text can grow so large type never breaks a screen, and every animation stands down when Reduce Motion is on.</> },
       ]}
+      work="cards"
+      aside={<CastTab />}
+      close="curtain"
       contact={<>I&rsquo;d like to help paying feel like one product, wherever someone pays.</>}
     />
   );

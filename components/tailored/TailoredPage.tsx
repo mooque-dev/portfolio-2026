@@ -1,9 +1,11 @@
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Statement } from "@/components/PaymentCard";
 import FadeIn from "@/components/FadeIn";
 import Arrow from "@/components/Arrow";
-import { BUILT, CASES, type CaseKey } from "@/lib/tailored";
+import CurtainCall from "@/components/CurtainCall";
+import { BUILT, CASES, COVERS, type CaseKey } from "@/lib/tailored";
 
 // The frame every tailored page is built on. A page only supplies what is
 // specific to the company: its colours (style), fonts and theme (className),
@@ -27,13 +29,19 @@ export type TailoredPageProps = {
   heroExtras?: ReactNode;
   /** Optional rows after the work list: what the role asks for, and the work that answers it. */
   fit?: { ask: string; proof: ReactNode }[];
+  /** "cards" shows the work as picture cards; the default is the statement list. */
+  work?: "list" | "cards";
+  /** Optional section between the role-fit rows and the code paragraphs (a personal aside). */
+  aside?: ReactNode;
+  /** "curtain" ends the page on the curtain call from home; the default is the contact band. */
+  close?: "band" | "curtain";
 };
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 const inline = "text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity";
 
-export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras, fit }: TailoredPageProps) {
+export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras, fit, work = "list", aside, close = "band" }: TailoredPageProps) {
   const id = slug.replace(/[^a-z0-9]/g, "");
   return (
     <article style={style} className={`brand-page tp ${className} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
@@ -69,7 +77,39 @@ export default function TailoredPage({ slug, company, style, className = "", lab
             Selected work
           </h2>
           <div className="mt-6">
-            <Statement lines={cases.map((k) => CASES[k])} />
+            {work === "cards" ? (
+              <ul className="tp-cards m-0 grid list-none gap-4 p-0 sm:grid-cols-2 lg:grid-cols-3">
+                {cases.map((k) => {
+                  const c = CASES[k];
+                  const cover = COVERS[k];
+                  return (
+                    <li key={k} className="min-w-0">
+                      <Link href={c.href} className="tp-card group flex h-full flex-col">
+                        {cover ? (
+                          <span className="tp-card-img" style={{ background: cover.color }}>
+                            <Image src={cover.src} alt="" fill sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 360px" style={{ objectFit: "cover" }} />
+                          </span>
+                        ) : null}
+                        <span className="flex flex-1 flex-col gap-1.5 p-5">
+                          <span className="text-[12.5px] text-muted">{c.tag}</span>
+                          <span className="tp-card-title">{c.title}</span>
+                          <span className="text-[14px] leading-snug text-muted">{c.line}</span>
+                          <span className="mt-auto flex items-end justify-between gap-3 pt-4">
+                            <span>
+                              <span className="tp-card-val block tabular-nums">{c.value}</span>
+                              {c.note ? <span className="block text-[12.5px] leading-snug text-muted">{c.note}</span> : null}
+                            </span>
+                            <span aria-hidden className="tp-card-go">&rarr;</span>
+                          </span>
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            ) : (
+              <Statement lines={cases.map((k) => CASES[k])} />
+            )}
             <p className="mt-4 text-[14px]">
               <Link href="/work" className={`text-muted ${link}`}>
                 All work <Arrow />
@@ -94,6 +134,8 @@ export default function TailoredPage({ slug, company, style, className = "", lab
           </section>
         ) : null}
 
+        {aside}
+
         <section aria-label="Built in code" className="mt-20 md:mt-28 grid max-w-2xl gap-5">
           {BUILT[built].map((b) => (
             <p key={b.text} className="text-[16px] leading-relaxed text-muted">
@@ -117,23 +159,27 @@ export default function TailoredPage({ slug, company, style, className = "", lab
           ))}
         </section>
 
-        <section
-          aria-labelledby={`${id}-contact`}
-          className="brand-foot mt-24 md:mt-32 flex flex-col gap-6 border-t border-border pt-10 md:flex-row md:items-end md:justify-between"
-        >
-          <h2 id={`${id}-contact`} className="max-w-xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
-            {contact}
-          </h2>
-          <div className="flex flex-wrap gap-3">
-            <a href="mailto:allensmkang@gmail.com" className={`${pill} brand-cta`}>
-              allensmkang@gmail.com
-            </a>
-            <a href="https://www.linkedin.com/in/mooque/" target="_blank" rel="noopener noreferrer" className={`${pill} border border-border hover:border-foreground/40`}>
-              LinkedIn
-              <span className="sr-only"> (opens in new tab)</span>
-            </a>
-          </div>
-        </section>
+        {close === "curtain" ? (
+          <CurtainCall title={contact} sub="Thanks for staying to the end. Encore?" resumeHref={`/allen-kang-resume-${slug}.pdf`} titleClassName="" linkedin />
+        ) : (
+          <section
+            aria-labelledby={`${id}-contact`}
+            className="brand-foot mt-24 md:mt-32 flex flex-col gap-6 border-t border-border pt-10 md:flex-row md:items-end md:justify-between"
+          >
+            <h2 id={`${id}-contact`} className="max-w-xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
+              {contact}
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              <a href="mailto:allensmkang@gmail.com" className={`${pill} brand-cta`}>
+                allensmkang@gmail.com
+              </a>
+              <a href="https://www.linkedin.com/in/mooque/" target="_blank" rel="noopener noreferrer" className={`${pill} border border-border hover:border-foreground/40`}>
+                LinkedIn
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </div>
+          </section>
+        )}
         <p className="mt-10 text-xs text-muted">An independent portfolio page. Not affiliated with or endorsed by {company}.</p>
       </div>
     </article>
