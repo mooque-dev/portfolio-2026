@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties, type ComponentType, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ComponentType } from "react";
 import * as D from "./OrchidDemos";
 import * as N from "./OrchidDomain";
 import "./orchid-library.css";
@@ -10,8 +10,8 @@ import "./orchid-library.css";
 // component list is the full shadcn/ui set, so Allen can keep, cut or edit
 // each one. Colours, corners and type for the three products are read from
 // each company's public website, not from the products themselves.
-// Keep/cut choices and notes save in the viewer's browser only; "Copy my
-// picks" turns them into a list to send back so they become permanent here.
+// Laid out like a documentation site: a sidebar to search and jump, one
+// column of components grouped by category, and the skin switcher pinned.
 type Theme = { key: string; name: string; note: string; vars: Record<string, string> };
 
 const THEMES: Theme[] = [
@@ -28,8 +28,7 @@ const THEMES: Theme[] = [
 const CATS = ["CRM", "Dashboards and reports", "Tables", "Accounting", "Actions", "Forms", "Feedback", "Overlays", "Navigation", "Data display", "Chat and AI"] as const;
 const NONPROFIT: readonly string[] = ["CRM", "Dashboards and reports", "Tables", "Accounting"];
 type Cat = (typeof CATS)[number];
-type Status = "keep" | "undecided" | "cut";
-type Entry = { id: string; name: string; cat: Cat; use: string; Demo: ComponentType; wide?: boolean; start?: Status };
+type Entry = { id: string; name: string; cat: Cat; use: string; Demo: ComponentType; wide?: boolean; start?: "keep" };
 
 // "start: keep" marks the ones already in the first draft of Orchid. The
 // first four categories are nonprofit additions beyond shadcn, proposed for
@@ -157,132 +156,103 @@ const ENTRIES: Entry[] = [
   { id: "trace", name: "Trace", cat: "Chat and AI", Demo: D.TraceDemo, use: "Showing the steps an assistant took, folded away by default." },
 ];
 
-const STATUS_LABEL: Record<Status, string> = { keep: "Keep", undecided: "Not decided", cut: "Cut" };
-const SORTS = { cat: "By category", az: "A to Z", keep: "Keep first" } as const;
-type SortKey = keyof typeof SORTS;
-const KEY = "orchid-library-picks-v1";
-
-type Picks = Record<string, { s?: Status; note?: string }>;
-const load = (): Picks => { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch { return {}; } };
-const save = (p: Picks) => { try { localStorage.setItem(KEY, JSON.stringify(p)); } catch { /* storage off: picks last for this visit */ } };
+const CAT_NOTE: Record<Cat, string> = {
+  CRM: "Donors, households and the work of keeping in touch.",
+  "Dashboards and reports": "Numbers a team checks, and the controls for shaping a report.",
+  Tables: "What a table needs once people work in it all day.",
+  Accounting: "Money in, money allocated, and the books staying balanced.",
+  Actions: "Buttons and the things that behave like them.",
+  Forms: "Every way to enter or choose a value.",
+  Feedback: "Telling people what happened, or what's happening.",
+  Overlays: "Layers that open on top of the page.",
+  Navigation: "Moving between places and pages.",
+  "Data display": "Showing records, numbers and content.",
+  "Chat and AI": "Conversations with people or an assistant.",
+};
+const slug = (c: string) => `cat-${c.toLowerCase().replace(/[^a-z]+/g, "-")}`;
 
 export default function OrchidLibrary() {
   const [t, setT] = useState(0);
   const [q, setQ] = useState("");
-  const [cat, setCat] = useState<Cat | "All">("All");
-  const [status, setStatus] = useState<Status | "all">("all");
-  const [sort, setSort] = useState<SortKey>("cat");
-  const [picks, setPicks] = useState<Picks>({});
-  const [copied, setCopied] = useState<"" | "ok" | "fail">("");
-  // Picks live in this browser; read them after the first render so the
-  // server and the browser start from the same markup.
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => { setPicks(load()); }, []);
-
+  const [active, setActive] = useState<string>("");
+  const main = useRef<HTMLDivElement>(null);
   const theme = THEMES[t];
-  const statusOf = (e: Entry): Status => picks[e.id]?.s ?? e.start ?? "undecided";
-  const setPick = (id: string, patch: { s?: Status; note?: string }) => setPicks((p) => { const n = { ...p, [id]: { ...p[id], ...patch } }; save(n); return n; });
 
-  const matches = (e: Entry) => {
-    const s = q.trim().toLowerCase();
-    return !s || e.name.toLowerCase().includes(s) || e.use.toLowerCase().includes(s) || e.cat.toLowerCase().includes(s) || (picks[e.id]?.note ?? "").toLowerCase().includes(s);
-  };
-  const base = ENTRIES.filter(matches).filter((e) => status === "all" || statusOf(e) === status);
-  const shown = base.filter((e) => cat === "All" || e.cat === cat);
-  const order: Record<Status, number> = { keep: 0, undecided: 1, cut: 2 };
-  const sorted = [...shown].sort((a, b) =>
-    sort === "az" ? a.name.localeCompare(b.name)
-    : sort === "keep" ? order[statusOf(a)] - order[statusOf(b)] || a.name.localeCompare(b.name)
-    : CATS.indexOf(a.cat) - CATS.indexOf(b.cat));
-  const counts = base.reduce((c, e) => { c[e.cat] = (c[e.cat] ?? 0) + 1; return c; }, {} as Record<string, number>);
-  const tally = ENTRIES.reduce((a, e) => { a[statusOf(e)]++; return a; }, { keep: 0, undecided: 0, cut: 0 } as Record<Status, number>);
+  const s = q.trim().toLowerCase();
+  const shown = ENTRIES.filter((e) => !s || e.name.toLowerCase().includes(s) || e.use.toLowerCase().includes(s) || e.cat.toLowerCase().includes(s));
+  const groups = CATS.map((c) => [c, shown.filter((e) => e.cat === c)] as const).filter(([, list]) => list.length);
 
-  const copy = () => {
-    const line = (s: Status) => ENTRIES.filter((e) => statusOf(e) === s).map((e) => `- ${e.name}${picks[e.id]?.note ? `: ${picks[e.id]!.note}` : ""}`).join("\n") || "- none";
-    const text = `Orchid library picks\n\nKeep\n${line("keep")}\n\nCut\n${line("cut")}\n\nNot decided\n${line("undecided")}`;
-    navigator.clipboard.writeText(text).then(() => setCopied("ok"), () => setCopied("fail"));
-    setTimeout(() => setCopied(""), 2500);
-  };
+  // Highlight the component nearest the top of the screen in the sidebar.
+  useEffect(() => {
+    const els = main.current?.querySelectorAll<HTMLElement>("[data-entry]");
+    if (!els?.length) return;
+    const io = new IntersectionObserver((items) => {
+      const hit = items.filter((i) => i.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (hit) setActive((hit.target as HTMLElement).dataset.entry!);
+    }, { rootMargin: "-140px 0px -60% 0px" });
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [q]);
 
   return (
     <div className="ol">
-      <div className="ol-tools">
+      <aside className="ol-side" aria-label="Components">
         <div className="ol-search">
           <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
-          <input type="search" aria-label="Search components" placeholder={`Search ${ENTRIES.length} components, their notes and when to use them`} value={q} onChange={(e) => setQ(e.target.value)} />
+          <input type="search" aria-label="Search components" placeholder={`Search ${ENTRIES.length} components`} value={q} onChange={(e) => setQ(e.target.value)} />
         </div>
-        <div className="ol-tool-row">
-          <div className="ol-seg" role="radiogroup" aria-label="Status">
-            {(["all", "keep", "undecided", "cut"] as const).map((s) => (
-              <button key={s} type="button" role="radio" aria-checked={status === s} className={status === s ? "on" : ""} onClick={() => setStatus(s)}>
-                {s === "all" ? "All" : STATUS_LABEL[s]} <span>{s === "all" ? ENTRIES.length : tally[s]}</span>
-              </button>
-            ))}
-          </div>
-          <label className="ol-sort"><span className="sr-only">Sort</span>
-            <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)}>{(Object.keys(SORTS) as SortKey[]).map((k) => <option key={k} value={k}>{SORTS[k]}</option>)}</select>
-          </label>
-          <button type="button" className="ol-copy" onClick={copy}>{copied === "ok" ? "Copied" : copied === "fail" ? "Copy didn't work" : "Copy my picks"}</button>
-        </div>
-        <div className="ol-cats" role="radiogroup" aria-label="Category">
-          {(["All", ...CATS] as const).map((c) => (
-            <button key={c} type="button" role="radio" aria-checked={cat === c} className={cat === c ? "on" : ""} onClick={() => setCat(c)}>
-              {c} <span>{c === "All" ? base.length : counts[c] ?? 0}</span>
-            </button>
+        <p className="ol-count" aria-live="polite">{s ? `${shown.length} match${shown.length === 1 ? "" : "es"}` : `${ENTRIES.length} components, ${CATS.length} groups`}</p>
+        <nav className="ol-nav">
+          {groups.map(([c, list]) => (
+            <div key={c} className="ol-nav-g">
+              <a href={`#${slug(c)}`} className="ol-nav-c">{c} <span>{list.length}</span></a>
+              <ul>{list.map((e) => <li key={e.id}><a href={`#c-${e.id}`} aria-current={active === e.id ? "location" : undefined}>{e.name}</a></li>)}</ul>
+            </div>
           ))}
+        </nav>
+        <div className="ol-jump">
+          {groups.map(([c, list]) => <a key={c} href={`#${slug(c)}`}>{c} <span>{list.length}</span></a>)}
         </div>
-      </div>
+      </aside>
 
-      <div className="ol-bar">
-        <div className="ol-themes" role="radiogroup" aria-label="Product skin">
-          {THEMES.map((th, i) => <button key={th.key} type="button" role="radio" aria-checked={i === t} className={i === t ? "on" : ""} onClick={() => setT(i)}>{th.name}</button>)}
+      <div className="ol-main" ref={main}>
+        <div className="ol-skinbar">
+          <div className="ol-themes" role="radiogroup" aria-label="Product skin">
+            {THEMES.map((th, i) => <button key={th.key} type="button" role="radio" aria-checked={i === t} className={i === t ? "on" : ""} onClick={() => setT(i)}>{th.name}</button>)}
+          </div>
+          <div className="ol-swatches" aria-hidden>
+            {["--o-primary", "--o-accent", "--o-ink", "--o-line"].map((v) => <i key={v} style={{ background: theme.vars[v] }} />)}
+          </div>
+          <p className="ol-note" aria-live="polite">{theme.note}</p>
         </div>
-        <p className="ol-note" aria-live="polite">{theme.note}</p>
-      </div>
 
-      <p className="ol-count" aria-live="polite">Showing {sorted.length} of {ENTRIES.length}</p>
-
-      <div className="ol-skin" style={theme.vars as CSSProperties}>
-        <div className="ol-tokens">
-          {["--o-primary", "--o-accent", "--o-ink", "--o-mut", "--o-line", "--o-soft"].map((v) => <span key={v}><i style={{ background: `var(${v})` }} />{theme.vars[v]}</span>)}
-          <span><i className="ol-corner" />corner {theme.vars["--o-r"]}</span>
-        </div>
-        {sorted.length === 0 && (
-          <div className="ol-none"><p>Nothing matches.</p><button type="button" className="ol-copy" onClick={() => { setQ(""); setCat("All"); setStatus("all"); }}>Clear filters</button></div>
+        {groups.length === 0 && (
+          <div className="ol-none"><p>No component matches &ldquo;{q}&rdquo;.</p><button type="button" className="ol-clear" onClick={() => setQ("")}>Clear search</button></div>
         )}
-        <div className="ol-grid">
-          {sorted.map((e, i) => {
-            const s = statusOf(e);
-            const head = sort === "cat" && (i === 0 || sorted[i - 1].cat !== e.cat) ? e.cat : null;
-            return (
-              <WithHead key={e.id} head={head}>
-                <section className={`ol-card${e.wide ? " wide" : ""}${s === "cut" ? " is-cut" : ""}`} aria-labelledby={`h-${e.id}`}>
-                  <div className="ol-demo"><e.Demo /></div>
-                  <div className="ol-meta">
-                    <div className="ol-meta-h">
+
+        <div className="ol-skin" style={theme.vars as CSSProperties}>
+          {groups.map(([c, list]) => (
+            <section key={c} id={slug(c)} className="ol-sec" aria-labelledby={`${slug(c)}-h`}>
+              <header className="ol-sec-h">
+                <h2 id={`${slug(c)}-h`}>{c}</h2>
+                <p>{CAT_NOTE[c]} {NONPROFIT.includes(c) ? "Proposed nonprofit additions." : "From the shadcn set."}</p>
+              </header>
+              <div className="ol-list">
+                {list.map((e) => (
+                  <article key={e.id} id={`c-${e.id}`} data-entry={e.id} className={`ol-item${e.wide ? " wide" : ""}`} aria-labelledby={`h-${e.id}`}>
+                    <div className="ol-item-h">
                       <h3 id={`h-${e.id}`}>{e.name}</h3>
-                      <span className="ol-cat">{e.cat} · {NONPROFIT.includes(e.cat) ? "Nonprofit addition" : "shadcn"}</span>
+                      {e.start === "keep" && <span className="ol-tag">In the first draft</span>}
                     </div>
                     <p className="ol-use">{e.use}</p>
-                    <label className="ol-where"><span>Where it&rsquo;s used</span>
-                      <textarea rows={1} placeholder="To fill in" value={picks[e.id]?.note ?? ""} onChange={(ev) => setPick(e.id, { note: ev.target.value })} />
-                    </label>
-                    <div className="ol-pick" role="radiogroup" aria-label={`${e.name}: keep or cut`}>
-                      {(["keep", "undecided", "cut"] as Status[]).map((k) => (
-                        <button key={k} type="button" role="radio" aria-checked={s === k} className={`${s === k ? "on" : ""} pk-${k}`} onClick={() => setPick(e.id, { s: k })}>{STATUS_LABEL[k]}</button>
-                      ))}
-                    </div>
-                  </div>
-                </section>
-              </WithHead>
-            );
-          })}
+                    <div className="ol-demo"><e.Demo /></div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
         </div>
       </div>
     </div>
   );
-}
-
-function WithHead({ head, children }: { head: string | null; children: ReactNode }) {
-  return <>{head && <h2 className="ol-group">{head}</h2>}{children}</>;
 }
