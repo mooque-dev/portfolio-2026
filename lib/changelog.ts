@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "The Google page sounds and looks like me again",
+    tags: ["design", "content"],
+    what: "The Google page drops the borrowed typeface, tinted panels and blue for this site's own look, and ends on the red curtain from the home page. The picture cards and the musical section stay. The Orchid story now says what the nine dropdowns became (one select with four variants, plus a date picker), why the Aplos team pushed back on roomier components and a playful look for accounting software, how Orchid answered with a variation per product and a white-label one, and what I'd do differently.",
+    why: "Dressing the page in someone else's clothes read as trying too hard. The work should be the thing that fits the role.",
+  },
+  {
+    date: "2026-11-15",
     title: "The Google page gets pictures, a musical and a curtain",
     tags: ["design", "content"],
     what: "The work on the Google page is now six picture cards, each with its cover and its result. A new section tells the story of the musical I was in this August, with a small toy that splits a sample dinner bill across a cast of up to forty and shows who covers the leftover cents. The page ends on my curtain call, in blue. ARND and Toronto Yuwol now open with the same short summary as the other stories, and the Orchid story says the audit took about three weeks, with engineers from all three products helping.",
