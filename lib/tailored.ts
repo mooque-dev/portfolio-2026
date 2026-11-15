@@ -4,7 +4,7 @@ import type { StatementLine } from "@/components/PaymentCard";
 // (the order a page picks does the tailoring) and the two short paragraphs
 // about building in code. Edit a case here and every page that uses it
 // changes with it.
-export type CaseKey = "tw" | "ak" | "au" | "mj" | "or" | "fe" | "ar" | "yu";
+export type CaseKey = "tw" | "ak" | "au" | "mj" | "or" | "fe" | "ar" | "yu" | "fk";
 
 export const CASES: Record<CaseKey, StatementLine> = {
   tw: {
@@ -71,6 +71,14 @@ export const CASES: Record<CaseKey, StatementLine> = {
     note: "used daily through the run",
     href: "/work/torontoyuwol",
   },
+  fk: {
+    tag: "Side project",
+    title: "Forkestrate",
+    line: "An AI recipe app I co-founded as the founding designer, working with a PM and two engineers and shipping several iterations a week.",
+    value: "Under 3 months",
+    note: "from zero to a working MVP",
+    href: "/work/forkestrate",
+  },
 };
 
 // Cover image and its backing colour per project, for pages that show the
@@ -82,6 +90,7 @@ export const COVERS: Partial<Record<CaseKey, { src: string; color: string }>> = 
   ak: { src: "/case-studies/aplos-keela-integration/cover.jpg", color: "#d4dde6" },
   ar: { src: "/case-studies/arnd/cover.jpg", color: "#504BF1" },
   yu: { src: "/case-studies/torontoyuwol/cover-framed.jpg", color: "#d8dfee" },
+  fk: { src: "/case-studies/forkestrate/cover.jpg", color: "#e6ddd4" },
 };
 
 export type BuiltLine = { text: string; links: { href: string; name: string; external?: boolean }[] };

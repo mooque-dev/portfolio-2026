@@ -347,5 +347,29 @@
       "type": "em",
       "phrase": "and AI can follow"
     }
+  },
+  "premise": {
+    "fonts": {
+      "display": [
+        "Newsreader",
+        {}
+      ],
+      "text": [
+        "Instrument_Sans",
+        {}
+      ],
+      "mono": [
+        "Courier_Prime",
+        {
+          "weight": [
+            "400",
+            "700"
+          ]
+        }
+      ]
+    },
+    "sig": {
+      "type": "none"
+    }
   }
 }

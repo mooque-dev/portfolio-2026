@@ -1,0 +1,12 @@
+{
+  "company": "Premise",
+  "object": "one page of a script: each scene is a piece of my work, my line reads in English or Korean, and the pencil note in the margin is the proof with the case behind it",
+  "desc": "A short path through Allen Kang's work: research with real people, rough ideas taken to shipped products, and the tools a bilingual musical company ran on.",
+  "lede": "I&rsquo;m Allen, a product designer in Toronto, glad to work Pacific hours. Eight years designing, from interviews and journey maps to prototypes and release. A forty-person amateur musical ran for ten months on tools I built: the schedule, a script reader in Korean and English, and the shared costs. I prototype in code with Claude Code and Cursor.",
+  "hero_import": "import ScriptPage from \"@/components/ScriptPage\";",
+  "hero_jsx": "<ScriptPage />",
+  "caption": "Pick a scene, then switch the language. The note in the margin opens the case.",
+  "cases": ["yu", "au", "ar", "fk", "or", "tw"],
+  "h1": "I design tools for people making something together.",
+  "contact": "I&rsquo;d like to help writers and studios spend less time chasing versions and more time on the story."
+}

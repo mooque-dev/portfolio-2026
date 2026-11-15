@@ -242,6 +242,13 @@ ROLES = {
         lead=["pitch", "process", "core"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_rules", "yuwol", "fork"],
         skills="Interaction design &middot; Design systems (tokens, Storybook, Chromatic) &middot; Cross-product UI frameworks &middot; Prototyping in code with AI tools (React, TypeScript) &middot; Payments and checkout flows &middot; A/B testing &middot; Figma"),
+    "premise": dict(
+        url="mooque-dev.github.io/premise", accent="#24201B",
+        domain="CRM and payments products", clause="put rough ideas in front of real people early",
+        aplos=["own", "integ", "split", "fee_code", "orchid", "partner"],
+        lead=["process", "pitch", "core"], pd=["auto_test", "adopt", "pm"],
+        projects=["yuwol", "arnd_mobile", "fork"],
+        skills="User research and usability testing &middot; Journey maps, wireframes and prototypes &middot; 0 to 1 product design &middot; Prototyping in code with AI tools (Claude Code, Cursor) &middot; Design systems &middot; Figma"),
 }
 
 

@@ -7,7 +7,7 @@ then registers the page in Header.tsx ENTRY_PAGES.
 
 Spec fields: company, object (one line for the code comment), desc (meta
 description, neutral), lede, hero_import, hero_jsx, caption (optional),
-cases (keys from lib/tailored.ts: tw ak au mj or fe ar yu), h1, contact,
+cases (keys from lib/tailored.ts: tw ak au mj or fe ar yu fk), h1, contact,
 built (optional: "rules" for the version that mentions ARND's rules file).
 Colours come from the slug's entry in brands.json and type plus the
 signature detail from themes.json; add both first (see brand-briefs/).

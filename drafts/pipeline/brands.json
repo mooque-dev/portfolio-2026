@@ -229,5 +229,18 @@
     "heroMark": "#0B57D0",
     "heroCta": "#0B57D0",
     "heroCtaOn": "#ffffff"
+  },
+  "premise": {
+    "fill": "#24201B",
+    "on": "#FBF8F2",
+    "ink": "#24201B",
+    "inkDark": "#F3ECDF",
+    "heroBg": "#F3ECDF",
+    "heroFg": "#24201B",
+    "heroBgDark": "#F3ECDF",
+    "heroFgDark": "#24201B",
+    "heroMark": "#9A3A26",
+    "heroCta": "#24201B",
+    "heroCtaOn": "#FBF8F2"
   }
 }
