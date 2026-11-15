@@ -17,7 +17,7 @@
   --line: #e7e6e2;
   --hover: #f3f3f0;
   --accent: #c8323e;
-  --apply: #17804a; --apply-bg: #e6f4ec;
+  --apply: #17804a; --apply-bg: #e6f4ec; --on-apply: #ffffff;
   --consider: #a76508; --consider-bg: #fbf0dc;
   --long: #5f6672; --long-bg: #eceef1;
   --s-prep: #9d9c96; --s-ready: #d08a0c; --s-applied: #3f63e0; --s-int: #8a4fe0; --s-offer: #17804a; --s-closed: #a4a39d;
@@ -28,14 +28,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0f0f10; --surface: #161618; --sunk: #1c1c1f; --fg: #f1f1ef; --muted: #9c9b96; --faint: #6f6e6a; --line: #27272b; --hover: #1d1d21;
-    --accent: #ef5b66; --apply: #57c98b; --apply-bg: #13301f; --consider: #e6a849; --consider-bg: #33270f; --long: #a2a9b5; --long-bg: #22252b;
+    --accent: #ef5b66; --apply: #57c98b; --on-apply: #0b2416; --apply-bg: #13301f; --consider: #e6a849; --consider-bg: #33270f; --long: #a2a9b5; --long-bg: #22252b;
     --s-prep: #6f6e6a; --s-ready: #e6a849; --s-applied: #7e9bff; --s-int: #b48cff; --s-offer: #57c98b; --s-closed: #5f5e5a;
     --shadow: 0 18px 50px -18px rgb(0 0 0 / 0.7); color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0f0f10; --surface: #161618; --sunk: #1c1c1f; --fg: #f1f1ef; --muted: #9c9b96; --faint: #6f6e6a; --line: #27272b; --hover: #1d1d21;
-  --accent: #ef5b66; --apply: #57c98b; --apply-bg: #13301f; --consider: #e6a849; --consider-bg: #33270f; --long: #a2a9b5; --long-bg: #22252b;
+  --accent: #ef5b66; --apply: #57c98b; --on-apply: #0b2416; --apply-bg: #13301f; --consider: #e6a849; --consider-bg: #33270f; --long: #a2a9b5; --long-bg: #22252b;
   --s-prep: #6f6e6a; --s-ready: #e6a849; --s-applied: #7e9bff; --s-int: #b48cff; --s-offer: #57c98b; --s-closed: #5f5e5a;
   --shadow: 0 18px 50px -18px rgb(0 0 0 / 0.7); color-scheme: dark;
 }
@@ -127,7 +127,7 @@ button { font: inherit; color: inherit; }
 .qa { display: flex; gap: 4px; justify-content: flex-end; }
 .qa button { font-size: 12.5px; padding: 3px 9px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; white-space: nowrap; }
 .qa button:hover { border-color: var(--muted); }
-.qa .ok { background: var(--apply); border-color: var(--apply); color: #fff; }
+.qa .ok { background: var(--apply); border-color: var(--apply); color: var(--on-apply); }
 .qa .wait { font-size: 12px; color: var(--faint); }
 .nav .n.hot { color: #fff; background: var(--accent); border-radius: 99px; padding: 0 6px; font-weight: 600; }
 .review { display: grid; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--sunk); }
@@ -137,7 +137,7 @@ button { font: inherit; color: inherit; }
 .review .btns { display: flex; flex-wrap: wrap; gap: 6px; }
 .review .btns button { font-size: 13px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; }
 .review .btns button:hover { border-color: var(--muted); }
-.review .btns .ok { background: var(--apply); border-color: var(--apply); color: #fff; font-weight: 600; }
+.review .btns .ok { background: var(--apply); border-color: var(--apply); color: var(--on-apply); font-weight: 600; }
 .review .ask { display: grid; gap: 6px; }
 .review .ask textarea { min-height: 64px; }
 .review .state { font-size: 13px; }
@@ -216,6 +216,7 @@ textarea { min-height: 76px; resize: vertical; }
 
 /* Narrower screens: links move into the panel; on phones the sidebar becomes a strip of views */
 @media (max-width: 1120px) { .row { grid-template-columns: 22px minmax(0, 1fr) 84px 160px 28px; } .row .lk { display: none; } }
+@media (max-width: 1120px) and (min-width: 781px) { .row:has(.qa) { grid-template-columns: 22px minmax(0, 1fr) 84px auto 28px; } .row:has(.qa) .pay { display: none; } }
 @media (max-width: 780px) {
   .app { grid-template-columns: minmax(0, 1fr); }
   .side { min-width: 0; position: static; height: auto; gap: 10px; padding: 14px 16px 10px; border-right: 0; border-bottom: 1px solid var(--line); }
@@ -232,6 +233,8 @@ textarea { min-height: 76px; resize: vertical; }
   .search input { width: 100%; }
   .row { grid-template-columns: 22px minmax(0, 1fr) auto; gap: 10px; }
   .row .pay, .row .arch { display: none; }
+  .row .qa { grid-column: 2 / -1; justify-content: flex-start; }
+  .qa button { padding: 6px 14px; font-size: 13.5px; }
   .ttl { flex-direction: column; gap: 0; }
   .ttl .ro { font-size: 13px; white-space: normal; }
   .site { grid-template-columns: 1fr; }
