@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type CSSProperties, type ComponentType } f
 import * as D from "./OrchidDemos";
 import * as N from "./OrchidDomain";
 import * as C from "./OrchidCharts";
+import { Replaced } from "./OrchidBefore";
 import "./orchid-library.css";
 
 // A recreation of the Orchid library, in progress. One set of components,
@@ -26,11 +27,12 @@ const THEMES: Theme[] = [
     vars: { "--o-primary": "#16587D", "--o-on": "#ffffff", "--o-accent": "#CE5D01", "--o-ink": "#0B233B", "--o-mut": "#52647A", "--o-line": "#D5DCE3", "--o-soft": "#F2F5F8", "--o-bg": "#ffffff", "--o-r": "6px", "--o-rb": "6px", "--o-font": "'Open Sans', Inter, system-ui, sans-serif", "--o-pad": "8px 14px" }, palette: ["#16587D", "#CE5D01", "#0B233B", "#7FB3CF", "#F2A65A"] },
 ];
 
-const CATS = ["CRM", "Dashboards and reports", "Charts", "Tables", "Accounting", "Actions", "Forms", "Feedback", "Overlays", "Navigation", "Data display", "Chat and AI"] as const;
+const CATS = ["CRM", "Dashboards and reports", "Charts", "Tables", "Accounting", "Actions", "Forms", "Feedback", "Overlays", "Navigation", "Data display", "Snowflakes we kept"] as const;
+const SNOW = "Snowflakes we kept";
 const NONPROFIT: readonly string[] = ["CRM", "Dashboards and reports", "Tables", "Accounting"];
 const ECHARTS = "Charts";
 type Cat = (typeof CATS)[number];
-type Entry = { id: string; name: string; cat: Cat; use: string; Demo: ComponentType; wide?: boolean; start?: "keep" };
+type Entry = { id: string; name: string; cat: Cat; use: string; Demo: ComponentType; wide?: boolean; start?: "keep"; replaced?: { count: number; what: string }; why?: string };
 
 // "start: keep" marks the ones already in the first draft of Orchid. The
 // first four categories are nonprofit additions beyond shadcn, proposed for
@@ -43,14 +45,11 @@ const ENTRIES: Entry[] = [
   { id: "pipeline", name: "Major gift pipeline", cat: "CRM", Demo: N.PipelineDemo, wide: true, use: "Prospects moving through stages, with the total ask in each." },
   { id: "comms-prefs", name: "Communication preferences", cat: "CRM", Demo: N.CommsPrefsDemo, use: "How a donor agreed to be contacted, and when and how that consent was given." },
   { id: "merge", name: "Duplicate merge", cat: "CRM", Demo: N.MergeDemo, use: "Combining two records for the same person, choosing which value wins for each field." },
-  { id: "note", name: "Note with mentions", cat: "CRM", Demo: N.NoteDemo, use: "A note on a record that can pull a teammate in by name." },
   { id: "tasks", name: "Task list", cat: "CRM", Demo: N.TaskListDemo, use: "Follow-ups with due dates. Overdue ones stand out in words, not only colour." },
 
   { id: "kpi", name: "Stat with change", cat: "Dashboards and reports", Demo: N.KpiDemo, wide: true, use: "The few numbers a team checks every morning, each with how it changed and against what." },
-  { id: "goal-ring", name: "Goal progress", cat: "Dashboards and reports", Demo: N.GoalRingDemo, use: "How close a campaign is to its goal, with what's left in words." },
   { id: "date-range", name: "Date range with presets", cat: "Dashboards and reports", Demo: N.DateRangeDemo, use: "Picking the period a report covers. Presets first, including the fiscal year." },
   { id: "filter-bar", name: "Active filters", cat: "Dashboards and reports", Demo: N.FilterBarDemo, use: "Showing which filters are on, each removable on its own." },
-  { id: "column-picker", name: "Column picker", cat: "Dashboards and reports", Demo: N.ColumnPickerDemo, use: "Choosing and ordering the columns in a report." },
   { id: "export", name: "Export", cat: "Dashboards and reports", Demo: N.ExportDemo, use: "Getting a report out, with each format saying what it's for." },
   { id: "leaderboard", name: "Leaderboard", cat: "Dashboards and reports", Demo: N.LeaderboardDemo, use: "Ranking peer fundraisers or teams during a campaign." },
   { id: "retention", name: "Retention table", cat: "Dashboards and reports", Demo: N.RetentionDemo, use: "How many of each year's new donors kept giving." },
@@ -58,11 +57,8 @@ const ENTRIES: Entry[] = [
   { id: "c-line", name: "Line", cat: "Charts", Demo: C.LineChartDemo, use: "Change over time, usually this year against last. Two or three lines at most." },
   { id: "c-bar", name: "Bar", cat: "Charts", Demo: C.BarChartDemo, use: "Comparing amounts across periods or groups, with a reference line when it helps." },
   { id: "c-stacked-bar", name: "Stacked bar", cat: "Charts", Demo: C.StackedBarDemo, use: "Totals per period and what each is made of, like revenue by fund per quarter." },
-  { id: "c-hbar", name: "Horizontal bar", cat: "Charts", Demo: C.HorizontalBarDemo, use: "Ranking named things with long labels, like campaigns." },
   { id: "c-combo", name: "Bar and line", cat: "Charts", Demo: C.ComboDemo, use: "Two related measures with different units, like donors and average gift." },
   { id: "c-donut", name: "Donut", cat: "Charts", Demo: C.DonutChartDemo, use: "Parts of a whole, four or five at most. Otherwise use a bar." },
-  { id: "c-treemap", name: "Treemap", cat: "Charts", Demo: C.TreemapDemo, use: "Parts of a whole with a hierarchy, like expenses by category and program." },
-  { id: "c-sankey", name: "Sankey", cat: "Charts", Demo: C.SankeyDemo, use: "Where money comes from and where it goes, through funds to programs." },
   { id: "c-gauge", name: "Gauge", cat: "Charts", Demo: C.GaugeDemo, use: "One number against a goal, like a campaign target." },
   { id: "c-funnel", name: "Funnel", cat: "Charts", Demo: C.FunnelDemo, use: "Where people drop off in a sequence of steps, like a giving page." },
   { id: "c-spark", name: "Sparkline", cat: "Charts", Demo: C.SparklineDemo, use: "A number and its recent shape, small enough to sit in a stat or a table row." },
@@ -74,97 +70,59 @@ const ENTRIES: Entry[] = [
   { id: "expand-row", name: "Expandable row", cat: "Tables", Demo: N.ExpandRowDemo, use: "Details for one row without leaving the table." },
   { id: "saved-views", name: "Saved views", cat: "Tables", Demo: N.SavedViewsDemo, use: "Filters a team uses often, saved as tabs with their counts." },
   { id: "density", name: "Row density", cat: "Tables", Demo: N.DensityDemo, use: "Compact rows for people who scan a lot of numbers, comfortable for everyone else." },
-  { id: "sticky-table", name: "Sticky header and first column", cat: "Tables", Demo: N.StickyTableDemo, wide: true, use: "Wide tables that scroll while the names and headings stay in view." },
 
   { id: "currency-input", name: "Currency input", cat: "Accounting", Demo: N.CurrencyInputDemo, use: "Entering money, with the currency always visible." },
   { id: "account-picker", name: "Account picker", cat: "Accounting", Demo: N.AccountPickerDemo, use: "Choosing from the chart of accounts, by code or name, with its grouping visible." },
   { id: "split", name: "Split transaction", cat: "Accounting", Demo: N.SplitDemo, use: "One payment that was several things, like a donation and a ticket. Shows what's left to allocate until it adds up." },
   { id: "journal", name: "Journal entry", cat: "Accounting", Demo: N.JournalDemo, use: "Debit and credit lines that must balance before saving." },
-  { id: "receipt", name: "Donation receipt", cat: "Accounting", Demo: N.ReceiptDemo, use: "The receipt a donor gets, with the eligible amount when they received something back." },
   { id: "reconcile", name: "Reconciliation match", cat: "Accounting", Demo: N.ReconcileDemo, wide: true, use: "Pairing a bank line with what's in the books." },
   { id: "periods", name: "Period status", cat: "Accounting", Demo: N.PeriodStatusDemo, use: "Which months are open, in review, or closed and locked." },
   { id: "budget", name: "Budget against actual", cat: "Accounting", Demo: N.BudgetDemo, use: "Spending against budget per line, with overspending said in words." },
-  { id: "ledger", name: "Ledger with running balance", cat: "Accounting", Demo: N.LedgerDemo, use: "Transactions in order with the balance after each one." },
   { id: "payment-method", name: "Payment method", cat: "Accounting", Demo: N.PaymentMethodDemo, use: "A saved card or account, with a warning before it expires." },
   { id: "recurring", name: "Recurring schedule", cat: "Accounting", Demo: N.RecurringDemo, use: "How often a gift repeats, and the next dates it will run." },
   { id: "pledge", name: "Pledge installments", cat: "Accounting", Demo: N.PledgeDemo, use: "A promised amount paid over time, with each installment's status." },
 
   { id: "button", name: "Button", cat: "Actions", start: "keep", Demo: D.ButtonDemo, use: "One primary action per view. Secondary for the alternative, quiet for everything else, danger only for destructive actions." },
-  { id: "button-group", name: "Button group", cat: "Actions", Demo: D.ButtonGroupDemo, use: "A few related buttons that work as a set, like a date range." },
-  { id: "toggle", name: "Toggle", cat: "Actions", Demo: D.ToggleDemo, use: "A button that stays on or off, like bold in a text editor." },
-  { id: "toggle-group", name: "Toggle group", cat: "Actions", Demo: D.ToggleGroupDemo, use: "A set of toggles where one or several can be on, like text alignment." },
-  { id: "kbd", name: "Kbd", cat: "Actions", Demo: D.KbdDemo, use: "Showing a keyboard shortcut in text or a menu." },
 
   { id: "input", name: "Input", cat: "Forms", start: "keep", Demo: D.InputDemo, use: "A single line of text. The label always sits above, and help text sits below." },
-  { id: "label", name: "Label", cat: "Forms", Demo: D.LabelDemo, use: "Naming a control so clicking the words selects it. Every control gets one." },
   { id: "field", name: "Field", cat: "Forms", Demo: D.FieldDemo, use: "The wrapper for any control: label, the control, help text, and an error that replaces the help text." },
-  { id: "input-group", name: "Input group", cat: "Forms", Demo: D.InputGroupDemo, use: "An input with something attached, like a currency sign or a unit." },
-  { id: "input-otp", name: "Input OTP", cat: "Forms", Demo: D.InputOTPDemo, use: "One-time codes sent by text or email." },
   { id: "textarea", name: "Textarea", cat: "Forms", Demo: D.TextareaDemo, use: "More than one line of text, like a note or a message." },
   { id: "checkbox", name: "Checkbox", cat: "Forms", start: "keep", Demo: D.CheckboxDemo, use: "Any number of choices, or a single yes or no that's saved with a form." },
   { id: "radio-group", name: "Radio group", cat: "Forms", start: "keep", Demo: D.RadioGroupDemo, use: "Exactly one choice from five or fewer, all visible at once." },
   { id: "switch", name: "Switch", cat: "Forms", start: "keep", Demo: D.SwitchDemo, use: "A setting that takes effect right away, with no save button." },
-  { id: "slider", name: "Slider", cat: "Forms", Demo: D.SliderDemo, use: "Picking a value in a range where the rough amount matters more than the exact one." },
-  { id: "select-single", name: "Select: single", cat: "Forms", start: "keep", Demo: D.SelectSingle, use: "Choosing one from a list of more than five. For five or fewer, use radio buttons." },
+  { id: "select-single", name: "Select: single", cat: "Forms", start: "keep", replaced: { count: 9, what: "one-off dropdowns across the three products. Together with the other three variants and the date picker, this is all that's left of them." }, Demo: D.SelectSingle, use: "Choosing one from a list of more than five. For five or fewer, use radio buttons." },
   { id: "select-multiple", name: "Select: multiple", cat: "Forms", start: "keep", Demo: D.SelectMultiple, use: "Choosing any number from a list. Selected items show as chips in the field." },
   { id: "select-searchable", name: "Select: searchable", cat: "Forms", start: "keep", Demo: D.SelectSearch, use: "Long lists people know the answer to, like countries. Type to narrow. Address and country lookups use this one with a preset list." },
   { id: "select-icons", name: "Select: with icons", cat: "Forms", start: "keep", Demo: D.SelectIcons, use: "When a picture helps people tell the options apart faster than the words do." },
-  { id: "native-select", name: "Native select", cat: "Forms", Demo: D.NativeSelectDemo, use: "The browser's own dropdown, styled. Best on phones and for very simple lists." },
-  { id: "combobox", name: "Combobox", cat: "Forms", Demo: D.ComboboxDemo, use: "Type to search a list, then pick. In Orchid this is the searchable select." },
   { id: "date-picker", name: "Date picker", cat: "Forms", start: "keep", Demo: D.DatePickerDemo, use: "Picking a day. Its own component, not a select: the calendar is the point." },
-  { id: "calendar", name: "Calendar", cat: "Forms", Demo: D.CalendarDemo, use: "A month always on screen, for scheduling and seeing what falls when." },
-  { id: "form", name: "Form", cat: "Forms", Demo: D.FormDemo, use: "Fields, validation and a submit button working together. Errors appear next to the field, in words." },
 
   { id: "alert", name: "Alert", cat: "Feedback", start: "keep", Demo: D.AlertDemo, use: "Something to know before continuing. Info to inform, success to confirm, warning before a risk, danger when something failed or can't be undone." },
   { id: "toast", name: "Toast", cat: "Feedback", Demo: D.ToastDemo, use: "A brief confirmation after an action, with undo when it's possible. Never for errors that need fixing." },
   { id: "progress", name: "Progress", cat: "Feedback", Demo: D.ProgressDemo, use: "How far along something is, like a goal or an upload." },
   { id: "spinner", name: "Spinner", cat: "Feedback", Demo: D.SpinnerDemo, use: "Waiting with no known end. Say what's happening next to it." },
-  { id: "skeleton", name: "Skeleton", cat: "Feedback", Demo: D.SkeletonDemo, use: "The shape of content while it loads, so the page doesn't jump." },
   { id: "empty", name: "Empty", cat: "Feedback", Demo: D.EmptyDemo, use: "When there's nothing to show yet: say why, and offer the next step." },
   { id: "badge", name: "Badge", cat: "Feedback", start: "keep", Demo: D.BadgeDemo, use: "A short status that needs no action. Never the only way to read a state." },
 
   { id: "dialog", name: "Dialog", cat: "Overlays", Demo: D.DialogDemo, use: "A short task that needs focus without leaving the page." },
   { id: "alert-dialog", name: "Alert dialog", cat: "Overlays", Demo: D.AlertDialogDemo, use: "Confirming something that can't be undone. Name the action on the button, not just OK." },
   { id: "sheet", name: "Sheet", cat: "Overlays", Demo: D.SheetDemo, use: "A side panel for filters or details while the page stays in view." },
-  { id: "drawer", name: "Drawer", cat: "Overlays", Demo: D.DrawerDemo, use: "A panel from the bottom, mostly on phones." },
-  { id: "popover", name: "Popover", cat: "Overlays", Demo: D.PopoverDemo, use: "A small panel tied to a button, for a quick edit or extra options." },
   { id: "tooltip", name: "Tooltip", cat: "Overlays", Demo: D.TooltipDemo, use: "A short hint on hover or focus. Nothing essential, nothing clickable." },
-  { id: "hover-card", name: "Hover card", cat: "Overlays", Demo: D.HoverCardDemo, use: "A preview of a person or record when pointing at its name." },
   { id: "dropdown-menu", name: "Dropdown menu", cat: "Overlays", Demo: D.DropdownMenuDemo, use: "A list of actions behind one button. Destructive ones go last, set apart." },
-  { id: "context-menu", name: "Context menu", cat: "Overlays", Demo: D.ContextMenuDemo, use: "Right-click actions. Always also reachable another way." },
-  { id: "command", name: "Command", cat: "Overlays", Demo: D.CommandDemo, use: "A search-everything box for people who prefer the keyboard." },
 
   { id: "tabs", name: "Tabs", cat: "Navigation", start: "keep", Demo: D.TabsDemo, use: "Switching between views of the same thing. Not for steps in a flow." },
   { id: "breadcrumb", name: "Breadcrumb", cat: "Navigation", Demo: D.BreadcrumbDemo, use: "Where you are in a hierarchy, and a way back up." },
   { id: "pagination", name: "Pagination", cat: "Navigation", Demo: D.PaginationDemo, use: "Moving through long lists a page at a time." },
-  { id: "navigation-menu", name: "Navigation menu", cat: "Navigation", Demo: D.NavigationMenuDemo, use: "Top-level site navigation with grouped links under each item." },
-  { id: "menubar", name: "Menubar", cat: "Navigation", Demo: D.MenubarDemo, use: "Desktop-style File, Edit, View menus for tool-like screens." },
   { id: "sidebar", name: "Sidebar", cat: "Navigation", Demo: D.SidebarDemo, wide: true, use: "The app's main sections, always in view on desktop." },
-  { id: "direction", name: "Direction", cat: "Navigation", Demo: D.DirectionDemo, use: "Sets left-to-right or right-to-left for the whole app, for languages like Arabic." },
 
   { id: "table", name: "Table", cat: "Data display", start: "keep", Demo: D.TableDemo, use: "Comparing many records by the same fields. Numbers align right." },
   { id: "data-table", name: "Data table", cat: "Data display", Demo: D.DataTableDemo, wide: true, use: "A table people work in: filter, sort, select rows, act on them." },
   { id: "card", name: "Card", cat: "Data display", start: "keep", Demo: D.CardDemo, use: "One object with a title, a few facts and at most one action." },
   { id: "avatar", name: "Avatar", cat: "Data display", Demo: D.AvatarDemo, use: "A person or organisation at a glance. Initials when there's no photo." },
-  { id: "accordion", name: "Accordion", cat: "Data display", Demo: D.AccordionDemo, use: "Questions and answers, or sections most people skip." },
-  { id: "collapsible", name: "Collapsible", cat: "Data display", Demo: D.CollapsibleDemo, use: "Hiding one block of detail behind a single link." },
-  { id: "carousel", name: "Carousel", cat: "Data display", Demo: D.CarouselDemo, use: "A few items of equal weight, one at a time. Rarely the right choice." },
-  { id: "chart", name: "Chart", cat: "Data display", Demo: D.ChartNoteDemo, use: "shadcn's chart is built on Recharts. Orchid used ECharts, so the Charts group stands in for this one." },
-  { id: "item", name: "Item", cat: "Data display", Demo: D.ItemDemo, use: "One row in a list: picture, title, detail, action." },
-  { id: "typography", name: "Typography", cat: "Data display", Demo: D.TypographyDemo, use: "The type scale: headings, body and small text." },
-  { id: "separator", name: "Separator", cat: "Data display", Demo: D.SeparatorDemo, use: "A thin line between groups, when spacing alone isn't enough." },
-  { id: "aspect-ratio", name: "Aspect ratio", cat: "Data display", Demo: D.AspectRatioDemo, use: "Keeping images and video the same shape at every size." },
-  { id: "scroll-area", name: "Scroll area", cat: "Data display", Demo: D.ScrollAreaDemo, use: "A box that scrolls on its own, like an activity feed." },
-  { id: "resizable", name: "Resizable", cat: "Data display", Demo: D.ResizableDemo, use: "Panels people can drag wider or narrower, like a list beside its detail." },
 
-  { id: "message", name: "Message", cat: "Chat and AI", Demo: D.MessageDemo, use: "One turn in a conversation, with who said it." },
-  { id: "bubble", name: "Bubble", cat: "Chat and AI", Demo: D.BubbleDemo, use: "Chat-style messages, mine on one side and theirs on the other." },
-  { id: "message-scroller", name: "Message scroller", cat: "Chat and AI", Demo: D.MessageScrollerDemo, use: "The scrolling conversation itself, which follows new replies." },
-  { id: "attachment", name: "Attachment", cat: "Chat and AI", Demo: D.AttachmentDemo, use: "A file added to a message or form, with its upload state." },
-  { id: "code-block", name: "Code block", cat: "Chat and AI", Demo: D.CodeBlockDemo, use: "Code or terminal output, with a copy button." },
-  { id: "marker", name: "Marker", cat: "Chat and AI", Demo: D.MarkerDemo, use: "A quiet note in a conversation, like what the assistant just did." },
-  { id: "questionnaire", name: "Questionnaire", cat: "Chat and AI", Demo: D.QuestionnaireDemo, use: "A few questions one at a time, each skippable." },
-  { id: "trace", name: "Trace", cat: "Chat and AI", Demo: D.TraceDemo, use: "Showing the steps an assistant took, folded away by default." },
+  { id: "amount-picker", name: "Donation amount picker", cat: "Snowflakes we kept", Demo: N.AmountPickerDemo, use: "Preset amounts, a custom amount, and what each one pays for.", why: "No shared input pairs amounts with their impact, and donors choose in one tap instead of typing." },
+  { id: "receipt", name: "Donation receipt", cat: "Snowflakes we kept", Demo: N.ReceiptDemo, use: "The receipt a donor gets, with the eligible amount when they received something back.", why: "Its layout follows tax rules a generic card can't know, and staff never check the wording by hand." },
+  { id: "ledger", name: "Fund ledger", cat: "Snowflakes we kept", Demo: N.LedgerDemo, use: "Transactions in order with the balance after each one.", why: "Accountants read a running balance the way they read paper ledgers, so they reconcile without exporting to a spreadsheet." },
+  { id: "thermometer", name: "Campaign thermometer", cat: "Snowflakes we kept", Demo: N.ThermometerDemo, use: "A campaign's progress toward its goal, the way donors expect to see it.", why: "Donors recognise it instantly, so the page says how close the goal is without a single word of explanation." },
 ];
 
 const CAT_NOTE: Record<Cat, string> = {
@@ -179,8 +137,9 @@ const CAT_NOTE: Record<Cat, string> = {
   Overlays: "Layers that open on top of the page.",
   Navigation: "Moving between places and pages.",
   "Data display": "Showing records, numbers and content.",
-  "Chat and AI": "Conversations with people or an assistant.",
+  "Snowflakes we kept": "One-offs that passed both questions: does it give users something the shared version can't, and does it save them time. Not counted in the 70.",
 };
+const SHARED = ENTRIES.filter((e) => e.cat !== SNOW).length;
 const slug = (c: string) => `cat-${c.toLowerCase().replace(/[^a-z]+/g, "-")}`;
 
 export default function OrchidLibrary() {
@@ -213,7 +172,7 @@ export default function OrchidLibrary() {
           <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M10.5 10.5L14 14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
           <input type="search" aria-label="Search components" placeholder={`Search ${ENTRIES.length} components`} value={q} onChange={(e) => setQ(e.target.value)} />
         </div>
-        <p className="ol-count" aria-live="polite">{s ? `${shown.length} match${shown.length === 1 ? "" : "es"}` : `${ENTRIES.length} components, ${CATS.length} groups`}</p>
+        <p className="ol-count" aria-live="polite">{s ? `${shown.length} match${shown.length === 1 ? "" : "es"}` : `${SHARED} shared components, plus ${ENTRIES.length - SHARED} kept snowflakes`}</p>
         <nav className="ol-nav">
           {groups.map(([c, list]) => (
             <div key={c} className="ol-nav-g">
@@ -244,11 +203,22 @@ export default function OrchidLibrary() {
 
         <C.ChartSkinContext.Provider value={{ vars: theme.vars, palette: theme.palette }}>
         <div className="ol-skin" style={theme.vars as CSSProperties}>
-          {groups.map(([c, list]) => (
+            {!s && (
+            <section className="ol-summary" aria-labelledby="ol-sum-h">
+              <div className="ol-sum-text">
+                <h2 id="ol-sum-h">From 340+ to {SHARED}</h2>
+                <p>Three merged products had more than 340 one-off components between them. The audit folded them into {SHARED} shared ones, each with a rule for when to use it. A few one-offs earned their place and stayed; they&rsquo;re at the end.</p>
+                <ul className="ol-sum-groups">{CATS.filter((c) => c !== SNOW).map((c) => <li key={c}><a href={`#${slug(c)}`}>{c}</a> <span>{ENTRIES.filter((e) => e.cat === c).length}</span></li>)}</ul>
+              </div>
+              <div className="ol-sum-chart"><C.SummaryChart /></div>
+            </section>
+          )}
+
+        {groups.map(([c, list]) => (
             <section key={c} id={slug(c)} className="ol-sec" aria-labelledby={`${slug(c)}-h`}>
               <header className="ol-sec-h">
                 <h2 id={`${slug(c)}-h`}>{c}</h2>
-                <p>{CAT_NOTE[c]} {c === ECHARTS ? "" : NONPROFIT.includes(c) ? "Proposed nonprofit additions." : "From the shadcn set."}</p>
+                <p>{CAT_NOTE[c]} {c === ECHARTS || c === SNOW ? "" : NONPROFIT.includes(c) ? "Proposed nonprofit additions." : "From the shadcn set."}</p>
               </header>
               <div className="ol-list">
                 {list.map((e) => (
@@ -258,7 +228,9 @@ export default function OrchidLibrary() {
                       {e.start === "keep" && <span className="ol-tag">In the first draft</span>}
                     </div>
                     <p className="ol-use">{e.use}</p>
+                    {e.why && <p className="ol-why"><b>Why it stayed.</b> {e.why}</p>}
                     <div className="ol-demo"><e.Demo /></div>
+                    {e.replaced && <Replaced count={e.replaced.count} what={e.replaced.what} />}
                   </article>
                 ))}
               </div>

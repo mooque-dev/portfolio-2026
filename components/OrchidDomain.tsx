@@ -423,3 +423,43 @@ export const PledgeDemo = () => (
     <p className="o-small">$2,000 per installment · one late since Oct 15</p>
   </div>
 );
+
+/* ---------- Snowflakes we kept ---------- */
+export function AmountPickerDemo() {
+  const presets = [[25, "school supplies for one child"], [50, "a week of meals for a family"], [100, "a month of after-school programs"], [250, "a winter coat drive for a class"]] as const;
+  const [amt, setAmt] = useState<number | "custom">(50);
+  const [custom, setCustom] = useState("");
+  const impact = amt === "custom" ? null : presets.find(([v]) => v === amt)?.[1];
+  return (
+    <div className="n-amount">
+      <p className="o-item-t">Choose an amount</p>
+      <div className="n-amount-g" role="radiogroup" aria-label="Gift amount">
+        {presets.map(([v]) => <button key={v} type="button" role="radio" aria-checked={amt === v} className={amt === v ? "on" : ""} onClick={() => setAmt(v)}>${v}</button>)}
+        <button type="button" role="radio" aria-checked={amt === "custom"} className={amt === "custom" ? "on" : ""} onClick={() => setAmt("custom")}>Other</button>
+      </div>
+      {amt === "custom" ? (
+        <span className="o-igroup"><span className="o-iadd">$</span><input autoFocus inputMode="decimal" aria-label="Your amount" placeholder="Your amount" value={custom} onChange={(e) => setCustom(e.target.value.replace(/[^\d.]/g, ""))} /></span>
+      ) : (
+        <p className="n-impact" aria-live="polite">${amt} can cover {impact}.</p>
+      )}
+      <button type="button" className="o-btn">Give {amt === "custom" ? (custom ? `$${custom}` : "") : `$${amt}`}</button>
+    </div>
+  );
+}
+export const ThermometerDemo = () => {
+  const raised = 12480, goal = 20000, pct = Math.round((raised / goal) * 100);
+  return (
+    <div className="n-thermo">
+      <div className="n-thermo-tube" role="img" aria-label={`${pct} percent of the goal raised`}>
+        <i style={{ height: `${pct}%` }} />
+        {[25, 50, 75].map((m) => <span key={m} style={{ bottom: `${m}%` }} />)}
+      </div>
+      <div className="ol-col" style={{ gap: 4 }}>
+        <p className="o-small">Spring appeal</p>
+        <p className="n-kpi-v">{usd(raised, 0)}</p>
+        <p className="o-small">raised of {usd(goal, 0)} · {pct}%</p>
+        <p className="o-small">142 donors · 16 days left</p>
+      </div>
+    </div>
+  );
+};

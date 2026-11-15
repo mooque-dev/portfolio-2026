@@ -182,3 +182,16 @@ export const SparklineDemo = () => (
     })} />
   </div>
 );
+
+/* ---------- The cut, summarised ---------- */
+export const SummaryChart = () => (
+  <Chart label="Bar chart: before Orchid, 340 or more one-off components; after, 70 shared components" height={150} build={(s) => {
+    const c = base(s);
+    return { ...c, tooltip: { show: false }, legend: { show: false }, grid: { top: 4, left: 4, right: 110, bottom: 4, containLabel: true },
+      xAxis: { type: "value", max: 360, show: false },
+      yAxis: { type: "category", inverse: true, data: ["Before Orchid", "With Orchid"], axisTick: { show: false }, axisLine: { show: false }, axisLabel: { color: s.vars["--o-ink"], fontSize: 13 } },
+      series: [{ type: "bar", barWidth: 26, itemStyle: { borderRadius: [0, 4, 4, 0] },
+        label: { show: true, position: "right", color: s.vars["--o-ink"], fontSize: 13, fontWeight: 600, formatter: (p: { dataIndex: number }) => (p.dataIndex === 0 ? "340+ one-offs" : "70 shared") },
+        data: [{ value: 340, itemStyle: { color: s.vars["--o-mut"] } }, { value: 70, itemStyle: { color: s.palette[0] } }] }] };
+  }} />
+);

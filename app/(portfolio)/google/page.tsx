@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const BRAND = { "--brand": "#0A0A0A", "--brand-on": "#ffffff", "--brand-ink": "#0A0A0A", "--brand-ink-dark": "#F5F5F5", "--hb": "#FFFFFF", "--hf": "#0A0A0A", "--hb-d": "#0A0A0A", "--hf-d": "#F5F5F5", "--hm": "#6E6E6E", "--hc": "var(--foreground)", "--hco": "var(--background)" } as CSSProperties;
+const BRAND = { "--brand": "#0A0A0A", "--brand-on": "#ffffff", "--brand-ink": "#0A0A0A", "--brand-ink-dark": "#F5F5F5", "--hb": "#FFFFFF", "--hf": "#0A0A0A", "--hb-d": "#0A0A0A", "--hf-d": "#F5F5F5", "--hm": "#6E6E6E" } as CSSProperties;
 
 export default function GooglePage() {
   return (
@@ -22,6 +22,7 @@ export default function GooglePage() {
       slug="google"
       company="Google"
       style={BRAND}
+      className="tp-plain"
       headline={<>I build design systems teams choose to use, <span className="sig-em">and AI can follow</span>.</>}
       lede={<>I&rsquo;m Allen, a senior product designer in Toronto, ready to move to Mountain View. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on payments: split transactions, checkout fees, and one design system for three merged products, 340+ one-off components cut to 70. This summer I was on stage in a forty-person musical that ran its schedule and split its bills on tools I built.</>}
       hero={<><ComponentAudit /></>}
