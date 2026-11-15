@@ -19,7 +19,7 @@
 .ol-spec:last-child { border-bottom: 0; }
 @media (min-width: 820px) { .ol-spec { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px; align-items: center; padding: 26px 28px; } }
 .ol-demo, .ol-meta { min-width: 0; }
-.ol-meta h3 { margin: 0 0 8px; font-size: 16px; font-weight: 600; color: var(--o-ink); }
+.ol-meta h2 { margin: 0 0 8px; font-size: 16px; font-weight: 600; color: var(--o-ink); }
 .ol-meta dl { margin: 0; display: grid; gap: 8px; }
 .ol-meta dt { font-size: 12.5px; color: var(--o-mut); }
 .ol-meta dd { margin: 0; font-size: 14px; line-height: 1.5; }

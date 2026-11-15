@@ -37,7 +37,7 @@ function Spec({ name, use, where = TODO, children }: { name: string; use: string
     <section className="ol-spec">
       <div className="ol-demo">{children}</div>
       <div className="ol-meta">
-        <h3>{name}</h3>
+        <h2>{name}</h2>
         <dl>
           <div><dt>When to use</dt><dd>{use}</dd></div>
           <div><dt>Where it&rsquo;s used</dt><dd className={where === TODO ? "ol-todo" : ""}>{where}</dd></div>
