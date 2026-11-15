@@ -229,5 +229,18 @@
     "heroMark": "#0B57D0",
     "heroCta": "#0B57D0",
     "heroCtaOn": "#ffffff"
+  },
+  "ashby": {
+    "fill": "#473BCE",
+    "on": "#FCFCFE",
+    "ink": "#473BCE",
+    "inkDark": "#A79FF5",
+    "heroBg": "#FCFCFE",
+    "heroFg": "#141415",
+    "heroBgDark": "#FCFCFE",
+    "heroFgDark": "#141415",
+    "heroMark": "#473BCE",
+    "heroCta": "#473BCE",
+    "heroCtaOn": "#FCFCFE"
   }
 }

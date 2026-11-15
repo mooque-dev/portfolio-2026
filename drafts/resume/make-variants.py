@@ -100,12 +100,12 @@ ROLES = {
         projects=["demello", "artsgaze", "arnd_code"],
         skills="Brand and visual identity &middot; Typography and layout &middot; Design systems &middot; AI tools (Claude Code, Cursor, MagicPatterns) &middot; Prototyping in code (React, TypeScript) &middot; Figma, Storybook"),
     "ashby": dict(
-        url="mooque-dev.github.io",
-        domain="payments and transaction-heavy products", clause="build what I design",
-        aplos=["orchid", "split", "fee_code", "own", "integ", "partner"],
-        lead=["pitch", "core", "process"], pd=["auto", "adopt", "pm"],
-        projects=["arnd_code", "fork", "yuwol"],
-        skills="Design systems &middot; Front-end code (React, TypeScript) with Claude Code and Cursor &middot; Prototyping &middot; Research and usability testing &middot; A/B testing &middot; Figma, Storybook"),
+        url="mooque-dev.github.io/ashby", accent="#473BCE",
+        domain="finance and CRM tools", clause="acting as PM when needed",
+        aplos=["orchid", "split", "integ", "own", "fee", "partner"],
+        lead=["pitch", "core", "process"], pd=["auto", "pm", "adopt"],
+        projects=["yuwol", "arnd_code", "fork"],
+        skills="Information architecture and navigation &middot; Interaction and UI design &middot; Design systems (tokens, Storybook) &middot; Prototyping in code with AI tools &middot; Research and usability testing &middot; Figma"),
     "ecobee": dict(
         accent="#2D2926",
         url="mooque-dev.github.io/ecobee",
