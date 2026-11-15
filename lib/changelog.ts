@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-15",
+    title: "The Google page shows the work, and Orchid explains the cut",
+    tags: ["design", "content"],
+    what: "The Google page has a new look: a white canvas, soft tinted panels, rounded buttons and a friendlier typeface, with no company marks. Its opening panel now shows the real thing at each step: my audit board with one dropdown in nine variations, the Orchid library in Storybook, and ARND's design system page. The role-fit section is a set of cards. The Orchid case study has a new section on how 340+ became 70: I ran the audit myself with engineers' help, folded duplicates into variants with rules for when to use each, and kept a one-off only if it gave users something the shared version couldn't and saved them time.",
+    why: "A design system page that describes the work in grey dots asks the reader to take my word for it. The audit board is the proof, so it goes first.",
+  },
+  {
     date: "2026-11-14",
     title: "The Google page answers the role, and sounds like me",
     tags: ["content"],

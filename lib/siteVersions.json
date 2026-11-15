@@ -682,7 +682,7 @@
   "status": "Live",
   "url": "https://mooque-dev.github.io/google/",
   "resume": "https://mooque-dev.github.io/allen-kang-resume-google.pdf",
-  "visual": "Orchid in three steps: the audit, the 70 shared components, and the rules the AI reads",
+  "visual": "Orchid in three steps with the real artefacts: the audit board, the library in Storybook, and the rules the AI reads",
   "made": "Nov 13",
   "order": 32,
   "versions": [
@@ -693,6 +693,10 @@
    {
     "date": "Nov 14",
     "note": "Role-fit section, the musical in the intro, AI rules paragraph, honest wording on tests; résumé names interaction design"
+   },
+   {
+    "date": "Nov 15",
+    "note": "New look (white canvas, tinted panels, blue pill buttons); opening panel shows the real audit board, Storybook and ARND's design page; role-fit as cards"
    }
   ],
   "slug": "google"
