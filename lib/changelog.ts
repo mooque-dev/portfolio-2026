@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "The Google page gets pictures, a musical and a curtain",
+    tags: ["design", "content"],
+    what: "The work on the Google page is now six picture cards, each with its cover and its result. A new section tells the story of the musical I was in this August, with a small toy that splits a sample dinner bill across a cast of up to forty and shows who covers the leftover cents. The page ends on my curtain call, in blue. ARND and Toronto Yuwol now open with the same short summary as the other stories, and the Orchid story says the audit took about three weeks, with engineers from all three products helping.",
+    why: "A payments team should see that I think about where the last cent goes, and a reader should get to the end knowing a person made this.",
+  },
+  {
+    date: "2026-11-15",
     title: "The Google page shows the work, and Orchid explains the cut",
     tags: ["design", "content"],
     what: "The Google page has a new look: a white canvas, soft tinted panels, rounded buttons and a friendlier typeface, with no company marks. Its opening panel now shows the real thing at each step: my audit board with one dropdown in nine variations, the Orchid library in Storybook, and ARND's design system page. The role-fit section is a set of cards. The Orchid case study has a new section on how 340+ became 70: I ran the audit myself with engineers' help, folded duplicates into variants with rules for when to use each, and kept a one-off only if it gave users something the shared version couldn't and saved them time.",
