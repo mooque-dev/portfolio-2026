@@ -252,6 +252,7 @@ textarea { min-height: 76px; resize: vertical; }
     <div class="navs">
       <nav class="nav" aria-label="Roles">
         <h2>Roles</h2>
+        <button type="button" data-view="today"><span data-i="today"></span>Send today<span class="n" data-n="today"></span></button>
         <button type="button" data-view="review"><span data-i="inbox"></span>For review<span class="n" data-n="review"></span></button>
         <button type="button" data-view="active"><span data-i="ready"></span>To apply<span class="n" data-n="active"></span></button>
         <button type="button" data-view="applied"><span data-i="applied"></span>Applied<span class="n" data-n="applied"></span></button>
@@ -311,6 +312,7 @@ const ACTIVE = ["To prep", "Ready to send"];
 const MOVING = ["Applied", "Interviewing", "Offer"];
 const STATUS_ORDER = ["Ready to send", "To prep", "Interviewing", "Offer", "Applied", "Closed"];
 const VIEWS = {
+  today: { title: "Send today", sub: "Your shortlist for today. Mark one Applied and it leaves this list. Add or remove roles from any role's panel.", test: (r) => r.sendToday === true && !archived(r) && !MOVING.includes(st(r)) },
   review: { title: "For review", sub: "Drafts Claude made from new leads: the read, a résumé and a page. Approve and the page goes live; passing archives it. Nothing is ever sent to a company.", test: (r) => !archived(r) && inReview(r) },
   active: { title: "To apply", sub: "Roles you haven't sent yet. Mark one Applied and it moves out of here.", test: (r) => !archived(r) && !inReview(r) && ACTIVE.includes(st(r)) },
   applied: { title: "Applied", sub: "Sent and waiting, interviewing, or offered.", test: (r) => !archived(r) && !inReview(r) && MOVING.includes(st(r)) },
@@ -328,6 +330,7 @@ const ICONS = {
 };
 const SCOLOR = { "To prep": "--s-prep", "Ready to send": "--s-ready", Applied: "--s-applied", Interviewing: "--s-int", Offer: "--s-offer", Closed: "--s-closed" };
 const GLYPH = {
+  today: '<circle cx="8" cy="8" r="2.6" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 1.8v1.6M8 12.6v1.6M1.8 8h1.6M12.6 8h1.6M3.6 3.6l1.1 1.1M11.3 11.3l1.1 1.1M3.6 12.4l1.1-1.1M11.3 4.7l1.1-1.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>',
   inbox: '<path d="M2.5 9.5 4.3 3.5h7.4l1.8 6v3h-11zM2.5 9.5h3.3l.9 1.6h2.6l.9-1.6h3.3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>',
   archive: '<path d="M2.5 3.5h11v2.6h-11zM3.6 6.1v6.4h8.8V6.1M6.4 8.6h3.2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"/>',
   restore: '<path d="M3 8a5 5 0 1 0 1.5-3.6M3 2.8v2.6h2.6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>',
@@ -365,8 +368,8 @@ function ext(href, label, cls) { const a = el("a", cls || null, label + " ↗");
 
 /* Sidebar and header */
 function renderNav() {
-  const n = { review: 0, active: 0, applied: 0, archived: 0, all: rows.length, sites: sites.length };
-  rows.forEach((r) => { for (const k of ["review", "active", "applied", "archived"]) if (VIEWS[k].test(r)) n[k]++; });
+  const n = { today: 0, review: 0, active: 0, applied: 0, archived: 0, all: rows.length, sites: sites.length };
+  rows.forEach((r) => { for (const k of ["today", "review", "active", "applied", "archived"]) if (VIEWS[k].test(r)) n[k]++; });
   const pend = rows.filter((r) => !archived(r) && str(r.review) === "pending").length;
   document.querySelectorAll("[data-n]").forEach((x) => { x.textContent = db ? String(n[x.dataset.n]) : ""; x.classList.toggle("hot", x.dataset.n === "review" && pend > 0); });
   document.querySelectorAll(".nav button").forEach((b) => { if (b.dataset.view === view) b.setAttribute("aria-current", "page"); else b.removeAttribute("aria-current"); });
@@ -394,6 +397,7 @@ function renderMain() {
     const e = el("div", "empty");
     if (query || read !== "All") e.textContent = "Nothing matches that filter.";
     else if (view === "active") { e.append(el("b", null, "Nothing left to send. "), "Send Claude a posting to add the next one."); }
+    else if (view === "today") { e.append(el("b", null, "Nothing on today's list. "), "Open a role and choose Add to today."); }
     else if (view === "review") { e.append(el("b", null, "Nothing waiting. "), "New drafts arrive after the daily run."); }
     else if (view === "applied") e.textContent = "Nothing applied yet. Mark a role Applied and it shows up here.";
     else e.textContent = "Nothing archived yet.";
@@ -576,6 +580,12 @@ function renderDrawer(focus) {
       const mb = el("button"); mb.type = "button"; mb.append(sIcon("Applied"), document.createTextNode("Mark applied"));
       mb.addEventListener("click", () => setStatus(r, "Applied"));
       foot.append(mb);
+    }
+    if (!archived(r) && !MOVING.includes(st(r))) {
+      const on = r.sendToday === true;
+      const tb = el("button"); tb.type = "button"; tb.append(svg(GLYPH.today), document.createTextNode(on ? "Remove from today" : "Add to today"));
+      tb.addEventListener("click", () => undoable(r, { sendToday: !on }, on ? `${str(r.company)} removed from today` : `${str(r.company)} added to today`));
+      foot.append(tb);
     }
     const isA = archived(r);
     const ab = el("button"); ab.type = "button"; ab.append(svg(isA ? GLYPH.restore : GLYPH.archive), document.createTextNode(isA ? "Restore" : "Archive"));
