@@ -16,8 +16,8 @@ let libPromise: Promise<Lib> | null = null;
 const loadLib = () => (libPromise ??= (async () => {
   const [core, charts, comps, renderers] = await Promise.all([import("echarts/core"), import("echarts/charts"), import("echarts/components"), import("echarts/renderers")]);
   core.use([
-    charts.LineChart, charts.BarChart, charts.PieChart, charts.GaugeChart, charts.FunnelChart, charts.HeatmapChart, charts.SankeyChart, charts.TreemapChart, charts.ScatterChart,
-    comps.GridComponent, comps.TooltipComponent, comps.LegendComponent, comps.CalendarComponent, comps.VisualMapComponent, comps.MarkLineComponent, comps.AriaComponent, comps.DatasetComponent,
+    charts.LineChart, charts.BarChart, charts.PieChart, charts.GaugeChart, charts.FunnelChart, charts.SankeyChart, charts.TreemapChart, 
+    comps.GridComponent, comps.TooltipComponent, comps.LegendComponent, comps.MarkLineComponent, comps.AriaComponent, comps.DatasetComponent,
     renderers.SVGRenderer,
   ]);
   return core;
@@ -95,14 +95,6 @@ export const LineChartDemo = () => (
     ],
   })} />
 );
-export const StackedAreaDemo = () => (
-  <Chart label="Stacked area chart of monthly gifts by channel: online grows fastest, cheques stay flat, events peak in May and November" build={(s) => ({
-    ...base(s), ...axes(s, MONTHS, k),
-    series: [["Online", [8, 9, 10, 11, 12, 12, 13, 14, 15, 17, 19, 22]], ["Cheque", [6, 5, 6, 6, 5, 5, 5, 6, 6, 6, 7, 9]], ["Events", [1, 1, 2, 3, 9, 2, 1, 1, 2, 3, 11, 4]]].map(([n, d]) => ({ name: n, type: "line", stack: "all", smooth: true, symbol: "none", areaStyle: { opacity: 0.85 }, lineStyle: { width: 0 }, data: d })),
-  })} />
-);
-
-/* ---------- Bar family ---------- */
 export const BarChartDemo = () => (
   <Chart label="Bar chart of gifts per month, with the monthly average of $16.5k marked" build={(s) => {
     const d = [12, 14, 11, 17, 26, 15, 13, 12, 16, 19, 28, 35];
@@ -181,32 +173,6 @@ export const FunnelDemo = () => (
 );
 
 /* ---------- Patterns ---------- */
-export const CalendarHeatmapDemo = () => (
-  <Chart label="Calendar heatmap of gifts per day from July to December 2026, busiest on Giving Tuesday and in late December" height={200} build={(s) => {
-    const data: [string, number][] = [];
-    const start = Date.UTC(2026, 6, 1), end = Date.UTC(2026, 11, 31);
-    for (let t = start, i = 0; t <= end; t += 864e5, i++) {
-      const d = new Date(t), iso = d.toISOString().slice(0, 10);
-      let v = 4 + ((i * 37) % 11) + (d.getUTCDay() === 0 ? -3 : 0);
-      if (iso === "2026-12-01") v = 60; if (d.getUTCMonth() === 11 && d.getUTCDate() > 26) v += 30;
-      data.push([iso, Math.max(0, v)]);
-    }
-    return { ...base(s), tooltip: { trigger: "item", formatter: (p: { value: [string, number] }) => `${p.value[0]}: ${p.value[1]} gifts` },
-      visualMap: { show: false, min: 0, max: 40, inRange: { color: [s.vars["--o-soft"], s.palette[0]] } },
-      calendar: { range: ["2026-07-01", "2026-12-31"], top: 24, left: 34, right: 4, cellSize: ["auto", 16], itemStyle: { borderColor: "#fff", borderWidth: 2 }, splitLine: { show: false }, yearLabel: { show: false }, dayLabel: { color: s.vars["--o-mut"], fontSize: 10, firstDay: 1, nameMap: ["S", "M", "T", "W", "T", "F", "S"] }, monthLabel: { color: s.vars["--o-mut"], fontSize: 11 } },
-      series: [{ type: "heatmap", coordinateSystem: "calendar", data }] };
-  }} />
-);
-export const ScatterDemo = () => (
-  <Chart label="Scatter chart of years giving against average gift: longer-standing donors tend to give more" build={(s) => {
-    const pts = Array.from({ length: 60 }, (_, i) => { const yrs = (i * 7) % 15 + ((i * 13) % 10) / 10; return [Math.round(yrs * 10) / 10, Math.round(30 + yrs * 14 + ((i * 29) % 60) - 20)]; });
-    const a = axes(s, []);
-    return { ...base(s), tooltip: { trigger: "item", formatter: (p: { value: number[] }) => `${p.value[0]} years, $${p.value[1]} average` },
-      xAxis: { type: "value", name: "Years giving", nameLocation: "middle", nameGap: 28, nameTextStyle: { color: s.vars["--o-mut"] }, splitLine: { show: false }, axisLine: { lineStyle: { color: s.vars["--o-line"] } }, axisLabel: { color: s.vars["--o-mut"] } },
-      yAxis: { ...a.yAxis, axisLabel: { color: s.vars["--o-mut"], formatter: "${value}" } }, grid: { ...(base(s).grid as object), bottom: 24 },
-      series: [{ type: "scatter", symbolSize: 9, itemStyle: { opacity: 0.75 }, data: pts }] };
-  }} />
-);
 export const SparklineDemo = () => (
   <div className="c-spark">
     <div><p className="o-small">Online gifts per day</p><p className="n-kpi-v">24</p></div>

@@ -56,7 +56,6 @@ const ENTRIES: Entry[] = [
   { id: "retention", name: "Retention table", cat: "Dashboards and reports", Demo: N.RetentionDemo, use: "How many of each year's new donors kept giving." },
 
   { id: "c-line", name: "Line", cat: "Charts", Demo: C.LineChartDemo, use: "Change over time, usually this year against last. Two or three lines at most." },
-  { id: "c-area", name: "Stacked area", cat: "Charts", Demo: C.StackedAreaDemo, use: "How a total over time is made up, like gifts by channel." },
   { id: "c-bar", name: "Bar", cat: "Charts", Demo: C.BarChartDemo, use: "Comparing amounts across periods or groups, with a reference line when it helps." },
   { id: "c-stacked-bar", name: "Stacked bar", cat: "Charts", Demo: C.StackedBarDemo, use: "Totals per period and what each is made of, like revenue by fund per quarter." },
   { id: "c-hbar", name: "Horizontal bar", cat: "Charts", Demo: C.HorizontalBarDemo, use: "Ranking named things with long labels, like campaigns." },
@@ -66,8 +65,6 @@ const ENTRIES: Entry[] = [
   { id: "c-sankey", name: "Sankey", cat: "Charts", Demo: C.SankeyDemo, use: "Where money comes from and where it goes, through funds to programs." },
   { id: "c-gauge", name: "Gauge", cat: "Charts", Demo: C.GaugeDemo, use: "One number against a goal, like a campaign target." },
   { id: "c-funnel", name: "Funnel", cat: "Charts", Demo: C.FunnelDemo, use: "Where people drop off in a sequence of steps, like a giving page." },
-  { id: "c-calendar", name: "Calendar heatmap", cat: "Charts", Demo: C.CalendarHeatmapDemo, use: "Activity by day, to see busy days and seasons at a glance." },
-  { id: "c-scatter", name: "Scatter", cat: "Charts", Demo: C.ScatterDemo, use: "Whether two measures move together, like tenure and gift size." },
   { id: "c-spark", name: "Sparkline", cat: "Charts", Demo: C.SparklineDemo, use: "A number and its recent shape, small enough to sit in a stat or a table row." },
 
   { id: "bulk-bar", name: "Bulk action bar", cat: "Tables", Demo: N.BulkBarDemo, use: "Appears when rows are selected, with what can be done to all of them at once." },
