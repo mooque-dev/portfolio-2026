@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import { Google_Sans_Flex, Google_Sans } from "next/font/google";
 import ComponentAudit from "@/components/ComponentAudit";
 import CastTab from "@/components/CastTab";
 import TailoredPage from "@/components/tailored/TailoredPage";
@@ -15,9 +14,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const fdisplay = Google_Sans_Flex({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
-const ftext = Google_Sans({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
-const BRAND = { "--brand": "#0B57D0", "--brand-on": "#ffffff", "--brand-ink": "#0B57D0", "--brand-ink-dark": "#A8C7FA", "--hb": "#FFFFFF", "--hf": "#1F1F1F", "--hb-d": "#131314", "--hf-d": "#E3E3E3", "--hm": "#0B57D0", "--hc": "#0B57D0", "--hco": "#ffffff" } as CSSProperties;
+const BRAND = { "--brand": "#0A0A0A", "--brand-on": "#ffffff", "--brand-ink": "#0A0A0A", "--brand-ink-dark": "#F5F5F5", "--hb": "#FFFFFF", "--hf": "#0A0A0A", "--hb-d": "#0A0A0A", "--hf-d": "#F5F5F5", "--hm": "#6E6E6E", "--hc": "var(--foreground)", "--hco": "var(--background)" } as CSSProperties;
 
 export default function GooglePage() {
   return (
@@ -25,7 +22,6 @@ export default function GooglePage() {
       slug="google"
       company="Google"
       style={BRAND}
-      className={`themed theme-google ${fdisplay.variable} ${ftext.variable}`}
       headline={<>I build design systems teams choose to use, <span className="sig-em">and AI can follow</span>.</>}
       lede={<>I&rsquo;m Allen, a senior product designer in Toronto, ready to move to Mountain View. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on payments: split transactions, checkout fees, and one design system for three merged products, 340+ one-off components cut to 70. This summer I was on stage in a forty-person musical that ran its schedule and split its bills on tools I built.</>}
       hero={<><ComponentAudit /></>}

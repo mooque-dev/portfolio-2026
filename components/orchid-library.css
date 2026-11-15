@@ -1,0 +1,77 @@
+/* The Orchid library recreation. The page chrome (.ol-*) follows the site;
+   everything inside .ol-skin (.o-*) reads only the --o-* tokens of the
+   chosen product, and stays light in both site themes, like a specimen sheet. */
+.ol { display: grid; gap: 20px; }
+.ol-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; }
+.ol-themes { display: flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 999px; background: var(--surface); }
+.ol-themes button { min-height: 38px; padding: 0 16px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); font: inherit; font-size: 14px; cursor: pointer; }
+.ol-themes button.on { background: var(--foreground); color: var(--background); }
+.ol-themes button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.ol-note { margin: 0; font-size: 14px; color: var(--muted); }
+
+.ol-skin { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: var(--o-bg); color: var(--o-ink); font-family: var(--o-font); transition: background-color 0.2s; }
+.ol-tokens { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 16px 20px; border-bottom: 1px solid var(--o-line); font-size: 12.5px; color: var(--o-mut); font-variant-numeric: tabular-nums; }
+.ol-tokens span { display: inline-flex; align-items: center; gap: 7px; }
+.ol-tokens i { width: 16px; height: 16px; border-radius: 4px; border: 1px solid rgb(0 0 0 / 0.08); }
+.ol-tokens .ol-corner { background: transparent; border: 2px solid var(--o-ink); border-radius: var(--o-r); border-right-color: transparent; border-bottom-color: transparent; }
+
+.ol-spec { display: grid; gap: 16px; padding: 22px 20px; border-bottom: 1px solid var(--o-line); }
+.ol-spec:last-child { border-bottom: 0; }
+@media (min-width: 820px) { .ol-spec { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 32px; align-items: center; padding: 26px 28px; } }
+.ol-demo, .ol-meta { min-width: 0; }
+.ol-meta h3 { margin: 0 0 8px; font-size: 16px; font-weight: 600; color: var(--o-ink); }
+.ol-meta dl { margin: 0; display: grid; gap: 8px; }
+.ol-meta dt { font-size: 12.5px; color: var(--o-mut); }
+.ol-meta dd { margin: 0; font-size: 14px; line-height: 1.5; }
+.ol-meta .ol-todo { color: var(--o-mut); font-style: italic; }
+.ol-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.ol-col { display: grid; gap: 12px; }
+
+.o-btn { padding: var(--o-pad); border: 1.5px solid var(--o-primary); border-radius: var(--o-rb); background: var(--o-primary); color: var(--o-on); font: inherit; font-size: 14.5px; font-weight: 600; cursor: pointer; }
+.o-btn-2 { background: transparent; color: var(--o-ink); border-color: var(--o-line); }
+.o-btn-3 { background: transparent; color: var(--o-primary); border-color: transparent; text-decoration: underline; text-underline-offset: 4px; }
+.o-btn:focus-visible, .o-tabs button:focus-visible { outline: 2px solid var(--o-primary); outline-offset: 2px; }
+
+.o-field { display: grid; gap: 6px; max-width: 340px; font-size: 13.5px; font-weight: 600; }
+.o-field em { font-style: normal; font-weight: 400; font-size: 12.5px; color: var(--o-mut); }
+.o-field input, .o-select select { width: 100%; padding: var(--o-pad); border: 1.5px solid var(--o-line); border-radius: var(--o-r); background: #fff; color: var(--o-ink); font: inherit; font-size: 14.5px; font-weight: 400; }
+.o-field input::placeholder { color: var(--o-mut); }
+.o-field input:focus-visible, .o-select select:focus-visible { outline: 2px solid var(--o-primary); outline-offset: 1px; border-color: var(--o-primary); }
+.o-select { position: relative; display: block; }
+.o-select select { appearance: none; padding-right: 36px; }
+.o-select::after { content: ""; position: absolute; right: 12px; top: 50%; width: 8px; height: 8px; margin-top: -6px; border-right: 2px solid var(--o-ink); border-bottom: 2px solid var(--o-ink); transform: rotate(45deg); pointer-events: none; }
+
+.o-check { display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; cursor: pointer; }
+.o-check input { width: 18px; height: 18px; accent-color: var(--o-primary); }
+.o-switch { display: inline-flex; align-items: center; gap: 10px; font-size: 14.5px; cursor: pointer; }
+.o-switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.o-switch i { position: relative; width: 40px; height: 24px; border-radius: 999px; background: var(--o-line); transition: background-color 0.15s; }
+.o-switch i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / 0.25); transition: transform 0.15s; }
+.o-switch input:checked + i { background: var(--o-primary); }
+.o-switch input:checked + i::after { transform: translateX(16px); }
+.o-switch input:focus-visible + i { outline: 2px solid var(--o-primary); outline-offset: 2px; }
+
+.o-badge { padding: 3px 10px; border-radius: var(--o-rb); background: var(--o-primary); color: var(--o-on); font-size: 12.5px; font-weight: 600; }
+.o-badge-2 { background: var(--o-soft); color: var(--o-ink); box-shadow: inset 0 0 0 1.5px var(--o-line); }
+.o-badge-3 { background: transparent; color: var(--o-mut); box-shadow: inset 0 0 0 1.5px var(--o-line); }
+
+.o-tabs { display: flex; gap: 4px; border-bottom: 1.5px solid var(--o-line); }
+.o-tabs button { padding: 10px 14px; margin-bottom: -1.5px; border: 0; border-bottom: 2.5px solid transparent; background: transparent; color: var(--o-mut); font: inherit; font-size: 14.5px; cursor: pointer; }
+.o-tabs button.on { color: var(--o-ink); font-weight: 600; border-bottom-color: var(--o-primary); }
+
+.o-alert { padding: 12px 14px; border-radius: var(--o-r); border-left: 4px solid var(--o-accent); background: var(--o-soft); font-size: 14px; line-height: 1.5; }
+.o-card { max-width: 300px; padding: 18px; border: 1.5px solid var(--o-line); border-radius: var(--o-r); background: #fff; }
+.o-card p { margin: 0; }
+.o-card-k { font-size: 13px; color: var(--o-mut); }
+.o-card-v { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.o-card-s { margin-top: 8px !important; font-size: 12.5px; color: var(--o-mut); }
+.o-prog { height: 8px; margin-top: 12px; border-radius: 999px; background: var(--o-soft); overflow: hidden; }
+.o-prog i { display: block; height: 100%; border-radius: 999px; background: var(--o-primary); }
+
+.o-tablewrap { overflow-x: auto; }
+.o-table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+.o-table th { text-align: left; padding: 8px 10px; font-size: 12.5px; font-weight: 600; color: var(--o-mut); border-bottom: 1.5px solid var(--o-line); }
+.o-table td { padding: var(--o-pad); padding-left: 10px; padding-right: 10px; border-bottom: 1px solid var(--o-line); }
+.o-table tr:last-child td { border-bottom: 0; }
+.o-table .num { text-align: right; }
+@media (prefers-reduced-motion: reduce) { .ol-skin, .o-switch i, .o-switch i::after { transition: none; } }
