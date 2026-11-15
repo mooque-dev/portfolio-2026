@@ -43,7 +43,6 @@
 .ol-sec-h h2 { margin: 0; font-size: 24px; font-weight: 600; letter-spacing: -0.01em; color: var(--foreground); }
 .ol-sec-h p { margin: 4px 0 0; font-size: 14.5px; color: var(--muted); }
 .ol-list { display: grid; gap: 16px; }
-@media (min-width: 1180px) { .ol-list { grid-template-columns: 1fr 1fr; } }
 .ol-item { display: grid; grid-template-rows: auto auto 1fr; gap: 6px; min-width: 0; scroll-margin-top: 150px; }
 .ol-item.wide { grid-column: 1 / -1; }
 .ol-item-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
@@ -473,5 +472,11 @@
 .n-pl-p { background: #e8f5ec; color: #166534; }
 .n-pl-late { background: #fdecea; color: #b71c1c; }
 .n-pl-due { background: var(--o-soft); color: var(--o-ink); box-shadow: inset 0 0 0 1px var(--o-line); }
+
+/* ECharts */
+.c-chart { width: 100%; min-width: 0; }
+.c-spark { display: flex; align-items: flex-end; gap: 16px; max-width: 360px; padding: 14px; border: 1px solid var(--o-line); border-radius: var(--o-r); background: #fff; }
+.c-spark > div:first-child { flex: none; }
+.c-spark .c-chart { flex: 1; }
 
 @media (prefers-reduced-motion: reduce) { .ol-skin, .o-switch i, .o-switch i::after, .o-tip, .o-hcard { transition: none; } .o-spin { animation-duration: 2.4s; } .o-skel, .o-toast, .o-layer { animation: none; } }

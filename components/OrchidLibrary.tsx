@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties, type ComponentType } from "react";
 import * as D from "./OrchidDemos";
 import * as N from "./OrchidDomain";
+import * as C from "./OrchidCharts";
 import "./orchid-library.css";
 
 // A recreation of the Orchid library, in progress. One set of components,
@@ -12,21 +13,22 @@ import "./orchid-library.css";
 // each company's public website, not from the products themselves.
 // Laid out like a documentation site: a sidebar to search and jump, one
 // column of components grouped by category, and the skin switcher pinned.
-type Theme = { key: string; name: string; note: string; vars: Record<string, string> };
+type Theme = { key: string; name: string; note: string; vars: Record<string, string>; palette: string[] };
 
 const THEMES: Theme[] = [
   { key: "neutral", name: "White label", note: "No brand at all. The version that shows the system underneath.",
-    vars: { "--o-primary": "#111111", "--o-on": "#ffffff", "--o-accent": "#111111", "--o-ink": "#111111", "--o-mut": "#666666", "--o-line": "#DDDDDD", "--o-soft": "#F5F5F5", "--o-bg": "#ffffff", "--o-r": "8px", "--o-rb": "8px", "--o-font": "inherit", "--o-pad": "10px 16px" } },
+    vars: { "--o-primary": "#111111", "--o-on": "#ffffff", "--o-accent": "#111111", "--o-ink": "#111111", "--o-mut": "#666666", "--o-line": "#DDDDDD", "--o-soft": "#F5F5F5", "--o-bg": "#ffffff", "--o-r": "8px", "--o-rb": "8px", "--o-font": "inherit", "--o-pad": "10px 16px" }, palette: ["#111111", "#6B6B6B", "#A3A3A3", "#D4D4D4", "#404040"] },
   { key: "keela", name: "Keela", note: "Fundraising CRM. Purple, with a yellow accent and soft corners.",
-    vars: { "--o-primary": "#7745D6", "--o-on": "#ffffff", "--o-accent": "#FFD13A", "--o-ink": "#211F54", "--o-mut": "#65688A", "--o-line": "#DDDEEA", "--o-soft": "#F8F8FC", "--o-bg": "#ffffff", "--o-r": "9px", "--o-rb": "9px", "--o-font": "Inter, system-ui, sans-serif", "--o-pad": "11px 16px" } },
+    vars: { "--o-primary": "#7745D6", "--o-on": "#ffffff", "--o-accent": "#FFD13A", "--o-ink": "#211F54", "--o-mut": "#65688A", "--o-line": "#DDDEEA", "--o-soft": "#F8F8FC", "--o-bg": "#ffffff", "--o-r": "9px", "--o-rb": "9px", "--o-font": "Inter, system-ui, sans-serif", "--o-pad": "11px 16px" }, palette: ["#7745D6", "#FFD13A", "#211F54", "#B79CF0", "#65688A"] },
   { key: "raisely", name: "Raisely", note: "Fundraising pages. Violet on navy ink, fully rounded buttons.",
-    vars: { "--o-primary": "#6138D8", "--o-on": "#ffffff", "--o-accent": "#262861", "--o-ink": "#262861", "--o-mut": "#62648F", "--o-line": "#DCDCF0", "--o-soft": "#F3F3FD", "--o-bg": "#FBFBFF", "--o-r": "12px", "--o-rb": "999px", "--o-font": "system-ui, sans-serif", "--o-pad": "12px 20px" } },
+    vars: { "--o-primary": "#6138D8", "--o-on": "#ffffff", "--o-accent": "#262861", "--o-ink": "#262861", "--o-mut": "#62648F", "--o-line": "#DCDCF0", "--o-soft": "#F3F3FD", "--o-bg": "#FBFBFF", "--o-r": "12px", "--o-rb": "999px", "--o-font": "system-ui, sans-serif", "--o-pad": "12px 20px" }, palette: ["#6138D8", "#262861", "#A890F0", "#F0A93B", "#62648F"] },
   { key: "aplos", name: "Aplos", note: "Fund accounting. Navy and teal, an orange call to action, tighter spacing.",
-    vars: { "--o-primary": "#16587D", "--o-on": "#ffffff", "--o-accent": "#CE5D01", "--o-ink": "#0B233B", "--o-mut": "#52647A", "--o-line": "#D5DCE3", "--o-soft": "#F2F5F8", "--o-bg": "#ffffff", "--o-r": "6px", "--o-rb": "6px", "--o-font": "'Open Sans', Inter, system-ui, sans-serif", "--o-pad": "8px 14px" } },
+    vars: { "--o-primary": "#16587D", "--o-on": "#ffffff", "--o-accent": "#CE5D01", "--o-ink": "#0B233B", "--o-mut": "#52647A", "--o-line": "#D5DCE3", "--o-soft": "#F2F5F8", "--o-bg": "#ffffff", "--o-r": "6px", "--o-rb": "6px", "--o-font": "'Open Sans', Inter, system-ui, sans-serif", "--o-pad": "8px 14px" }, palette: ["#16587D", "#CE5D01", "#0B233B", "#7FB3CF", "#F2A65A"] },
 ];
 
-const CATS = ["CRM", "Dashboards and reports", "Tables", "Accounting", "Actions", "Forms", "Feedback", "Overlays", "Navigation", "Data display", "Chat and AI"] as const;
+const CATS = ["CRM", "Dashboards and reports", "Charts", "Tables", "Accounting", "Actions", "Forms", "Feedback", "Overlays", "Navigation", "Data display", "Chat and AI"] as const;
 const NONPROFIT: readonly string[] = ["CRM", "Dashboards and reports", "Tables", "Accounting"];
+const ECHARTS = "Charts";
 type Cat = (typeof CATS)[number];
 type Entry = { id: string; name: string; cat: Cat; use: string; Demo: ComponentType; wide?: boolean; start?: "keep" };
 
@@ -46,15 +48,27 @@ const ENTRIES: Entry[] = [
 
   { id: "kpi", name: "Stat with change", cat: "Dashboards and reports", Demo: N.KpiDemo, wide: true, use: "The few numbers a team checks every morning, each with how it changed and against what." },
   { id: "goal-ring", name: "Goal progress", cat: "Dashboards and reports", Demo: N.GoalRingDemo, use: "How close a campaign is to its goal, with what's left in words." },
-  { id: "spark", name: "Stat with sparkline", cat: "Dashboards and reports", Demo: N.SparkStatDemo, use: "A number and its recent shape, when the trend matters more than the exact history." },
-  { id: "trend", name: "Trend line", cat: "Dashboards and reports", Demo: N.TrendDemo, use: "Change over time, usually this year against last." },
-  { id: "donut", name: "Breakdown", cat: "Dashboards and reports", Demo: N.DonutDemo, use: "How a whole splits into a few parts, like giving by fund. Four or five parts at most." },
   { id: "date-range", name: "Date range with presets", cat: "Dashboards and reports", Demo: N.DateRangeDemo, use: "Picking the period a report covers. Presets first, including the fiscal year." },
   { id: "filter-bar", name: "Active filters", cat: "Dashboards and reports", Demo: N.FilterBarDemo, use: "Showing which filters are on, each removable on its own." },
   { id: "column-picker", name: "Column picker", cat: "Dashboards and reports", Demo: N.ColumnPickerDemo, use: "Choosing and ordering the columns in a report." },
   { id: "export", name: "Export", cat: "Dashboards and reports", Demo: N.ExportDemo, use: "Getting a report out, with each format saying what it's for." },
   { id: "leaderboard", name: "Leaderboard", cat: "Dashboards and reports", Demo: N.LeaderboardDemo, use: "Ranking peer fundraisers or teams during a campaign." },
   { id: "retention", name: "Retention table", cat: "Dashboards and reports", Demo: N.RetentionDemo, use: "How many of each year's new donors kept giving." },
+
+  { id: "c-line", name: "Line", cat: "Charts", Demo: C.LineChartDemo, use: "Change over time, usually this year against last. Two or three lines at most." },
+  { id: "c-area", name: "Stacked area", cat: "Charts", Demo: C.StackedAreaDemo, use: "How a total over time is made up, like gifts by channel." },
+  { id: "c-bar", name: "Bar", cat: "Charts", Demo: C.BarChartDemo, use: "Comparing amounts across periods or groups, with a reference line when it helps." },
+  { id: "c-stacked-bar", name: "Stacked bar", cat: "Charts", Demo: C.StackedBarDemo, use: "Totals per period and what each is made of, like revenue by fund per quarter." },
+  { id: "c-hbar", name: "Horizontal bar", cat: "Charts", Demo: C.HorizontalBarDemo, use: "Ranking named things with long labels, like campaigns." },
+  { id: "c-combo", name: "Bar and line", cat: "Charts", Demo: C.ComboDemo, use: "Two related measures with different units, like donors and average gift." },
+  { id: "c-donut", name: "Donut", cat: "Charts", Demo: C.DonutChartDemo, use: "Parts of a whole, four or five at most. Otherwise use a bar." },
+  { id: "c-treemap", name: "Treemap", cat: "Charts", Demo: C.TreemapDemo, use: "Parts of a whole with a hierarchy, like expenses by category and program." },
+  { id: "c-sankey", name: "Sankey", cat: "Charts", Demo: C.SankeyDemo, use: "Where money comes from and where it goes, through funds to programs." },
+  { id: "c-gauge", name: "Gauge", cat: "Charts", Demo: C.GaugeDemo, use: "One number against a goal, like a campaign target." },
+  { id: "c-funnel", name: "Funnel", cat: "Charts", Demo: C.FunnelDemo, use: "Where people drop off in a sequence of steps, like a giving page." },
+  { id: "c-calendar", name: "Calendar heatmap", cat: "Charts", Demo: C.CalendarHeatmapDemo, use: "Activity by day, to see busy days and seasons at a glance." },
+  { id: "c-scatter", name: "Scatter", cat: "Charts", Demo: C.ScatterDemo, use: "Whether two measures move together, like tenure and gift size." },
+  { id: "c-spark", name: "Sparkline", cat: "Charts", Demo: C.SparklineDemo, use: "A number and its recent shape, small enough to sit in a stat or a table row." },
 
   { id: "bulk-bar", name: "Bulk action bar", cat: "Tables", Demo: N.BulkBarDemo, use: "Appears when rows are selected, with what can be done to all of them at once." },
   { id: "inline-edit", name: "Inline edit", cat: "Tables", Demo: N.InlineEditDemo, use: "Fixing one value without opening the record." },
@@ -138,7 +152,7 @@ const ENTRIES: Entry[] = [
   { id: "accordion", name: "Accordion", cat: "Data display", Demo: D.AccordionDemo, use: "Questions and answers, or sections most people skip." },
   { id: "collapsible", name: "Collapsible", cat: "Data display", Demo: D.CollapsibleDemo, use: "Hiding one block of detail behind a single link." },
   { id: "carousel", name: "Carousel", cat: "Data display", Demo: D.CarouselDemo, use: "A few items of equal weight, one at a time. Rarely the right choice." },
-  { id: "chart", name: "Chart", cat: "Data display", Demo: D.ChartDemo, use: "Showing change or comparison. Label the axis and the unit." },
+  { id: "chart", name: "Chart", cat: "Data display", Demo: D.ChartNoteDemo, use: "shadcn's chart is built on Recharts. Orchid used ECharts, so the Charts group stands in for this one." },
   { id: "item", name: "Item", cat: "Data display", Demo: D.ItemDemo, use: "One row in a list: picture, title, detail, action." },
   { id: "typography", name: "Typography", cat: "Data display", Demo: D.TypographyDemo, use: "The type scale: headings, body and small text." },
   { id: "separator", name: "Separator", cat: "Data display", Demo: D.SeparatorDemo, use: "A thin line between groups, when spacing alone isn't enough." },
@@ -159,6 +173,7 @@ const ENTRIES: Entry[] = [
 const CAT_NOTE: Record<Cat, string> = {
   CRM: "Donors, households and the work of keeping in touch.",
   "Dashboards and reports": "Numbers a team checks, and the controls for shaping a report.",
+  Charts: "Report charts on Apache ECharts, the library the team used, styled by the skin.",
   Tables: "What a table needs once people work in it all day.",
   Accounting: "Money in, money allocated, and the books staying balanced.",
   Actions: "Buttons and the things that behave like them.",
@@ -230,12 +245,13 @@ export default function OrchidLibrary() {
           <div className="ol-none"><p>No component matches &ldquo;{q}&rdquo;.</p><button type="button" className="ol-clear" onClick={() => setQ("")}>Clear search</button></div>
         )}
 
+        <C.ChartSkinContext.Provider value={{ vars: theme.vars, palette: theme.palette }}>
         <div className="ol-skin" style={theme.vars as CSSProperties}>
           {groups.map(([c, list]) => (
             <section key={c} id={slug(c)} className="ol-sec" aria-labelledby={`${slug(c)}-h`}>
               <header className="ol-sec-h">
                 <h2 id={`${slug(c)}-h`}>{c}</h2>
-                <p>{CAT_NOTE[c]} {NONPROFIT.includes(c) ? "Proposed nonprofit additions." : "From the shadcn set."}</p>
+                <p>{CAT_NOTE[c]} {c === ECHARTS ? "" : NONPROFIT.includes(c) ? "Proposed nonprofit additions." : "From the shadcn set."}</p>
               </header>
               <div className="ol-list">
                 {list.map((e) => (
@@ -252,6 +268,7 @@ export default function OrchidLibrary() {
             </section>
           ))}
         </div>
+        </C.ChartSkinContext.Provider>
       </div>
     </div>
   );

@@ -458,6 +458,7 @@ export function ChartDemo() {
     </figure>
   );
 }
+export const ChartNoteDemo = () => <p className="o-small">See the Charts group: line, bar, donut, sankey and more, on ECharts.</p>;
 export const ItemDemo = () => (
   <div className="o-item"><span className="o-avatar">JP</span><div className="o-item-b"><p className="o-item-t">Jamie Park</p><p className="o-small">Monthly, $50 · next gift Dec 12</p></div><button type="button" className="o-btn o-btn-2 o-sm">View</button></div>
 );
