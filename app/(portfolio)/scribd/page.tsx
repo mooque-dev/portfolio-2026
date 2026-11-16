@@ -29,7 +29,25 @@ export default function ScribdPage() {
       lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, most recently on payments and paid add-ons. I run experiments, including the ones that lose, and design what comes next.</>}
       hero={<><BookShelf /></>}
       caption={<>Every cover opens a case study. One is the tests that lost.</>}
-      cases={["fe", "au", "ar", "tw", "or", "yu"]}
+      cases={["fe", "au", "or", "tw", "ar", "yu"]}
+      fit={[
+        { ask: "Tests, including the ones that lose", proof: <>On Fee Opt-In I paused a rollout that looked like a win, tested three new versions, and the slider took fee opt-in from 75% to 92%. The buttons and the dropdown lost, and why they lost is half of what I learned.</> },
+        { ask: "Plans and pricing", proof: <>Automation went from a product area that didn&rsquo;t exist to a paid add-on in about four months. 30% of 355 organizations used it, and the product&rsquo;s ARR grew 13%.</> },
+        { ask: "Lifecycle", proof: <>Automation is lifecycle email for nonprofits: welcome, thank-you and follow-up journeys staff build without code, with a preview of exactly who each one will reach before it goes live.</> },
+        { ask: "Onboarding and setup", proof: <>The first thing customers of two merged products set up together was the Aplos and Keela sync. I made every data mapping visible before anything moved, so setting it up felt safe.</> },
+        { ask: "Mobile, and AI every day", proof: <>ARND ships on iOS, Android and web, built with AI coding tools: 160+ merged pull requests. The musical&rsquo;s tools ran on the cast&rsquo;s phones every day for ten months.</> },
+      ]}
+      aside={
+        <section aria-labelledby="reading-title" className="mt-20 max-w-[62ch] md:mt-28">
+          <h2 id="reading-title" className="text-2xl md:text-3xl">How I find books</h2>
+          <p className="mt-4 text-[17px] leading-relaxed text-muted">
+            Through people I trust, the feeds that know me, and, honestly, the covers in a bookshop. I read fiction, self-development, history and autobiography. The one I keep thinking about lately is <i>Demian</i>, for how it holds good and bad side by side, and what it asks about philosophy and faith.
+          </p>
+          <p className="mt-3 text-[17px] leading-relaxed text-muted">
+            I think reading starts as influence: someone you admire, or a topic you&rsquo;re already curious about. Then it becomes a habit, and sometimes a passion. The beautiful part is living, for a few hundred pages, a life you&rsquo;d never get to live yourself. The risk is reading alone. Without talking a book through, it&rsquo;s easy to keep only the parts that agree with you. That&rsquo;s why a library and a book club in the same place makes sense to me.
+          </p>
+        </section>
+      }
       contact={<>I&rsquo;d like to help more readers find the book they can&rsquo;t put down.</>}
     />
   );
