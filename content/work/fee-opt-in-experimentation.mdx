@@ -40,6 +40,8 @@ A redesigned fee box on Raisely had just lifted opt-in from **75% to 82%**, near
 
 The easy move was to ship the 82%. I argued to pause: the edit box dropped donors into an older fallback that **nudged them toward the smallest contribution**. The new question: how do we make the easiest path a fair one, without it ever feeling coercive? <mark class="pen" data-note="what I kept coming back to">Donor trust is the product.</mark>
 
+The pushback on pausing was about the timeline. What got agreement was the bar: we held the fee box to a 90% benchmark set against other giving platforms. For scale, GoFundMe Pro says 75 to 85% of donors cover fees when the option is on by default.
+
 > Introducing a modernized fallback control when a donor clicks "Edit" will increase the average fee opt-in value while maintaining or improving the existing conversion rate.
 
 Instead of static mocks, I built interactive prototypes in **Cursor** and **MagicPatterns** where PMs and engineers could change thresholds, defaults and fallback logic and watch the outcome. It cut alignment time and surfaced constraints before high-fidelity design. You can still [try the version 1 prototype](https://project-pleasant-dragonfly-294.magicpatterns.app) and [the future-state concept](https://project-inspiring-cove-378.magicpatterns.app).
@@ -74,6 +76,8 @@ I designed three variants grounded in defaults, anchoring and soft-decline (a sl
 ## What changed | 92%, and it shipped everywhere
 
 The **Slider** lifted fee opt-in from **75% to 92%**, past the 90% benchmark, while conversion and average gift size held steady. It shipped as the fallback across the platform.
+
+The other two lost. Buttons and the dropdown both beat the old box but finished below the slider, and the dropdown was clearly the worst. My read: set amounts felt like being told what to pay, and the dropdown hid the choice behind a click. People cover the fee when the choice is in view and theirs to make. Push them or hide it and opt-in drops.
 
 <figure class="wide">
   <img src="/case-studies/fee-opt-in/05-results.jpg" alt="Bar chart of fee opt-in: 75 percent with the original box, 82 percent with the new box and old fallback, 92 percent with the slider, past a 90 percent benchmark" />

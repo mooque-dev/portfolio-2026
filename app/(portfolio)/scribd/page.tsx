@@ -30,6 +30,17 @@ export default function ScribdPage() {
       hero={<><BookShelf /></>}
       caption={<>Every cover opens a case study. One is the tests that lost.</>}
       cases={["fe", "au", "or", "tw", "ar", "yu"]}
+      aside={
+        <section aria-labelledby="reading-title" className="mt-20 max-w-[62ch] md:mt-28">
+          <h2 id="reading-title" className="text-2xl md:text-3xl">How I find books</h2>
+          <p className="mt-4 text-[17px] leading-relaxed text-muted">
+            Through people I trust, the feeds that know me, and, honestly, the covers in a bookshop. I read fiction, self-development, history and autobiography.
+          </p>
+          <p className="mt-3 text-[17px] leading-relaxed text-muted">
+            I think reading starts as influence: someone you admire, or a topic you&rsquo;re already curious about. Then it becomes a habit, and sometimes a passion. The beautiful part is living, for a few hundred pages, a life you&rsquo;d never get to live yourself. The risk is reading alone. Without talking a book through, it&rsquo;s easy to keep only the parts that agree with you. That&rsquo;s why a library and a book club in the same place makes sense to me.
+          </p>
+        </section>
+      }
       contact={<>I&rsquo;d like to help more readers find the book they can&rsquo;t put down.</>}
     />
   );
