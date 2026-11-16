@@ -20,7 +20,7 @@ export type TailoredPageProps = {
   label?: string;
   headline: ReactNode;
   lede: ReactNode;
-  hero: ReactNode;
+  hero?: ReactNode;
   caption?: ReactNode;
   cases: CaseKey[];
   built?: keyof typeof BUILT;
@@ -53,7 +53,7 @@ export default function TailoredPage({ slug, company, style, className = "", lab
         <div className="brand-hero">
           {heroExtras}
           <FadeIn>
-            <div className="tp-grid grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-16">
+            <div className={hero ? "tp-grid grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-16" : "tp-grid max-w-3xl"}>
               <div className="min-w-0">
                 {label ? <p className="sig-label">{label}</p> : null}
                 <h1 className="tp-h1 text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">{headline}</h1>
@@ -68,10 +68,12 @@ export default function TailoredPage({ slug, company, style, className = "", lab
                   </a>
                 </div>
               </div>
-              <div className="min-w-0 sig-obj">
-                {hero}
-                {caption ? <p className="mt-3 text-[14px] text-muted">{caption}</p> : null}
-              </div>
+              {hero ? (
+                <div className="min-w-0 sig-obj">
+                  {hero}
+                  {caption ? <p className="mt-3 text-[14px] text-muted">{caption}</p> : null}
+                </div>
+              ) : null}
             </div>
           </FadeIn>
         </div>
