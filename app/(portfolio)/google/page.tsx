@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import SystemBridge from "@/components/SystemBridge";
 import CastTab from "@/components/CastTab";
 import TailoredPage from "@/components/tailored/TailoredPage";
 
 // A tailored, unlisted view of the portfolio for Google, built on the
 // shared frame (components/tailored/TailoredPage.tsx). The object is
-// A bridge: for three projects, what the system had to handle and the one screen people saw.
+// Text-only opening; the work cards carry the pictures.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Google" },
   description:
@@ -24,9 +23,7 @@ export default function GooglePage() {
       style={BRAND}
       className="tp-plain"
       headline={<>I make complex systems <span className="sig-em">easy for people to use</span>.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer. Tax rules in three countries, 340+ one-off components, a fee nobody wants to think about: for eight years I&rsquo;ve stood between systems like these and the people who&rsquo;d rather not think about software, the last five on payments.</>}
-      hero={<SystemBridge />}
-      caption={<>Pick one. On top, what the system had to handle. Below, what people actually saw.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on payments.</>}
       cases={["or", "tw", "fe", "ak", "ar", "yu"]}
       built="rules"
       fit={[
@@ -37,7 +34,6 @@ export default function GooglePage() {
         { ask: "Usable by everyone", proof: <>ARND caps how far each kind of text can grow so large type never breaks a screen, and every animation stands down when Reduce Motion is on.</> },
       ]}
       work="cards"
-      titles={{ work: <>Six projects, each with the number I&rsquo;m proudest of</>, fit: <>You asked for five things. Here&rsquo;s where I&rsquo;ve done each.</> }}
       hideBuilt
       aside={<CastTab />}
       close="curtain"
