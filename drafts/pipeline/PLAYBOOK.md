@@ -195,6 +195,26 @@ role, read, pay), what went live (with links), what you revised, and
 anything that needs him (a referral, a location question). If nothing
 happened, say so in one line.
 
+## Story outline (every case study)
+
+Allen asked on Nov 15, 2026 for every case study to be framed the same way
+and to show the work, not just metrics. Every case uses these five sections,
+in this order, as `## <Label> | <Title>` (the label is fixed, the title is
+his voice and specific to the case). Each section carries at least one real
+picture of the work; never invent a visual of a real product.
+
+| Label | What it answers | Its picture |
+|---|---|---|
+| The moment | Who was struggling, and why it mattered | The problem on screen |
+| What I found | What research or the audit showed | An artefact: survey, audit board, interview notes, journey |
+| The call | What I decided, and what it cost | Before and after |
+| What changed | The result | The shipped work, with the number |
+| Looking back | What I'd do differently | None needed |
+
+Orchid (`content/work/orchid-design-system.mdx`) is the model. Tailored pages
+show work as picture cards by default (`work="cards"` in the frame, covers in
+`COVERS` in `lib/tailored.ts`); the number sits under the picture.
+
 ## Rules
 
 - Facts only from his résumé (`drafts/resume/resume.html`) and the case

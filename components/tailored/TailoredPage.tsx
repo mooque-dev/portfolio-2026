@@ -45,7 +45,7 @@ const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-mediu
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 const inline = "text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity";
 
-export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras, fit, work = "list", aside, close = "band", titles, hideBuilt = false }: TailoredPageProps) {
+export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras, fit, work = "cards", aside, close = "band", titles, hideBuilt = false }: TailoredPageProps) {
   const id = slug.replace(/[^a-z0-9]/g, "");
   return (
     <article style={style} className={`brand-page tp ${className} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
@@ -95,13 +95,12 @@ export default function TailoredPage({ slug, company, style, className = "", lab
                           </span>
                         ) : null}
                         <span className="flex flex-1 flex-col gap-1.5 p-5">
-                          <span className="text-[12.5px] text-muted">{c.tag}</span>
                           <span className="tp-card-title">{c.title}</span>
                           <span className="text-[14px] leading-snug text-muted">{c.line}</span>
                           <span className="mt-auto flex items-end justify-between gap-3 pt-4">
-                            <span>
-                              <span className="tp-card-val block tabular-nums">{c.value}</span>
-                              {c.note ? <span className="block text-[12.5px] leading-snug text-muted">{c.note}</span> : null}
+                            <span className="text-[13px] leading-snug text-muted">
+                              <span className="tp-card-val tabular-nums">{c.value}</span>
+                              {c.note ? <> {c.note}</> : null}
                             </span>
                             <span aria-hidden className="tp-card-go">&rarr;</span>
                           </span>

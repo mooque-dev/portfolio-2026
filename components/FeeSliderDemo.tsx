@@ -272,7 +272,7 @@ function Results({
                   )}
                   <span className="absolute -bottom-1 -top-1 w-px bg-[#b08a30]" style={{ left: "90%" }} aria-hidden />
                 </div>
-                <p className="mt-1 text-[12.5px] text-muted">{r.sub}</p>
+                <p className="mt-1 text-[12.5px] text-foreground/70">{r.sub}</p>
               </li>
             );
           })}
