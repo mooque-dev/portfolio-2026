@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "The Google page leads with the bridge",
+    tags: ["design", "content"],
+    what: "The Google page now opens on one line: I make complex systems easy for people to use. Beside it is a bridge for three projects. On top, what the system had to handle, every tag a fact from the case study: one payment with three meanings under three countries' tax rules, 340+ one-off components, a fee nobody wanted to think about. Below, the screen people actually saw, and what changed.",
+    why: "The old opening said design systems and AI, which is part of the story but not the point. The point is the gap between a complicated system and a person who just wants to get something done, and that's where I work.",
+  },
+  {
+    date: "2026-11-15",
     title: "Every story tells it the same way, and the pages show the work",
     tags: ["design", "content"],
     what: "Orchid, Fee Opt-In and Automation now follow one outline: the moment, what I found, the call, what changed, and looking back, each with real pictures of the work. Fee Opt-In opens on the 82% that looked like a win, and now says why the buttons and the dropdown lost to the slider. Orchid tells the governance I got wrong first, and how I fixed it. Every tailored page shows its six projects as picture cards, with the number as a quiet line underneath. The Scribd page adds what the role asks and where I've done it, and a short note on how I find books.",
