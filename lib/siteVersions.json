@@ -682,7 +682,7 @@
   "status": "Live",
   "url": "https://mooque-dev.github.io/google/",
   "resume": "https://mooque-dev.github.io/allen-kang-resume-google.pdf",
-  "visual": "Orchid in three steps with the real artefacts: the audit board, the library in Storybook, and the rules the AI reads",
+  "visual": "Orchid in three steps with the real artefacts, then six picture cards, five asks, the script reader and a curtain",
   "made": "Nov 13",
   "order": 32,
   "versions": [
@@ -701,6 +701,10 @@
    {
     "date": "Nov 15",
     "note": "Work as picture cards, the musical section with a bill-splitting toy, blue curtain close"
+   },
+   {
+    "date": "Nov 15",
+    "note": "Back in the site's own look; headings in my voice; role-fit as five numbered cards; the script reader replaces the bill splitter; no location line"
    }
   ],
   "slug": "google"
