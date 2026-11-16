@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
-import ComponentAudit from "@/components/ComponentAudit";
+import SystemBridge from "@/components/SystemBridge";
 import CastTab from "@/components/CastTab";
 import TailoredPage from "@/components/tailored/TailoredPage";
 
 // A tailored, unlisted view of the portfolio for Google, built on the
 // shared frame (components/tailored/TailoredPage.tsx). The object is
-// Orchid in three steps with the real artefact behind each: the audit board, the Storybook library, and ARND's design system page.
+// A bridge: for three projects, what the system had to handle and the one screen people saw.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Google" },
   description:
@@ -23,10 +23,10 @@ export default function GooglePage() {
       company="Google"
       style={BRAND}
       className="tp-plain"
-      headline={<>I build design systems teams choose to use, <span className="sig-em">and AI can follow</span>.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on payments: split transactions, checkout fees, and one design system for three products that had just merged.</>}
-      hero={<><ComponentAudit /></>}
-      caption={<>Step through it. Each picture is the real thing: my audit board, the library, the rules.</>}
+      headline={<>I make complex systems <span className="sig-em">easy for people to use</span>.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer. Tax rules in three countries, 340+ one-off components, a fee nobody wants to think about: for eight years I&rsquo;ve stood between systems like these and the people who&rsquo;d rather not think about software, the last five on payments.</>}
+      hero={<SystemBridge />}
+      caption={<>Pick one. On top, what the system had to handle. Below, what people actually saw.</>}
       cases={["or", "tw", "fe", "ak", "ar", "yu"]}
       built="rules"
       fit={[
