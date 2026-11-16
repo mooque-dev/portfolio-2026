@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-15",
+    title: "The Google page, tightened, with the script reader on stage",
+    tags: ["design", "content"],
+    what: "The Google page's headings now say what they mean: six projects, each with the number I'm proudest of, and five things the role asks for, with where I've done each, as numbered cards. The musical section shows the script reader the cast used every day, with one part picked so its lines stay lit, in place of the bill-split toy. The intro is shorter and drops the location line, and the closing paragraphs that repeated the cards are gone.",
+    why: "A reviewer should get the point from the headings alone, and the musical should show the thing people actually loved.",
+  },
+  {
+    date: "2026-11-15",
     title: "The Google page sounds and looks like me again",
     tags: ["design", "content"],
     what: "The Google page drops the borrowed typeface, tinted panels and blue for this site's own look, and ends on the red curtain from the home page. The picture cards and the musical section stay. The Orchid story now says what the nine dropdowns became (one select with four variants, plus a date picker), why the Aplos team pushed back on roomier components and a playful look for accounting software, how Orchid answered with a variation per product and a white-label one, and what I'd do differently.",

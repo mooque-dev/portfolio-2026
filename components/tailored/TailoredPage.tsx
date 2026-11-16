@@ -35,13 +35,17 @@ export type TailoredPageProps = {
   aside?: ReactNode;
   /** "curtain" ends the page on the curtain call from home; the default is the contact band. */
   close?: "band" | "curtain";
+  /** Optional section headings in the page's own voice. Defaults keep the plain ones. */
+  titles?: { work?: ReactNode; fit?: ReactNode };
+  /** Hide the closing "built in code" paragraphs when the page already covers them. */
+  hideBuilt?: boolean;
 };
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 const inline = "text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity";
 
-export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras, fit, work = "cards", aside, close = "band" }: TailoredPageProps) {
+export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras, fit, work = "cards", aside, close = "band", titles, hideBuilt = false }: TailoredPageProps) {
   const id = slug.replace(/[^a-z0-9]/g, "");
   return (
     <article style={style} className={`brand-page tp ${className} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
@@ -73,8 +77,8 @@ export default function TailoredPage({ slug, company, style, className = "", lab
         </div>
 
         <section id={`${id}-work`} aria-labelledby={`${id}-work-title`} className="scroll-mt-24 mt-20 md:mt-28">
-          <h2 id={`${id}-work-title`} className="text-lg md:text-xl font-medium tracking-[-0.01em]">
-            Selected work
+          <h2 id={`${id}-work-title`} className="tp-h2 text-lg md:text-xl font-medium tracking-[-0.01em]">
+            {titles?.work ?? "Selected work"}
           </h2>
           <div className="mt-6">
             {work === "cards" ? (
@@ -119,8 +123,8 @@ export default function TailoredPage({ slug, company, style, className = "", lab
 
         {fit ? (
           <section aria-labelledby={`${id}-fit`} className="tp-fit mt-20 md:mt-28 max-w-3xl">
-            <h2 id={`${id}-fit`} className="text-lg md:text-xl font-medium tracking-[-0.01em]">
-              What the role asks, and where I&rsquo;ve done it
+            <h2 id={`${id}-fit`} className="tp-h2 text-lg md:text-xl font-medium tracking-[-0.01em]">
+              {titles?.fit ?? <>What the role asks, and where I&rsquo;ve done it</>}
             </h2>
             <dl className="mt-6 border-t border-border">
               {fit.map((f) => (
@@ -135,7 +139,7 @@ export default function TailoredPage({ slug, company, style, className = "", lab
 
         {aside}
 
-        <section aria-label="Built in code" className="mt-20 md:mt-28 grid max-w-2xl gap-5">
+        {hideBuilt ? null : <section aria-label="Built in code" className="mt-20 md:mt-28 grid max-w-2xl gap-5">
           {BUILT[built].map((b) => (
             <p key={b.text} className="text-[16px] leading-relaxed text-muted">
               {b.text}{" "}
@@ -156,7 +160,7 @@ export default function TailoredPage({ slug, company, style, className = "", lab
               ))}
             </p>
           ))}
-        </section>
+        </section>}
 
         {close === "curtain" ? (
           <CurtainCall title={contact} sub="Thanks for staying to the end. Encore?" resumeHref={`/allen-kang-resume-${slug}.pdf`} titleClassName="" linkedin />
