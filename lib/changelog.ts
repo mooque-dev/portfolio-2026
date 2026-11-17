@@ -13,6 +13,20 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-17",
+    title: "The Google page says why, in a few paragraphs",
+    tags: ["design", "content"],
+    what: "The Google page drops its grid of role-fit cards for a short note, Why this role: how I led Orchid from the audit to adoption, the snowflake test that decided which one-offs stayed, the governance I got wrong and fixed, design rules that AI coding tools and engineers can both follow, and making it work for everyone. The Google résumé now says what I decided and what changed, not just what I did. Goldito's pup stays off the company pages.",
+    why: "A grid of bold titles over grey text has become the look of every AI-made page, and a reviewer reading one application shouldn't have a dog sitting on the first result.",
+  },
+  {
+    date: "2026-11-17",
+    title: "The Google page, plainer",
+    tags: ["design", "content"],
+    what: "The Google page opens on the line and a short intro, with no panel beside it. The work is under Selected work again, and the role section is back to its plain heading, What the role asks, and where I've done it, without numbers on the cards.",
+    why: "The bridge and the clever headings were working harder than the work. A reviewer should see the projects first and read the page in my voice.",
+  },
+  {
     date: "2026-11-15",
     title: "The Google page leads with the bridge",
     tags: ["design", "content"],
