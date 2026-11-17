@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-17",
+    title: "The Google page, plainer",
+    tags: ["design", "content"],
+    what: "The Google page opens on the line and a short intro, with no panel beside it. The work is under Selected work again, and the role section is back to its plain heading, What the role asks, and where I've done it, without numbers on the cards.",
+    why: "The bridge and the clever headings were working harder than the work. A reviewer should see the projects first and read the page in my voice.",
+  },
+  {
     date: "2026-11-15",
     title: "The Google page leads with the bridge",
     tags: ["design", "content"],
