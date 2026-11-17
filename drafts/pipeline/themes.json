@@ -347,5 +347,21 @@
       "type": "em",
       "phrase": "and AI can follow"
     }
+  },
+  "ashby": {
+    "fonts": {
+      "display": [
+        "Figtree",
+        {}
+      ],
+      "text": [
+        "Figtree",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "tone",
+      "lead": "I write the decision down,"
+    }
   }
 }

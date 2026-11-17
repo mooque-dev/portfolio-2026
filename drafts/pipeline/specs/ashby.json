@@ -1,0 +1,12 @@
+{
+  "company": "Ashby",
+  "object": "a one-page spec on booking a final round, sketched from the outside: problem, decision, what changes, each redrawing a small schedule grid, with the decision tied to the case where the same rule was used",
+  "desc": "A short path through Allen Kang's work: a design system cut down to what teams use, complex desktop workflows, information architecture across merged products, and features owned end to end.",
+  "lede": "I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on payments, finance and CRM tools, owning features from the first question to release and stepping in as PM when one was needed. I prototype in code with AI tools when a mock can&rsquo;t settle it.",
+  "hero_import": "import SpecDoc from \"@/components/SpecDoc\";",
+  "hero_jsx": "<SpecDoc />",
+  "caption": "A short spec I wrote from the outside on one recruiting task. Step through it.",
+  "cases": ["or", "tw", "ak", "au", "fe", "ar"],
+  "h1": "I write the decision down, then design the screen that makes it obvious.",
+  "contact": "I&rsquo;d like to turn the busiest part of a recruiter&rsquo;s day into one clear choice."
+}
