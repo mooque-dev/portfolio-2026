@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-17",
+    title: "The Google page leads with the design system",
+    tags: ["design", "content"],
+    what: "The Google page's intro now says the last five years were on payments and the design system behind them. Automation for Nonprofits takes the Toronto Yuwol card's place, since the musical already has its own section. Why this role opens on Autofill, tap to pay and the Google Pay app feeling like one way to pay, the same problem I worked on at a smaller scale. The Google résumé lists accessibility.",
+    why: "Read as a hiring manager would: the first screen should name the job, the work should lean on what I led at work, and the note should show I understand their problem, not just mine.",
+  },
+  {
+    date: "2026-11-17",
     title: "The Google page says why, in a few paragraphs",
     tags: ["design", "content"],
     what: "The Google page drops its grid of role-fit cards for a short note, Why this role: how I led Orchid from the audit to adoption, the snowflake test that decided which one-offs stayed, the governance I got wrong and fixed, design rules that AI coding tools and engineers can both follow, and making it work for everyone. The Google résumé now says what I decided and what changed, not just what I did. Goldito's pup stays off the company pages.",
