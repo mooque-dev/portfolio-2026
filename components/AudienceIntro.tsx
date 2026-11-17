@@ -18,7 +18,7 @@ const AUDIENCES = [
   {
     key: "design",
     label: "Design leads",
-    text: "I learn a field from the people in it, then make the risky moment feel boring. I also grew a design system three teams chose to use.",
+    text: "I learn a field from the people in it, then make the risky moment feel boring. I also grew a design system four engineering teams now use.",
   },
   {
     key: "product",

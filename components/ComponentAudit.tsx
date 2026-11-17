@@ -11,8 +11,8 @@ import Link from "next/link";
 // Styled like a tonal surface with a segmented control; no company marks.
 // Sized in container units.
 const STEPS = [
-  { key: "Audit", tone: "a", value: "340+", unit: "one-off components", line: "Three merged products. This board is one component, the dropdown, in nine variations.", img: "/case-studies/orchid-design-system/untitled-11.png", alt: "My audit board: the dropdown's nine variations, A to I, mapped across the product's screens", pos: "0% 0%", zoom: 2.3, href: "/work/orchid-design-system", link: "Orchid" },
-  { key: "Orchid", tone: "b", value: "70", unit: "shared components", line: "Built on tokens with each team, living in Storybook, adopted by three engineering teams.", img: "/case-studies/orchid-design-system/untitled-9.png", alt: "The Orchid library in Storybook, with the sidebar component and its controls", pos: "0% 0%", zoom: 1, href: "/work/orchid-design-system", link: "Orchid" },
+  { key: "Audit", tone: "a", value: "340+", unit: "components", line: "Three merged products. This board is one component, the dropdown, in nine variations.", img: "/case-studies/orchid-design-system/untitled-11.png", alt: "My audit board: the dropdown's nine variations, A to I, mapped across the product's screens", pos: "0% 0%", zoom: 2.3, href: "/work/orchid-design-system", link: "Orchid" },
+  { key: "Orchid", tone: "b", value: "70", unit: "shared components", line: "Built on tokens with each team, living in Storybook, adopted by four engineering teams.", img: "/case-studies/orchid-design-system/untitled-9.png", alt: "The Orchid library in Storybook, with the sidebar component and its controls", pos: "0% 0%", zoom: 1, href: "/work/orchid-design-system", link: "Orchid" },
   { key: "Rules", tone: "c", value: "160+", unit: "pull requests", line: "On ARND, the design rules live in files my AI coding tools read, and tests flag it when the code drifts.", img: "/case-studies/arnd/site-design.jpg", alt: "ARND's design system page: how ARND looks, and when, with its colour tokens", pos: "0% 0%", zoom: 1, href: "/work/arnd", link: "ARND" },
 ] as const;
 

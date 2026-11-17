@@ -31,11 +31,11 @@ export const experience: Job[] = [
     location: "Toronto, ON",
     period: "Feb 2025 to Jun 2026",
     description: [
-      "Led Orchid, the shared design system: consolidated 340+ components across the three products into 70.",
-      "Owned design for payments and transactions across Aplos, Keela and Raisely as they merged; mentored two designers.",
-      "Led the redesign of split payments, so one payment can be part donation, part gift and part ticket; categorization support tickets fell 70% in the first month.",
-      "Raised donors covering the fee from 75% to 92% by redesigning the moment they edit it; A/B tested three coded prototypes against the original, with conversion and gift size holding steady.",
-      "Led design of the first feature Aplos and Keela shipped together, a CRM-to-accounting sync; after interviewing 12 finance managers, it shows every field mapping before data moves.",
+      "Owned payments design and mentored two designers; after a reorg, the only designer across Aplos, Keela and Raisely, working with 7 PMs and 6 engineering teams.",
+      "Led Orchid, a shared design system that replaced three overlapping ones and cut 340+ components to about 70 for four engineering teams; built its code-to-Figma plugin with AI tools, cutting updates from hours to minutes.",
+      "Redesigned split payments so one payment can be part donation, part gift and part ticket; categorization support tickets dropped 70% in the first month.",
+      "Dug into early fee-coverage results that looked better than they were, then prototyped three alternatives in code and A/B tested them; donors covering processing fees rose from 75% to 92%.",
+      "Led the first feature Aplos and Keela shipped together: a CRM-to-accounting sync, shaped by interviews with 12 finance managers, that shows every field mapping before any data moves.",
     ],
   },
   {
@@ -44,8 +44,8 @@ export const experience: Job[] = [
     location: "Toronto, ON (remote)",
     period: "Mar 2023 to Feb 2025",
     description: [
-      "Got Orchid funded: surveyed five departments and used the results to win two dedicated front-end engineers, a first for a design system there.",
-      "Led design for the CRM's core: contact records, Pipelines, and Reports & Dashboards; mentored one designer.",
+      "Owned design for the core CRM (contact records, Pipelines, Reports & Dashboards), used by thousands of nonprofits in Canada, the US, Australia and New Zealand; mentored one designer.",
+      "Surveyed five departments and used the results to get two front-end engineers assigned to Orchid, the first time Keela staffed a design system.",
     ],
   },
   {
@@ -54,7 +54,7 @@ export const experience: Job[] = [
     location: "Toronto, ON (remote)",
     period: "Feb 2021 to Mar 2023",
     description: [
-      "Designed Automation, a no-code workflow builder, from first interviews to release; 30% of 355 organizations adopted it, contributing to a 13% ARR increase.",
+      "Designed Automation, a no-code workflow builder, from first interviews to release; nearly a third of active customers adopted it, contributing to a 13% ARR increase.",
       "Stepped in as Associate PM to ship Pipelines.",
     ],
   },
