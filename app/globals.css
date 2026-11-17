@@ -1401,11 +1401,11 @@ select::-ms-expand {
 .sw-shift[aria-pressed="true"] { box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--foreground); }
 .sw-shift:hover { transform: translateY(-1px); }
 .sw-shift:focus-visible { outline: 2px solid var(--seal); outline-offset: 2px; }
-.sw-teal { background: #13867b; }
+.sw-teal { background: #0f7369; }
 .sw-violet { background: #6b4fd8; }
-.sw-amber { background: #c77a0a; }
+.sw-amber { background: #9a5d05; }
 .sw-blue { background: #2f63d4; }
-.sw-green { background: #2f8a4f; }
+.sw-green { background: #26733f; }
 .sw-detail { margin-top: 14px; padding: 12px 14px; border-radius: 10px; background: color-mix(in oklab, var(--foreground) 4%, transparent); }
 .sw-when { margin: 0; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
 .sw-what { margin: 2px 0 0; font-size: 15px; font-weight: 650; }
@@ -1881,7 +1881,7 @@ body:has(.theme-7shifts) { --hdr: #f1f0ec; }
 .theme-7shifts { --canvas: #fff; --ink: #000; --mut: #555; --line: #e6e4de; --h1w: 600; --h1t: -0.035em; --h1l: 0.98; --h2w: 600; }
 .theme-7shifts .sig-scribble { padding-bottom: 0.06em; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'><path d='M3 10 C 40 3, 82 12, 122 6 S 182 4, 197 9' fill='none' stroke='%23FF6808' stroke-width='4.5' stroke-linecap='round'/></svg>") left bottom / 100% 0.3em no-repeat;
   -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.theme-7shifts .sig-obj > p { font-family: var(--bd-hand), cursive; font-size: 24px; line-height: 1.1; color: #ff6808; }
+.theme-7shifts .sig-obj > p { font-family: var(--bd-hand), cursive; font-size: 24px; line-height: 1.1; color: #b84800; }
 .theme-7shifts .st-val { font-family: var(--bd-hand), cursive; font-size: 24px; font-weight: 400; }
 .theme-7shifts .brand-foot { border-radius: 40px 40px 0 0; }
 

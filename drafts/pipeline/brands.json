@@ -122,7 +122,7 @@
     "heroCtaOn": "#09333A"
   },
   "7shifts": {
-    "fill": "#4570FF",
+    "fill": "#3459D8",
     "on": "#ffffff",
     "ink": "#B84800",
     "inkDark": "#FF8A3D",
@@ -131,7 +131,7 @@
     "heroBgDark": "#F1F0EC",
     "heroFgDark": "#000000",
     "heroMark": "#FF6808",
-    "heroCta": "#4570FF",
+    "heroCta": "#3459D8",
     "heroCtaOn": "#ffffff"
   },
   "jeppesen-foreflight": {

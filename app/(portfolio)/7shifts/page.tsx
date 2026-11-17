@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const fdisplay = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
 const ftext = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
 const fhand = Caveat({ subsets: ["latin"], display: "swap", variable: "--bd-hand" });
-const BRAND = { "--brand": "#4570FF", "--brand-on": "#ffffff", "--brand-ink": "#B84800", "--brand-ink-dark": "#FF8A3D", "--hb": "#F1F0EC", "--hf": "#000000", "--hb-d": "#F1F0EC", "--hf-d": "#000000", "--hm": "#FF6808", "--hc": "#4570FF", "--hco": "#ffffff" } as CSSProperties;
+const BRAND = { "--brand": "#3459D8", "--brand-on": "#ffffff", "--brand-ink": "#B84800", "--brand-ink-dark": "#FF8A3D", "--hb": "#F1F0EC", "--hf": "#000000", "--hb-d": "#F1F0EC", "--hf-d": "#000000", "--hm": "#FF6808", "--hc": "#3459D8", "--hco": "#ffffff" } as CSSProperties;
 
 export default function SevenShiftsPage() {
   return (
