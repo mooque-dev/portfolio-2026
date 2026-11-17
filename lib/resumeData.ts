@@ -34,7 +34,7 @@ export const experience: Job[] = [
       "Led Orchid, the shared design system: consolidated 340+ components across the three products into 70.",
       "Owned design for payments and transactions across Aplos, Keela and Raisely as they merged; mentored two designers.",
       "Led the redesign of split payments, so one payment can be part donation, part gift and part ticket; categorization support tickets fell 70% in the first month.",
-      "Stopped a donation-fee launch that only looked successful, prototyped three alternatives in code and A/B tested them; donors covering the fee rose from 75% to 92%.",
+      "Raised donors covering the fee from 75% to 92% by redesigning the moment they edit it; A/B tested three coded prototypes against the original, with conversion and gift size holding steady.",
       "Led design of the first feature Aplos and Keela shipped together, a CRM-to-accounting sync; after interviewing 12 finance managers, it shows every field mapping before data moves.",
     ],
   },
