@@ -26,7 +26,7 @@ export default function ScribdPage() {
       style={BRAND}
       className={`themed theme-scribd ${fdisplay.variable} ${ftext.variable}`}
       headline={<>I tested three fee designs. Two lost, and the slider took opt-in to 92%.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, most recently on payments and paid add-ons. I run experiments, including the ones that lose, and design what comes next.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on payments and paid add-ons, with tests behind the decisions that mattered.</>}
       hero={<><BookShelf /></>}
       caption={<>Every cover opens a case study. One is the tests that lost.</>}
       cases={["fe", "au", "or", "tw", "ar", "yu"]}
