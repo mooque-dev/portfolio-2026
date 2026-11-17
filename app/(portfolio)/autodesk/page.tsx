@@ -27,13 +27,13 @@ export default function AutodeskPage() {
       company="Autodesk"
       style={BRAND}
       className={`themed theme-autodesk ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I make the path from curious to customer <span className="sig-accent">feel short</span>.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on payments and finance tools, where I ran the experiments that decided what shipped. I prototype in code when a mock can&rsquo;t answer the question.</>}
+      headline={<>After my A/B test, donors covering the fee went <span className="sig-accent">from 75% to 92%</span>.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on payments and finance tools, where I ran the experiments that decided what shipped. I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><JourneyCard /></>}
       caption={<>Pick a step. Each one opens the work that moved it.</>}
       cases={["fe", "au", "tw", "or", "ak", "ar"]}
       heroExtras={<><DraftingCursor /><TitleBlock /></>}
-      contact={<>I&rsquo;d like to help makers find, buy and keep the right tool.</>}
+      contact={<>I can share how that test was set up, and what we watched besides opt-in.</>}
     />
   );
 }

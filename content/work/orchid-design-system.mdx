@@ -1,6 +1,6 @@
 ---
 title: "Orchid: A Design System Born From a Merger"
-subtitle: "Three products, 340+ one-off components cut to 70 shared ones, and three teams who didn't choose each other. One shared system."
+subtitle: "Three products, three teams who didn't choose each other, and 340+ one-off components cut to 70 shared ones."
 category: "Design System"
 type: "work"
 role: "Lead, then Senior Product Designer"
@@ -18,14 +18,14 @@ order: 3
 company: "Keela, then Aplos"
 featuredStat: "70"
 featuredStatLabel: "shared components, down from 340+ one-offs"
-tldr: [["Problem","Three merged products, 340+ scattered components, and three teams who did not choose to work together."],["Decision","I treated it as an adoption problem: earned dedicated engineering time with cross-department survey data, then replaced heavy governance with 48-hour async reviews."],["Outcome","340+ one-off components cut to 70 shared ones, adopted across all three products."],["Principle","Governance should reduce friction, not create it."]]
+tldr: [["Problem","Three merged products, 340+ scattered components, and three teams who did not choose to work together."],["Decision","I treated it as an adoption problem: earned dedicated engineering time with cross-department survey data, then replaced heavy governance with 48-hour async reviews."],["Outcome","340+ one-off components cut to 70 shared ones, adopted across all three products."],["Principle","Contribution proposals doubled when I dropped the approval step and moved to 48-hour async reviews with light templates."]]
 glance: [["340+ → 70", "one-off components cut to a shared set"], ["2", "dedicated front-end engineers earned with the pitch, a first for a design system there"], ["48 hours", "for a contribution review, down from days"]]
 credits: [["Natalie", "Lead PM"], ["Marco", "Lead Developer"], ["Keiner", "Senior Developer"], ["Badal", "Lead QA"], ["Ronnie", "QA Engineer"], ["Binay", "QA Engineer"]]
 ---
 
 ## The moment | Three products, three looks, and teams who didn't choose each other
 
-After the acquisition in 2025, three products with three visual languages had to become one. I saw early that this wasn't a design system problem. It was <mark class="pen" data-note="you can't force people to adopt">a culture problem</mark>: three teams with different histories had to choose to build on shared foundations.
+After the acquisition in 2025, three products with three visual languages had to become one. I saw early that most of the work would be cultural: three teams with different histories had to choose to build on shared foundations.
 
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-6.png" alt="Old Keela designs showing inconsistent components, decimal values, and messy layering" />
@@ -119,7 +119,7 @@ The call had a cost. My components were roomier and friendlier, and the Aplos te
 
 ## What changed | Adopted across all three products
 
-Workshops with each team, not presentations to them, built the 70 on tokens, with Storybook as the source of truth and Chromatic catching regressions on every pull request.
+I ran workshops with each team to build the 70 on tokens, with Storybook as the source of truth and Chromatic catching regressions on every pull request.
 
 <div class="shots n2">
 
@@ -137,10 +137,10 @@ Workshops with each team, not presentations to them, built the 70 on tokens, wit
 
 <figure>
   <img src="/case-studies/orchid-design-system/untitled-10.jpg" alt="Figma documentation with developer annotations and usage notes" />
-  <figcaption>Figma documentation annotated for developers, not just designers</figcaption>
+  <figcaption>Figma documentation annotated for developers</figcaption>
 </figure>
 
-I had no authority over most of the people who needed Orchid, so adoption had to be earned: weekly office hours, pairing with engineers during migration, a migration guide per codebase, and bi-weekly stakeholder reviews. Teams adopted it because it was faster, not because it was required.
+I had no authority over most of the people who needed Orchid, so adoption had to be earned: weekly office hours, pairing with engineers during migration, a migration guide per codebase, and bi-weekly stakeholder reviews. Teams adopted it because it made their work faster.
 
 I got governance wrong first. Contributing meant filling in a form and bringing it to a weekly meeting, and I was building an approval step on top. Proposals dropped to near zero. The signs were everywhere once I looked: an empty queue, the same questions passed along in broken-telephone threads across Slack channels, no single source of truth, and engineers quietly building their own components. <mark class="pen" data-note="my mistake, and I fixed it">The formality was the problem</mark>, so I dropped the approval step and rebuilt around 48-hour async reviews and light templates. Proposals doubled.
 
@@ -155,8 +155,6 @@ Orchid was adopted across all three products and is now the foundation of the un
   <img src="/case-studies/orchid-design-system/untitled-14.jpg" alt="Phase 1 release recognition team collaboration across PM, Engineering, and QA" />
   <figcaption>Phase 1 shipped. Lead PM Natalie, Lead Dev Marco, Senior Dev Keiner, Lead QA Badal, QA Engineers Ronnie and Binay</figcaption>
 </figure>
-
-A design system nobody contributes to is a style guide with extra steps.
 
 ## Looking back | What I'd do differently
 

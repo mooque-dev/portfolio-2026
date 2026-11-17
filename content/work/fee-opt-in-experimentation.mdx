@@ -19,7 +19,7 @@ order: 5
 featuredStat: "75% → 92%"
 featuredStatLabel: "Donation fee opt-in, A/B tested"
 company: "Aplos (now Velora) · Raisely"
-tldr: [["Problem","A redesigned fee box looked like a win, 75% to 82%, but hid a leak in the fallback flow donors landed in."],["Decision","I argued to pause the rollout, redesigned the moment a donor edits their fee, and tested four variations in Pendo to find the highest-return option."],["Outcome","Fee opt-in reached 92%, with conversion and average gift size held steady."],["Principle","Design the decision, not the default."]]
+tldr: [["Problem","A redesigned fee box looked like a win, 75% to 82%, but hid a leak in the fallback flow donors landed in."],["Decision","I argued to pause the rollout, redesigned the moment a donor edits their fee, and tested four variations in Pendo to find the highest-return option."],["Outcome","Fee opt-in reached 92%, with conversion and average gift size held steady."],["Principle","The moment a donor edits the fee deserved as much design attention as the default."]]
 glance: [["75% → 92%", "fee opt-in, A/B tested"], ["4", "variations tested, including the existing control"], ["12–20%", "of donors click Edit, the moment the redesign targets"]]
 demo: ["I rebuilt this checkout as a working demo you can play with.", "#try"]
 links: [["MagicPatterns prototype, v1", "https://project-pleasant-dragonfly-294.magicpatterns.app"], ["MagicPatterns future-state concept", "https://project-inspiring-cove-378.magicpatterns.app"]]
@@ -27,9 +27,9 @@ links: [["MagicPatterns prototype, v1", "https://project-pleasant-dragonfly-294.
 
 The screens on this page are white-labelled recreations for a fictional charity. The real product is confidential.
 
-## The moment | The win that wasn't
+## The moment | 82%, with a leak in the Edit flow
 
-A redesigned fee box on Raisely had just lifted opt-in from **75% to 82%**, near the **90% benchmark**. But the **12–20% of donors who clicked "Edit"** mostly dragged the fee to the minimum or opted out. Awareness wasn't the problem. The opportunity was **<mark class="pen" data-note="this is really the whole case">decision design</mark>**: the few seconds after a donor decides to change something.
+A redesigned fee box on Raisely had just lifted opt-in from **75% to 82%**, near the **90% benchmark**. But the **12–20% of donors who clicked "Edit"** mostly dragged the fee to the minimum or opted out. The work left to do was **decision design**: the few seconds after a donor decides to change something.
 
 <figure>
   <img src="/case-studies/fee-opt-in/01-before-fallback.jpg" alt="A phone checkout with the old Edit box open, empty, beside three problems and the 12 to 20 percent of donors who click Edit" />
@@ -38,25 +38,25 @@ A redesigned fee box on Raisely had just lifted opt-in from **75% to 82%**, near
 
 ## What I found | Where donors changed their mind
 
-The easy move was to ship the 82%. I argued to pause: the edit box dropped donors into an older fallback that **nudged them toward the smallest contribution**. The new question: how do we make the easiest path a fair one, without it ever feeling coercive? <mark class="pen" data-note="what I kept coming back to">Donor trust is the product.</mark>
+The easy move was to ship the 82%. I argued to pause: the edit box dropped donors into an older fallback that **nudged them toward the smallest contribution**. The new question was how to make the easiest path a fair one that never felt coercive to donors.
 
 The pushback on pausing was about the timeline. What got agreement was the bar: we held the fee box to a 90% benchmark set against other giving platforms. For scale, GoFundMe Pro says 75 to 85% of donors cover fees when the option is on by default.
 
 > Introducing a modernized fallback control when a donor clicks "Edit" will increase the average fee opt-in value while maintaining or improving the existing conversion rate.
 
-Instead of static mocks, I built interactive prototypes in **Cursor** and **MagicPatterns** where PMs and engineers could change thresholds, defaults and fallback logic and watch the outcome. It cut alignment time and surfaced constraints before high-fidelity design. You can still [try the version 1 prototype](https://project-pleasant-dragonfly-294.magicpatterns.app) and [the future-state concept](https://project-inspiring-cove-378.magicpatterns.app).
+I built interactive prototypes in **Cursor** and **MagicPatterns** where PMs and engineers could change thresholds, defaults and fallback logic and watch the outcome. It cut alignment time and surfaced constraints before high-fidelity design. You can still [try the version 1 prototype](https://project-pleasant-dragonfly-294.magicpatterns.app) and [the future-state concept](https://project-inspiring-cove-378.magicpatterns.app).
 
 <figure class="wide">
   <img src="/case-studies/fee-opt-in/03-magicpatterns-prototype.jpg" alt="The MagicPatterns prototype: a checkout modal over a campaign photo, with a design controls panel for layout, colours, fee visibility and editor style" />
-  <figcaption>Instead of static mocks, a control panel: PMs and engineers could switch the editor style and fee visibility and watch the checkout change.</figcaption>
+  <figcaption>A control panel: PMs and engineers could switch the editor style and fee visibility and watch the checkout change.</figcaption>
 </figure>
 
 <figure>
   <img src="/case-studies/fee-opt-in/04-future-state.jpg" alt="The next version of the prototype, with controls for the default fee level and a thank-you message when the slider reaches the full fee" />
-  <figcaption>The next version: teams choose the default fee level, and donors who cover it all get a thank-you instead of silence.</figcaption>
+  <figcaption>The next version: teams choose the default fee level, and donors who cover it all get a thank-you.</figcaption>
 </figure>
 
-## The call | Designing the decision, not the default
+## The call | Three ways to change the fee, tested against the control
 
 I designed three variants grounded in defaults, anchoring and soft-decline (a slider, toggle buttons and a segmented dropdown) and tested them against the existing control in Pendo. Each was built production-ready, so the winner could ship platform-wide the day the test closed.
 
@@ -67,24 +67,22 @@ I designed three variants grounded in defaults, anchoring and soft-decline (a sl
   <figcaption>The three contenders, each starting at the full fee: a slider, set-amount buttons, and a dropdown.</figcaption>
 </figure>
 
-<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Legacy fallback</th><th>Redesigned fallback</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Legacy fallback"><b>Fragmented.</b> The new edit box dropped donors into an older UI that looked and behaved differently.</td><td data-label="Redesigned fallback"><b>One consistent control,</b> built production-ready so the winner could ship platform-wide.</td></tr><tr><td><span class="n">2</span></td><td data-label="Legacy fallback"><b>A slide to the smallest amount.</b> The fallback quietly nudged donors toward the minimum.</td><td data-label="Redesigned fallback"><b>Anchored at a sensible default.</b> "A little less" feels like a small step, not a cliff to zero.</td></tr><tr><td><span class="n">3</span></td><td data-label="Legacy fallback"><b>A blank-slate field.</b> Donors had to invent an amount.</td><td data-label="Redesigned fallback"><b>Pre-framed choices</b> in the toggle and dropdown variants, with a soft decline kept in reach.</td></tr></tbody></table></div>
+<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Legacy fallback</th><th>Redesigned fallback</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Legacy fallback"><b>Fragmented.</b> The new edit box dropped donors into an older UI that looked and behaved differently.</td><td data-label="Redesigned fallback"><b>One consistent control,</b> built production-ready so the winner could ship platform-wide.</td></tr><tr><td><span class="n">2</span></td><td data-label="Legacy fallback"><b>A slide to the smallest amount.</b> The fallback quietly nudged donors toward the minimum.</td><td data-label="Redesigned fallback"><b>Anchored at a sensible default.</b> Giving a little less feels like a small step.</td></tr><tr><td><span class="n">3</span></td><td data-label="Legacy fallback"><b>A blank-slate field.</b> Donors had to invent an amount.</td><td data-label="Redesigned fallback"><b>Pre-framed choices</b> in the toggle and dropdown variants, with a soft decline kept in reach.</td></tr></tbody></table></div>
 
 <p class="try" id="try"><b>Try it</b>A white-labelled rebuild of the checkout, after my MagicPatterns prototype. Pick a fallback, click Edit on the fee, and compare what you chose with what donors did.</p>
 
 <div data-demo="fee-slider"></div>
 
-## What changed | 92%, and it shipped everywhere
+## What changed | 92%, shipped as the platform-wide fallback
 
 The **Slider** lifted fee opt-in from **75% to 92%**, past the 90% benchmark, while conversion and average gift size held steady. It shipped as the fallback across the platform.
 
-The other two lost. Buttons and the dropdown both beat the old box but finished below the slider, and the dropdown was clearly the worst. My read: set amounts felt like being told what to pay, and the dropdown hid the choice behind a click. People cover the fee when the choice is in view and theirs to make. Push them or hide it and opt-in drops.
+The other two lost. Buttons and the dropdown both beat the old box but finished below the slider, and the dropdown was clearly the worst. My read: set amounts felt like being told what to pay, and the dropdown hid the choice behind a click. Donors covered the fee most when they could see the choice and make it themselves.
 
 <figure class="wide">
   <img src="/case-studies/fee-opt-in/05-results.jpg" alt="Bar chart of fee opt-in: 75 percent with the original box, 82 percent with the new box and old fallback, 92 percent with the slider, past a 90 percent benchmark" />
   <figcaption>The winning Slider variant cleared the 90% benchmark, without trading away conversion or average gift size.</figcaption>
 </figure>
-
-> Improving *how* a user changes their decision can be just as effective as improving the default itself.
 
 ## Looking back | What I'd test next
 

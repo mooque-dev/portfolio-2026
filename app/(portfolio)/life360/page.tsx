@@ -25,8 +25,8 @@ export default function Life360Page() {
       company="Life360"
       style={BRAND}
       className={`themed theme-life360 ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I design the decision, then <span className="sig-em">let the test decide</span>.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto, glad to work remote. Eight years designing, the last five on payments: checkout fees, split transactions, one design system for three merged products. My favourite result came from pausing a launch that already looked like a win. I prototype in code with AI tools like Cursor and Claude Code, and I care how things move.</>}
+      headline={<>The slider variant took fee opt-in to 92%, <span className="sig-em">with conversion holding steady</span>.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto, glad to work remote. Eight years designing, the last five on payments: checkout fees, split transactions, one design system for three merged products. My favourite result came from pausing a launch that already looked like a win. I prototype in code with AI tools like Cursor and Claude Code, and on my own app I set the motion rules.</>}
       hero={<><ExperimentWriteup /></>}
       caption={<>Step through the write-up. Every figure is from the real test; the small controls under Variants are recreations.</>}
       cases={["fe", "tw", "ar", "au", "or", "ak"]}
@@ -37,7 +37,7 @@ export default function Life360Page() {
         { ask: "Motion with rules", proof: <>ARND, my live-music app, uses one spring for every press and one breath for every changing number, and all of it stands down under Reduce Motion. Built with AI coding tools over 160+ merged pull requests.</> },
         { ask: "Revenue people choose", proof: <>Automation went from first interview to a paid add-on: 30% of 355 organizations use it, and it contributed to a 13% ARR increase. Split transactions cut categorization tickets by 70% in the first month.</> },
       ]}
-      contact={<>I&rsquo;d like to make the moment someone decides to pay feel fair, and keep testing until it does.</>}
+      contact={<>I&rsquo;m glad to walk through the full write-up, including the variants that lost.</>}
     />
   );
 }

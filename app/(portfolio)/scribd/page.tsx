@@ -25,13 +25,13 @@ export default function ScribdPage() {
       company="Scribd"
       style={BRAND}
       className={`themed theme-scribd ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I design the moment a reader decides to stay.</>}
+      headline={<>I tested three fee designs. Two lost, and the slider took opt-in to 92%.</>}
       lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, most recently on payments and paid add-ons. I run experiments, including the ones that lose, and design what comes next.</>}
       hero={<><BookShelf /></>}
       caption={<>Every cover opens a case study. One is the tests that lost.</>}
       cases={["fe", "au", "or", "tw", "ar", "yu"]}
       fit={[
-        { ask: "Tests, including the ones that lose", proof: <>On Fee Opt-In I paused a rollout that looked like a win, tested three new versions, and the slider took fee opt-in from 75% to 92%. The buttons and the dropdown lost, and why they lost is half of what I learned.</> },
+        { ask: "Tests, including the ones that lose", proof: <>On Fee Opt-In I paused a rollout that looked like a win, tested three new versions, and the slider took fee opt-in from 75% to 92%. The buttons and the dropdown lost, and the case covers why.</> },
         { ask: "Plans and pricing", proof: <>Automation went from a product area that didn&rsquo;t exist to a paid add-on in about four months. 30% of 355 organizations used it, and the product&rsquo;s ARR grew 13%.</> },
         { ask: "Lifecycle", proof: <>Automation is lifecycle email for nonprofits: welcome, thank-you and follow-up journeys staff build without code, with a preview of exactly who each one will reach before it goes live.</> },
         { ask: "Onboarding and setup", proof: <>The first thing customers of two merged products set up together was the Aplos and Keela sync. I made every data mapping visible before anything moved, so setting it up felt safe.</> },
@@ -48,7 +48,7 @@ export default function ScribdPage() {
           </p>
         </section>
       }
-      contact={<>I&rsquo;d like to help more readers find the book they can&rsquo;t put down.</>}
+      contact={<>If you&rsquo;d like the story of the two that lost, I&rsquo;m glad to tell it.</>}
     />
   );
 }

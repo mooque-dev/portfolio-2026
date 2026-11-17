@@ -27,12 +27,12 @@ export default function HarveyPage() {
       company="Harvey"
       style={BRAND}
       className={`themed theme-harvey ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I design for people who check everything twice.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on payments and finance tools built with the accountants who use them, and I prototype in code when a mock can&rsquo;t answer the question.</>}
+      headline={<>I designed a data sync where finance managers could check every mapping first.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on payments and finance tools built with the accountants who use them, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><Brief /></>}
       caption={<>Every claim cites the work behind it.</>}
       cases={["tw", "ak", "fe", "or", "au", "ar"]}
-      contact={<>I&rsquo;d like to design for the people who read the fine print.</>}
+      contact={<>The mapping screens are easier to show than describe. Email me anytime.</>}
     />
   );
 }

@@ -6,7 +6,14 @@
   "hero_import": "import ExperimentWriteup from \"@/components/ExperimentWriteup\";",
   "hero_jsx": "<ExperimentWriteup />",
   "caption": "Step through the write-up. Every figure is from the real test; the small controls under Variants are recreations.",
-  "cases": ["fe", "tw", "ar", "au", "or", "ak"],
-  "h1": "I design the decision, then let the test decide.",
-  "contact": "I&rsquo;d like to make the moment someone decides to pay feel fair, and keep testing until it does."
+  "cases": [
+    "fe",
+    "tw",
+    "ar",
+    "au",
+    "or",
+    "ak"
+  ],
+  "h1": "The slider variant took fee opt-in to 92%, with conversion holding steady.",
+  "contact": "I&rsquo;m glad to walk through the full write-up, including the variants that lost."
 }

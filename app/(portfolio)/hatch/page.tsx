@@ -25,12 +25,12 @@ export default function HatchPage() {
       company="Hatch"
       style={BRAND}
       className={`themed theme-hatch ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I design the small routines people come back to.</>}
+      headline={<>I designed Automation, where nonprofits build donor journeys without writing code.</>}
       lede={<>I&rsquo;m Allen, a product designer in Toronto, glad to work Pacific hours. Eight years designing, from interviews and journeys to prototypes and release. I&rsquo;ve designed for patients and clinicians, nonprofit teams and accountants, and I build working prototypes in code with Claude and Cursor.</>}
       hero={<><SleepRoutine /></>}
       caption={<>Pick a time of night. Each step opens the case behind it.</>}
       cases={["au", "mj", "ar", "fe", "or", "tw"]}
-      contact={<>I&rsquo;d like to help more people get the rest they keep putting off.</>}
+      contact={<>Thanks for reading. Email or LinkedIn both reach me.</>}
     />
   );
 }

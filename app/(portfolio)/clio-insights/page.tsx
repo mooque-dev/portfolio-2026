@@ -27,12 +27,12 @@ export default function ClioInsightsPage() {
       company="Clio"
       style={BRAND}
       className={`themed theme-clio-insights ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I turn piles of data into the one number someone needs today.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on accounting and CRM tools, where I led the reports and dashboards, and I prototype in code when a mock can&rsquo;t answer the question.</>}
+      headline={<>At Keela I led design for Reports and Dashboards, used by nonprofit teams.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on accounting and CRM tools, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><MatterFile preset="insights" /></>}
       caption={<>Every bar links to the work behind it.</>}
       cases={["mj", "ak", "tw", "au", "fe", "or"]}
-      contact={<>I&rsquo;d like to help lawyers spend less time on software and more on their clients.</>}
+      contact={<>Write anytime. The dashboard cases are a good place to start.</>}
     />
   );
 }

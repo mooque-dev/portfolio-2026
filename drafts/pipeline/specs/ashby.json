@@ -6,7 +6,14 @@
   "hero_import": "import SpecDoc from \"@/components/SpecDoc\";",
   "hero_jsx": "<SpecDoc />",
   "caption": "A short spec I wrote from the outside on one recruiting task. Step through it.",
-  "cases": ["or", "tw", "ak", "au", "fe", "ar"],
-  "h1": "I write the decision down, then design the screen that makes it obvious.",
-  "contact": "I&rsquo;d like to turn the busiest part of a recruiter&rsquo;s day into one clear choice."
+  "cases": [
+    "or",
+    "tw",
+    "ak",
+    "au",
+    "fe",
+    "ar"
+  ],
+  "h1": "I designed across three products merging into one, and stepped in as PM when a project needed one.",
+  "contact": "If the spec above gets scheduling wrong somewhere, I&rsquo;d like to know where."
 }

@@ -25,12 +25,12 @@ export default function AshbyPage() {
       company="Ashby"
       style={BRAND}
       className={`themed theme-ashby ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I write the decision down,<span className="sig-tone"> then design the screen that makes it obvious.</span></>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on payments, finance and CRM tools, owning features from the first question to release and stepping in as PM when one was needed. I prototype in code with AI tools when a mock can&rsquo;t settle it.</>}
+      headline={<>I designed across three products merging into one,<span className="sig-tone"> and stepped in as PM when a project needed one.</span></>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on payments, finance and CRM tools, owning features from the first question to release. I prototype in code with AI tools when a mock can&rsquo;t settle it.</>}
       hero={<><SpecDoc /></>}
       caption={<>A short spec I wrote from the outside on one recruiting task. Step through it.</>}
       cases={["or", "tw", "ak", "au", "fe", "ar"]}
-      contact={<>I&rsquo;d like to turn the busiest part of a recruiter&rsquo;s day into one clear choice.</>}
+      contact={<>If the spec above gets scheduling wrong somewhere, I&rsquo;d like to know where.</>}
     />
   );
 }

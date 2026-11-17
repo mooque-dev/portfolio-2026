@@ -17,20 +17,29 @@ order: 2
 company: "Aplos (now Velora)"
 featuredStat: "70%"
 featuredStatLabel: "fewer categorization support tickets in the first month"
-tldr: [["Problem","Nonprofits could log only one type per payment, but one payment is often part donation, part in-kind gift, and part value received, like a gala ticket. That gap drove about 500 support tickets a quarter."],["Decision","I designed for extensibility inside a no-refactor constraint: smart defaults with human override, batch editing by context, and continuous validation."],["Outcome","70% fewer categorization support tickets in the first month."],["Principle","Smart defaults, human override. It became a platform-wide interaction rule."]]
+tldr: [["Problem","Nonprofits could log only one type per payment, but one payment is often part donation, part in-kind gift, and part value received, like a gala ticket. That gap drove about 500 support tickets a quarter."],["Decision","I designed for extensibility inside a no-refactor constraint: smart defaults with human override, batch editing by context, and continuous validation."],["Outcome","70% fewer categorization support tickets in the first month."],["Principle","Suggest a category a person can accept in one click or override. That became a platform-wide interaction rule."]]
 glance: [["70%", "fewer categorization support tickets in the first month"], ["3", "tax jurisdictions kept compliant: Canada, the US and Australia"], ["$1.8M", "ARR in connected accounts the work supported"]]
 duration: "about 3 months"
 demo: ["I rebuilt the split payment as a working demo you can play with.", "#try"]
 ---
 
-## Stakes | Why This Mattered
+## The moment | One payment, logged as several records
 
 Keela's transaction model handled one-time donations well and broke for larger nonprofits, where one payment is often a ticket, a donation and a campaign gift at once. Staff logged several records instead, which meant wrong receipts, messy books and support tickets. As the team pushed upmarket after the acquisition, it had become a growth blocker.
 
 - **56%** of newly onboarded orgs (40 of 72) voted for transaction flexibility
 - **~500 support tickets a quarter** tied to splitting, receipts and reporting
 
-Every one of those payments had to produce a correct tax receipt in three countries, and each draws the line differently:
+<figure>
+  <img src="/case-studies/transaction-workflows/image-4.png" alt="Dashboard showing roadmap voting signal, 56% of new orgs upvoting transaction flexibility" />
+  <figcaption>The roadmap vote that made the case</figcaption>
+</figure>
+
+## What I found | Parallel spreadsheets and three sets of tax rules
+
+I sat with 8 nonprofit accountants while they reconciled. Every one kept a parallel spreadsheet. None could see a miscategorized transaction until the final report. One called batch editing "death by checkbox."
+
+Every one of those payments also had to produce a correct tax receipt in three countries, and each draws the line differently:
 
 - **Canada.** When a donor gets something back, the receipt shows the total paid, the value of that advantage, and the eligible amount left over.
 - **The US.** A payment over $75 that is partly a gift needs a written disclosure with a good-faith estimate of what the donor received.
@@ -39,20 +48,11 @@ Every one of those payments had to produce a correct tax receipt in three countr
 The required fields came from legal and compliance research. My job was to make getting them right the easy path.
 
 <figure>
-  <img src="/case-studies/transaction-workflows/image-4.png" alt="Dashboard showing roadmap voting signal, 56% of new orgs upvoting transaction flexibility" />
-  <figcaption>The roadmap vote that made the case</figcaption>
-</figure>
-
-## Research | What I Learned From Watching People Work
-
-I sat with 8 nonprofit accountants while they reconciled. Every one kept a parallel spreadsheet, one called batch editing "death by checkbox," and none could see a miscategorized transaction until the final report.
-
-<figure>
   <img src="/case-studies/transaction-workflows/image-1.png" alt="User problem statement: as a nonprofit admin I need to split a single payment into multiple items" />
   <figcaption>The problem statement that framed the work</figcaption>
 </figure>
 
-## Approach | Design for What Breaks Next
+## The call | Build for the next capability, with no backend refactor
 
 The easy path was a one-off split screen for the loudest complaint. I pushed for extensibility instead, so the next capability wouldn't need a rewrite. Before designing, the PM, the engineering lead and I agreed on what we couldn't do: no backend refactor, no breaking the data model behind reporting. We shipped in phases.
 
@@ -61,9 +61,7 @@ The easy path was a one-off split screen for the loudest complaint. I pushed for
   <figcaption>Phased delivery, without a backend refactor</figcaption>
 </figure>
 
-## Before and after | The Design
-
-Four changes, each answering something the accountants showed us. Suggested categories became a platform rule I later wrote into Orchid's guidelines, and the new design <mark class="pen" data-note="no more year-end surprises">validates continuously</mark> instead of at report time.
+I made four changes, each answering something the accountants showed us. Suggested categories became a platform rule I later wrote into Orchid's guidelines. The new design also validates continuously, while people work.
 
 <div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Before"><b>One type per payment.</b> A gala ticket that was part donation, part value received had to be logged as several records.</td><td data-label="After"><b>One payment, split by purpose.</b> Donation, in-kind gift and value received live in a single transaction.</td></tr><tr><td><span class="n">2</span></td><td data-label="Before"><b>Categorizing by hand.</b> Every transaction started blank, and accountants kept a parallel spreadsheet.</td><td data-label="After"><b>Smart defaults, human override.</b> A suggested category from donor history, amount and fund, accepted in one click.</td></tr><tr><td><span class="n">3</span></td><td data-label="Before"><b>"Death by checkbox."</b> A flat table where batch edits meant ticking rows one at a time.</td><td data-label="After"><b>Batch by context.</b> Scope by date range, donor, fund or category, then act on the group.</td></tr><tr><td><span class="n">4</span></td><td data-label="Before"><b>Errors at report time.</b> A miscategorized transaction stayed invisible until the final report.</td><td data-label="After"><b>Continuous validation.</b> Each reporting period shows its health as you go.</td></tr></tbody></table></div>
 
@@ -71,12 +69,14 @@ Four changes, each answering something the accountants showed us. Suggested cate
 
 <div data-demo="split-payment"></div>
 
+## What changed | 70% fewer categorization tickets in the first month
+
+In the first month, categorization support tickets fell **70%** and manual adjustments **60%**. The work supported **$1.8M ARR** in connected accounts, and one payment could be recorded the way it happened, compliant across Canadian, US and Australian tax rules.
+
 <figure class="wide">
   <img src="/case-studies/transaction-workflows/image-11.png" alt="Final transaction workflow design" />
   <figcaption>The final split workflow, with continuous validation</figcaption>
 </figure>
-
-## Testing | Iteration Was the Work
 
 I tested early prototypes with 8 organizations. Moving from a modal to a full-screen split workflow lifted satisfaction from **5.5 to 8.8 out of 10**. The transaction details view took three rounds: V1 changed little (**6/10**), V2 borrowed patterns from across the suite (**7.5/10**), and V3 put the items first and the associations second (**9.5/10**).
 
@@ -99,8 +99,8 @@ I tested early prototypes with 8 organizations. Moving from a modal to a full-sc
 
 </div>
 
-V3 won because it <mark class="pen" data-note="watching them work paid off">matched how accountants think</mark>: what they're recording first, who it belongs to second. Feature flags made the rollout safe.
+V3 won because it matched how accountants think: what they're recording first, who it belongs to second. Feature flags made the rollout safe.
 
-## Result | What Happened
+## Looking back | The system map
 
-In the first month, categorization support tickets fell **70%** and manual adjustments **60%**. The work supported **$1.8M ARR** in connected accounts, and one payment could finally be recorded the way it happened, compliant across Canadian, US and Australian tax rules. The most important artifact was the system map I drew in week one, not any Figma file.
+Looking back, the most important thing I made was the system map I drew in week one, more than any Figma file.
