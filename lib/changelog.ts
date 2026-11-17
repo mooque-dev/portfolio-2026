@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-17",
+    title: "The Google résumé, plainer and clearer about who acquired whom",
+    tags: ["content"],
+    what: "The Google résumé now says what Aplos, Keela and Raisely are and that the three now operate as Velora, folds the two Keela roles into one with the promotion, and says each thing in plain words: what I did and what changed. It links the main site, drops the recipe app and minor certificates, and fits Skills on one line. Orchid reads 340+ components across three products consolidated into 70, on the résumé, the Google page and the Orchid case study. ARND reads as an iOS app and mobile web experience. The Google page ends on the curtain with just the contact links.",
+    why: "A reviewer outside nonprofit software shouldn't have to guess how the companies fit together, and every line should be easy to read in one pass.",
+  },
+  {
+    date: "2026-11-17",
     title: "The Google page leads with the design system",
     tags: ["design", "content"],
     what: "The Google page's intro now says the last five years were on payments and the design system behind them. Automation for Nonprofits takes the Toronto Yuwol card's place, since the musical already has its own section. Why this role opens on Autofill, tap to pay and the Google Pay app feeling like one way to pay, the same problem I worked on at a smaller scale. The Google résumé lists accessibility.",
