@@ -363,5 +363,21 @@
       "type": "tone",
       "lead": "I write the decision down,"
     }
+  },
+  "life360": {
+    "fonts": {
+      "display": [
+        "Outfit",
+        {}
+      ],
+      "text": [
+        "DM_Sans",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "em",
+      "phrase": "let the test decide"
+    }
   }
 }

@@ -242,5 +242,18 @@
     "heroMark": "#473BCE",
     "heroCta": "#473BCE",
     "heroCtaOn": "#FCFCFE"
+  },
+  "life360": {
+    "fill": "#762EEB",
+    "on": "#ffffff",
+    "ink": "#762EEB",
+    "inkDark": "#B79BFF",
+    "heroBg": "#F3EFE8",
+    "heroFg": "#130F0C",
+    "heroBgDark": "#F3EFE8",
+    "heroFgDark": "#130F0C",
+    "heroMark": "#762EEB",
+    "heroCta": "#762EEB",
+    "heroCtaOn": "#ffffff"
   }
 }

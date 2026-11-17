@@ -235,6 +235,13 @@ ROLES = {
         lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_mobile", "yuwol", "fork"],
         skills="User research and usability testing &middot; Journey mapping &middot; Mobile app design (iOS, Android) &middot; Prototyping in code with Claude Code and Cursor &middot; Design systems &middot; Figma"),
+    "life360": dict(
+        url="mooque-dev.github.io/life360", accent="#762EEB",
+        domain="payments and transaction-heavy products", clause="run experiments and learn from the ones that lose",
+        aplos=["fee_code", "split", "own", "orchid", "integ", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_mobile", "fork", "yuwol"],
+        skills="A/B testing and experimentation &middot; Interaction and motion design &middot; Visual design &middot; Prototyping in code with AI tools &middot; Mobile and web &middot; Usability testing &middot; Figma, Pendo"),
     "google": dict(
         url="mooque-dev.github.io/google",
         domain="payments and transaction-heavy products", clause="prototype in code with AI tools",
