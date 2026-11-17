@@ -45,6 +45,7 @@ export default function GooglePage() {
       hideBuilt
       aside={<><WhyThisRole /><CastTab /></>}
       close="curtain"
+      plainClose
       contact={<>I&rsquo;d like to help paying feel like one product, wherever someone pays.</>}
     />
   );
