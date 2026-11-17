@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-17",
+    title: "A Google résumé that's easier to read",
+    tags: ["design", "content"],
+    what: "The Google résumé drops the portfolio link for now, sets its text larger and darker so the company lines and dates read as easily as the bullets, and keeps every line from leaving a single word behind. Keela shows when I became Lead. My résumé page on the site now says the same things in the same words. Goldito's pup also stays off the work pages and the résumé, where it sat on top of the cards on a phone.",
+    why: "Fine grey print made a reviewer squint at the parts that explain how the companies fit together, and anyone opening my work from the résumé should be able to read it without a dog in the way.",
+  },
+  {
+    date: "2026-11-17",
     title: "The Google résumé, plainer and clearer about who acquired whom",
     tags: ["content"],
     what: "The Google résumé now says what Aplos, Keela and Raisely are and that the three now operate as Velora, folds the two Keela roles into one with the promotion, and says each thing in plain words: what I did and what changed. It links the main site, drops the recipe app and minor certificates, and fits Skills on one line. Orchid reads 340+ components across three products consolidated into 70, on the résumé, the Google page and the Orchid case study. ARND reads as an iOS app and mobile web experience. The Google page ends on the curtain with just the contact links.",
