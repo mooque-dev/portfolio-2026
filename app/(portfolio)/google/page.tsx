@@ -21,9 +21,10 @@ function WhyThisRole() {
     <section aria-labelledby="google-why" className="mt-20 md:mt-28 max-w-[65ch]">
       <h2 id="google-why" className="tp-h2">Why this role</h2>
       <div className="mt-6 grid gap-5 text-[17px] leading-relaxed text-muted">
-        <p>Payments that feel like one product across many surfaces is the problem I&rsquo;ve been working on. When Aplos, Keela and Raisely merged, each had its own components. I pitched Orchid and led it from there: 340+ one-off components became 70 shared ones, built on one set of tokens, with a variation for each product and a white-label one. Three engineering teams use it.</p>
-        <p>Earlier design system attempts there had stalled without engineers. I surveyed five departments, put the cost in front of leadership in their own words, and came back with two dedicated front-end engineers. Contribution reviews came back within 48 hours, so teams kept proposing.</p>
-        <p>The AI side of the role is what I&rsquo;ve been doing on my own. ARND, the app I build with AI coding tools, runs one set of tokens across iOS, Android and web. Its design rules live in files the tools read before they build, and tests on every push flag the patterns that broke before. 160+ merged pull requests so far.</p>
+        <p>Payments that feel like one product across many surfaces is the problem I&rsquo;ve been working on. When Aplos, Keela and Raisely merged, each had its own components. I pitched Orchid and led it from the audit to adoption: 340+ one-off components became 70 shared ones on one set of tokens, with a variation for each product and a white-label one. A one-off stayed only if it gave people something the shared component couldn&rsquo;t, and saved them time. Three engineering teams use it.</p>
+        <p>Earlier design system attempts there had stalled without engineers. I surveyed five departments, put the cost in front of leadership in their own words, and came back with two dedicated front-end engineers. Then I got governance wrong: a form and a weekly meeting, and proposals dropped to near zero. I swapped it for 48-hour async reviews, and proposals doubled.</p>
+        <p>The AI side of the role is what I&rsquo;ve been doing on my own: design work that AI coding tools and engineers can both follow. On ARND, an iOS app I build with AI coding tools, the design rules live in files the tools read before they build, and tests on every push flag the patterns that broke before. 160+ merged pull requests so far.</p>
+        <p>And it has to work for everyone. ARND caps how far each kind of text can grow so large type never breaks a screen, and every animation stands down when Reduce Motion is on.</p>
       </div>
     </section>
   );

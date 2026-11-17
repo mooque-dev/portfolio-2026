@@ -46,6 +46,14 @@ export default function GolditoPeek() {
     setReady(true);
   }, []);
 
+  // Stay off the tailored company pages: a reviewer there is reading one
+  // application, and on a phone the pup sat over the first card's result.
+  const [tailored, setTailored] = useState(false);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTailored(!!document.querySelector("article.brand-page.tp"));
+  }, [pathname]);
+
   // Rise a few seconds after the page settles, never on first paint. A small
   // "New" tag says hello beside it once, then tucks away.
   const [hello, setHello] = useState(false);
@@ -96,7 +104,7 @@ export default function GolditoPeek() {
     setHidden(false);
   };
 
-  if (!ready || pathname.startsWith(CASE) || pathname.startsWith("/changelog") || pathname.startsWith("/site-versions")) return null;
+  if (!ready || tailored || pathname.startsWith(CASE) || pathname.startsWith("/changelog") || pathname.startsWith("/site-versions")) return null;
 
   // Hidden: only the ear tips show, faded, in the same corner. Hover or tap
   // brings the pup back.
