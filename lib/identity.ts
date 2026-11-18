@@ -17,7 +17,7 @@ export const RESULTS = [
   { label: "Automation ARR", value: "+13%", href: "/work/automation-nonprofits" },
   { label: "Adoption, 355 orgs", value: "30%", href: "/work/automation-nonprofits" },
   { label: "Shared components, from 340+", value: "70", href: "/work/orchid-design-system" },
-  { label: "Tax rules kept", value: "CA US AU", href: "/work/transaction-workflows" },
+  { label: "Merged pull requests, ARND", value: "160+", href: "/work/arnd" },
 ];
 export const RESULTS_TOTAL = { label: "Designers mentored", value: "3", href: "/resume" };
 

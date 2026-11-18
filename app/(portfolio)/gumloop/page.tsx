@@ -27,7 +27,7 @@ export default function GumloopPage() {
       style={BRAND}
       className={`themed theme-gumloop ${fdisplay.variable} ${ftext.variable} ${fmono.variable}`}
       headline={<>I designed a no-code automation builder for nonprofits, from first interview to release.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto, open to moving to Vancouver. Eight years designing, the last five on CRM and workflow tools, including a no-code automation builder built from zero. I prototype in code with Claude and Cursor when a mock can&rsquo;t answer the question.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on CRM and workflow tools, including a no-code automation builder built from zero. I prototype in code with Claude and Cursor when a mock can&rsquo;t answer the question.</>}
       hero={<><AgentFlow /></>}
       caption={<>Press Run. Every step opens the case behind it.</>}
       cases={["au", "ar", "or", "fe", "tw", "ak"]}

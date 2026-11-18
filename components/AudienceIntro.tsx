@@ -8,12 +8,12 @@ const AUDIENCES = [
   {
     key: "anyone",
     label: "For anyone",
-    text: "I design the parts of software where money and records have to be right.",
+    text: "I learn how people really work, then design software they can rely on.",
   },
   {
     key: "recruiters",
     label: "Recruiters",
-    text: "Senior product designer, eight years in, five on payments. Most recently at Aplos, now Velora. Open to senior and staff roles.",
+    text: "Senior product designer, eight years in: CRM, payments, healthcare and design systems. Most recently at Aplos, now Velora. Open to senior and staff roles.",
   },
   {
     key: "design",
