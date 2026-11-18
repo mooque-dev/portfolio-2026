@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-18",
+    title: "Plainer case studies, factual headlines, and three new pages",
+    tags: ["design", "content"],
+    what: "Every case study now follows the same five parts, the moment, what I found, the call, what changed and looking back, with the real pictures in each. A pass across the site cut the tidy contrasts, the one-line morals at the end of sections and most margin notes, and gave the stories plain titles. The tailored pages open on a headline that says what I did and what it changed, in place of a slogan. New pages for Ashby, Life360 and Plooto, each with its own résumé. The Plooto page opens on one bill stepped through its approval, the catch before money moves, and the confirmation. ARND is described as it ships today, on iOS and the mobile browser.",
+    why: "The site had started to read like it was written by a template. A reader should be able to tell what I did from the first line, then check it against the work.",
+  },
+  {
     date: "2026-11-17",
     title: "A Google résumé that's easier to read",
     tags: ["design", "content"],
