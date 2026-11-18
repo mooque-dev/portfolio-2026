@@ -379,5 +379,21 @@
       "type": "em",
       "phrase": "let the test decide"
     }
+  },
+  "plooto": {
+    "fonts": {
+      "display": [
+        "Space_Grotesk",
+        {}
+      ],
+      "text": [
+        "Nunito_Sans",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "tone",
+      "lead": "I redesigned split transactions for accountants"
+    }
   }
 }

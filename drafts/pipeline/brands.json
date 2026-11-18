@@ -255,5 +255,18 @@
     "heroMark": "#762EEB",
     "heroCta": "#762EEB",
     "heroCtaOn": "#ffffff"
+  },
+  "plooto": {
+    "fill": "#173BD9",
+    "on": "#ffffff",
+    "ink": "#173BD9",
+    "inkDark": "#93A6F7",
+    "heroBg": "#F5F7FF",
+    "heroFg": "#001234",
+    "heroBgDark": "#F5F7FF",
+    "heroFgDark": "#001234",
+    "heroMark": "#173BD9",
+    "heroCta": "#173BD9",
+    "heroCtaOn": "#ffffff"
   }
 }

@@ -61,6 +61,13 @@ PROJECTS = {
 }
 
 ROLES = {
+    "plooto": dict(
+        url="mooque-dev.github.io/plooto", accent="#173BD9",
+        domain="payments and finance tools", clause="prototype in code with AI tools",
+        aplos=["split_tax", "fee_code", "orchid", "own", "integ", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
+        projects=["arnd_code", "yuwol", "fork"],
+        skills="Research with accountants and finance teams &middot; Interaction and UI design &middot; Design systems (tokens, Storybook) &middot; Prototyping in code with AI tools (Claude Code, Cursor) &middot; A/B testing &middot; Figma, Pendo"),
     "jeppesen-foreflight": dict(
         accent="#1D3A6B",
         url="mooque-dev.github.io/jeppesen-foreflight",

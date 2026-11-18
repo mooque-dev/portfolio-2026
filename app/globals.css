@@ -2292,3 +2292,35 @@ body:has(.theme-life360) header { --background: #f3efe8; --foreground: #130f0c; 
   .xw-in, .xw-breathe, .xw-grow { animation: none; }
   .xw-steps button, .xw-vtabs button { transition: none; }
 }
+
+/* Plooto: Space Grotesk bold and tight on white, navy ink, a two-tone headline in their blue, 4px buttons. */
+.theme-plooto { --canvas: #fff; --ink: #001234; --mut: #4a5670; --line: #e3e7f0; --h1w: 700; --h1t: -0.05em; --h1l: 1.08; --h2w: 700; --h2t: -0.035em; --btn-r: 4px; }
+.theme-plooto .sig-tone { color: #173bd9; }
+body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --background: #fff; --foreground: #001234; --muted: #4a5670; --border: #e3e7f0; }
+
+.br-wrap { container-type: inline-size; width: 100%; max-width: 440px; margin-inline: auto; }
+.br { border-radius: 12px; background: #fff; color: #001234; padding: 6.4cqw; box-shadow: 0 0 0 1px rgb(0 18 52 / 0.08), 0 24px 48px -28px rgb(23 59 217 / 0.35); }
+.br-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 2cqw 4cqw; padding-bottom: 4cqw; border-bottom: 1px solid #e9ecf3; }
+.br-vendor { margin: 0; font-family: var(--bd-display), sans-serif; font-size: max(15px, 4.6cqw); font-weight: 700; letter-spacing: -0.02em; }
+.br-meta { margin: 0.6cqw 0 0; font-size: max(11px, 3cqw); color: #56617a; }
+.br-amt { margin: 0; font-family: var(--bd-display), sans-serif; font-size: max(17px, 5.6cqw); font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.br-tabs { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 1.4cqw; margin-top: 4.4cqw; padding: 1cqw; border-radius: 6px; background: #f1f3f9; width: fit-content; }
+.br-tabs button { font: inherit; font-size: max(12px, 3.2cqw); font-weight: 600; min-height: 32px; padding: 0 3.2cqw; border: 0; border-radius: 4px; background: transparent; color: #4a5670; cursor: pointer; transition: background-color 0.15s, color 0.15s, box-shadow 0.15s; }
+.br-tabs button:hover { color: #001234; }
+.br-tabs button[aria-pressed="true"] { background: #fff; color: #001234; box-shadow: 0 1px 2px rgb(0 18 52 / 0.12); }
+.br-chain { list-style: none; margin: 4.4cqw 0 0; padding: 0; display: grid; gap: 2cqw; }
+.br-row { display: grid; grid-template-columns: 6cqw minmax(0, 0.9fr) minmax(0, 1.6fr); align-items: center; gap: 3cqw; min-height: 9cqw; padding: 0 3cqw; border-radius: 6px; background: #f7f8fc; font-size: max(12px, 3.3cqw); }
+.br-dot { display: grid; place-items: center; width: 5.4cqw; height: 5.4cqw; min-width: 18px; min-height: 18px; border-radius: 50%; font-size: max(10px, 2.8cqw); font-weight: 700; box-shadow: inset 0 0 0 1.5px #c3cadb; color: #fff; }
+.br-who { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.br-note { color: #4a5670; text-align: right; }
+.br-row.is-done .br-dot { background: #173bd9; box-shadow: none; }
+.br-row.is-wait .br-dot { box-shadow: inset 0 0 0 1.5px #173bd9; }
+.br-row.is-wait .br-note { color: #173bd9; font-weight: 600; }
+.br-row.is-hold { background: #fff6e8; box-shadow: inset 0 0 0 1px #f0c98a; }
+.br-row.is-hold .br-dot { background: #a35c00; box-shadow: none; }
+.br-row.is-hold .br-note { color: #8a4d00; font-weight: 600; }
+.br-body { min-height: 30cqw; margin-top: 4.4cqw; padding-top: 4cqw; border-top: 1px solid #e9ecf3; }
+.br-text { margin: 0; font-size: max(13px, 3.7cqw); line-height: 1.5; color: #2b3650; }
+.br-proof { display: inline-flex; align-items: center; gap: 0.4em; min-height: 32px; font-size: max(12px, 3.3cqw); font-weight: 600; color: #173bd9; text-decoration: none; }
+.br-proof:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .br-tabs button { transition: none; } }
