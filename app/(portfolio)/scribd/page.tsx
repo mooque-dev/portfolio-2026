@@ -35,7 +35,7 @@ export default function ScribdPage() {
         { ask: "Plans and pricing", proof: <>Automation went from a product area that didn&rsquo;t exist to a paid add-on in about four months. 30% of 355 organizations used it, and the product&rsquo;s ARR grew 13%.</> },
         { ask: "Lifecycle", proof: <>Automation is lifecycle email for nonprofits: welcome, thank-you and follow-up journeys staff build without code, with a preview of exactly who each one will reach before it goes live.</> },
         { ask: "Onboarding and setup", proof: <>The first thing customers of two merged products set up together was the Aplos and Keela sync. I made every data mapping visible before anything moved, so setting it up felt safe.</> },
-        { ask: "Mobile, and AI every day", proof: <>ARND ships on iOS, Android and web, built with AI coding tools: 160+ merged pull requests. The musical&rsquo;s tools ran on the cast&rsquo;s phones every day for ten months.</> },
+        { ask: "Mobile, and AI every day", proof: <>ARND runs on iOS and the mobile browser, built with AI coding tools: 160+ merged pull requests. The musical&rsquo;s tools ran on the cast&rsquo;s phones every day for ten months.</> },
       ]}
       aside={
         <section aria-labelledby="reading-title" className="mt-20 max-w-[62ch] md:mt-28">

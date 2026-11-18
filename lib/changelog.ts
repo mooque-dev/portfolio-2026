@@ -13,6 +13,41 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-17",
+    title: "A Google résumé that's easier to read",
+    tags: ["design", "content"],
+    what: "The Google résumé drops the portfolio link for now, sets its text larger and darker so the company lines and dates read as easily as the bullets, and keeps every line from leaving a single word behind. Keela shows when I became Lead. My résumé page on the site now says the same things in the same words. Goldito's pup also stays off the work pages and the résumé, where it sat on top of the cards on a phone.",
+    why: "Fine grey print made a reviewer squint at the parts that explain how the companies fit together, and anyone opening my work from the résumé should be able to read it without a dog in the way.",
+  },
+  {
+    date: "2026-11-17",
+    title: "The Google résumé, plainer and clearer about who acquired whom",
+    tags: ["content"],
+    what: "The Google résumé now says what Aplos, Keela and Raisely are and that the three now operate as Velora, folds the two Keela roles into one with the promotion, and says each thing in plain words: what I did and what changed. It links the main site, drops the recipe app and minor certificates, and fits Skills on one line. Orchid reads 340+ components across three products consolidated into 70, on the résumé, the Google page and the Orchid case study. ARND reads as an iOS app and mobile web experience. The Google page ends on the curtain with just the contact links.",
+    why: "A reviewer outside nonprofit software shouldn't have to guess how the companies fit together, and every line should be easy to read in one pass.",
+  },
+  {
+    date: "2026-11-17",
+    title: "The Google page leads with the design system",
+    tags: ["design", "content"],
+    what: "The Google page's intro now says the last five years were on payments and the design system behind them. Automation for Nonprofits takes the Toronto Yuwol card's place, since the musical already has its own section. Why this role opens on Autofill, tap to pay and the Google Pay app feeling like one way to pay, the same problem I worked on at a smaller scale. The Google résumé lists accessibility.",
+    why: "Read as a hiring manager would: the first screen should name the job, the work should lean on what I led at work, and the note should show I understand their problem, not just mine.",
+  },
+  {
+    date: "2026-11-17",
+    title: "The Google page says why, in a few paragraphs",
+    tags: ["design", "content"],
+    what: "The Google page drops its grid of role-fit cards for a short note, Why this role: how I led Orchid from the audit to adoption, the snowflake test that decided which one-offs stayed, the governance I got wrong and fixed, design rules that AI coding tools and engineers can both follow, and making it work for everyone. The Google résumé now says what I decided and what changed, not just what I did. Goldito's pup stays off the company pages.",
+    why: "A grid of bold titles over grey text has become the look of every AI-made page, and a reviewer reading one application shouldn't have a dog sitting on the first result.",
+  },
+  {
+    date: "2026-11-17",
+    title: "The Google page, plainer",
+    tags: ["design", "content"],
+    what: "The Google page opens on the line and a short intro, with no panel beside it. The work is under Selected work again, and the role section is back to its plain heading, What the role asks, and where I've done it, without numbers on the cards.",
+    why: "The bridge and the clever headings were working harder than the work. A reviewer should see the projects first and read the page in my voice.",
+  },
+  {
     date: "2026-11-15",
     title: "The Google page leads with the bridge",
     tags: ["design", "content"],

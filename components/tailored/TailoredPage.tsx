@@ -20,7 +20,7 @@ export type TailoredPageProps = {
   label?: string;
   headline: ReactNode;
   lede: ReactNode;
-  hero: ReactNode;
+  hero?: ReactNode;
   caption?: ReactNode;
   cases: CaseKey[];
   built?: keyof typeof BUILT;
@@ -39,13 +39,15 @@ export type TailoredPageProps = {
   titles?: { work?: ReactNode; fit?: ReactNode };
   /** Hide the closing "built in code" paragraphs when the page already covers them. */
   hideBuilt?: boolean;
+  /** Drop the curtain's playful line and replay button, leaving just the contact links. */
+  plainClose?: boolean;
 };
 
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 const inline = "text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity";
 
-export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras, fit, work = "cards", aside, close = "band", titles, hideBuilt = false }: TailoredPageProps) {
+export default function TailoredPage({ slug, company, style, className = "", label, headline, lede, hero, caption, cases, built = "default", contact, heroExtras, fit, work = "cards", aside, close = "band", titles, hideBuilt = false, plainClose = false }: TailoredPageProps) {
   const id = slug.replace(/[^a-z0-9]/g, "");
   return (
     <article style={style} className={`brand-page tp ${className} relative isolate overflow-x-clip pt-32 pb-24 md:pt-40 md:pb-32`}>
@@ -53,7 +55,7 @@ export default function TailoredPage({ slug, company, style, className = "", lab
         <div className="brand-hero">
           {heroExtras}
           <FadeIn>
-            <div className="tp-grid grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-16">
+            <div className={hero ? "tp-grid grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-16" : "tp-grid max-w-3xl"}>
               <div className="min-w-0">
                 {label ? <p className="sig-label">{label}</p> : null}
                 <h1 className="tp-h1 text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">{headline}</h1>
@@ -68,10 +70,12 @@ export default function TailoredPage({ slug, company, style, className = "", lab
                   </a>
                 </div>
               </div>
-              <div className="min-w-0 sig-obj">
-                {hero}
-                {caption ? <p className="mt-3 text-[14px] text-muted">{caption}</p> : null}
-              </div>
+              {hero ? (
+                <div className="min-w-0 sig-obj">
+                  {hero}
+                  {caption ? <p className="mt-3 text-[14px] text-muted">{caption}</p> : null}
+                </div>
+              ) : null}
             </div>
           </FadeIn>
         </div>
@@ -163,7 +167,7 @@ export default function TailoredPage({ slug, company, style, className = "", lab
         </section>}
 
         {close === "curtain" ? (
-          <CurtainCall title={contact} sub="Thanks for staying to the end. Encore?" resumeHref={`/allen-kang-resume-${slug}.pdf`} titleClassName="" linkedin />
+          <CurtainCall title={contact} sub={plainClose ? null : "Thanks for staying to the end. Encore?"} encore={!plainClose} resumeHref={`/allen-kang-resume-${slug}.pdf`} titleClassName="" linkedin />
         ) : (
           <section
             aria-labelledby={`${id}-contact`}

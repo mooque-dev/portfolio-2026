@@ -29,7 +29,7 @@ export default function SamsaraPage() {
       style={BRAND}
       className={`themed theme-samsara ${fdisplay.variable} ${ftext.variable} ${fmono.variable}`}
       label="[ Product design · Toronto ]"
-      headline={<>I built a live-music app for iOS, Android and web with AI coding tools.</>}
+      headline={<>I built a live-music app for iOS and the mobile browser with AI coding tools.</>}
       lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software. I run research with customers, and my own app has 160+ merged pull requests.</>}
       hero={<><TripLog /></>}
       caption={<>Every stop is a job, with what shipped there.</>}

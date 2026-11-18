@@ -31,12 +31,11 @@ export const experience: Job[] = [
     location: "Toronto, ON",
     period: "Feb 2025 to Jun 2026",
     description: [
-      "Owned end-to-end design for payments and transactions across Aplos, Keela and Raisely as the three products merged into one suite.",
-      "Redesigned split transactions so one payment can be a donation, a gift and a ticket at once, cutting categorization tickets by 70% in the first month.",
-      "Ran an A/B test on the donation fee flow that raised fee opt-in from 75% to 92%, with conversion steady.",
-      "Led integration design between the merged products, making data mapping visible and auditable.",
-      "Cut 340+ one-off components to 70 shared ones in Orchid, the design system three engineering teams use.",
-      "Partnered with Product, Engineering and leadership on roadmap, experiments and delivery. Mentored two designers.",
+      "Led Orchid, the shared design system: consolidated 340+ components across the three products into 70.",
+      "Owned design for payments and transactions across Aplos, Keela and Raisely as they merged; mentored two designers.",
+      "Led the redesign of split payments, so one payment can be part donation, part gift and part ticket; categorization support tickets fell 70% in the first month.",
+      "Stopped a donation-fee launch that only looked successful, prototyped three alternatives in code and A/B tested them; donors covering the fee rose from 75% to 92%.",
+      "Led design of the first feature Aplos and Keela shipped together, a CRM-to-accounting sync; after interviewing 12 finance managers, it shows every field mapping before data moves.",
     ],
   },
   {
@@ -45,9 +44,8 @@ export const experience: Job[] = [
     location: "Toronto, ON (remote)",
     period: "Mar 2023 to Feb 2025",
     description: [
-      "Led product design for the CRM's core: the contact record, Pipelines, and Reports & Dashboards.",
-      "Pitched the Orchid design system to leadership and earned two dedicated front-end engineers.",
-      "Set up the design-to-launch process. Mentored one designer.",
+      "Got Orchid funded: surveyed five departments and used the results to win two dedicated front-end engineers, a first for a design system there.",
+      "Led design for the CRM's core: contact records, Pipelines, and Reports & Dashboards; mentored one designer.",
     ],
   },
   {
@@ -56,8 +54,7 @@ export const experience: Job[] = [
     location: "Toronto, ON (remote)",
     period: "Feb 2021 to Mar 2023",
     description: [
-      "Designed Automation, a no-code workflow builder, from first interview to release (0 to 1).",
-      "Reached 30% adoption across 355 organizations, contributing to a 13% ARR increase.",
+      "Designed Automation, a no-code workflow builder, from first interviews to release; 30% of 355 organizations adopted it, contributing to a 13% ARR increase.",
       "Stepped in as Associate PM to ship Pipelines.",
     ],
   },

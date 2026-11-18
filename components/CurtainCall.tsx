@@ -6,9 +6,9 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 // view, and the bow is on the curtain. Server-rendered closed, so without
 // JavaScript, or with reduced motion, it is simply the end state.
 // A tailored page can close on it too, with its own line and résumé.
-type Props = { title?: ReactNode; sub?: ReactNode; resumeHref?: string; titleClassName?: string; linkedin?: boolean };
+type Props = { title?: ReactNode; sub?: ReactNode; resumeHref?: string; titleClassName?: string; linkedin?: boolean; encore?: boolean };
 
-export default function CurtainCall({ title = <>That&rsquo;s the show.</>, sub = "Thanks for staying to the end. Encore?", resumeHref = "/allen-kang-resume.pdf", titleClassName = "font-serif", linkedin = false }: Props) {
+export default function CurtainCall({ title = <>That&rsquo;s the show.</>, sub = "Thanks for staying to the end. Encore?", resumeHref = "/allen-kang-resume.pdf", titleClassName = "font-serif", linkedin = false, encore: replay = true }: Props) {
   const ref = useRef<HTMLElement>(null);
   const [state, setState] = useState<"closed" | "open">("closed");
 
@@ -44,7 +44,7 @@ export default function CurtainCall({ title = <>That&rsquo;s the show.</>, sub =
       <div className="cc-valance" aria-hidden />
       <div className="cc-bow">
         <p className={`cc-title ${titleClassName}`}>{title}</p>
-        <p className="cc-sub">{sub}</p>
+        {sub ? <p className="cc-sub">{sub}</p> : null}
         <div className="cc-actions">
           <a href="mailto:allensmkang@gmail.com">allensmkang@gmail.com</a>
           <a href={resumeHref}>Résumé (PDF)</a>
@@ -53,7 +53,7 @@ export default function CurtainCall({ title = <>That&rsquo;s the show.</>, sub =
               LinkedIn<span className="sr-only"> (opens in new tab)</span>
             </a>
           ) : null}
-          <button type="button" onClick={encore}>Play it again</button>
+          {replay ? <button type="button" onClick={encore}>Play it again</button> : null}
         </div>
       </div>
     </section>
