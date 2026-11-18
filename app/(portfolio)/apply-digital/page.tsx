@@ -28,13 +28,13 @@ export default function ApplyDigitalPage() {
       company="APPLY"
       style={BRAND}
       className={`themed theme-apply-digital ${fdisplay.variable} ${ftext.variable} ${fmono.variable}`}
-      headline={<>I set the bar for how a product looks, then build the system that <span className="sig-brace">keeps it there</span>.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto with a graphic design degree. Eight years designing, the last five on B2B software, where I cut 340+ one-off components down to 70 shared ones in a design system three teams use and mentored three designers. These days I work with Claude from first concept to running code.</>}
+      headline={<>My app has five themes, <span className="sig-brace">all on the same color tokens</span>.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto with a graphic design degree. Eight years designing, the last five on B2B software, where I cut 340+ one-off components down to 70 shared ones in a design system three teams use and mentored three designers. These days I build working prototypes with AI coding tools.</>}
       hero={<><TokenCard preset="product" /></>}
       caption={<>Switch the brand. Only the global tier changes.</>}
       cases={["or", "fe", "ar", "au", "tw", "yu"]}
       built="rules"
-      contact={<>I&rsquo;d like to help brands ship work that looks as good live as it did in the deck.</>}
+      contact={<>Ask me about the token setup behind those themes.</>}
     />
   );
 }

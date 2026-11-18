@@ -25,13 +25,13 @@ export default function StiltaPage() {
       company="Stilta"
       style={BRAND}
       className={`themed theme-stilta ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I design tools for work that has to hold up.</>}
+      headline={<>Before shipping a fee redesign, I tested three versions against the control.</>}
       lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on accounting and payments tools built with the experts who use them, and I build from zero with Claude Code.</>}
       hero={<><ClaimChart /></>}
       caption={<>Each element cites the work that proves it.</>}
       cases={["tw", "fe", "ar", "ak", "or", "au"]}
       built="rules"
-      contact={<>I&rsquo;d like to help build AI that experts will sign their name under.</>}
+      contact={<>Questions about any case above are welcome.</>}
     />
   );
 }

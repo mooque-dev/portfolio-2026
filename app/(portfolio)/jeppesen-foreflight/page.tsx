@@ -14,7 +14,7 @@ import TailoredPage from "@/components/tailored/TailoredPage";
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Jeppesen ForeFlight" },
   description:
-    "A short path through Allen Kang's work on accounting, healthcare and data tools, design systems, and building in code.",
+    "A short path through Allen Kang's work on accounting, healthcare and data tools, design systems, and prototypes built with AI coding tools.",
   robots: { index: false, follow: false },
 };
 
@@ -29,9 +29,9 @@ export default function JeppesenPage() {
       company="Jeppesen ForeFlight"
       style={BRAND}
       className={`themed theme-jeppesen-foreflight ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I design the parts of software where the data has to be right, and I build them in code.</>}
+      headline={<>I redesigned split payments to follow tax rules in three countries.</>}
       lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on
-                accounting and payments tools, and I prototype in code when a mock can&rsquo;t answer the question.</>}
+                accounting and payments tools, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><BoardingPass /></>}
       caption={<>Seat 8Y for eight years designing. Gate PR #162 is my next pull request on{" "}
                 <Link href="/work/arnd" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
@@ -39,7 +39,7 @@ export default function JeppesenPage() {
                 </Link>
                 .</>}
       cases={["tw", "ak", "mj", "au", "or", "fe"]}
-      contact={<>I&rsquo;d like to work on tools where getting it right matters.</>}
+      contact={<>Thanks for reading. I&rsquo;d be glad to talk whenever it suits you.</>}
     />
   );
 }

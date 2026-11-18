@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const fdisplay = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
 const ftext = Inter_Tight({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
 const fhand = Caveat({ subsets: ["latin"], display: "swap", variable: "--bd-hand" });
-const BRAND = { "--brand": "#4570FF", "--brand-on": "#ffffff", "--brand-ink": "#B84800", "--brand-ink-dark": "#FF8A3D", "--hb": "#F1F0EC", "--hf": "#000000", "--hb-d": "#F1F0EC", "--hf-d": "#000000", "--hm": "#FF6808", "--hc": "#4570FF", "--hco": "#ffffff" } as CSSProperties;
+const BRAND = { "--brand": "#3459D8", "--brand-on": "#ffffff", "--brand-ink": "#B84800", "--brand-ink-dark": "#FF8A3D", "--hb": "#F1F0EC", "--hf": "#000000", "--hb-d": "#F1F0EC", "--hf-d": "#000000", "--hm": "#FF6808", "--hc": "#3459D8", "--hco": "#ffffff" } as CSSProperties;
 
 export default function SevenShiftsPage() {
   return (
@@ -28,12 +28,12 @@ export default function SevenShiftsPage() {
       company="7shifts"
       style={BRAND}
       className={`themed theme-7shifts ${fdisplay.variable} ${ftext.variable} ${fhand.variable}`}
-      headline={<>I learn how a team actually works, then <span className="sig-scribble">design around it</span>.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto who grew up around cooks. Eight years designing, the last five on B2B software, and I prototype with Claude and ship in code.</>}
+      headline={<>I built the scheduling tools a forty-person company <span className="sig-scribble">used daily for ten months</span>.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto who grew up around cooks. Eight years designing, the last five on B2B software, and I build working prototypes with AI coding tools like Claude.</>}
       hero={<><ShiftWeek /></>}
       caption={<>The times are made up. Every shift links to real work.</>}
       cases={["tw", "au", "yu", "fe", "or", "ar"]}
-      contact={<>I&rsquo;d like to make a restaurant&rsquo;s week a little easier.</>}
+      contact={<>If you want to see the Yuwol scheduling tool in use, I can show you.</>}
     />
   );
 }

@@ -27,12 +27,12 @@ export default function MatchaPage() {
       company="Matcha"
       style={BRAND}
       className={`themed theme-matcha ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I&rsquo;ve started products from nothing twice, and I&rsquo;d like a third.<span className="sig-cursor" aria-hidden /></>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing. I founded ARND, co-founded Forkestrate, and cut 340+ one-off components down to 70 shared ones in a design system three teams use.</>}
+      headline={<>I founded ARND, a live-music app, and co-founded Forkestrate, an AI recipe app.<span className="sig-cursor" aria-hidden /></>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing. Forkestrate went from zero to MVP in under three months, and I cut 340+ one-off components down to 70 shared ones in a design system three teams use.</>}
       hero={<><MatchCard /></>}
       caption={<>Every reason links to the work behind it.</>}
       cases={["ar", "or", "au", "fe", "tw", "yu"]}
-      contact={<>I&rsquo;d like to make job hunting feel less like a full-time job.</>}
+      contact={<>Email me about ARND, Forkestrate, or anything else here.</>}
     />
   );
 }

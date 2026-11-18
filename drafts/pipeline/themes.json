@@ -347,5 +347,53 @@
       "type": "em",
       "phrase": "and AI can follow"
     }
+  },
+  "ashby": {
+    "fonts": {
+      "display": [
+        "Figtree",
+        {}
+      ],
+      "text": [
+        "Figtree",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "tone",
+      "lead": "I write the decision down,"
+    }
+  },
+  "life360": {
+    "fonts": {
+      "display": [
+        "Outfit",
+        {}
+      ],
+      "text": [
+        "DM_Sans",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "em",
+      "phrase": "let the test decide"
+    }
+  },
+  "plooto": {
+    "fonts": {
+      "display": [
+        "Space_Grotesk",
+        {}
+      ],
+      "text": [
+        "Nunito_Sans",
+        {}
+      ]
+    },
+    "sig": {
+      "type": "tone",
+      "lead": "I redesigned split transactions for accountants"
+    }
   }
 }

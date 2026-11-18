@@ -28,12 +28,12 @@ export default function BridgitPage() {
       company="Bridgit"
       style={BRAND}
       className={`themed theme-bridgit ${fdisplay.variable} ${ftext.variable} ${fmono.variable}`}
-      headline={<>I make complicated, data-heavy work feel manageable, and I build my own prototypes.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years in B2B software, the last five on accounting and payments tools, and I prototype in code when a mock can&rsquo;t answer the question.</>}
+      headline={<>Categorization tickets fell 70% the month after my split-transaction redesign shipped.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on accounting and payments tools, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><SiteSign />
               <p className="mt-2 text-[14px] text-muted">Every number on the sign is on my résumé.</p></>}
       cases={["tw", "au", "or", "fe", "ar", "yu"]}
-      contact={<>I&rsquo;d like to help construction teams plan with less guesswork.</>}
+      contact={<>If any of this is close to what your team is working on, let&rsquo;s talk.</>}
     />
   );
 }

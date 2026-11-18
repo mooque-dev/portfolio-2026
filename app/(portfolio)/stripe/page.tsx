@@ -27,12 +27,12 @@ export default function StripePage() {
       company="Stripe"
       style={BRAND}
       className={`themed theme-stripe ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I design the tools<span className="sig-tone"> the people behind the product use every day.</span></>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, including workflow automation, data syncs and the internal tools a forty-person company ran on. I prototype in code when a mock can&rsquo;t answer the question.</>}
+      headline={<>Automation, the workflow builder I designed,<span className="sig-tone"> reached 30% of 355 organizations.</span></>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, including workflow automation, data syncs and the internal tools a forty-person company ran on. I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><CommandK /></>}
       caption={<>Type to search the work. Arrow keys and Enter work too.</>}
       cases={["au", "ak", "yu", "or", "tw", "fe"]}
-      contact={<>I&rsquo;d like to give internal users the care customers get.</>}
+      contact={<>Pick any case above and I&rsquo;ll walk you through it.</>}
     />
   );
 }

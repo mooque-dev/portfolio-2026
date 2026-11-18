@@ -25,12 +25,12 @@ export default function Signal1Page() {
       company="Signal 1"
       style={BRAND}
       className={`themed theme-signal1 ${fdisplay.variable} ${ftext.variable}`}
-      headline={<><span className="sig-chevron" aria-hidden />I design clear tools for work that can&rsquo;t go wrong.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, including dashboards clinicians used to track patients through treatment. I prototype in code when a mock can&rsquo;t answer the question.</>}
+      headline={<><span className="sig-chevron" aria-hidden />I ran research with patients and clinicians and designed dashboards for tracking treatment.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software. I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><RegistryTable /></>}
       caption={<>Each entry opens its case study.</>}
       cases={["mj", "ak", "or", "au", "fe", "ar"]}
-      contact={<>I&rsquo;d like to help health systems trust the AI they run.</>}
+      contact={<>Happy to show the MyJourney dashboards on a call.</>}
     />
   );
 }

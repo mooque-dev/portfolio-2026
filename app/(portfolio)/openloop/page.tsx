@@ -27,13 +27,13 @@ export default function OpenLoopPage() {
       company="OpenLoop"
       style={BRAND}
       className={`themed theme-openloop ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I build design systems people <span className="sig-em">don&rsquo;t have to think about</span>.</>}
+      headline={<>I pitched a design system to leadership and <span className="sig-em">earned two front-end engineers</span>.</>}
       lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, where I cut 340+ one-off components down to 70 shared ones in a design system three teams use. On my own app, the design rules live in a file my AI coding tools read before they build.</>}
       hero={<><TokenCard /></>}
       caption={<>Switch the brand. Only the last column changes.</>}
       cases={["or", "mj", "ak", "fe", "ar", "au"]}
       built="rules"
-      contact={<>I&rsquo;d like to build the system a care team never has to think about.</>}
+      contact={<>Ask me how I made the case for Orchid.</>}
     />
   );
 }

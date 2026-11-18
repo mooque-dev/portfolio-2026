@@ -122,7 +122,7 @@
     "heroCtaOn": "#09333A"
   },
   "7shifts": {
-    "fill": "#4570FF",
+    "fill": "#3459D8",
     "on": "#ffffff",
     "ink": "#B84800",
     "inkDark": "#FF8A3D",
@@ -131,7 +131,7 @@
     "heroBgDark": "#F1F0EC",
     "heroFgDark": "#000000",
     "heroMark": "#FF6808",
-    "heroCta": "#4570FF",
+    "heroCta": "#3459D8",
     "heroCtaOn": "#ffffff"
   },
   "jeppesen-foreflight": {
@@ -228,6 +228,45 @@
     "heroFgDark": "#E3E3E3",
     "heroMark": "#0B57D0",
     "heroCta": "#0B57D0",
+    "heroCtaOn": "#ffffff"
+  },
+  "ashby": {
+    "fill": "#473BCE",
+    "on": "#FCFCFE",
+    "ink": "#473BCE",
+    "inkDark": "#A79FF5",
+    "heroBg": "#FCFCFE",
+    "heroFg": "#141415",
+    "heroBgDark": "#FCFCFE",
+    "heroFgDark": "#141415",
+    "heroMark": "#473BCE",
+    "heroCta": "#473BCE",
+    "heroCtaOn": "#FCFCFE"
+  },
+  "life360": {
+    "fill": "#762EEB",
+    "on": "#ffffff",
+    "ink": "#762EEB",
+    "inkDark": "#B79BFF",
+    "heroBg": "#F3EFE8",
+    "heroFg": "#130F0C",
+    "heroBgDark": "#F3EFE8",
+    "heroFgDark": "#130F0C",
+    "heroMark": "#762EEB",
+    "heroCta": "#762EEB",
+    "heroCtaOn": "#ffffff"
+  },
+  "plooto": {
+    "fill": "#173BD9",
+    "on": "#ffffff",
+    "ink": "#173BD9",
+    "inkDark": "#93A6F7",
+    "heroBg": "#F5F7FF",
+    "heroFg": "#001234",
+    "heroBgDark": "#F5F7FF",
+    "heroFgDark": "#001234",
+    "heroMark": "#173BD9",
+    "heroCta": "#173BD9",
     "heroCtaOn": "#ffffff"
   }
 }

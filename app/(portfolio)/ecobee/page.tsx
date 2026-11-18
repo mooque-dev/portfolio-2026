@@ -27,11 +27,11 @@ export default function EcobeePage() {
       company="ecobee"
       style={BRAND}
       className={`themed theme-ecobee ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I make complicated systems feel calm to the people living with them.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, from first research to release, and I prototype in code when a mock can&rsquo;t answer the question.</>}
+      headline={<>Fifteen interviews and three rounds of testing went into the automation builder I designed.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, from first research to release, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><Thermostat /></>}
       cases={["or", "au", "ar", "fe", "tw", "yu"]}
-      contact={<>I&rsquo;d like to make the technology in people&rsquo;s homes easier to live with.</>}
+      contact={<>I can go through how I ran that research, if it&rsquo;s useful.</>}
     />
   );
 }

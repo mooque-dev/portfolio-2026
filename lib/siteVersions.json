@@ -144,6 +144,10 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "jeppesen-foreflight"
@@ -180,6 +184,10 @@
    {
     "date": "Nov 10",
     "note": "ARND count reads 160+"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "bridgit"
@@ -216,6 +224,10 @@
    {
     "date": "Nov 3",
     "note": "Automation reads about four months"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did; darker labels that read clearly"
    }
   ],
   "slug": "7shifts"
@@ -248,6 +260,10 @@
    {
     "date": "Nov 10",
     "note": "ARND count reads 160+"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "ecobee"
@@ -296,6 +312,10 @@
    {
     "date": "Nov 10",
     "note": "The brief's title and footer show again (they were white on white); résumé says prototyping with AI tools"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "harvey"
@@ -328,6 +348,10 @@
    {
     "date": "Nov 10",
     "note": "Résumé says prototyping with AI tools"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "openloop"
@@ -357,6 +381,10 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "apply-digital"
@@ -390,6 +418,10 @@
    {
     "date": "Nov 10",
     "note": "File labels darker and easier to read"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "clio"
@@ -423,6 +455,10 @@
    {
     "date": "Nov 10",
     "note": "File labels darker and easier to read"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "clio-insights"
@@ -495,6 +531,10 @@
    {
     "date": "Nov 10",
     "note": "The En route chip reads in dark mode; ARND count reads 160+"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "samsara"
@@ -528,6 +568,10 @@
    {
     "date": "Nov 10",
     "note": "ARND count reads 160+; résumé says prototyping with AI tools"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "stripe"
@@ -556,6 +600,10 @@
    {
     "date": "Oct 22",
     "note": "Matched to their site: their type, canvas, buttons and a signature detail"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "matcha"
@@ -576,6 +624,10 @@
    {
     "date": "Nov 10",
     "note": "Small blue label darker; ARND count reads 160+"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "autodesk"
@@ -601,6 +653,10 @@
    {
     "date": "Nov 15",
     "note": "Picture cards; Fee Opt-In, Automation and Orchid first; what the role asks and where I've done it; how I find books"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline on the fee test, with the two variants that lost; intro no longer repeats it"
    }
   ],
   "slug": "scribd"
@@ -621,6 +677,10 @@
    {
     "date": "Nov 10",
     "note": "ARND count reads 160+; résumé says prototyping with AI tools"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "signal1"
@@ -641,6 +701,10 @@
    {
     "date": "Nov 10",
     "note": "ARND count reads 160+"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "stilta"
@@ -661,6 +725,10 @@
    {
     "date": "Nov 10",
     "note": "ARND count reads 160+"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "gumloop"
@@ -677,6 +745,10 @@
    {
     "date": "Nov 10",
     "note": "First version"
+   },
+   {
+    "date": "Nov 18",
+    "note": "A plain headline that says what I did and what it changed"
    }
   ],
   "slug": "hatch"
@@ -740,5 +812,56 @@
    }
   ],
   "slug": "google"
+ },
+ {
+  "company": "Ashby",
+  "variant": "Senior Product Designer",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/ashby/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-ashby.pdf",
+  "visual": "A one-page spec on booking a final round, each section redrawing a small schedule grid",
+  "made": "Nov 18",
+  "order": 33,
+  "versions": [
+   {
+    "date": "Nov 18",
+    "note": "First version"
+   }
+  ],
+  "slug": "ashby"
+ },
+ {
+  "company": "Life360",
+  "variant": "Product Designer, Revenue",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/life360/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-life360.pdf",
+  "visual": "Fee Opt-In as an experiment write-up you can step through, opening on the result",
+  "made": "Nov 18",
+  "order": 34,
+  "versions": [
+   {
+    "date": "Nov 18",
+    "note": "First version"
+   }
+  ],
+  "slug": "life360"
+ },
+ {
+  "company": "Plooto",
+  "variant": "Senior Product Designer",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/plooto/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-plooto.pdf",
+  "visual": "One bill stepped through its approval, the catch before money moves, and the confirmation",
+  "made": "Nov 18",
+  "order": 35,
+  "versions": [
+   {
+    "date": "Nov 18",
+    "note": "First version"
+   }
+  ],
+  "slug": "plooto"
  }
 ]
