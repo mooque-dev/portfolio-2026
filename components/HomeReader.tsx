@@ -33,11 +33,10 @@ const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
 // Submitted on Oct 30; add the result here once it's announced.
 const HACKATHON = { slug: "goldito", event: "Nebius × NVIDIA Global AI Hackathon", submitted: true };
 
-// Lists on home follow the same order as the Work page: by shelf (work,
-// experiments, side projects), then by each project's order number.
-const SHELF = { work: 0, experiment: 1, personal: 2 };
+// Lists on home show in the order written above, which is why Orchid and
+// Automation lead here while the Work page keeps its own order numbers.
 const pick = (all: ProjectSummary[], slugs: string[]) =>
-  all.filter((p) => slugs.includes(p.slug)).sort((a, b) => SHELF[a.type] - SHELF[b.type]);
+  slugs.map((slug) => all.find((p) => p.slug === slug)).filter((p): p is ProjectSummary => Boolean(p));
 
 const hrefOf = (p: ProjectSummary) => p.href ?? `/work/${p.slug}`;
 

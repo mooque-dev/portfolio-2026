@@ -43,7 +43,7 @@ Review fields:
 
 Collection `sites`, doc id = slug: order, company, variant, status (Live |
 Retired), url, resume, visual, made, versions [{date, note}]. A copy lives in
-`lib/siteVersions.json` for the /site-versions page; keep the two in step.
+`lib/siteVersions.json` for the private versions page (`app/(portfolio)/sv-9701wnpqmv`); keep the two in step.
 
 ## Each run, in this order
 
@@ -67,7 +67,7 @@ For each role with `review: "approved"`:
    Then refresh `lib/siteVersions.json` from the `sites` collection (list it
    with `out_dir`, keep slug, company, variant, status, url, resume, visual,
    made, order, versions), commit and push to v2. It feeds Allen's private
-   /site-versions page and goes live with the next publish.
+   private versions page and goes live with the next publish.
 5. Delete the draft branch locally and on origin.
 
 A role approved with no page (résumé only) just gets the résumé published
