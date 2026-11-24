@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-23",
+    title: "A home page that covers all of my work, not just payments",
+    tags: ["content"],
+    what: "The home page, About and Résumé now describe eight years across CRM, payments, healthcare and design systems. The home page opens with Orchid and Automation, and the results row now counts ARND's 160+ merged pull requests. The main résumé matches. The Gumloop and Hatch pages no longer mention moving, and the ecobee résumé describes ARND on iOS and the mobile browser.",
+    why: "The site had drifted into reading as a payments portfolio, when most of my work is complex tools for people whose expertise isn't software.",
+  },
+  {
     date: "2026-11-18",
     title: "Plainer case studies, factual headlines, and three new pages",
     tags: ["design", "content"],
