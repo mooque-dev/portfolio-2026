@@ -250,7 +250,7 @@ export default function AboutTabs() {
               <Separator className="mb-12" />
               <p className="text-lg leading-relaxed">
                 I&apos;m currently open to senior and staff product design roles,
-                particularly where transaction-heavy flows, design systems, or
+                particularly where complex workflows, design systems, or
                 0→1 platform work is at the center. If you&apos;re
                 building something interesting,{" "}
                 <a

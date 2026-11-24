@@ -49,7 +49,7 @@ PROJECTS = {
     "fork": ("Forkestrate", "Co-founder and founding designer, AI recipe app", "2025 – Present",
              "Co-founded and designed a recipe app, taking it from zero to MVP in under three months with a PM and two engineers."),
     "arnd_mobile": ("ARND", "Founder, live-music discovery app", "2025 – Present",
-                    "Designed and built a map-first app for iOS, Android and web with AI tools; 160+ merged pull requests."),
+                    "Designed and built a map-first app for iOS and the mobile browser with AI tools; 160+ merged pull requests."),
     "arnd_system": ("ARND", "Founder, live-music discovery app", "2025 – Present",
                     "Designed and built a map-first app with AI coding tools: five themes, one system, 160+ merged pull requests."),
     "arnd_rules": ("ARND", "Founder, live-music discovery app", "2025 – Present",

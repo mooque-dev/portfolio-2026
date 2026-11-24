@@ -18,13 +18,13 @@ interface Props {
   allProjects: ProjectSummary[];
 }
 
-// Curated to mirror the résumé: the professional stories first, in the order
-// a reviewer would want them, then the work built end to end.
+// The professional stories first, led by the design system and Automation so
+// the home page reads broader than payments, then the work built end to end.
 const SELECTED = [
-  "aplos-keela-integration",
-  "transaction-workflows",
   "orchid-design-system",
   "automation-nonprofits",
+  "transaction-workflows",
+  "aplos-keela-integration",
   "fee-opt-in-experimentation",
 ];
 const DATAVIZ = ["care-pathway-dashboards", "keela-contacts"];

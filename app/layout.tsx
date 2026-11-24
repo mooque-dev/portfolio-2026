@@ -22,20 +22,20 @@ export const metadata: Metadata = {
     template: "%s | Allen Kang",
   },
   description:
-    "Senior product designer for transaction-heavy products: donation and payment flows, multi-entity financial data, and the design systems behind them.",
+    "Senior product designer for CRM, payments and healthcare tools, the design systems behind them, and apps built end to end.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Allen Kang Portfolio",
     title: "Allen Kang, Senior Product Designer",
     description:
-      "Senior product designer for transaction-heavy products: donation and payment flows, multi-entity financial data, and the design systems behind them.",
+      "Senior product designer for CRM, payments and healthcare tools, the design systems behind them, and apps built end to end.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Allen Kang, Senior Product Designer",
     description:
-      "Senior product designer for transaction-heavy products: donation and payment flows, multi-entity financial data, and the design systems behind them.",
+      "Senior product designer for CRM, payments and healthcare tools, the design systems behind them, and apps built end to end.",
   },
   robots: {
     index: true,
@@ -69,7 +69,7 @@ const jsonLd = {
   url: siteUrl,
   jobTitle: "Senior Product Designer",
   description:
-    "Senior product designer for transaction-heavy products and the design systems behind them.",
+    "Senior product designer for complex tools and the design systems behind them.",
   sameAs: ["https://www.linkedin.com/in/mooque/"],
 };
 
