@@ -33,8 +33,8 @@ const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
 // Submitted on Oct 30; add the result here once it's announced.
 const HACKATHON = { slug: "goldito", event: "Nebius × NVIDIA Global AI Hackathon", submitted: true };
 
-// Lists on home show in the order written above, which is why Orchid and
-// Automation lead here while the Work page keeps its own order numbers.
+// Lists on home show in the order written above. The Work page sorts by each
+// case study's `order` number, so keep the two in step when either changes.
 const pick = (all: ProjectSummary[], slugs: string[]) =>
   slugs.map((slug) => all.find((p) => p.slug === slug)).filter((p): p is ProjectSummary => Boolean(p));
 

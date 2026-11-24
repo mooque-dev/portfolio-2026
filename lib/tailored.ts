@@ -10,7 +10,7 @@ export const CASES: Record<CaseKey, StatementLine> = {
   tw: {
     tag: "Accounting",
     title: "Transaction Workflows",
-    line: "One payment can be a donation, a gift and a ticket at once. I sat with accountants until that made sense, then redesigned how it's recorded under three countries' tax rules.",
+    line: "One payment can be a donation, a gift and a ticket at once. I sat with the people who do the books at nonprofits until that made sense, then redesigned how it's recorded under three countries' tax rules.",
     value: "-70% tickets",
     note: "fewer categorization support tickets, first month",
     href: "/work/transaction-workflows",

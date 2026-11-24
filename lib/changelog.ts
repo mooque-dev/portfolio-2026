@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-24",
+    title: "Transaction Workflows, told from what I saw",
+    tags: ["content", "fix"],
+    what: "The Transaction Workflows case study now opens on one $200 gala payment, shows the loop all 8 organizations went around to record it, and sets what I saw against what shipped. It names what the three-step design cost, says the numbers are one month of before and after with no control group, and ends on the details page I got wrong and what I'd test next. Batch editing is off the page because it didn't ship. Pages and résumés now say who I sat with: the people who do the books at nonprofits, some of them accountants. The Work page lists the case studies in the same order as the home page, and the Hatch, Life360 and Samsara résumés describe ARND on iOS and the mobile browser.",
+    why: "The page listed features more confidently than the record supports, and the numbers read better with their limits stated. A reader should find the same facts, in the same order, wherever they land.",
+  },
+  {
     date: "2026-11-23",
     title: "A home page that covers all of my work, not just payments",
     tags: ["content"],

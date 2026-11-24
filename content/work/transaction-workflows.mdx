@@ -13,11 +13,11 @@ tools:
 coverColor: "#dde4d4"
 coverImage: "/case-studies/transaction-workflows/cover.jpg"
 featured: true
-order: 2
+order: 3
 company: "Aplos (now Velora)"
 featuredStat: "70%"
 featuredStatLabel: "fewer categorization support tickets in the first month"
-tldr: [["Problem","Nonprofits could log only one type per payment, but one payment is often part donation, part in-kind gift, and part value received, like a gala ticket. That gap drove about 500 support tickets a quarter."],["Decision","I framed the job as recording a payment the way it happened: a full page, three steps and a total that checks itself, with no backend rebuild."],["Outcome","70% fewer categorization support tickets in the first month."],["Principle","Start from what people check first. The details page only worked once the items came before who they belonged to."]]
+tldr: [["Problem","Nonprofits could log only one type per payment, but one payment is often part donation, part in-kind gift, and part value received, like a gala ticket. That gap drove about 500 support tickets a quarter."],["Decision","I framed the job as recording a payment the way it happened: a full page, three steps, a suggested category and a total that checks itself, with no backend rebuild."],["Outcome","70% fewer categorization support tickets in the first month."],["Principle","Start from what people check first. The details page only worked once the items came before who they belonged to."]]
 glance: [["70%", "fewer categorization support tickets in the first month"], ["3", "tax jurisdictions kept compliant: Canada, the US and Australia"], ["$1.8M", "a year in subscriptions held by the accounts that needed this"]]
 duration: "about 3 months"
 demo: ["I rebuilt the split as a working sketch you can play with.", "#try"]
@@ -41,7 +41,7 @@ People had asked for a fix in their own words. In Productboard, 40 of 72 newly o
 
 ## What I found | All eight kept a side spreadsheet
 
-I sat with 8 organizations while they did their books. Many of the people doing it weren't accountants. All 8 kept a side spreadsheet or a separate accounting tool, and they all went around the same loop:
+I sat with 8 organizations while they did their books. Some of the people doing it were accountants, and many weren't. All 8 kept a side spreadsheet or a separate accounting tool, and they all went around the same loop:
 
 1. Record the payment in Keela as several payments.
 2. Track the real split in Excel.
@@ -92,7 +92,7 @@ The first decision was to move the task out of a pop-up and onto a full page. I 
 
 What shipped is three steps, one decision per screen, so a first-timer always knows what is being asked. Each one answers something I watched happen.
 
-<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>What I saw</th><th>What shipped</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="What I saw"><b>One payment, three records.</b> A gala ticket that was part seat, part gift was logged as separate payments.</td><td data-label="What shipped"><b>Step one: split by type.</b> Donation, in-kind gift and value received sit in one record. A payment with one part stays quick, because the first split starts at the full amount.</td></tr><tr><td><span class="n">2</span></td><td data-label="What I saw"><b>The side spreadsheet.</b> All 8 tracked the split somewhere else, and errors showed up at report time.</td><td data-label="What shipped"><b>A total that checks itself.</b> A bar under the total says how much is still to place, and the payment can't move on until it adds up.</td></tr><tr><td><span class="n">3</span></td><td data-label="What I saw"><b>Reports that drifted.</b> One deposit had to be matched to three records by hand.</td><td data-label="What shipped"><b>Step two: where each part belongs.</b> Every part gets its own campaign and impact area, so reports stay right.</td></tr><tr><td><span class="n">4</span></td><td data-label="What I saw"><b>Receipts fixed afterwards.</b> Staff went back into Keela to correct them.</td><td data-label="What shipped"><b>Step three: the receipt, previewed.</b> Choose the receipt option and see the receipt under that country's rules before saving.</td></tr></tbody></table></div>
+<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>What I saw</th><th>What shipped</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="What I saw"><b>One payment, three records.</b> A gala ticket that was part seat, part gift was logged as separate payments.</td><td data-label="What shipped"><b>Step one: split by type.</b> Donation, in-kind gift and value received sit in one record. A payment with one part stays quick, because the first split starts at the full amount.</td></tr><tr><td><span class="n">2</span></td><td data-label="What I saw"><b>Categorizing by hand.</b> Every transaction started blank.</td><td data-label="What shipped"><b>Smart defaults, human override.</b> A suggested category from donor history, amount and fund, accepted in one click.</td></tr><tr><td><span class="n">3</span></td><td data-label="What I saw"><b>The side spreadsheet.</b> All 8 tracked the split somewhere else, and errors showed up at report time.</td><td data-label="What shipped"><b>A total that checks itself.</b> A bar under the total says how much is still to place, and the payment can't move on until it adds up.</td></tr><tr><td><span class="n">4</span></td><td data-label="What I saw"><b>Reports that drifted.</b> One deposit had to be matched to three records by hand.</td><td data-label="What shipped"><b>Step two: where each part belongs.</b> Every part gets its own campaign and impact area, so reports stay right.</td></tr><tr><td><span class="n">5</span></td><td data-label="What I saw"><b>Receipts fixed afterwards.</b> Staff went back into Keela to correct them.</td><td data-label="What shipped"><b>Step three: the receipt, previewed.</b> Choose the receipt option and see the receipt under that country's rules before saving.</td></tr></tbody></table></div>
 
 The three steps have a cost. The campaign is chosen a step away from the split it belongs to, and the receipt only shows at the end.
 
@@ -119,7 +119,7 @@ In the first month after launch, support tickets about categorizing payments fel
 
 Read those numbers with care. This is a before and after over one month. We had too few organizations to split into a fair test, so there was no control group. Churn is read year over year, so I don't claim a churn result.
 
-I added three pieces to the design system for this work: the split row, the bar under the total and the step layout. Teams on Aplos and the other products in the suite picked them up afterwards.
+I added three pieces to the design system for this work: the split row, the bar under the total and the step layout. Teams on Aplos and the other products in the suite picked them up afterwards. Suggested categories became a platform rule I later wrote into Orchid's guidelines.
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-6.jpg" alt="Design review over video call: walking the product and engineering team through the split-transaction flow, with the redesign mockups around it" />
