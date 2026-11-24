@@ -10,7 +10,7 @@ import TailoredPage from "@/components/tailored/TailoredPage";
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Plooto" },
   description:
-    "A short path through Allen Kang's work: split transactions redesigned with accountants, an A/B test that took fee opt-in from 75% to 92%, and one design system for three merged products.",
+    "A short path through Allen Kang's work: split transactions redesigned with the people who do the books at nonprofits, an A/B test that took fee opt-in from 75% to 92%, and one design system for three merged products.",
   robots: { index: false, follow: false },
 };
 
@@ -25,8 +25,8 @@ export default function PlootoPage() {
       company="Plooto"
       style={BRAND}
       className={`themed theme-plooto ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I redesigned split transactions for accountants<span className="sig-tone"> and cut categorization tickets by 70%.</span></>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on payments and finance tools: split transactions, checkout fees, and one design system for three merged products. I learn the rules from the accountants who live with them, and I build working prototypes with AI coding tools when a mock can&rsquo;t settle it.</>}
+      headline={<>I redesigned split transactions<span className="sig-tone"> and cut categorization tickets by 70%.</span></>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on payments and finance tools: split transactions, checkout fees, and one design system for three merged products. I learn the rules from the people who do the books, some of them accountants, and I build working prototypes with AI coding tools when a mock can&rsquo;t settle it.</>}
       hero={<><BillRun /></>}
       caption={<>One bill on its way out, sketched from the outside. Step through it.</>}
       cases={["tw", "fe", "or", "ak", "au", "ar"]}

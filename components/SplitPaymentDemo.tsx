@@ -74,7 +74,7 @@ export default function SplitPaymentDemo() {
                 mode === m ? "bg-foreground text-background" : "text-muted hover:text-foreground"
               }`}
             >
-              {m === "before" ? "Before the redesign" : "After the redesign"}
+              {m === "before" ? "Before the redesign" : "Split by purpose"}
             </button>
           ))}
         </div>
