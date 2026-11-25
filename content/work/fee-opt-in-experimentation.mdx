@@ -60,6 +60,8 @@ I built interactive prototypes in **Cursor** and **MagicPatterns** where PMs and
 
 I designed three variants grounded in defaults, anchoring and soft-decline (a slider, toggle buttons and a segmented dropdown) and tested them against the existing control in Pendo. Each was built production-ready, so the winner could ship platform-wide the day the test closed.
 
+The test had one number to move and two not to break. Fee opt-in was the measure. Conversion and average gift size were the guardrails: a variant that raised opt-in by costing donations would have lost.
+
 <div class="phase after">The variants</div>
 
 <figure class="wide">
@@ -84,7 +86,9 @@ The other two lost. Buttons and the dropdown both beat the old box but finished 
   <figcaption>The winning Slider variant cleared the 90% benchmark, without trading away conversion or average gift size.</figcaption>
 </figure>
 
-## Looking back | What I'd test next
+## Looking back | No stop rule, and mobile next
+
+We didn't write a stop rule before the test: the point at which we'd end it early if a guardrail dropped. Nothing went wrong, so it never came up, but that was luck. I'd set one before launch now.
 
 Next is mobile, where **60%+ of donations happen** and nested scrolling hides the fee-and-total review.
 

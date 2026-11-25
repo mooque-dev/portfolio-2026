@@ -3,11 +3,11 @@ import Image from "next/image";
 import type { ProjectSummary } from "@/lib/types";
 import TryTag from "@/components/TryTag";
 
-// Edge to edge, no cards: the work itself is the page. Each tile is a cover
+// The work as one framed wall, on the page's own edges. Each tile is a cover
 // at its own colour; the title shows on hover or focus, and always on touch.
 export default function WorkWall({ projects }: { projects: ProjectSummary[] }) {
   return (
-    <ul className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense" aria-label="Work">
+    <ul className="grid grid-cols-2 md:grid-cols-4 grid-flow-dense overflow-hidden rounded-md ring-1 ring-inset ring-black/[0.07] dark:ring-white/10" aria-label="Work">
       {projects.map((p, i) => (
         <li key={p.slug} className={i % 5 === 0 ? "col-span-2 row-span-2" : ""}>
           <Link

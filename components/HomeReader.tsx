@@ -13,6 +13,7 @@ import OffClock from "@/components/OffClock";
 import CurtainCall from "@/components/CurtainCall";
 import AudienceIntro from "@/components/AudienceIntro";
 import WorkWall from "@/components/WorkWall";
+import CaseRow, { hrefOf } from "@/components/CaseRow";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -37,59 +38,6 @@ const HACKATHON = { slug: "goldito", event: "Nebius × NVIDIA Global AI Hackatho
 // case study's `order` number, so keep the two in step when either changes.
 const pick = (all: ProjectSummary[], slugs: string[]) =>
   slugs.map((slug) => all.find((p) => p.slug === slug)).filter((p): p is ProjectSummary => Boolean(p));
-
-const hrefOf = (p: ProjectSummary) => p.href ?? `/work/${p.slug}`;
-
-function CaseRow({ project }: { project: ProjectSummary }) {
-  return (
-    <li>
-      <Link
-        href={hrefOf(project)}
-        className="group grid gap-5 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-center py-7 border-b border-border"
-      >
-        <div
-          className="relative aspect-[3/2] overflow-hidden rounded-md ring-1 ring-inset ring-black/[0.07] dark:ring-white/10"
-          style={{ backgroundColor: project.coverColor }}
-        >
-          {project.coverImage && (
-            <Image
-              src={project.coverImage}
-              alt=""
-              fill
-              sizes="(max-width: 768px) 100vw, 420px"
-              className={`object-contain object-center transition-transform duration-500 ${
-                project.wip ? "blur-lg brightness-75" : "group-hover:scale-[1.03]"
-              }`}
-            />
-          )}
-          {project.wip && (
-            <span className="absolute top-2.5 right-2.5 rounded-full bg-black/45 px-2.5 py-1 microlabel text-white/85">
-              Confidential visuals
-            </span>
-          )}
-          {project.tryTag && <TryTag kind={project.tryTag} className="absolute left-2.5 top-2.5 z-10" />}
-        </div>
-        <div className="min-w-0">
-          <p className="microlabel text-muted">
-            {[project.company, project.role, project.timeline].filter(Boolean).join(" · ")}
-          </p>
-          <h3 className="mt-2 font-semibold text-xl md:text-[22px] leading-snug group-hover:opacity-70 transition-opacity text-balance">
-            {project.title}
-          </h3>
-          <p className="mt-2 text-[14.5px] leading-relaxed text-muted">
-            {project.subtitle}
-          </p>
-          {project.featuredStat && (
-            <p className="mt-4 flex items-baseline gap-3">
-              <span className="text-2xl font-semibold tracking-tight">{project.featuredStat}</span>
-              <span className="text-[13px] text-muted">{project.featuredStatLabel}</span>
-            </p>
-          )}
-        </div>
-      </Link>
-    </li>
-  );
-}
 
 function BuiltCard({ project }: { project: ProjectSummary }) {
   return (
@@ -153,8 +101,8 @@ export default function HomeReader({ allProjects }: Props) {
         </FadeIn>
       </div>
 
-      {/* Full bleed, outside the text column: the work as one wall. */}
-      <div className="mt-20 md:mt-28">
+      {/* The work as one wall, on the same edges as everything else. */}
+      <div className="mt-20 md:mt-28 max-w-6xl mx-auto px-6">
         <WorkWall projects={[...selected, ...dataviz, ...built]} />
       </div>
 

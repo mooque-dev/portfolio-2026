@@ -18,7 +18,7 @@ order: 4
 company: "Aplos (now Velora)"
 featuredStat: "12"
 featuredStatLabel: "finance managers interviewed, which reframed a data sync as a trust problem"
-tldr: [["Problem","The first integration between two newly merged products, briefed as a simple data sync."],["Decision","I treated it as a trust problem: customers set up the sync themselves and see every data mapping before anything moves."],["Outcome","The review format and integration framework became the template for later cross-product work."],["Principle","Finance teams who had been burned by silent syncs needed to see where their data would land before it moved."]]
+tldr: [["Problem","The first integration between two newly merged products, briefed as a simple data sync."],["Decision","I treated it as a trust problem: customers set up the sync themselves and see every data mapping before anything moves."],["Outcome","The review format and integration framework became the template for later cross-product work. No success number was set before launch."],["Principle","Finance teams who had been burned by silent syncs needed to see where their data would land before it moved."]]
 glance: [["12", "nonprofit finance managers interviewed"], ["1st", "feature the merged companies shipped together"], ["2", "engineering teams brought into one design review"]]
 ---
 
@@ -34,11 +34,13 @@ The work also had to fit two engineering teams with different cadences and conve
 
 ## The call | Customers set up the sync and see every mapping first
 
-I designed the setup so customers configure the sync themselves, and every data mapping is visible before anything moves. Most integrations hide this behind defaults. These users needed to see it, even if an automatic sync would have shipped faster.
+I designed the setup so customers configure the sync themselves, and every data mapping is visible before anything moves. Most integrations hide this behind defaults.
 
-<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>The manual workaround</th><th>The integration</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="The manual workaround"><b>Spreadsheets, CSV exports and duplicate entry,</b> because teams didn't trust what they couldn't see.</td><td data-label="The integration"><b>Visible data mapping.</b> Every Keela field shown against the Aplos account it lands in, and editable.</td></tr><tr><td><span class="n">2</span></td><td data-label="The manual workaround"><b>All or nothing.</b> Either map everything by hand or trust a black box.</td><td data-label="The integration"><b>Progressive configuration.</b> Defaults that cover 80% of cases, with one click to go deeper.</td></tr><tr><td><span class="n">3</span></td><td data-label="The manual workaround"><b>"Did my data actually sync?"</b> No way to tell without checking by hand.</td><td data-label="The integration"><b>A sync status view.</b> Last sync time, records processed, and the exceptions that need attention.</td></tr></tbody></table></div>
+The faster option was to map everything automatically. I didn't build it. Each default mapping is a guess about where a field belongs, and in accounting a silent wrong guess is the worst outcome. So defaults cover only the clear cases, every mapping is shown and editable, and an exceptions list surfaces anything that went wrong. An integration nobody trusts is an integration nobody turns on, and people who have been burned keep the spreadsheet.
 
-Design was maybe 40% of the job. I ran the first joint design reviews between the two engineering teams, built the first shared integration components, and presented the integration framework to the executive team.
+<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>The manual workaround</th><th>The integration</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="The manual workaround"><b>Spreadsheets, CSV exports and duplicate entry,</b> because teams didn't trust what they couldn't see.</td><td data-label="The integration"><b>Visible data mapping.</b> Every Keela field shown against the Aplos account it lands in, and editable.</td></tr><tr><td><span class="n">2</span></td><td data-label="The manual workaround"><b>All or nothing.</b> Either map everything by hand or trust a black box.</td><td data-label="The integration"><b>Progressive configuration.</b> Defaults that cover about 80% of cases, with one click to go deeper.</td></tr><tr><td><span class="n">3</span></td><td data-label="The manual workaround"><b>"Did my data actually sync?"</b> No way to tell without checking by hand.</td><td data-label="The integration"><b>A sync status view.</b> Last sync time, records processed, and the exceptions that need attention.</td></tr></tbody></table></div>
+
+The work between the teams mattered as much as the screens. I ran the first joint design reviews between the two engineering teams, built the first shared integration components, and presented the integration framework to the executive team.
 
 <div class="shots n2">
 
@@ -54,9 +56,11 @@ Design was maybe 40% of the job. I ran the first joint design reviews between th
 
 </div>
 
-## What changed | The blueprint for later cross-product work
+## What changed | The template for later cross-product work
 
-It was the first feature the merged companies shipped together, and it became the blueprint for every cross-product integration after it. The joint design reviews, the shared components and the integration framework all became the template for later cross-product work, and the components seeded the unified design system.
+It was the first feature the merged companies shipped together. The joint design reviews, the shared components and the integration framework all became the template for later cross-product work, and the components seeded the unified design system.
+
+I can't give an adoption number for it. We didn't set a success number before launch, so what I can show is what shipped and what it started.
 
 The integration also became one of the first pieces of ARK, the connected suite of Keela, Raisely and Aplos.
 
@@ -70,6 +74,10 @@ The integration also became one of the first pieces of ARK, the connected suite 
   <figcaption>Raisely × Keela partnership banners: product-led growth assets for the connected suite</figcaption>
 </figure>
 
-## Looking back | What I took from it
+## Looking back | No success number, and what I'd measure now
 
-Finance teams who have been burned before need to see their data before it moves.
+We didn't set a success number up front, and that is the gap in this story. If I ran it again, I'd first count how many connected organizations still export CSVs or enter data twice, and track that down after launch. I'd also watch the sync success rate and the time to a first successful sync.
+
+The number that must not rise is records posted to the wrong account. If it did, I'd pause the automatic sync and go back to review before posting.
+
+What I keep from it: finance teams who have been burned before need to see their data before it moves.
