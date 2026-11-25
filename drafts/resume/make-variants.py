@@ -21,6 +21,8 @@ SUMMARY = ("Senior product designer with 8 years in product design, the last 5 i
 APLOS = {
     "own": "Owned end-to-end design for payments and transactions across Aplos, Keela and Raisely as the three products merged into one suite.",
     "split": "Redesigned split transactions so one payment can be a donation, a gift and a ticket at once, cutting categorization tickets by 70% in the first month.",
+    # split_tax is the old wording, kept only so résumés already sent or closed
+    # (Jeppesen, Clio Insights) rebuild as they were. New roles use split_books.
     "split_tax": "Learned tax rules in three countries from accountants, then redesigned split transactions, cutting categorization tickets by 70%.",
     "split_books": "Sat with 8 nonprofits doing their books, then redesigned split transactions under three countries&rsquo; tax rules, cutting categorization tickets by 70%.",
     "fee": "Ran an A/B test on the donation fee flow that raised fee opt-in from 75% to 92%, with conversion steady.",
