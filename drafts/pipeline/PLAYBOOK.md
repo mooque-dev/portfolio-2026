@@ -228,6 +228,13 @@ show work as picture cards by default (`work="cards"` in the frame, covers in
   by a forty-person company for ten months; mentored one designer at Keela
   and two at Aplos. He has not managed a team, hired designers, or worked
   at an agency.
+- Transaction Workflows, confirmed by Allen on Nov 24: the research was with
+  8 organizations doing their books, some of them accountants. Say "the
+  people who do the books at nonprofits", never "8 accountants" or "learned
+  from accountants". Suggested categories shipped. Batch editing did not
+  ship, so never list it. The "death by checkbox" quote and continuous
+  validation are unconfirmed: leave them out. 340+ to 70 components is
+  confirmed.
 - Never say he writes code. He builds with AI coding tools: he directs the
   work, reviews it and tests it. On a résumé that reads "Prototyping in code
   with AI tools"; "I prototype in code" on a page is fine next to a line
