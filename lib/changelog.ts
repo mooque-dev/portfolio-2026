@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-25",
+    title: "One way to show the work, and plainer case studies",
+    tags: ["design", "content"],
+    what: "The Work page now lists projects the same way the home page does: the picture, where and when, the title, one line and the number. The home page drops the wall of covers, since the same projects are listed right below it. Case study sections open on their headline alone, without the big number and small label above it, and bold is kept for results. Aplos × Keela says which faster option the team turned down and that no success number was set, Fee Opt-In names its guardrails and the stop rule it lacked, Automation says what the extra research time cost, and Orchid mentions the nine design systems it started from.",
+    why: "The home page and the pages behind it had started to look like two different sites, and the numbered, labelled sections read as a template. The stories are stronger when they say what a decision cost.",
+  },
+  {
     date: "2026-11-24",
     title: "Transaction Workflows, told from what I saw",
     tags: ["content", "fix"],

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getAllProjects, tryTagFor } from "@/lib/content";
 import Link from "next/link";
-import { ProjectGrid } from "@/components/WorkFilter";
+import CaseRow from "@/components/CaseRow";
 import Arrow from "@/components/Arrow";
 import FadeIn from "@/components/FadeIn";
 
@@ -28,6 +28,8 @@ export default async function WorkPage() {
     wip: p.frontmatter.wip,
     featuredStat: p.frontmatter.featuredStat,
     featuredStatLabel: p.frontmatter.featuredStatLabel,
+    company: p.frontmatter.company,
+    href: p.frontmatter.href,
     tryTag: tryTagFor(p.frontmatter),
   }));
 
@@ -48,9 +50,11 @@ export default async function WorkPage() {
           </div>
         </FadeIn>
 
-        <div className="mt-12">
-          <ProjectGrid projects={projects} />
-        </div>
+        <ol className="mt-6">
+          {projects.map((p) => (
+            <CaseRow key={p.slug} project={p} heading="h2" />
+          ))}
+        </ol>
       </div>
     </section>
   );

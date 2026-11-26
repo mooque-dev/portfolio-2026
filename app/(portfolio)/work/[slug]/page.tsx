@@ -72,7 +72,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
   ];
   const navItems = [
     { id: "overview", label: "Overview" },
-    ...chapters.map((c) => ({ id: c.id, label: `${c.num} ${c.kicker ?? c.title.replace(/<[^>]+>/g, "")}` })),
+    ...chapters.map((c) => ({ id: c.id, label: c.kicker ?? c.title.replace(/<[^>]+>/g, "") })),
   ];
   const meta: [string, ReactNode][] = [
     ["Role", frontmatter.role],
@@ -225,19 +225,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
         {chapters.map((c) => (
           <section key={c.id} id={c.id} className="pt-20 md:pt-24 scroll-mt-32">
-            {/* Numeral on its own line, so number, kicker, title and body share one left edge. */}
-            <div className="flex flex-col items-start gap-2 max-w-[980px]">
-              <span aria-hidden className="mb-1 text-[42px] md:text-[56px] leading-none font-bold text-[var(--seal)]">
-                {c.num}
-              </span>
-              {c.kicker && (
-                <span className="text-[13px] font-bold text-muted">{c.kicker}</span>
-              )}
-              <h2
-                className="font-serif text-[28px] md:text-[38px] leading-[1.15] font-semibold text-balance"
-                dangerouslySetInnerHTML={{ __html: c.title }}
-              />
-            </div>
+            {/* Just the headline. No numeral and no label above it: the headline
+                says what the section is, and the bar at the top does the wayfinding. */}
+            <h2
+              className="max-w-[980px] font-serif text-[28px] md:text-[38px] leading-[1.15] font-semibold text-balance"
+              dangerouslySetInnerHTML={{ __html: c.title }}
+            />
             <div className={`case-body mt-6 ${blur}`} dangerouslySetInnerHTML={{ __html: c.html }} />
           </section>
         ))}

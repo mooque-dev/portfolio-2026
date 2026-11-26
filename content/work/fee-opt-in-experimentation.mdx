@@ -29,7 +29,7 @@ The screens on this page are white-labelled recreations for a fictional charity.
 
 ## The moment | 82%, with a leak in the Edit flow
 
-A redesigned fee box on Raisely had just lifted opt-in from **75% to 82%**, near the **90% benchmark**. But the **12–20% of donors who clicked "Edit"** mostly dragged the fee to the minimum or opted out. The work left to do was **decision design**: the few seconds after a donor decides to change something.
+A redesigned fee box on Raisely had just lifted opt-in from **75% to 82%**, near the 90% benchmark. But the 12–20% of donors who clicked "Edit" mostly dragged the fee to the minimum or opted out. The work left to do was decision design: the few seconds after a donor decides to change something.
 
 <figure>
   <img src="/case-studies/fee-opt-in/01-before-fallback.jpg" alt="A phone checkout with the old Edit box open, empty, beside three problems and the 12 to 20 percent of donors who click Edit" />
@@ -38,13 +38,13 @@ A redesigned fee box on Raisely had just lifted opt-in from **75% to 82%**, near
 
 ## What I found | Where donors changed their mind
 
-The easy move was to ship the 82%. I argued to pause: the edit box dropped donors into an older fallback that **nudged them toward the smallest contribution**. The new question was how to make the easiest path a fair one that never felt coercive to donors.
+The easy move was to ship the 82%. I argued to pause: the edit box dropped donors into an older fallback that nudged them toward the smallest contribution. The new question was how to make the easiest path a fair one that never felt coercive to donors.
 
 The pushback on pausing was about the timeline. What got agreement was the bar: we held the fee box to a 90% benchmark set against other giving platforms. For scale, GoFundMe Pro says 75 to 85% of donors cover fees when the option is on by default.
 
 > Introducing a modernized fallback control when a donor clicks "Edit" will increase the average fee opt-in value while maintaining or improving the existing conversion rate.
 
-I built interactive prototypes in **Cursor** and **MagicPatterns** where PMs and engineers could change thresholds, defaults and fallback logic and watch the outcome. It cut alignment time and surfaced constraints before high-fidelity design. You can still [try the version 1 prototype](https://project-pleasant-dragonfly-294.magicpatterns.app) and [the future-state concept](https://project-inspiring-cove-378.magicpatterns.app).
+I built interactive prototypes in Cursor and MagicPatterns where PMs and engineers could change thresholds, defaults and fallback logic and watch the outcome. It cut alignment time and surfaced constraints before high-fidelity design. You can still [try the version 1 prototype](https://project-pleasant-dragonfly-294.magicpatterns.app) and [the future-state concept](https://project-inspiring-cove-378.magicpatterns.app).
 
 <figure class="wide">
   <img src="/case-studies/fee-opt-in/03-magicpatterns-prototype.jpg" alt="The MagicPatterns prototype: a checkout modal over a campaign photo, with a design controls panel for layout, colours, fee visibility and editor style" />
@@ -59,6 +59,8 @@ I built interactive prototypes in **Cursor** and **MagicPatterns** where PMs and
 ## The call | Three ways to change the fee, tested against the control
 
 I designed three variants grounded in defaults, anchoring and soft-decline (a slider, toggle buttons and a segmented dropdown) and tested them against the existing control in Pendo. Each was built production-ready, so the winner could ship platform-wide the day the test closed.
+
+The test had one number to move and two not to break. Fee opt-in was the measure. Conversion and average gift size were the guardrails.
 
 <div class="phase after">The variants</div>
 
@@ -75,7 +77,7 @@ I designed three variants grounded in defaults, anchoring and soft-decline (a sl
 
 ## What changed | 92%, shipped as the platform-wide fallback
 
-The **Slider** lifted fee opt-in from **75% to 92%**, past the 90% benchmark, while conversion and average gift size held steady. It shipped as the fallback across the platform.
+The Slider lifted fee opt-in from **75% to 92%**, past the 90% benchmark, while conversion and average gift size held steady. It shipped as the fallback across the platform.
 
 The other two lost. Buttons and the dropdown both beat the old box but finished below the slider, and the dropdown was clearly the worst. My read: set amounts felt like being told what to pay, and the dropdown hid the choice behind a click. Donors covered the fee most when they could see the choice and make it themselves.
 
@@ -84,9 +86,11 @@ The other two lost. Buttons and the dropdown both beat the old box but finished 
   <figcaption>The winning Slider variant cleared the 90% benchmark, without trading away conversion or average gift size.</figcaption>
 </figure>
 
-## Looking back | What I'd test next
+## Looking back | No stop rule, and mobile next
 
-Next is mobile, where **60%+ of donations happen** and nested scrolling hides the fee-and-total review.
+We didn't write a stop rule before the test. I'd set one before launch now.
+
+Next is mobile, where 60%+ of donations happen and nested scrolling hides the fee-and-total review.
 
 <figure>
   <img src="/case-studies/fee-opt-in/06-mobile-next.jpg" alt="Two phones: today, a form that scrolls inside the page with Donate below the fold; proposed, one scroll with the fee and Donate in the footer" />
