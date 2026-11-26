@@ -211,6 +211,11 @@ picture of the work; never invent a visual of a real product.
 | What changed | The result | The shipped work, with the number |
 | Looking back | What I'd do differently | None needed |
 
+The label before the bar is for the sticky bar at the top only. The page
+shows the headline alone: no numeral and no label above it (Allen, Nov 25:
+they read as AI-made). The first sentence under a headline must not repeat
+the headline.
+
 Orchid (`content/work/orchid-design-system.mdx`) is the model. Tailored pages
 show work as picture cards by default (`work="cards"` in the frame, covers in
 `COVERS` in `lib/tailored.ts`); the number sits under the picture.
