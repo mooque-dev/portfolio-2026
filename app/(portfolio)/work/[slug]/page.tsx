@@ -207,10 +207,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
         )}
 
         {frontmatter.wip && (
-          <p className="mt-8 border-l-2 border-border pl-4 text-sm text-muted leading-relaxed max-w-[720px]">
-            The product visuals here are intentionally blurred. This work is
+          <p className="mt-8 flex gap-3 rounded-lg border border-border bg-[var(--surface)] px-4 py-3 text-sm text-muted leading-relaxed max-w-[720px]">
+            <svg aria-hidden viewBox="0 0 16 16" className="mt-[3px] h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.5" /><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" /></svg>
+            <span>The product visuals here are intentionally blurred. This work is
             confidential. The aggregate results are shown as reported, and
-            I&apos;m glad to walk through the real screens in conversation.
+            I&apos;m glad to walk through the real screens in conversation.</span>
           </p>
         )}
       </header>

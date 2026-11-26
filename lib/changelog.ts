@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-26",
+    title: "Quotes without the stripe, and plain project names",
+    tags: ["design", "content"],
+    what: "Quotes in case studies, the colleague quotes on About and the line that opens the Vault lose the coloured stripe down their left side. The two large statements on the home page lose the small label above them, and the four points under the first lose the line on top of each. Five case studies now go by their plain names: Aplos × Keela, Automation for Nonprofits, Transaction Workflows, Orchid design system and Fee Opt-In. The one-line description under each name says the rest.",
+    why: "I wrote down the rules this site is designed by, then held the site to them. A stripe beside a quote, a label over a headline and a name followed by a dramatic phrase are all habits of a template.",
+  },
+  {
     date: "2026-11-25",
     title: "One way to show the work, and plainer case studies",
     tags: ["design", "content"],

@@ -17,6 +17,10 @@ seams.
   `what` (what shipped), and `why` (the rationale). Write it in Allen's voice,
   like the existing entries. Internal-only changes (docs, tests, refactors a
   visitor never sees) update `docs/STATUS.md` instead. Trivial chores skip both.
+- **Design rules live in `DESIGN.md`** at the repo root: layout, type, colour,
+  components, case studies, writing, and the list of tells that never ship.
+  Read it before any visual or copy change. If a page and a rule disagree,
+  the page is wrong.
 - **No em-dashes.** Anywhere: copy, code comments, commit messages, changelog
   entries. Use a comma, colon, period, or parentheses instead.
 - **Voice.** Plain, human, feature-first. No buzzwords ("leverage", "seamless",

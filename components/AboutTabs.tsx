@@ -117,7 +117,7 @@ export default function AboutTabs() {
               </h2>
               <div className="flex flex-col gap-8 max-w-3xl">
                 {QUOTES.map((t) => (
-                  <figure key={t.who} className="m-0 border-l-2 border-border pl-6">
+                  <figure key={t.who} className="m-0">
                     <blockquote className="m-0 text-lg md:text-xl leading-snug">
                       &ldquo;{t.q}&rdquo;
                     </blockquote>

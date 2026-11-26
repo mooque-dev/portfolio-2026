@@ -162,13 +162,12 @@ export default function HomeReader({ allProjects }: Props) {
 
         <FadeIn delay={0.16}>
           <div className="mt-20">
-            <h2 id="two-worlds" className="microlabel text-muted scroll-mt-28">Between two worlds</h2>
-            <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+            <h2 id="two-worlds" className="scroll-mt-28 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m a builder and a translator. Most of my work happens where two sides don&rsquo;t share a language yet.
-            </p>
+            </h2>
             <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
               {WORLDS.map((w) => (
-                <div key={w.a} className="border-t border-border pt-5 min-w-0">
+                <div key={w.a} className="min-w-0">
                   <p className="text-[15px] font-semibold">
                     {w.a} <span className="text-muted font-normal" aria-hidden>&harr;</span>
                     <span className="sr-only"> and </span> {w.b}
@@ -252,10 +251,9 @@ export default function HomeReader({ allProjects }: Props) {
 
         <FadeIn delay={0.2}>
           <div className="mt-20">
-            <h2 className="microlabel text-muted">Off the clock</h2>
-            <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+            <h2 className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m an optimist. Optimism is a design tool: it&rsquo;s how you get people to believe a better version is possible, then go build it.
-            </p>
+            </h2>
             <OffClock items={OFF_CLOCK} />
             <Link href="/about" className="mt-6 inline-block text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity">
               More about me <Arrow />
