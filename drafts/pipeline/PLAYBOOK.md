@@ -12,6 +12,9 @@ leads with what he needs to do.
 
 - Portfolio repo: `/Users/mooque/Claude/mooque-2026`, working branch `v2`.
   Never stage `eslint.config.mjs` or `design/`; they are someone else's work.
+- Design rules: `DESIGN.md` at the repo root. Every page and tailored page
+  is held to it, including the list of tells. Case study titles are the
+  plain name ("Orchid design system"), never "Name: A Dramatic Phrase".
 - Live mirror: `https://mooque-dev.github.io/<slug>/`, published with
   `drafts/pipeline/publish-mirror.sh`. It keeps the mirror repo's `jungmin/` and `study/`
   folder.
