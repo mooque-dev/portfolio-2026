@@ -12,7 +12,6 @@ import Arrow from "@/components/Arrow";
 import OffClock from "@/components/OffClock";
 import CurtainCall from "@/components/CurtainCall";
 import AudienceIntro from "@/components/AudienceIntro";
-import WorkWall from "@/components/WorkWall";
 import CaseRow, { hrefOf } from "@/components/CaseRow";
 
 interface Props {
@@ -101,14 +100,9 @@ export default function HomeReader({ allProjects }: Props) {
         </FadeIn>
       </div>
 
-      {/* The work as one wall, on the same edges as everything else. */}
-      <div className="mt-20 md:mt-28 max-w-6xl mx-auto px-6">
-        <WorkWall projects={[...selected, ...dataviz, ...built]} />
-      </div>
-
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn delay={0.08}>
-          <div className="mt-12 grid gap-8 border-t border-border pt-10 md:grid-cols-[300px_minmax(0,1fr)] md:items-center md:gap-14">
+          <div className="mt-16 md:mt-24 grid gap-8 border-t border-border pt-10 md:grid-cols-[300px_minmax(0,1fr)] md:items-center md:gap-14">
             <ResultsReceipt lines={RESULTS} total={RESULTS_TOTAL} />
             <figure className="m-0 min-w-0">
               <blockquote className="m-0 text-xl md:text-2xl leading-snug font-medium tracking-[-0.01em] text-balance">
