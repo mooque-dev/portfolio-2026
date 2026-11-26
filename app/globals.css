@@ -309,8 +309,6 @@ h1.font-serif, h2.font-serif, h3.font-serif {
 }
 
 .prose blockquote {
-  border-left: 3px solid var(--foreground);
-  padding-left: 1.5rem;
   margin: 2rem 0;
   font-style: italic;
   color: var(--muted);
@@ -546,8 +544,6 @@ html {
 }
 .case-body blockquote {
   margin: 2rem 0;
-  padding-left: 1.25rem;
-  border-left: 3px solid var(--seal);
   font-size: clamp(1.125rem, 2vw, 1.3rem);
   font-weight: 500;
   line-height: 1.5;

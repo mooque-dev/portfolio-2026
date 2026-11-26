@@ -31,7 +31,7 @@ export default async function VaultPage() {
               Vault
             </h1>
             {/* Epigraph: to be replaced with the scanned handwritten note */}
-            <blockquote className="mt-6 border-l-2 border-border pl-4 max-w-xl">
+            <blockquote className="mt-6 max-w-xl">
               <p className="text-lg text-muted leading-relaxed italic">
                 &ldquo;You are a detective. Your mission is to document and
                 observe the world around you as if you&apos;ve never seen it
