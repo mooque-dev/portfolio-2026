@@ -1,9 +1,9 @@
 ---
-title: "Toronto Yuwol: The Tools Behind a Ten-Month Musical"
+title: "Toronto Yuwol"
 subtitle: "Internal tooling for a bilingual musical company of forty: scheduling and attendance, a Korean-English script reader used daily, and a bill splitter for a company that shares its costs."
 category: "Internal Tool"
 type: "experiment"
-role: "Designer & developer"
+role: "Design & build"
 timeline: "2025 to present"
 team: "Solo, with Claude Code"
 tools:
@@ -17,47 +17,58 @@ featured: true
 order: 15
 liveUrl: "https://torontoyuwol.vercel.app"
 links: [["Script reader demo", "https://torontoyuwol-brown.vercel.app/demo.html"]]
-tldr: [["Problem","Forty volunteers, two languages and months of rehearsals, coordinated through a spreadsheet nobody opened and a chat nobody could search."],["Decision","I built one small tool per named annoyance, and iterated every week on what people told me in the room."],["Outcome","Scheduling, a bilingual script reader and a bill splitter that the company used through a run that sold 350 tickets."],["Principle","Earn the workflow, don't decree it."]]
+tldr: [["Problem","Forty volunteers, two languages and months of rehearsals, coordinated through a spreadsheet nobody opened and a chat nobody could search."],["Decision","I built one small tool per named annoyance, and iterated every week on what people told me in the room."],["Outcome","Scheduling, a bilingual script reader and a bill splitter that the company used through a run that sold 350 tickets."],["Principle","No tool was mandated. People used each one because it fixed a problem they had named."]]
 glance: [["40", "people across cast, production and promotion"], ["350", "tickets sold, August 2026"], ["2", "languages, Korean and English, in every tool"]]
 company: "Yuwol Productions"
 ---
 
-## Why | Why it exists
+## The moment | Forty volunteers, two languages, one group chat
 
-In 2025 I joined an amateur musical company, well outside my comfort zone, and
-found the operational chaos every volunteer group knows: months of rehearsals,
-forty people across cast, production, and promotion teams, two languages,
-and everything coordinated through group chat. The people were committed. The
-tools were a spreadsheet nobody opened and a chat nobody could search.
+In 2025 I joined an amateur musical company, well outside my comfort zone. It
+had months of rehearsals ahead, forty people across cast, production, and
+promotion teams, two languages, and everything coordinated through group chat.
 
-So I started building, one annoyance at a time.
+## What I found | A spreadsheet nobody opened and a chat nobody could search
 
-## Build | One tool became a suite
+I found the operational chaos every volunteer group knows. Everyone was
+committed, but the only tools were a spreadsheet nobody opened and a chat nobody
+could search. Who was coming to a practice lived in a thread. Rehearsing a
+translated show meant half the room worked from Korean and half from English.
+And forty people sharing costs is its own coordination problem.
+
+## The call | One small tool for each named annoyance
+
+I started building small tools, each for one annoyance. Adoption was never
+mandated.
 
 **Scheduling and attendance.** A shared calendar of practices and performances,
-with attendance tracked per date, so who's in the room is a glance instead of a
-thread. People pick their team and their language; the whole thing runs in
-Korean and English because the company does.
+with attendance tracked per date, so you can see who's in the room at a glance.
+People pick their team and their language; the whole thing runs in Korean and
+English because the company does.
 
-**A bilingual script reader.** Rehearsing a translated show means half the room
-works from Korean and half from English. The reader keeps both scripts in one
-place, used daily through the run, which quietly made it the most-loved thing I
-built for them. [Try the script reader demo](https://torontoyuwol-brown.vercel.app/demo.html).
+**A bilingual script reader.** The reader keeps the Korean and English scripts
+in one place. [Try the script reader demo](https://torontoyuwol-brown.vercel.app/demo.html).
 
-**Bill splitting.** Forty people sharing costs is its own coordination
-problem. A small app splits a bill and keeps the math out of the group chat.
+<figure>
+  <img src="/case-studies/torontoyuwol/script-reader.jpg" alt="The script reader demo in a dark theme: scene 1 of a sample script, The Moonlight Laundromat, with one character's lines highlighted, a search box for the script, and a My lines control in the corner" />
+  <figcaption>The script reader demo, on a sample script: one character's lines highlighted, a search box, and a My lines control</figcaption>
+</figure>
 
-The show went up in August 2026 and sold 350 tickets. Season two is underway,
-and so is the next round of tools.
+**Bill splitting.** A small app splits a bill and keeps the math out of the
+group chat.
 
-## Design | Designing for people who see you every week
+The people using these tools were non-technical, and I saw them every week. They
+told me directly what was broken, and I iterated weekly on that feedback. When
+the stage manager walked over to say the attendance view confused her, that
+told me more than an analytics dashboard would have.
 
-This is internal tooling in its purest form: a non-technical user base of real
-people I couldn't avoid, using the tools daily, telling me directly what was
-broken. I iterated weekly on that feedback. No analytics dashboard substitutes
-for the stage manager walking over to say the attendance view confused her.
+## What changed | Used through the run, and a show that sold 350 tickets
 
-Adoption was never mandated. It happened because each tool removed a specific,
-named annoyance, and because the people it served watched it get better every
-week. That's the whole playbook for internal tools, at any scale: earn the
-workflow, don't decree it.
+The show went up in August 2026 and sold 350 tickets. The script reader was used
+daily through the run, which made it the most-loved thing I built for them. The
+tools spread because each one removed a specific, named annoyance, and the people
+it served watched it get better every week.
+
+## Looking back | Season two
+
+Season two is underway, and so is the next round of tools.

@@ -56,7 +56,7 @@ const STATEMENT: StatementLine[] = [
     title: "Orchid design system",
     line: "Three teams onto one system, and the quality rules that kept it consistent.",
     value: "340+ → 70 components",
-    note: "merged into one library three teams use",
+    note: "merged into one library four engineering teams use",
     href: "/work/orchid-design-system",
   },
 ];

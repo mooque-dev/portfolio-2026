@@ -27,12 +27,12 @@ export default function ClioPage() {
       company="Clio"
       style={BRAND}
       className={`themed theme-clio ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I design the seams between products so people never notice them.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, most recently across three products merging into one suite, and I prototype in code when a mock can&rsquo;t answer the question.</>}
+      headline={<>Most recently I designed across three products merging into one suite.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on B2B software, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><MatterFile preset="platform" /></>}
       caption={<>Every entry links to the work behind it.</>}
       cases={["ak", "tw", "or", "au", "fe", "ar"]}
-      contact={<>I&rsquo;d like to help lawyers spend less time on software and more on their clients.</>}
+      contact={<>The Aplos and Keela sync is where I&rsquo;d start, if we talk.</>}
     />
   );
 }

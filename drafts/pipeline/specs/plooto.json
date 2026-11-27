@@ -1,0 +1,19 @@
+{
+  "company": "Plooto",
+  "object": "one made-up bill stepped through the three moments that decide trust in a payment: the approval, the catch before money moves, and the confirmation, each tied to the case where the same rule was used",
+  "desc": "A short path through Allen Kang's work: split transactions redesigned with accountants, an A/B test that took fee opt-in from 75% to 92%, and one design system for three merged products.",
+  "lede": "I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on payments and finance tools: split transactions, checkout fees, and one design system for three merged products. I learn the rules from the accountants who live with them, and I build working prototypes with AI coding tools when a mock can&rsquo;t settle it.",
+  "hero_import": "import BillRun from \"@/components/BillRun\";",
+  "hero_jsx": "<BillRun />",
+  "caption": "One bill on its way out, sketched from the outside. Step through it.",
+  "cases": [
+    "tw",
+    "fe",
+    "or",
+    "ak",
+    "au",
+    "ar"
+  ],
+  "h1": "I redesigned split transactions for accountants and cut categorization tickets by 70%.",
+  "contact": "If the bill above gets an approval wrong, I&rsquo;d like to hear how your customers really pay."
+}

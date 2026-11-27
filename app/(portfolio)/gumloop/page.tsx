@@ -10,7 +10,7 @@ import TailoredPage from "@/components/tailored/TailoredPage";
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Gumloop" },
   description:
-    "A short path through Allen Kang's work: a no-code workflow builder, prototypes in code, a design system, and things that already run.",
+    "A short path through Allen Kang's work: a no-code workflow builder, prototypes built with AI coding tools, a design system, and things that already run.",
   robots: { index: false, follow: false },
 };
 
@@ -26,12 +26,12 @@ export default function GumloopPage() {
       company="Gumloop"
       style={BRAND}
       className={`themed theme-gumloop ${fdisplay.variable} ${ftext.variable} ${fmono.variable}`}
-      headline={<>I design for experts whose job isn&rsquo;t software.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto, open to moving to Vancouver. Eight years designing, the last five on CRM and workflow tools, including a no-code automation builder built from zero. I prototype in code with Claude and Cursor when a mock can&rsquo;t answer the question.</>}
+      headline={<>I designed a no-code automation builder for nonprofits, from first interview to release.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on CRM and workflow tools, including a no-code automation builder built from zero. I prototype in code with Claude and Cursor when a mock can&rsquo;t answer the question.</>}
       hero={<><AgentFlow /></>}
       caption={<>Press Run. Every step opens the case behind it.</>}
       cases={["au", "ar", "or", "fe", "tw", "ak"]}
-      contact={<>I&rsquo;d like to help more teams hand their busywork to agents they built themselves.</>}
+      contact={<>Automation&rsquo;s research is the part I&rsquo;d most like to walk you through.</>}
     />
   );
 }

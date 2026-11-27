@@ -12,19 +12,19 @@ import Arrow from "@/components/Arrow";
 import OffClock from "@/components/OffClock";
 import CurtainCall from "@/components/CurtainCall";
 import AudienceIntro from "@/components/AudienceIntro";
-import WorkWall from "@/components/WorkWall";
+import CaseRow, { hrefOf } from "@/components/CaseRow";
 
 interface Props {
   allProjects: ProjectSummary[];
 }
 
-// Curated to mirror the résumé: the professional stories first, in the order
-// a reviewer would want them, then the work built end to end.
+// The professional stories first, led by the design system and Automation so
+// the home page reads broader than payments, then the work built end to end.
 const SELECTED = [
-  "aplos-keela-integration",
-  "transaction-workflows",
   "orchid-design-system",
   "automation-nonprofits",
+  "transaction-workflows",
+  "aplos-keela-integration",
   "fee-opt-in-experimentation",
 ];
 const DATAVIZ = ["care-pathway-dashboards", "keela-contacts"];
@@ -33,64 +33,10 @@ const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
 // Submitted on Oct 30; add the result here once it's announced.
 const HACKATHON = { slug: "goldito", event: "Nebius × NVIDIA Global AI Hackathon", submitted: true };
 
-// Lists on home follow the same order as the Work page: by shelf (work,
-// experiments, side projects), then by each project's order number.
-const SHELF = { work: 0, experiment: 1, personal: 2 };
+// Lists on home show in the order written above. The Work page sorts by each
+// case study's `order` number, so keep the two in step when either changes.
 const pick = (all: ProjectSummary[], slugs: string[]) =>
-  all.filter((p) => slugs.includes(p.slug)).sort((a, b) => SHELF[a.type] - SHELF[b.type]);
-
-const hrefOf = (p: ProjectSummary) => p.href ?? `/work/${p.slug}`;
-
-function CaseRow({ project }: { project: ProjectSummary }) {
-  return (
-    <li>
-      <Link
-        href={hrefOf(project)}
-        className="group grid gap-5 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] items-center py-7 border-b border-border"
-      >
-        <div
-          className="relative aspect-[3/2] overflow-hidden rounded-md ring-1 ring-inset ring-black/[0.07] dark:ring-white/10"
-          style={{ backgroundColor: project.coverColor }}
-        >
-          {project.coverImage && (
-            <Image
-              src={project.coverImage}
-              alt=""
-              fill
-              sizes="(max-width: 768px) 100vw, 420px"
-              className={`object-contain object-center transition-transform duration-500 ${
-                project.wip ? "blur-lg brightness-75" : "group-hover:scale-[1.03]"
-              }`}
-            />
-          )}
-          {project.wip && (
-            <span className="absolute top-2.5 right-2.5 rounded-full bg-black/45 px-2.5 py-1 microlabel text-white/85">
-              Confidential visuals
-            </span>
-          )}
-          {project.tryTag && <TryTag kind={project.tryTag} className="absolute left-2.5 top-2.5 z-10" />}
-        </div>
-        <div className="min-w-0">
-          <p className="microlabel text-muted">
-            {[project.company, project.role, project.timeline].filter(Boolean).join(" · ")}
-          </p>
-          <h3 className="mt-2 font-semibold text-xl md:text-[22px] leading-snug group-hover:opacity-70 transition-opacity text-balance">
-            {project.title}
-          </h3>
-          <p className="mt-2 text-[14.5px] leading-relaxed text-muted">
-            {project.subtitle}
-          </p>
-          {project.featuredStat && (
-            <p className="mt-4 flex items-baseline gap-3">
-              <span className="text-2xl font-semibold tracking-tight">{project.featuredStat}</span>
-              <span className="text-[13px] text-muted">{project.featuredStatLabel}</span>
-            </p>
-          )}
-        </div>
-      </Link>
-    </li>
-  );
-}
+  slugs.map((slug) => all.find((p) => p.slug === slug)).filter((p): p is ProjectSummary => Boolean(p));
 
 function BuiltCard({ project }: { project: ProjectSummary }) {
   return (
@@ -154,14 +100,9 @@ export default function HomeReader({ allProjects }: Props) {
         </FadeIn>
       </div>
 
-      {/* Full bleed, outside the text column: the work as one wall. */}
-      <div className="mt-20 md:mt-28">
-        <WorkWall projects={[...selected, ...dataviz, ...built]} />
-      </div>
-
       <div className="max-w-6xl mx-auto px-6">
         <FadeIn delay={0.08}>
-          <div className="mt-12 grid gap-8 border-t border-border pt-10 md:grid-cols-[300px_minmax(0,1fr)] md:items-center md:gap-14">
+          <div className="mt-16 md:mt-24 grid gap-8 border-t border-border pt-10 md:grid-cols-[300px_minmax(0,1fr)] md:items-center md:gap-14">
             <ResultsReceipt lines={RESULTS} total={RESULTS_TOTAL} />
             <figure className="m-0 min-w-0">
               <blockquote className="m-0 text-xl md:text-2xl leading-snug font-medium tracking-[-0.01em] text-balance">
@@ -221,13 +162,12 @@ export default function HomeReader({ allProjects }: Props) {
 
         <FadeIn delay={0.16}>
           <div className="mt-20">
-            <h2 id="two-worlds" className="microlabel text-muted scroll-mt-28">Between two worlds</h2>
-            <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+            <h2 id="two-worlds" className="scroll-mt-28 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m a builder and a translator. Most of my work happens where two sides don&rsquo;t share a language yet.
-            </p>
+            </h2>
             <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
               {WORLDS.map((w) => (
-                <div key={w.a} className="border-t border-border pt-5 min-w-0">
+                <div key={w.a} className="min-w-0">
                   <p className="text-[15px] font-semibold">
                     {w.a} <span className="text-muted font-normal" aria-hidden>&harr;</span>
                     <span className="sr-only"> and </span> {w.b}
@@ -311,10 +251,9 @@ export default function HomeReader({ allProjects }: Props) {
 
         <FadeIn delay={0.2}>
           <div className="mt-20">
-            <h2 className="microlabel text-muted">Off the clock</h2>
-            <p className="mt-3 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+            <h2 className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m an optimist. Optimism is a design tool: it&rsquo;s how you get people to believe a better version is possible, then go build it.
-            </p>
+            </h2>
             <OffClock items={OFF_CLOCK} />
             <Link href="/about" className="mt-6 inline-block text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity">
               More about me <Arrow />

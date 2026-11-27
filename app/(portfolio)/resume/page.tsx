@@ -6,7 +6,7 @@ import { experience, sideProjects, education } from "@/lib/resumeData";
 export const metadata: Metadata = {
   title: "Résumé",
   description:
-    "Allen Kang, senior product designer. Eight years in product design, five in payments and transaction-heavy products.",
+    "Allen Kang, senior product designer. Eight years in product design across CRM, payments, healthcare and design systems.",
 };
 
 export default function ResumePage() {
@@ -21,9 +21,8 @@ export default function ResumePage() {
                 Résumé
               </h1>
               <p className="mt-4 text-lg text-muted max-w-xl leading-relaxed">
-                Eight years in product design, the last five on transaction-heavy products: donation and payment
-                flows, multi-entity financial data, and design systems spanning a
-                merged product suite.
+                Eight years in product design: CRM and nonprofit tools at Keela, payments at Aplos, healthcare
+                dashboards at MyJourney, and a design system spanning a merged product suite.
               </p>
             </div>
             <a

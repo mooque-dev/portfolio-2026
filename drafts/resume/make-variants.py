@@ -21,7 +21,10 @@ SUMMARY = ("Senior product designer with 8 years in product design, the last 5 i
 APLOS = {
     "own": "Owned end-to-end design for payments and transactions across Aplos, Keela and Raisely as the three products merged into one suite.",
     "split": "Redesigned split transactions so one payment can be a donation, a gift and a ticket at once, cutting categorization tickets by 70% in the first month.",
+    # split_tax is the old wording, kept only so résumés already sent or closed
+    # (Jeppesen, Clio Insights) rebuild as they were. New roles use split_books.
     "split_tax": "Learned tax rules in three countries from accountants, then redesigned split transactions, cutting categorization tickets by 70%.",
+    "split_books": "Sat with 8 nonprofits doing their books, then redesigned split transactions under three countries&rsquo; tax rules, cutting categorization tickets by 70%.",
     "fee": "Ran an A/B test on the donation fee flow that raised fee opt-in from 75% to 92%, with conversion steady.",
     "fee_code": "Prototyped the donation fee flow in code, then A/B tested it; fee opt-in rose from 75% to 92%.",
     "integ": "Led integration design between the merged products, making data mapping visible and auditable.",
@@ -49,7 +52,7 @@ PROJECTS = {
     "fork": ("Forkestrate", "Co-founder and founding designer, AI recipe app", "2025 – Present",
              "Co-founded and designed a recipe app, taking it from zero to MVP in under three months with a PM and two engineers."),
     "arnd_mobile": ("ARND", "Founder, live-music discovery app", "2025 – Present",
-                    "Designed and built a map-first app for iOS, Android and web with AI tools; 160+ merged pull requests."),
+                    "Designed and built a map-first app for iOS and the mobile browser with AI tools; 160+ merged pull requests."),
     "arnd_system": ("ARND", "Founder, live-music discovery app", "2025 – Present",
                     "Designed and built a map-first app with AI coding tools: five themes, one system, 160+ merged pull requests."),
     "arnd_rules": ("ARND", "Founder, live-music discovery app", "2025 – Present",
@@ -61,6 +64,13 @@ PROJECTS = {
 }
 
 ROLES = {
+    "plooto": dict(
+        url="mooque-dev.github.io/plooto", accent="#173BD9",
+        domain="payments and finance tools", clause="prototype in code with AI tools",
+        aplos=["split_books", "fee_code", "orchid", "own", "integ", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
+        projects=["arnd_code", "yuwol", "fork"],
+        skills="Research with accountants and finance teams &middot; Interaction and UI design &middot; Design systems (tokens, Storybook) &middot; Prototyping in code with AI tools (Claude Code, Cursor) &middot; A/B testing &middot; Figma, Pendo"),
     "jeppesen-foreflight": dict(
         accent="#1D3A6B",
         url="mooque-dev.github.io/jeppesen-foreflight",
@@ -73,7 +83,7 @@ ROLES = {
         accent="#0A6E70",
         url="mooque-dev.github.io/bridgit",
         domain="payments and transaction-heavy products", clause="prototype with AI tools",
-        aplos=["split_tax", "fee_code", "orchid", "own", "integ", "partner"],
+        aplos=["split_books", "fee_code", "orchid", "own", "integ", "partner"],
         lead=["pitch", "process", "core"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_code", "yuwol", "fork"],
         skills="Research and usability testing &middot; Prototyping with AI tools (Claude Code, Cursor) and React &middot; Design systems &middot; Data visualization &middot; A/B testing &middot; Figma, Storybook, Pendo"),
@@ -100,12 +110,12 @@ ROLES = {
         projects=["demello", "artsgaze", "arnd_code"],
         skills="Brand and visual identity &middot; Typography and layout &middot; Design systems &middot; AI tools (Claude Code, Cursor, MagicPatterns) &middot; Prototyping in code (React, TypeScript) &middot; Figma, Storybook"),
     "ashby": dict(
-        url="mooque-dev.github.io",
-        domain="payments and transaction-heavy products", clause="build what I design",
-        aplos=["orchid", "split", "fee_code", "own", "integ", "partner"],
-        lead=["pitch", "core", "process"], pd=["auto", "adopt", "pm"],
-        projects=["arnd_code", "fork", "yuwol"],
-        skills="Design systems &middot; Front-end code (React, TypeScript) with Claude Code and Cursor &middot; Prototyping &middot; Research and usability testing &middot; A/B testing &middot; Figma, Storybook"),
+        url="mooque-dev.github.io/ashby", accent="#473BCE",
+        domain="finance and CRM tools", clause="acting as PM when needed",
+        aplos=["orchid", "split", "integ", "own", "fee", "partner"],
+        lead=["pitch", "core", "process"], pd=["auto", "pm", "adopt"],
+        projects=["yuwol", "arnd_code", "fork"],
+        skills="Information architecture and navigation &middot; Interaction and UI design &middot; Design systems (tokens, Storybook) &middot; Prototyping in code with AI tools &middot; Research and usability testing &middot; Figma"),
     "ecobee": dict(
         accent="#2D2926",
         url="mooque-dev.github.io/ecobee",
@@ -118,7 +128,7 @@ ROLES = {
         accent="#1F1D1A",
         url="mooque-dev.github.io/harvey",
         domain="complex financial and data-heavy tools", clause="prototype in code with AI tools",
-        aplos=["split_tax", "own", "orchid", "fee_code", "integ", "partner"],
+        aplos=["split_books", "own", "orchid", "fee_code", "integ", "partner"],
         lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
         projects=["arnd_code", "fork", "yuwol"],
         skills="Research with domain experts &middot; Interaction and visual design &middot; Design systems &middot; Prototyping in code (React, TypeScript) with AI tools &middot; A/B testing &middot; Figma, Storybook"),
@@ -217,7 +227,7 @@ ROLES = {
     "stilta": dict(
         url="mooque-dev.github.io/stilta", accent="#111111",
         domain="complex financial and data-heavy tools", clause="build what I design with AI tools",
-        aplos=["split_tax", "integ", "orchid", "fee_code", "own", "partner"],
+        aplos=["split_books", "integ", "orchid", "fee_code", "own", "partner"],
         lead=["core", "pitch", "process"], pd=["auto", "adopt", "pm"],
         projects=["arnd_code", "fork", "yuwol"],
         skills="0 to 1 product design &middot; Research with domain experts &middot; Prototyping in code (React, TypeScript) with Claude Code &middot; Design systems &middot; A/B testing &middot; Figma"),
@@ -235,6 +245,13 @@ ROLES = {
         lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
         projects=["arnd_mobile", "yuwol", "fork"],
         skills="User research and usability testing &middot; Journey mapping &middot; Mobile app design (iOS, Android) &middot; Prototyping in code with Claude Code and Cursor &middot; Design systems &middot; Figma"),
+    "life360": dict(
+        url="mooque-dev.github.io/life360", accent="#762EEB",
+        domain="payments and transaction-heavy products", clause="run experiments and learn from the ones that lose",
+        aplos=["fee_code", "split", "own", "orchid", "integ", "partner"],
+        lead=["core", "pitch", "process"], pd=["auto_test", "adopt", "pm"],
+        projects=["arnd_mobile", "fork", "yuwol"],
+        skills="A/B testing and experimentation &middot; Interaction and motion design &middot; Visual design &middot; Prototyping in code with AI tools &middot; Mobile and web &middot; Usability testing &middot; Figma, Pendo"),
     "google": dict(
         url="mooque-dev.github.io/google",
         domain="payments and transaction-heavy products", clause="prototype in code with AI tools",

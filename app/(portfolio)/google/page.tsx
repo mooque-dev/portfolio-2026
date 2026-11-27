@@ -9,7 +9,7 @@ import TailoredPage from "@/components/tailored/TailoredPage";
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Google" },
   description:
-    "A short path through Allen Kang's work: a design system three teams adopted, payment flows, and an app built with AI coding tools.",
+    "A short path through Allen Kang's work: a design system four engineering teams adopted, payment flows, and an app built with AI coding tools.",
   robots: { index: false, follow: false },
 };
 

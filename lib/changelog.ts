@@ -13,6 +13,41 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-26",
+    title: "Quotes without the stripe, and plain project names",
+    tags: ["design", "content"],
+    what: "Quotes in case studies, the colleague quotes on About and the line that opens the Vault lose the coloured stripe down their left side. The two large statements on the home page lose the small label above them, and the four points under the first lose the line on top of each. Every case study now goes by its plain name: Orchid design system, Transaction Workflows, Fee Opt-In, ARND, Goldito, Toronto Yuwol and the others. The one-line description under each name says the rest.",
+    why: "I wrote down the rules this site is designed by, then held the site to them. A stripe beside a quote, a label over a headline and a name followed by a dramatic phrase are all habits of a template.",
+  },
+  {
+    date: "2026-11-25",
+    title: "One way to show the work, and plainer case studies",
+    tags: ["design", "content"],
+    what: "The Work page now lists projects the same way the home page does: the picture, where and when, the title, one line and the number. The home page drops the wall of covers, since the same projects are listed right below it. Case study sections open on their headline alone, without the big number and small label above it, and bold is kept for results. Aplos × Keela says which faster option the team turned down and that no success number was set, Fee Opt-In names its guardrails and the stop rule it lacked, Automation says what the extra research time cost, and Orchid mentions the nine design systems it started from.",
+    why: "The home page and the pages behind it had started to look like two different sites, and the numbered, labelled sections read as a template. The stories are stronger when they say what a decision cost.",
+  },
+  {
+    date: "2026-11-24",
+    title: "Transaction Workflows, told from what I saw",
+    tags: ["content", "fix"],
+    what: "The Transaction Workflows case study now opens on one $200 gala payment, shows the loop all 8 organizations went around to record it, and sets what I saw against what shipped. It names what the three-step design cost, says the numbers are one month of before and after with no control group, and ends on the details page I got wrong and what I'd test next. Batch editing is off the page because it didn't ship. Pages and résumés now say who I sat with: the people who do the books at nonprofits, some of them accountants. The Work page lists the case studies in the same order as the home page, and the Hatch, Life360 and Samsara résumés describe ARND on iOS and the mobile browser.",
+    why: "The page listed features more confidently than the record supports, and the numbers read better with their limits stated. A reader should find the same facts, in the same order, wherever they land.",
+  },
+  {
+    date: "2026-11-23",
+    title: "A home page that covers all of my work, not just payments",
+    tags: ["content"],
+    what: "The home page, About and Résumé now describe eight years across CRM, payments, healthcare and design systems. The home page opens with Orchid and Automation, and the results row now counts ARND's 160+ merged pull requests. The main résumé matches. The Gumloop and Hatch pages no longer mention moving, and the ecobee résumé describes ARND on iOS and the mobile browser.",
+    why: "The site had drifted into reading as a payments portfolio, when most of my work is complex tools for people whose expertise isn't software.",
+  },
+  {
+    date: "2026-11-18",
+    title: "Plainer case studies, factual headlines, and three new pages",
+    tags: ["design", "content"],
+    what: "Every case study now follows the same five parts, the moment, what I found, the call, what changed and looking back, with the real pictures in each. A pass across the site cut the tidy contrasts, the one-line morals at the end of sections and most margin notes, and gave the stories plain titles. The tailored pages open on a headline that says what I did and what it changed, in place of a slogan. New pages for Ashby, Life360 and Plooto, each with its own résumé. The Plooto page opens on one bill stepped through its approval, the catch before money moves, and the confirmation. ARND is described as it ships today, on iOS and the mobile browser.",
+    why: "The site had started to read like it was written by a template. A reader should be able to tell what I did from the first line, then check it against the work.",
+  },
+  {
     date: "2026-11-17",
     title: "A Google résumé that's easier to read",
     tags: ["design", "content"],

@@ -12,6 +12,9 @@ leads with what he needs to do.
 
 - Portfolio repo: `/Users/mooque/Claude/mooque-2026`, working branch `v2`.
   Never stage `eslint.config.mjs` or `design/`; they are someone else's work.
+- Design rules: `DESIGN.md` at the repo root. Every page and tailored page
+  is held to it, including the list of tells. Case study titles are the
+  plain name ("Orchid design system"), never "Name: A Dramatic Phrase".
 - Live mirror: `https://mooque-dev.github.io/<slug>/`, published with
   `drafts/pipeline/publish-mirror.sh`. It keeps the mirror repo's `jungmin/` and `study/`
   folder.
@@ -43,7 +46,7 @@ Review fields:
 
 Collection `sites`, doc id = slug: order, company, variant, status (Live |
 Retired), url, resume, visual, made, versions [{date, note}]. A copy lives in
-`lib/siteVersions.json` for the /site-versions page; keep the two in step.
+`lib/siteVersions.json` for the private versions page (`app/(portfolio)/sv-9701wnpqmv`); keep the two in step.
 
 ## Each run, in this order
 
@@ -67,7 +70,7 @@ For each role with `review: "approved"`:
    Then refresh `lib/siteVersions.json` from the `sites` collection (list it
    with `out_dir`, keep slug, company, variant, status, url, resume, visual,
    made, order, versions), commit and push to v2. It feeds Allen's private
-   /site-versions page and goes live with the next publish.
+   private versions page and goes live with the next publish.
 5. Delete the draft branch locally and on origin.
 
 A role approved with no page (résumé only) just gets the résumé published
@@ -211,6 +214,11 @@ picture of the work; never invent a visual of a real product.
 | What changed | The result | The shipped work, with the number |
 | Looking back | What I'd do differently | None needed |
 
+The label before the bar is for the sticky bar at the top only. The page
+shows the headline alone: no numeral and no label above it (Allen, Nov 25:
+they read as AI-made). The first sentence under a headline must not repeat
+the headline.
+
 Orchid (`content/work/orchid-design-system.mdx`) is the model. Tailored pages
 show work as picture cards by default (`work="cards"` in the frame, covers in
 `COVERS` in `lib/tailored.ts`); the number sits under the picture.
@@ -228,6 +236,13 @@ show work as picture cards by default (`work="cards"` in the frame, covers in
   by a forty-person company for ten months; mentored one designer at Keela
   and two at Aplos. He has not managed a team, hired designers, or worked
   at an agency.
+- Transaction Workflows, confirmed by Allen on Nov 24: the research was with
+  8 organizations doing their books, some of them accountants. Say "the
+  people who do the books at nonprofits", never "8 accountants" or "learned
+  from accountants". Suggested categories shipped. Batch editing did not
+  ship, so never list it. The "death by checkbox" quote and continuous
+  validation are unconfirmed: leave them out. 340+ to 70 components is
+  confirmed.
 - Never say he writes code. He builds with AI coding tools: he directs the
   work, reviews it and tests it. On a résumé that reads "Prototyping in code
   with AI tools"; "I prototype in code" on a page is fine next to a line

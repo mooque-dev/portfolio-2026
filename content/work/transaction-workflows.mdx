@@ -1,5 +1,5 @@
 ---
-title: "Transaction Workflows: The Feature That Was Causing Churn"
+title: "Transaction Workflows"
 subtitle: "One payment can be a donation, a gift and a ticket at once. The product couldn't record that, and it was our top churn driver."
 category: "Feature Redesign"
 type: "work"
@@ -13,24 +13,51 @@ tools:
 coverColor: "#dde4d4"
 coverImage: "/case-studies/transaction-workflows/cover.jpg"
 featured: true
-order: 2
+order: 3
 company: "Aplos (now Velora)"
 featuredStat: "70%"
 featuredStatLabel: "fewer categorization support tickets in the first month"
-tldr: [["Problem","Nonprofits could log only one type per payment, but one payment is often part donation, part in-kind gift, and part value received, like a gala ticket. That gap drove about 500 support tickets a quarter."],["Decision","I designed for extensibility inside a no-refactor constraint: smart defaults with human override, batch editing by context, and continuous validation."],["Outcome","70% fewer categorization support tickets in the first month."],["Principle","Smart defaults, human override. It became a platform-wide interaction rule."]]
-glance: [["70%", "fewer categorization support tickets in the first month"], ["3", "tax jurisdictions kept compliant: Canada, the US and Australia"], ["$1.8M", "ARR in connected accounts the work supported"]]
+tldr: [["Problem","Nonprofits could log only one type per payment, but one payment is often part donation, part in-kind gift, and part value received, like a gala ticket. That gap drove about 500 support tickets a quarter."],["Decision","I framed the job as recording a payment the way it happened: a full page, three steps, a suggested category and a total that checks itself, with no backend rebuild."],["Outcome","70% fewer categorization support tickets in the first month."],["Principle","Start from what people check first. The details page only worked once the items came before who they belonged to."]]
+glance: [["70%", "fewer categorization support tickets in the first month"], ["3", "tax jurisdictions kept compliant: Canada, the US and Australia"], ["$1.8M", "a year in subscriptions held by the accounts that needed this"]]
 duration: "about 3 months"
-demo: ["I rebuilt the split payment as a working demo you can play with.", "#try"]
+demo: ["I rebuilt the split as a working sketch you can play with.", "#try"]
 ---
 
-## Stakes | Why This Mattered
+## The moment | A $200 gala payment the product could only call one thing
 
-Keela's transaction model handled one-time donations well and broke for larger nonprofits, where one payment is often a ticket, a donation and a campaign gift at once. Staff logged several records instead, which meant wrong receipts, messy books and support tickets. As the team pushed upmarket after the acquisition, it had become a growth blocker.
+A supporter pays $200 at a gala. $100 is the seat, so they got something back. $100 is a gift. Keela could record a payment as one type only, so it saw a $200 donation or $200 of revenue, and neither was true. Staff logged it as separate entries or wrote to support, because otherwise the books and the tax receipt didn't match.
 
-- **56%** of newly onboarded orgs (40 of 72) voted for transaction flexibility
-- **~500 support tickets a quarter** tied to splitting, receipts and reporting
+<figure>
+  <img src="/case-studies/transaction-workflows/image-3.png" alt="Keela's Create New menu with two choices: Donation or Other Revenue" />
+  <figcaption>Where it started: a new payment had to be a donation or other revenue</figcaption>
+</figure>
 
-Every one of those payments had to produce a correct tax receipt in three countries, and each draws the line differently:
+People had asked for a fix in their own words. In Productboard, 40 of 72 newly onboarded organizations (56%) raised it within their first 28 days, and about 500 support tickets a quarter were about transactions. It was our top churn driver.
+
+<figure>
+  <img src="/case-studies/transaction-workflows/image-4.png" alt="Dashboard showing roadmap voting signal, 56% of new orgs upvoting transaction flexibility" />
+  <figcaption>The roadmap vote that made the case</figcaption>
+</figure>
+
+## What I found | All eight kept a side spreadsheet
+
+I sat with 8 organizations while they did their books. Some of the people doing it were accountants, and many weren't. All 8 kept a side spreadsheet or a separate accounting tool, and they all went around the same loop:
+
+1. Record the payment in Keela as several payments.
+2. Track the real split in Excel.
+3. Match one bank deposit to three records in the bookkeeping tool.
+4. Go back to Keela and fix the receipts.
+
+Nobody could see a mistake until the final report. So I defined the job as recording a payment the way it happened, with the total checking itself while they worked.
+
+Talking to the organizations that had voted for this in Productboard showed the same thing. The split was the core problem, more than category labels.
+
+<figure>
+  <img src="/case-studies/transaction-workflows/image-1.png" alt="User problem statement: as a nonprofit admin I need to split a single payment into multiple items" />
+  <figcaption>The problem statement that framed the work</figcaption>
+</figure>
+
+Each part of a payment also had to produce a correct tax receipt, and each country draws the line differently:
 
 - **Canada.** When a donor gets something back, the receipt shows the total paid, the value of that advantage, and the eligible amount left over.
 - **The US.** A payment over $75 that is partly a gift needs a written disclosure with a good-faith estimate of what the donor received.
@@ -38,69 +65,71 @@ Every one of those payments had to produce a correct tax receipt in three countr
 
 The required fields came from legal and compliance research. My job was to make getting them right the easy path.
 
-<figure>
-  <img src="/case-studies/transaction-workflows/image-4.png" alt="Dashboard showing roadmap voting signal, 56% of new orgs upvoting transaction flexibility" />
-  <figcaption>The roadmap vote that made the case</figcaption>
-</figure>
+## The call | A full page, three steps, and a total that checks itself
 
-## Research | What I Learned From Watching People Work
-
-I sat with 8 nonprofit accountants while they reconciled. Every one kept a parallel spreadsheet, one called batch editing "death by checkbox," and none could see a miscategorized transaction until the final report.
-
-<figure>
-  <img src="/case-studies/transaction-workflows/image-1.png" alt="User problem statement: as a nonprofit admin I need to split a single payment into multiple items" />
-  <figcaption>The problem statement that framed the work</figcaption>
-</figure>
-
-## Approach | Design for What Breaks Next
-
-The easy path was a one-off split screen for the loudest complaint. I pushed for extensibility instead, so the next capability wouldn't need a rewrite. Before designing, the PM, the engineering lead and I agreed on what we couldn't do: no backend refactor, no breaking the data model behind reporting. We shipped in phases.
+Before designing, the PM, the engineering lead and I agreed on what we couldn't do. The product was a monolith, so there would be no backend rebuild, and the data model that reporting relied on had to stay as it was. I was the only designer on it.
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-5.jpg" alt="Phased delivery plan, stakeholder alignment on constraints" />
-  <figcaption>Phased delivery, without a backend refactor</figcaption>
+  <figcaption>Phased delivery, without a backend rebuild</figcaption>
 </figure>
 
-## Before and after | The Design
+The first decision was to move the task out of a pop-up and onto a full page. I gave up seeing the list behind it. In return there was room for several parts of one payment side by side. It was cheap to build, because engineers reused the pop-up's system at full-page size.
 
-Four changes, each answering something the accountants showed us. Suggested categories became a platform rule I later wrote into Orchid's guidelines, and the new design <mark class="pen" data-note="no more year-end surprises">validates continuously</mark> instead of at report time.
+<div class="shots n2">
 
-<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="Before"><b>One type per payment.</b> A gala ticket that was part donation, part value received had to be logged as several records.</td><td data-label="After"><b>One payment, split by purpose.</b> Donation, in-kind gift and value received live in a single transaction.</td></tr><tr><td><span class="n">2</span></td><td data-label="Before"><b>Categorizing by hand.</b> Every transaction started blank, and accountants kept a parallel spreadsheet.</td><td data-label="After"><b>Smart defaults, human override.</b> A suggested category from donor history, amount and fund, accepted in one click.</td></tr><tr><td><span class="n">3</span></td><td data-label="Before"><b>"Death by checkbox."</b> A flat table where batch edits meant ticking rows one at a time.</td><td data-label="After"><b>Batch by context.</b> Scope by date range, donor, fund or category, then act on the group.</td></tr><tr><td><span class="n">4</span></td><td data-label="Before"><b>Errors at report time.</b> A miscategorized transaction stayed invisible until the final report.</td><td data-label="After"><b>Continuous validation.</b> Each reporting period shows its health as you go.</td></tr></tbody></table></div>
+<figure>
+  <img src="/case-studies/transaction-workflows/image-2.png" alt="The old New Donation pop-up, with tabs for donation info, associations, receipt settings and payment" />
+  <figcaption>Before: one pop-up, one type</figcaption>
+</figure>
 
-<p class="try" id="try"><b>Try it</b>Change an amount, type or fund and watch the receipt follow. Then compare it with the product before the redesign.</p>
+<figure>
+  <img src="/case-studies/transaction-workflows/image-8.png" alt="The shipped full-page flow with three steps: transaction info, associations and receipting" />
+  <figcaption>Shipped: a full page in three steps</figcaption>
+</figure>
+
+</div>
+
+What shipped is three steps, one decision per screen, so a first-timer always knows what is being asked. Each one answers something I watched happen.
+
+<div class="tablewrap"><table class="changes"><thead><tr><th></th><th>What I saw</th><th>What shipped</th></tr></thead><tbody><tr><td><span class="n">1</span></td><td data-label="What I saw"><b>One payment, three records.</b> A gala ticket that was part seat, part gift was logged as separate payments.</td><td data-label="What shipped"><b>Step one: split by type.</b> Donation, in-kind gift and value received sit in one record. A payment with one part stays quick, because the first split starts at the full amount.</td></tr><tr><td><span class="n">2</span></td><td data-label="What I saw"><b>Categorizing by hand.</b> Every transaction started blank.</td><td data-label="What shipped"><b>Smart defaults, human override.</b> A suggested category from donor history, amount and fund, accepted in one click.</td></tr><tr><td><span class="n">3</span></td><td data-label="What I saw"><b>The side spreadsheet.</b> All 8 tracked the split somewhere else, and errors showed up at report time.</td><td data-label="What shipped"><b>A total that checks itself.</b> A bar under the total says how much is still to place, and the payment can't move on until it adds up.</td></tr><tr><td><span class="n">4</span></td><td data-label="What I saw"><b>Reports that drifted.</b> One deposit had to be matched to three records by hand.</td><td data-label="What shipped"><b>Step two: where each part belongs.</b> Every part gets its own campaign and impact area, so reports stay right.</td></tr><tr><td><span class="n">5</span></td><td data-label="What I saw"><b>Receipts fixed afterwards.</b> Staff went back into Keela to correct them.</td><td data-label="What shipped"><b>Step three: the receipt, previewed.</b> Choose the receipt option and see the receipt under that country's rules before saving.</td></tr></tbody></table></div>
+
+The three steps have a cost. The campaign is chosen a step away from the split it belongs to, and the receipt only shows at the end.
+
+I mapped every state of a split before build, including the two errors. When the parts add up to more than the payment, the screen says how much it is over in words, not only in red, and the payment still can't move on. A part with no amount says what to fix. Once a payment is logged, the contact is locked and deleting asks for a reason, so the audit trail holds. Other details can still be corrected.
+
+It shipped behind a feature flag, next to the old screens. The split went to a beta group first, because everything else depended on it, then rolled out group by group with a switch to turn it off.
+
+<p class="try" id="try"><b>Try it</b>A working sketch of the split with sample data, on one screen. Change an amount, type or fund and watch the receipt follow. The shipped flow took the three steps above.</p>
 
 <div data-demo="split-payment"></div>
 
+## What changed | One record where there had been three
+
+For the people doing the books, a split payment became one record. When I tested the move from the pop-up to the full page with the 8 organizations, their rating of the flow went from **5.5 to 8.8 out of 10**, from a short survey after each session.
+
+The details page took three rounds. The first changed too little and scored **6**. The second borrowed patterns from across the suite and scored **7.5**. The third put the items first and who they belonged to second, and scored **9.5**. That order is how people think about a payment: what did I record, then whose is it.
+
 <figure class="wide">
-  <img src="/case-studies/transaction-workflows/image-11.png" alt="Final transaction workflow design" />
-  <figcaption>The final split workflow, with continuous validation</figcaption>
+  <img src="/case-studies/transaction-workflows/image-11.png" alt="The transaction details page after the redesign: a $1,500 payment shown as separate items, a donation and revenue, each with its own details" />
+  <figcaption>The details page after the redesign: each part of the payment is its own item</figcaption>
 </figure>
 
-## Testing | Iteration Was the Work
+In the first month after launch, support tickets about categorizing payments fell **70%**, and manual adjustments, meaning edits after saving, fell **60%**. Receipts stayed correct and reports didn't change. About $1.8M a year in subscriptions sat with the accounts that needed this.
 
-I tested early prototypes with 8 organizations. Moving from a modal to a full-screen split workflow lifted satisfaction from **5.5 to 8.8 out of 10**. The transaction details view took three rounds: V1 changed little (**6/10**), V2 borrowed patterns from across the suite (**7.5/10**), and V3 put the items first and the associations second (**9.5/10**).
+Read those numbers with care. This is a before and after over one month. We had too few organizations to split into a fair test, so there was no control group. Churn is read year over year, so I don't claim a churn result.
+
+I added three pieces to the design system for this work: the split row, the bar under the total and the step layout. Teams on Aplos and the other products in the suite picked them up afterwards. Suggested categories became a platform rule I later wrote into Orchid's guidelines.
 
 <figure>
   <img src="/case-studies/transaction-workflows/image-6.jpg" alt="Design review over video call: walking the product and engineering team through the split-transaction flow, with the redesign mockups around it" />
   <figcaption>Walking the team through the split flow</figcaption>
 </figure>
 
-<div class="shots n2">
+## Looking back | What I got wrong, and what I'd ship next
 
-<figure>
-  <img src="/case-studies/transaction-workflows/image-7.png" alt="V1 transaction detail layout, minimal change" />
-  <figcaption>V1: minimal change, 6/10</figcaption>
-</figure>
+The first version of the details page was my mistake. I polished the old layout when I should have asked what people check first, and testing told me so. Next time I'd start there.
 
-<figure>
-  <img src="/case-studies/transaction-workflows/image-9.png" alt="V3 transaction detail layout, associations secondary, items primary" />
-  <figcaption>V3: items first, associations second, 9.5/10</figcaption>
-</figure>
+I also set up the measuring after launch. Next time I'd have a baseline ready, roll out to some organizations first, and use the flag itself as the test: organizations on it against organizations not yet on it, counted as tickets per 100 active organizations.
 
-</div>
-
-V3 won because it <mark class="pen" data-note="watching them work paid off">matched how accountants think</mark>: what they're recording first, who it belongs to second. Feature flags made the rollout safe.
-
-## Result | What Happened
-
-In the first month, categorization support tickets fell **70%** and manual adjustments **60%**. The work supported **$1.8M ARR** in connected accounts, and one payment could finally be recorded the way it happened, compliant across Canadian, US and Australian tax rules. The most important artifact was the system map I drew in week one, not any Figma file.
+After the project I rebuilt the task two more ways to compare them with what shipped. One asks guided questions in plain words, which is slow for someone recording dozens of payments a day. The other is one line per part, all on one screen, which looks like the spreadsheet all 8 already kept. That second one is what I'd ship next, with a final check that shows what goes on the receipt. It isn't tested. I'd run it against the shipped flow with 6 to 8 people who do the books, and measure wrong receipts, time to finish and steps back.

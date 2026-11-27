@@ -72,7 +72,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
   ];
   const navItems = [
     { id: "overview", label: "Overview" },
-    ...chapters.map((c) => ({ id: c.id, label: `${c.num} ${c.kicker ?? c.title.replace(/<[^>]+>/g, "")}` })),
+    ...chapters.map((c) => ({ id: c.id, label: c.kicker ?? c.title.replace(/<[^>]+>/g, "") })),
   ];
   const meta: [string, ReactNode][] = [
     ["Role", frontmatter.role],
@@ -207,10 +207,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
         )}
 
         {frontmatter.wip && (
-          <p className="mt-8 border-l-2 border-border pl-4 text-sm text-muted leading-relaxed max-w-[720px]">
-            The product visuals here are intentionally blurred. This work is
+          <p className="mt-8 flex gap-3 rounded-lg border border-border bg-[var(--surface)] px-4 py-3 text-sm text-muted leading-relaxed max-w-[720px]">
+            <svg aria-hidden viewBox="0 0 16 16" className="mt-[3px] h-4 w-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="7" width="10" height="7" rx="1.5" /><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" /></svg>
+            <span>The product visuals here are intentionally blurred. This work is
             confidential. The aggregate results are shown as reported, and
-            I&apos;m glad to walk through the real screens in conversation.
+            I&apos;m glad to walk through the real screens in conversation.</span>
           </p>
         )}
       </header>
@@ -225,19 +226,12 @@ export default async function CaseStudyPage({ params }: PageProps) {
 
         {chapters.map((c) => (
           <section key={c.id} id={c.id} className="pt-20 md:pt-24 scroll-mt-32">
-            {/* Numeral on its own line, so number, kicker, title and body share one left edge. */}
-            <div className="flex flex-col items-start gap-2 max-w-[980px]">
-              <span aria-hidden className="mb-1 text-[42px] md:text-[56px] leading-none font-bold text-[var(--seal)]">
-                {c.num}
-              </span>
-              {c.kicker && (
-                <span className="text-[13px] font-bold text-muted">{c.kicker}</span>
-              )}
-              <h2
-                className="font-serif text-[28px] md:text-[38px] leading-[1.15] font-semibold text-balance"
-                dangerouslySetInnerHTML={{ __html: c.title }}
-              />
-            </div>
+            {/* Just the headline. No numeral and no label above it: the headline
+                says what the section is, and the bar at the top does the wayfinding. */}
+            <h2
+              className="max-w-[980px] font-serif text-[28px] md:text-[38px] leading-[1.15] font-semibold text-balance"
+              dangerouslySetInnerHTML={{ __html: c.title }}
+            />
             <div className={`case-body mt-6 ${blur}`} dangerouslySetInnerHTML={{ __html: c.html }} />
           </section>
         ))}
