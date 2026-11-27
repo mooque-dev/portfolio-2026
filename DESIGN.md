@@ -98,7 +98,7 @@ the end.
 - **Status** ("Submitted Oct 30, 2026") is plain text. No pill, no coloured dot.
 - **A first visit** is handled on the page: the home page says who Allen
   is and where (the line with the résumé link), then gives four ways in by
-  time and reason. No tour, no pop-up, no floating guide.
+  time and reason. No tour and no guide bubble.
 - **Case films** (`components/CaseFilm.tsx`, built by `drafts/case-films`)
   are silent, under a minute, and never start by themselves. Every word
   and number in one comes from its case study, and it shows real screens
