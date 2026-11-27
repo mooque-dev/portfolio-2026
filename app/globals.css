@@ -2154,13 +2154,20 @@ body:has(.theme-hatch) header { --background: #0a1a34; --foreground: #f7f4ee; --
 @media (prefers-reduced-motion: reduce) { .sd-cell, .sd-tabs button { transition: none; } }
 /* Life360: their own visual language, not their marks. White canvas with a cream boxed
    intro, heavy geometric headlines ending in a full stop, purple 6px buttons. The opening
-   object is an experiment write-up card on a fixed light palette. No logo, ring or pins. */
+   picture is the three tested checkouts. No logo, ring or pins. */
 .theme-life360 { --canvas: #fff; --ink: #130f0c; --mut: #51504b; --line: #e6e1d6; --h1w: 800; --h1t: -0.02em; --h1l: 1.06; --h2w: 700; --btn-r: 6px; }
-.theme-life360 .sig-em { font-style: normal; font-family: inherit; color: #762eeb; }
+/* Nothing fades or slides in (DESIGN.md). */
+.theme-life360 :is(.tp-in, .tp-cards > li, .tp-rv, .ct) { animation: none; }
 body:has(.theme-life360) header { --background: #f3efe8; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
 .dark body:has(.theme-life360) header { --background: #f3efe8; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
 .theme-life360 a.rounded-full { font-weight: 700; }
 .theme-life360 .brand-foot { --hero-bg: #f4f0e7; --hero-fg: #130f0c; --hc: #762eeb; --hco: #fff; }
+
+/* Nylas: the site's own paper, Manrope headings and one royal blue for the buttons.
+   No marks of theirs. Nothing fades or slides in. */
+.theme-nylas { --h1w: 700; --h1t: -0.03em; --h1l: 1.08; --h2w: 700; --btn-r: 8px; }
+.theme-nylas a.rounded-full { font-weight: 600; }
+.theme-nylas :is(.tp-in, .tp-cards > li, .tp-rv, .ct) { animation: none; }
 
 .xw-wrap { container-type: inline-size; width: 100%; max-width: 440px; }
 .xw { --p: #762eeb; --ink: #130f0c; --mut: #51504b; --line: #e6e1d6; border-radius: 16px; background: #fff; color: var(--ink); padding: max(16px, 5cqw); box-shadow: 0 1px 0 rgb(19 15 12 / 0.04), 0 24px 48px -32px rgb(19 15 12 / 0.35); font-family: var(--bd-text), sans-serif; }
