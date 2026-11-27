@@ -64,7 +64,7 @@ for (const slug of slugs) {
   for (const mode of ["light", "dark"]) {
     events = [];
     await send("Emulation.setDeviceMetricsOverride", { width: 1280, height: 900, deviceScaleFactor: 1, mobile: false });
-    await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-color-scheme", value: mode }] });
+    await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-color-scheme", value: mode }, { name: "prefers-reduced-motion", value: "reduce" }] });
     await send("Page.navigate", { url: `${base}/${slug}${slug ? "/" : ""}` }); await sleep(1500);
     await ev(mode === "dark" ? `localStorage.setItem("theme","dark"); document.documentElement.classList.add("dark")` : `localStorage.removeItem("theme"); document.documentElement.classList.remove("dark")`);
     await ev("window.scrollTo(0, document.body.scrollHeight)"); await sleep(700); await ev("window.scrollTo(0, 0)"); await sleep(300);

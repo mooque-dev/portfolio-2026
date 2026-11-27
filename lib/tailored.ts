@@ -50,8 +50,8 @@ export const CASES: Record<CaseKey, StatementLine> = {
   fe: {
     tag: "Experiment",
     title: "Fee Opt-In",
-    line: "I paused a launch that looked like a win, prototyped three fixes in code with AI tools, then A/B tested them. Has a checkout you can play with.",
-    value: "75→92%",
+    line: "Early results looked better than they were, so I prototyped three fixes in code with AI tools and A/B tested them. Has a checkout you can play with.",
+    value: "75% → 92%",
     note: "donors who chose to cover the fee",
     href: "/work/fee-opt-in-experimentation",
   },
