@@ -882,20 +882,7 @@ select::-ms-expand {
   100% { opacity: 1; transform: scale(1) rotate(-6deg); }
 }
 
-/* ---- Character: stickers and the stage mic (OffClock) ---- */
-.offclock .sticker {
-  display: block;
-  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1), filter 0.25s;
-}
-.offclock li:hover .sticker,
-.offclock .sticker:focus-visible {
-  transform: translateY(-6px) rotate(-6deg);
-  filter: drop-shadow(0 8px 6px rgb(0 0 0 / 0.25));
-}
-.offclock button.sticker:focus-visible {
-  outline: 2px solid var(--seal);
-  outline-offset: 4px;
-}
+/* ---- Character: the stage mic spotlight (StickerSheet) ---- */
 .spotlight {
   position: fixed;
   inset: 0;
@@ -912,7 +899,6 @@ select::-ms-expand {
   transition: opacity 0.5s ease, visibility 0s;
 }
 @media (prefers-reduced-motion: reduce) {
-  .offclock .sticker,
   .spotlight {
     transition: none;
   }
@@ -2265,3 +2251,35 @@ body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --backgro
 .br-proof { display: inline-flex; align-items: center; gap: 0.4em; min-height: 32px; font-size: max(12px, 3.3cqw); font-weight: 600; color: #173bd9; text-decoration: none; }
 .br-proof:hover { text-decoration: underline; text-underline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { .br-tabs button { transition: none; } }
+
+/* ---- Home, in his own hand ---- */
+/* The sticker sheet: his pixel stickers stuck on the paper by the headline. */
+.sheet { min-width: 0; }
+.sheet-board { position: relative; list-style: none; margin: 0; padding: 0; height: 300px; }
+.sheet-board li { position: absolute; transform: rotate(var(--r, 0deg)); }
+.sheet-sticker {
+  display: block;
+  cursor: pointer;
+  border-radius: 8px;
+  filter: drop-shadow(0 2px 1px rgb(0 0 0 / 0.18));
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1), filter 0.25s;
+}
+.sheet-sticker:hover,
+.sheet-sticker[data-on] {
+  transform: translateY(-6px) scale(1.06);
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.22));
+}
+.sheet-sticker:focus-visible { outline: 2px solid var(--seal); outline-offset: 4px; }
+.sheet-line { margin: 18px 0 0; min-height: 3.2em; font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 34ch; }
+@media (max-width: 1023px) {
+  .sheet-board { height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
+  .sheet-board li { position: static; }
+  .sheet-board img { zoom: 0.75; }
+}
+@media (prefers-reduced-motion: reduce) { .sheet-sticker { transition: none; } }
+
+/* The red pen on one phrase of the home headline. */
+.pen-home { position: relative; white-space: nowrap; isolation: isolate; }
+.pen-home svg { position: absolute; z-index: -1; left: -0.06em; right: -0.06em; top: 38%; width: calc(100% + 0.12em); height: 58%; overflow: visible; transform: rotate(-0.6deg); }
+.pen-home path { fill: none; stroke: var(--seal); stroke-opacity: 0.26; stroke-width: 9; stroke-linecap: butt; }
+.dark .pen-home path { stroke-opacity: 0.38; }

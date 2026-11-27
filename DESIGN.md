@@ -62,9 +62,10 @@ the end.
   Text: `#1a1a1a`. Secondary text: `#636360`. Lines: `#e0dccf`. Dark
   mode: warm ink `#141210`, `#ededeb`, `#9a9a97`, `#2a2a28`. Never flat
   white or pure black for the page.
-- One accent, the seal red (`#cd2e3a`, dark `#ef5350`). It marks the
-  keyboard focus ring and the row numbers in a comparison table. It is
-  never decoration.
+- One accent, the seal red (`#cd2e3a`, dark `#ef5350`). It is Allen's
+  hand: the 묵 seal beside his name, and the red pen. It also marks the
+  keyboard focus ring and the row numbers in a comparison table. Nothing
+  else is red.
 - Colour otherwise comes from the work: each project cover sits on its
   own soft background.
 - No gradients, glows or dot-grid backdrops.
@@ -94,8 +95,15 @@ the end.
   a cover. Nothing sits on the cover itself.
 - **Results** are plain rows: what changed on the left, the number on the
   right (`components/ResultsList.tsx`). No till receipt, no boarding pass.
-- **Status** ("Open to senior and staff roles", "Submitted Oct 30") is
-  plain text. No pill, no coloured dot.
+- **Status** ("Submitted Oct 30") is plain text. No pill, no coloured dot.
+- **The home page opens on Allen's own stickers** (`components/StickerSheet.tsx`),
+  beside the headline. Each is shown at a whole multiple of its 8px pixel
+  grid, so the pixels stay square. Picking one shows its line; the stage
+  mic also dims the lights. No stock illustration ever stands in for them.
+- **The red pen** marks one phrase in the home headline and one phrase per
+  case study. One swipe per page, never a row of them.
+- **The 묵 seal** sits beside his name in the header at its native 22px, and
+  signs off each case study.
 - **Sections do not fade or slide in** as the page loads or scrolls.
 - **Pages made for one employer** (Blue J, Float, Mastercard and the
   brand-themed ones) keep their own sans headings on the same paper.

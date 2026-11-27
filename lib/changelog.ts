@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-27",
+    title: "My stickers, my pen and my seal at the top of the home page",
+    tags: ["design"],
+    what: "The home page now opens with six of my pixel stickers beside the headline. Pick one and it tells you something about me; the stage mic still dims the lights. One phrase of the headline is marked with the same red pen my case studies use, and it changes with who is reading. My seal, 묵, sits beside my name on every page. The list of stickers near the bottom of the page moved up to become this, and the line about which roles I am open to is gone.",
+    why: "The top of the page looked like it could belong to anyone. These are things only I have.",
+  },
+  {
+    date: "2026-11-27",
     title: "Four employer pages look like the rest of the site",
     tags: ["design"],
     what: "Four of my employer pages now sit on the same warm paper as the home page, from the header to the last line, where they used to switch between a tinted band and white. The work is listed the way the home page lists it: the picture, the title, one line and the number. Each page opens with one sentence on who I design for and a real screen from the work, and ends with a short contact section in place of a large coloured band.",
