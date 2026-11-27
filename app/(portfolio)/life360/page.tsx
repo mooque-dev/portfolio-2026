@@ -27,8 +27,8 @@ export default function Life360Page() {
       company="Life360"
       style={BRAND}
       className={`themed theme-life360 ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I ran an A/B test that took fee opt&#8209;in from 75% to 92%.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on payments: checkout fees, split transactions, and one design system for three merged products. I prototype in code with AI tools like Cursor and Claude Code.</>}
+      headline={<>I design complex tools for people whose expertise isn&rsquo;t software.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years in: CRM, payments, healthcare and design systems, most recently at Aplos, now Velora. I prototype in code with AI tools like Cursor and Claude Code.</>}
       hero={
         <Link
           href="/work/fee-opt-in-experimentation"

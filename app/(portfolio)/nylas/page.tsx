@@ -26,8 +26,8 @@ export default function NylasPage() {
       company="Nylas"
       style={BRAND}
       className={`themed theme-nylas ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I cut 340+ components to 70 that three teams share.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing tools for people whose expertise isn&rsquo;t software, the last five on payments and CRM. I build with AI coding tools like Claude Code every day.</>}
+      headline={<>I design complex tools for people whose expertise isn&rsquo;t software.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years in: CRM, payments, healthcare and design systems, most recently at Aplos, now Velora. I prototype in code with AI tools like Cursor and Claude Code.</>}
       hero={
         <Link
           href="/work/orchid-design-system"
