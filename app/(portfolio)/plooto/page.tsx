@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { Space_Grotesk, Nunito_Sans } from "next/font/google";
-import BillRun from "@/components/BillRun";
+import Link from "next/link";
+import Image from "next/image";
 import TailoredPage from "@/components/tailored/TailoredPage";
 
 // A tailored, unlisted view of the portfolio for Plooto, built on the
-// shared frame (components/tailored/TailoredPage.tsx). The object is
-// one made-up bill stepped through the three moments that decide trust in a payment: the approval, the catch before money moves, and the confirmation, each tied to the case where the same rule was used.
+// shared frame (components/tailored/TailoredPage.tsx). It opens on the real split payment form from Transaction Workflows.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Plooto" },
   description:
@@ -25,12 +25,31 @@ export default function PlootoPage() {
       company="Plooto"
       style={BRAND}
       className={`themed theme-plooto ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I redesigned split transactions<span className="sig-tone"> and cut categorization tickets by 70%.</span></>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on payments and finance tools: split transactions, checkout fees, and one design system for three merged products. I learn the rules from the people who do the books, some of them accountants, and I build working prototypes with AI coding tools when a mock can&rsquo;t settle it.</>}
-      hero={<><BillRun /></>}
-      caption={<>One bill on its way out, sketched from the outside. Step through it.</>}
+      headline={<>I design complex tools for people whose expertise isn&rsquo;t software.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years in: CRM, payments, healthcare and design systems, most recently at Aplos, now Velora. I prototype in code with AI tools like Cursor and Claude Code.</>}
+      hero={
+        <Link
+          href="/work/transaction-workflows"
+          className="group relative block aspect-[3/2] overflow-hidden rounded-lg"
+          style={{ backgroundColor: "#dde4d4" }}
+        >
+          <Image
+            src="/case-studies/transaction-workflows/cover.jpg"
+            alt="The New Transaction form, with one payment split into a donation and a revenue line"
+            fill
+            priority
+            sizes="(max-width: 1023px) 92vw, 440px"
+            className="object-contain"
+          />
+        </Link>
+      }
+      caption={<>The split payment form from{" "}
+                <Link href="/work/transaction-workflows" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  Transaction Workflows
+                </Link>
+                : one payment, recorded as the donation and the revenue it really was.</>}
       cases={["tw", "fe", "or", "ak", "au", "ar"]}
-      contact={<>If the bill above gets an approval wrong, I&rsquo;d like to hear how your customers really pay.</>}
+      contact={<>Thanks for reading. I&rsquo;d be glad to talk whenever it suits you.</>}
     />
   );
 }

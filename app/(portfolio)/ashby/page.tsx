@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { Figtree } from "next/font/google";
-import SpecDoc from "@/components/SpecDoc";
+import Link from "next/link";
+import Image from "next/image";
 import TailoredPage from "@/components/tailored/TailoredPage";
 
 // A tailored, unlisted view of the portfolio for Ashby, built on the
-// shared frame (components/tailored/TailoredPage.tsx). The object is
-// a one-page spec on booking a final round, sketched from the outside: problem, decision, what changes, each redrawing a small schedule grid, with the decision tied to the case where the same rule was used.
+// shared frame (components/tailored/TailoredPage.tsx). It opens on a screen built with Orchid, the design system case.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Ashby" },
   description:
@@ -25,12 +25,31 @@ export default function AshbyPage() {
       company="Ashby"
       style={BRAND}
       className={`themed theme-ashby ${fdisplay.variable} ${ftext.variable}`}
-      headline={<>I designed across three products merging into one,<span className="sig-tone"> and stepped in as PM when a project needed one.</span></>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on payments, finance and CRM tools, owning features from the first question to release. I prototype in code with AI tools when a mock can&rsquo;t settle it.</>}
-      hero={<><SpecDoc /></>}
-      caption={<>A short spec I wrote from the outside on one recruiting task. Step through it.</>}
+      headline={<>I design complex tools for people whose expertise isn&rsquo;t software.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years in: CRM, payments, healthcare and design systems, most recently at Aplos, now Velora. I prototype in code with AI tools like Cursor and Claude Code.</>}
+      hero={
+        <Link
+          href="/work/orchid-design-system"
+          className="group relative block aspect-[3/2] overflow-hidden rounded-lg"
+          style={{ backgroundColor: "#e0d4e6" }}
+        >
+          <Image
+            src="/case-studies/orchid-design-system/cover.jpg"
+            alt="A dashboard built from Orchid components"
+            fill
+            priority
+            sizes="(max-width: 1023px) 92vw, 440px"
+            className="object-contain"
+          />
+        </Link>
+      }
+      caption={<>A screen built with{" "}
+                <Link href="/work/orchid-design-system" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  Orchid
+                </Link>
+                , the design system I pitched and led.</>}
       cases={["or", "tw", "ak", "au", "fe", "ar"]}
-      contact={<>If the spec above gets scheduling wrong somewhere, I&rsquo;d like to know where.</>}
+      contact={<>Thanks for reading. I&rsquo;d be glad to talk whenever it suits you.</>}
     />
   );
 }
