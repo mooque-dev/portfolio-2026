@@ -2,7 +2,6 @@ import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Statement } from "@/components/PaymentCard";
-import FadeIn from "@/components/FadeIn";
 import Arrow from "@/components/Arrow";
 import CurtainCall from "@/components/CurtainCall";
 import { BUILT, CASES, COVERS, type CaseKey } from "@/lib/tailored";
@@ -54,13 +53,13 @@ export default function TailoredPage({ slug, company, style, className = "", lab
       <div className="max-w-6xl mx-auto px-6">
         <div className="brand-hero">
           {heroExtras}
-          <FadeIn>
+          <div>
             <div className={hero ? "tp-grid grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,440px)] lg:gap-16" : "tp-grid max-w-3xl"}>
               <div className="min-w-0">
                 {label ? <p className="sig-label">{label}</p> : null}
-                <h1 className="tp-h1 text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">{headline}</h1>
-                <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{lede}</p>
-                <div className="mt-8 flex flex-wrap gap-3">
+                <h1 className="tp-h1 tp-in text-4xl md:text-6xl font-semibold leading-[1.05] tracking-[-0.03em] text-balance">{headline}</h1>
+                <p className="tp-in mt-6 max-w-xl text-lg leading-relaxed text-muted" style={{ "--tp-in": "90ms" } as CSSProperties}>{lede}</p>
+                <div className="tp-in mt-8 flex flex-wrap gap-3" style={{ "--tp-in": "180ms" } as CSSProperties}>
                   <a href={`/allen-kang-resume-${slug}.pdf`} target="_blank" rel="noopener noreferrer" className={`${pill} brand-cta gap-1.5`}>
                     Résumé (PDF) <Arrow dir="up-right" />
                     <span className="sr-only"> (opens in new tab)</span>
@@ -71,13 +70,13 @@ export default function TailoredPage({ slug, company, style, className = "", lab
                 </div>
               </div>
               {hero ? (
-                <div className="min-w-0 sig-obj">
+                <div className="min-w-0 sig-obj tp-in" style={{ "--tp-in": "140ms" } as CSSProperties}>
                   {hero}
                   {caption ? <p className="mt-3 text-[14px] text-muted">{caption}</p> : null}
                 </div>
               ) : null}
             </div>
-          </FadeIn>
+          </div>
         </div>
 
         <section id={`${id}-work`} aria-labelledby={`${id}-work-title`} className="scroll-mt-24 mt-20 md:mt-28">
@@ -187,7 +186,7 @@ export default function TailoredPage({ slug, company, style, className = "", lab
             </div>
           </section>
         )}
-        <p className="mt-10 text-xs text-muted">An independent portfolio page. Not affiliated with or endorsed by {company}.</p>
+        <p className="tp-rv mt-10 text-xs text-muted">An independent portfolio page. Not affiliated with or endorsed by {company}.</p>
       </div>
     </article>
   );

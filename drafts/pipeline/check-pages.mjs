@@ -69,6 +69,8 @@ const DARK_PROBE = `(() => {
   return [...new Set(out)];
 })()`;
 const report = {};
+// Reduce Motion on, so scroll-in reveals are already finished when we look.
+await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
 for (const slug of slugs) {
   report[slug] = {};
   const shots = [];
@@ -83,11 +85,11 @@ for (const slug of slugs) {
   }
   // Dark mode: every button must stand out from what is behind it and its own text.
   await send("Emulation.setDeviceMetricsOverride", { width: DARK_WIDTH, height: 900, deviceScaleFactor: 1, mobile: false });
-  await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-color-scheme", value: "dark" }] });
+  await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-color-scheme", value: "dark" }, { name: "prefers-reduced-motion", value: "reduce" }] });
   await send("Page.navigate", { url: `${base}/${slug}/` }); await sleep(2600);
   await ev(`localStorage.setItem("theme","dark"); document.documentElement.classList.add("dark")`); await sleep(400);
   report[slug].dark = await ev(DARK_PROBE);
-  await send("Emulation.setEmulatedMedia", { features: [] });
+  await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
   await ev(`localStorage.removeItem("theme")`);
   writeFileSync(join(outDir, `${slug}.json`), JSON.stringify(shots.map((s) => s.w)));
   shots.forEach((s) => writeFileSync(join(outDir, `${slug}-${s.w}.png`), Buffer.from(s.data, "base64")));

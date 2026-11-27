@@ -16,6 +16,8 @@ const send = (method, params = {}) => new Promise((res) => { const i = ++id; pen
 const ev = async (expr) => (await send("Runtime.evaluate", { expression: expr, returnByValue: true, awaitPromise: true })).result?.result?.value;
 await send("Page.enable"); await send("Runtime.enable");
 await send("Emulation.setDeviceMetricsOverride", { width: +width, height: +height, deviceScaleFactor: 1, mobile: +width < 600 });
+// Reduce Motion on, so scroll-in reveals are already finished when we look.
+await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
 await send("Page.navigate", { url }); await sleep(5000);
 await ev(dark ? 'document.documentElement.classList.add("dark")' : 'document.documentElement.classList.remove("dark")');
 await ev("document.fonts && document.fonts.ready.then(()=>1)");

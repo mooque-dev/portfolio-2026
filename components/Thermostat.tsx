@@ -22,7 +22,7 @@ const SETTINGS: Setting[] = [
     key: "Systems",
     value: "70",
     unit: "shared components",
-    proof: "Cut 340+ one-off components to 70 shared ones in Orchid, which three engineering teams build with.",
+    proof: "Cut 340+ components across three products to 70 shared ones in Orchid, which four engineering teams build with.",
     href: "/work/orchid-design-system",
     link: "Orchid",
   },

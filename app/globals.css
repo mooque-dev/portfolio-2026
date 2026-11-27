@@ -2112,6 +2112,30 @@ body:has(.theme-hatch) header { --background: #0a1a34; --foreground: #f7f4ee; --
 .tp-card-go { display: grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--background); color: var(--foreground); transition: transform 0.2s; }
 .tp-card:hover .tp-card-go { transform: translateX(3px); }
 .tp-card .text-muted { color: var(--muted); }
+
+/* Tailored pages: motion. The intro arrives in three short beats, then cards,
+   the "why" paragraphs and the side story rise in as they scroll into view.
+   Scroll-linked, CSS only: a browser without view timelines, or anyone with
+   Reduce Motion on, just sees the page as it is. Never hides the first paint. */
+@media (prefers-reduced-motion: no-preference) {
+  .tp .tp-in { animation: tp-in 0.6s cubic-bezier(0.2, 0, 0, 1) var(--tp-in, 0ms) both; }
+  @supports (animation-timeline: view()) {
+    .tp .tp-cards > li, .tp .tp-rv, .tp .ct {
+      animation: tp-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 32%;
+    }
+    @media (min-width: 1024px) {
+      .tp .tp-cards > li:nth-child(3n + 2) { animation-range: entry 4% entry 38%; }
+      .tp .tp-cards > li:nth-child(3n + 3) { animation-range: entry 8% entry 44%; }
+    }
+  }
+}
+@keyframes tp-in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes tp-rise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+.tp-card:hover { transform: translateY(-2px); }
+.tp-card:active { transform: translateY(0) scale(0.99); }
+@media (prefers-reduced-motion: reduce) { .tp-card:hover, .tp-card:active { transform: none; } }
 .ct { display: grid; gap: 28px; align-items: center; padding: 28px; border-radius: 16px; background: var(--surface); color: var(--foreground); }
 @media (min-width: 900px) { .ct { grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: 48px; padding: 44px; } }
 /* The Google page in the site's own look: hero button follows the theme. */
