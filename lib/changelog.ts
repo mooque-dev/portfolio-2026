@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-27",
+    title: "The design systems article says nine",
+    tags: ["content"],
+    what: "My article on merging design systems after the acquisition is now called Merging Nine Design Systems Was the Easy Part, and its summary and scope line say the three products ran on nine design systems, each with its own colours and spacing.",
+    why: "It should give the same number as the Orchid case study and my résumé.",
+  },
+  {
+    date: "2026-11-27",
     title: "One story across the résumés and the site, and a Google page that moves",
     tags: ["design", "content"],
     what: "My main résumé and the Google résumé now say the same things in the same words: Velora's scale, being the only designer across all three products after a reorg, Orchid replacing nine overlapping design systems for four engineering teams, and a code-to-Figma plugin that keeps the library in step. The fee work reads as digging into results that looked better than they were. The résumé page, the Google page, the Orchid case study and every page that quotes Orchid agree, and none call the 340+ components one-offs. On the Google page the intro now arrives in three short beats, and the work cards and the reasons for the role rise in as you scroll. With Reduce Motion on, everything is simply there.",
