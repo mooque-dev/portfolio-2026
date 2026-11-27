@@ -90,12 +90,9 @@ export default function AboutTabs() {
                 How I work
               </h2>
               <ol className="grid gap-x-10 gap-y-8 sm:grid-cols-3 max-w-4xl">
-                {HOW_I_WORK.map((h, i) => (
+                {HOW_I_WORK.map((h) => (
                   <li key={h.title} className="border-t border-border pt-5 min-w-0">
-                    <span className="text-2xl font-bold text-[var(--seal)]" aria-hidden>
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="mt-2 font-semibold">{h.title}</h3>
+                    <h3 className="font-semibold">{h.title}</h3>
                     <p className="mt-2 text-muted leading-relaxed">{h.text}</p>
                     <Link
                       href={h.href}

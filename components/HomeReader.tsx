@@ -12,6 +12,7 @@ import CurtainCall from "@/components/CurtainCall";
 import AudienceIntro from "@/components/AudienceIntro";
 import CaseRow, { hrefOf } from "@/components/CaseRow";
 import StickerSheet from "@/components/StickerSheet";
+import { FILMS } from "@/lib/films";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -31,6 +32,35 @@ const BUILT = ["arnd", "torontoyuwol", "forkestrate"];
 // A team hackathon project, shown on its own so it isn't read as main work.
 // Submitted on Oct 30; add the result here once it's announced.
 const HACKATHON = { slug: "goldito", event: "Nebius × NVIDIA Global AI Hackathon", submitted: true };
+
+// Four ways in for a first visit. The film length comes from the film itself.
+const START = [
+  {
+    when: "One minute",
+    text: `Watch Transaction Workflows: ${FILMS["transaction-workflows"]?.seconds ?? 50} seconds, no sound, then try the split payment yourself.`,
+    href: "/work/transaction-workflows",
+    link: "Watch it",
+  },
+  {
+    when: "Ten minutes",
+    text: "Read Fee Opt-In, the study I'm proudest of: an A/B test that took opt-in from 75% to 92%.",
+    href: "/work/fee-opt-in-experimentation",
+    link: "Read it",
+  },
+  {
+    when: "Hiring",
+    text: "Senior product designer in Toronto, eight years in. The résumé is one page, and five colleagues say what I'm like to work with.",
+    href: "/about#colleagues",
+    link: "What colleagues say",
+  },
+  {
+    when: "Have a project",
+    text: "Tell me what you're trying to fix and who it's for. I'll answer with what I'd look at first.",
+    href: "mailto:allensmkang@gmail.com",
+    link: "allensmkang@gmail.com",
+    external: true,
+  },
+];
 
 // Lists on home show in the order written above. The Work page sorts by each
 // case study's `order` number, so keep the two in step when either changes.
@@ -97,6 +127,33 @@ export default function HomeReader({ allProjects }: Props) {
         </FadeIn>
         <StickerSheet items={OFF_CLOCK} />
         </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6">
+        {/* For someone seeing the site for the first time: four ways in, by how
+            much time they have and why they came. Plain text in columns. */}
+        <section aria-labelledby="start-here" className="mt-16 md:mt-24 border-t border-border pt-10">
+          <h2 id="start-here" className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
+            New here? Pick by how much time you have.
+          </h2>
+          <ul className="mt-8 grid list-none gap-x-10 gap-y-8 p-0 sm:grid-cols-2 lg:grid-cols-4">
+            {START.map((x) => (
+              <li key={x.when} className="min-w-0">
+                <p className="text-[15px] font-semibold">{x.when}</p>
+                <p className="mt-2 text-[14.5px] leading-relaxed text-muted">{x.text}</p>
+                {x.external ? (
+                  <a href={x.href} className="mt-2 inline-block text-[14px] underline underline-offset-4 hover:opacity-70 transition-opacity">
+                    {x.link}
+                  </a>
+                ) : (
+                  <Link href={x.href} className="mt-2 inline-block text-[14px] underline underline-offset-4 hover:opacity-70 transition-opacity">
+                    {x.link} <Arrow />
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
