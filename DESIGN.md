@@ -93,11 +93,12 @@ the end.
 - **"Interactive" and "Live app"** are words at the end of the line under
   a cover. Nothing sits on the cover itself.
 - **Results** are plain rows: what changed on the left, the number on the
-  right (`components/ResultsList.tsx`). No receipt, ticket or other prop.
+  right (`components/ResultsList.tsx`). No till receipt.
 - **Status** ("Open to senior and staff roles", "Submitted Oct 30") is
   plain text. No pill, no coloured dot.
-- **Nothing fades or slides in** as the page loads or scrolls. The curtain
-  and the seal are the only things that move, because they are the ending.
+- **Sections do not fade or slide in** as the page loads or scrolls.
+- **Pages made for one employer** (Blue J, Float, Mastercard and the
+  brand-themed ones) keep their own sans headings on the same paper.
 - **Controls that belong to the page** (a before and after toggle) sit
   outside the product picture, so nobody mistakes them for the product.
 
@@ -141,7 +142,7 @@ These make a page read as machine-made. None of them ship.
 9. Em-dashes.
 10. A title built as "Name: A Dramatic Phrase".
 11. A pill with a small coloured dot.
-12. Results dressed up as a receipt, a ticket or a boarding pass.
+12. Results dressed up as a till receipt.
 13. Sections that fade in as you scroll.
 
 ## Before it ships

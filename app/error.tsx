@@ -34,9 +34,6 @@ export default function Error({
 
       <main className="flex-1 flex items-center justify-center px-6 text-center">
         <div className="-mt-16">
-          <p className="microlabel text-muted mb-4">
-            Something broke
-          </p>
           <h1 className="font-serif text-6xl md:text-8xl font-bold tracking-tight">
             Oops
           </h1>

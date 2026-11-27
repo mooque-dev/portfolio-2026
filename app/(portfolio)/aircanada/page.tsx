@@ -224,7 +224,7 @@ export default async function AirCanadaPage() {
 
         <FadeIn delay={0.1}>
           <section className="mt-20 border-t border-border pt-12" aria-labelledby="ac-fit">
-            <h2 id="ac-fit" className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
+            <h2 id="ac-fit" className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
               Your role, and my closest evidence
             </h2>
             <dl className="mt-8">
@@ -251,7 +251,7 @@ export default async function AirCanadaPage() {
 
         <FadeIn delay={0.12}>
           <section className="mt-24" aria-labelledby="ac-numbers">
-            <h2 id="ac-numbers" className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
+            <h2 id="ac-numbers" className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
               Outcomes I can stand behind
             </h2>
             <p className="mt-3 text-[15px] text-muted leading-relaxed max-w-xl">
@@ -264,7 +264,7 @@ export default async function AirCanadaPage() {
 
         <FadeIn delay={0.15}>
           <section className="mt-24" aria-labelledby="ac-principles">
-            <h2 id="ac-principles" className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
+            <h2 id="ac-principles" className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
               How I&rsquo;d work as your product manager
             </h2>
             <ol className="mt-8 grid gap-10 md:grid-cols-2">
@@ -286,7 +286,7 @@ export default async function AirCanadaPage() {
 
         <FadeIn delay={0.18}>
           <section id="incidents" className="mt-24 scroll-mt-28" aria-labelledby="ac-incidents">
-            <h2 id="ac-incidents" className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
+            <h2 id="ac-incidents" className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
               Incidents I&rsquo;ve run, on my own product
             </h2>
             <p className="mt-4 text-[15px] text-muted max-w-2xl leading-relaxed">
@@ -311,7 +311,7 @@ export default async function AirCanadaPage() {
 
         <FadeIn delay={0.2}>
           <section className="mt-24" aria-labelledby="ac-work">
-            <h2 id="ac-work" className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
+            <h2 id="ac-work" className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
               The case studies, in the order I&rsquo;d walk you through them
             </h2>
             <div className="mt-8 grid gap-x-8 gap-y-12 md:grid-cols-2">
@@ -336,7 +336,7 @@ export default async function AirCanadaPage() {
 
         <FadeIn delay={0.25}>
           <section className="mt-24" aria-labelledby="ac-built">
-            <h2 id="ac-built" className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
+            <h2 id="ac-built" className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">
               Products I run myself
             </h2>
             <p className="mt-4 text-[15px] text-muted max-w-2xl leading-relaxed">
