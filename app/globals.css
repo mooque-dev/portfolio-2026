@@ -2152,14 +2152,13 @@ body:has(.theme-hatch) header { --background: #0a1a34; --foreground: #f7f4ee; --
 .sd-cell.is-booked { background: #473bce; box-shadow: none; }
 .sd-cell.is-booked.is-swap { background: repeating-linear-gradient(135deg, #473bce 0 4px, #5a4fd6 4px 8px); }
 @media (prefers-reduced-motion: reduce) { .sd-cell, .sd-tabs button { transition: none; } }
-/* Life360: their own visual language, not their marks. White canvas with a cream boxed
-   intro, heavy geometric headlines ending in a full stop, purple 6px buttons. The opening
+/* Life360: their own visual language, not their marks. The site's own paper throughout, heavy geometric headlines ending in a full stop, purple 6px buttons. The opening
    picture is the three tested checkouts. No logo, ring or pins. */
-.theme-life360 { --canvas: #fff; --ink: #130f0c; --mut: #51504b; --line: #e6e1d6; --h1w: 800; --h1t: -0.02em; --h1l: 1.06; --h2w: 700; --btn-r: 6px; }
+.theme-life360 { --canvas: #f7f4ec; --ink: #130f0c; --mut: #51504b; --line: #e6e1d6; --h1w: 800; --h1t: -0.02em; --h1l: 1.06; --h2w: 700; --btn-r: 6px; }
 /* Nothing fades or slides in (DESIGN.md). */
 .theme-life360 :is(.tp-in, .tp-cards > li, .tp-rv, .ct) { animation: none; }
-body:has(.theme-life360) header { --background: #f3efe8; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
-.dark body:has(.theme-life360) header { --background: #f3efe8; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
+body:has(.theme-life360) header { --background: #f7f4ec; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
+.dark body:has(.theme-life360) header { --background: #f7f4ec; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
 .theme-life360 a.rounded-full { font-weight: 700; }
 .theme-life360 .brand-foot { --hero-bg: #f4f0e7; --hero-fg: #130f0c; --hc: #762eeb; --hco: #fff; }
 
