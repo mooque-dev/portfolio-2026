@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-27",
+    title: "Four employer pages look like the rest of the site",
+    tags: ["design"],
+    what: "Four of my employer pages now sit on the same warm paper as the home page, from the header to the last line, where they used to switch between a tinted band and white. The work is listed the way the home page lists it: the picture, the title, one line and the number. Each page opens with one sentence on who I design for and a real screen from the work, and ends with a short contact section in place of a large coloured band.",
+    why: "The picture cards and the big closing band were borrowed from one page and repeated on the others, so the pages looked like each other and not like my site.",
+  },
+  {
+    date: "2026-11-27",
     title: "Two employer pages open on real screens",
     tags: ["design", "content"],
     what: "One of my employer pages used to open on a card you stepped through, with a status pill and a two-colour headline. It now opens on the three checkouts I actually tested, with a one-line opener about who I design for. The rows under the work use plain labels, and the closing paragraphs that repeated the cards are gone. A second employer page is new, built the same way and opening on a screen made with Orchid.",
