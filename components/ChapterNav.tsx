@@ -74,7 +74,6 @@ export default function ChapterNav({
       {demo && (
         <div className="bg-foreground text-background">
           <div className="max-w-6xl mx-auto px-6 py-2 flex items-center gap-x-3 gap-y-1 flex-wrap text-[13.5px] leading-snug">
-            <span aria-hidden className="h-2 w-2 flex-none rounded-full bg-[var(--seal)]" />
             <span className="hidden sm:inline opacity-85">{demo.text}</span>
             <a href={demo.href} className="font-medium underline underline-offset-4 hover:opacity-70 transition-opacity">
               Try the interactive version <Arrow dir="down" />

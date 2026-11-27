@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import Magnetic from "@/components/Magnetic";
-import TryTag, { type TryTagKind } from "@/components/TryTag";
 
 interface ProjectCardProps {
   slug: string;
@@ -22,7 +21,7 @@ interface ProjectCardProps {
   // its own line beneath the card.
   blurb?: boolean;
   // Something to try inside: shows a small pill on the cover.
-  tryTag?: TryTagKind;
+  tryTag?: "Interactive" | "Live app";
   // The title's heading level. A page that lists cards straight under its
   // h1 (the work index) passes "h2" so the outline doesn't skip a level.
   heading?: "h2" | "h3";
@@ -86,7 +85,6 @@ export default function ProjectCard({
                 )}
               </>
             )}
-            {tryTag && <TryTag kind={tryTag} className="absolute left-3 top-3 z-10" />}
             {!coverImage && (
               <div className="absolute inset-0 flex items-center justify-center p-8" aria-hidden="true">
                 <span className="text-foreground/15 text-center text-2xl md:text-3xl font-semibold leading-tight select-none">
@@ -102,8 +100,8 @@ export default function ProjectCard({
           </div>
         </div>
         <div className={compact ? "mt-3" : "mt-4"}>
-          <p className="microlabel text-muted">
-            {category}
+          <p className="text-[14px] text-muted">
+            {[category, tryTag].filter(Boolean).join(" · ")}
           </p>
           <Heading
             className={`font-semibold leading-snug group-hover:opacity-60 transition-opacity ${

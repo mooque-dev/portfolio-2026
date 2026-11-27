@@ -270,7 +270,7 @@ export default function AboutTabs() {
         <div>
           <FadeIn delay={0.05}>
             <div className="mt-10">
-              <h2 className="microlabel text-muted mb-8">
+              <h2 className="text-xl md:text-2xl font-semibold tracking-[-0.01em] mb-8">
                 Experience
               </h2>
               <div className="space-y-0">
@@ -307,7 +307,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.1}>
             <div className="mt-16">
               <Separator className="mb-8" />
-              <h2 className="microlabel text-muted mb-8">
+              <h2 className="text-xl md:text-2xl font-semibold tracking-[-0.01em] mb-8">
                 Side Projects
               </h2>
               <div className="space-y-6">
@@ -342,7 +342,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.15}>
             <div className="mt-16">
               <Separator className="mb-8" />
-              <h2 className="microlabel text-muted mb-8">
+              <h2 className="text-xl md:text-2xl font-semibold tracking-[-0.01em] mb-8">
                 Education
               </h2>
               <div className="space-y-6">
@@ -359,7 +359,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.18}>
             <div className="mt-16">
               <Separator className="mb-8" />
-              <h2 className="microlabel text-muted mb-8">
+              <h2 className="text-xl md:text-2xl font-semibold tracking-[-0.01em] mb-8">
                 Certifications
               </h2>
               <div className="space-y-4">
@@ -385,7 +385,7 @@ export default function AboutTabs() {
           <FadeIn delay={0.2}>
             <div className="mt-16">
               <Separator className="mb-8" />
-              <h2 className="microlabel text-muted mb-6">
+              <h2 className="text-xl md:text-2xl font-semibold tracking-[-0.01em] mb-6">
                 Get in touch
               </h2>
               <div className="flex flex-wrap gap-6 text-sm">
