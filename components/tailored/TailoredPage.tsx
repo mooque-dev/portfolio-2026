@@ -28,12 +28,12 @@ export type TailoredPageProps = {
   heroExtras?: ReactNode;
   /** Optional rows after the work list: what the role asks for, and the work that answers it. */
   fit?: { ask: string; proof: ReactNode }[];
-  /** "cards" shows the work as picture cards; the default is the statement list. */
-  work?: "list" | "cards";
+  /** "cards" shows the work as picture cards, "rows" as the rows the home page uses, "list" as the statement list. */
+  work?: "list" | "cards" | "rows";
   /** Optional section between the role-fit rows and the code paragraphs (a personal aside). */
   aside?: ReactNode;
   /** "curtain" ends the page on the curtain call from home; the default is the contact band. */
-  close?: "band" | "curtain";
+  close?: "band" | "curtain" | "plain";
   /** Optional section headings in the page's own voice. Defaults keep the plain ones. */
   titles?: { work?: ReactNode; fit?: ReactNode };
   /** Hide the closing "built in code" paragraphs when the page already covers them. */
@@ -113,6 +113,32 @@ export default function TailoredPage({ slug, company, style, className = "", lab
                   );
                 })}
               </ul>
+            ) : work === "rows" ? (
+              <ul className="m-0 list-none border-t border-border p-0">
+                {cases.map((k) => {
+                  const c = CASES[k];
+                  const cover = COVERS[k];
+                  return (
+                    <li key={k}>
+                      <Link href={c.href} className="group grid items-center gap-5 border-b border-border py-7 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-10">
+                        {cover ? (
+                          <span className="relative block aspect-[3/2] overflow-hidden rounded-md" style={{ background: cover.color }}>
+                            <Image src={cover.src} alt="" fill sizes="(max-width: 767px) 92vw, 440px" loading="eager" className="object-contain" />
+                          </span>
+                        ) : null}
+                        <span className="block min-w-0">
+                          <span className="block text-xl font-semibold leading-snug group-hover:opacity-70 transition-opacity md:text-[22px]">{c.title}</span>
+                          <span className="mt-2 block text-[14.5px] leading-relaxed text-muted">{c.line}</span>
+                          <span className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                            <span className="text-2xl font-semibold tracking-tight tabular-nums">{c.value}</span>
+                            {c.note ? <span className="text-[13px] text-muted">{c.note}</span> : null}
+                          </span>
+                        </span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
             ) : (
               <Statement lines={cases.map((k) => CASES[k])} />
             )}
@@ -167,6 +193,22 @@ export default function TailoredPage({ slug, company, style, className = "", lab
 
         {close === "curtain" ? (
           <CurtainCall title={contact} sub={plainClose ? null : "Thanks for staying to the end. Encore?"} encore={!plainClose} resumeHref={`/allen-kang-resume-${slug}.pdf`} titleClassName="" linkedin />
+        ) : close === "plain" ? (
+          <section aria-labelledby={`${id}-contact`} className="mt-20 md:mt-28 max-w-2xl">
+            <h2 id={`${id}-contact`} className="tp-h2 text-lg md:text-xl font-medium tracking-[-0.01em]">
+              Contact
+            </h2>
+            <p className="mt-4 text-[16px] leading-relaxed text-muted">{contact}</p>
+            <p className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-[16px]">
+              <a href="mailto:allensmkang@gmail.com" className={inline}>
+                allensmkang@gmail.com
+              </a>
+              <a href="https://www.linkedin.com/in/mooque/" target="_blank" rel="noopener noreferrer" className={inline}>
+                LinkedIn
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </p>
+          </section>
         ) : (
           <section
             aria-labelledby={`${id}-contact`}

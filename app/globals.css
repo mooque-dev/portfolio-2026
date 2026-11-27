@@ -882,20 +882,7 @@ select::-ms-expand {
   100% { opacity: 1; transform: scale(1) rotate(-6deg); }
 }
 
-/* ---- Character: stickers and the stage mic (OffClock) ---- */
-.offclock .sticker {
-  display: block;
-  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1), filter 0.25s;
-}
-.offclock li:hover .sticker,
-.offclock .sticker:focus-visible {
-  transform: translateY(-6px) rotate(-6deg);
-  filter: drop-shadow(0 8px 6px rgb(0 0 0 / 0.25));
-}
-.offclock button.sticker:focus-visible {
-  outline: 2px solid var(--seal);
-  outline-offset: 4px;
-}
+/* ---- Character: the stage mic spotlight (StickerSheet) ---- */
 .spotlight {
   position: fixed;
   inset: 0;
@@ -912,7 +899,6 @@ select::-ms-expand {
   transition: opacity 0.5s ease, visibility 0s;
 }
 @media (prefers-reduced-motion: reduce) {
-  .offclock .sticker,
   .spotlight {
     transition: none;
   }
@@ -1715,7 +1701,7 @@ body:has(.theme-bridgit) header { --background: #f7f7f6; --foreground: #000; --m
 body:has(:is(.theme-stripe, .theme-matcha, .theme-ecobee, .theme-apply-digital, .theme-harvey, .theme-7shifts, .theme-ashby)) header { --background: var(--hdr); --foreground: #111; --muted: #555; --border: #e8e8e4; }
 body:has(.theme-stripe, .theme-matcha, .theme-ecobee) { --hdr: #fff; }
 body:has(.theme-harvey) { --hdr: #fafaf9; }
-body:has(.theme-ashby) { --hdr: #fcfcfe; }
+body:has(.theme-ashby) { --hdr: #f7f4ec; }
 body:has(.theme-apply-digital) { --hdr: #fcfcfa; }
 body:has(.theme-7shifts) { --hdr: #f1f0ec; }
 
@@ -2116,8 +2102,8 @@ body:has(.theme-hatch) header { --background: #0a1a34; --foreground: #f7f4ee; --
 /* Ashby: Figtree at 575 on a cool off-white, a two-weight headline, purple
    gradient 6px buttons with an inset ring, and the spec doc on a white card
    with a hairline shadow (components/SpecDoc.tsx). */
-.theme-ashby { --canvas: #fcfcfe; --ink: #141415; --mut: #5f5e63; --line: #e4e4e7; --h1w: 575; --h1t: -0.04em; --h1l: 1.06; --h2w: 575; --h2t: -0.02em; --btn-r: 6px; }
-.theme-ashby .sig-tone { color: #6e6d73; }
+.theme-ashby { --canvas: #f7f4ec; --ink: #141415; --mut: #5f5e63; --line: #e0dccf; --h1w: 575; --h1t: -0.04em; --h1l: 1.06; --h2w: 575; --h2t: -0.02em; --btn-r: 6px; }
+.theme-ashby :is(.tp-in, .tp-cards > li, .tp-rv, .ct) { animation: none; }
 .theme-ashby a.rounded-full { font-weight: 545; letter-spacing: -0.008em; }
 .theme-ashby .brand-cta, .dark .theme-ashby .brand-cta, .theme-ashby :is(.brand-hero, .brand-foot) .brand-cta, .dark .themed.theme-ashby :is(.brand-hero, .brand-foot) .brand-cta {
   background: linear-gradient(#6857db, #473bce); border-color: transparent; color: #fcfcfe; box-shadow: inset 0 0 0 1px rgb(20 20 21 / 0.16), inset 0 1px 2px rgb(255 255 255 / 0.2); }
@@ -2152,15 +2138,22 @@ body:has(.theme-hatch) header { --background: #0a1a34; --foreground: #f7f4ee; --
 .sd-cell.is-booked { background: #473bce; box-shadow: none; }
 .sd-cell.is-booked.is-swap { background: repeating-linear-gradient(135deg, #473bce 0 4px, #5a4fd6 4px 8px); }
 @media (prefers-reduced-motion: reduce) { .sd-cell, .sd-tabs button { transition: none; } }
-/* Life360: their own visual language, not their marks. White canvas with a cream boxed
-   intro, heavy geometric headlines ending in a full stop, purple 6px buttons. The opening
-   object is an experiment write-up card on a fixed light palette. No logo, ring or pins. */
-.theme-life360 { --canvas: #fff; --ink: #130f0c; --mut: #51504b; --line: #e6e1d6; --h1w: 800; --h1t: -0.02em; --h1l: 1.06; --h2w: 700; --btn-r: 6px; }
-.theme-life360 .sig-em { font-style: normal; font-family: inherit; color: #762eeb; }
-body:has(.theme-life360) header { --background: #f3efe8; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
-.dark body:has(.theme-life360) header { --background: #f3efe8; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
+/* Life360: their own visual language, not their marks. The site's own paper throughout, heavy geometric headlines ending in a full stop, purple 6px buttons. The opening
+   picture is the three tested checkouts. No logo, ring or pins. */
+.theme-life360 { --canvas: #f7f4ec; --ink: #130f0c; --mut: #51504b; --line: #e6e1d6; --h1w: 800; --h1t: -0.02em; --h1l: 1.06; --h2w: 700; --btn-r: 6px; }
+/* Nothing fades or slides in (DESIGN.md). */
+.theme-life360 :is(.tp-in, .tp-cards > li, .tp-rv, .ct) { animation: none; }
+body:has(.theme-life360) header { --background: #f7f4ec; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
+.dark body:has(.theme-life360) header { --background: #f7f4ec; --foreground: #130f0c; --muted: #51504b; --border: #e6e1d6; }
 .theme-life360 a.rounded-full { font-weight: 700; }
 .theme-life360 .brand-foot { --hero-bg: #f4f0e7; --hero-fg: #130f0c; --hc: #762eeb; --hco: #fff; }
+
+/* Nylas: the site's own paper, Manrope headings and one royal blue for the buttons.
+   No marks of theirs. Nothing fades or slides in. */
+.theme-nylas { --canvas: #f7f4ec; --ink: #0a0a0a; --mut: #4b5563; --line: #e0dccf; --h1w: 700; --h1t: -0.03em; --h1l: 1.08; --h2w: 700; --btn-r: 8px; }
+body:has(.theme-nylas) header, .dark body:has(.theme-nylas) header { --background: #f7f4ec; --foreground: #0a0a0a; --muted: #4b5563; --border: #e0dccf; }
+.theme-nylas a.rounded-full { font-weight: 600; }
+.theme-nylas :is(.tp-in, .tp-cards > li, .tp-rv, .ct) { animation: none; }
 
 .xw-wrap { container-type: inline-size; width: 100%; max-width: 440px; }
 .xw { --p: #762eeb; --ink: #130f0c; --mut: #51504b; --line: #e6e1d6; border-radius: 16px; background: #fff; color: var(--ink); padding: max(16px, 5cqw); box-shadow: 0 1px 0 rgb(19 15 12 / 0.04), 0 24px 48px -32px rgb(19 15 12 / 0.35); font-family: var(--bd-text), sans-serif; }
@@ -2228,9 +2221,9 @@ body:has(.theme-life360) header { --background: #f3efe8; --foreground: #130f0c; 
 }
 
 /* Plooto: Space Grotesk bold and tight on white, navy ink, a two-tone headline in their blue, 4px buttons. */
-.theme-plooto { --canvas: #fff; --ink: #001234; --mut: #4a5670; --line: #e3e7f0; --h1w: 700; --h1t: -0.05em; --h1l: 1.08; --h2w: 700; --h2t: -0.035em; --btn-r: 4px; }
-.theme-plooto .sig-tone { color: #173bd9; }
-body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --background: #fff; --foreground: #001234; --muted: #4a5670; --border: #e3e7f0; }
+.theme-plooto { --canvas: #f7f4ec; --ink: #001234; --mut: #4a5670; --line: #e0dccf; --h1w: 700; --h1t: -0.05em; --h1l: 1.08; --h2w: 700; --h2t: -0.035em; --btn-r: 4px; }
+.theme-plooto :is(.tp-in, .tp-cards > li, .tp-rv, .ct) { animation: none; }
+body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --background: #f7f4ec; --foreground: #001234; --muted: #4a5670; --border: #e0dccf; }
 
 .br-wrap { container-type: inline-size; width: 100%; max-width: 440px; margin-inline: auto; }
 .br { border-radius: 12px; background: #fff; color: #001234; padding: 6.4cqw; box-shadow: 0 0 0 1px rgb(0 18 52 / 0.08), 0 24px 48px -28px rgb(23 59 217 / 0.35); }
@@ -2258,3 +2251,35 @@ body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --backgro
 .br-proof { display: inline-flex; align-items: center; gap: 0.4em; min-height: 32px; font-size: max(12px, 3.3cqw); font-weight: 600; color: #173bd9; text-decoration: none; }
 .br-proof:hover { text-decoration: underline; text-underline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { .br-tabs button { transition: none; } }
+
+/* ---- Home, in his own hand ---- */
+/* The sticker sheet: his pixel stickers stuck on the paper by the headline. */
+.sheet { min-width: 0; }
+.sheet-board { position: relative; list-style: none; margin: 0; padding: 0; height: 300px; }
+.sheet-board li { position: absolute; transform: rotate(var(--r, 0deg)); }
+.sheet-sticker {
+  display: block;
+  cursor: pointer;
+  border-radius: 8px;
+  filter: drop-shadow(0 2px 1px rgb(0 0 0 / 0.18));
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1), filter 0.25s;
+}
+.sheet-sticker:hover,
+.sheet-sticker[data-on] {
+  transform: translateY(-6px) scale(1.06);
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.22));
+}
+.sheet-sticker:focus-visible { outline: 2px solid var(--seal); outline-offset: 4px; }
+.sheet-line { margin: 18px 0 0; min-height: 3.2em; font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 34ch; }
+@media (max-width: 1023px) {
+  .sheet-board { height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
+  .sheet-board li { position: static; }
+  .sheet-board img { zoom: 0.75; }
+}
+@media (prefers-reduced-motion: reduce) { .sheet-sticker { transition: none; } }
+
+/* The red pen on one phrase of the home headline. */
+.pen-home { position: relative; white-space: nowrap; isolation: isolate; }
+.pen-home svg { position: absolute; z-index: -1; left: -0.06em; right: -0.06em; top: 38%; width: calc(100% + 0.12em); height: 58%; overflow: visible; transform: rotate(-0.6deg); }
+.pen-home path { fill: none; stroke: var(--seal); stroke-opacity: 0.26; stroke-width: 9; stroke-linecap: butt; }
+.dark .pen-home path { stroke-opacity: 0.38; }

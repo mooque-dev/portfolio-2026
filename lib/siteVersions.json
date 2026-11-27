@@ -859,13 +859,17 @@
   "status": "Live",
   "url": "https://mooque-dev.github.io/ashby/",
   "resume": "https://mooque-dev.github.io/allen-kang-resume-ashby.pdf",
-  "visual": "A one-page spec on booking a final round, each section redrawing a small schedule grid",
+  "visual": "A screen built with Orchid",
   "made": "Nov 18",
   "order": 33,
   "versions": [
    {
     "date": "Nov 18",
     "note": "First version"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Plainer: Orchid screen, general opener, home-style rows"
    }
   ],
   "slug": "ashby"
@@ -876,7 +880,7 @@
   "status": "Live",
   "url": "https://mooque-dev.github.io/life360/",
   "resume": "https://mooque-dev.github.io/allen-kang-resume-life360.pdf",
-  "visual": "Fee Opt-In as an experiment write-up you can step through, opening on the result",
+  "visual": "The three checkouts from the Fee Opt-In test",
   "made": "Nov 18",
   "order": 34,
   "versions": [
@@ -887,6 +891,14 @@
    {
     "date": "Nov 24",
     "note": "Résumé: ARND on iOS and the mobile browser"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Plainer: real test screens up top, general opener, plain labels"
+   },
+   {
+    "date": "Nov 27",
+    "note": "One paper tone, home-style rows, quiet contact"
    }
   ],
   "slug": "life360"
@@ -897,7 +909,7 @@
   "status": "Live",
   "url": "https://mooque-dev.github.io/plooto/",
   "resume": "https://mooque-dev.github.io/allen-kang-resume-plooto.pdf",
-  "visual": "One bill stepped through its approval, the catch before money moves, and the confirmation",
+  "visual": "The split payment form from Transaction Workflows",
   "made": "Nov 18",
   "order": 35,
   "versions": [
@@ -908,8 +920,33 @@
    {
     "date": "Nov 24",
     "note": "Headline drops ‘for accountants’; page and résumé say I sat with the people who do the books at nonprofits"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Plainer: real split payment screen, general opener, home-style rows"
    }
   ],
   "slug": "plooto"
+ },
+ {
+  "company": "Nylas",
+  "variant": "Sr. Product Designer",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/nylas/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-nylas.pdf",
+  "visual": "A screen built with Orchid",
+  "made": "Nov 27",
+  "order": 36,
+  "versions": [
+   {
+    "date": "Nov 27",
+    "note": "First version"
+   },
+   {
+    "date": "Nov 27",
+    "note": "One paper tone, home-style rows, quiet contact"
+   }
+  ],
+  "slug": "nylas"
  }
 ]

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useCallback, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
@@ -15,7 +16,7 @@ import {
 
 // Tailored pages for one application. A visitor who arrives on one keeps it as
 // "home" for the rest of the visit, so the logo brings them back to it.
-const ENTRY_PAGES = ["/aircanada", "/mastercard", "/float", "/bluej", "/jeppesen-foreflight", "/bridgit", "/7shifts", "/ecobee", "/harvey", "/openloop", "/apply-digital", "/clio", "/clio-insights", "/mercury", "/samsara", "/stripe", "/matcha", "/product", "/autodesk", "/scribd", "/signal1", "/stilta", "/gumloop", "/hatch", "/google", "/ashby", "/life360", "/plooto"];
+const ENTRY_PAGES = ["/aircanada", "/mastercard", "/float", "/bluej", "/jeppesen-foreflight", "/bridgit", "/7shifts", "/ecobee", "/harvey", "/openloop", "/apply-digital", "/clio", "/clio-insights", "/mercury", "/samsara", "/stripe", "/matcha", "/product", "/autodesk", "/scribd", "/signal1", "/stilta", "/gumloop", "/hatch", "/google", "/ashby", "/life360", "/plooto", "/nylas"];
 const ENTRY_KEY = "entryHome";
 
 const navItems = [
@@ -60,9 +61,11 @@ export default function Header() {
         <div className="flex-1">
           <Link
             href={home}
-            className="group inline-flex items-center leading-none hover:opacity-70 transition-opacity"
+            className="group inline-flex items-center gap-2.5 leading-none hover:opacity-70 transition-opacity"
             aria-label="Allen Kang (mooque), go to home"
           >
+            {/* 묵, his seal: drawn on a 22-cell grid, shown at exactly that size. */}
+            <Image src="/stickers/seal.png" alt="" width={22} height={22} className="h-[22px] w-[22px] [image-rendering:pixelated]" />
             <span
               className="text-[17px] font-medium tracking-[-0.01em] text-foreground"
             >

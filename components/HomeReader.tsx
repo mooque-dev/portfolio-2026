@@ -8,10 +8,10 @@ import type { ProjectSummary } from "@/lib/types";
 import { WORLDS, OFF_CLOCK, RESULTS, RESULTS_TOTAL } from "@/lib/identity";
 import ResultsList from "@/components/ResultsList";
 import Arrow from "@/components/Arrow";
-import OffClock from "@/components/OffClock";
 import CurtainCall from "@/components/CurtainCall";
 import AudienceIntro from "@/components/AudienceIntro";
 import CaseRow, { hrefOf } from "@/components/CaseRow";
+import StickerSheet from "@/components/StickerSheet";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -75,6 +75,7 @@ export default function HomeReader({ allProjects }: Props) {
   return (
     <section className="pt-32 md:pt-48 pb-4">
       <div className="max-w-6xl mx-auto px-6">
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12">
         <FadeIn>
           <AudienceIntro />
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[16px]">
@@ -92,9 +93,10 @@ export default function HomeReader({ allProjects }: Props) {
             >
               LinkedIn<span className="sr-only"> (opens in new tab)</span>
             </a>
-            <span className="text-muted">Open to senior and staff roles</span>
           </div>
         </FadeIn>
+        <StickerSheet items={OFF_CLOCK} />
+        </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
@@ -247,7 +249,6 @@ export default function HomeReader({ allProjects }: Props) {
             <h2 className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m an optimist. Optimism is a design tool: it&rsquo;s how you get people to believe a better version is possible, then go build it.
             </h2>
-            <OffClock items={OFF_CLOCK} />
             <Link href="/about" className="mt-6 inline-block text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity">
               More about me <Arrow />
             </Link>
