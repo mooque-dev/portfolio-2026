@@ -101,7 +101,7 @@ export default function HomeReader({ allProjects }: Props) {
         <FadeIn delay={0.08}>
           <div className="mt-16 md:mt-24 grid gap-10 border-t border-border pt-10 md:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] md:items-start md:gap-16">
             <figure className="m-0 min-w-0">
-              <blockquote className="m-0 text-xl md:text-2xl leading-snug font-medium tracking-[-0.01em] text-balance">
+              <blockquote className="m-0 font-serif text-xl md:text-[26px] leading-snug font-medium text-balance">
                 &ldquo;Allen has this rare ability to zoom from the tiniest UI detail all the way out to cross-product systems thinking without missing a beat.&rdquo;
               </blockquote>
               <figcaption className="mt-3 text-[13.5px] text-muted">
@@ -117,7 +117,7 @@ export default function HomeReader({ allProjects }: Props) {
 
         <FadeIn delay={0.12}>
           <div className="mt-16">
-            <h2 className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Try a redesign</h2>
+            <h2 className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Try a redesign</h2>
             <p className="mt-2 mb-5 text-[14.5px] text-muted max-w-2xl">
               A live slice of my cancer care redesign. Pick a stage.
             </p>
@@ -128,7 +128,7 @@ export default function HomeReader({ allProjects }: Props) {
         <FadeIn delay={0.14}>
           <div className="mt-20">
             <div className="flex items-baseline justify-between">
-              <h2 className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Selected work</h2>
+              <h2 className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Selected work</h2>
               <Link href="/work" className="text-[14px] text-muted hover:text-foreground transition-colors">
                 All work <Arrow />
               </Link>
@@ -144,7 +144,7 @@ export default function HomeReader({ allProjects }: Props) {
         {dataviz.length > 0 && (
           <FadeIn delay={0.15}>
             <div className="mt-20">
-              <h2 className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Data visualization, interactive</h2>
+              <h2 className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Data visualization, interactive</h2>
               <p className="mt-2 text-[14.5px] text-muted max-w-2xl">
                 Dashboards I designed, rebuilt as working versions.
               </p>
@@ -159,7 +159,7 @@ export default function HomeReader({ allProjects }: Props) {
 
         <FadeIn delay={0.16}>
           <div className="mt-20">
-            <h2 id="two-worlds" className="scroll-mt-28 font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+            <h2 id="two-worlds" className="scroll-mt-28 font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m a builder and a translator. Most of my work happens where two sides don&rsquo;t share a language yet.
             </h2>
             <div className="mt-8 grid gap-x-10 gap-y-8 sm:grid-cols-2">
@@ -184,7 +184,7 @@ export default function HomeReader({ allProjects }: Props) {
           <FadeIn delay={0.18}>
             <div className="mt-20">
               <div className="flex items-baseline justify-between">
-                <h2 className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Built end to end</h2>
+                <h2 className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Built end to end</h2>
                 <Link href="/playground" className="text-[14px] text-muted hover:text-foreground transition-colors">
                   Playground <Arrow />
                 </Link>
@@ -204,7 +204,7 @@ export default function HomeReader({ allProjects }: Props) {
         {hackathon && (
           <FadeIn delay={0.19}>
             <div className="mt-20">
-              <h2 className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Hackathon</h2>
+              <h2 className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug">Hackathon</h2>
               <Link
                 href={`/work/${hackathon.slug}`}
                 className="group mt-4 grid gap-5 border-t border-border pt-6 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-center"
@@ -244,7 +244,7 @@ export default function HomeReader({ allProjects }: Props) {
 
         <FadeIn delay={0.2}>
           <div className="mt-20">
-            <h2 className="font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
+            <h2 className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m an optimist. Optimism is a design tool: it&rsquo;s how you get people to believe a better version is possible, then go build it.
             </h2>
             <OffClock items={OFF_CLOCK} />

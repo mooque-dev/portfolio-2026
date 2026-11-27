@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-27",
+    title: "The paper and the serif come back, the receipt goes",
+    tags: ["design"],
+    what: "The page is warm paper again, with a fine grain, and headlines are set in a serif. The results that used to print as a till receipt on the home, Air Canada and Blue J pages are plain rows now: what changed, and the number. The small pills with a coloured dot are gone: Interactive and Live app are words in the line under each cover, and Open to senior and staff roles is plain text. Section names are real headings. Nothing fades in as you scroll.",
+    why: "The receipt and the dot pills show up on a lot of other sites, and one plain typeface on flat white had made this one look like them. The paper and the serif were here before, and they were mine.",
+  },
+  {
     date: "2026-11-26",
     title: "Quotes without the stripe, and plain project names",
     tags: ["design", "content"],
