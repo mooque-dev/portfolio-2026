@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useCallback, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
@@ -60,9 +61,11 @@ export default function Header() {
         <div className="flex-1">
           <Link
             href={home}
-            className="group inline-flex items-center leading-none hover:opacity-70 transition-opacity"
+            className="group inline-flex items-center gap-2.5 leading-none hover:opacity-70 transition-opacity"
             aria-label="Allen Kang (mooque), go to home"
           >
+            {/* 묵, his seal: drawn on a 22-cell grid, shown at exactly that size. */}
+            <Image src="/stickers/seal.png" alt="" width={22} height={22} className="h-[22px] w-[22px] [image-rendering:pixelated]" />
             <span
               className="text-[17px] font-medium tracking-[-0.01em] text-foreground"
             >

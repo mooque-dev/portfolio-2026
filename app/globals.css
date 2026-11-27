@@ -2258,3 +2258,39 @@ body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --backgro
 .br-proof { display: inline-flex; align-items: center; gap: 0.4em; min-height: 32px; font-size: max(12px, 3.3cqw); font-weight: 600; color: #173bd9; text-decoration: none; }
 .br-proof:hover { text-decoration: underline; text-underline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { .br-tabs button { transition: none; } }
+
+/* ---- Home, in his own hand ---- */
+/* The sticker sheet: his pixel stickers stuck on the paper by the headline. */
+.sheet { min-width: 0; }
+.sheet-board { position: relative; list-style: none; margin: 0; padding: 0; height: 300px; }
+.sheet-board li { position: absolute; transform: rotate(var(--r, 0deg)); }
+.sheet-sticker {
+  display: block;
+  cursor: pointer;
+  border-radius: 8px;
+  filter: drop-shadow(0 2px 1px rgb(0 0 0 / 0.18));
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1), filter 0.25s;
+}
+.sheet-sticker:hover,
+.sheet-sticker[aria-pressed="true"] {
+  transform: translateY(-6px) scale(1.06);
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.22));
+}
+.sheet-sticker:focus-visible { outline: 2px solid var(--seal); outline-offset: 4px; }
+.sheet-line { margin: 18px 0 0; min-height: 3.2em; font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 34ch; }
+@media (max-width: 1023px) {
+  .sheet-board { height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
+  .sheet-board li { position: static; }
+  .sheet-board img { zoom: 0.5; }
+}
+@media (prefers-reduced-motion: reduce) { .sheet-sticker { transition: none; } }
+
+/* The red pen on the home headline and the first result. */
+.pen-home { position: relative; white-space: nowrap; isolation: isolate; }
+.pen-home svg { position: absolute; z-index: -1; left: -0.06em; right: -0.06em; top: 38%; width: calc(100% + 0.12em); height: 58%; overflow: visible; transform: rotate(-0.6deg); }
+.pen-home path { fill: none; stroke: var(--seal); stroke-opacity: 0.26; stroke-width: 9; stroke-linecap: butt; }
+.dark .pen-home path { stroke-opacity: 0.38; }
+.pen-circle { position: relative; }
+.pen-circle svg { position: absolute; left: -14px; top: -9px; width: calc(100% + 28px); height: calc(100% + 18px); overflow: visible; pointer-events: none; transform: rotate(-2deg); }
+.pen-circle path { fill: none; stroke: var(--seal); stroke-width: 1.75; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.look-pen h2.font-serif { width: fit-content; background: linear-gradient(var(--seal), var(--seal)) left bottom / 100% 2px no-repeat; padding-bottom: 6px; }

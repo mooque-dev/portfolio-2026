@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
@@ -12,6 +13,7 @@ import OffClock from "@/components/OffClock";
 import CurtainCall from "@/components/CurtainCall";
 import AudienceIntro from "@/components/AudienceIntro";
 import CaseRow, { hrefOf } from "@/components/CaseRow";
+import StickerSheet from "@/components/StickerSheet";
 
 interface Props {
   allProjects: ProjectSummary[];
@@ -71,12 +73,18 @@ export default function HomeReader({ allProjects }: Props) {
   const dataviz = pick(allProjects, DATAVIZ);
   const hackathon = allProjects.find((p) => p.slug === HACKATHON.slug);
   const { submitted } = HACKATHON;
+  // Draft only: ?look=a (sticker sheet) or ?look=b (red pen), to compare.
+  const [look, setLook] = useState<"a" | "b">("a");
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  useEffect(() => setLook(new URLSearchParams(location.search).get("look") === "b" ? "b" : "a"), []);
+  const pen = look === "b";
 
   return (
-    <section className="pt-32 md:pt-48 pb-4">
+    <section className={`pt-32 md:pt-48 pb-4 ${pen ? "look-pen" : "look-sheet"}`}>
       <div className="max-w-6xl mx-auto px-6">
+        <div className={pen ? "" : "grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12"}>
         <FadeIn>
-          <AudienceIntro />
+          <AudienceIntro pen={pen} />
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[16px]">
             <a href="/allen-kang-resume.pdf" className="underline underline-offset-4 decoration-1 hover:opacity-60 transition-opacity">
               Résumé
@@ -95,6 +103,8 @@ export default function HomeReader({ allProjects }: Props) {
             <span className="text-muted">Open to senior and staff roles</span>
           </div>
         </FadeIn>
+        {!pen && <StickerSheet items={OFF_CLOCK} />}
+        </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6">
@@ -111,7 +121,7 @@ export default function HomeReader({ allProjects }: Props) {
                 </Link>
               </figcaption>
             </figure>
-            <ResultsList lines={[...RESULTS, RESULTS_TOTAL]} />
+            <ResultsList lines={[...RESULTS, RESULTS_TOTAL]} circle={pen} />
           </div>
         </FadeIn>
 
