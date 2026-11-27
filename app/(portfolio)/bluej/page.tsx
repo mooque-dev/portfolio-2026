@@ -11,15 +11,15 @@ import Arrow from "@/components/Arrow";
 // not in the nav, and kept out of search results on purpose. Same shape as
 // /float: an opening picture, the work, a way to reach me, plus a short block
 // of things that already run. The opening is a question answered with
-// sources, a nod to how Blue J works; the page ends on the results as a
-// receipt, because its readers' users are accountants.
+// sources, a nod to how Blue J works; the page ends on the results as
+// plain rows.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Blue J" },
   description: "A short path through Allen Kang's work designing for accountants, building design systems and prototyping in code.",
   robots: { index: false, follow: false },
 };
 
-// The receipt's lines, each opening its case. Every number is on the résumé.
+// The results, each opening its case. Every number is on the résumé.
 const RECEIPT: ResultLine[] = [
   { label: "Shared components, from 340+", value: "70", href: "/work/orchid-design-system" },
   { label: "Tax regimes learned", value: "CA US AU", href: "/work/transaction-workflows" },
