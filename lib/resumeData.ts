@@ -32,7 +32,7 @@ export const experience: Job[] = [
     period: "Feb 2025 to Jun 2026",
     description: [
       "Owned payments design and mentored two designers; after a reorg, the only designer across Aplos, Keela and Raisely, working with 7 PMs and 6 engineering teams.",
-      "Led Orchid, a shared design system that replaced three overlapping ones and cut 340+ components to about 70 for four engineering teams; built its code-to-Figma plugin with AI tools, cutting updates from hours to minutes.",
+      "Led Orchid, a shared design system that replaced nine overlapping ones and cut 340+ components to about 70 for four engineering teams; built its code-to-Figma plugin with AI tools, cutting updates from hours to minutes.",
       "Redesigned split payments so one payment can be part donation, part gift and part ticket; categorization support tickets dropped 70% in the first month.",
       "Dug into early fee-coverage results that looked better than they were, then prototyped three alternatives in code and A/B tested them; donors covering processing fees rose from 75% to 92%.",
       "Led the first feature Aplos and Keela shipped together: a CRM-to-accounting sync, shaped by interviews with 12 finance managers, that shows every field mapping before any data moves.",
@@ -73,7 +73,7 @@ export const experience: Job[] = [
     location: "Toronto, ON",
     period: "Aug 2019 to Jul 2022",
     description: [
-      "Ran research and usability testing with patients and clinicians, and designed dashboards for tracking patients through treatment.",
+      "Ran research and usability testing with breast cancer patients and clinicians, and designed dashboards for tracking patients through treatment.",
     ],
   },
 ];
