@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const fdisplay = Figtree({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
 const ftext = Figtree({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
-const BRAND = { "--brand": "#473BCE", "--brand-on": "#FCFCFE", "--brand-ink": "#473BCE", "--brand-ink-dark": "#A79FF5", "--hb": "#FCFCFE", "--hf": "#141415", "--hb-d": "#FCFCFE", "--hf-d": "#141415", "--hm": "#473BCE", "--hc": "#473BCE", "--hco": "#FCFCFE" } as CSSProperties;
+const BRAND = { "--brand": "#473BCE", "--brand-on": "#FCFCFE", "--brand-ink": "#473BCE", "--brand-ink-dark": "#A79FF5", "--hb": "#F7F4EC", "--hf": "#141415", "--hb-d": "#F7F4EC", "--hf-d": "#141415", "--hm": "#473BCE", "--hc": "#473BCE", "--hco": "#FCFCFE" } as CSSProperties;
 
 export default function AshbyPage() {
   return (
@@ -49,6 +49,9 @@ export default function AshbyPage() {
                 </Link>
                 , the design system I pitched and led.</>}
       cases={["or", "tw", "ak", "au", "fe", "ar"]}
+      hideBuilt
+      work="rows"
+      close="plain"
       contact={<>Thanks for reading. I&rsquo;d be glad to talk whenever it suits you.</>}
     />
   );

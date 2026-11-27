@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const fdisplay = Space_Grotesk({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
 const ftext = Nunito_Sans({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
-const BRAND = { "--brand": "#173BD9", "--brand-on": "#ffffff", "--brand-ink": "#173BD9", "--brand-ink-dark": "#93A6F7", "--hb": "#F5F7FF", "--hf": "#001234", "--hb-d": "#F5F7FF", "--hf-d": "#001234", "--hm": "#173BD9", "--hc": "#173BD9", "--hco": "#ffffff" } as CSSProperties;
+const BRAND = { "--brand": "#173BD9", "--brand-on": "#ffffff", "--brand-ink": "#173BD9", "--brand-ink-dark": "#93A6F7", "--hb": "#F7F4EC", "--hf": "#001234", "--hb-d": "#F7F4EC", "--hf-d": "#001234", "--hm": "#173BD9", "--hc": "#173BD9", "--hco": "#ffffff" } as CSSProperties;
 
 export default function PlootoPage() {
   return (
@@ -49,6 +49,9 @@ export default function PlootoPage() {
                 </Link>
                 : one payment, recorded as the donation and the revenue it really was.</>}
       cases={["tw", "fe", "or", "ak", "au", "ar"]}
+      hideBuilt
+      work="rows"
+      close="plain"
       contact={<>Thanks for reading. I&rsquo;d be glad to talk whenever it suits you.</>}
     />
   );
