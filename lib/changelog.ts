@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-27",
+    title: "Two employer pages open on real screens",
+    tags: ["design", "content"],
+    what: "One of my employer pages used to open on a card you stepped through, with a status pill and a two-colour headline. It now opens on the three checkouts I actually tested, with a one-line opener about who I design for. The rows under the work use plain labels, and the closing paragraphs that repeated the cards are gone. A second employer page is new, built the same way and opening on a screen made with Orchid.",
+    why: "The card was something I invented for the page, and it read as decoration. The real screens are the evidence, so they go first.",
+  },
+  {
+    date: "2026-11-27",
     title: "The paper and the serif come back, the receipt goes",
     tags: ["design"],
     what: "The page is warm paper again, with a fine grain, and headlines are set in a serif. The results that used to print as a till receipt on the home, Air Canada and Blue J pages are plain rows now: what changed, and the number. The small pills with a coloured dot are gone: Interactive and Live app are words in the line under each cover, and Open to senior and staff roles is plain text. Section names are real headings. Nothing fades in as you scroll. The Jeppesen ForeFlight page opens on the real split payment screen in place of a boarding pass.",

@@ -876,7 +876,7 @@
   "status": "Live",
   "url": "https://mooque-dev.github.io/life360/",
   "resume": "https://mooque-dev.github.io/allen-kang-resume-life360.pdf",
-  "visual": "Fee Opt-In as an experiment write-up you can step through, opening on the result",
+  "visual": "The three checkouts from the Fee Opt-In test",
   "made": "Nov 18",
   "order": 34,
   "versions": [
@@ -887,6 +887,10 @@
    {
     "date": "Nov 24",
     "note": "Résumé: ARND on iOS and the mobile browser"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Plainer: real test screens up top, general opener, plain labels"
    }
   ],
   "slug": "life360"
@@ -911,5 +915,22 @@
    }
   ],
   "slug": "plooto"
+ },
+ {
+  "company": "Nylas",
+  "variant": "Sr. Product Designer",
+  "status": "Live",
+  "url": "https://mooque-dev.github.io/nylas/",
+  "resume": "https://mooque-dev.github.io/allen-kang-resume-nylas.pdf",
+  "visual": "A screen built with Orchid",
+  "made": "Nov 27",
+  "order": 36,
+  "versions": [
+   {
+    "date": "Nov 27",
+    "note": "First version"
+   }
+  ],
+  "slug": "nylas"
  }
 ]
