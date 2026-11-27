@@ -9,7 +9,7 @@ import TailoredPage from "@/components/tailored/TailoredPage";
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Google" },
   description:
-    "A short path through Allen Kang's work: a design system three teams adopted, payment flows, and an app built with AI coding tools.",
+    "A short path through Allen Kang's work: a design system four engineering teams adopted, payment flows, and an app built with AI coding tools.",
   robots: { index: false, follow: false },
 };
 
@@ -19,12 +19,13 @@ const BRAND = { "--brand": "#0A0A0A", "--brand-on": "#ffffff", "--brand-ink": "#
 function WhyThisRole() {
   return (
     <section aria-labelledby="google-why" className="mt-20 md:mt-28 max-w-[65ch]">
-      <h2 id="google-why" className="tp-h2">Why this role</h2>
+      <h2 id="google-why" className="tp-h2 tp-rv">Why this role</h2>
       <div className="mt-6 grid gap-5 text-[17px] leading-relaxed text-muted">
-        <p>Autofill, tap to pay and the Google Pay app should feel like one way to pay. I&rsquo;ve worked on the same problem at a smaller scale: when Aplos, Keela and Raisely merged, they had 340+ components between them. I pitched Orchid and led it from the audit to adoption, consolidating them into 70 shared components on one set of tokens, with a variation for each product and a white-label one. A product-specific component stayed only if it gave people something the shared component couldn&rsquo;t, and saved them time. Three engineering teams use it.</p>
-        <p>Earlier design system attempts there had stalled without engineers. I surveyed five departments, put the cost in front of leadership in their own words, and came back with two dedicated front-end engineers. Then I got governance wrong: a form and a weekly meeting, and proposals dropped to near zero. I swapped it for 48-hour async reviews, and proposals doubled.</p>
-        <p>The AI side of the role is what I&rsquo;ve been doing on my own: design work that AI coding tools and engineers can both follow. On ARND, an iOS app and mobile web experience I build with AI coding tools, the design rules live in files the tools read before they build, and tests on every push flag the patterns that broke before. 160+ merged pull requests so far.</p>
-        <p>And it has to work for everyone. ARND caps how far each kind of text can grow so large type never breaks a screen, and every animation stands down when Reduce Motion is on.</p>
+        <p className="tp-rv">Autofill, tap to pay and the Google Pay app should feel like one way to pay. I&rsquo;ve worked on the same problem at a smaller scale: when Aplos, Keela and Raisely merged, they had nine overlapping design systems and 340+ components between them. </p>
+        <p className="tp-rv">I pitched Orchid and led it from the audit to adoption, consolidating them into about 70 shared components on one set of tokens, with a variation for each product and a white-label one. A product-specific component stayed only if it gave people something the shared component couldn&rsquo;t, and saved them time. Four engineering teams use it, and a code-to-Figma plugin I built with AI coding tools keeps the Figma library in step in minutes instead of hours.</p>
+        <p className="tp-rv">Earlier design system attempts there had stalled without engineers. I surveyed five departments, put the cost in front of leadership in their own words, and came back with two dedicated front-end engineers. Then I got governance wrong: a form and a weekly meeting, and proposals dropped to near zero. I swapped it for 48-hour async reviews, and proposals doubled.</p>
+        <p className="tp-rv">The AI side of the role is what I&rsquo;ve been doing on my own: design work that AI coding tools and engineers can both follow. On ARND, an iOS app and mobile web experience I build with AI coding tools, the design rules live in files the tools read before they build, and tests on every push flag the patterns that broke before. 160+ merged pull requests so far.</p>
+        <p className="tp-rv">And it has to work for everyone. ARND caps how far each kind of text can grow so large type never breaks a screen, and every animation stands down when Reduce Motion is on.</p>
       </div>
     </section>
   );

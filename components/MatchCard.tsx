@@ -7,7 +7,7 @@ const TAGS = ["0 to 1", "Design systems", "Founder twice", "Remote"];
 const WHY = [
   { text: "Founded ARND and co-founded Forkestrate", href: "/work/arnd" },
   { text: "Took Forkestrate from zero to MVP in under three months", href: "/work/forkestrate" },
-  { text: "Built a design system three teams adopted", href: "/work/orchid-design-system" },
+  { text: "Built a design system four engineering teams adopted", href: "/work/orchid-design-system" },
 ];
 
 export default function MatchCard() {

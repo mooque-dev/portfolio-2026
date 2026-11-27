@@ -16,6 +16,8 @@ const send = (method, params = {}) => new Promise((res) => { const i = ++id; pen
 const ev = async (expr) => (await send("Runtime.evaluate", { expression: expr, returnByValue: true, awaitPromise: true })).result?.result?.value;
 await send("Page.enable"); await send("Runtime.enable");
 await send("Emulation.setDeviceMetricsOverride", { width: +width, height: 1000, deviceScaleFactor: 2, mobile: false });
+// Reduce Motion on, so scroll-in reveals are already finished when we look.
+await send("Emulation.setEmulatedMedia", { features: [{ name: "prefers-reduced-motion", value: "reduce" }] });
 await send("Page.navigate", { url }); await sleep(2500);
 const r = await ev(`(()=>{const b=document.querySelector(${JSON.stringify(sel)}).getBoundingClientRect(); return {x:b.left+scrollX,y:b.top+scrollY,w:b.width,h:b.height}})()`);
 const { result } = await send("Page.captureScreenshot", { format: "png", captureBeyondViewport: true, clip: { x: r.x, y: r.y, width: r.w, height: r.h, scale: 1 } });
