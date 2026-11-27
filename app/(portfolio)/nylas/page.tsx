@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 const fdisplay = Manrope({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
 const ftext = Manrope({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
-const BRAND = { "--brand": "#2F56D9", "--brand-on": "#ffffff", "--brand-ink": "#2F56D9", "--brand-ink-dark": "#9DB3FF", "--hb": "var(--background)", "--hf": "var(--foreground)", "--hm": "#2F56D9", "--hc": "#2F56D9", "--hco": "#ffffff" } as CSSProperties;
+const BRAND = { "--brand": "#2F56D9", "--brand-on": "#ffffff", "--brand-ink": "#2F56D9", "--brand-ink-dark": "#9DB3FF", "--hb": "#F7F4EC", "--hf": "#0A0A0A", "--hb-d": "#F7F4EC", "--hf-d": "#0A0A0A", "--hm": "#2F56D9", "--hc": "#2F56D9", "--hco": "#ffffff" } as CSSProperties;
 
 export default function NylasPage() {
   return (
@@ -60,6 +60,8 @@ export default function NylasPage() {
         { ask: "AI tools", proof: <>ARND, my live-music app, is built with AI coding tools: I direct, review and test the work. 160+ merged pull requests, in public beta.</> },
       ]}
       hideBuilt
+      work="rows"
+      close="plain"
       contact={<>Thanks for reading. I&rsquo;d be glad to talk whenever it suits you.</>}
     />
   );

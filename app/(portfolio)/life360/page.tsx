@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const fdisplay = Outfit({ subsets: ["latin"], display: "swap", variable: "--bd-display" });
 const ftext = DM_Sans({ subsets: ["latin"], display: "swap", variable: "--bd-text" });
-const BRAND = { "--brand": "#762EEB", "--brand-on": "#ffffff", "--brand-ink": "#762EEB", "--brand-ink-dark": "#B79BFF", "--hb": "#F3EFE8", "--hf": "#130F0C", "--hb-d": "#F3EFE8", "--hf-d": "#130F0C", "--hm": "#762EEB", "--hc": "#762EEB", "--hco": "#ffffff" } as CSSProperties;
+const BRAND = { "--brand": "#762EEB", "--brand-on": "#ffffff", "--brand-ink": "#762EEB", "--brand-ink-dark": "#B79BFF", "--hb": "#F7F4EC", "--hf": "#130F0C", "--hb-d": "#F7F4EC", "--hf-d": "#130F0C", "--hm": "#762EEB", "--hc": "#762EEB", "--hco": "#ffffff" } as CSSProperties;
 
 export default function Life360Page() {
   return (
@@ -60,6 +60,8 @@ export default function Life360Page() {
         { ask: "Paid features", proof: <>Automation went from first interview to a paid add-on: 30% of 355 organizations use it, and it contributed to a 13% ARR increase.</> },
       ]}
       hideBuilt
+      work="rows"
+      close="plain"
       contact={<>Thanks for reading. I&rsquo;d be glad to talk whenever it suits you.</>}
     />
   );
