@@ -10,7 +10,7 @@ import { createPortal } from "react-dom";
 // keeps working underneath. Hover anything for its details. Esc to leave.
 export const INSPECT_EVENT = "inspect:toggle";
 
-const SELECTOR = "main h1, main h2, main h3, main img, main a.rounded-full, main button, main blockquote, main .receipt";
+const SELECTOR = "main h1, main h2, main h3, main img, main a.rounded-full, main button, main blockquote";
 
 type Box = { x: number; y: number; w: number; h: number; label: string; inset?: number };
 
@@ -38,7 +38,6 @@ function describe(el: Element, detailed = false): string {
   const radius = round ? 0 : raw;
   const tag = el.tagName.toLowerCase();
   if (tag === "img") return `image · ${ratio(r.width, r.height)}${round ? " · circle" : radius ? ` · radius ${radius}` : ""}`;
-  if (el.classList.contains("receipt")) return `receipt · ${Math.round(r.width)} wide`;
   const lh = cs.lineHeight === "normal" ? "" : `/${(parseFloat(cs.lineHeight) / parseFloat(cs.fontSize)).toFixed(2).replace(/0$/, "")}`;
   const type = `${family(cs)} ${px(cs.fontSize)}${lh} · ${cs.fontWeight}`;
   if (tag === "a" || tag === "button")

@@ -14,6 +14,20 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-27",
+    title: "The paper and the serif come back, the receipt goes",
+    tags: ["design"],
+    what: "The page is warm paper again, with a fine grain, and headlines are set in a serif. The results that used to print as a till receipt on the home, Air Canada and Blue J pages are plain rows now: what changed, and the number. The small pills with a coloured dot are gone: Interactive and Live app are words in the line under each cover, and Open to senior and staff roles is plain text. Section names are real headings. Nothing fades in as you scroll. The Jeppesen ForeFlight page opens on the real split payment screen in place of a boarding pass.",
+    why: "The receipt and the dot pills show up on a lot of other sites, and one plain typeface on flat white had made this one look like them. The paper and the serif were here before, and they were mine.",
+  },
+  {
+    date: "2026-11-27",
+    title: "The design systems article says nine",
+    tags: ["content"],
+    what: "My article on merging design systems after the acquisition is now called Merging Nine Design Systems Was the Easy Part, and its summary and scope line say the three products ran on nine design systems, each with its own colours and spacing.",
+    why: "It should give the same number as the Orchid case study and my résumé.",
+  },
+  {
+    date: "2026-11-27",
     title: "One story across the résumés and the site, and a Google page that moves",
     tags: ["design", "content"],
     what: "My main résumé and the Google résumé now say the same things in the same words: Velora's scale, being the only designer across all three products after a reorg, Orchid replacing nine overlapping design systems for four engineering teams, and a code-to-Figma plugin that keeps the library in step. The fee work reads as digging into results that looked better than they were. The résumé page, the Google page, the Orchid case study and every page that quotes Orchid agree, and none call the 340+ components one-offs. On the Google page the intro now arrives in three short beats, and the work cards and the reasons for the role rise in as you scroll. With Reduce Motion on, everything is simply there.",

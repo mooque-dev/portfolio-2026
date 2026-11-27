@@ -55,10 +55,10 @@ export default function AudienceIntro() {
       </div>
       <h1
         aria-live="polite"
-        className={`mt-5 leading-[1.06] font-medium tracking-[-0.035em] text-balance ${
+        className={`mt-5 font-serif leading-[1.06] font-semibold tracking-[-0.02em] text-balance ${
           current.text.length > 80
             ? "text-[30px] md:text-[52px] max-w-[24ch]"
-            : "text-[40px] md:text-[76px] max-w-[17ch]"
+            : "text-[40px] md:text-[76px] max-w-[20ch]"
         }`}
       >
         {current.text}

@@ -41,23 +41,27 @@ the end.
 
 ## Type
 
-- One family: Geist, for everything.
-- Home headline: 76px, weight 500, tight tracking. Page titles: 48px.
+- Two families. Playfair Display, the serif, for the home headline, page
+  titles, section headings and the quote on home. Geist for everything
+  else: body text, project titles, numbers, navigation.
+- Home headline: 76px, weight 600. Page titles: 48px.
   Section headlines: 38px. Body: 16 to 18px.
 - Headlines are sentences that state a fact ("All eight kept a side
   spreadsheet"), set in sentence case.
 - No label above a headline. No numeral above a headline. The headline
   says what the section is.
-- Small grey section names ("Selected work") are allowed only as the title
-  of a list. Never stacked on top of a statement.
+- A section name ("Selected work") is a real heading in the serif, not a
+  small grey label.
 - Bold is for result numbers and for the label that starts a list item.
   Never for emphasis inside a sentence.
 - No em-dashes, anywhere.
 
 ## Colour
 
-- Page: `#ffffff`. Text: `#0a0a0a`. Secondary text: `#6e6e6e`. Lines:
-  `#ececec`. Dark mode: `#0a0a0a`, `#f5f5f5`, `#8f8f8f`, `#222222`.
+- Page: warm paper, `#f7f4ec`, with a fine grain behind the content.
+  Text: `#1a1a1a`. Secondary text: `#636360`. Lines: `#e0dccf`. Dark
+  mode: warm ink `#141210`, `#ededeb`, `#9a9a97`, `#2a2a28`. Never flat
+  white or pure black for the page.
 - One accent, the seal red (`#cd2e3a`, dark `#ef5350`). It marks the
   keyboard focus ring and the row numbers in a comparison table. It is
   never decoration.
@@ -86,8 +90,15 @@ the end.
 - **Groups of short points** are plain text in columns. No row of cards,
   and no rule or coloured bar on top of each one.
 - **Dropdowns** get a custom chevron 12px from the right edge.
-- **Tags on a cover** ("Interactive", "Live app") are white with a red
-  dot, so they read on every colour.
+- **"Interactive" and "Live app"** are words at the end of the line under
+  a cover. Nothing sits on the cover itself.
+- **Results** are plain rows: what changed on the left, the number on the
+  right (`components/ResultsList.tsx`). No till receipt, no boarding pass.
+- **Status** ("Open to senior and staff roles", "Submitted Oct 30") is
+  plain text. No pill, no coloured dot.
+- **Sections do not fade or slide in** as the page loads or scrolls.
+- **Pages made for one employer** (Blue J, Float, Mastercard and the
+  brand-themed ones) keep their own sans headings on the same paper.
 - **Controls that belong to the page** (a before and after toggle) sit
   outside the product picture, so nobody mistakes them for the product.
 
@@ -130,6 +141,9 @@ These make a page read as machine-made. None of them ship.
 8. A clever subhead under every title.
 9. Em-dashes.
 10. A title built as "Name: A Dramatic Phrase".
+11. A pill with a small coloured dot.
+12. Facts dressed up as a prop: a till receipt, a boarding pass.
+13. Sections that fade in as you scroll.
 
 ## Before it ships
 

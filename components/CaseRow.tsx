@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { ProjectSummary } from "@/lib/types";
-import TryTag from "@/components/TryTag";
 
 // One case study as a row: its picture, where and when, the title, a line on
 // what it was, and the one number. The home page and the Work page both list
@@ -35,11 +34,10 @@ export default function CaseRow({ project, heading: Heading = "h3" }: { project:
               Confidential visuals
             </span>
           )}
-          {project.tryTag && <TryTag kind={project.tryTag} className="absolute left-2.5 top-2.5 z-10" />}
         </div>
         <div className="min-w-0">
-          <p className="microlabel text-muted">
-            {[project.company, project.role, project.timeline].filter(Boolean).join(" · ")}
+          <p className="text-[14px] text-muted">
+            {[project.company, project.role, project.timeline, project.tryTag].filter(Boolean).join(" · ")}
           </p>
           <Heading className="mt-2 font-semibold text-xl md:text-[22px] leading-snug group-hover:opacity-70 transition-opacity text-balance">
             {project.title}

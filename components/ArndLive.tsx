@@ -94,9 +94,8 @@ export default function ArndLive() {
       href="https://arnd.app"
       target="_blank"
       rel="noopener noreferrer"
-      className="group inline-flex items-center gap-2.5 rounded-full border border-border px-3.5 py-2 text-[13px] hover:border-foreground/40 transition-colors"
+      className="group inline-flex items-center gap-1.5 text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity"
     >
-      <span className={`arnd-dot ${live && live.kind !== "mapped" ? "is-live" : ""}`} aria-hidden />
       <span aria-live="polite">{text}</span>
       <Arrow dir="up-right" className="text-muted group-hover:text-foreground transition-colors" />
       <span className="sr-only"> (opens arnd.app in a new tab)</span>

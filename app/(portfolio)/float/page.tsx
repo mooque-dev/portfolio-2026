@@ -94,11 +94,10 @@ const OWN = [
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 
-function Block({ id, label, title, children }: { id: string; label: string; title: string; children: ReactNode }) {
+function Block({ id, title, children }: { id: string; label?: string; title: string; children: ReactNode }) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-24 mt-24 md:mt-32">
-      <p className="microlabel text-muted">{label}</p>
-      <h2 id={`${id}-title`} className="mt-3 max-w-3xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
+      <h2 id={`${id}-title`} className="max-w-3xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
         {title}
       </h2>
       <div className="mt-10">{children}</div>
