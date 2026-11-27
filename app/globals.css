@@ -2281,7 +2281,7 @@ body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --backgro
 @media (max-width: 1023px) {
   .sheet-board { height: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
   .sheet-board li { position: static; }
-  .sheet-board img { zoom: 0.5; }
+  .sheet-board img { zoom: 0.75; }
 }
 @media (prefers-reduced-motion: reduce) { .sheet-sticker { transition: none; } }
 
@@ -2291,6 +2291,7 @@ body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --backgro
 .pen-home path { fill: none; stroke: var(--seal); stroke-opacity: 0.26; stroke-width: 9; stroke-linecap: butt; }
 .dark .pen-home path { stroke-opacity: 0.38; }
 .pen-circle { position: relative; }
-.pen-circle svg { position: absolute; left: -14px; top: -9px; width: calc(100% + 28px); height: calc(100% + 18px); overflow: visible; pointer-events: none; transform: rotate(-2deg); }
+.pen-circle { margin-right: 12px; }
+.pen-circle svg { position: absolute; left: -12px; top: -8px; width: calc(100% + 24px); height: calc(100% + 16px); overflow: visible; pointer-events: none; transform: rotate(-2deg); }
 .pen-circle path { fill: none; stroke: var(--seal); stroke-width: 1.75; stroke-linecap: round; vector-effect: non-scaling-stroke; }
 .look-pen h2.font-serif { width: fit-content; background: linear-gradient(var(--seal), var(--seal)) left bottom / 100% 2px no-repeat; padding-bottom: 6px; }

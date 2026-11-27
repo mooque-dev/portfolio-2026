@@ -10,12 +10,12 @@ type Item = { img: string; text: string };
 // line shows underneath. Every sticker is drawn on an 8px grid, so sizes here
 // are whole multiples of that grid (4x) and the pixels stay square.
 const PLACE: Record<string, { w: number; h: number; x: number; y: number; r: number }> = {
-  "stage-mic": { w: 120, h: 92, x: 8, y: 0, r: -6 },
-  palette: { w: 84, h: 72, x: 62, y: 6, r: 8 },
+  "stage-mic": { w: 120, h: 92, x: 2, y: 0, r: -6 },
+  palette: { w: 84, h: 72, x: 70, y: 4, r: 8 },
   "rainbow-flower": { w: 108, h: 128, x: 2, y: 44, r: 5 },
   "running-shoe": { w: 112, h: 76, x: 38, y: 48, r: -9 },
   "bear-heart": { w: 92, h: 100, x: 72, y: 50, r: 7 },
-  invader: { w: 120, h: 96, x: 30, y: 2, r: 3 },
+  invader: { w: 120, h: 96, x: 33, y: 8, r: 3 },
 };
 
 export default function StickerSheet({ items }: { items: Item[] }) {
