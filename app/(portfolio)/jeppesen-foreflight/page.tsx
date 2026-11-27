@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import { Figtree } from "next/font/google";
-import BoardingPass from "@/components/BoardingPass";
+import Image from "next/image";
 import TailoredPage from "@/components/tailored/TailoredPage";
 
 // A tailored, unlisted view of the portfolio for Jeppesen ForeFlight. Not in
 // the sitemap, not in the nav, and kept out of search results on purpose.
 // Same shape as /bluej: an opening picture, the work, a way to reach me, and
-// a block of things that already run. The opening object is a boarding pass,
-// the way the Mastercard and Float pages open with a card, under a
-// navy-to-sunset sky.
+// a block of things that already run. The opening picture is the real split
+// payment screen the headline is about, under a navy-to-sunset sky.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Jeppesen ForeFlight" },
   description:
@@ -32,12 +31,27 @@ export default function JeppesenPage() {
       headline={<>I redesigned split payments to follow tax rules in three countries.</>}
       lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on
                 accounting and payments tools, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
-      hero={<><BoardingPass /></>}
-      caption={<>Seat 8Y for eight years designing. Gate PR #162 is my next pull request on{" "}
-                <Link href="/work/arnd" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
-                  ARND
+      hero={
+        <Link
+          href="/work/transaction-workflows"
+          className="group relative block aspect-[3/2] overflow-hidden rounded-lg ring-1 ring-inset ring-white/15"
+          style={{ backgroundColor: "#dde4d4" }}
+        >
+          <Image
+            src="/case-studies/transaction-workflows/cover.jpg"
+            alt="The New Transaction form, with one payment split into a donation and a revenue line"
+            fill
+            priority
+            sizes="(max-width: 1023px) 92vw, 440px"
+            className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </Link>
+      }
+      caption={<>The split payment form from{" "}
+                <Link href="/work/transaction-workflows" className="text-foreground underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  Transaction Workflows
                 </Link>
-                .</>}
+                : one payment, recorded as the donation and the revenue it really was.</>}
       cases={["tw", "ak", "mj", "au", "or", "fe"]}
       contact={<>Thanks for reading. I&rsquo;d be glad to talk whenever it suits you.</>}
     />
