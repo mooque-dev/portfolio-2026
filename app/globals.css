@@ -882,20 +882,7 @@ select::-ms-expand {
   100% { opacity: 1; transform: scale(1) rotate(-6deg); }
 }
 
-/* ---- Character: stickers and the stage mic (OffClock) ---- */
-.offclock .sticker {
-  display: block;
-  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1), filter 0.25s;
-}
-.offclock li:hover .sticker,
-.offclock .sticker:focus-visible {
-  transform: translateY(-6px) rotate(-6deg);
-  filter: drop-shadow(0 8px 6px rgb(0 0 0 / 0.25));
-}
-.offclock button.sticker:focus-visible {
-  outline: 2px solid var(--seal);
-  outline-offset: 4px;
-}
+/* ---- Character: the stage mic spotlight (StickerSheet) ---- */
 .spotlight {
   position: fixed;
   inset: 0;
@@ -912,7 +899,6 @@ select::-ms-expand {
   transition: opacity 0.5s ease, visibility 0s;
 }
 @media (prefers-reduced-motion: reduce) {
-  .offclock .sticker,
   .spotlight {
     transition: none;
   }
@@ -2272,7 +2258,7 @@ body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --backgro
   transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1), filter 0.25s;
 }
 .sheet-sticker:hover,
-.sheet-sticker[aria-pressed="true"] {
+.sheet-sticker[data-on] {
   transform: translateY(-6px) scale(1.06);
   filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.22));
 }
@@ -2285,13 +2271,8 @@ body:has(.theme-plooto) header, .dark body:has(.theme-plooto) header { --backgro
 }
 @media (prefers-reduced-motion: reduce) { .sheet-sticker { transition: none; } }
 
-/* The red pen on the home headline and the first result. */
+/* The red pen on one phrase of the home headline. */
 .pen-home { position: relative; white-space: nowrap; isolation: isolate; }
 .pen-home svg { position: absolute; z-index: -1; left: -0.06em; right: -0.06em; top: 38%; width: calc(100% + 0.12em); height: 58%; overflow: visible; transform: rotate(-0.6deg); }
 .pen-home path { fill: none; stroke: var(--seal); stroke-opacity: 0.26; stroke-width: 9; stroke-linecap: butt; }
 .dark .pen-home path { stroke-opacity: 0.38; }
-.pen-circle { position: relative; }
-.pen-circle { margin-right: 12px; }
-.pen-circle svg { position: absolute; left: -12px; top: -8px; width: calc(100% + 24px); height: calc(100% + 16px); overflow: visible; pointer-events: none; transform: rotate(-2deg); }
-.pen-circle path { fill: none; stroke: var(--seal); stroke-width: 1.75; stroke-linecap: round; vector-effect: non-scaling-stroke; }
-.look-pen h2.font-serif { width: fit-content; background: linear-gradient(var(--seal), var(--seal)) left bottom / 100% 2px no-repeat; padding-bottom: 6px; }

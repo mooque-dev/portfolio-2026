@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-27",
+    title: "My stickers, my pen and my seal at the top of the home page",
+    tags: ["design"],
+    what: "The home page now opens with six of my pixel stickers beside the headline. Pick one and it tells you something about me; the stage mic still dims the lights. One phrase of the headline is marked with the same red pen my case studies use, and it changes with who is reading. My seal, 묵, sits beside my name on every page. The list of stickers near the bottom of the page moved up to become this, and the line about which roles I am open to is gone.",
+    why: "The top of the page looked like it could belong to anyone. These are things only I have.",
+  },
+  {
+    date: "2026-11-27",
     title: "The paper and the serif come back, the receipt goes",
     tags: ["design"],
     what: "The page is warm paper again, with a fine grain, and headlines are set in a serif. The results that used to print as a till receipt on the home, Air Canada and Blue J pages are plain rows now: what changed, and the number. The small pills with a coloured dot are gone: Interactive and Live app are words in the line under each cover, and Open to senior and staff roles is plain text. Section names are real headings. Nothing fades in as you scroll. The Jeppesen ForeFlight page opens on the real split payment screen in place of a boarding pass.",

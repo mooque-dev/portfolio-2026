@@ -15,7 +15,7 @@ const AUDIENCES = [
     key: "recruiters",
     pen: "eight years in",
     label: "Recruiters",
-    text: "Senior product designer, eight years in: CRM, payments, healthcare and design systems. Most recently at Aplos, now Velora. Open to senior and staff roles.",
+    text: "Senior product designer, eight years in: CRM, payments, healthcare and design systems. Most recently at Aplos, now Velora.",
   },
   {
     key: "design",
@@ -55,7 +55,7 @@ function Penned({ text, phrase }: { text: string; phrase: string }) {
   );
 }
 
-export default function AudienceIntro({ pen = false }: { pen?: boolean }) {
+export default function AudienceIntro() {
   const [active, setActive] = useState<(typeof AUDIENCES)[number]["key"]>("anyone");
   const current = AUDIENCES.find((a) => a.key === active)!;
 
@@ -84,7 +84,7 @@ export default function AudienceIntro({ pen = false }: { pen?: boolean }) {
             : "text-[40px] md:text-[76px] max-w-[20ch]"
         }`}
       >
-        {pen ? <Penned text={current.text} phrase={current.pen} /> : current.text}
+        <Penned text={current.text} phrase={current.pen} />
       </h1>
     </div>
   );

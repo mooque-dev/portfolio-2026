@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
@@ -9,7 +8,6 @@ import type { ProjectSummary } from "@/lib/types";
 import { WORLDS, OFF_CLOCK, RESULTS, RESULTS_TOTAL } from "@/lib/identity";
 import ResultsList from "@/components/ResultsList";
 import Arrow from "@/components/Arrow";
-import OffClock from "@/components/OffClock";
 import CurtainCall from "@/components/CurtainCall";
 import AudienceIntro from "@/components/AudienceIntro";
 import CaseRow, { hrefOf } from "@/components/CaseRow";
@@ -73,18 +71,13 @@ export default function HomeReader({ allProjects }: Props) {
   const dataviz = pick(allProjects, DATAVIZ);
   const hackathon = allProjects.find((p) => p.slug === HACKATHON.slug);
   const { submitted } = HACKATHON;
-  // Draft only: ?look=a (sticker sheet) or ?look=b (red pen), to compare.
-  const [look, setLook] = useState<"a" | "b">("a");
-  // eslint-disable-next-line react-hooks/set-state-in-effect
-  useEffect(() => setLook(new URLSearchParams(location.search).get("look") === "b" ? "b" : "a"), []);
-  const pen = look === "b";
 
   return (
-    <section className={`pt-32 md:pt-48 pb-4 ${pen ? "look-pen" : "look-sheet"}`}>
+    <section className="pt-32 md:pt-48 pb-4">
       <div className="max-w-6xl mx-auto px-6">
-        <div className={pen ? "" : "grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12"}>
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_400px] lg:gap-12">
         <FadeIn>
-          <AudienceIntro pen={pen} />
+          <AudienceIntro />
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[16px]">
             <a href="/allen-kang-resume.pdf" className="underline underline-offset-4 decoration-1 hover:opacity-60 transition-opacity">
               Résumé
@@ -100,10 +93,9 @@ export default function HomeReader({ allProjects }: Props) {
             >
               LinkedIn<span className="sr-only"> (opens in new tab)</span>
             </a>
-            <span className="text-muted">Open to senior and staff roles</span>
           </div>
         </FadeIn>
-        {!pen && <StickerSheet items={OFF_CLOCK} />}
+        <StickerSheet items={OFF_CLOCK} />
         </div>
       </div>
 
@@ -121,7 +113,7 @@ export default function HomeReader({ allProjects }: Props) {
                 </Link>
               </figcaption>
             </figure>
-            <ResultsList lines={[...RESULTS, RESULTS_TOTAL]} circle={pen} />
+            <ResultsList lines={[...RESULTS, RESULTS_TOTAL]} />
           </div>
         </FadeIn>
 
@@ -257,7 +249,6 @@ export default function HomeReader({ allProjects }: Props) {
             <h2 className="font-serif font-semibold tracking-[-0.01em] text-2xl md:text-3xl leading-snug max-w-3xl text-balance">
               I&rsquo;m an optimist. Optimism is a design tool: it&rsquo;s how you get people to believe a better version is possible, then go build it.
             </h2>
-            <OffClock items={OFF_CLOCK} />
             <Link href="/about" className="mt-6 inline-block text-[13px] underline underline-offset-4 hover:opacity-70 transition-opacity">
               More about me <Arrow />
             </Link>
