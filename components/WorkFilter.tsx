@@ -104,9 +104,9 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
               stronger second act than the oldest material. */}
           {experimentProjects.length > 0 && (
             <div>
-              <p className="microlabel text-muted mb-8">
+              <h2 className="font-serif text-xl md:text-2xl font-semibold tracking-[-0.01em] mb-8">
                 Experiments &amp; prototypes
-              </p>
+              </h2>
               <ProjectGrid
                 projects={experimentProjects}
                 startIndex={0}
@@ -116,9 +116,9 @@ export default function WorkFilter({ projects }: { projects: ProjectSummary[] })
           )}
           {personalProjects.length > 0 && (
             <div>
-              <p className="microlabel text-muted mb-8 border-t border-border pt-16">
+              <h2 className="font-serif text-xl md:text-2xl font-semibold tracking-[-0.01em] mb-8 border-t border-border pt-16">
                 Side Projects &amp; Archive
-              </p>
+              </h2>
               <ProjectGrid
                 projects={personalProjects}
                 startIndex={experimentProjects.length}

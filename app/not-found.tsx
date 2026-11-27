@@ -24,9 +24,6 @@ export default function NotFound() {
 
       <main className="flex-1 flex items-center justify-center px-6 text-center">
         <div className="-mt-16">
-          <p className="microlabel text-muted mb-4">
-            Error 404
-          </p>
           <h1 className="font-serif text-7xl md:text-9xl font-bold tracking-tight">
             404
           </h1>

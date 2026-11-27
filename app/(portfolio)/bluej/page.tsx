@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Statement, type StatementLine } from "@/components/PaymentCard";
-import ResultsReceipt, { type ReceiptLine } from "@/components/ResultsReceipt";
+import ResultsList, { type ResultLine } from "@/components/ResultsList";
 import AskCard from "@/components/AskCard";
 import FadeIn from "@/components/FadeIn";
 import Arrow from "@/components/Arrow";
@@ -11,23 +11,23 @@ import Arrow from "@/components/Arrow";
 // not in the nav, and kept out of search results on purpose. Same shape as
 // /float: an opening picture, the work, a way to reach me, plus a short block
 // of things that already run. The opening is a question answered with
-// sources, a nod to how Blue J works; the page ends on the results as a
-// receipt, because its readers' users are accountants.
+// sources, a nod to how Blue J works; the page ends on the results as
+// plain rows.
 export const metadata: Metadata = {
   title: { absolute: "Allen Kang for Blue J" },
   description: "A short path through Allen Kang's work designing for accountants, building design systems and prototyping in code.",
   robots: { index: false, follow: false },
 };
 
-// The receipt's lines, each opening its case. Every number is on the résumé.
-const RECEIPT: ReceiptLine[] = [
+// The results, each opening its case. Every number is on the résumé.
+const RECEIPT: ResultLine[] = [
   { label: "Shared components, from 340+", value: "70", href: "/work/orchid-design-system" },
   { label: "Tax regimes learned", value: "CA US AU", href: "/work/transaction-workflows" },
   { label: "Categorization tickets", value: "-70%", href: "/work/transaction-workflows" },
   { label: "Finance managers interviewed", value: "12", href: "/work/aplos-keela-integration" },
   { label: "Fee opt-in, A/B tested", value: "75→92%", href: "/work/fee-opt-in-experimentation" },
 ];
-const RECEIPT_TOTAL: ReceiptLine = { label: "Designers mentored", value: "3", href: "/resume" };
+const RECEIPT_TOTAL: ResultLine = { label: "Designers mentored", value: "3", href: "/resume" };
 
 // One line per case, each opening its page. Every number is on the résumé,
 // with a few words under it saying what it measures.
@@ -107,11 +107,10 @@ const OWN = [
 const pill = "inline-flex h-10 items-center rounded-full px-5 text-sm font-medium transition";
 const link = "inline-flex items-center gap-1 underline underline-offset-4 hover:opacity-70 transition-opacity";
 
-function Block({ id, label, title, children }: { id: string; label: string; title: string; children: ReactNode }) {
+function Block({ id, title, children }: { id: string; label?: string; title: string; children: ReactNode }) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-24 mt-24 md:mt-32">
-      <p className="microlabel text-muted">{label}</p>
-      <h2 id={`${id}-title`} className="mt-3 max-w-3xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
+      <h2 id={`${id}-title`} className="max-w-3xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
         {title}
       </h2>
       <div className="mt-10">{children}</div>
@@ -201,7 +200,7 @@ export default function BlueJPage() {
 
         <section
           aria-labelledby="bj-contact"
-          className="mt-24 md:mt-32 grid items-end gap-10 border-t border-border pt-10 md:grid-cols-[minmax(0,1fr)_300px]"
+          className="mt-24 md:mt-32 grid items-start gap-10 border-t border-border pt-10 md:grid-cols-[minmax(0,1fr)_minmax(0,380px)] md:gap-16"
         >
           <div>
             <h2 id="bj-contact" className="max-w-xl text-2xl md:text-3xl font-semibold leading-snug tracking-[-0.015em] text-balance">
@@ -222,10 +221,7 @@ export default function BlueJPage() {
               </a>
             </div>
           </div>
-          {/* The page's results, printed: it ends with "Thank you for reviewing". */}
-          <div className="flex justify-center md:justify-end">
-            <ResultsReceipt lines={RECEIPT} total={RECEIPT_TOTAL} />
-          </div>
+          <ResultsList lines={[...RECEIPT, RECEIPT_TOTAL]} />
         </section>
         <p className="mt-10 text-xs text-muted">An independent portfolio page. Not affiliated with or endorsed by Blue J.</p>
       </div>

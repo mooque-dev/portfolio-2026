@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface FadeInProps {
   children: ReactNode;
@@ -8,27 +8,8 @@ interface FadeInProps {
   duration?: number;
 }
 
-// CSS-first reveal. The animation is plain CSS (see .fi in globals.css), so
-// content is visible and animating as soon as styles load: no hydration wait,
-// no blank first paint. Reduced motion is handled by a media query.
-export default function FadeIn({
-  children,
-  delay = 0,
-  direction = "up",
-  className = "",
-  duration = 0.5,
-}: FadeInProps) {
-  return (
-    <div
-      className={`fi fi-${direction} ${className}`}
-      style={
-        {
-          "--fi-delay": `${delay}s`,
-          "--fi-duration": `${duration}s`,
-        } as CSSProperties
-      }
-    >
-      {children}
-    </div>
-  );
+// Content used to fade and slide in here. It now just shows: the page is
+// there when it loads. The wrapper stays so every caller keeps its layout.
+export default function FadeIn({ children, className = "" }: FadeInProps) {
+  return <div className={className || undefined}>{children}</div>;
 }
