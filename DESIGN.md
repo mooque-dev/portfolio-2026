@@ -95,7 +95,15 @@ the end.
   a cover. Nothing sits on the cover itself.
 - **Results** are plain rows: what changed on the left, the number on the
   right (`components/ResultsList.tsx`). No till receipt, no boarding pass.
-- **Status** ("Submitted Oct 30") is plain text. No pill, no coloured dot.
+- **Status** ("Submitted Oct 30, 2026") is plain text. No pill, no coloured dot.
+- **A first visit** is handled on the page: the home page says who Allen
+  is and where (the line with the résumé link), then gives four ways in by
+  time and reason. No tour, no pop-up, no floating guide.
+- **Case films** (`components/CaseFilm.tsx`, built by `drafts/case-films`)
+  are silent, under a minute, and never start by themselves. Every word
+  and number in one comes from its case study, and it shows real screens
+  or the working demo. The film sits under the case's opening lines; the
+  case is its text version.
 - **The home page opens on Allen's own stickers** (`components/StickerSheet.tsx`),
   beside the headline. Each is shown at a whole multiple of its 8px pixel
   grid, so the pixels stay square. Picking one shows its line; the stage

@@ -42,7 +42,7 @@ export default async function WorkPage() {
               Work
             </h1>
             <p className="text-lg text-muted max-w-xl leading-relaxed">
-              Professional case studies. Side projects live in the{" "}
+              Professional case studies. Eleven open with a silent film of under a minute. Side projects live in the{" "}
               <Link href="/playground" className="inline-flex items-center gap-1 hover:text-foreground">
                 <span className="underline underline-offset-4">Playground</span> <Arrow />
               </Link>

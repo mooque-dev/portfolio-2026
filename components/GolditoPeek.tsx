@@ -137,7 +137,7 @@ export default function GolditoPeek() {
           never leaves the hover area on its way up. */}
       <div id={bubbleId} role="dialog" aria-label="New: Goldito" hidden={!open} className="absolute bottom-full left-0 pb-2">
         <div className="w-[min(19rem,calc(100vw-24px))] rounded-xl border border-border bg-background p-4 text-[14px] leading-relaxed shadow-[0_12px_32px_-12px_rgba(0,0,0,0.35)]">
-          <p className="m-0 text-[12.5px] font-medium text-muted">New this month</p>
+          <p className="m-0 text-[12.5px] font-medium text-muted">October 2026</p>
           <p className="m-0 mt-1">
             <b className="font-semibold">Goldito</b>, a pet-sitting app I designed for the Nebius × NVIDIA
             hackathon, submitted Oct 30.

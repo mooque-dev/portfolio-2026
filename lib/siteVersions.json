@@ -968,5 +968,30 @@
    }
   ],
   "slug": "nylas"
+ },
+ {
+  "company": "Main portfolio",
+  "variant": "For interviews",
+  "status": "Live",
+  "url": "https://allenkang.com/",
+  "resume": "https://allenkang.com/allen-kang-resume.pdf",
+  "visual": "My pixel stickers beside the headline; four ways in for a first visit; a short film on eleven case studies",
+  "made": "Nov 27",
+  "order": 29,
+  "versions": [
+   {
+    "date": "Nov 27",
+    "note": "Warm paper and serif back; receipt, dot pills and fade-ins removed"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Home opens on my stickers, the red pen and the seal"
+   },
+   {
+    "date": "Nov 27",
+    "note": "First-visit guide on home; a silent film on eleven case studies; plainer standalone case pages"
+   }
+  ],
+  "slug": "portfolio"
  }
 ]

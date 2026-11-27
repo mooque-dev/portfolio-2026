@@ -1,14 +1,14 @@
-// Length of each case film, in seconds. Written by drafts/case-films after a render.
+// Length of each case film, in seconds. Written by drafts/case-films/render_all.sh.
 export const FILMS: Record<string, { seconds: number }> = {
-  "aplos-keela-integration": { seconds: 50 },
+  "aplos-keela-integration": { seconds: 44 },
   "arnd": { seconds: 56 },
-  "automation-nonprofits": { seconds: 41 },
-  "care-pathway-dashboards": { seconds: 45 },
+  "automation-nonprofits": { seconds: 46 },
+  "care-pathway-dashboards": { seconds: 52 },
   "fee-opt-in-experimentation": { seconds: 52 },
   "forkestrate": { seconds: 44 },
-  "goldito": { seconds: 60 },
-  "keela-contacts": { seconds: 28 },
-  "orchid-design-system": { seconds: 52 },
-  "torontoyuwol": { seconds: 41 },
-  "transaction-workflows": { seconds: 52 },
+  "goldito": { seconds: 59 },
+  "keela-contacts": { seconds: 36 },
+  "orchid-design-system": { seconds: 55 },
+  "torontoyuwol": { seconds: 40 },
+  "transaction-workflows": { seconds: 56 },
 };

@@ -37,7 +37,7 @@ const HACKATHON = { slug: "goldito", event: "Nebius × NVIDIA Global AI Hackatho
 const START = [
   {
     when: "One minute",
-    text: `Watch Transaction Workflows: ${FILMS["transaction-workflows"]?.seconds ?? 50} seconds, no sound, then try the split payment yourself.`,
+    text: `Watch Transaction Workflows: ${FILMS["transaction-workflows"]?.seconds ?? 55} seconds, no sound, then try the split payment yourself.`,
     href: "/work/transaction-workflows",
     link: "Watch it",
   },
@@ -109,6 +109,7 @@ export default function HomeReader({ allProjects }: Props) {
         <FadeIn>
           <AudienceIntro />
           <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-[16px]">
+            <span>Senior product designer, Toronto</span>
             <a href="/allen-kang-resume.pdf" className="underline underline-offset-4 decoration-1 hover:opacity-60 transition-opacity">
               Résumé
             </a>
@@ -284,7 +285,7 @@ export default function HomeReader({ allProjects }: Props) {
                 </div>
                 <div className="min-w-0">
                   <p className="text-[14px] text-muted">
-                    {submitted ? "Submitted Oct 30" : "Submitting Oct 30"} · {HACKATHON.event} · team of three
+                    {submitted ? "Submitted Oct 30, 2026" : "Submitting Oct 30, 2026"} · {HACKATHON.event} · team of three
                   </p>
                   <h3 className="mt-3 font-semibold text-xl md:text-[22px] leading-snug group-hover:opacity-70 transition-opacity text-balance">
                     {hackathon.title}
