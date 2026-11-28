@@ -5,6 +5,7 @@ import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { getProject, getProjectSlugs, getAllProjects, chapterize } from "@/lib/content";
 import FadeIn from "@/components/FadeIn";
+import CaseFilm from "@/components/CaseFilm";
 import ChapterNav from "@/components/ChapterNav";
 import CaseLightbox from "@/components/CaseLightbox";
 import CaseDemos from "@/components/CaseDemos";
@@ -146,6 +147,8 @@ export default async function CaseStudyPage({ params }: PageProps) {
             </ul>
           )}
         </FadeIn>
+
+        <CaseFilm slug={slug} title={frontmatter.title} className="mt-9 max-w-[880px]" />
 
         <FadeIn delay={0.1}>
           <dl className="mt-9 pt-6 border-t border-border grid grid-cols-2 md:grid-cols-4 gap-5">

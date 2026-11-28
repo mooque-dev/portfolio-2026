@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Arrow from "@/components/Arrow";
 import ArndLive from "@/components/ArndLive";
-import InspectToggle from "@/components/InspectToggle";
 
 export default function Footer() {
   return (
@@ -66,7 +65,6 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} Allen Kang
         </p>
         <div className="flex items-center gap-5">
-        <InspectToggle />
         <Link
           href="/gateway"
           className="text-xs text-muted hover:text-muted transition-colors tracking-wide"
