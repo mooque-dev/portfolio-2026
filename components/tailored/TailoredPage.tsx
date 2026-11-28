@@ -143,7 +143,7 @@ export default function TailoredPage({ slug, company, style, className = "", lab
               <Statement lines={cases.map((k) => CASES[k])} />
             )}
             <p className="mt-4 text-[14px]">
-              <Link href="/work" className={`text-muted ${link}`}>
+              <Link href="/work" className={`text-muted min-h-6 ${link}`}>
                 All work <Arrow />
               </Link>
             </p>

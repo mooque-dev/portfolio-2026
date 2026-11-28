@@ -22,7 +22,7 @@ export default function CastTab() {
         <a href="https://torontoyuwol-brown.vercel.app/demo.html" target="_blank" rel="noopener noreferrer" aria-label="Try the script reader demo (opens in a new tab)">
           <Image src="/case-studies/torontoyuwol/script-reader.jpg" alt="The script reader with the part of Haru picked: Haru's lines are highlighted, every other line stays plain" width={1600} height={1093} sizes="(max-width: 899px) 92vw, 460px" />
         </a>
-        <figcaption>One part picked, so its lines stay lit. A demo script written for the reader. <a href="https://torontoyuwol-brown.vercel.app/demo.html" target="_blank" rel="noopener noreferrer">Try it</a></figcaption>
+        <figcaption>One part picked, so its lines stay lit. A demo script written for the reader. <a href="https://torontoyuwol-brown.vercel.app/demo.html" target="_blank" rel="noopener noreferrer">Try it<span className="sr-only"> (opens in new tab)</span></a></figcaption>
       </figure>
     </section>
   );

@@ -18,7 +18,7 @@ const BRAND = { "--brand": "#0A0A0A", "--brand-on": "#ffffff", "--brand-ink": "#
 // Why this role, said as a short note in prose rather than a grid of cards.
 function WhyThisRole() {
   return (
-    <section aria-labelledby="google-why" className="mt-20 md:mt-28 max-w-[65ch]">
+    <section aria-labelledby="google-why" className="mt-20 md:mt-28 max-w-[60ch]">
       <h2 id="google-why" className="tp-h2 tp-rv">Why this role</h2>
       <div className="mt-6 grid gap-5 text-[17px] leading-relaxed text-muted">
         <p className="tp-rv">Autofill, tap to pay and the Google Pay app should feel like one way to pay. I&rsquo;ve worked on the same problem at a smaller scale: when Aplos, Keela and Raisely merged, they had nine overlapping design systems and 340+ components between them. </p>
@@ -39,7 +39,7 @@ export default function GooglePage() {
       style={BRAND}
       className="tp-plain"
       headline={<>I make complex systems <span className="sig-em">easy for people to use</span>.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on payments and the design system behind them.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on software for nonprofits: CRM, payments and accounting, plus the design system behind them.</>}
       cases={["or", "tw", "fe", "ak", "au", "ar"]}
       built="rules"
       work="cards"
