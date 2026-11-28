@@ -14,10 +14,17 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-28",
-    title: "The Google page reads more easily, with a keyboard or a screen reader",
-    tags: ["design", "fix"],
-    what: "The Google page now says the last five years were on software for nonprofits: CRM, payments and accounting, plus the design system behind them. The All work link on every employer page is now tall enough to tap without missing. The script reader's Try it link tells screen readers it opens a new tab, and Why this role runs at a shorter line length so each line is easier to follow.",
-    why: "The intro said payments when the work covered more than that, and a quick accessibility pass found three small things worth fixing.",
+    title: "Two facts said the same way everywhere",
+    tags: ["content"],
+    what: "Orchid brought three product teams onto one system, and four engineering teams now build with it. Pages that said only three teams now say three product teams, so the two numbers no longer look like a disagreement. My employer pages used to say the last five of my eight years were on payments. They now say software for nonprofits: CRM, payments and accounting, which is what my résumé shows. Two pages that said I sat with 8 accountants now say 8 organizations, as the Transaction Workflows case study does.",
+    why: "Someone who reads two pages before an interview should find the same facts in both.",
+  },
+  {
+    date: "2026-11-28",
+    title: "The Google page is easier to use with a keyboard or a screen reader",
+    tags: ["fix"],
+    what: "The All work link on every employer page is now tall enough to tap without missing. The script reader's Try it link tells screen readers it opens a new tab, and Why this role runs at a shorter line length so each line is easier to follow.",
+    why: "A quick accessibility pass on the Google page found three small things worth fixing.",
   },
   {
     date: "2026-11-28",

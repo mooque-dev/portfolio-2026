@@ -6,7 +6,7 @@ import Link from "next/link";
 // document: no company marks. Sized in container units, so it scales with
 // its column; the paper stays light in both themes.
 const CLAIMS: { text: string; see?: { name: string; href: string } }[] = [
-  { text: "Allen Kang (the “Designer”) has designed software for eight years, the last five on payments and finance tools." },
+  { text: "Allen Kang (the “Designer”) has designed software for eight years, the last five on software for nonprofits: CRM, payments and accounting." },
   {
     text: "The Designer learned three countries’ tax rules from accountants, then cut categorization tickets by 70%.",
     see: { name: "Transaction Workflows", href: "/work/transaction-workflows" },
