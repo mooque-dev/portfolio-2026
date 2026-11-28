@@ -39,7 +39,7 @@ export default function GooglePage() {
       style={BRAND}
       className="tp-plain"
       headline={<>I make complex systems <span className="sig-em">easy for people to use</span>.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on payments and the design system behind them.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer. For eight years I&rsquo;ve designed for people who&rsquo;d rather not think about software, the last five on software for nonprofits: CRM, payments and accounting, plus the design system behind them.</>}
       cases={["or", "tw", "fe", "ak", "au", "ar"]}
       built="rules"
       work="cards"
