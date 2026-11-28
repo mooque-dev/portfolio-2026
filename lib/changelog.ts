@@ -14,6 +14,13 @@ export interface ChangelogEntry {
 export const changelog: ChangelogEntry[] = [
   {
     date: "2026-11-28",
+    title: "Two facts said the same way everywhere",
+    tags: ["content"],
+    what: "Orchid brought three product teams onto one system, and four engineering teams now build with it. Pages that said only three teams now say three product teams, so the two numbers no longer look like a disagreement. My employer pages used to say the last five of my eight years were on payments. They now say software for nonprofits: CRM, payments and accounting, which is what my résumé shows. Two pages that said I sat with 8 accountants now say 8 organizations, as the Transaction Workflows case study does.",
+    why: "Someone who reads two pages before an interview should find the same facts in both.",
+  },
+  {
+    date: "2026-11-28",
     title: "A way in for a first visit, and a short film on eleven case studies",
     tags: ["design", "content"],
     what: "The home page now says I am a senior product designer in Toronto beside the résumé link, and gives four ways in: one minute, ten minutes, if you are hiring, and if you have a project. Eleven projects open with a silent film of under a minute that states the problem, what I did, the screens and the result, in the case's own words. You press play; nothing starts by itself. The two standalone case pages, Cancer Care Dashboards and Keela Contacts, lose their big red section numbers and capital-letter labels and gain links home, to the work, to my résumé and to my email. The floating guide and the Inspect switch are gone.",

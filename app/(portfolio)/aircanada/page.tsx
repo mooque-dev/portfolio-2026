@@ -51,7 +51,7 @@ const fit: { need: string; evidence: string; href: string; link: string }[] = [
   {
     need: "Lead through influence across teams",
     evidence:
-      "Got three engineering teams that didn't choose each other onto one design system, Orchid, with no authority over most of them. Ran the first joint reviews between the merged engineering teams.",
+      "Got three product teams that didn't choose each other onto one design system, Orchid, with no authority over most of them. Ran the first joint reviews between the merged engineering teams.",
     href: "/work/orchid-design-system",
     link: "Orchid",
   },
