@@ -58,7 +58,7 @@ const fit: { need: string; evidence: string; href: string; link: string }[] = [
   {
     need: "Product discovery",
     evidence:
-      "Sat with 8 accountants during real tax preparation, interviewed 15 operations managers and 12 finance managers, and tested prototypes with 8 organizations before committing engineering time.",
+      "Sat with 8 organizations while they did their books, interviewed 15 operations managers and 12 finance managers, and tested prototypes before committing engineering time.",
     href: "/work/automation-nonprofits",
     link: "Automation",
   },

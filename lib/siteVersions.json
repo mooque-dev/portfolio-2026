@@ -44,6 +44,10 @@
    {
     "date": "Nov 3",
     "note": "Card number masks the birth year (•••• 2007 2018 2026); Automation reads about four months"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Warm paper; no small labels over headings"
    }
   ],
   "slug": "mastercard"
@@ -80,6 +84,10 @@
    {
     "date": "Nov 3",
     "note": "Card number masks the birth year; Automation reads about four months"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Warm paper; no small labels over headings"
    }
   ],
   "slug": "float"
@@ -104,6 +112,10 @@
    {
     "date": "Nov 3",
     "note": "Card number masks the birth year; Automation reads about four months"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Warm paper; the results receipt at the end became plain rows; no small labels over headings"
    }
   ],
   "slug": "bluej"
@@ -113,7 +125,7 @@
   "status": "Live",
   "url": "https://mooque-dev.github.io/jeppesen-foreflight/",
   "resume": "https://mooque-dev.github.io/allen-kang-resume-jeppesen-foreflight.pdf",
-  "visual": "A boarding pass: seat 8Y, gate PR #162",
+  "visual": "The split payment form from Transaction Workflows",
   "made": "Oct 20",
   "order": 4,
   "versions": [
@@ -148,6 +160,10 @@
    {
     "date": "Nov 18",
     "note": "A plain headline that says what I did and what it changed"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Opens on the real split payment screen; the boarding pass is gone; warm paper"
    }
   ],
   "slug": "jeppesen-foreflight"
@@ -292,6 +308,10 @@
    {
     "date": "Nov 10",
     "note": "Says I build with AI coding tools, not that I write the code"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Warm paper and serif headings; the receipt became plain rows; section numbers removed"
    }
   ],
   "slug": "aircanada"
@@ -948,5 +968,30 @@
    }
   ],
   "slug": "nylas"
+ },
+ {
+  "company": "Main portfolio",
+  "variant": "For interviews",
+  "status": "Live",
+  "url": "https://allenkang.com/",
+  "resume": "https://allenkang.com/allen-kang-resume.pdf",
+  "visual": "My pixel stickers beside the headline; four ways in for a first visit; a short film on eleven case studies",
+  "made": "Nov 27",
+  "order": 29,
+  "versions": [
+   {
+    "date": "Nov 27",
+    "note": "Warm paper and serif back; receipt, dot pills and fade-ins removed"
+   },
+   {
+    "date": "Nov 27",
+    "note": "Home opens on my stickers, the red pen and the seal"
+   },
+   {
+    "date": "Nov 28",
+    "note": "First-visit guide on home; a silent film on eleven projects; plainer standalone case pages"
+   }
+  ],
+  "slug": "portfolio"
  }
 ]

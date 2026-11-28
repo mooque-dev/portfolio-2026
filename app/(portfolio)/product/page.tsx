@@ -28,7 +28,7 @@ const DECISIONS: Decision[] = [
     statLabel: "categorization support tickets in the first month",
     rows: [
       ["Problem", "Nonprofits could record only one type per payment, but a gala ticket is part donation, part value received. Staff logged several records, receipts went wrong, and it was a top churn driver."],
-      ["Evidence", "56% of newly onboarded organizations voted for it, about 500 support tickets a quarter traced back to it, and 8 accountants I sat with all kept a parallel spreadsheet."],
+      ["Evidence", "56% of newly onboarded organizations voted for it, about 500 support tickets a quarter traced back to it, and all 8 organizations I sat with kept a side spreadsheet or a separate accounting tool."],
       ["The call", "Before designing, the PM, the engineering lead and I agreed what we couldn't do: no backend refactor, nothing that broke reporting. I pushed for a split that would extend to the next case, delivered in phases behind feature flags."],
       ["Result", "Manual adjustments fell 60% and the work supported $1.8M ARR in connected accounts, compliant across Canadian, US and Australian tax rules."],
     ],

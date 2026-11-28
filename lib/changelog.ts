@@ -13,6 +13,13 @@ export interface ChangelogEntry {
 // When you ship a change to this site, add an entry here in the same voice.
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-11-28",
+    title: "A way in for a first visit, and a short film on eleven case studies",
+    tags: ["design", "content"],
+    what: "The home page now says I am a senior product designer in Toronto beside the résumé link, and gives four ways in: one minute, ten minutes, if you are hiring, and if you have a project. Eleven projects open with a silent film of under a minute that states the problem, what I did, the screens and the result, in the case's own words. You press play; nothing starts by itself. The two standalone case pages, Cancer Care Dashboards and Keela Contacts, lose their big red section numbers and capital-letter labels and gain links home, to the work, to my résumé and to my email. The floating guide and the Inspect switch are gone.",
+    why: "Someone who lands here cold should know within a few seconds who I am, what to open first and how long it will take.",
+  },
+  {
     date: "2026-11-27",
     title: "My stickers, my pen and my seal at the top of the home page",
     tags: ["design"],
