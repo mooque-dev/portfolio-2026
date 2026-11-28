@@ -52,7 +52,7 @@ export default function NylasPage() {
       cases={["or", "fe", "au", "ak", "yu", "ar"]}
       titles={{ fit: <>What the role asks for</> }}
       fit={[
-        { ask: "A design language", proof: <>I pitched Orchid with surveys from five departments, earned two dedicated front-end engineers, and got three teams onto one system.</> },
+        { ask: "A design language", proof: <>I pitched Orchid with surveys from five departments, earned two dedicated front-end engineers, and got three product teams onto one system.</> },
         { ask: "Customer friction", proof: <>The first Fee Opt-In launch reached 82%. I asked to pause it, tested three versions against the control, and the slider took opt-in from 75% to 92% with conversion steady.</> },
         { ask: "New bets", proof: <>Automation started as a product area that didn&rsquo;t exist. Fifteen interviews and three rounds of prototype testing later it was a paid add-on: 30% of 355 organizations use it, and it contributed to a 13% ARR increase.</> },
         { ask: "Technical concepts", proof: <>On Aplos × Keela, twelve interviews with finance managers showed the data sync was a trust problem, so every field mapping became visible before anything moved.</> },

@@ -43,8 +43,8 @@ export default function MercuryPage() {
             I make complicated money feel <em>simple</em>.
           </h1>
           <p className="mx-lede">
-            I&rsquo;m Allen, a product designer in Toronto with a graphic design degree. Eight years designing, the last five on payments and
-            finance tools, and I prototype in code when a mock can&rsquo;t answer the question.
+            I&rsquo;m Allen, a product designer in Toronto with a graphic design degree. Eight years designing, the last five on software for nonprofits
+            (CRM, payments and accounting), and I prototype in code when a mock can&rsquo;t answer the question.
           </p>
           <div className="mx-ctas">
             <span className="mx-field">
