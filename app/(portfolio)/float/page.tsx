@@ -54,7 +54,7 @@ const STATEMENT: StatementLine[] = [
   {
     tag: "Craft",
     title: "Orchid design system",
-    line: "Three teams onto one system, and the quality rules that kept it consistent.",
+    line: "Three product teams onto one system, and the quality rules that kept it consistent.",
     value: "340+ → 70 components",
     note: "merged into one library four engineering teams use",
     href: "/work/orchid-design-system",
@@ -117,7 +117,7 @@ export default function FloatPage() {
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
                 I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on
-                payments, and I prototype in code when a mock can&rsquo;t answer the question.
+                software for nonprofits (CRM, payments and accounting), and I prototype in code when a mock can&rsquo;t answer the question.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a

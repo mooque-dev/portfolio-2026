@@ -28,7 +28,7 @@ export default function HarveyPage() {
       style={BRAND}
       className={`themed theme-harvey ${fdisplay.variable} ${ftext.variable}`}
       headline={<>I designed a data sync where finance managers could check every mapping first.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on payments and finance tools built with the accountants who use them, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on software for nonprofits (CRM, payments and accounting), built with the people who use it, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><Brief /></>}
       caption={<>Every claim cites the work behind it.</>}
       cases={["tw", "ak", "fe", "or", "au", "ar"]}

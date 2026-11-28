@@ -51,7 +51,7 @@ const STATEMENT: StatementLine[] = [
   {
     tag: "Systems",
     title: "Orchid design system",
-    line: "Three teams onto one system, without the authority to make them.",
+    line: "Three product teams onto one system, without the authority to make them.",
     value: "340+ → 70 components",
     href: "/work/orchid-design-system",
   },
@@ -88,8 +88,8 @@ export default function MastercardPage() {
                 Making high-stakes numbers easy to trust.
               </h1>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">
-                I&rsquo;m Allen, a senior product designer. Eight years designing, the last five on payments: the
-                screens where money moves and the records have to be right.
+                I&rsquo;m Allen, a senior product designer. Eight years designing, the last five on software for nonprofits
+                (CRM, payments and accounting): the screens where money moves and the records have to be right.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a

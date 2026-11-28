@@ -30,7 +30,7 @@ export default function JeppesenPage() {
       className={`themed theme-jeppesen-foreflight ${fdisplay.variable} ${ftext.variable}`}
       headline={<>I redesigned split payments to follow tax rules in three countries.</>}
       lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on
-                accounting and payments tools, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
+                software for nonprofits (CRM, payments and accounting), and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={
         <Link
           href="/work/transaction-workflows"

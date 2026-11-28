@@ -79,7 +79,7 @@ export default function ProductPage() {
             I find the problem, decide what to build, and ship it.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            I&rsquo;m Allen. Eight years on B2B software, the last five on payments and finance for nonprofits in Canada, the US and Australia.
+            I&rsquo;m Allen. Eight years on B2B software, the last five on software for nonprofits in Canada, the US and Australia: CRM, payments and accounting.
             I stepped in as PM to ship Pipelines, and I build and run my own products with AI coding tools. Below are three decisions, told the
             way they happened.
           </p>

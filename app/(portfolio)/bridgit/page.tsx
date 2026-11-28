@@ -29,7 +29,7 @@ export default function BridgitPage() {
       style={BRAND}
       className={`themed theme-bridgit ${fdisplay.variable} ${ftext.variable} ${fmono.variable}`}
       headline={<>Categorization tickets fell 70% the month after my split-transaction redesign shipped.</>}
-      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on accounting and payments tools, and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
+      lede={<>I&rsquo;m Allen, a senior product designer in Toronto. Eight years designing, the last five on software for nonprofits (CRM, payments and accounting), and I prototype in code with AI tools when a mock can&rsquo;t answer the question.</>}
       hero={<><SiteSign />
               <p className="mt-2 text-[14px] text-muted">Every number on the sign is on my résumé.</p></>}
       cases={["tw", "au", "or", "fe", "ar", "yu"]}

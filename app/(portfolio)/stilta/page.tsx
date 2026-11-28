@@ -26,7 +26,7 @@ export default function StiltaPage() {
       style={BRAND}
       className={`themed theme-stilta ${fdisplay.variable} ${ftext.variable}`}
       headline={<>Before shipping a fee redesign, I tested three versions against the control.</>}
-      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on accounting and payments tools built with the experts who use them, and I build from zero with Claude Code.</>}
+      lede={<>I&rsquo;m Allen, a product designer in Toronto. Eight years designing, the last five on software for nonprofits (CRM, payments and accounting), built with the people who use it, and I build from zero with Claude Code.</>}
       hero={<><ClaimChart /></>}
       caption={<>Each element cites the work that proves it.</>}
       cases={["tw", "fe", "ar", "ak", "or", "au"]}
