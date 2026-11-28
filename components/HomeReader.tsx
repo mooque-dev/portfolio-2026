@@ -55,7 +55,7 @@ const START = [
   },
   {
     when: "Have a project",
-    text: "Tell me what you're trying to fix and who it's for. I'll answer with what I'd look at first.",
+    text: "Email me about it.",
     href: "mailto:allensmkang@gmail.com",
     link: "allensmkang@gmail.com",
     external: true,
